@@ -1,4 +1,4 @@
-# XiaoMi Note Pro for macOS High Sierra & Sierra
+# 小米笔记本PRO安装MacOS High Sierra & Sierra 使用说明
 
 ## CLOVER
 * 支持10.13 / 10.12.6
