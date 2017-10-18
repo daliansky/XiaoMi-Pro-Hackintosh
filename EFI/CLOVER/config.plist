@@ -235,7 +235,7 @@
 		<key>FakeID</key>
 		<dict>
 			<key>IntelGFX</key>
-			<string>0x59168086</string>
+			<string>0x19168086</string>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -315,6 +315,8 @@
 		</dict>
 		<key>NvidiaSingle</key>
 		<false/>
+		<key>ig-platform-id</key>
+		<string>0x19160000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -345,6 +347,8 @@
 				</data>
 				<key>InfoPlistPatch</key>
 				<true/>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -361,6 +365,8 @@
 				<data>
 				ibP4AgAAweAMBQAQAACJgw==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -377,6 +383,8 @@
 				<data>
 				D7aMiIIAAACD+QwPhTIBAA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -393,6 +401,8 @@
 				<data>
 				AMeDpAAAAAAQAABIi0gISA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -409,6 +419,8 @@
 				<data>
 				SYnGTYX2dGFBwecMSWP/vg==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -425,6 +437,8 @@
 				<data>
 				hv8PAABIwegMD7cPgeH/Dw==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -441,6 +455,8 @@
 				<data>
 				icGB4f8PAABIAdFIgfn/DwAAdzs=
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -457,6 +473,8 @@
 				<data>
 				SYHF/w8AAEnB7QxJiwQkSA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -474,6 +492,8 @@
 				BgIAAEyNuAAQAABMiflIgeEA8P//SYmGGgEAAEmJjiIB
 				AABBvAAQAABJKfQ=
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -491,6 +511,8 @@
 				<data>
 				AABJiY4iAQAAugAQAABIKQ==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -507,6 +529,8 @@
 				<data>
 				yAAAAEkp17gAEAAATYskJA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -523,6 +547,8 @@
 				<data>
 				4b+AQBUGTYnWugAQAABFMQ==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -539,6 +565,8 @@
 				<data>
 				iWTY+EmBxAAQAABJgccA8A==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -555,6 +583,8 @@
 				<data>
 				Bf8PAABIwegMZvfB/w8PlQ==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -571,6 +601,8 @@
 				<data>
 				weIIQQ+2wcHgDEQJ0EQJwA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
@@ -587,6 +619,8 @@
 				<data>
 				RYTJD5XAD7bAweAMRAnYRA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>Replace</key>
