@@ -16,6 +16,8 @@
 				<true/>
 				<key>AddPNLF_1000000</key>
 				<true/>
+				<key>FixHeaders_20000000</key>
+				<true/>
 				<key>FixShutdown_0004</key>
 				<true/>
 			</dict>
@@ -37,20 +39,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change OSID to IDOS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					T1NJRA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SURPUw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change _OSI to XOSI</string>
 					<key>Disabled</key>
 					<false/>
@@ -61,34 +49,6 @@
 					<key>Replace</key>
 					<data>
 					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMg==
 					</data>
 				</dict>
 				<dict>
@@ -163,20 +123,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change ADBG to XDBG</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					QURCRwk=
-					</data>
-					<key>Replace</key>
-					<data>
-					WERCRwk=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change GPRW to XPRW</string>
 					<key>Disabled</key>
 					<false/>
@@ -225,55 +171,7 @@
 		<array>
 			<dict>
 				<key>Signature</key>
-				<string>SLIC</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DBGP</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>CpuPm</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>RSDP</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DBG2</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>FACP</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>FACS</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
 				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>sensrhub</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>LPIT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>MDSX</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
@@ -283,63 +181,11 @@
 			</dict>
 			<dict>
 				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>SaSsdt</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>XSDT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>FIDT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>CtdpB</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>WSMT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>BGRT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>RSDT-FACS</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>SataTabl</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
 				<string>MATS</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>RSDT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
 				<string>#MCFG</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>FPDT</string>
 			</dict>
 		</array>
 		<key>SSDT</key>
@@ -385,6 +231,11 @@
 		<dict>
 			<key>Inject</key>
 			<string>28</string>
+		</dict>
+		<key>FakeID</key>
+		<dict>
+			<key>IntelGFX</key>
+			<string>0x59168086</string>
 		</dict>
 		<key>USB</key>
 		<dict>
