@@ -22,6 +22,12 @@
         * AirportBrcmFixup v1.1.0
     * 驱动修复：
         * IntelGraphicsFixup v1.2.0 
+* 10-18-2017
+    * 经测试显卡驱动不如第一版的好，现将显卡驱动恢复为仿冒0x19160000
+    * ACPI修复
+    * 驱动程序修正
+    * 去掉USBInjectAll采用SSDT-UIAL.aml内建USB设备
+    
 * 下一版更新内容：
     * 添加BCM94352z无线网卡驱动
 
