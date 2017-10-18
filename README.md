@@ -8,6 +8,8 @@
 * Touchpad driver using VoodooI2C + ApplePS2SmartTouchPad, boot the work of the normal touch, wake up after the normal gesture
 * Other ACPI patch repair using hotpatch way, the file is located in `/CLOVER/ACPI/patched`
 
+## Thank you very much:
+[RehabMan](https://github.com/rehabman) hotpatch provided by SSDT, let notebook installation MacOS can have a better experience
 
 #### QQ群:
 331686786 [一起黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
