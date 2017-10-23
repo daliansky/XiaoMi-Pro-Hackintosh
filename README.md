@@ -11,6 +11,12 @@
 ## Thank you very much:
 [RehabMan](https://github.com/rehabman) hotpatch provided by SSDT, let notebook installation MacOS can have a better experience
 
+## A reward
+
+|Wechat|Alipay|
+| --- | --- |
+|![wechatpay_160](http://ous2s14vo.bkt.clouddn.com/wechatpay_160.jpg)|![alipay_160](http://ous2s14vo.bkt.clouddn.com/alipay_160.jpg)|
+
 #### QQ群:
 331686786 [一起黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
 
