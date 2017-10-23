@@ -36,6 +36,13 @@
 * 下一版更新内容：
     * 添加BCM94352z无线网卡驱动
 
+## 关于打赏
+如果您认可我的工作，请通过打赏支持我后续的更新
+
+|微信|支付宝|
+| --- | --- |
+|![wechatpay_160](http://ous2s14vo.bkt.clouddn.com/wechatpay_160.jpg)|![alipay_160](http://ous2s14vo.bkt.clouddn.com/alipay_160.jpg)|
+
 #### QQ群:
 331686786 [一起黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
 
