@@ -37,6 +37,8 @@
     * 更新声卡驱动，修复耳机问题
     * 新驱动增加layoutid：13
     * 支持四节点，支持耳麦自由切换，Mic/LineIn工作正常
+    ![ALC298声卡驱动安装](http://ous2s14vo.bkt.clouddn.com/ALC298声卡驱动安装.png)
+
     
 
 ## 关于打赏
