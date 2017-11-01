@@ -38,6 +38,9 @@
     * 新驱动增加layoutid：13
     * 支持四节点，支持耳麦自由切换，Mic/LineIn工作正常
     ![ALC298for小米Pro声卡驱动安装](http://ous2s14vo.bkt.clouddn.com/ALC298for小米Pro声卡驱动安装.png)
+* 11-2-2017
+    * Lilu v1.2.0更新，支持10.13.2Beta
+    * AppleALC更新，使用最新修正版Lilu联合编译，解决10.13.1更新后无法驱动的问题
 
 
 ## 关于打赏
