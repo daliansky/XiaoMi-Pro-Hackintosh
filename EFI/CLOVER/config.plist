@@ -12,11 +12,11 @@
 			<false/>
 			<key>Fixes</key>
 			<dict>
-				<key>AddHDMI_8000000</key>
+				<key>AddHDMI</key>
 				<true/>
-				<key>AddPNLF_1000000</key>
+				<key>AddPNLF</key>
 				<true/>
-				<key>FixShutdown_0004</key>
+				<key>FixShutdown</key>
 				<true/>
 			</dict>
 			<key>Patches</key>
@@ -254,7 +254,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=8 nv_disable=1 -disablegfxfirmware -igfxbeta -igfxdvmtbeta abm_firstpolldelay=10000</string>
+		<string>darkwake=8 -disablegfxfirmware -igfxbeta -igfxdvmtbeta abm_firstpolldelay=10000</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -279,10 +279,8 @@
 	<dict>
 		<key>Audio</key>
 		<dict>
-			<key>AFGLowPowerState</key>
-			<true/>
 			<key>Inject</key>
-			<string>28</string>
+			<string>13</string>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
@@ -371,12 +369,12 @@
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
 		<true/>
+		<key>KernelXCPM</key>
+		<false/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
