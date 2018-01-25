@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17B25c</string>
+	<string>17B48</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>IntelGraphicsDVMTFixup</string>
+	<string>Shiki</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.sherlocks.IntelGraphicsDVMTFixup</string>
+	<string>as.vit9696.Shiki</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>IntelGraphicsDVMTFixup</string>
+	<string>Shiki</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.0</string>
+	<string>2.2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,31 +25,31 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.2.0</string>
+	<string>2.2.0</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9A235</string>
+	<string>9B55</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>17A360</string>
+	<string>17B41</string>
 	<key>DTSDKName</key>
 	<string>macosx10.13</string>
 	<key>DTXcode</key>
-	<string>0900</string>
+	<string>0910</string>
 	<key>DTXcodeBuild</key>
-	<string>9A235</string>
+	<string>9B55</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>com.sherlocks.IntelGraphicsDVMTFixup</key>
+		<key>as.vit9696.Shiki</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.sherlocks.IntelGraphicsDVMTFixup</string>
+			<string>as.vit9696.Shiki</string>
 			<key>IOClass</key>
-			<string>IntelGraphicsDVMTFixup</string>
+			<string>Shiki</string>
 			<key>IOMatchCategory</key>
-			<string>IntelGraphicsDVMTFixup</string>
+			<string>Shiki</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>
@@ -57,7 +57,7 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Sherlocks, Rehabman, lvs1974. All rights reserved.</string>
+	<string>Copyright © 2017 vit9696. All rights reserved.</string>
 	<key>OSBundleCompatibleVersion</key>
 	<string>1.0</string>
 	<key>OSBundleLibraries</key>

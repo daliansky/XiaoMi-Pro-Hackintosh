@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>15G1108</string>
+	<string>16G29</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>ACPIBatteryManager</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.70.2, Copyright 2011 Apple Inc., RehabMan 2012</string>
+	<string>1.81.3, Copyright 2011 Apple Inc., RehabMan 2012</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.driver.AppleSmartBatteryManager</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.70.2</string>
+	<string>1.81.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -27,11 +27,11 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.70.2</string>
+	<string>1.81.3</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>8B62</string>
+	<string>8E3004b</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -39,9 +39,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
-	<string>0810</string>
+	<string>0833</string>
 	<key>DTXcodeBuild</key>
-	<string>8B62</string>
+	<string>8E3004b</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ACPI AC Adapter</key>
@@ -71,8 +71,10 @@
 				<integer>20000</integer>
 				<key>EstimateCycleCountDivisor</key>
 				<integer>6</integer>
+				<key>FirstPollDelay</key>
+				<integer>4000</integer>
 				<key>StartupDelay</key>
-				<integer>0</integer>
+				<integer>1000</integer>
 				<key>UseDesignVoltageForCurrentCapacity</key>
 				<true/>
 				<key>UseDesignVoltageForDesignCapacity</key>
@@ -85,7 +87,7 @@
 				<true/>
 			</dict>
 			<key>IOClass</key>
-			<string>rehab_ACPIBatteryManager</string>
+			<string>AppleSmartBatteryManager</string>
 			<key>IONameMatch</key>
 			<string>PNP0C0A</string>
 			<key>IOProbeScore</key>
