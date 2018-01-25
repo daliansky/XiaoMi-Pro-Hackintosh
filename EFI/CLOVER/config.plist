@@ -344,8 +344,15 @@
 	<dict>
 		<key>EDID</key>
 		<dict>
+			<key>Custom</key>
+			<data>
+			AP///////wAJ5UcHAAAAABIbAQSlIhN4Ahu7plhVnSYOT1UAAAAB
+			AQEBAQEBAQEBAQEBAQEBnDuANnE4PEAwIDYAWMIQAAAa/S2ADnE4
+			KEAwIDYAWMIQAAAaAAAA/gBCT0UgQ1EKICAgICAgAAAA/gBOVjE1
+			NkZITS1ONjEKADA=
+			</data>
 			<key>Inject</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Inject</key>
 		<dict>
