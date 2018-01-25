@@ -2,7 +2,7 @@
 
 ## CLOVER
 * 支持10.13 / 10.12.6
-* CPU为第八代，原生支持
+* CPU原生支持
 * 显卡仿冒支持，platform-id为0x19160000，注入信息通过 `/CLOVER/ACPI/patched/SSDT-Config.aml` 加载
 * 声卡为ALC298，采用AppleALC仿冒，layout-id为28，注入信息位于 `/CLOVER/ACPI/patched/SSDT-Config.aml`
 * 触摸板驱动程序使用VoodooI2C + ApplePS2SmartTouchPad，启动后触摸板可用，睡眠唤醒后触摸板支持多手势
@@ -10,6 +10,7 @@
 * USB遮盖使用 `/CLOVER/kexts/Other/USBInjectAll_patched.kext` ，`SSDT-MiPro_USB.aml` 未加载，原因未知
 
 ## 更新日期：
+
 * 10-14-2017
     * EFI更新，触摸板工作正常
 
@@ -73,6 +74,8 @@
     * 更新`Lilu` v1.2.2
 
     * 更新`AppleALC` v1.2.2 支持小米Pro，注入ID:99
+
+    * 更新`IntelGraphicsFixup` v1.2.3
 
         ​
 
