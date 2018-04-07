@@ -13,6 +13,8 @@
 * 触摸板驱动程序使用VoodooI2C，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
 * USB遮盖使用 `/CLOVER/kexts/Other/USBInjectAll_patched.kext`
+* 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+* 支持更广范围的亮度调节
 
 
 
@@ -69,20 +71,26 @@
 * 1-25-2018
 
     * 支持10.13.x安装使用
-
     * 更新`VoodooI2C`到2.0.1版本，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
-
     * 修复电量百分比不刷新的问题
-
     * 修复声卡睡眠唤醒无声音的问题
-
     * 修复屏幕亮度无法保存的问题
-
     * 更新`Lilu` v1.2.2
-
     * 更新`AppleALC` v1.2.2 支持小米Pro，注入ID:99
 
-
+* 4-8-2018
+    * 支持10.13.4安装使用
+    * 更新`ACPIBatteryManager` v1.81.4
+    * 更新`AppleALC` v1.2.5，不再需要`CoodecCommander`
+    * 更新`FakeSMC` v6.26-344-g1cf53906.1787
+    * 更新`IntelGraphicsDVMTFixup` v1.2.1
+    * 更新`IntelGraphicsFixup` v1.2.7，不再需要额外的驱动给显卡注入id了
+    * 更新`Lilu` v1.2.3
+    * 更新`Shiki` v2.2.6
+    * 更新`USBInjectAll` v0.6.4
+    * 新增驱动`AppleBacklightInjector`，开启更多档位的亮度调节
+    * 新增驱动`CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
+    * 新增启动参数`shikigva=1`，`igfxrst=1`和`igfxfw=1`增强核显性能，并用新的方法修复启动第二阶段的八个苹果
 
 
 ## 鸣谢
@@ -95,6 +103,7 @@
 
 [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
 
+[PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
 
 ## 安装
