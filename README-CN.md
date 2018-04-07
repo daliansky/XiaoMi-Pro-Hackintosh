@@ -79,6 +79,7 @@
     * 更新`AppleALC` v1.2.2 支持小米Pro，注入ID:99
 
 * 4-8-2018
+
     * 支持10.13.4安装使用
     * 更新`ACPIBatteryManager` v1.81.4
     * 更新`AppleALC` v1.2.5，不再需要`CoodecCommander`
