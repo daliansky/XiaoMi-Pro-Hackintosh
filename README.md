@@ -13,7 +13,8 @@ Hackintosh your XiaoMi Pro Notebook
   * Touchpad driver using `VoodooI2C`, support for multiple gestures, touchpad boot can be used normally, no drift, no wakeup
   * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
   * USB shadowing using `/CLOVER/kexts/Other/USBInjectAll_patched.kext`
-
+  * Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+  * Wider range of brightness.
 
 
 ## Credits
@@ -26,6 +27,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
 
+- [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
 
 
@@ -85,7 +87,20 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Fixed screen brightness can not be saved problem
    - Updated Lilu v1.2.2
    - Updated AppleALC v1.2.2 support millet pro, injection ID: 99
-   - Update IntelGraphicsFixup v1.2.3
+   - Update IntelGraphicsFixup v1.2.3   
+- 4-8-2018
+   - Support for 10.13.4 installation
+   - Updated ACPIBatteryManager v1.81.4
+   - Updated AppleALC v1.2.5, no need for CoodecCommander
+   - Updated FakeSMC v6.26-344-g1cf53906.1787
+   - Updated IntelGraphicsDVMTFixup v1.2.1
+   - Updated IntelGraphicsFixup v1.2.7, no need kexts for faking Intel Graphics' ID
+   - Updated Lilu v1.2.3
+   - Updated Shiki v2.2.6
+   - Updated USBInjectAll v0.6.4
+   - Add AppleBacklightInjector to widen the range of brightness
+   - Add CPUFriend and CPUFriendDataProvider to open enable native XCPM and HWP
+   - Add Boot parameters "shikigva=1", "igfxrst=1" and "igfxfw=1" to make the Graphics card more powerful and fix strange secondary boot interface.
 
 
 
