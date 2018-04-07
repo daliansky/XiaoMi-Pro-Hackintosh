@@ -82,7 +82,7 @@
 
     * 支持10.13.4安装使用
     * 更新`ACPIBatteryManager` v1.81.4
-    * 更新`AppleALC` v1.2.5，不再需要`CoodecCommander`
+    * 更新`AppleALC` v1.2.6，不再需要`CoodecCommander`
     * 更新`FakeSMC` v6.26-344-g1cf53906.1787
     * 更新`IntelGraphicsDVMTFixup` v1.2.1
     * 更新`IntelGraphicsFixup` v1.2.7，不再需要额外的驱动给显卡注入id了
