@@ -86,7 +86,7 @@
 					<key>Comment</key>
 					<string>change HDAS to HDEF</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					SERBUw==
@@ -208,6 +208,20 @@
 					WldBSwk=
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change LGPA to XGPA</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					TEdQQQk=
+					</data>
+					<key>Replace</key>
+					<data>
+					WEdQQQk=
+					</data>
+				</dict>
 			</array>
 			<key>ReuseFFFF</key>
 			<false/>
@@ -251,7 +265,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=8 -disablegfxfirmware -igfxbeta -igfxdvmtbeta abm_firstpolldelay=10000</string>
+		<string>shikigva=1 abm_firstpolldelay=10000 igfxrst=1 -disablegfxfirmware igfxfw=1 darkwake=8</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -267,7 +281,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>1</integer>
+		<integer>5</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -344,13 +358,6 @@
 	<dict>
 		<key>EDID</key>
 		<dict>
-			<key>Custom</key>
-			<data>
-			AP///////wAJ5UcHAAAAABIbAQSlIhN4Ahu7plhVnSYOT1UAAAAB
-			AQEBAQEBAQEBAQEBAQEBnDuANnE4PEAwIDYAWMIQAAAa/S2ADnE4
-			KEAwIDYAWMIQAAAaAAAA/gBCT0UgQ1EKICAgICAgAAAA/gBOVjE1
-			NkZITS1ONjEKADA=
-			</data>
 			<key>Inject</key>
 			<true/>
 		</dict>
@@ -440,26 +447,30 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				AQMDAwAAIAIAAFABAAAAYA==
+				AAAAYGwFAABsBQAAAAAAAA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
-				AQMDAwAAIAIAAFABAAAAgA==
+				AAAAgGwFAABsBQAAAAAAAA==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio补丁,端口0204,0x19160000</string>
+				<string>HDMI-audio补丁,端口0204,0x59160000</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
 				AgQKAAAEAACHAQAA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
 				AgQKAAAIAACHAQAA
@@ -467,15 +478,17 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio补丁,端口0105,0x19160000</string>
+				<string>HDMI-audio补丁,端口0105,0x59160000</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
 				AQUJAAAEAACHAQAA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
 				AQUJAAAIAACHAQAA
@@ -483,54 +496,38 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>HDMI-audio补丁,端口0105,0x591b0000</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.iokit.IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>
 				AAAAAAAAAAAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>第二阶段8个苹果</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdSU=
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>第二阶段8个苹果</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdSI=
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yI=
 				</data>
 			</dict>
 			<dict>
@@ -542,6 +539,8 @@
 				<data>
 				RiV1VCUwNHgA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
 				<key>Replace</key>
@@ -558,11 +557,53 @@
 				<data>
 				RXh0ZXJuYWw=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleAHCIPort</string>
 				<key>Replace</key>
 				<data>
 				SW50ZXJuYWw=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB remove limit (10.13.4)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g32UDw+DlwQ=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.4</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32UHw+DlwQ=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g32MEA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.0,10.13.1,10.13.2,10.13.3</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g32MGw==
 				</data>
 			</dict>
 		</array>
