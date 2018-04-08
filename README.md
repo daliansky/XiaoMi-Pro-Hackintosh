@@ -91,7 +91,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
 - 4-8-2018
    - Support for 10.13.4 installation
    - Updated ACPIBatteryManager v1.81.4
-   - Updated AppleALC v1.2.6, no need for CoodecCommander
+   - Updated AppleALC v1.2.6
    - Updated FakeSMC v6.26-344-g1cf53906.1787
    - Updated IntelGraphicsDVMTFixup v1.2.1
    - Updated IntelGraphicsFixup v1.2.7, no need kexts for faking Intel Graphics' ID
