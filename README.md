@@ -101,7 +101,8 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Add AppleBacklightInjector to widen the range of brightness
    - Add CPUFriend and CPUFriendDataProvider to enable native XCPM and HWP
    - Add boot parameters "shikigva=1", "igfxrst=1" and "igfxfw=1" to make the Graphics card more powerful and fix strange secondary boot interface.
-   - Add SSDT-LGPA.aml, support native brightness hotkey
+   - Add SSDT-LGPA.aml, support native brightness hotkey
+
 
 
 
