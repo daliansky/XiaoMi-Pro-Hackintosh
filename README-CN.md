@@ -92,7 +92,8 @@
     * 新增驱动`AppleBacklightInjector`，开启更多档位的亮度调节
     * 新增驱动`CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
     * 新增启动参数`shikigva=1`，`igfxrst=1`和`igfxfw=1`增强核显性能，并用新的方法修复启动第二阶段的八个苹果
-    * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
+    * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
+
 
 
 
