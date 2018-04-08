@@ -91,7 +91,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
 - 4-8-2018
    - Support for 10.13.4 installation
    - Updated ACPIBatteryManager v1.81.4
-   - Updated AppleALC v1.2.6, no need for CoodecCommander
+   - Updated AppleALC v1.2.6, no need for CoodecCommander
    - Updated FakeSMC v6.26-344-g1cf53906.1787
    - Updated IntelGraphicsDVMTFixup v1.2.1
    - Updated IntelGraphicsFixup v1.2.7, no need kexts for faking Intel Graphics' ID
@@ -100,7 +100,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Updated USBInjectAll v0.6.4
    - Add AppleBacklightInjector to widen the range of brightness
    - Add CPUFriend and CPUFriendDataProvider to enable native XCPM and HWP
-   - Add boot parameters "shikigva=1", "igfxrst=1" and "igfxfw=1" to make the Graphics card more powerful and fix strange secondary boot interface.
+   - Add boot parameters "shikigva=1", "igfxrst=1" and "igfxfw=1" to make the Graphics card more powerful and fix strange secondary boot interface.
    - Add SSDT-LGPA.aml, support native brightness hotkey
 
 
