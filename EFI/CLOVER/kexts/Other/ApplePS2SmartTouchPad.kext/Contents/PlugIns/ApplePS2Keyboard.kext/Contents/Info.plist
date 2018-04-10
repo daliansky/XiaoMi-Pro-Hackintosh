@@ -168,7 +168,7 @@
 				<key>Make context menu key into key</key>
 				<integer>84</integer>
 				<key>Make delete key into cmd + backspace</key>
-				<true/>
+				<false/>
 				<key>Make right alt into key</key>
 				<integer>0</integer>
 				<key>Make right control into key</key>
