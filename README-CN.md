@@ -93,6 +93,13 @@
     * 新增驱动`CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
     * 新增启动参数`shikigva=1`，`igfxrst=1`和`igfxfw=1`增强核显性能，并用新的方法修复启动第二阶段的八个苹果
     * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
+    
+* 4-13-2018
+    
+    * 更新`AppleALC` v1.2.7
+    * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
+    * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
+    * 更新Clover r4438
 
 
 
