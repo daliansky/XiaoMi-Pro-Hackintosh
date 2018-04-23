@@ -78,6 +78,7 @@
     * 更新`Lilu` v1.2.2
     * 更新`AppleALC` v1.2.2 支持小米Pro，注入ID:99
 
+
 * 4-8-2018
 
     * 支持10.13.4安装使用
@@ -100,7 +101,9 @@
     * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
     * 更新Clover r4438
+    * 发布Clover v2.4 r4438小米笔记本PRO专用安装程序
 
+        ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
 
 
@@ -137,9 +140,7 @@
 
 * QQ群:
   * 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
-  * 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
-  * 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)[群已满,请加其它群]
-  * 257995340 [一起啃苹果](http://shang.qq.com/wpa/qunwpa?idkey=8a63c51acb2bb80184d788b9f419ffcc33aa1ed2080132c82173a3d881625be8)
+  * 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
 
   ​
 
