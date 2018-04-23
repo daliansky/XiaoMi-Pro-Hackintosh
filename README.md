@@ -43,6 +43,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
 
 - 10-14-2017
    - EFI update, touch pad is working
+
 - 10-17-2017
    - EFI update, fixed graphics driver
    - Add HDMI Audio output
@@ -53,32 +54,39 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
      - AirportBrcmFixup v1.1.0
    - Driver repair:
      - IntelGraphicsFixup v1.2.0
+
 - 10-18-2017
    - tested graphics driver is not as good as the first version, now the graphics driver is restored to fake 0x19160000
    - ACPI repair
        Driver fixes
    - Remove USBInjectAll with SSDT-UIAL.aml built-in USB device
+
 - 10-19-2017
    - Graphics driver is normal
    - The touchpad turns on normally, multi-gestures are normal after waking up
    - normal sleep
    - Battery information is normal
+
 - 10-31-2017
    - Update sound card driver, fix earphone problem
    - New driver to increase layoutid: 13
    - Supports four nodes to support the headset to switch freely, Mic / LineIn is working properly
+
 - 11-2-2017
    - Lilu v1.2.0 update, support 10.13.2Beta
    - AppleALC update, using the latest revision of Lilu co-compiler to solve 10.13.1 update can not be driven after the problem
+
 - 11-5-2017
    - Integrate AppleALC_ALC298_id13_id28.kext driver to EFI
    - Add EFL directory ALCPlugFix directory, please enter the ALCPlugFix directory after the installation is complete, double-click the install double-click to automatically install. Command Install the headset plug-in state correction daemon
    - Fixed Drivers64UEFI to solve the problem that can not be installed
    - Updated apfs.efi to version 10.13.1
+
 - 11-7-2017
    - Lilu v1.2.1 is not stable at the moment, with the risk of inability to enter the system, so downgrade to v1.2.0
    - AppleALC downgraded to V1.2.0
        **EFI temporarily does not support macOS 10.13.2Beta version of the installation, Lilu does not exhaust will continue to update**
+
 - 1-25-2018
    - Support for 10.13.x installation
    - Updated VoodooI2C to version 2.0.1, supports multi-gestures, touchpad boot can be used normally, no drift, no wakeup
@@ -108,6 +116,11 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Edit SSDT-LPC.aml to load native AppleLPC
    - Update Clover r4438
 
+- 4-13-2018
+
+   - Released Clover v2.4 r4438 XiaoMi PRO special installer
+
+     ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
 
 ## A reward
