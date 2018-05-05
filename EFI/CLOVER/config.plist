@@ -4,6 +4,8 @@
 <dict>
 	<key>ACPI</key>
 	<dict>
+		<key>AutoMerge</key>
+		<true/>
 		<key>DSDT</key>
 		<dict>
 			<key>Debug</key>
@@ -84,20 +86,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change HDAS to HDEF</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					SERBUw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERFRg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change HECI to IMEI</string>
 					<key>Disabled</key>
 					<false/>
@@ -112,7 +100,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>chang BRT6 to BRTX</string>
+					<string>change BRT6 to BRTX</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -234,15 +222,17 @@
 			</dict>
 			<dict>
 				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
 				<string>xh_rvp10</string>
 			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -321,9 +311,7 @@
 		<array>
 			<string>Preboot</string>
 			<string>Recovery</string>
-			<string>Windows</string>
 			<string>Time Machine</string>
-			<string>Recovery HD</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
@@ -442,6 +430,42 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				SU9LaXQ=
+				</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelLpssI2C</string>
+				<key>Replace</key>
+				<data>
+				SU9LaXM=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				SU9LaXQ=
+				</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelLpssI2CController</string>
+				<key>Replace</key>
+				<data>
+				SU9LaXM=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>显存1536MB-&gt;2048MB</string>
 				<key>Disabled</key>
 				<false/>
@@ -516,7 +540,7 @@
 				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=
@@ -532,7 +556,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleBacklightInjector.kext (credit RehabMan)</string>
+				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -621,10 +645,44 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
+		<key>BiosReleaseDate</key>
+		<string>02/08/2018</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MBP141.88Z.0173.B00.1802081002</string>
+		<key>Board-ID</key>
+		<string>Mac-B4831CEBD52A0C4C</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>BoardVersion</key>
+		<string>1.0</string>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>0x09</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xFC0FE137</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
 		<key>Mobile</key>
 		<true/>
+		<key>PlatformFeature</key>
+		<string>0x1A</string>
 		<key>ProductName</key>
 		<string>MacBookPro14,1</string>
+		<key>Version</key>
+		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
