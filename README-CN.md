@@ -105,7 +105,10 @@
 
         ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
-
+* 5-5-2018
+    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。更新`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`, `SSDT-XHC.aml`
+    * 更新`Lilu` v1.2.4
+    * 更新Clover r4449
 
 
 ## 鸣谢
@@ -119,6 +122,8 @@
 [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
 
 [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
+
+[alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
 
 
 ## 安装
