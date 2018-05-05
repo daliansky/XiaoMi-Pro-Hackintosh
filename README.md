@@ -29,6 +29,9 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
+- [alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
+
+
 
 
 ## Installation
@@ -122,6 +125,10 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
 
      ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
+- 5-5-2018
+   - Rename some SSDTs to fit with Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config. Also update SSDT-GPRW.aml, SSDT-DDGPU.aml, SSDT-RMCF.aml, SSDT-XHC.aml
+   - Update Lilu v1.2.4
+   - Update Clover r4449
 
 ## A reward
 
