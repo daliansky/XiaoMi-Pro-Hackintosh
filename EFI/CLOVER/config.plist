@@ -255,7 +255,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>shikigva=1 igfxrst=1 abm_firstpolldelay=10000 -disablegfxfirmware igfxfw=1 darkwake=8</string>
+		<string>abm_firstpolldelay=10000 -disablegfxfirmware igfxfw=1 igfxrst=1 darkwake=8</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
