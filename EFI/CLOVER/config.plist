@@ -2,9 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Comment</key>
+	<string>This file is for 10.13.3+ with Mi NoteBook Pro support</string>
 	<key>ACPI</key>
 	<dict>
 		<key>AutoMerge</key>
+		<true/>
+		<key>FixHeaders</key>
 		<true/>
 		<key>DSDT</key>
 		<dict>
@@ -16,13 +20,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					X0RTTQ==
-					</data>
+					<data>X0RTTQ==</data>
 					<key>Replace</key>
-					<data>
-					WERTTQ==
-					</data>
+					<data>WERTTQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -30,13 +30,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					T1NJRA==
-					</data>
+					<data>T1NJRA==</data>
 					<key>Replace</key>
-					<data>
-					SURPUw==
-					</data>
+					<data>SURPUw==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -44,13 +40,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
+					<data>X09TSQ==</data>
 					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
+					<data>WE9TSQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -58,13 +50,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
+					<data>RUhDMQ==</data>
 					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
+					<data>RUgwMQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -72,13 +60,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
+					<data>RUhDMg==</data>
 					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
+					<data>RUgwMg==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -86,13 +70,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
+					<data>SEVDSQ==</data>
 					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
+					<data>SU1FSQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -100,13 +80,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					IEJSVDY=
-					</data>
+					<data>IEJSVDY=</data>
 					<key>Replace</key>
-					<data>
-					IEJSVFg=
-					</data>
+					<data>IEJSVFg=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -114,13 +90,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
+					<data>R0ZYMA==</data>
 					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
+					<data>SUdQVQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -128,13 +100,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					U0FUMA==
-					</data>
+					<data>U0FUMA==</data>
 					<key>Replace</key>
-					<data>
-					U0FUQQ==
-					</data>
+					<data>U0FUQQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -142,13 +110,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					QURCRwk=
-					</data>
+					<data>QURCRwk=</data>
 					<key>Replace</key>
-					<data>
-					WERCRwk=
-					</data>
+					<data>WERCRwk=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -156,13 +120,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					R1BSVwI=
-					</data>
+					<data>R1BSVwI=</data>
 					<key>Replace</key>
-					<data>
-					WFBSVwI=
-					</data>
+					<data>WFBSVwI=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -170,13 +130,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					X1BUUwE=
-					</data>
+					<data>X1BUUwE=</data>
 					<key>Replace</key>
-					<data>
-					WlBUUwE=
-					</data>
+					<data>WlBUUwE=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -184,13 +140,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					X1dBSwk=
-					</data>
+					<data>X1dBSwk=</data>
 					<key>Replace</key>
-					<data>
-					WldBSwk=
-					</data>
+					<data>WldBSwk=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -198,13 +150,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					TEdQQQk=
-					</data>
+					<data>TEdQQQk=</data>
 					<key>Replace</key>
-					<data>
-					WEdQQQk=
-					</data>
+					<data>WEdQQQk=</data>
 				</dict>
 			</array>
 		</dict>
@@ -225,8 +173,6 @@
 				<string>xh_rvp10</string>
 			</dict>
 		</array>
-		<key>FixHeaders</key>
-		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -243,17 +189,13 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>igfxrst=1 dart=0 abm_firstpolldelay=16000 -disablegfxfirmware igfxfw=1</string>
-		<key>Debug</key>
-		<false/>
+		<string>igfxrst=1 abm_firstpolldelay=16000 -disablegfxfirmware darkwake=no igfxfw=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>DisableCloverHotkeys</key>
 		<false/>
 		<key>Legacy</key>
 		<string>PBR</string>
-		<key>NeverDoRecovery</key>
-		<false/>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>NoEarlyProgress</key>
@@ -262,11 +204,7 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
-		<key>XMPDetection</key>
-		<string>Yes</string>
 	</dict>
-	<key>Comment</key>
-	<string>This file is for 10.13.3+ with Mi NoteBook Pro support</string>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
@@ -278,9 +216,9 @@
 		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
+			<true/>
+			<key>AddClockID</key>
 			<true/>
 			<key>HighCurrent</key>
 			<true/>
@@ -354,55 +292,6 @@
 		<true/>
 		<key>KernelPm</key>
 		<true/>
-		<key>KernelToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ILniAAAADzA=
-				</data>
-				<key>Replace</key>
-				<data>
-				ILniAAAAkJA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 debug kernel (credit Vandroiy)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				sABMi1Xw
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Replace</key>
-				<data>
-				SIPEQF3D
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				igKEwHRE
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Replace</key>
-				<data>
-				igKEwOtE
-				</data>
-			</dict>
-		</array>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
@@ -411,17 +300,13 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				SU9LaXQ=
-				</data>
+				<data>SU9LaXQ=</data>
 				<key>InfoPlistPatch</key>
 				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2C</string>
 				<key>Replace</key>
-				<data>
-				SU9LaXM=
-				</data>
+				<data>SU9LaXM=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -429,35 +314,27 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				SU9LaXQ=
-				</data>
+				<data>SU9LaXQ=</data>
 				<key>InfoPlistPatch</key>
 				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
 				<key>Replace</key>
-				<data>
-				SU9LaXM=
-				</data>
+				<data>SU9LaXM=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>VRAM 1536MB-&gt;2048MB</string>
+				<string>VRAM1536MB-&gt;2048MB</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				AQMDAwAAIAIAAAAAAAAAYA==
-				</data>
+				<data>AQMDAwAAIAIAAAAAAAAAYA==</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>
-				AQMDAwAAIAIAAAAAAAAAgA==
-				</data>
+				<data>AQMDAwAAIAIAAAAAAAAAgA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -465,17 +342,13 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA
-				</data>
+				<data>AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>
-				AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA
-				</data>
+				<data>AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -483,17 +356,13 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				AQUJAAAEAACHAQAA
-				</data>
+				<data>AQUJAAAEAACHAQAA</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>
-				AQUJAAAIAACHAQAA
-				</data>
+				<data>AQUJAAAIAACHAQAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -501,17 +370,13 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				AgQKAAAEAACHAQAA
-				</data>
+				<data>AgQKAAAEAACHAQAA</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>
-				AgQKAAAIAACHAQAA
-				</data>
+				<data>AgQKAAAIAACHAQAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -519,44 +384,73 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
+				<data>RiV1VCUwNHgA</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
 				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
+				<data>RiV1VHh4eHgA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix extended disk icon</string>
+				<string>Fix external disk icon</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				RXh0ZXJuYWw=
-				</data>
+				<data>RXh0ZXJuYWw=</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleAHCIPort</string>
 				<key>Replace</key>
-				<data>
-				SW50ZXJuYWw=
-				</data>
+				<data>SW50ZXJuYWw=</data>
+			</dict>
+		</array>
+		<key>KernelToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.13 debug kernel (credit Vandroiy)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>sABMi1Xw</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Replace</key>
+				<data>SIPEQF3D</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>igKEwHRE</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Replace</key>
+				<data>igKEwOtE</data>
 			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
-		<key>BooterConfig</key>
-		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
+		<key>BooterConfig</key>
+		<string>0x28</string>
 		<key>ROM</key>
 		<string>UseMacAddr0</string>
 	</dict>
