@@ -324,7 +324,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>VRAM1536MB-&gt;2048MB</string>
+				<string>VRAM 1536MB-&gt;2048MB</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -338,7 +338,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio patch,0105,0x591b0000</string>
+				<string>0x591b0000, 0105 instead of 0306, HDMI</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
