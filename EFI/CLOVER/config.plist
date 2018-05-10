@@ -189,7 +189,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>igfxrst=1 abm_firstpolldelay=16000 -disablegfxfirmware darkwake=no igfxfw=1</string>
+		<string>igfxrst=1 abm_firstpolldelay=10000 -disablegfxfirmware darkwake=no igfxfw=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>DisableCloverHotkeys</key>
