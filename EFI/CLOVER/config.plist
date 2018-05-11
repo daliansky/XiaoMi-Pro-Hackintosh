@@ -16,29 +16,7 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>change _DSM to XSDM</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X0RTTQ==</data>
-					<key>Replace</key>
-					<data>WERTTQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change OSID to IDOS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>T1NJRA==</data>
-					<key>Replace</key>
-					<data>SURPUw==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>X09TSQ==</data>
 					<key>Replace</key>
@@ -46,29 +24,23 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
+					<string>change _DSM to XDSM</string>
 					<key>Find</key>
-					<data>RUhDMQ==</data>
+					<data>X0RTTQ==</data>
 					<key>Replace</key>
-					<data>RUgwMQ==</data>
+					<data>WERTTQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
+					<string>change HDAS to HDEF</string>
 					<key>Find</key>
-					<data>RUhDMg==</data>
+					<data>SERBUw==</data>
 					<key>Replace</key>
-					<data>RUgwMg==</data>
+					<data>SERFRg==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>SEVDSQ==</data>
 					<key>Replace</key>
@@ -76,19 +48,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change BRT6 to BRTX</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>IEJSVDY=</data>
-					<key>Replace</key>
-					<data>IEJSVFg=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>R0ZYMA==</data>
 					<key>Replace</key>
@@ -97,8 +57,6 @@
 				<dict>
 					<key>Comment</key>
 					<string>change SAT0 to SATA</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>U0FUMA==</data>
 					<key>Replace</key>
@@ -107,8 +65,6 @@
 				<dict>
 					<key>Comment</key>
 					<string>change ADBG to XDBG</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>QURCRwk=</data>
 					<key>Replace</key>
@@ -117,8 +73,6 @@
 				<dict>
 					<key>Comment</key>
 					<string>change GPRW to XPRW</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>R1BSVwI=</data>
 					<key>Replace</key>
@@ -127,8 +81,6 @@
 				<dict>
 					<key>Comment</key>
 					<string>change _PTS to ZPTS</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>X1BUUwE=</data>
 					<key>Replace</key>
@@ -137,8 +89,6 @@
 				<dict>
 					<key>Comment</key>
 					<string>change _WAK to ZWAK</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>X1dBSwk=</data>
 					<key>Replace</key>
@@ -147,8 +97,6 @@
 				<dict>
 					<key>Comment</key>
 					<string>change LGPA to XGPA</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
 					<data>TEdQQQk=</data>
 					<key>Replace</key>
@@ -192,8 +140,6 @@
 		<string>igfxrst=1 abm_firstpolldelay=10000 -disablegfxfirmware darkwake=no igfxfw=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
-		<key>DisableCloverHotkeys</key>
-		<false/>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NeverHibernate</key>
@@ -236,7 +182,6 @@
 		<array>
 			<string>Preboot</string>
 			<string>Recovery</string>
-			<string>Time Machine</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
