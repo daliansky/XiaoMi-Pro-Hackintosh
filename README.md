@@ -31,7 +31,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
 
-
+- [PavelLJ](https://github.com/PavelLJ) for valuable suggestions
 
 
 ## Installation
