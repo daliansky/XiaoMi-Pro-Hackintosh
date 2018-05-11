@@ -130,7 +130,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Delete some useless renames in config
    - Redo the USB Injection, now it supports type-c USB3.0
    - Update Lilu v1.2.4
-   - Update Clover r4449
+   - Update Clover r4458
 
 ## A reward
 
