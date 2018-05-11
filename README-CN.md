@@ -108,7 +108,7 @@
 * 5-5-2018
     * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。更新`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`, `SSDT-XHC.aml`
     * 删除config里的一些无用重命名
-    * 重做了USB驱动，现在type-c接口支持USB3.0了            
+    * 重做了USB驱动，现在type-c接口支持USB3.0了           
     * 更新`Lilu` v1.2.4
     * 更新Clover r4458
 
