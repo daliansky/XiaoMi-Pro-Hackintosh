@@ -125,8 +125,10 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
 
      ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
-- 5-5-2018
+- 5-11-2018
    - Rename some SSDTs to fit with Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config. Also update SSDT-GPRW.aml, SSDT-DDGPU.aml, SSDT-RMCF.aml, SSDT-XHC.aml
+   - Delete some useless renames in config
+   - Redo the USB Injection, now it supports type-c USB3.0
    - Update Lilu v1.2.4
    - Update Clover r4449
 
