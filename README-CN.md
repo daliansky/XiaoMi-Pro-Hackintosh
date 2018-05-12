@@ -8,7 +8,6 @@
 
 * 支持10.13 / 10.12.6
 * CPU为第八代，原生支持
-* 显卡仿冒支持，platform-id为0x19160000，注入信息通过 `/CLOVER/ACPI/patched/SSDT-Config.aml` 加载
 * 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-Config.aml`
 * 触摸板驱动程序使用VoodooI2C，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
@@ -105,10 +104,11 @@
 
         ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
-* 5-5-2018
+* 5-12-2018
     * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。更新`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`, `SSDT-XHC.aml`
     * 删除config里的一些无用重命名
-    * 重做了USB驱动，现在type-c接口支持USB3.0了           
+    * 重做了USB驱动，现在type-c接口支持USB3.0了 
+    * 修改`SSDT-IMEI.aml`来修复开机时的内核错误
     * 更新`Lilu` v1.2.4
     * 更新Clover r4458
 
@@ -128,6 +128,8 @@
 [alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
 
 [PavelLJ](https://github.com/PavelLJ) for valuable suggestions
+
+[Javmain](https://github.com/javmain) for valuable suggestions
 
 ## 安装
 
