@@ -8,10 +8,10 @@
 
 * 支持10.13 / 10.12.6
 * CPU为第八代，原生支持
-* 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-Config.aml`
+* 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-RMCF.aml`
 * 触摸板驱动程序使用VoodooI2C，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
-* USB遮盖使用 `/CLOVER/kexts/Other/USBInjectAll_patched.kext`
+* USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-UIAC.aml`
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
 * 支持更广范围的亮度调节
 
