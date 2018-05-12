@@ -64,23 +64,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change ADBG to XDBG</string>
-					<key>Find</key>
-					<data>QURCRwk=</data>
-					<key>Replace</key>
-					<data>WERCRwk=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GPRW to XPRW</string>
-					<key>Find</key>
-					<data>R1BSVwI=</data>
-					<key>Replace</key>
-					<data>WFBSVwI=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _PTS to ZPTS</string>
+					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
 					<key>Find</key>
 					<data>X1BUUwE=</data>
 					<key>Replace</key>
@@ -88,11 +72,27 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _WAK to ZWAK</string>
+					<string>change Method(_WAK,1,S) to ZWAK, pair with SSDT-PTSWAK.aml</string>
 					<key>Find</key>
 					<data>X1dBSwk=</data>
 					<key>Replace</key>
 					<data>WldBSwk=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+					<key>Find</key>
+					<data>R1BSVwI=</data>
+					<key>Replace</key>
+					<data>WFBSVwI=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change ADBG to XDBG</string>
+					<key>Find</key>
+					<data>QURCRwk=</data>
+					<key>Replace</key>
+					<data>WERCRwk=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -297,7 +297,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio patch,0105,0x59160000</string>
+				<string>HDMI-audio, port 0105, 0x59160000</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -311,7 +311,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio patch,0204,0x59160000</string>
+				<string>HDMI-audio, port 0204, 0x59160000</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
