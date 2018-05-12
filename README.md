@@ -33,6 +33,8 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [PavelLJ](https://github.com/PavelLJ) for valuable suggestions
 
+- [Javmain](https://github.com/javmain) for valuable suggestions
+
 
 ## Installation
 
@@ -129,6 +131,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Rename some SSDTs to fit with Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config. Also update SSDT-GPRW.aml, SSDT-DDGPU.aml, SSDT-RMCF.aml, SSDT-XHC.aml
    - Delete some useless renames in config
    - Redo the USB Injection, now it supports type-c USB3.0
+   - Modify SSDT-IMEI.aml to avoid kernel error report
    - Update Lilu v1.2.4
    - Update Clover r4458
 
