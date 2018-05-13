@@ -88,14 +88,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change ADBG to XDBG</string>
-					<key>Find</key>
-					<data>QURCRwk=</data>
-					<key>Replace</key>
-					<data>WERCRwk=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change LGPA to XGPA</string>
 					<key>Find</key>
 					<data>TEdQQQk=</data>
