@@ -104,12 +104,17 @@
 
         ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
-* 5-12-2018
-    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。更新`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`, `SSDT-XHC.aml`
+* 5-14-2018
+    
+    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`和`SSDT-XHC.aml`
     * 删除config里的一些无用重命名
     * 重做了USB驱动，现在type-c接口支持USB3.0了 
-    * 修改`SSDT-IMEI.aml`来修复开机时的内核错误
+    * 删除`SSDT-ADBG.aml`，它是个无用的方法覆写
+    * 删除`SSDT-IMEI.aml`来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
+    * 新增`SSDT-EC.aml`和`SSDT-SMBUS.aml`来加载AppleBusPowerController和AppleSMBusPCI
+    * 修改`SSDT-PCIList.aml`，使系统信息.app显示正确的信息
     * 更新`Lilu` v1.2.4
+    * 更新`CPUFriendDataProvider`让系统更省电
     * 更新Clover r4458
 
 
