@@ -29,7 +29,7 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9E145</string>
+	<string>9E501</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -37,9 +37,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.13</string>
 	<key>DTXcode</key>
-	<string>0930</string>
+	<string>0931</string>
 	<key>DTXcodeBuild</key>
-	<string>9E145</string>
+	<string>9E501</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -4465,6 +4465,27 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
+					<string>ALC888 for Acer Aspire 7738G by MacPeet</string>
+					<key>CodecID</key>
+					<integer>283904136</integer>
+					<key>ConfigData</key>
+					<data>
+					AUccEAFHHQABRx4TAUcfkAFHDAIBJxxAAScd
+					AAEnHqMBJx+QAVccUAFXHRABVx4hAVcfAAFX
+					DAIBpxxgAacdMAGnHoEBpx8AAecccAHnHRAB
+					5x5FAecfAA==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>27</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
 					<string>ALC888S-VD Version2 for MedionE7216 by MacPeet</string>
 					<key>CodecID</key>
 					<integer>283904136</integer>
@@ -5135,6 +5156,34 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
+					<string>Realtek ALC898 for MSI GE62 7RE Apache Pro by spectra</string>
+					<key>CodecID</key>
+					<integer>283904153</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccEAEnHQEBJx6gAScfmQGHHCABhx0QAYce
+					gQGHHwIBVxwwAVcdAQFXHhMBVx+ZAaccMQGn
+					HQEBpx4TAacfmQG3HDIBtx0BAbceEwG3H5kB
+					twwCAUccQAFHHRABRx4hAUcfAgFHDAIB5xxQ
+					AecdEQHnHkUB5x8C
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>98</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
 					<string>Realtek ALC898 for MSI GP62-6QG Leopard Pro</string>
 					<key>CodecID</key>
 					<integer>283904153</integer>
@@ -5489,6 +5538,27 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>11</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>CodecID</key>
+					<integer>283906592</integer>
+					<key>CodecName</key>
+					<string>MacPeet - ALC1220 for Clevo P950HR</string>
+					<key>ConfigData</key>
+					<data>
+					AUccEAFHHRABRx4hAUcfAQFHDAIBJxwwAScd
+					AAEnHqYBJx+ZAYccQAGHHRABhx6BAYcfAQG3
+					HGABtx0AAbceFwG3H5kBtwwCAecccAHnHRAB
+					5x5EAecfAQ==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>13</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
