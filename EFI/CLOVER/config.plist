@@ -64,7 +64,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
+					<string>change Method(_PTS,1,N) to ZPTS</string>
 					<key>Find</key>
 					<data>X1BUUwE=</data>
 					<key>Replace</key>
@@ -72,7 +72,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_WAK,1,S) to ZWAK, pair with SSDT-PTSWAK.aml</string>
+					<string>change Method(_WAK,1,S) to ZWAK</string>
 					<key>Find</key>
 					<data>X1dBSwk=</data>
 					<key>Replace</key>
@@ -80,7 +80,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+					<string>change Method(GPRW,2,N) to XPRW</string>
 					<key>Find</key>
 					<data>R1BSVwI=</data>
 					<key>Replace</key>
@@ -234,84 +234,44 @@
 			<dict>
 				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>SU9LaXQ=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2C</string>
+				<key>Find</key>
+				<data>SU9LaXQ=</data>
 				<key>Replace</key>
 				<data>SU9LaXM=</data>
+				<key>InfoPlistPatch</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>SU9LaXQ=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
+				<key>Find</key>
+				<data>SU9LaXQ=</data>
 				<key>Replace</key>
 				<data>SU9LaXM=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>VRAM 1536MB-&gt;2048MB</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AQMDAwAAIAIAAAAAAAAAYA==</data>
 				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>AQMDAwAAIAIAAAAAAAAAgA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x591b0000, 0105 instead of 0306, HDMI</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA</data>
+				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio, port 0105, 0x59160000</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AQUJAAAEAACHAQAA</data>
-				<key>InfoPlistPatch</key>
-				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AQUJAAAEAACHAQAA</data>
 				<key>Replace</key>
-				<data>AQUJAAAIAACHAQAA</data>
+				<data>AQUSAAAIAACHAQAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio, port 0204, 0x59160000</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AgQKAAAEAACHAQAA</data>
-				<key>InfoPlistPatch</key>
-				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AgQKAAAEAACHAQAA</data>
 				<key>Replace</key>
 				<data>AgQKAAAIAACHAQAA</data>
 			</dict>
@@ -329,28 +289,12 @@
 				<key>Replace</key>
 				<data>RiV1VHh4eHgA</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix external disk icon</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>RXh0ZXJuYWw=</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleAHCIPort</string>
-				<key>Replace</key>
-				<data>SW50ZXJuYWw=</data>
-			</dict>
 		</array>
 		<key>KernelToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
 				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
 				<key>Find</key>
 				<data>ILniAAAADzA=</data>
 				<key>Replace</key>
@@ -359,24 +303,16 @@
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 debug kernel (credit Vandroiy)</string>
-				<key>Disabled</key>
-				<false/>
 				<key>Find</key>
 				<data>sABMi1Xw</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
 				<key>Replace</key>
 				<data>SIPEQF3D</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
-				<key>Disabled</key>
-				<false/>
 				<key>Find</key>
 				<data>igKEwHRE</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
 				<key>Replace</key>
 				<data>igKEwOtE</data>
 			</dict>
