@@ -4,7 +4,7 @@
 
 This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM.
 
-MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale". In this way, the experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
+MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
 
 In addition, this program is adjusted for Mi Pro to avoid wake problems.
 
