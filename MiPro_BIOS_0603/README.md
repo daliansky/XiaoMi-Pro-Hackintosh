@@ -23,4 +23,4 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 ### Credit
 
-[Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
+Thanks for [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
