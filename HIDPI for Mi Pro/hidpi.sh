@@ -54,7 +54,7 @@ function choose_icon()
 {
     #
     mkdir $thisDir/tmp/
-    curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/Icons.plist -o $thisDir/tmp/Icons.plist
+    curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/XiaoMi-Pro/master/HIDPI%20for%20Mi%20Pro/Icons.plist -o $thisDir/tmp/Icons.plist
     # curl -fsSL http://127.0.0.1:8080/Icons.plist -o $thisDir/tmp/Icons.plist
 
 #
