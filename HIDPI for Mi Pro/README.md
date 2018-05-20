@@ -35,4 +35,6 @@ $ rm -rf ./DisplayVendorID-$Vid
 $ cp -r ./backup/* ./
 ```
 
+## Credit
 
+[monlor](https://github.com/monlor) for providing base function of this program.
