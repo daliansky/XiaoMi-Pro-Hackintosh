@@ -138,6 +138,7 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Update CPUFriendDataProvider to save power
    - Update Clover r4458
 
+
 ## A reward
 
 | Wechat                                   | Alipay                                   |
