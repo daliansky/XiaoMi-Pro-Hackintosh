@@ -39,7 +39,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 Please refer to the detailed installation tutorial (Chinese version) [macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 
-A complete EFI archive is available [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page.
+A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page.
 
 
 
