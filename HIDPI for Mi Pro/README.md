@@ -2,7 +2,7 @@
 
 ### Instruction
 
-This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM.
+This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. (Currently I found that macOS 10.13.4 has resolution problems after sleep, but macOS 10.13.3 works great.)
 
 MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
 
