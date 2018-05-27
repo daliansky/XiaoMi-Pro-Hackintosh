@@ -10,7 +10,7 @@ In addition, this program is adjusted for Mi Pro to avoid wake problems.
 
 Appearance:
 
-![HIDPI.png](https://i.loli.net/2017/10/26/59f199e85deb7.png)
+![HIDPI.png](https://i.loli.net/2018/05/27/5b09ff7b4745c.jpg)
 
 ### How to install
 
