@@ -20,7 +20,6 @@ Open "Terminal.app" and type the following command:
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/XiaoMi-Pro/master/HIDPI%20for%20Mi%20Pro/hidpi.sh)"
 ```
 
-![Operation](https://i.loli.net/2018/04/03/5ac2963c7b26b.png)
 
 ### Restore
 
