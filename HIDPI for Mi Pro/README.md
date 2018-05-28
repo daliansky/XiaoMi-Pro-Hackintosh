@@ -14,16 +14,13 @@ Appearance:
 
 ### How to install
 
-Open "Terminal.app" and type the following command:
+Open `Terminal.app` and run `hidpi.sh`
 
-```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/XiaoMi-Pro/master/HIDPI%20for%20Mi%20Pro/hidpi.sh)"
-```
-
+Then, also run `install.command`, this program is used to avoid wake problems.
 
 ### Restore
 
-If you can't get into the system after installing this program, please go into Recovery mode and use "Terminal.app" to delete your display's VendorID folder in  `/System/Library/Displays/Contents/Resources/Overrides` . And also, Copy all the files in "backup" folder and paste them in the upper folder.
+If you can't get into the system after installing this program, please go into Recovery mode and use `Terminal.app` to delete your display's VendorID folder in  `/System/Library/Displays/Contents/Resources/Overrides` . And also, Copy all the files in "backup" folder and paste them in the upper folder.
 
 The specific commands are provided here :
 ```
@@ -36,4 +33,4 @@ $ cp -r ./backup/* ./
 
 ## Credit
 
-Thanks for [monlor](https://github.com/monlor) for providing base function of this program.
+Thanks for [xzhih](https://github.com/xzhih) for providing base function of this program.
