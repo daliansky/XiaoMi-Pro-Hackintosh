@@ -1,6 +1,6 @@
 #!/bin/sh
 # 
-# Initialisation
+# 初始化
 function init()
 {
 #
@@ -10,13 +10,9 @@ cat << EEF
 ----------------------------------------
 EEF
     #
-    VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $9}')
-    [ -z "$VendorID" ] && VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $8}')
-    ProductID=$(ioreg -l | grep "DisplayProductID" | awk '{print $9}')
-    [ -z "$ProductID" ] && ProductID=$(ioreg -l | grep "DisplayProductID" | awk '{print $8}')
-    EDID=$(ioreg -l | grep "IODisplayEDID" | awk '{print $9}' | sed -e 's/.$//' -e 's/^.//')
-    [ -z "$EDID" ] && EDID=$(ioreg -l | grep "IODisplayEDID" | awk '{print $8}' | sed -e 's/.$//' -e 's/^.//')
-    [ -z "$VendorID" -o -z "$ProductID" -o -z "$EDID" ] && echo "Error when get IDs！" && exit
+    VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $8}')
+    ProductID=$(ioreg -l | grep "DisplayProductID" | awk '{print $8}')
+    EDID=$(ioreg -l | grep "IODisplayEDID" | awk '{print $8}' | sed -e 's/.$//' -e 's/^.//')
 
     Vid=$(echo "obase=16;$VendorID" | bc | tr 'A-Z' 'a-z')
     Pid=$(echo "obase=16;$ProductID" | bc | tr 'A-Z' 'a-z')
@@ -40,7 +36,7 @@ EEF
     lgicon=${Overrides}"DisplayVendorID-1e6d\/DisplayProductID-5b11.tiff"
 
     if [[ ! -d $thatDir/backup ]]; then
-        echo "Backing up"
+        echo "正在备份"
         sudo mkdir -p $thatDir/backup
         sudo cp $thatDir/Icons.plist $thatDir/backup/
         if [[ -d $thatDir/DisplayVendorID-$Vid ]]; then
@@ -49,27 +45,27 @@ EEF
     fi
 }
 
-# CHOOSE ICON
+# 选择ICON
 function choose_icon()
 {
     #
     mkdir $thisDir/tmp/
-    curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/XiaoMi-Pro/master/HIDPI%20for%20Mi%20Pro/Icons.plist -o $thisDir/tmp/Icons.plist
+    curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/Icons.plist -o $thisDir/tmp/Icons.plist
     # curl -fsSL http://127.0.0.1:8080/Icons.plist -o $thisDir/tmp/Icons.plist
 
 #
 cat << EOF
 ----------------------------------------
-|********** Choose Icon ***********|
+|********** 选择要显示的ICON ***********|
 ----------------------------------------
 (1) iMac
 (2) MacBook
 (3) MacBook Pro
-(4) LG Display
-(5) Stay the same
+(4) LG 显示器
+(5) 保持原样
 
 EOF
-read -p "Enter your choice[1~5]: " logo
+read -p "输入你的选择[1~5]: " logo
 case $logo in
     1) Picon=$imacicon
 RP=("33" "68" "160" "90")
@@ -86,7 +82,7 @@ DICON=${Overrides}"DisplayVendorID-1e6d\/DisplayProductID-5b11.icns"
 ;;
 5) rm -rf $thisDir/tmp/Icons.plist
 ;;
-*) echo "Wrong choice, bye";
+*) echo "输入错误，拜拜";
 exit 0
 ;;
 esac 
@@ -104,7 +100,7 @@ fi
 
 }
 
-# Main Function
+# 主函数
 function main()
 {
     sudo mkdir -p $thisDir/tmp/DisplayVendorID-$Vid
@@ -150,38 +146,26 @@ HIDPI
     sed -i '' "s/PID/$ProductID/g" $dpiFile
 }
 
-# Clean up
+# 擦屁股
 function end()
 {
     sudo cp -r $thisDir/tmp/* $thatDir/
     sudo rm -rf $thisDir/tmp
-    echo "Open successfully, please restart"
-    echo "Warning: The boot logo will become very big at first start"
+    echo "开启成功，重启生效"
+    echo "首次重启开机logo会变得巨大，之后就不会了"
 }
 
-# Open
+# 开
 function enable_hidpi()
 {
     choose_icon
     main
     sed -i "" "/.*IODisplayEDID/d" $dpiFile
     sed -i "" "/.*EDid/d" $dpiFile
-    path=${0%/*}
-
-    sudo cp "$path/org.zysuper.ricecracker.daemon.plist" /Library/LaunchAgents
-    sudo cp "$path/riceCrackerDaemon" /usr/bin
-
-    sudo chmod 755 /usr/bin/riceCrackerDaemon
-    sudo chown root:wheel /usr/bin/riceCrackerDaemon
-
-    sudo chmod 644 /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
-    sudo chown root:wheel /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
-
-    sudo launchctl load /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
     end
 }
 
-# Patch
+# 开挂
 function enable_hidpi_with_patch()
 {
     choose_icon
@@ -190,7 +174,7 @@ function enable_hidpi_with_patch()
     end
 }
 
-# Close
+# 关
 function disable()
 {
     sudo rm -rf $thatDir/DisplayVendorID-$Vid 
@@ -199,12 +183,7 @@ function disable()
     sudo cp -r $thatDir/backup/* $thatDir/
 
     sudo rm -rf $thatDir/backup
-    path=${0%/*}
-    sudo launchctl remove /Library/LaunchAgents/org.zysuper.riceCracker.plist
-    sudo pkill riceCrackerDaemon
-    sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
-    sudo rm -f /usr/bin/riceCrackerDaemon
-    echo "Close successfully, please restart"
+    echo "已关闭，重启生效"
 }
 
 function start()
@@ -213,12 +192,12 @@ function start()
 # 
 cat << EOF
 
-(1) OPEN HIDPI
-(2) OPEN HIDPI（With injecting EDID）
-(3) CLOSE HIDPI
+(1) 开启HIDPI
+(2) 开启HIDPI（同时注入花屏补丁）
+(3) 关闭HIDPI
 
 EOF
-read -p "Enter your choice[1~3]: " input
+read -p "输入你的选择[1~3]: " input
 case $input in
     1) enable_hidpi
 ;;
@@ -226,7 +205,7 @@ case $input in
 ;;
 3) disable
 ;;
-*) echo "Wrong choice, bye";
+*) echo "输入错误，拜拜";
 exit 0
 ;;
 esac 
