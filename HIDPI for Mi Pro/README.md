@@ -16,7 +16,7 @@ Appearance:
 
 Open `Terminal.app` and run `hidpi.sh`
 
-Then, also run `install.command`, this program is used to avoid wake problems.
+Then, also run `install.command`. This program is used to avoid wake problems.
 
 ### Restore
 
