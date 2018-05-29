@@ -1,4 +1,4 @@
-# One key to open MacOS HIDPI
+# Run Two Files to open MacOS HIDPI
 
 ### Instruction
 
