@@ -151,8 +151,8 @@ function end()
 {
     sudo cp -r $thisDir/tmp/* $thatDir/
     sudo rm -rf $thisDir/tmp
-    echo "Open HiDPI successfully"
-    echo "The logo will become very big only at first time"
+    echo "Open HiDPI successfully, please restart"
+    echo "The boot logo will become very big only at first time"
 }
 
 # OPEN
@@ -165,7 +165,7 @@ function enable_hidpi()
     end
 }
 
-# 开挂
+# Patch EDID
 function enable_hidpi_with_patch()
 {
     choose_icon
@@ -193,7 +193,7 @@ function start()
 cat << EOF
 
 (1) OPEN HIDPI
-(2) OPEN HIDPI（Inject EDID）
+(2) OPEN HIDPI (Inject EDID)
 (3) CLOSE HIDPI
 
 EOF
