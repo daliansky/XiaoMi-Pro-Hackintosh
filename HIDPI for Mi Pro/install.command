@@ -13,6 +13,6 @@ sudo chown root:wheel /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
 
 sudo launchctl load /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
 
-echo 'Installing HiScale Complete！'
+echo 'Install HiScale Complete！'
 echo 'This is the end of the installation!'
 bash read -p 'Press any key to exit'
