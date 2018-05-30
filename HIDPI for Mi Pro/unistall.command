@@ -6,6 +6,6 @@ sudo pkill riceCrackerDaemon
 sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
 sudo rm -f /usr/bin/riceCrackerDaemon
 
-echo 'Uninstalling HiScale complete！'
+echo 'Uninstall HiScale complete！'
 echo 'This is the end of the uninstallation! '
 bash read -p 'Press any key to exit'
