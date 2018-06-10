@@ -11,7 +11,7 @@ Hackintosh your XiaoMi Pro Notebook
   * The sound card is ALC298, fake with AppleALC, layout-id is 99, injection information is located at `/CLOVER/ACPI/patched/SSDT-RMCF.aml`
   * Touchpad driver using `VoodooI2C`, support for multiple gestures, touchpad boot can be used normally, no drift, no wakeup
   * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
-  * USB shadowing using `/CLOVER/ACPI/patched/UIAC.aml`
+  * USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
   * Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
   * Wider range of brightness.
 
