@@ -131,7 +131,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>igfxrst=1 abm_firstpolldelay=10000 -disablegfxfirmware darkwake=no igfxfw=1</string>
+		<string>kext-dev-mode=1 darkwake=no dart=0 slide=0 nv_disable=1 -disablegfxfirmware abm_firstpolldelay=10000 igfxrst=1 igfxfw=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
@@ -170,8 +170,6 @@
 	</dict>
 	<key>GUI</key>
 	<dict>
-		<key>ConsoleMode</key>
-		<string>0</string>
 		<key>Hide</key>
 		<array>
 			<string>Preboot</string>
@@ -181,14 +179,8 @@
 		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
-			<key>DoubleClick</key>
-			<integer>500</integer>
 			<key>Enabled</key>
 			<false/>
-			<key>Mirror</key>
-			<false/>
-			<key>Speed</key>
-			<integer>8</integer>
 		</dict>
 		<key>Scan</key>
 		<dict>
@@ -280,14 +272,10 @@
 			<dict>
 				<key>Comment</key>
 				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>RiV1VCUwNHgA</data>
-				<key>InfoPlistPatch</key>
-				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
+				<key>Find</key>
+				<data>RiV1VCUwNHgA</data>
 				<key>Replace</key>
 				<data>RiV1VHh4eHgA</data>
 			</dict>
@@ -332,11 +320,11 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>02/08/2018</string>
+		<string>04/09/2018</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP141.88Z.0173.B00.1802081002</string>
+		<string>MBP141.88Z.0175.B00.1804091553</string>
 		<key>Board-ID</key>
 		<string>Mac-B4831CEBD52A0C4C</string>
 		<key>BoardManufacturer</key>
@@ -374,8 +362,6 @@
 	<dict>
 		<key>InjectKexts</key>
 		<string>Yes</string>
-		<key>InjectSystemID</key>
-		<true/>
 	</dict>
 </dict>
 </plist>
