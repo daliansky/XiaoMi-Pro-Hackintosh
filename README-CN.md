@@ -14,6 +14,7 @@
 * USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-USB.aml`
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
 * 支持更广范围的亮度调节
+* 原生蓝牙不完美。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读https://github.com/daliansky/XiaoMi-Pro/issues/24 给出的步骤。
 
 
 
