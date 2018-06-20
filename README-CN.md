@@ -8,12 +8,11 @@
 
 * 支持10.13 / 10.12.6
 * CPU为第八代，原生支持
-* 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-RMCF.aml`
+* 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-RMCF.aml` 和 `/CLOVER/ACPI/patched//SSDT-ALC298_XiaoMiPro.aml`
 * 触摸板驱动程序使用VoodooI2C，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
 * USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-USB.aml`
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* 支持更广范围的亮度调节
 * 原生蓝牙不完美。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读https://github.com/daliansky/XiaoMi-Pro/issues/24 给出的步骤。
 
 
@@ -50,7 +49,6 @@
     * 更新声卡驱动，修复耳机问题
     * 新驱动增加layoutid：13
     * 支持四节点，支持耳麦自由切换，Mic/LineIn工作正常
-      ![ALC298for小米Pro声卡驱动安装](http://ous2s14vo.bkt.clouddn.com/ALC298for小米Pro声卡驱动安装.png)
 
 * 11-2-2017
     * Lilu v1.2.0更新，支持10.13.2Beta
@@ -121,21 +119,26 @@
 
 ## 鸣谢
 
-[RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) and [patch-nvme](https://github.com/RehabMan/patch-nvme) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [FakeSMC](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [ACPIBatteryManager](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [NullEthernet](https://github.com/RehabMan/OS-X-Null-Ethernet) for maintenance
 
-[vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [WhateverGreen](https://github.com/vit9696/WhateverGreen)  for maintenance
+- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [Shiki](https://github.com/vit9696/Shiki) for maintenance
 
-[Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) and [HandyScripts](https://github.com/Piker-Alpha/HandyScripts) for maintenance
+- [EMlyDinEsH](https://osxlatitude.com/profile/7370-emlydinesh) Updated [ApplePS2SmartTouchPad](https://osxlatitude.com/forums/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver-mac-os-x) for maintenance
 
-[toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
+- [BarbaraPalvin](https://github.com/BarbaraPalvin) Updated [IntelGraphicsDVMTFixup](https://github.com/BarbaraPalvin/IntelGraphicsDVMTFixup) for maintenance
 
-[PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
+- [Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) for maintenance
 
-[alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
+- [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
 
-[PavelLJ](https://github.com/PavelLJ) for valuable suggestions
+- [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
-[Javmain](https://github.com/javmain) for valuable suggestions
+- [alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
+
+- [PavelLJ](https://github.com/PavelLJ) for valuable suggestions
+
+- [Javmain](https://github.com/javmain) for valuable suggestions
+
 
 ## 安装
 
