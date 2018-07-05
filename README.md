@@ -12,17 +12,15 @@ Hackintosh your XiaoMi Pro Notebook
   * Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
   * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
   * USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
-  * Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+  * Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-PS2K.aml`
   * Native Bluetooth is not working well. If you want to disable it to save power or to use BT dongle, please read instructions here: https://github.com/daliansky/XiaoMi-Pro/issues/24 .
 
 
 ## Credits
 
-- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [FakeSMC](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [ACPIBatteryManager](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [NullEthernet](https://github.com/RehabMan/OS-X-Null-Ethernet) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
 - [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [Shiki](https://github.com/vit9696/Shiki) for maintenance
-
-- [EMlyDinEsH](https://osxlatitude.com/profile/7370-emlydinesh) Updated [ApplePS2SmartTouchPad](https://osxlatitude.com/forums/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver-mac-os-x) for maintenance
 
 - [BarbaraPalvin](https://github.com/BarbaraPalvin) Updated [IntelGraphicsDVMTFixup](https://github.com/BarbaraPalvin/IntelGraphicsDVMTFixup) for maintenance
 
