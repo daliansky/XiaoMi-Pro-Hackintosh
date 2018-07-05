@@ -14,6 +14,7 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 2. Extract all the files and copy them to the root directory of a FAT32 U disk.
 
 3. Restart your laptop and press `F12` botton to choose U disk to boot.
+   - IMPORTANT: From this step, your computer should keep in charged by AC adapter until the whole update process finishes.
 
 4. In the new shell interface, type `unlockme.nsh` and press `Enter`, then the system will automatically restart.
 
