@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>This file is for 10.13.3+ with Mi NoteBook Pro support</string>
 	<key>ACPI</key>
 	<dict>
 		<key>AutoMerge</key>
@@ -155,7 +153,7 @@
 			<key>HighCurrent</key>
 			<true/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>UseIntelHDMI</key>
 		<true/>
