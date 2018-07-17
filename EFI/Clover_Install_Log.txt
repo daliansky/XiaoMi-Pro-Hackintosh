@@ -1,0 +1,40 @@
+
+Clover EFI installer log - Sat Apr 14 11:31:22 CEST 2018
+Installer version: v2.4k r4438 EFI bootloader
+======================================================
+/dev/disk0 (internal):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                         256.1 GB   disk0
+   1:           Windows Recovery                         523.2 MB   disk0s1
+   2:                        EFI NO NAME                 104.9 MB   disk0s2
+   3:         Microsoft Reserved                         16.8 MB    disk0s3
+   4:       Microsoft Basic Data                         255.4 GB   disk0s4
+
+/dev/disk1 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *500.1 GB   disk1
+   1:                        EFI EFI                     209.7 MB   disk1s1
+   2:                  Apple_HFS High Sierra             125.0 GB   disk1s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk1s3
+   4:       Microsoft Basic Data Datos                   374.1 GB   disk1s4
+
+======================================================
+Backing up EFI files
+
+Backing up /Volumes/High Sierra/EFIROOTDIR/EFI folder to /Volumes/High Sierra/EFI-Backups/r4423/2018-04-14-11h31/EFI
+======================================================
+Installing BootSectors/BootLoader
+
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /
+
+Removing drivers64UEFI/VBoxHfs-64.efi driver because HFSPlus driver present
+======================================================
+Installing RC Scripts
+
+Installing RC scripts on target volume '/'
+
+
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
