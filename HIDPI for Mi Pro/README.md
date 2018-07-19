@@ -20,8 +20,6 @@ Run script in Terminal
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
 ```
 
-![RUN](./img/run.jpg)
-
 Then, also run `install.command`. This program is used to avoid wake problems.
 
 ### Recovery
