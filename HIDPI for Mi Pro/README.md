@@ -14,22 +14,30 @@ Appearance:
 
 ### How to install
 
-Open `Terminal.app` and run `hidpi.sh`
+Run script in Terminal
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
+```
+
+![RUN](./img/run.jpg)
 
 Then, also run `install.command`. This program is used to avoid wake problems.
 
-### Restore
+### Recovery
 
-If you can't get into the system after installing this program, please go into Recovery mode and use `Terminal.app` to delete your display's VendorID folder in  `/System/Library/Displays/Contents/Resources/Overrides` . And also, Copy all the files in "backup" folder and paste them in the upper folder.
+If you cant boot into system, or get any another issues, you can use clover `-x ` reboot or into Recovery mode, remove your display's DisplayVendorID folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files
 
-The specific commands are provided here :
+In Terminal: 
+
 ```
-$ cd /Volumes/"Your disk name"/System/Library/Displays/Contents/Resources/Overrides
+$ cd /Volumes/"Your System Disk Part"/System/Library/Displays/Contents/Resources/Overrides
 $ VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $8}')
 $ Vid=$(echo "obase=16;$VendorID" | bc | tr 'A-Z' 'a-z')
 $ rm -rf ./DisplayVendorID-$Vid
 $ cp -r ./backup/* ./
 ```
+
 
 ## Credit
 
