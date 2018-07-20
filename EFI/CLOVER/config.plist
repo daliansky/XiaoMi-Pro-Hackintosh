@@ -269,6 +269,26 @@
 				<key>Replace</key>
 				<data>RiV1VHh4eHgA</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14 Credits (Sniki)</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>dkZI/wU=</data>
+				<key>Replace</key>
+				<data>60ZI/wU=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>eDP,0x59160000 credit syscl</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AAAIAAIAAACYAAAAAQUJAAAAQAA=</data>
+				<key>Replace</key>
+				<data>AAAIAAAEAACYAAAAAQUJAAAIAAA=</data>
+			</dict>
 		</array>
 		<key>KernelToPatch</key>
 		<array>
@@ -279,22 +299,6 @@
 				<data>ILniAAAADzA=</data>
 				<key>Replace</key>
 				<data>ILniAAAAkJA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 debug kernel (credit Vandroiy)</string>
-				<key>Find</key>
-				<data>sABMi1Xw</data>
-				<key>Replace</key>
-				<data>SIPEQF3D</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
-				<key>Find</key>
-				<data>igKEwHRE</data>
-				<key>Replace</key>
-				<data>igKEwOtE</data>
 			</dict>
 		</array>
 	</dict>
