@@ -8,21 +8,13 @@
 	<dict>
 		<key>PlugIns/VoodooGPIO.kext</key>
 		<dict>
-			<key>cdhash</key>
-			<data>
-			M07X5Mwz+oQ2HBRbLv0hmpfOOzQ=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"3e0aafca19ccb2062e0f4c3c13cb97f63615a54f" or cdhash H"334ed7e4cc33fa84361c145b2efd219a97ce3b34"</string>
+			<key>symlink</key>
+			<string>/Users/steve/Library/Developer/Xcode/DerivedData/VoodooI2C-byomvohcqnupuicwjpzmqwxrppbd/Build/Intermediates.noindex/ArchiveIntermediates/VoodooI2C/InstallationBuildProductsLocation/Library/Extensions/VoodooGPIO.kext</string>
 		</dict>
 		<key>PlugIns/VoodooI2CServices.kext</key>
 		<dict>
-			<key>cdhash</key>
-			<data>
-			IBJwJAx+Jgw2whzbyv+avSSyZHw=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"7e8b6da1b09672f62d29017afb778a69359602b4" or cdhash H"201270240c7e260c36c21cdbcaff9abd24b2647c"</string>
+			<key>symlink</key>
+			<string>/Users/steve/Library/Developer/Xcode/DerivedData/VoodooI2C-byomvohcqnupuicwjpzmqwxrppbd/Build/Intermediates.noindex/ArchiveIntermediates/VoodooI2C/InstallationBuildProductsLocation/Library/Extensions/VoodooI2CServices.kext</string>
 		</dict>
 	</dict>
 	<key>rules</key>

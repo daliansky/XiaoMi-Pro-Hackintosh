@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17D47</string>
+	<string>17G65</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.8</string>
+	<string>1.3.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,21 +25,21 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.2.8</string>
+	<string>1.3.0</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9F1027a</string>
+	<string>9F2000</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>17E189</string>
+	<string>15A278</string>
 	<key>DTSDKName</key>
-	<string>macosx10.13</string>
+	<string>macosx10.11</string>
 	<key>DTXcode</key>
-	<string>0940</string>
+	<string>0941</string>
 	<key>DTXcodeBuild</key>
-	<string>9F1027a</string>
+	<string>9F2000</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -1267,6 +1267,32 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
+					<string>MacPeet - Realtek ALC257 for Lenovo T480</string>
+					<key>CodecID</key>
+					<integer>283902551</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccIAEnHQABJx6mAScfkAGXHDABlx0QAZce
+					gQGXHwABRxxQAUcdAAFHHhcBRx+QAUcMAgIX
+					HGACFx0QAhceIQIXHwA=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
 					<string>MacPeet ALC260 for Fujitsu Celsius M 450</string>
 					<key>CodecID</key>
 					<integer>283902560</integer>
@@ -1907,6 +1933,33 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>29</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>ALC269VC for Hasee Z6SL7R3 by HF</string>
+					<key>CodecID</key>
+					<integer>283902569</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccEAEnHQEBJx6gAScfkAFHHBABRx0BAUce
+					FwFHH5ABVxyAAVcdEAFXHiEBVx8CAYccIAGH
+					HRABhx6BAYcfAgHnHGAB5x0AAeceQQHnHwIB
+					RwwC
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>30</integer>
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAg==
@@ -3293,6 +3346,26 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
+					<string>MacPeet - Realtek ALC294 for Lenovo M710Q</string>
+					<key>CodecID</key>
+					<integer>283902612</integer>
+					<key>ConfigData</key>
+					<data>
+					AhccIAIXHRACFx4hAhcfAAGXHDABlx0QAZce
+					gQGXHwABpxxAAacdkAGnHoEBpx8AAUccUAFH
+					HQABRx4XAUcfkAFHDAI=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>12</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
 					<string>InsanelyDeepak - Realtek ALC294</string>
 					<key>CodecID</key>
 					<integer>283902612</integer>
@@ -3512,6 +3585,32 @@
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Constanta - Realtek ALC298 for Xiaomi Mi Notebook Air 13.3 Fingerprint 2018</string>
+					<key>CodecID</key>
+					<integer>283902616</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccMAEnHQABJx6gAScfkAF3HEABdx0AAXce
+					FwF3H5ABdwwCAYcccAGHHRABhx6BAYcfAAIX
+					HCACFx0QAhceIQIXHwA=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>30</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AXcMAg==
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
@@ -4942,6 +5041,30 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>7</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>CodecID</key>
+					<integer>283904146</integer>
+					<key>Comment</key>
+					<string>MSI GP70/CR70 by Slava77</string>
+					<key>ConfigData</key>
+					<data>
+					AbceEQGXHqABlx+RAYcegQFHDAI=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>12</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -7046,23 +7169,6 @@
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>
 			<string>IOKit</string>
-		</dict>
-		<key>as.vit9696.AppleALCAudio</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>as.vit9696.AppleALC</string>
-			<key>IOClass</key>
-			<string>AppleALCAudio</string>
-			<key>IOMatchCategory</key>
-			<string>IOService</string>
-			<key>IOPCIClassMatch</key>
-			<string>0x04030000&amp;0xffff0000</string>
-			<key>IOPCIMatch</key>
-			<string>0x00008086&amp;0x0000ffff</string>
-			<key>IOProbeScore</key>
-			<integer>80000</integer>
-			<key>IOProviderClass</key>
-			<string>IOPCIDevice</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
