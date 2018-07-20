@@ -72,48 +72,48 @@
 			<key>Fn Keys Mode 1</key>
 			<dict>
 				<key>BrightnessDown</key>
-				<string>F4</string>
+				<string>F1</string>
 				<key>BrightnessUp</key>
-				<string>F5</string>
+				<string>F2</string>
 				<key>KBBacklightDown</key>
-				<string>disable</string>
+				<string>F3</string>
 				<key>KBBacklightUp</key>
-				<string>disable</string>
+				<string>F4</string>
 				<key>Launchpad</key>
-				<string>disable</string>
+				<string>F4</string>
 				<key>MediaNext</key>
-				<string>ArrowRight</string>
-				<key>MediaPlayPause</key>
-				<string>ArrowDown</string>
-				<key>MediaPrevious</key>
-				<string>ArrowLeft</string>
-				<key>Misson Control</key>
-				<string>F8</string>
-				<key>SleepDisplay</key>
-				<string>disable</string>
-				<key>Touchpad</key>
 				<string>F9</string>
+				<key>MediaPlayPause</key>
+				<string>F8</string>
+				<key>MediaPrevious</key>
+				<string>F7</string>
+				<key>Misson Control</key>
+				<string>F3</string>
+				<key>SleepDisplay</key>
+				<string>F5</string>
+				<key>Touchpad</key>
+				<string>Pause</string>
 				<key>VideoMirror</key>
 				<string>F6</string>
 				<key>VolumeDown</key>
-				<string>F2</string>
+				<string>F11</string>
 				<key>VolumeMute</key>
-				<string>F1</string>
+				<string>F10</string>
 				<key>VolumeUp</key>
-				<string>F3</string>
+				<string>F12</string>
 			</dict>
 			<key>Fn Keys Mode 2</key>
 			<dict>
 				<key>BrightnessDown</key>
-				<string>F4</string>
-				<key>BrightnessUp</key>
 				<string>F5</string>
+				<key>BrightnessUp</key>
+				<string>F6</string>
 				<key>KBBacklightDown</key>
-				<string>disable</string>
+				<string>F3</string>
 				<key>KBBacklightUp</key>
-				<string>disable</string>
+				<string>F4</string>
 				<key>Launchpad</key>
-				<string>disable</string>
+				<string>F4</string>
 				<key>MediaNext</key>
 				<string>ArrowRight</string>
 				<key>MediaPlayPause</key>
@@ -121,26 +121,26 @@
 				<key>MediaPrevious</key>
 				<string>ArrowLeft</string>
 				<key>Misson Control</key>
-				<string>F8</string>
+				<string>F3</string>
 				<key>SleepDisplay</key>
-				<string>disable</string>
+				<string>F7</string>
 				<key>SystemSleep</key>
-				<string>disable</string>
+				<string>F1</string>
 				<key>Touchpad</key>
 				<string>F9</string>
 				<key>VideoMirror</key>
-				<string>F6</string>
+				<string>F8</string>
 				<key>VolumeDown</key>
-				<string>F2</string>
+				<string>F11</string>
 				<key>VolumeMute</key>
-				<string>F1</string>
+				<string>F10</string>
 				<key>VolumeUp</key>
-				<string>F3</string>
+				<string>F12</string>
 			</dict>
 			<key>Fn keys Layout</key>
-			<string>ASUS</string>
+			<string>NONE</string>
 			<key>Fn keys Mode</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>IOClass</key>
 			<string>ApplePS2Keyboard</string>
 			<key>IOProviderClass</key>
