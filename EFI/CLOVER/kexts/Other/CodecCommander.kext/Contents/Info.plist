@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18A326h</string>
+	<string>16F73</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -31,17 +31,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9F2000</string>
+	<string>8E3004b</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>17E189</string>
+	<string>16E185</string>
 	<key>DTSDKName</key>
-	<string>macosx10.13</string>
+	<string>macosx10.12</string>
 	<key>DTXcode</key>
-	<string>0941</string>
+	<string>0833</string>
 	<key>DTXcodeBuild</key>
-	<string>9F2000</string>
+	<string>8E3004b</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>CodecCommander</key>
@@ -62,6 +62,8 @@
 				<string>Realtek ALC283,etc</string>
 				<key>10ec_0255</key>
 				<string>Realtek ALC283,etc</string>
+				<key>10ec_0256</key>
+				<string>Realtek ALC256</string>
 				<key>10ec_0269</key>
 				<string>Realtek ALC269</string>
 				<key>10ec_0269_HDA_1028_04d9</key>
@@ -74,6 +76,8 @@
 				<string>Realtek ALC283,etc</string>
 				<key>10ec_0292</key>
 				<string>Realtek ALC292</string>
+				<key>10ec_0298</key>
+				<string>Realtek ALC298</string>
 				<key>10ec_0668</key>
 				<string>Realtek ALC668</string>
 				<key>10ec_0892_HDA_1458</key>
@@ -82,6 +86,8 @@
 				<string>Realtek ALC892 desktop</string>
 				<key>10ec_0900</key>
 				<string>Realtek ALC1150</string>
+				<key>10ec_1220</key>
+				<string>Realtek ALC1220</string>
 				<key>8086</key>
 				<string>Disabled HDMI</string>
 				<key>Default</key>
@@ -154,6 +160,86 @@
 					<key>Sleep Nodes</key>
 					<false/>
 					<key>Update Nodes</key>
+					<false/>
+				</dict>
+				<key>Realtek ALC1220</key>
+				<dict>
+					<key>Custom Commands</key>
+					<array>
+						<dict>
+							<key>Command</key>
+							<data>
+							AZcHJA==
+							</data>
+							<key>Comment</key>
+							<string>0x19 SET_PIN_WIDGET_CONTROL 0x24</string>
+							<key>On Init</key>
+							<true/>
+							<key>On Sleep</key>
+							<false/>
+							<key>On Wake</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>Command</key>
+							<data>
+							AbcIgw==
+							</data>
+							<key>Comment</key>
+							<string>0x1B SET_UNSOLICITED_ENABLE 0x83</string>
+							<key>On Init</key>
+							<true/>
+							<key>On Sleep</key>
+							<false/>
+							<key>On Wake</key>
+							<true/>
+						</dict>
+					</array>
+					<key>Perform Reset</key>
+					<true/>
+					<key>Send Delay</key>
+					<integer>10</integer>
+					<key>Sleep Nodes</key>
+					<false/>
+				</dict>
+				<key>Realtek ALC256</key>
+				<dict>
+					<key>Custom Commands</key>
+					<array>
+						<dict>
+							<key>Command</key>
+							<data>
+							AZcHJA==
+							</data>
+							<key>Comment</key>
+							<string>0x19 SET_PIN_WIDGET_CONTROL 0x24</string>
+							<key>On Init</key>
+							<true/>
+							<key>On Sleep</key>
+							<false/>
+							<key>On Wake</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>Command</key>
+							<data>
+							AhcIgw==
+							</data>
+							<key>Comment</key>
+							<string>0x21 SET_UNSOLICITED_ENABLE 0x83</string>
+							<key>On Init</key>
+							<true/>
+							<key>On Sleep</key>
+							<false/>
+							<key>On Wake</key>
+							<true/>
+						</dict>
+					</array>
+					<key>Perform Reset</key>
+					<true/>
+					<key>Send Delay</key>
+					<integer>10</integer>
+					<key>Sleep Nodes</key>
 					<false/>
 				</dict>
 				<key>Realtek ALC269</key>
@@ -292,6 +378,46 @@
 						</dict>
 					</array>
 					<key>Perform Reset</key>
+					<false/>
+				</dict>
+				<key>Realtek ALC298</key>
+				<dict>
+					<key>Custom Commands</key>
+					<array>
+						<dict>
+							<key>Command</key>
+							<data>
+							AYcHJQ==
+							</data>
+							<key>Comment</key>
+							<string>0x18 SET_PIN_WIDGET_CONTROL 0x25</string>
+							<key>On Init</key>
+							<true/>
+							<key>On Sleep</key>
+							<false/>
+							<key>On Wake</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>Command</key>
+							<data>
+							AhcIgw==
+							</data>
+							<key>Comment</key>
+							<string>0x21 SET_UNSOLICITED_ENABLE 0x83</string>
+							<key>On Init</key>
+							<true/>
+							<key>On Sleep</key>
+							<false/>
+							<key>On Wake</key>
+							<true/>
+						</dict>
+					</array>
+					<key>Perform Reset</key>
+					<true/>
+					<key>Send Delay</key>
+					<integer>10</integer>
+					<key>Sleep Nodes</key>
 					<false/>
 				</dict>
 				<key>Realtek ALC668</key>

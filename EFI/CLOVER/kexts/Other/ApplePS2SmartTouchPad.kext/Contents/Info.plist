@@ -915,13 +915,13 @@
 				<key>FingersPress</key>
 				<dict>
 					<key>2FingersPressAction</key>
-					<integer>18</integer>
+					<integer>0</integer>
 					<key>3FingersPressAction</key>
-					<integer>19</integer>
+					<integer>0</integer>
 					<key>4FingersPressAction</key>
-					<integer>20</integer>
+					<integer>0</integer>
 					<key>5FingersPressAction</key>
-					<integer>13</integer>
+					<integer>0</integer>
 					<key>FingersPressTimeOut</key>
 					<integer>700</integer>
 				</dict>
@@ -956,11 +956,11 @@
 				<key>Others</key>
 				<dict>
 					<key>4FingersPinchAction</key>
-					<integer>4</integer>
+					<integer>0</integer>
 					<key>5FingersPinchAction</key>
-					<integer>3</integer>
+					<integer>0</integer>
 					<key>CircularRotate</key>
-					<true/>
+					<false/>
 					<key>DisableTPadOnLIDClose</key>
 					<true/>
 					<key>MaxTouchEndDelta</key>
@@ -1296,43 +1296,43 @@
 				<key>Swiping</key>
 				<dict>
 					<key>3FingerSwipeDownAction</key>
-					<integer>1</integer>
+					<integer>3</integer>
 					<key>3FingerSwipeLeftAction</key>
 					<integer>11</integer>
 					<key>3FingerSwipeRightAction</key>
 					<integer>12</integer>
 					<key>3FingerSwipeUpAction</key>
-					<integer>3</integer>
+					<integer>13</integer>
 					<key>3FingerSwipes</key>
 					<true/>
 					<key>4FingerSwipeDownAction</key>
-					<integer>9</integer>
+					<integer>8</integer>
 					<key>4FingerSwipeLeftAction</key>
-					<integer>16</integer>
+					<integer>1</integer>
 					<key>4FingerSwipeRightAction</key>
-					<integer>15</integer>
+					<integer>16</integer>
 					<key>4FingerSwipeUpAction</key>
-					<integer>2</integer>
+					<integer>4</integer>
 					<key>4FingerSwipes</key>
 					<true/>
 					<key>EdgeSwipeBottom</key>
 					<integer>0</integer>
 					<key>EdgeSwipeDeltaX</key>
-					<integer>50</integer>
+					<integer>25</integer>
 					<key>EdgeSwipeDeltaY</key>
-					<integer>60</integer>
+					<integer>30</integer>
 					<key>EdgeSwipeFingers</key>
 					<integer>2</integer>
 					<key>EdgeSwipeLeft</key>
 					<integer>6</integer>
 					<key>EdgeSwipeRight</key>
-					<integer>14</integer>
+					<integer>7</integer>
 					<key>EdgeSwipeSenseHArea</key>
 					<integer>7</integer>
 					<key>EdgeSwipeSenseVArea</key>
 					<integer>5</integer>
 					<key>EdgeSwipeTop</key>
-					<integer>10</integer>
+					<integer>9</integer>
 					<key>EdgeSwipes</key>
 					<true/>
 					<key>EdgeSwipes2Ways</key>
@@ -1374,9 +1374,9 @@
 					<key>3FingersTapAction</key>
 					<integer>33</integer>
 					<key>4FingersTapAction</key>
-					<integer>4</integer>
+					<integer>32</integer>
 					<key>5FingersTapAction</key>
-					<integer>5</integer>
+					<integer>31</integer>
 					<key>CornerTapAreaHeight</key>
 					<integer>10</integer>
 					<key>CornerTapAreaLength</key>
