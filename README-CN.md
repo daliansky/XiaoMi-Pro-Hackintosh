@@ -116,7 +116,7 @@
     * 更新`CPUFriendDataProvider`让系统更省电
     * 更新Clover r4458
 
-*7-23-2018
+* 7-23-2018
     * 更新Clover r4618
     * 更新`AppleALC` v1.3.1
     * 更新`Lilu` v1.2.6
