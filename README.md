@@ -1,4 +1,4 @@
-# XiaoMi NoteBook Pro for macOS High Sierra & Sierra
+# XiaoMi NoteBook Pro for macOS Mojave & High Sierra & Sierra
 
 Hackintosh your XiaoMi Pro Notebook
 
@@ -6,7 +6,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Features
 
-* Support 10.13.x
+* Support 10.13.x and 10.14
   * CPU native support
   * The sound card is ALC298, fake with AppleALC, layout-id: 99; and injection information is located at `/CLOVER/ACPI/patched/SSDT-ALC298_XiaoMiPro.aml`
   * Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
@@ -20,13 +20,9 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
-- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [Shiki](https://github.com/vit9696/Shiki) for maintenance
-
-- [BarbaraPalvin](https://github.com/BarbaraPalvin) Updated [IntelGraphicsDVMTFixup](https://github.com/BarbaraPalvin/IntelGraphicsDVMTFixup) for maintenance
+- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
 
 - [Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) for maintenance
-
-- [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
 
 - [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
@@ -42,6 +38,20 @@ Hackintosh your XiaoMi Pro Notebook
 Please refer to the detailed installation tutorial (Chinese version) [macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 
 A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page.
+
+### Mojave Installation
+
+1. Use direction key to choose `Options` icon at Clover screen.
+
+2. Press `Space` key to select `Configs - config_install`
+
+3. Press `Space` key to choose `Return` and boot your Mojave partition
+
+4. The installer may restart several times, please repeat step 2 and 3 after every restart
+
+5. You may now successfully boot into the system. Open `Terminal.app` and type `sudo kextcache -i /`
+
+6. Wait until the process ends and restart. Enjoy your Mojave!
 
 
 
@@ -140,6 +150,16 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
    - Update CPUFriendDataProvider to save power
    - Update Clover r4458
 
+- 7-23-2018
+   - Update Clover r4618
+   - Update AppleALC v1.3.1
+   - Update Lilu v1.2.6
+   - Update CPUFriendDataProvider by using MBP15,2's PM template
+   - Update VoodooI2C v2.0.3
+   - Use WhateverGreen to replace IntelGraphicsFixup and Shiki
+   - Use Clover patch to replace IntelGraphicsDVMTFixup
+   - Use VoodooPS2Controller to replace ApplePS2SmartTouchPad
+   - Add support for Mojave (the installation instruction is at above)
 
 ## A reward
 
