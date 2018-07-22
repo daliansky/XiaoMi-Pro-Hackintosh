@@ -1,4 +1,4 @@
-# 小米笔记本PRO安装MacOS High Sierra & Sierra 使用说明
+# 小米笔记本PRO安装macOS Mojave & High Sierra & Sierra 使用说明
 
 让你的小米PRO笔记本吃上黑苹果
 
@@ -6,7 +6,7 @@
 
 ## 支持列表
 
-* 支持10.13 / 10.12.6
+* 支持10.13.x 和 10.14
 * CPU为第八代，原生支持
 * 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-ALC298_XiaoMiPro.aml`
 * 触摸板驱动程序使用VoodooI2C，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
@@ -116,26 +116,32 @@
     * 更新`CPUFriendDataProvider`让系统更省电
     * 更新Clover r4458
 
+*7-23-2018
+    * 更新Clover r4618
+    * 更新`AppleALC` v1.3.1
+    * 更新`Lilu` v1.2.6
+    * 更新`CPUFriendDataProvider` 通过使用MBP15,2的电源配置
+    * 更新`VoodooI2C` v2.0.3
+    * 新增`WhateverGreen` 来代替IntelGraphicsFixup 和 Shiki
+    * 新增minStolen的Clover补丁来代替`IntelGraphicsDVMTFixup`
+    * 新增`VoodooPS2Controller` 来代替ApplePS2SmartTouchPad
+    * 新增对Mojave的支持（安装教程在下面）
 
 ## 鸣谢
 
-- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
+- [RehabMan](https://github.com/RehabMan) 提供 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
 
-- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [Shiki](https://github.com/vit9696/Shiki) for maintenance
+- [vit9696](https://github.com/vit9696) 提供 [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
 
-- [BarbaraPalvin](https://github.com/BarbaraPalvin) Updated [IntelGraphicsDVMTFixup](https://github.com/BarbaraPalvin/IntelGraphicsDVMTFixup) for maintenance
+- [Pike R. Alpha](https://github.com/Piker-Alpha) 提供 [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) 的维护
 
-- [Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) for maintenance
+- [PMheart](https://github.com/PMheart) 提供 [CPUFriend](https://github.com/PMheart/CPUFriend) 的维护
 
-- [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
+- [alexandred](https://github.com/alexandred) 提供 [VoodooI2C](https://github.com/alexandred/VoodooI2C) 的维护
 
-- [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
+- [PavelLJ](https://github.com/PavelLJ) 的宝贵建议
 
-- [alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
-
-- [PavelLJ](https://github.com/PavelLJ) for valuable suggestions
-
-- [Javmain](https://github.com/javmain) for valuable suggestions
+- [Javmain](https://github.com/javmain) 的宝贵建议
 
 
 ## 安装
@@ -143,6 +149,19 @@
 请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面.
 
+### Mojave 安装
+
+1. 在Clover界面用方向键选择Options图标
+
+2. 用空格键选择，并在子菜单选择`Configs` - `config_install`
+
+3. 用空格键选择`Return`来回到主页面，并进入您的Mojave分区
+
+4. 安装器在安装时会自动重启多次。每次重启后请重复步骤2和步骤3
+
+5. 您现在可能成功进入系统了。打开`终端.app`并输入 `sudo kextcache -i /`
+
+6. 等待进程结束，然后重启。享受您的Mojave！
 
 
 ## 关于打赏

@@ -7,13 +7,13 @@ Hackintosh your XiaoMi Pro Notebook
 ## Features
 
 * Support 10.13.x and 10.14
-  * CPU native support
-  * The sound card is ALC298, fake with AppleALC, layout-id: 99; and injection information is located at `/CLOVER/ACPI/patched/SSDT-ALC298_XiaoMiPro.aml`
-  * Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
-  * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
-  * USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
-  * Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-  * Native Bluetooth is not working well. If you want to disable it to save power or to use BT dongle, please read instructions here: https://github.com/daliansky/XiaoMi-Pro/issues/24 .
+* CPU native support
+* The sound card is ALC298, fake with AppleALC, layout-id: 99; and injection information is located at `/CLOVER/ACPI/patched/SSDT-ALC298_XiaoMiPro.aml`
+* Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
+* Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
+* USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
+* Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+* Native Bluetooth is not working well. If you want to disable it to save power or to use BT dongle, please read instructions here: https://github.com/daliansky/XiaoMi-Pro/issues/24 .
 
 
 ## Credits
@@ -41,13 +41,13 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
 
 ### Mojave Installation
 
-1. Use direction key to choose `Options` icon at Clover screen.
+1. Use direction key to choose `Options` icon at Clover screen
 
-2. Press `Space` key to select `Configs - config_install`
+2. Press `Space` key to select `Configs` - `config_install`
 
 3. Press `Space` key to choose `Return` and boot your Mojave partition
 
-4. The installer may restart several times, please repeat step 2 and 3 after every restart
+4. The installer may restart several times, please repeat step 2 and step 3 after every restart
 
 5. You may now successfully boot into the system. Open `Terminal.app` and type `sudo kextcache -i /`
 
