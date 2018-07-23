@@ -1,4 +1,4 @@
-# 小米笔记本PRO安装MacOS High Sierra & Sierra 使用说明
+# 小米笔记本PRO安装macOS Mojave & High Sierra & Sierra 使用说明
 
 让你的小米PRO笔记本吃上黑苹果
 
@@ -6,13 +6,14 @@
 
 ## 支持列表
 
-* 支持10.13 / 10.12.6
+* 支持10.13.x 和 10.14
 * CPU为第八代，原生支持
-* 显卡仿冒支持，platform-id为0x19160000，注入信息通过 `/CLOVER/ACPI/patched/SSDT-Config.aml` 加载
-* 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-Config.aml`
+* 声卡为ALC298，采用AppleALC仿冒，layout-id为99，注入信息位于 `/CLOVER/ACPI/patched/SSDT-ALC298_XiaoMiPro.aml`
 * 触摸板驱动程序使用VoodooI2C，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
-* USB遮盖使用 `/CLOVER/kexts/Other/USBInjectAll_patched.kext`
+* USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-USB.aml`
+* 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+* 原生蓝牙不完美。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读https://github.com/daliansky/XiaoMi-Pro/issues/24 给出的步骤。
 
 
 
@@ -48,7 +49,6 @@
     * 更新声卡驱动，修复耳机问题
     * 新驱动增加layoutid：13
     * 支持四节点，支持耳麦自由切换，Mic/LineIn工作正常
-      ![ALC298for小米Pro声卡驱动安装](http://ous2s14vo.bkt.clouddn.com/ALC298for小米Pro声卡驱动安装.png)
 
 * 11-2-2017
     * Lilu v1.2.0更新，支持10.13.2Beta
@@ -76,32 +76,92 @@
     * 更新`Lilu` v1.2.2
     * 更新`AppleALC` v1.2.2 支持小米Pro，注入ID:99
 
-* 4-13-2018
 
+* 4-8-2018
+
+    * 支持10.13.4安装使用
+    * 更新`ACPIBatteryManager` v1.81.4
+    * 更新`AppleALC` v1.2.6
+    * 更新`FakeSMC` v6.26-344-g1cf53906.1787
+    * 更新`IntelGraphicsDVMTFixup` v1.2.1
+    * 更新`IntelGraphicsFixup` v1.2.7，不再需要额外的驱动给显卡注入id了
+    * 更新`Lilu` v1.2.3
+    * 更新`Shiki` v2.2.6
+    * 更新`USBInjectAll` v0.6.4
+    * 新增驱动`AppleBacklightInjector`，开启更多档位的亮度调节
+    * 新增驱动`CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
+    * 新增启动参数`shikigva=1`，`igfxrst=1`和`igfxfw=1`增强核显性能，并用新的方法修复启动第二阶段的八个苹果
+    * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
+    
+* 4-13-2018
+    
+    * 更新`AppleALC` v1.2.7
+    * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
+    * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
+    * 更新Clover r4438
     * 发布Clover v2.4 r4438小米笔记本PRO专用安装程序
 
         ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
+* 5-14-2018
+    
+    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`和`SSDT-XHC.aml`
+    * 删除config里的一些无用重命名
+    * 重做了USB驱动，现在type-c接口支持USB3.0了 
+    * 删除`SSDT-ADBG.aml`，它是个无用的方法覆写
+    * 删除`SSDT-IMEI.aml`来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
+    * 新增`SSDT-EC.aml`和`SSDT-SMBUS.aml`来加载AppleBusPowerController和AppleSMBusPCI
+    * 修改`SSDT-PCIList.aml`，使系统信息.app显示正确的信息
+    * 更新`Lilu` v1.2.4
+    * 更新`CPUFriendDataProvider`让系统更省电
+    * 更新Clover r4458
 
-
+* 7-23-2018
+    * 更新Clover r4618
+    * 更新`AppleALC` v1.3.1
+    * 更新`Lilu` v1.2.6
+    * 更新`CPUFriendDataProvider` 通过使用MBP15,2的电源配置
+    * 更新`VoodooI2C` v2.0.3
+    * 新增`WhateverGreen` 来代替IntelGraphicsFixup 和 Shiki
+    * 新增minStolen的Clover补丁来代替`IntelGraphicsDVMTFixup`
+    * 新增`VoodooPS2Controller` 来代替ApplePS2SmartTouchPad
+    * 新增对Mojave的支持（安装教程在下面）
 
 ## 鸣谢
 
-[RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) and [patch-nvme](https://github.com/RehabMan/patch-nvme) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) for maintenance
+- [RehabMan](https://github.com/RehabMan) 提供 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
 
-[vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [WhateverGreen](https://github.com/vit9696/WhateverGreen)  for maintenance
+- [vit9696](https://github.com/vit9696) 提供 [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
 
-[Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) and [HandyScripts](https://github.com/Piker-Alpha/HandyScripts) for maintenance
+- [Pike R. Alpha](https://github.com/Piker-Alpha) 提供 [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) 的维护
 
-[toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
+- [PMheart](https://github.com/PMheart) 提供 [CPUFriend](https://github.com/PMheart/CPUFriend) 的维护
 
+- [alexandred](https://github.com/alexandred) 提供 [VoodooI2C](https://github.com/alexandred/VoodooI2C) 的维护
+
+- [PavelLJ](https://github.com/PavelLJ) 的宝贵建议
+
+- [Javmain](https://github.com/javmain) 的宝贵建议
 
 
 ## 安装
 
 请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
-完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面.
+完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面.
 
+### Mojave 安装
+
+1. 在Clover界面用方向键选择Options图标
+
+2. 用空格键选择，并在子菜单选择`Configs` - `config_install`
+
+3. 用空格键选择`Return`来回到主页面，并进入您的Mojave分区
+
+4. 安装器在安装时会自动重启多次。每次重启后请重复步骤2和步骤3
+
+5. 您现在可能成功进入系统了。打开`终端.app`并输入 `sudo kextcache -i /`
+
+6. 等待进程结束，然后重启。享受您的Mojave！
 
 
 ## 关于打赏
