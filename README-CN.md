@@ -116,15 +116,15 @@
     * 更新`CPUFriendDataProvider`让系统更省电
     * 更新Clover r4458
 
-* 7-23-2018
+*7-23-2018
     * 更新Clover r4618
     * 更新`AppleALC` v1.3.1
     * 更新`Lilu` v1.2.6
     * 更新`CPUFriendDataProvider` 通过使用MBP15,2的电源配置
     * 更新`VoodooI2C` v2.0.3
     * 新增`WhateverGreen` 来代替IntelGraphicsFixup 和 Shiki
-    * 新增minStolen的Clover补丁来代替`IntelGraphicsDVMTFixup`
     * 新增`VoodooPS2Controller` 来代替ApplePS2SmartTouchPad
+    * 新增minStolen的Clover补丁
     * 新增对Mojave的支持（安装教程在下面）
 
 ## 鸣谢
@@ -168,15 +168,15 @@
 
 如果您认可我的工作，请通过打赏支持我后续的更新
 
-| 微信                                       | 支付宝                                      |
-| ---------------------------------------- | ---------------------------------------- |
-| ![wechatpay_160](http://ous2s14vo.bkt.clouddn.com/wechatpay_160.jpg) | ![alipay_160](http://ous2s14vo.bkt.clouddn.com/alipay_160.jpg) |
+| 微信                                                       | 支付宝                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
 
 ## 支持与讨论
 
 * QQ群:
-  * 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
-  * 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
+* 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
+* 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
 
   ​
 
