@@ -37,7 +37,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 Please refer to the detailed installation tutorial (Chinese version) [macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 
-A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page.
+A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page,Thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi/XiaoMi-Pro).
 
 ### Mojave Installation
 
@@ -150,16 +150,17 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
 
 ## A reward
 
-| Wechat                                   | Alipay                                   |
-| ---------------------------------------- | ---------------------------------------- |
-| ![wechatpay_160](http://ous2s14vo.bkt.clouddn.com/wechatpay_160.jpg) | ![alipay_160](http://ous2s14vo.bkt.clouddn.com/alipay_160.jpg) |
+| Wechat                                                     | Alipay                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
 
 ## Support and discussion
 
 - QQ群:
   - 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
+  - 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
   - 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
-  - 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)[群已满,请加其它群]
+  - 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)
   - 257995340 [一起啃苹果](http://shang.qq.com/wpa/qunwpa?idkey=8a63c51acb2bb80184d788b9f419ffcc33aa1ed2080132c82173a3d881625be8)
 
 
