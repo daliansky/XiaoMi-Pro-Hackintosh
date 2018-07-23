@@ -1,4 +1,4 @@
-# XiaoMi NoteBook Pro for macOS High Sierra & Sierra
+# XiaoMi NoteBook Pro for macOS Mojave & High Sierra & Sierra
 
 Hackintosh your XiaoMi Pro Notebook
 
@@ -6,34 +6,52 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Features
 
-* Support 10.13.x
-  * CPU native support
-  * video card fake support, platform-id is 0x19160000, injection information is loaded by /CLOVER/ACPI/patched/SSDT-Config.aml
-  * The sound card is ALC298, fake with AppleALC, layout-id is 99, injection information is located at `/CLOVER/ACPI/patched/SSDT-Config.aml`
-  * Touchpad driver using `VoodooI2C`, support for multiple gestures, touchpad boot can be used normally, no drift, no wakeup
-  * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
-  * USB shadowing using `/CLOVER/kexts/Other/USBInjectAll_patched.kext`
-
+* Support 10.13.x and 10.14
+* CPU native support
+* The sound card is ALC298, fake with AppleALC, layout-id: 99; and injection information is located at `/CLOVER/ACPI/patched/SSDT-ALC298_XiaoMiPro.aml`
+* Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
+* Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
+* USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
+* Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+* Native Bluetooth is not working well. If you want to disable it to save power or to use BT dongle, please read instructions here: https://github.com/daliansky/XiaoMi-Pro/issues/24 .
 
 
 ## Credits
 
-- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) and [patch-nvme](https://github.com/RehabMan/patch-nvme) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
-- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/vit9696/Lilu) and [AppleALC](https://github.com/vit9696/AppleALC) and [WhateverGreen](https://github.com/vit9696/WhateverGreen)  for maintenance
+- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
 
-- [Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) and [HandyScripts](https://github.com/Piker-Alpha/HandyScripts) for maintenance
+- [Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) for maintenance
 
-- [toleda](https://github.com/toleda), [Mirone](https://github.com/Mirone) and certain others for audio patches and layouts
+- [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
+- [alexandred](https://github.com/alexandred) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
 
+- [PavelLJ](https://github.com/PavelLJ) for valuable suggestions
+
+- [Javmain](https://github.com/javmain) for valuable suggestions
 
 
 ## Installation
 
 Please refer to the detailed installation tutorial (Chinese version) [macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 
-A complete EFI archive is available [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page.
+A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page.
+
+### Mojave Installation
+
+1. Use direction key to choose `Options` icon at Clover screen
+
+2. Press `Space` key to select `Configs` - `config_install`
+
+3. Press `Space` key to choose `Return` and boot your Mojave partition
+
+4. The installer may restart several times, please repeat step 2 and step 3 after every restart
+
+5. You may now successfully boot into the system. Open `Terminal.app` and type `sudo kextcache -i /`
+
+6. Wait until the process ends and restart. Enjoy your Mojave!
 
 
 
@@ -85,9 +103,50 @@ A complete EFI archive is available [releases](https://github.com/daliansky/Xiao
    - Fixed screen brightness can not be saved problem
    - Updated Lilu v1.2.2
    - Updated AppleALC v1.2.2 support millet pro, injection ID: 99
-   - Update IntelGraphicsFixup v1.2.3
+   - Update IntelGraphicsFixup v1.2.3   
+- 4-8-2018
+   - Support for 10.13.4 installation
+   - Updated ACPIBatteryManager v1.81.4
+   - Updated AppleALC v1.2.6
+   - Updated FakeSMC v6.26-344-g1cf53906.1787
+   - Updated IntelGraphicsDVMTFixup v1.2.1
+   - Updated IntelGraphicsFixup v1.2.7, no need kexts for faking Intel Graphics' ID
+   - Updated Lilu v1.2.3
+   - Updated Shiki v2.2.6
+   - Updated USBInjectAll v0.6.4
+   - Add AppleBacklightInjector to widen the range of brightness
+   - Add CPUFriend and CPUFriendDataProvider to enable native XCPM and HWP
+   - Add boot parameters "shikigva=1", "igfxrst=1" and "igfxfw=1" to make the Graphics card more powerful and fix strange secondary boot interface.
+   - Add SSDT-LGPA.aml, support native brightness hotkey
+- 4-12-2018
+   - Update AppleALC v1.2.7
+   - Update SSDT-IMEL.aml, SSDT-PTSWAK.aml, SSDT-SATA.aml, SSDT-XOSI.aml from Rehabman's Github
+   - Edit SSDT-LPC.aml to load native AppleLPC
+   - Update Clover r4438
 
 
+- 5-14-2018
+   - Rename some SSDTs to fit with Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config. Also update SSDT-GPRW.aml, SSDT-DDGPU.aml, SSDT-RMCF.aml and SSDT-XHC.aml
+   - Delete some useless renames in config
+   - Redo the USB Injection, now it supports type-c USB3.0
+   - Delete SSDT-ADBG.aml since it's useless
+   - Delete SSDT-IMEI.aml to avoid kernel error report(Graphics id is automatically injected by IntelGraphicsFixup)
+   - Add SSDT-EC.aml and SSDT-SMBUS.aml to launch AppleBusPowerController and AppleSMBusPCI
+   - Edit SSDT-PCIList.aml to let System Information.app show correct information
+   - Update Lilu v1.2.4
+   - Update CPUFriendDataProvider to save power
+   - Update Clover r4458
+
+- 7-23-2018
+   - Update Clover r4618
+   - Update AppleALC v1.3.1
+   - Update Lilu v1.2.6
+   - Update CPUFriendDataProvider by using MBP15,2's PM template
+   - Update VoodooI2C v2.0.3
+   - Use WhateverGreen to replace IntelGraphicsFixup and Shiki
+   - Use Clover patch to replace IntelGraphicsDVMTFixup
+   - Use VoodooPS2Controller to replace ApplePS2SmartTouchPad
+   - Add support for Mojave (the installation instruction is at above)
 
 ## A reward
 
