@@ -94,7 +94,7 @@
     * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
     
 * 4-13-2018
-    
+  
     * 更新`AppleALC` v1.2.7
     * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
@@ -143,15 +143,14 @@
 
 - [Javmain](https://github.com/javmain) 的宝贵建议
 
-
 ## 安装
 
 请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
-完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面.
+完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi/XiaoMi-Pro)的持续更新.
 
 ### Mojave 安装
 
-1. 在Clover界面用方向键选择Options图标
+1. 在`Clover`界面用方向键选择`Options`图标
 
 2. 用空格键选择，并在子菜单选择`Configs` - `config_install`
 
@@ -168,9 +167,9 @@
 
 如果您认可我的工作，请通过打赏支持我后续的更新
 
-| 微信                                       | 支付宝                                      |
-| ---------------------------------------- | ---------------------------------------- |
-| ![wechatpay_160](http://ous2s14vo.bkt.clouddn.com/wechatpay_160.jpg) | ![alipay_160](http://ous2s14vo.bkt.clouddn.com/alipay_160.jpg) |
+| 微信                                                       | 支付宝                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
 
 ## 支持与讨论
 
