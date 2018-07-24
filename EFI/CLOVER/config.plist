@@ -6,6 +6,10 @@
 	<dict>
 		<key>AutoMerge</key>
 		<true/>
+		<key>FixHeaders</key>
+		<true/>
+		<key>FixMCFG</key>
+		<true/>
 		<key>DSDT</key>
 		<dict>
 			<key>DropOEM_DSM</key>
@@ -15,142 +19,82 @@
 				<dict>
 					<key>Comment</key>
 					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
+					<data>X09TSQ==</data>
 					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
+					<data>WE9TSQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change _DSM to XDSM</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					X0RTTQ==
-					</data>
+					<data>X0RTTQ==</data>
 					<key>Replace</key>
-					<data>
-					WERTTQ==
-					</data>
+					<data>WERTTQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change HDAS to HDEF</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					SERBUw==
-					</data>
+					<data>SERBUw==</data>
 					<key>Replace</key>
-					<data>
-					SERFRg==
-					</data>
+					<data>SERFRg==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
+					<data>SEVDSQ==</data>
 					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
+					<data>SU1FSQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
+					<data>R0ZYMA==</data>
 					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
+					<data>SUdQVQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change SAT0 to SATA</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					U0FUMA==
-					</data>
+					<data>U0FUMA==</data>
 					<key>Replace</key>
-					<data>
-					U0FUQQ==
-					</data>
+					<data>U0FUQQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change Method(_PTS,1,N) to ZPTS</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					X1BUUwE=
-					</data>
+					<data>X1BUUwE=</data>
 					<key>Replace</key>
-					<data>
-					WlBUUwE=
-					</data>
+					<data>WlBUUwE=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change Method(_WAK,1,S) to ZWAK</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					X1dBSwk=
-					</data>
+					<data>X1dBSwk=</data>
 					<key>Replace</key>
-					<data>
-					WldBSwk=
-					</data>
+					<data>WldBSwk=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change Method(GPRW,2,N) to XPRW</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					R1BSVwI=
-					</data>
+					<data>R1BSVwI=</data>
 					<key>Replace</key>
-					<data>
-					WFBSVwI=
-					</data>
+					<data>WFBSVwI=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change LGPA to XGPA</string>
-					<key>Disabled</key>
-					<false/>
 					<key>Find</key>
-					<data>
-					TEdQQQk=
-					</data>
+					<data>TEdQQQk=</data>
 					<key>Replace</key>
-					<data>
-					WEdQQQk=
-					</data>
+					<data>WEdQQQk=</data>
 				</dict>
 			</array>
 		</dict>
@@ -161,10 +105,6 @@
 				<string>DMAR</string>
 			</dict>
 		</array>
-		<key>FixHeaders</key>
-		<true/>
-		<key>FixMCFG</key>
-		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -181,7 +121,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 igfxrst=1 abm_firstpolldelay=10000 darkwake=no -lilubetaall -disablegfxfirmware kext-dev-mode=1</string>
+		<string>kext-dev-mode=1 dart=0 darkwake=no abm_firstpolldelay=10000 igfxrst=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
@@ -206,9 +146,9 @@
 		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
+			<true/>
+			<key>AddClockID</key>
 			<true/>
 			<key>HighCurrent</key>
 			<true/>
@@ -273,125 +213,81 @@
 		<true/>
 		<key>KernelPm</key>
 		<true/>
-		<key>KernelToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ILniAAAADzA=
-				</data>
-				<key>Replace</key>
-				<data>
-				ILniAAAAkJA=
-				</data>
-			</dict>
-		</array>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				SU9LaXQ=
-				</data>
-				<key>InfoPlistPatch</key>
-				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2C</string>
+				<key>Find</key>
+				<data>SU9LaXQ=</data>
 				<key>Replace</key>
-				<data>
-				SU9LaXM=
-				</data>
+				<data>SU9LaXM=</data>
+				<key>InfoPlistPatch</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				SU9LaXQ=
-				</data>
-				<key>InfoPlistPatch</key>
-				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
+				<key>Find</key>
+				<data>SU9LaXQ=</data>
 				<key>Replace</key>
-				<data>
-				SU9LaXM=
-				</data>
+				<data>SU9LaXM=</data>
+				<key>InfoPlistPatch</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
+				<key>Find</key>
+				<data>RiV1VCUwNHgA</data>
 				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
+				<data>RiV1VHh4eHgA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14 Credits (Sniki)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkZI/wU=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>dkZI/wU=</data>
 				<key>Replace</key>
-				<data>
-				60ZI/wU=
-				</data>
+				<data>60ZI/wU=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Enable 0x59160000 ports(0000-eDP, 0105-HDMI, 0204-HDMI)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AAAIAAIAAACYAAAAAQUJAAAEAACHAQAAAgQKAAAEAACH
-				AQAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AAAIAAIAAACYAAAAAQUJAAAEAACHAQAAAgQKAAAEAACHAQAA</data>
 				<key>Replace</key>
-				<data>
-				AAAIAAAEAACYAAAAAQUJAAAIAACHAQAAAgQKAAAIAACH
-				AQAA
-				</data>
+				<data>AAAIAAAEAACYAAAAAQUJAAAIAACHAQAAAgQKAAAIAACHAQAA</data>
+			</dict>
+		</array>
+		<key>KernelToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
 			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
-		<key>BooterConfig</key>
-		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
+		<key>BooterConfig</key>
+		<string>0x28</string>
 		<key>ROM</key>
 		<string>UseMacAddr0</string>
 	</dict>
