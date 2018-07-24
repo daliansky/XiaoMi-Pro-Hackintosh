@@ -2,7 +2,7 @@
 
 让你的小米PRO笔记本吃上黑苹果
 
-
+[English](README.md) | [中文](README-CN.md)
 
 ## 支持列表
 
