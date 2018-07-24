@@ -94,7 +94,7 @@
     * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
     
 * 4-13-2018
-    
+  
     * 更新`AppleALC` v1.2.7
     * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
@@ -143,15 +143,14 @@
 
 - [Javmain](https://github.com/javmain) 的宝贵建议
 
-
 ## 安装
 
 请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
-完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面.
+完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi/XiaoMi-Pro)的持续更新.
 
 ### Mojave 安装
 
-1. 在Clover界面用方向键选择Options图标
+1. 在`Clover`界面用方向键选择`Options`图标
 
 2. 用空格键选择，并在子菜单选择`Configs` - `config_install`
 

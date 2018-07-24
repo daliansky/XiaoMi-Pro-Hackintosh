@@ -37,7 +37,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 Please refer to the detailed installation tutorial (Chinese version) [macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 
-A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page.
+A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page,Thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi/XiaoMi-Pro).
 
 ### Mojave Installation
 
@@ -59,7 +59,6 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
 
 - 10-14-2017
    - EFI update, touch pad is working
-
 - 10-17-2017
    - EFI update, fixed graphics driver
    - Add HDMI Audio output
@@ -70,39 +69,32 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
      - AirportBrcmFixup v1.1.0
    - Driver repair:
      - IntelGraphicsFixup v1.2.0
-
 - 10-18-2017
    - tested graphics driver is not as good as the first version, now the graphics driver is restored to fake 0x19160000
    - ACPI repair
        Driver fixes
    - Remove USBInjectAll with SSDT-UIAL.aml built-in USB device
-
 - 10-19-2017
    - Graphics driver is normal
    - The touchpad turns on normally, multi-gestures are normal after waking up
    - normal sleep
    - Battery information is normal
-
 - 10-31-2017
    - Update sound card driver, fix earphone problem
    - New driver to increase layoutid: 13
    - Supports four nodes to support the headset to switch freely, Mic / LineIn is working properly
-
 - 11-2-2017
    - Lilu v1.2.0 update, support 10.13.2Beta
    - AppleALC update, using the latest revision of Lilu co-compiler to solve 10.13.1 update can not be driven after the problem
-
 - 11-5-2017
    - Integrate AppleALC_ALC298_id13_id28.kext driver to EFI
    - Add EFL directory ALCPlugFix directory, please enter the ALCPlugFix directory after the installation is complete, double-click the install double-click to automatically install. Command Install the headset plug-in state correction daemon
    - Fixed Drivers64UEFI to solve the problem that can not be installed
    - Updated apfs.efi to version 10.13.1
-
 - 11-7-2017
    - Lilu v1.2.1 is not stable at the moment, with the risk of inability to enter the system, so downgrade to v1.2.0
    - AppleALC downgraded to V1.2.0
        **EFI temporarily does not support macOS 10.13.2Beta version of the installation, Lilu does not exhaust will continue to update**
-
 - 1-25-2018
    - Support for 10.13.x installation
    - Updated VoodooI2C to version 2.0.1, supports multi-gestures, touchpad boot can be used normally, no drift, no wakeup
@@ -132,11 +124,6 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
    - Edit SSDT-LPC.aml to load native AppleLPC
    - Update Clover r4438
 
-- 4-13-2018
-
-   - Released Clover v2.4 r4438 XiaoMi PRO special installer
-
-     ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
 - 5-14-2018
    - Rename some SSDTs to fit with Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config. Also update SSDT-GPRW.aml, SSDT-DDGPU.aml, SSDT-RMCF.aml and SSDT-XHC.aml
@@ -170,11 +157,11 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
 ## Support and discussion
 
 - QQ群:
-- 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
-- 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
-- 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
-- 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)
-- 257995340 [一起啃苹果](http://shang.qq.com/wpa/qunwpa?idkey=8a63c51acb2bb80184d788b9f419ffcc33aa1ed2080132c82173a3d881625be8)
+  - 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
+  - 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
+  - 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
+  - 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)
+  - 257995340 [一起啃苹果](http://shang.qq.com/wpa/qunwpa?idkey=8a63c51acb2bb80184d788b9f419ffcc33aa1ed2080132c82173a3d881625be8)
 
 
 
