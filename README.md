@@ -2,7 +2,7 @@
 
 Hackintosh your XiaoMi Pro Notebook
 
-
+[English](README.md) | [中文](README-CN.md)
 
 ## Features
 
