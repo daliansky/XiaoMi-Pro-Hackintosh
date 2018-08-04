@@ -1,4 +1,4 @@
-# XiaoMi NoteBook Pro for macOS Mojave & High Sierra & Sierra
+# XiaoMi NoteBook Pro for macOS Mojave & High Sierra
 
 Hackintosh your XiaoMi Pro Notebook
 
