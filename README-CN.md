@@ -1,4 +1,4 @@
-# 小米笔记本PRO安装macOS Mojave & High Sierra & Sierra 使用说明
+# 小米笔记本PRO安装macOS Mojave & High Sierra 使用说明
 
 让你的小米PRO笔记本吃上黑苹果
 
