@@ -13,7 +13,7 @@ Hackintosh your XiaoMi Pro Notebook
 * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
 * USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
 * Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* Native Bluetooth is not working well. If you want to disable it to save power or to use BT dongle, please read instructions here: https://github.com/daliansky/XiaoMi-Pro/issues/24 .
+* Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). If you want to disable it to save power or to use BT dongle, please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
 
 
 ## Credits

@@ -13,7 +13,7 @@
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
 * USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-USB.aml`
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* 原生蓝牙不完美。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读https://github.com/daliansky/XiaoMi-Pro/issues/24 给出的步骤。
+* 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
 
 
 ## 更新日期：
