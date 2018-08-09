@@ -18,13 +18,9 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Credits
 
-- [RehabMan](https://github.com/RehabMan) Updated [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
 - [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
-
-- [BarbaraPalvin](https://github.com/BarbaraPalvin) Updated [IntelGraphicsDVMTFixup](https://github.com/BarbaraPalvin/IntelGraphicsDVMTFixup) for maintenance
-
-- [Pike R. Alpha](https://github.com/Piker-Alpha) Updated [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) for maintenance
 
 - [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
@@ -39,9 +35,7 @@ Please refer to the detailed installation tutorial (Chinese version) [macOSå®‰è£
 
 A complete EFI archive is available [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) page,Thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi/XiaoMi-Pro).
 
-### Mojave Installation
-
-Because trackpad driver hasn't been completely updated to support Mojave, please insert a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
+If the tracpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 
 
 ## Change Log:
@@ -176,10 +170,12 @@ Because trackpad driver hasn't been completely updated to support Mojave, please
     - Add support for Mojave (the installation instruction is at above)
 
 
-- 8-XX-2018
+- 8-9-2018
  
-    
+    - Update `Clover` r4641
     - Update `WhateverGreen` v1.2.1
+    - Update `AppleALC`
+    - Update `CPUFriendDataProvider` by using default EPP value to enhance performance
     - Update `Lilu`
     - Update `config.plist`, using AddProperties to replace minStolen Clover patch
     - Change AppleIntelFramebuffer@0's connertor-type from LVDS to eDP because MiPro uses eDP pin
