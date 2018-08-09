@@ -7,7 +7,7 @@ Hackintosh your XiaoMi Pro Notebook
 ## Features
 
 * Support 10.13.x and 10.14
-* CPU native support
+* CPU native support. For people who want better performance (maybe shorter battery life), please replace `/CLOVER/kexts/10.13(or 10.14)/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
 * The sound card is ALC298, fake with `AppleALC`, layout-id: 99; and injection information is located at `/CLOVER/config.plist`
 * Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
 * Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
