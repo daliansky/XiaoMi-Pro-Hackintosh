@@ -150,10 +150,12 @@
     * 新增对Mojave的支持（安装教程在下面）
 
 
-* 8-XX-2018
+* 8-9-2018
 
-   
+    * 更新 `Clover` r4641
     * 更新 `WhateverGreen` v1.2.1
+    * 更新 `AppleALC`
+    * 更新 `CPUFriendDataProvider`, 使用默认的EPP值来增强性能
     * 更新 `Lilu`
     * 更新 `config.plist`，用AddProperties来代替minStolen Clover补丁
     * 修改AppleIntelFramebuffer@0的接口类型（由原本的LVDS改为eDP），因为MiPro采用的是eDP输入
@@ -163,13 +165,9 @@
 
 ## 鸣谢
 
-- [RehabMan](https://github.com/RehabMan) 提供 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
+- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) 和 [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) 和 [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
 
-- [vit9696](https://github.com/vit9696) 提供 [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
-
-- [BarbaraPalvin](https://github.com/BarbaraPalvin) 提供 [IntelGraphicsDVMTFixup](https://github.com/BarbaraPalvin/IntelGraphicsDVMTFixup) 的维护
-
-- [Pike R. Alpha](https://github.com/Piker-Alpha) 提供 [ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh) and [AppleIntelInfo](https://github.com/Piker-Alpha/AppleIntelInfo) 的维护
+- [vit9696](https://github.com/vit9696) 提供 [Lilu](https://github.com/acidanthera/Lilu) 和 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
 
 - [PMheart](https://github.com/PMheart) 提供 [CPUFriend](https://github.com/PMheart/CPUFriend) 的维护
 
@@ -183,9 +181,7 @@
 请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
 完整的EFI压缩版请访问 [releases](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi/XiaoMi-Pro)的持续更新.
 
-### Mojave 安装
-
-由于触控板驱动没有完全完善，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开`终端.app`并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
+如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开`终端.app`并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 关于打赏
