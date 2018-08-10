@@ -92,9 +92,9 @@
     * 新增驱动`CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
     * 新增启动参数`shikigva=1`，`igfxrst=1`和`igfxfw=1`增强核显性能，并用新的方法修复启动第二阶段的八个苹果
     * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
-    
+
 * 4-13-2018
-  
+
     * 更新`AppleALC` v1.2.7
     * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
@@ -104,7 +104,7 @@
         ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
 * 5-14-2018
-    
+        
     * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`和`SSDT-XHC.aml`
     * 删除config里的一些无用重命名
     * 重做了USB驱动，现在type-c接口支持USB3.0了 
@@ -126,6 +126,14 @@
     * 新增minStolen的Clover补丁来代替`IntelGraphicsDVMTFixup`
     * 新增`VoodooPS2Controller` 来代替ApplePS2SmartTouchPad
     * 新增对Mojave的支持（安装教程在下面）
+
+* 8-10-2018
+
+
+    * 更新`config.plist`，添加新的显卡注入方法，修改显存为2048Mb，添加KBL平台DVMT补丁，添加`Lilu`崩溃信息显示；
+    * `Whatevergreen`常规更新；`AppleALC`常规更新；
+
+    
 
 ## 鸣谢
 
