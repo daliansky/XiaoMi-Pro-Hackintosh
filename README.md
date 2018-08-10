@@ -148,6 +148,17 @@ A complete EFI archive is available [releases](https://github.com/stevezhengshiq
    - Use VoodooPS2Controller to replace ApplePS2SmartTouchPad
    - Add support for Mojave (the installation instruction is at above)
 
+- 8-10-2018
+
+
+   - Update config.plist, add a new graphics card injection method
+   - Modify the VRAM to 2048Mb
+   - add the KBL platform DVMT patch
+   - add Lilu crash information display
+   - `Whatevergreen` regular update; `AppleALC` regular update;
+
+   
+
 ## A reward
 
 | Wechat                                                     | Alipay                                               |
