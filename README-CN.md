@@ -7,7 +7,7 @@
 ## 支持列表
 
 * 支持10.13.x 和 10.14
-* CPU为第八代，原生支持。如果需要更高的性能（续航可能会减少），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/10.13(or 10.14)/`。
+* CPU为第八代，原生支持。如果需要更高的性能（续航可能会减少），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
 * 声卡为ALC298，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`
 * 触摸板驱动程序使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
