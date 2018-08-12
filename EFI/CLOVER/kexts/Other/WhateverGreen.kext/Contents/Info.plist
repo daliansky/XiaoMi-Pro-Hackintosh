@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
+<<<<<<< HEAD
 	<string>18A353d</string>
+=======
+	<string>17G2112</string>
+>>>>>>> 29028b225d9bd7ed76005d56415cfb30c884b8d9
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
