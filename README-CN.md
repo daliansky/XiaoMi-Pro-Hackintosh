@@ -116,7 +116,7 @@
     * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
     * 更新Clover r4438
     * 发布Clover v2.4 r4438小米笔记本PRO专用安装程序
-=======
+    =======
     * 更新 `ACPIBatteryManager` v1.81.4
     * 更新 `AppleALC` v1.2.6
     * 更新 `FakeSMC` v6.26-344-g1cf53906.1787
@@ -129,11 +129,8 @@
     * 新增驱动 `CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
     * 新增启动参数 `shikigva=1`，`igfxrst=1` 和 `igfxfw=1` 增强核显性能，并用新的方法修复启动第二阶段的八个苹果
     * 新增 `SSDT-LGPA.aml`，支持原生亮度快捷键
-    
-    
-* 4-13-2018
->>>>>>> 29028b225d9bd7ed76005d56415cfb30c884b8d9
 
+* 4-13-2018
     * 更新 `AppleALC` v1.2.7
     * 更新 `SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改 `SSDT-LPC.aml` 已加载原生电源驱动AppleLPC
@@ -143,23 +140,18 @@
 
 
 * 5-14-2018
-<<<<<<< HEAD
-        
-    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`和`SSDT-XHC.aml`
-    * 删除config里的一些无用重命名
-=======
-
-    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了 `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` 和 `SSDT-XHC.aml`
-    * 删除config里的一些无用重命名和错误启动参数 `shikigva=1`
->>>>>>> 29028b225d9bd7ed76005d56415cfb30c884b8d9
-    * 重做了USB驱动，现在type-c接口支持USB3.0了 
-    * 删除 `SSDT-ADBG.aml`，它是个无用的方法覆写
-    * 删除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
-    * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载AppleBusPowerController和AppleSMBusPCI
-    * 修改 `SSDT-PCIList.aml`，使 `系统报告.app` 显示正确的信息
-    * 更新 `Lilu` v1.2.4
-    * 更新 `CPUFriendDataProvider` 让系统更省电
-    * 更新 `Clover` r4458
+  * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`和`SSDT-XHC.aml`
+  * 删除config里的一些无用重命名
+  * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了 `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` 和 `SSDT-XHC.aml`
+  * 删除config里的一些无用重命名和错误启动参数 `shikigva=1`
+  * 重做了USB驱动，现在type-c接口支持USB3.0了 
+  * 删除 `SSDT-ADBG.aml`，它是个无用的方法覆写
+  * 删除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
+  * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载AppleBusPowerController和AppleSMBusPCI
+  * 修改 `SSDT-PCIList.aml`，使 `系统报告.app` 显示正确的信息
+  * 更新 `Lilu` v1.2.4
+  * 更新 `CPUFriendDataProvider` 让系统更省电
+  * 更新 `Clover` r4458
 
 
 * 7-27-2018
@@ -178,26 +170,13 @@
     * 新增minStolen的Clover补丁
     * 新增对Mojave的支持（安装教程在下面）
 
-<<<<<<< HEAD
-* 8-10-2018
-
-
-    * 更新`config.plist`，添加新的显卡注入方法，修改显存为2048Mb，添加KBL平台DVMT补丁，添加`Lilu`崩溃信息显示；
-    * `Whatevergreen`常规更新；`AppleALC`常规更新；
-
-    
-
-## 鸣谢
-=======
->>>>>>> 29028b225d9bd7ed76005d56415cfb30c884b8d9
-
 * 8-9-2018
 
     * 更新 `Clover` r4641
     * 更新 `WhateverGreen` v1.2.1
-    * 更新 `AppleALC`
+    * 更新 `AppleALC` v1.3.1
     * 更新 `CPUFriendDataProvider`, 使用默认的EPP值来增强性能
-    * 更新 `Lilu`
+    * 更新 `Lilu` v1.2.6
     * 更新 `config.plist`，用AddProperties来代替minStolen Clover补丁
     * 修改AppleIntelFramebuffer@0的接口类型（由原本的LVDS改为eDP），因为MiPro采用的是eDP输入
     * 不用通过 `config_install.plist` 注入显卡id 0x12345678了，新版  `WhateverGreen` 可以做到
