@@ -8,12 +8,14 @@
 
 * 支持10.13.x 和 10.14
 * CPU为第八代，原生支持。如果需要更高的性能（续航可能会减少），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
-* 声卡为ALC298，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`
-* 触摸板驱动程序使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
+* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`
+* 触摸板驱动使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
 * 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
 * USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-USB.aml`
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
+* 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
+    * 禁用原生蓝牙来省电或者使用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤
+    * 购买一个兼容的内置网卡并插在M.2插槽。小心地把D+和D-线焊接到WLAN_LTE接口上。然后把[#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)的附件替换进`/CLOVER/ACPI/patched/SSDT-USB.aml`
 
 
 ## 更新日期：
