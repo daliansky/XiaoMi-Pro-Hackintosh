@@ -8,12 +8,14 @@ Hackintosh your XiaoMi Pro Notebook
 
 * Support 10.13.x and 10.14
 * CPU native support. For people who want better performance (maybe shorter battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
-* The sound card is ALC298, fake with `AppleALC`, layout-id: 99; and injection information is located at `/CLOVER/config.plist`
-* Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
-* Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
-* USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
-* Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). If you want to disable it to save power or to use BT dongle, please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
+* The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`
+* Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift
+* Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`
+* USB power property injection and the custom SSDT for `USBInjectAll.kext` are located in `/CLOVER/ACPI/patched/SSDT-USB.aml`
+* Native Brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
+* Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
+    * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)
+    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace your `/CLOVER/ACPI/patched/SSDT-USB.aml` with the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)
 
 
 ## Credits
