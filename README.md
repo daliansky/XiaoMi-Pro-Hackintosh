@@ -185,6 +185,10 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
     - Mojave installation become easier
 
 
+- 8-13-2018
+    - Reverse back `CPUFriendProvider.kext` to the one in v1.2.2 because the one in v1.2.5 will cause KP in some devices in 10.13.3~10.13.5. If you want better CPU performance or better battery life, please read [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+
+
 ## A reward
 
 | Wechat                                                     | Alipay                                               |
