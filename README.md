@@ -7,7 +7,7 @@ Hackintosh your XiaoMi Pro Notebook
 ## Features
 
 * Support 10.13.x and 10.14
-* CPU native support. For people who want better performance (maybe shorter battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+* CPU native support. For people who want better performance (or longer battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
 * The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`
 * Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift
 * Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`
