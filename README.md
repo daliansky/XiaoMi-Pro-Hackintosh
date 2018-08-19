@@ -41,12 +41,12 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 ## Change Log:
 
 - 10-14-2017
-    
+  
     - EFI update, touch pad is working
 
 
 - 10-17-2017
-    
+  
     - EFI update, fixed graphics driver
     - Add HDMI Audio output
     - Driver Update:
@@ -82,7 +82,7 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 11-2-2017
-    
+  
     - `Lilu` v1.2.0 update, support 10.13.2Beta
     - `AppleALC` update, using the latest revision of Lilu co-compiler to solve 10.13.1 update can not be driven after the problem
 
@@ -96,14 +96,14 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 11-7-2017
-    
+  
     - `Lilu` v1.2.1 is not stable at the moment, with the risk of inability to enter the system, so downgrade to v1.2.0
     - `AppleALC` downgraded to V1.2.0
        **EFI temporarily does not support macOS 10.13.2Beta version of the installation, Lilu does not exhaust will continue to update**
 
 
 - 1-25-2018
-    
+  
     - Support for 10.13.x installation
     - Updated `VoodooI2C` to version 2.0.1, supports multi-gestures, touchpad boot can be used normally, no drift, no wakeup
     - Fixed the issue of percentage refreshes
@@ -154,7 +154,7 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 7-27-2018
-    
+  
     - Update `Clover` r4625
     - Update `AppleALC` v1.3.1
     - Update `Lilu` v1.2.6
@@ -171,7 +171,7 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 8-9-2018
- 
+
     - Update `Clover` r4641
     - Update `WhateverGreen` v1.2.1
     - Update `AppleALC`
@@ -186,13 +186,18 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 - 8-10-2018
 
 
-   - Update config.plist, add a new graphics card injection method
-   - Modify the VRAM to 2048Mb
-   - add the KBL platform DVMT patch
-   - add Lilu crash information display
-   - `Whatevergreen` regular update; `AppleALC` regular update;
+     - Update config.plist, add a new graphics card injection method
+     - Modify the VRAM to 2048Mb
+     - add the KBL platform DVMT patch
+     - add Lilu crash information display
+     - `Whatevergreen` regular update; `AppleALC` regular update
 
-   
+   - 9-19-2018
+
+
+        - Add` SSDT-ELAN.aml` to fix the problem of touchpad failure under `Mojave`
+
+     
 
 ## A reward
 
