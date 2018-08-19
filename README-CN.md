@@ -169,7 +169,6 @@
     * 新增 `VoodooPS2Controller` 来代替 `ApplePS2SmartTouchPad`
     * 新增minStolen的Clover补丁
     * 新增对Mojave的支持（安装教程在下面）
-
 * 8-9-2018
 
     * 更新 `Clover` r4641
@@ -181,6 +180,9 @@
     * 修改AppleIntelFramebuffer@0的接口类型（由原本的LVDS改为eDP），因为MiPro采用的是eDP输入
     * 不用通过 `config_install.plist` 注入显卡id 0x12345678了，新版  `WhateverGreen` 可以做到
     * Mojave的安装变得更简单
+* 8-19-2018
+
+    * 增加`SSDT-ELAN.aml`修复`Mojave`下触摸板失效问题
 
 
 ## 鸣谢
