@@ -1,13 +1,14 @@
-# Update Your Xiaomi NoteBook Pro BIOS to Resolve Fan Noise
+# Update Your Xiaomi NoteBook Pro BIOS and Unlock Better Performance
 
 ### Introduction
-This BIOS packet is directly from Xiaomi stuff, so it is reliable.
+This BIOS packet is directly from Xiaomi stuff, so it is reliable. It is highly recommended to update to `0603` version because the script for fan fix is based on that version.
 
-Warning: Since it's a BIOS update, there's possibility that if some errors(such as force quit the update program) occur during the update process, the whole device may fail to boot.
+Warning: Since it's a BIOS update, there's possibility that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)), the whole system may fail to boot.
 
-If unfortunately this situation happens on you, you need to find Xiaomi stuff to fix your device. If you use this program, you should agree that you are the person who take whole responsibility, instead of me.
+If unfortunately this situation happens on you, you need to find Xiaomi stuff to fix your device. If you use this program, you should agree that you are the person who take whole responsibility, instead of the author.
 
-### How to Install
+
+### How to update BIOS
 
 1. Download all the files in this BIOS folder.
 
@@ -22,6 +23,13 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 6. Wait until the update process ends.
 
+
+### How to unlock better performance
+
+[PavelLJ ](https://github.com/PavelLJ) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32MB to 64MB, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8).
+
+
 ### Credit
 
 Thanks for [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
+Thanks for [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [PavelLJ ](https://github.com/PavelLJ) for writing incredible scripts to unlock better performance
