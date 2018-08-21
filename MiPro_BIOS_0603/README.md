@@ -31,5 +31,6 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 ### Credit
 
-Thanks for [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
-Thanks for [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [PavelLJ ](https://github.com/PavelLJ) for writing incredible scripts to unlock better performance
+Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
+
+Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [PavelLJ ](https://github.com/PavelLJ) for writing incredible scripts to unlock better performance
