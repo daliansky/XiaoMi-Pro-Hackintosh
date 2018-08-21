@@ -14,6 +14,15 @@
 		<dict>
 			<key>DropOEM_DSM</key>
 			<false/>
+			<key>Fixes</key>
+			<dict>
+				<key>AddMCHC</key>
+				<true/>
+				<key>FixADP1</key>
+				<true/>
+				<key>FixRegions</key>
+				<true/>
+			</dict>
 			<key>Patches</key>
 			<array>
 				<dict>
@@ -96,6 +105,14 @@
 					<key>Replace</key>
 					<data>WEdQQQk=</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change MATH to XATH</string>
+					<key>Find</key>
+					<data>TUFUSA==</data>
+					<key>Replace</key>
+					<data>WEFUSA==</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
@@ -154,8 +171,6 @@
 				<data>AQAAAA==</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
-				<key>disable-external-gpu</key>
-				<data>AQAAAA==</data>
 				<key>framebuffer-con0-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-type</key>
