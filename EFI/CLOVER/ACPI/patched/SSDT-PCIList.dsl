@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLVqaVMP.aml, Wed Aug 22 20:38:53 2018
+ * Disassembly of iASLSGePgJ.aml, Thu Aug 23 00:03:52 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000841 (2113)
+ *     Length           0x0000084B (2123)
  *     Revision         0x02
- *     Checksum         0xAD
+ *     Checksum         0xDA
  *     OEM ID           "hack"
  *     OEM Table ID     "PCIList"
  *     OEM Revision     0x00000000 (0)
@@ -365,7 +365,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
             })
         }
 
-        Return (Package (0x04)
+        Return (Package (0x06)
         {
             "AAPL,slot-name", 
             Buffer (0x0A)
@@ -377,7 +377,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
             Buffer (0x1A)
             {
                 "NVMe SSD Controller PM961"
-            }
+            }, 
+
+            "use-msi", 
+            One
         })
     }
 

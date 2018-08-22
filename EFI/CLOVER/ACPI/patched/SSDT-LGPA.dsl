@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLHHDHrH.aml, Wed Aug 22 20:38:12 2018
+ * Disassembly of iASLD8Proa.aml, Thu Aug 23 00:01:55 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000DB2 (3506)
+ *     Length           0x00000E15 (3605)
  *     Revision         0x02
- *     Checksum         0xC7
+ *     Checksum         0xF8
  *     OEM ID           "hack"
  *     OEM Table ID     "LGPA"
  *     OEM Revision     0x00000000 (0)
@@ -23,9 +23,16 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (_PR_.CPPC, IntObj)    // (from opcode)
     External (_SB_.PCI0.IGPU.CBLV, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.IGPU.DD1F, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.LID0, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.LPCB, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.LPCB.ACTL, FieldUnitObj)    // (from opcode)
+    External (_SB_.PCI0.LPCB.DCTL, FieldUnitObj)    // (from opcode)
+    External (_SB_.PCI0.LPCB.EC92, FieldUnitObj)    // (from opcode)
     External (_SB_.PCI0.LPCB.HIDD.HPEM, MethodObj)    // 1 Arguments (from opcode)
+    External (_SB_.PCI0.LPCB.MDCS, FieldUnitObj)    // (from opcode)
+    External (_SB_.PCI0.LPCB.OCPF, FieldUnitObj)    // (from opcode)
     External (_SB_.PCI0.LPCB.PS2K, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.LPCB.PWCG, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.LPCB.VGBI, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.LPCB.VGBI.VBTN, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.RP01.PXSX, DeviceObj)    // (from opcode)
@@ -38,6 +45,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (_SB_.PCI0.WMIE.EVTA, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.WMIE.EVTB, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.WMIE.EVTC, UnknownObj)    // (from opcode)
+    External (_SB_.STXD, MethodObj)    // 2 Arguments (from opcode)
     External (_SB_.UBTC, UnknownObj)    // (from opcode)
     External (_SB_.UBTC.CCI0, UnknownObj)    // (from opcode)
     External (_SB_.UBTC.CCI1, UnknownObj)    // (from opcode)
@@ -59,17 +67,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (_SB_.UBTC.MGID, UnknownObj)    // (from opcode)
     External (_SB_.UBTC.MGIE, UnknownObj)    // (from opcode)
     External (_SB_.UBTC.MGIF, UnknownObj)    // (from opcode)
-    External (ACTL, UnknownObj)    // (from opcode)
     External (BSLF, UnknownObj)    // (from opcode)
     External (CCI0, UnknownObj)    // (from opcode)
     External (CCI1, UnknownObj)    // (from opcode)
     External (CCI2, UnknownObj)    // (from opcode)
     External (CCI3, UnknownObj)    // (from opcode)
-    External (DCTL, UnknownObj)    // (from opcode)
-    External (EC92, UnknownObj)    // (from opcode)
     External (GPDI, UnknownObj)    // (from opcode)
-    External (LID0, DeviceObj)    // (from opcode)
-    External (MDCS, UnknownObj)    // (from opcode)
     External (MGI0, UnknownObj)    // (from opcode)
     External (MGI1, UnknownObj)    // (from opcode)
     External (MGI2, UnknownObj)    // (from opcode)
@@ -86,12 +89,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (MGID, UnknownObj)    // (from opcode)
     External (MGIE, UnknownObj)    // (from opcode)
     External (MGIF, UnknownObj)    // (from opcode)
-    External (OCPF, UnknownObj)    // (from opcode)
-    External (OG00, UnknownObj)    // (from opcode)
+    External (OG00, FieldUnitObj)    // (from opcode)
     External (PNOT, MethodObj)    // 0 Arguments (from opcode)
-    External (PWCG, MethodObj)    // 0 Arguments (from opcode)
     External (SEN1, DeviceObj)    // (from opcode)
-    External (STXD, MethodObj)    // 2 Arguments (from opcode)
     External (UBTC, DeviceObj)    // (from opcode)
 
     Scope (_SB.PCI0.LPCB)
