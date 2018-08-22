@@ -143,8 +143,6 @@
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
 		<string>PBR</string>
-		<key>NeverHibernate</key>
-		<true/>
 		<key>NoEarlyProgress</key>
 		<true/>
 		<key>Secure</key>
