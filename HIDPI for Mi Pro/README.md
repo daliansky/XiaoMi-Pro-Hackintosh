@@ -19,6 +19,7 @@ Run script in Terminal
 ```
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
 ```
+![RUN.jpg](https://i.loli.net/2018/08/28/5b844de4dbb9e.jpg)
 
 Then, also run `install.command`. This program is used to avoid wake problems.
 
@@ -39,6 +40,6 @@ $ cp -r ./backup/* ./
 
 ## Credit
 
-Thanks to [xzhih](https://github.com/xzhih) for providing base function of this program.
+Thanks to [xzhih](https://github.com/xzhih) for providing base function of this program and the sample picture in README.
 
 Thanks to [zysuper](https://github.com/zysuper) for providing base function of this program.
