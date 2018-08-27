@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLprNNzt.aml, Wed Aug 22 20:41:24 2018
+ * Disassembly of iASL3FKh0D.aml, Tue Aug 28 01:12:42 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x0000025B (603)
+ *     Length           0x00000273 (627)
  *     Revision         0x02
- *     Checksum         0x87
+ *     Checksum         0x37
  *     OEM ID           "hack"
  *     OEM Table ID     "_USB"
  *     OEM Revision     0x00000000 (0)
@@ -20,6 +20,8 @@
  */
 DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
 {
+    External (DTGP, MethodObj)    // 5 Arguments (from opcode)
+
     Device (_SB.USBX)
     {
         Name (_ADR, Zero)  // _ADR: Address
@@ -33,13 +35,15 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                 })
             }
 
-            Return (Package (0x04)
-            {
-                "kUSBSleepPortCurrentLimit", 
-                0x0BB8, 
-                "kUSBWakePortCurrentLimit", 
-                0x0BB8
-            })
+            Store (Package (0x04)
+                {
+                    "kUSBSleepPortCurrentLimit", 
+                    0x0BB8, 
+                    "kUSBWakePortCurrentLimit", 
+                    0x0BB8
+                }, Local0)
+            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+            Return (Local0)
         }
     }
 
