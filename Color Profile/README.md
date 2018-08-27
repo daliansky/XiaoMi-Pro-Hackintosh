@@ -8,6 +8,7 @@ Calibrated on Spyder5
 
 sRGB 84% -> 97,1
 
+
 ## Installation
 
 1. Copy `NV156FHM-N61.icm` to `~/Library/ColorSync/Profiles`
@@ -17,3 +18,8 @@ sRGB 84% -> 97,1
 3. Select `NV156FHM-N61` profile
 
 4. Reboot
+
+
+## Credits
+
+Thanks to [qeeqez](https://github.com/qeeqez) for providing the good Color Profile and instruction.
