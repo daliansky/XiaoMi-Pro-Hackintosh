@@ -3,90 +3,79 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17E199</string>
+	<string>17G2112</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>CPUSensors</string>
+	<string>SMCLightSensor</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.hwsensors.driver.CPUSensors</string>
+	<string>ru.usrsse2.SMCLightSensor</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SMCLightSensor</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>6.26-344-g1cf53906.1787</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
+	<string>1.0</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1787</string>
+	<string>1</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>8E3004b</string>
+	<string>9F2000</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>17E189</string>
 	<key>DTSDKName</key>
-	<string>macosx10.8</string>
+	<string>macosx10.13</string>
 	<key>DTXcode</key>
-	<string>0833</string>
+	<string>0941</string>
 	<key>DTXcodeBuild</key>
-	<string>8E3004b</string>
+	<string>9F2000</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>Intel Thermal Monitor</key>
+		<key>SMCLightSensor</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>org.hwsensors.driver.CPUSensors</string>
+			<string>ru.usrsse2.SMCLightSensor</string>
 			<key>IOClass</key>
-			<string>CPUSensors</string>
+			<string>SMCLightSensor</string>
 			<key>IOMatchCategory</key>
-			<string>FakeSMCPlugin</string>
-			<key>IONameMatch</key>
-			<string>processor</string>
-			<key>IOPropertyMatch</key>
-			<dict>
-				<key>processor-index</key>
-				<integer>0</integer>
-			</dict>
+			<string>SMCLightSensor</string>
 			<key>IOProviderClass</key>
-			<string>IOACPIPlatformDevice</string>
+			<string>IOResources</string>
 			<key>IOResourceMatch</key>
-			<string>ACPI</string>
-			<key>Platform Profile</key>
-			<dict>
-				<key>Default</key>
-				<dict>
-					<key>PlatformString</key>
-					<string></string>
-					<key>Tjmax</key>
-					<integer>0</integer>
-				</dict>
-			</dict>
+			<string>IOKit</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Natan Zalkin &lt;natan.zalkin@me.com&gt;. All rights reserved.</string>
+	<string>Copyright © 2018 vit9696. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
+		<key>as.vit9696.Lilu</key>
+		<string>1.2.0</string>
+		<key>as.vit9696.VirtualSMC</key>
+		<string>1.0.0</string>
+		<key>com.apple.iokit.IOACPIFamily</key>
+		<string>1.0.0d1</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>12.0.0</string>
+		<key>com.apple.kpi.dsep</key>
+		<string>12.0.0</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>10.6</string>
+		<string>12.0.0</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>10.6</string>
+		<string>12.0.0</string>
 		<key>com.apple.kpi.mach</key>
-		<string>10.6</string>
+		<string>12.0.0</string>
 		<key>com.apple.kpi.unsupported</key>
-		<string>10.6</string>
-		<key>org.netkas.driver.FakeSMC</key>
-		<string>1429</string>
+		<string>12.0.0</string>
 	</dict>
-	<key>Source Code</key>
-	<string>"https://github.com/RehabMan/OS-X-FakeSMC-kozlek.git"</string>
 </dict>
 </plist>
