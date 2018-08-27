@@ -39,6 +39,6 @@ $ cp -r ./backup/* ./
 
 ## Credit
 
-Thanks for [xzhih](https://github.com/xzhih) for providing base function of this program.
+Thanks to [xzhih](https://github.com/xzhih) for providing base function of this program.
 
-Thanks for [zysuper](https://github.com/zysuper) for providing base function of this program.
+Thanks to [zysuper](https://github.com/zysuper) for providing base function of this program.
