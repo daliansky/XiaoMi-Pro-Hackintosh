@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLD8Proa.aml, Thu Aug 23 00:01:55 2018
+ * Disassembly of iASL9xkcrC.aml, Tue Aug 28 01:08:52 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000E15 (3605)
+ *     Length           0x00000E1F (3615)
  *     Revision         0x02
- *     Checksum         0xF8
+ *     Checksum         0xD8
  *     OEM ID           "hack"
  *     OEM Table ID     "LGPA"
  *     OEM Revision     0x00000000 (0)
@@ -21,6 +21,8 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)    // (from opcode)
+    External (_SB_.GPDI, FieldUnitObj)    // (from opcode)
+    External (_SB_.OG00, FieldUnitObj)    // (from opcode)
     External (_SB_.PCI0.IGPU.CBLV, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.IGPU.DD1F, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.LID0, DeviceObj)    // (from opcode)
@@ -68,28 +70,26 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (_SB_.UBTC.MGIE, UnknownObj)    // (from opcode)
     External (_SB_.UBTC.MGIF, UnknownObj)    // (from opcode)
     External (BSLF, UnknownObj)    // (from opcode)
-    External (CCI0, UnknownObj)    // (from opcode)
-    External (CCI1, UnknownObj)    // (from opcode)
-    External (CCI2, UnknownObj)    // (from opcode)
-    External (CCI3, UnknownObj)    // (from opcode)
-    External (GPDI, UnknownObj)    // (from opcode)
-    External (MGI0, UnknownObj)    // (from opcode)
-    External (MGI1, UnknownObj)    // (from opcode)
-    External (MGI2, UnknownObj)    // (from opcode)
-    External (MGI3, UnknownObj)    // (from opcode)
-    External (MGI4, UnknownObj)    // (from opcode)
-    External (MGI5, UnknownObj)    // (from opcode)
-    External (MGI6, UnknownObj)    // (from opcode)
-    External (MGI7, UnknownObj)    // (from opcode)
-    External (MGI8, UnknownObj)    // (from opcode)
-    External (MGI9, UnknownObj)    // (from opcode)
-    External (MGIA, UnknownObj)    // (from opcode)
-    External (MGIB, UnknownObj)    // (from opcode)
-    External (MGIC, UnknownObj)    // (from opcode)
-    External (MGID, UnknownObj)    // (from opcode)
-    External (MGIE, UnknownObj)    // (from opcode)
-    External (MGIF, UnknownObj)    // (from opcode)
-    External (OG00, FieldUnitObj)    // (from opcode)
+    External (CCI0, IntObj)    // (from opcode)
+    External (CCI1, IntObj)    // (from opcode)
+    External (CCI2, IntObj)    // (from opcode)
+    External (CCI3, IntObj)    // (from opcode)
+    External (MGI0, IntObj)    // (from opcode)
+    External (MGI1, IntObj)    // (from opcode)
+    External (MGI2, IntObj)    // (from opcode)
+    External (MGI3, IntObj)    // (from opcode)
+    External (MGI4, IntObj)    // (from opcode)
+    External (MGI5, IntObj)    // (from opcode)
+    External (MGI6, IntObj)    // (from opcode)
+    External (MGI7, IntObj)    // (from opcode)
+    External (MGI8, IntObj)    // (from opcode)
+    External (MGI9, IntObj)    // (from opcode)
+    External (MGIA, IntObj)    // (from opcode)
+    External (MGIB, IntObj)    // (from opcode)
+    External (MGIC, IntObj)    // (from opcode)
+    External (MGID, IntObj)    // (from opcode)
+    External (MGIE, IntObj)    // (from opcode)
+    External (MGIF, IntObj)    // (from opcode)
     External (PNOT, MethodObj)    // 0 Arguments (from opcode)
     External (SEN1, DeviceObj)    // (from opcode)
     External (UBTC, DeviceObj)    // (from opcode)

@@ -5,21 +5,23 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLXKxi7H.aml, Wed Aug 22 20:41:01 2018
+ * Disassembly of iASLh2EP7H.aml, Tue Aug 28 01:11:38 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x000000D4 (212)
+ *     Length           0x000000EB (235)
  *     Revision         0x02
- *     Checksum         0xF7
+ *     Checksum         0xA1
  *     OEM ID           "RehabM"
  *     OEM Table ID     "RMNE"
  *     OEM Revision     0x00001000 (4096)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20161210 (538317328)
+ *     Compiler Version 0x20180427 (538444839)
  */
 DefinitionBlock ("", "SSDT", 2, "RehabM", "RMNE", 0x00001000)
 {
+    External (DTGP, MethodObj)    // 5 Arguments (from opcode)
+
     Device (RMNE)
     {
         Name (_ADR, Zero)  // _ADR: Address
@@ -30,7 +32,7 @@ DefinitionBlock ("", "SSDT", 2, "RehabM", "RMNE", 0x00001000)
         })
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            If (LEqual (Arg2, Zero))
+            If (LNot (Arg2))
             {
                 Return (Buffer (One)
                 {
@@ -38,34 +40,36 @@ DefinitionBlock ("", "SSDT", 2, "RehabM", "RMNE", 0x00001000)
                 })
             }
 
-            Return (Package (0x0A)
-            {
-                "built-in", 
-                Buffer (One)
+            Store (Package (0x0A)
                 {
-                     0x00                                           
-                }, 
+                    "built-in", 
+                    Buffer (One)
+                    {
+                         0x00                                           
+                    }, 
 
-                "IOName", 
-                "ethernet", 
-                "name", 
-                Buffer (0x09)
-                {
-                    "ethernet"
-                }, 
+                    "IOName", 
+                    "ethernet", 
+                    "name", 
+                    Buffer (0x09)
+                    {
+                        "ethernet"
+                    }, 
 
-                "model", 
-                Buffer (0x15)
-                {
-                    "RM-NullEthernet-1001"
-                }, 
+                    "model", 
+                    Buffer (0x15)
+                    {
+                        "RM-NullEthernet-1001"
+                    }, 
 
-                "device_type", 
-                Buffer (0x09)
-                {
-                    "ethernet"
-                }
-            })
+                    "device_type", 
+                    Buffer (0x09)
+                    {
+                        "ethernet"
+                    }
+                }, Local0)
+            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+            Return (Local0)
         }
     }
 }
