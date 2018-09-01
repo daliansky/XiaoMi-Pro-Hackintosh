@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLTHDYj4.aml, Tue Aug 28 01:21:51 2018
+ * Disassembly of iASL7flwKC.aml, Sat Sep  1 15:10:31 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000917 (2327)
+ *     Length           0x00000927 (2343)
  *     Revision         0x02
- *     Checksum         0xCB
+ *     Checksum         0xBF
  *     OEM ID           "hack"
  *     OEM Table ID     "PCIList"
  *     OEM Revision     0x00000000 (0)
@@ -382,15 +382,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
 
     Method (_SB.PCI0.RP09.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
-        {
-            Return (Buffer (One)
-            {
-                 0x03                                           
-            })
-        }
-
-        Store (Package (0x06)
+        Store (Package (0x08)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0A)
@@ -405,6 +397,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 }, 
 
                 "use-msi", 
+                One, 
+                "nvme-LPSR-during-S3-S4", 
                 One
             }, Local0)
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
