@@ -5,20 +5,20 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLDWcojd.aml, Mon Sep  3 11:38:07 2018
+ * Disassembly of iASLhVQK6u.aml, Mon Sep  3 12:10:24 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00000734 (1844)
  *     Revision         0x02
- *     Checksum         0xC4
+ *     Checksum         0xE7
  *     OEM ID           "hack"
- *     OEM Table ID     "SPIT"
+ *     OEM Table ID     "SPI1"
  *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20180427 (538444839)
  */
-DefinitionBlock ("", "SSDT", 2, "hack", "SPIT", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
 {
     External (_SB_.GNUM, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.INUM, MethodObj)    // 1 Arguments (from opcode)
