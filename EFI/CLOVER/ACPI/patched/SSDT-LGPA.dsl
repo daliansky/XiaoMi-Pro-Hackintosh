@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASL9xkcrC.aml, Tue Aug 28 01:08:52 2018
+ * Disassembly of iASLVSEVlv.aml, Mon Sep  3 11:38:25 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000E1F (3615)
+ *     Length           0x00000E15 (3605)
  *     Revision         0x02
- *     Checksum         0xD8
+ *     Checksum         0xDF
  *     OEM ID           "hack"
  *     OEM Table ID     "LGPA"
  *     OEM Revision     0x00000000 (0)
@@ -21,8 +21,6 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)    // (from opcode)
-    External (_SB_.GPDI, FieldUnitObj)    // (from opcode)
-    External (_SB_.OG00, FieldUnitObj)    // (from opcode)
     External (_SB_.PCI0.IGPU.CBLV, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.IGPU.DD1F, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.LID0, DeviceObj)    // (from opcode)
@@ -74,6 +72,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (CCI1, IntObj)    // (from opcode)
     External (CCI2, IntObj)    // (from opcode)
     External (CCI3, IntObj)    // (from opcode)
+    External (GPDI, FieldUnitObj)    // (from opcode)
     External (MGI0, IntObj)    // (from opcode)
     External (MGI1, IntObj)    // (from opcode)
     External (MGI2, IntObj)    // (from opcode)
@@ -90,6 +89,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "LGPA", 0x00000000)
     External (MGID, IntObj)    // (from opcode)
     External (MGIE, IntObj)    // (from opcode)
     External (MGIF, IntObj)    // (from opcode)
+    External (OG00, FieldUnitObj)    // (from opcode)
     External (PNOT, MethodObj)    // 0 Arguments (from opcode)
     External (SEN1, DeviceObj)    // (from opcode)
     External (UBTC, DeviceObj)    // (from opcode)
