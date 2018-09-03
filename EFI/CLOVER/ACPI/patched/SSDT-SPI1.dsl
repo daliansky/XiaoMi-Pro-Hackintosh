@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLhVQK6u.aml, Mon Sep  3 12:10:24 2018
+ * Disassembly of iASLAjMM9U.aml, Mon Sep  3 12:44:27 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000734 (1844)
+ *     Length           0x000006F6 (1782)
  *     Revision         0x02
- *     Checksum         0xE7
+ *     Checksum         0xF9
  *     OEM ID           "hack"
  *     OEM Table ID     "SPI1"
  *     OEM Revision     0x00000000 (0)
@@ -42,7 +42,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
     Device (_SB.PCI0.SPI1)
     {
         Name (_ADR, 0x001E0003)  // _ADR: Address
-        Name (_DDN, "Intel(R) Low Power Subsystem SPI Host Controller - 9D2A")  // _DDN: DOS Device Name
         Name (_UID, 0x02)  // _UID: Unique ID
         Name (CSST, 0x28)
         Name (CSHT, 0x0A)
