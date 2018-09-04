@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLAjMM9U.aml, Mon Sep  3 12:44:27 2018
+ * Disassembly of iASLdvgrne.aml, Tue Sep  4 12:23:06 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x000006F6 (1782)
+ *     Length           0x00000688 (1672)
  *     Revision         0x02
- *     Checksum         0xF9
+ *     Checksum         0x88
  *     OEM ID           "hack"
  *     OEM Table ID     "SPI1"
  *     OEM Revision     0x00000000 (0)
@@ -23,8 +23,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
     External (_SB_.GNUM, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.INUM, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.PCI0.GETD, MethodObj)    // 1 Arguments (from opcode)
-    External (_SB_.PCI0.LCRS, MethodObj)    // 3 Arguments (from opcode)
-    External (_SB_.PCI0.LHRV, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.PCI0.LPD0, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.PCI0.LPD3, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.PCI0.SPI1, DeviceObj)    // (from opcode)
@@ -32,12 +30,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
     External (DTGP, MethodObj)    // 5 Arguments (from opcode)
     External (GFPI, FieldUnitObj)    // (from opcode)
     External (GFPS, FieldUnitObj)    // (from opcode)
-    External (SB07, FieldUnitObj)    // (from opcode)
     External (SB17, FieldUnitObj)    // (from opcode)
     External (SDM7, FieldUnitObj)    // (from opcode)
     External (SDS7, FieldUnitObj)    // (from opcode)
-    External (SIR7, FieldUnitObj)    // (from opcode)
-    External (SMD7, FieldUnitObj)    // (from opcode)
 
     Device (_SB.PCI0.SPI1)
     {
@@ -58,11 +53,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
         Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
         {
             LPD3 (SB17)
-        }
-
-        Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
-        {
-            Return (LHRV (SB17))
         }
 
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
@@ -121,16 +111,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
                 }, Local0)
             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
             Return (Local0)
-        }
-
-        Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-        {
-            Return (LCRS (SMD7, SB07, SIR7))
-        }
-
-        Method (_STA, 0, NotSerialized)  // _STA: Status
-        {
-            Return (0x0F)
         }
 
         Device (SPIT)
