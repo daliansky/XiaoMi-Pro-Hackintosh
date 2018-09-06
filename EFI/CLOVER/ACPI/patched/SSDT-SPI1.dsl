@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASLdvgrne.aml, Tue Sep  4 12:23:06 2018
+ * Disassembly of iASLK0kFKC.aml, Thu Sep  6 21:47:25 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000688 (1672)
+ *     Length           0x00000658 (1624)
  *     Revision         0x02
- *     Checksum         0x88
+ *     Checksum         0x9A
  *     OEM ID           "hack"
  *     OEM Table ID     "SPI1"
  *     OEM Revision     0x00000000 (0)
@@ -116,8 +116,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SPI1", 0x00000000)
         Device (SPIT)
         {
             Name (_HID, EisaId ("APP000D"))  // _HID: Hardware ID
-            Name (_CID, "apple-spi-topcase")  // _CID: Compatible ID
-            Name (_DDN, "apple-spi-topcase")  // _DDN: DOS Device Name
             Name (_GPE, 0x17)  // _GPE: General Purpose Events
             Name (_UID, 0x02)  // _UID: Unique ID
             Name (_ADR, Zero)  // _ADR: Address
