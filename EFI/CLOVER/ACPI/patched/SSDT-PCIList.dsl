@@ -5,13 +5,13 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASL7flwKC.aml, Sat Sep  1 15:10:31 2018
+ * Disassembly of iASLtzudEY.aml, Sat Sep  8 14:54:43 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000927 (2343)
+ *     Length           0x000007F6 (2038)
  *     Revision         0x02
- *     Checksum         0xBF
+ *     Checksum         0x50
  *     OEM ID           "hack"
  *     OEM Table ID     "PCIList"
  *     OEM Revision     0x00000000 (0)
@@ -20,22 +20,6 @@
  */
 DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
 {
-    External (_SB_.PCI0._XHC, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.HDEF, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.I2C0, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.I2C1, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.IMEI, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.PPMC, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP01, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP01.PXSX, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP05, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP05.PXSX, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP08, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP08.PXSX, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP09, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.RP09.PXSX, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.SBUS, DeviceObj)    // (from opcode)
     External (DTGP, MethodObj)    // 5 Arguments (from opcode)
 
     Method (_SB.PCI0.HDEF._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
