@@ -115,14 +115,6 @@
 					<key>Replace</key>
 					<data>WEFUSA==</data>
 				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change SPI1 to XPI1</string>
-					<key>Find</key>
-					<data>U1BJMQ==</data>
-					<key>Replace</key>
-					<data>WFBJMQ==</data>
-				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
