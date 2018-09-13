@@ -31,7 +31,7 @@
 
 ### 怎么升级ME固件
 
-1. 下载[ME](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/ME) 文件夹里的所有文件。
+1. 下载 [ME](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/ME) 文件夹里的所有文件。
 
 2. 在C盘根目录下创建一个文件夹，命名为 `Win64` (路径: C:\Win64) 然后把第一步里得到的所有文件拷贝进 `Win64` 文件夹。
 
@@ -41,7 +41,7 @@
 ```
 cd C:\Win64
 ```
-按下 `Enter` 键之后 `PowerShell` 应该定位到相关文件夹。
+按下 `Enter` 键之后 `PowerShell` 应该定位到了相关文件夹。
 
 5. 现在输入以下命令：
 ```
