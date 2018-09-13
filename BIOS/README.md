@@ -1,5 +1,7 @@
 # Update BIOS and Unlock Better Performance
 
+[English](README.md) | [中文](README-CN.md)
+
 ### Introduction
 
 The BIOS packet in [Firmware v0603](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder is from Xiaomi stuff, so it is reliable. It is highly recommended to update to `0603` version because the script for fan fix is based on that version.
