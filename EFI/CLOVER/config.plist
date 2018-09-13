@@ -22,8 +22,6 @@
 				<true/>
 				<key>FixADP1</key>
 				<true/>
-				<key>FixRegions</key>
-				<true/>
 			</dict>
 			<key>Patches</key>
 			<array>

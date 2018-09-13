@@ -1,5 +1,7 @@
 # Run Two Files to open MacOS HIDPI
 
+[English](README.md) | [中文](README-CN.md)
+
 ### Instruction
 
 This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. (Currently I found that macOS 10.13.4 only supports 1440x810 HiDPI, and macOS 10.13.3 works great.)
