@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README-CN.md)
 
-### Instruction
+### 简介
 
 此脚本的目的是为中低分辨率的屏幕开启 HiDPI 选项，并且具有原生的 HiDPI 设置，不需要 RDM 软件即可在系统显示器设置中设置。
 
@@ -46,4 +46,4 @@ $ cp -r ./backup/* ./
 
 感谢 [xzhih](https://github.com/xzhih) 提供基本功能和使用说明。
 
-感谢 [zysuper](https://github.com/zysuper) 提供唤醒恢复分辨率的脚本。
+感谢 [zysuper](https://github.com/zysuper) 提供唤醒后恢复分辨率的脚本。
