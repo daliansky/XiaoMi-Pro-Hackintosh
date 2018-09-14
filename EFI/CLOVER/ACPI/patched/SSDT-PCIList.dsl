@@ -1,38 +1,38 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180427 (64-bit version)(RM)
+ * AML/ASL+ Disassembler version 20180810 (64-bit version)
  * Copyright (c) 2000 - 2018 Intel Corporation
  * 
- * Disassembling to non-symbolic legacy ASL operators
+ * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLtzudEY.aml, Sat Sep  8 14:54:43 2018
+ * Disassembly of iASLZQJjSY.aml, Fri Sep 14 22:48:51 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x000007F6 (2038)
+ *     Length           0x00000806 (2054)
  *     Revision         0x02
- *     Checksum         0x50
+ *     Checksum         0x4A
  *     OEM ID           "hack"
  *     OEM Table ID     "PCIList"
  *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20180427 (538444839)
+ *     Compiler Version 0x20180810 (538445840)
  */
 DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
 {
-    External (DTGP, MethodObj)    // 5 Arguments (from opcode)
+    External (DTGP, MethodObj)    // 5 Arguments
 
     Method (_SB.PCI0.HDEF._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x08)
+        Local0 = Package (0x08)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -57,22 +57,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Realtek ALC298 Audio Controller"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.I2C0._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x06)
+        Local0 = Package (0x06)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -91,22 +91,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Sunrise Point-LP Serial IO I2C Controller #0"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.I2C1._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x06)
+        Local0 = Package (0x06)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -125,22 +125,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Sunrise Point-LP Serial IO I2C Controller #1"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.IGPU._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x04)
+        Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -153,22 +153,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "onboard-1"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.IMEI._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x06)
+        Local0 = Package (0x06)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -187,44 +187,44 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Sunrise Point-LP CSME HECI #1"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP01._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x02)
+        Local0 = Package (0x02)
             {
                 "reg-ltrovr", 
                 Buffer (0x08)
                 {
-                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
+                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP01.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x04)
+        Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -237,44 +237,44 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "NVIDIA GeForce MX150"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP05._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x02)
+        Local0 = Package (0x02)
             {
                 "reg-ltrovr", 
                 Buffer (0x08)
                 {
-                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
+                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP05.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x04)
+        Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0A)
@@ -287,44 +287,44 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Sunrise Point-LP PCI Express Root Port #5"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP08._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x02)
+        Local0 = Package (0x02)
             {
                 "reg-ltrovr", 
                 Buffer (0x08)
                 {
-                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
+                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP08.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x04)
+        Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -337,36 +337,36 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Intel Dual Band Wireless-AC 8265"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP09._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x02)
+        Local0 = Package (0x02)
             {
                 "reg-ltrovr", 
                 Buffer (0x08)
                 {
-                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
+                     0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.RP09.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        Store (Package (0x08)
+        Local0 = Package (0x08)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0A)
@@ -375,31 +375,31 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 }, 
 
                 "model", 
-                Buffer (0x1A)
+                Buffer (0x2A)
                 {
-                    "NVMe SSD Controller PM961"
+                    "Sunrise Point-LP PCI Express Root Port #9"
                 }, 
 
                 "use-msi", 
                 One, 
                 "nvme-LPSR-during-S3-S4", 
                 One
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.PPMC._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x06)
+        Local0 = Package (0x06)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -418,22 +418,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Sunrise Point-LP PMC"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.SBUS._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x04)
+        Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
                 Buffer (0x0C)
@@ -446,22 +446,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 {
                     "Sunrise Point-LP SMBus"
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
 
     Method (_SB.PCI0.XHC._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (LNot (Arg2))
+        If (!Arg2)
         {
             Return (Buffer (One)
             {
-                 0x03                                           
+                 0x03                                             // .
             })
         }
 
-        Store (Package (0x08)
+        Local0 = Package (0x08)
             {
                 "name", 
                 Buffer (0x0D)
@@ -484,9 +484,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
                 "RM,pr2-force", 
                 Buffer (0x04)
                 {
-                     0x00, 0x00, 0x00, 0x00                         
+                     0x00, 0x00, 0x00, 0x00                           // ....
                 }
-            }, Local0)
+            }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         Return (Local0)
     }
