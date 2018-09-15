@@ -1,5 +1,7 @@
 # Run Two Files to open MacOS HIDPI
 
+[English](README.md) | [中文](README-CN.md)
+
 ### Instruction
 
 This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. (Currently I found that macOS 10.13.4 only supports 1440x810 HiDPI, and macOS 10.13.3 works great.)
@@ -19,6 +21,7 @@ Run script in Terminal
 ```
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
 ```
+![RUN.jpg](https://i.loli.net/2018/08/28/5b844de4dbb9e.jpg)
 
 Then, also run `install.command`. This program is used to avoid wake problems.
 
@@ -39,6 +42,6 @@ $ cp -r ./backup/* ./
 
 ## Credit
 
-Thanks for [xzhih](https://github.com/xzhih) for providing base function of this program.
+Thanks to [xzhih](https://github.com/xzhih) for providing base function of this program and the sample picture in README.
 
-Thanks for [zysuper](https://github.com/zysuper) for providing base function of this program.
+Thanks to [zysuper](https://github.com/zysuper) for providing base function of this program.
