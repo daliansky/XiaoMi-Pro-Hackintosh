@@ -6,14 +6,16 @@
 
 ## 支持列表
 
-* 支持10.13.x 和 10.14
-* CPU为第八代，原生支持。如果需要更高的性能（续航可能会减少），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
-* 声卡为ALC298，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`
-* 触摸板驱动程序使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
-* 其他ACPI补丁修复使用hotpatch方式，文件位于 `/CLOVER/ACPI/patched` 中
-* USB遮盖使用 `/CLOVER/ACPI/patched/SSDT-USB.aml`
-* 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。如果你想禁用它来省电或者用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
+* 支持10.13.x 和 10.14。
+* CPU为第八代，原生支持。如果需要更高的性能（或者更长续航），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
+* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹并运行`install.command`来给声卡驱动打补丁。
+* 触摸板驱动使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒。
+* 其他ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
+* USB遮盖使用的是给 `USBInjectAll.kext`定制的热补丁，注入信息位于 `/CLOVER/ACPI/patched/SSDT-USB.aml`。
+* 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
+* 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
+    * 禁用原生蓝牙来省电或者使用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
+    * 购买一个兼容的内置网卡并插在M.2插槽。小心地把D+和D-线焊接到WLAN_LTE接口上。然后把[#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)的附件替换进`/CLOVER/ACPI/patched/SSDT-USB.aml`。
 
 
 ## 更新日期：
@@ -95,28 +97,6 @@
 * 4-8-2018
 
     * 支持10.13.4安装使用
-<<<<<<< HEAD
-    * 更新`ACPIBatteryManager` v1.81.4
-    * 更新`AppleALC` v1.2.6
-    * 更新`FakeSMC` v6.26-344-g1cf53906.1787
-    * 更新`IntelGraphicsDVMTFixup` v1.2.1
-    * 更新`IntelGraphicsFixup` v1.2.7，不再需要额外的驱动给显卡注入id了
-    * 更新`Lilu` v1.2.3
-    * 更新`Shiki` v2.2.6
-    * 更新`USBInjectAll` v0.6.4
-    * 新增驱动`AppleBacklightInjector`，开启更多档位的亮度调节
-    * 新增驱动`CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
-    * 新增启动参数`shikigva=1`，`igfxrst=1`和`igfxfw=1`增强核显性能，并用新的方法修复启动第二阶段的八个苹果
-    * 新增`SSDT-LGPA.aml`，支持原生亮度快捷键
-
-* 4-13-2018
-
-    * 更新`AppleALC` v1.2.7
-    * 更新`SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
-    * 修改`SSDT-LPC.aml`已加载原生电源驱动`AppleLPC`
-    * 更新Clover r4438
-    * 发布Clover v2.4 r4438小米笔记本PRO专用安装程序
-    =======
     * 更新 `ACPIBatteryManager` v1.81.4
     * 更新 `AppleALC` v1.2.6
     * 更新 `FakeSMC` v6.26-344-g1cf53906.1787
@@ -129,8 +109,10 @@
     * 新增驱动 `CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
     * 新增启动参数 `shikigva=1`，`igfxrst=1` 和 `igfxfw=1` 增强核显性能，并用新的方法修复启动第二阶段的八个苹果
     * 新增 `SSDT-LGPA.aml`，支持原生亮度快捷键
-
+    
+    
 * 4-13-2018
+
     * 更新 `AppleALC` v1.2.7
     * 更新 `SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改 `SSDT-LPC.aml` 已加载原生电源驱动AppleLPC
@@ -140,18 +122,17 @@
 
 
 * 5-14-2018
-  * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了`SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml`和`SSDT-XHC.aml`
-  * 删除config里的一些无用重命名
-  * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了 `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` 和 `SSDT-XHC.aml`
-  * 删除config里的一些无用重命名和错误启动参数 `shikigva=1`
-  * 重做了USB驱动，现在type-c接口支持USB3.0了 
-  * 删除 `SSDT-ADBG.aml`，它是个无用的方法覆写
-  * 删除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
-  * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载AppleBusPowerController和AppleSMBusPCI
-  * 修改 `SSDT-PCIList.aml`，使 `系统报告.app` 显示正确的信息
-  * 更新 `Lilu` v1.2.4
-  * 更新 `CPUFriendDataProvider` 让系统更省电
-  * 更新 `Clover` r4458
+
+    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了 `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` 和 `SSDT-XHC.aml`
+    * 删除config里的一些无用重命名和错误启动参数 `shikigva=1`
+    * 重做了USB驱动，现在type-c接口支持USB3.0了 
+    * 删除 `SSDT-ADBG.aml`，它是个无用的方法覆写
+    * 删除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
+    * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载AppleBusPowerController和AppleSMBusPCI
+    * 修改 `SSDT-PCIList.aml`，使 `系统报告.app` 显示正确的信息
+    * 更新 `Lilu` v1.2.4
+    * 更新 `CPUFriendDataProvider` 让系统更省电
+    * 更新 `Clover` r4458
 
 
 * 7-27-2018
@@ -169,27 +150,50 @@
     * 新增 `VoodooPS2Controller` 来代替 `ApplePS2SmartTouchPad`
     * 新增minStolen的Clover补丁
     * 新增对Mojave的支持（安装教程在下面）
+
+
 * 8-9-2018
 
     * 更新 `Clover` r4641
     * 更新 `WhateverGreen` v1.2.1
-    * 更新 `AppleALC` v1.3.1
+    * 更新 `AppleALC`
     * 更新 `CPUFriendDataProvider`, 使用默认的EPP值来增强性能
-    * 更新 `Lilu` v1.2.6
+    * 更新 `Lilu`
     * 更新 `config.plist`，用AddProperties来代替minStolen Clover补丁
+    * 修改 `config.plist` 来增加VRAM至2048MB
     * 修改AppleIntelFramebuffer@0的接口类型（由原本的LVDS改为eDP），因为MiPro采用的是eDP输入
     * 不用通过 `config_install.plist` 注入显卡id 0x12345678了，新版  `WhateverGreen` 可以做到
     * Mojave的安装变得更简单
-* 8-19-2018
 
-    * 增加`SSDT-ELAN.aml`修复`Mojave`下触摸板失效问题
+
+* 8-13-2018
+
+    * 将 `CPUFriendProvider.kext` 回滚至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+
+
+* 9-15-2018
+
+    * 更新 `Clover` r4671 
+    * 更新 `WhateverGreen` v1.2.3
+    * 更新 `AppleALC` v1.3.2
+    * 更新 `CPUFriend` v1.1.5
+    * 更新 `Lilu` v1.2.7
+    * 更新 `USBInjectAll` v0.6.7
+    * 更新 `SSDT-GPRW.aml` 和 `SSDT-RMCF.aml`，源自Rehabman的仓库：https://github.com/RehabMan/OS-X-Clover-Laptop-Config
+    * 更新 `SSDT-PCIList.aml`，给PCI0设备添加更多属性
+    * 新增 `SSDT-DMAC.aml` , `SSDT-MATH.aml` , `SSDT-MEM2.aml` , 和 `SSDT-PMCR.aml` 来增强性能，表现得更像白果。启发于[syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches)
+    * 新增 `HibernationFixup`，`系统偏好设置 - 节能` 的时间调整将会被保存
+    * 新增 `VirtualSMC` 来代替 `FakeSMC`。你可以使用 `iStat Menus` 获得更多传感器数据，而且更多SMC键值被添加进nvram
+    * 移除 `config.plist` 里的VRAM 2048MB补丁，真实的VRAM并没有被改变
+    * 修改 `config.plist` 以丢掉无用ACPI表
+    * 还原AppleIntelFramebuffer@0的接口类型
 
 
 ## 鸣谢
 
-- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) 和 [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
+- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
 
-- [vit9696](https://github.com/vit9696) 提供 [Lilu](https://github.com/acidanthera/Lilu) 和 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
+- [vit9696](https://github.com/vit9696) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
 
 - [PMheart](https://github.com/PMheart) 提供 [CPUFriend](https://github.com/PMheart/CPUFriend) 的维护
 
