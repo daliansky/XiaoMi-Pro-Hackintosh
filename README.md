@@ -6,21 +6,23 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Features
 
-* Support 10.13.x and 10.14
-* CPU native support. For people who want better performance (maybe shorter battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
-* The sound card is ALC298, fake with `AppleALC`, layout-id: 99; and injection information is located at `/CLOVER/config.plist`
-* Touchpad driver using `VoodooI2C`, support for multiple gestures; touchpad boot can be used normally, no drift, no wakeup
-* Other ACPI patch fixes using hotpatch mode, file located in `/CLOVER/ACPI/patched`
-* USB shadowing using `/CLOVER/ACPI/patched/SSDT-USB.aml`
-* Native Brightness hotkey support, related file is located at `/CLOVER/ACPI/patched/SSDT-LGPA.aml`
-* Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). If you want to disable it to save power or to use BT dongle, please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
+* Support 10.13.x and 10.14.
+* CPU native support. For people who want better performance (or longer battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53).
+* The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`. If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder and run `install.command` to patch the audio driver.
+* Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift.
+* Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
+* USB power property injection and the custom SSDT for `USBInjectAll.kext` are located in `/CLOVER/ACPI/patched/SSDT-USB.aml`.
+* Native Brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
+* Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
+    * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
+    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace your `/CLOVER/ACPI/patched/SSDT-USB.aml` with the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
 
 
 ## Credits
 
-- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-FakeSMC-kozlek](https://github.com/RehabMan/OS-X-FakeSMC-kozlek) and [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
-- [vit9696](https://github.com/vit9696) Updated [Lilu](https://github.com/acidanthera/Lilu) and [AppleALC](https://github.com/acidanthera/AppleALC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
+- [vit9696](https://github.com/vit9696) Updated [AppleALC](https://github.com/acidanthera/AppleALC) and [HibernationFixup](https://github.com/acidanthera/HibernationFixup) and [Lilu](https://github.com/acidanthera/Lilu) and [VirtualSMC](https://github.com/acidanthera/VirtualSMC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
 
 - [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
@@ -41,12 +43,12 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 ## Change Log:
 
 - 10-14-2017
-  
+    
     - EFI update, touch pad is working
 
 
 - 10-17-2017
-  
+    
     - EFI update, fixed graphics driver
     - Add HDMI Audio output
     - Driver Update:
@@ -82,7 +84,7 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 11-2-2017
-  
+    
     - `Lilu` v1.2.0 update, support 10.13.2Beta
     - `AppleALC` update, using the latest revision of Lilu co-compiler to solve 10.13.1 update can not be driven after the problem
 
@@ -96,14 +98,14 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 11-7-2017
-  
+    
     - `Lilu` v1.2.1 is not stable at the moment, with the risk of inability to enter the system, so downgrade to v1.2.0
     - `AppleALC` downgraded to V1.2.0
        **EFI temporarily does not support macOS 10.13.2Beta version of the installation, Lilu does not exhaust will continue to update**
 
 
 - 1-25-2018
-  
+    
     - Support for 10.13.x installation
     - Updated `VoodooI2C` to version 2.0.1, supports multi-gestures, touchpad boot can be used normally, no drift, no wakeup
     - Fixed the issue of percentage refreshes
@@ -154,7 +156,7 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 7-27-2018
-  
+    
     - Update `Clover` r4625
     - Update `AppleALC` v1.3.1
     - Update `Lilu` v1.2.6
@@ -171,33 +173,41 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 8-9-2018
-
+ 
     - Update `Clover` r4641
     - Update `WhateverGreen` v1.2.1
     - Update `AppleALC`
     - Update `CPUFriendDataProvider` by using default EPP value to enhance performance
     - Update `Lilu`
     - Update `config.plist`, using AddProperties to replace minStolen Clover patch
+    - Edit `config.plist` to increase VRAM from 1536MB to 2048MB
     - Change AppleIntelFramebuffer@0's connertor-type from LVDS to eDP because MiPro uses eDP pin
     - No injection of ig-platform-id 0x12345678 by using `config_install.plist` anymore, `WhateverGreen` can help do this.
     - Mojave installation become easier
 
 
-- 8-10-2018
+- 8-13-2018
 
+    - Reverse back `CPUFriendProvider.kext` to the one in v1.2.2 because the one in v1.2.5 will cause KP in some devices in 10.13.3~10.13.5. If you want better CPU performance or better battery life, please read [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+    
+    
+- 9-15-2018
 
-     - Update config.plist, add a new graphics card injection method
-     - Modify the VRAM to 2048Mb
-     - add the KBL platform DVMT patch
-     - add Lilu crash information display
-     - `Whatevergreen` regular update; `AppleALC` regular update
+    - Update `Clover` r4671
+    - Update  `WhateverGreen` v1.2.3
+    - Update `AppleALC` v1.3.2
+    - Update `CPUFriend` v1.1.5
+    - Update `Lilu` v1.2.7
+    - Update `USBInjectAll` v0.6.7
+    - Update `SSDT-GPRW.aml` and `SSDT-RMCF.aml` from Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config
+    - Update `SSDT-PCIList.aml` to add more Properties in PCI0 devices 
+    - Add `SSDT-DMAC.aml` , `SSDT-MATH.aml` , `SSDT-MEM2.aml` , and `SSDT-PMCR.aml` to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches)
+    - Add `HibernationFixup` to enable time setting in `System Preferences - Energy Saver`
+    - Use `VirtualSMC` to replace `FakeSMC`. You can get more CPU Core Information by using `iStat Menus`, and more SMC keys are added in nvram.
+    - Remove VRAM 2048MB patch in `config.plist`, the actual VRAM isn't affected by this patch
+    - Drop useless ACPI tables in `config.plist`
+    - Reverse  AppleIntelFramebuffer@0's connertor-type to default value
 
-   - 9-19-2018
-
-
-        - Add` SSDT-ELAN.aml` to fix the problem of touchpad failure under `Mojave`
-
-     
 
 ## A reward
 
