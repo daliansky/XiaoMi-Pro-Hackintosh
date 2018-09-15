@@ -57,14 +57,14 @@ The rest will be done automaticly.
 
 ### How to unlock better performance
 
-[PavelLJ](https://github.com/PavelLJ) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32MB to 64MB, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
+[FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32MB to 64MB, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
 
 
 ### Credit
 
 Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
 
-Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [PavelLJ](https://github.com/PavelLJ) for writing incredible scripts to unlock better performance.
+Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.
 
 Thanks to [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) for providing the ME firmware.
 
