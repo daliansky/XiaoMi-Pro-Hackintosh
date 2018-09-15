@@ -167,7 +167,25 @@
 
 * 8-13-2018
 
-    * 将`CPUFriendProvider.kext`滚回至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+    * 将 `CPUFriendProvider.kext` 回滚至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+
+
+* 9-15-2018
+
+    * 更新 `Clover` r4671 
+    * 更新 `WhateverGreen` v1.2.3
+    * 更新 `AppleALC` v1.3.2
+    * 更新 `CPUFriend` v1.1.5
+    * 更新 `Lilu` v1.2.7
+    * 更新 `USBInjectAll` v0.6.7
+    * 更新 `SSDT-GPRW.aml` 和 `SSDT-RMCF.aml`，源自Rehabman的仓库：https://github.com/RehabMan/OS-X-Clover-Laptop-Config
+    * 更新 `SSDT-PCIList.aml`，给PCI0设备添加更多属性
+    * 新增 `SSDT-DMAC.aml` , `SSDT-MATH.aml` , `SSDT-MEM2.aml` , 和 `SSDT-PMCR.aml` 来增强性能，表现得更像白果。启发于[syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches)
+    * 新增 `HibernationFixup`，`系统偏好设置 - 节能` 的时间调整将会被保存
+    * 新增 `VirtualSMC` 来代替 `FakeSMC`。你可以使用 `iStat Menus` 获得更多传感器数据，而且更多SMC键值被添加进nvram
+    * 移除 `config.plist` 里的VRAM 2048MB补丁，真实的VRAM并没有被改变
+    * 修改 `config.plist` 以丢掉无用ACPI表
+    * 还原AppleIntelFramebuffer@0的接口类型
 
 
 ## 鸣谢

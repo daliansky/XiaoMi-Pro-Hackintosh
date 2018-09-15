@@ -186,7 +186,26 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 
 - 8-13-2018
+
     - Reverse back `CPUFriendProvider.kext` to the one in v1.2.2 because the one in v1.2.5 will cause KP in some devices in 10.13.3~10.13.5. If you want better CPU performance or better battery life, please read [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+    
+    
+- 9-15-2018
+
+    - Update `Clover` r4671
+    - Update  `WhateverGreen` v1.2.3
+    - Update `AppleALC` v1.3.2
+    - Update `CPUFriend` v1.1.5
+    - Update `Lilu` v1.2.7
+    - Update `USBInjectAll` v0.6.7
+    - Update `SSDT-GPRW.aml` and `SSDT-RMCF.aml` from Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config
+    - Update `SSDT-PCIList.aml` to add more Properties in PCI0 devices 
+    - Add `SSDT-DMAC.aml` , `SSDT-MATH.aml` , `SSDT-MEM2.aml` , and `SSDT-PMCR.aml` to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches)
+    - Add `HibernationFixup` to enable time setting in `System Preferences - Energy Saver`
+    - Use `VirtualSMC` to replace `FakeSMC`. You can get more CPU Core Information by using `iStat Menus`, and more SMC keys are added in nvram.
+    - Remove VRAM 2048MB patch in `config.plist`, the actual VRAM isn't affected by this patch
+    - Drop useless ACPI tables in `config.plist`
+    - Reverse  AppleIntelFramebuffer@0's connertor-type to default value
 
 
 ## A reward
