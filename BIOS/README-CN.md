@@ -57,7 +57,7 @@ cd C:\Win64
 
 ### 怎么提升性能
 
-[PavelLJ](https://github.com/PavelLJ) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大DVMT大小（从32MB扩大到64MB），解锁MSR 0xE2寄位器，和修改EC固件来减少风扇噪声。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)。
+[PavelLJ](https://github.com/PavelLJ) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大DVMT大小（从32MB扩大到64MB），解锁MSR 0xE2寄位器，和修改EC固件来减少风扇噪声。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
 
 
 ### 鸣谢
