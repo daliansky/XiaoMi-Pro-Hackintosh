@@ -16,6 +16,7 @@
 * 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
     * 禁用原生蓝牙来省电或者使用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
     * 购买一个兼容的内置网卡并插在M.2插槽。小心地把D+和D-线焊接到WLAN_LTE接口上。然后把[#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)的附件替换进`/CLOVER/ACPI/patched/SSDT-USB.aml`。
+* 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[How to fix PM981 in 10.3.3]( https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/)。
 
 
 ## 更新日期：
