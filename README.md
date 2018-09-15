@@ -29,7 +29,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [alexandred](https://github.com/alexandred) and [hieplpvip](https://github.com/hieplpvip) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
 
-- [PavelLJ](https://github.com/PavelLJ) and [Javmain](https://github.com/javmain) and [johnnync13](https://github.com/johnnync13) for valuable suggestions
+- [FallenChromium](https://github.com/FallenChromium) and [Javmain](https://github.com/javmain) and [johnnync13](https://github.com/johnnync13) for valuable suggestions
 
 
 ## Installation
