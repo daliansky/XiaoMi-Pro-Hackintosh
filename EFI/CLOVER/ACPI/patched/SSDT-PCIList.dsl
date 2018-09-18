@@ -5,7 +5,7 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLZQJjSY.aml, Fri Sep 14 22:48:51 2018
+ * Disassembly of iASLFurP8E.aml, Tue Sep 18 11:14:41 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -18,7 +18,7 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20180810 (538445840)
  */
-DefinitionBlock ("", "SSDT", 2, "hack", "PCIList", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "_PCIList", 0x00000000)
 {
     External (DTGP, MethodObj)    // 5 Arguments
 
