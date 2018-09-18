@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180427 (64-bit version)(RM)
+ * AML/ASL+ Disassembler version 20180810 (64-bit version)
  * Copyright (c) 2000 - 2018 Intel Corporation
  * 
- * Disassembling to non-symbolic legacy ASL operators
+ * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLCJkZ78.aml, Wed Aug 22 20:38:42 2018
+ * Disassembly of iASLtPkYxW.aml, Tue Sep 18 11:14:24 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -18,11 +18,11 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20180427 (538444839)
  */
-DefinitionBlock ("", "SSDT", 2, "hack", "MEM2", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "_MEM2", 0x00000000)
 {
     Device (_SB.PCI0.MEM2)
     {
-        Name (_HID, EisaId ("PNP0C01"))  // _HID: Hardware ID
+        Name (_HID, EisaId ("PNP0C01") /* System Board */)  // _HID: Hardware ID
         Name (_UID, 0x02)  // _UID: Unique ID
         Name (_STA, 0x0F)  // _STA: Status
         Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
