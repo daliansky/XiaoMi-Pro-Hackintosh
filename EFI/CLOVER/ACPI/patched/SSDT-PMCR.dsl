@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180427 (64-bit version)(RM)
+ * AML/ASL+ Disassembler version 20180810 (64-bit version)
  * Copyright (c) 2000 - 2018 Intel Corporation
  * 
- * Disassembling to non-symbolic legacy ASL operators
+ * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLjKDHAf.aml, Wed Aug 22 20:39:56 2018
+ * Disassembly of iASLe7xJcH.aml, Tue Sep 18 11:15:04 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -18,7 +18,7 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20180427 (538444839)
  */
-DefinitionBlock ("", "SSDT", 2, "hack", "PMCR", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "_PMCR", 0x00000000)
 {
     Device (_SB.PCI0.PMCR)
     {
