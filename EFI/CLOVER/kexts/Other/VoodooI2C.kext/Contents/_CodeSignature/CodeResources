@@ -9,12 +9,12 @@
 		<key>PlugIns/VoodooGPIO.kext</key>
 		<dict>
 			<key>symlink</key>
-			<string>/Users/steve/Library/Developer/Xcode/DerivedData/VoodooI2C-byomvohcqnupuicwjpzmqwxrppbd/Build/Intermediates.noindex/ArchiveIntermediates/VoodooI2C/InstallationBuildProductsLocation/Library/Extensions/VoodooGPIO.kext</string>
+			<string>/Users/steve_dev/Library/Developer/Xcode/DerivedData/VoodooI2C-hdqmfvksksbzbxctboeicqadbnqe/Build/Intermediates.noindex/ArchiveIntermediates/VoodooI2C/InstallationBuildProductsLocation/Library/Extensions/VoodooGPIO.kext</string>
 		</dict>
 		<key>PlugIns/VoodooI2CServices.kext</key>
 		<dict>
 			<key>symlink</key>
-			<string>/Users/steve/Library/Developer/Xcode/DerivedData/VoodooI2C-byomvohcqnupuicwjpzmqwxrppbd/Build/Intermediates.noindex/ArchiveIntermediates/VoodooI2C/InstallationBuildProductsLocation/Library/Extensions/VoodooI2CServices.kext</string>
+			<string>/Users/steve_dev/Library/Developer/Xcode/DerivedData/VoodooI2C-hdqmfvksksbzbxctboeicqadbnqe/Build/Intermediates.noindex/ArchiveIntermediates/VoodooI2C/InstallationBuildProductsLocation/Library/Extensions/VoodooI2CServices.kext</string>
 		</dict>
 	</dict>
 	<key>rules</key>
