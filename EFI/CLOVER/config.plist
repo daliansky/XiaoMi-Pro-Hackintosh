@@ -107,11 +107,13 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change MATH to XATH</string>
+					<string>change MATH._STA to XSTA</string>
 					<key>Find</key>
-					<data>TUFUSA==</data>
+					<data>X1NUQQ==</data>
 					<key>Replace</key>
-					<data>WEFUSA==</data>
+					<data>WFNUQQ==</data>
+					<key>TgtBridge</key>
+					<data>TUFUSA==</data>
 				</dict>
 			</array>
 		</dict>
@@ -175,6 +177,8 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
+		<key>HibernationFixup</key>
+		<true/>
 	</dict>
 	<key>Devices</key>
 	<dict>
