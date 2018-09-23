@@ -11,11 +11,11 @@ Hackintosh your XiaoMi Pro Notebook
 * The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`. If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder and run `install.command` to patch the audio driver.
 * Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift.
 * Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
-* USB power property injection and the custom SSDT for `USBInjectAll.kext` are located in `/CLOVER/ACPI/patched/SSDT-USB.aml`.
+* USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.
 * Native Brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
 * Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
     * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
-    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace your `/CLOVER/ACPI/patched/SSDT-USB.aml` with the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
+    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
 
 
 ## Credits
