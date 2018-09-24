@@ -13,6 +13,7 @@ Hackintosh your XiaoMi Pro Notebook
 * Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift.
 * Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
 * USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.
+* Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
 * Native Brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
 * Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
     * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
