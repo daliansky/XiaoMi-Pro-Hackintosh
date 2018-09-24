@@ -13,6 +13,7 @@
 * 触摸板驱动使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒。
 * 其他ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
 * USB遮盖使用的是[Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
+* 使用左侧的HDMI接口可能会导致笔记本内屏黑屏，可以尝试合盖再开盖来恢复。
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
 * 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
     * 禁用原生蓝牙来省电或者使用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
