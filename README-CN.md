@@ -8,7 +8,7 @@
 
 * 支持10.13.x 和 10.14。
 * CPU为第八代，原生支持。如果需要更高的性能（或者更长续航），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
-* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹并运行`install.command`来给声卡驱动打补丁。
+* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹，运行`install.command`，然后重启来给声卡驱动打补丁。
 * 触摸板驱动使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒。
 * 其他ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
 * USB遮盖使用的是[Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
@@ -192,7 +192,7 @@
 
 - [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
 
-- [vit9696](https://github.com/vit9696) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 USBPower 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
+- [vit9696](https://github.com/vit9696) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 `USBPower` 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
 
 - [PMheart](https://github.com/PMheart) 提供 [CPUFriend](https://github.com/PMheart/CPUFriend) 的维护
 
