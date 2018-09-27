@@ -210,6 +210,20 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
     - Reverse  AppleIntelFramebuffer@0's connertor-type to default value
 
 
+- 9-28-2018
+
+    - Downgrade [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) because Rehabman's version is more reliable
+    - Update `WhateverGreen`, `AppleALC`, `Lilu`, `CPUFriend`, and `HibernationFixup` by using official release
+    - Update `AppleBacklightInjector` to support HD630
+    - Update `SSDT-PNLF.aml` to support HD630
+    - Update `VoodooI2C*` v2.1.4. (This driver is a patched version from [official release](https://github.com/alexandred/VoodooI2C/releases), the official one has scalling issue.)
+    - Update `VoodooPS2Controller` v1.9.0 to stop trackpad when typing
+    - Update headers in hotpatch
+    - Add `USBPower` to replace `USBInjectAll` and `SSDT-USB.aml`
+    - Remove `SSDT-MATH.aml`
+    - Clean code in `config.plist` 
+
+
 ## A reward
 
 I don't need any reward. Good suggestions and ideas are welcomed.
