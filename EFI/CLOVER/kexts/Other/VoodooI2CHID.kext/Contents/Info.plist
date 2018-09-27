@@ -307,6 +307,14 @@
 			</dict>
 			<key>IOProviderClass</key>
 			<string>IOHIDInterface</string>
+			<key>ProcessBluetoothMouseStopsTrackpad</key>
+			<false/>
+			<key>ProcessUSBMouseStopsTrackpad</key>
+			<false/>
+			<key>QuietTimeAfterTyping</key>
+			<integer>500</integer>
+			<key>RM,deliverNotifications</key>
+			<true/>
 		</dict>
 		<key>VoodooI2CHIDDevice Stylus HID Event Driver</key>
 		<dict>
@@ -358,7 +366,7 @@
 		<key>com.apple.iokit.IOACPIFamily</key>
 		<string>1.4</string>
 		<key>com.apple.iokit.IOGraphicsFamily</key>
-		<string>2.4.1</string>
+		<string>1.0.0b1</string>
 		<key>com.apple.iokit.IOHIDFamily</key>
 		<string>2.0</string>
 		<key>com.apple.kpi.iokit</key>
@@ -368,5 +376,7 @@
 		<key>com.apple.kpi.mach</key>
 		<string>13.0</string>
 	</dict>
+	<key>OSBundleRequired</key>
+	<string>Safe Boot</string>
 </dict>
 </plist>
