@@ -197,6 +197,7 @@
     * 更新 `AppleBacklightInjector` 来支持HD630
     * 更新 `SSDT-PNLF.aml` 来支持HD630
     * 更新  `VoodooI2C*` v2.1.4 （注意这个版本是修改过后的，不是[官方原版](https://github.com/alexandred/VoodooI2C/releases)，官方版本存在着缩放问题。）
+    * 更新 `VoodooPS2Controller` v1.9.0，使用键盘的时候自动禁用触控板
     * 更新 热补丁的头部代码
     * 新增 `USBPower` 来代替 `USBInjectAll` 和 `SSDT-USB.aml`
     * 移除 `SSDT-MATH.aml`

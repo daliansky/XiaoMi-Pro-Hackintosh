@@ -217,7 +217,7 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
     - Update `AppleBacklightInjector` to support HD630
     - Update `SSDT-PNLF.aml` to support HD630
     - Update `VoodooI2C*` v2.1.4. (This driver is a patched version from [official release](https://github.com/alexandred/VoodooI2C/releases), the official one has scalling issue.)
-    - Update `VoodooPS2Controller` v1.9.0 to stop trackpad when typing
+    - Update `VoodooPS2Controller` v1.9.0 to stop trackpad when using keyboard
     - Update headers in hotpatch
     - Add `USBPower` to replace `USBInjectAll` and `SSDT-USB.aml`
     - Remove `SSDT-MATH.aml`
