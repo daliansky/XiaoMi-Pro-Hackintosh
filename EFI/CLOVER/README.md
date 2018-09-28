@@ -8,22 +8,24 @@ Hackintosh your XiaoMi Pro Notebook
 
 * Support 10.13.x and 10.14.
 * CPU native support. For people who want better performance (or longer battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53).
-* The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`. If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder and run `install.command` to patch the audio driver.
+* The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`. If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder, run `install.command`, and restart to patch the audio driver.
+    * Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).
 * Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift.
 * Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
-* USB power property injection and the custom SSDT for `USBInjectAll.kext` are located in `/CLOVER/ACPI/patched/SSDT-USB.aml`.
+* USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.
+* Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
 * Native Brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
 * Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
     * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
-    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace your `/CLOVER/ACPI/patched/SSDT-USB.aml` with the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
+    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
 * Recent model uses `PM981` SSD instead of `PM961`. This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs or visit [How to fix PM981 in 10.3.3]( https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/).
 
 
 ## Credits
 
-- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
-- [vit9696](https://github.com/vit9696) Updated [AppleALC](https://github.com/acidanthera/AppleALC) and [HibernationFixup](https://github.com/acidanthera/HibernationFixup) and [Lilu](https://github.com/acidanthera/Lilu) and [VirtualSMC](https://github.com/acidanthera/VirtualSMC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
+- [vit9696](https://github.com/vit9696) Updated [AppleALC](https://github.com/acidanthera/AppleALC) and [HibernationFixup](https://github.com/acidanthera/HibernationFixup) and [Lilu](https://github.com/acidanthera/Lilu) and `USBPower` and [VirtualSMC](https://github.com/acidanthera/VirtualSMC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
 
 - [PMheart](https://github.com/PMheart) Updated [CPUFriend](https://github.com/PMheart/CPUFriend) for maintenance
 
@@ -210,6 +212,20 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
     - Reverse  AppleIntelFramebuffer@0's connertor-type to default value
 
 
+- 9-28-2018
+
+    - Downgrade [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) because Rehabman's version is more reliable
+    - Update `WhateverGreen`, `AppleALC`, `Lilu`, `CPUFriend`, and `HibernationFixup` by using official release
+    - Update `AppleBacklightInjector` to support HD630
+    - Update `SSDT-PNLF.aml` to support HD630
+    - Update `VoodooI2C*` v2.1.4. (This driver is a patched version from [official release](https://github.com/alexandred/VoodooI2C/releases), the official one has scalling issue.)
+    - Update `VoodooPS2Controller` v1.9.0 to stop trackpad when using keyboard
+    - Update headers in hotpatch
+    - Add `USBPower` to replace `USBInjectAll` and `SSDT-USB.aml`
+    - Remove `SSDT-MATH.aml`
+    - Clean code in `config.plist` 
+
+
 ## A reward
 
 | Wechat                                                     | Alipay                                               |
@@ -219,7 +235,10 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 ## Support and discussion
 
-- QQ群:
+- tonymacx86.com:
+  - [[Guide] Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
+
+- QQ:
   - 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
   - 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
   - 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
