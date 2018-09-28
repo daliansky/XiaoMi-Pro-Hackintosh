@@ -316,6 +316,29 @@
 				<data>RiV1VHh4eHgA</data>
 			</dict>
 		</array>
+		<key>KernelToPatch</key>
+ 		<array>
+			<dict>
+ 				<key>Comment</key>
+ 				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
+ 				<key>MatchOS</key>
+ 				<string>10.13.x</string>
+ 				<key>Find</key>
+ 				<data>igKEwHRE</data>
+ 				<key>Replace</key>
+ 				<data>igKEwOtE</data>
+ 			</dict>
+ 			<dict>
+ 				<key>Comment</key>
+ 				<string>Disable panic kext logging on 10.14 release kernel (credit Vandroiy)</string>
+ 				<key>MatchOS</key>
+ 				<string>10.14.x</string>
+ 				<key>Find</key>
+ 				<data>igKEwHRC</data>
+ 				<key>Replace</key>
+ 				<data>igKEwOtC</data>
+ 			</dict>
+		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
