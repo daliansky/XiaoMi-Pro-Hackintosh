@@ -8,14 +8,16 @@
 
 * 支持10.13.x 和 10.14。
 * CPU为第八代，原生支持。如果需要更高的性能（或者更长续航），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
-* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹并运行`install.command`来给声卡驱动打补丁。
+* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹，运行`install.command`，然后重启来给声卡驱动打补丁。
+    * 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。
 * 触摸板驱动使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒。
 * 其他ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
-* USB遮盖使用的是给 `USBInjectAll.kext`定制的热补丁，注入信息位于 `/CLOVER/ACPI/patched/SSDT-USB.aml`。
+* USB遮盖使用的是[Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
+* 使用左侧的HDMI接口可能会导致笔记本内屏黑屏，可以尝试合盖再开盖来恢复。
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
 * 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
     * 禁用原生蓝牙来省电或者使用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
-    * 购买一个兼容的内置网卡并插在M.2插槽。小心地把D+和D-线焊接到WLAN_LTE接口上。然后把[#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)的附件替换进`/CLOVER/ACPI/patched/SSDT-USB.aml`。
+    * 购买一个兼容的内置网卡并插在M.2插槽。小心地把D+和D-线焊接到WLAN_LTE接口上。然后替换[#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)里的附件。
 * 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[How to fix PM981 in 10.3.3]( https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/)。
 
 
@@ -190,11 +192,25 @@
     * 还原AppleIntelFramebuffer@0的接口类型
 
 
+* 9-28-2018
+
+    * 降级 [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) 因为Rehabman的版本更稳定
+    * 更新 `WhateverGreen`, `AppleALC`, `Lilu`, `CPUFriend` 和 `HibernationFixup`，来源于官方release
+    * 更新 `AppleBacklightInjector` 来支持HD630
+    * 更新 `SSDT-PNLF.aml` 来支持HD630
+    * 更新  `VoodooI2C*` v2.1.4 （注意这个版本是修改过后的，不是[官方原版](https://github.com/alexandred/VoodooI2C/releases)，官方版本存在着缩放问题。）
+    * 更新 `VoodooPS2Controller` v1.9.0，使用键盘的时候自动禁用触控板
+    * 更新 热补丁的头部代码
+    * 新增 `USBPower` 来代替 `USBInjectAll` 和 `SSDT-USB.aml`
+    * 移除 `SSDT-MATH.aml`
+    * 清洁 `config.plist` 里的代码
+    
+
 ## 鸣谢
 
-- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
+- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 的维护
 
-- [vit9696](https://github.com/vit9696) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
+- [vit9696](https://github.com/vit9696) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 `USBPower` 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
 
 - [PMheart](https://github.com/PMheart) 提供 [CPUFriend](https://github.com/PMheart/CPUFriend) 的维护
 
@@ -222,9 +238,12 @@
 
 ## 支持与讨论
 
+* tonymacx86.com:
+  * [[Guide] Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
+
 * QQ群:
-* 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
-* 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
-
-  ​
-
+  * 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
+  * 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
+  * 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
+  * 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)
+  * 257995340 [一起啃苹果](http://shang.qq.com/wpa/qunwpa?idkey=8a63c51acb2bb80184d788b9f419ffcc33aa1ed2080132c82173a3d881625be8)
