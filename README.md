@@ -228,6 +228,8 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
 
 ## A reward
 
+All the project is made for free, but you can reward me if you want.
+
 | Wechat                                                     | Alipay                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
 | ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
