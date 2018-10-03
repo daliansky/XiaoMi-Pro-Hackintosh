@@ -315,6 +315,16 @@
 				<key>Replace</key>
 				<data>RiV1VHh4eHgA</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for SSD</string>
+				<key>Name</key>
+				<string>com.apple.iokit.IOAHCIBlockStorage</string>
+				<key>Find</key>
+				<data>AEFQUExFIFNTRAA=</data>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAAA=</data>
+			</dict>
 		</array>
 		<key>KernelToPatch</key>
  		<array>
