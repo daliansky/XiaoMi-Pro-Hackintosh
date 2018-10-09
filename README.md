@@ -11,6 +11,8 @@ Hackintosh your XiaoMi Pro Notebook
 * The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`. If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder, run `install.command`, and restart to patch the audio driver.
     * Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).
 * Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift.
+* Caps Lock may not function well, please read instructions in [#2](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/2) to uncheck `Use the Caps Lock key to switch to and from ABC`. 
+* The latest keyboard driver can temporily disable the touchpad during typing. If you are not happy with the lag, a workaround is provided in [#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19).
 * Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
 * USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.
 * Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
