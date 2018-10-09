@@ -223,7 +223,7 @@
 			<key>AddClockID</key>
 			<true/>
 			<key>HighCurrent</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
 			<false/>
 		</dict>
