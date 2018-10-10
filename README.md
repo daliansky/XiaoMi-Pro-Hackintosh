@@ -25,13 +25,15 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Credits
 
-- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
-
 - [Acidanthera](https://github.com/acidanthera) Updated [AppleALC](https://github.com/acidanthera/AppleALC) and [CPUFriend](https://github.com/acidanthera/CPUFriend) and [HibernationFixup](https://github.com/acidanthera/HibernationFixup) and [Lilu](https://github.com/acidanthera/Lilu) and `USBPower` and [VirtualSMC](https://github.com/acidanthera/VirtualSMC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
 
 - [alexandred](https://github.com/alexandred) and [hieplpvip](https://github.com/hieplpvip) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
 
+- [apianti](https://sourceforge.net/u/apianti) and [blackosx](https://sourceforge.net/u/blackosx) and [blusseau](https://sourceforge.net/u/blusseau) and [dmazar](https://sourceforge.net/u/dmazar) and [slice2009](https://sourceforge.net/u/slice2009) Updated [Clover](https://sourceforge.net/projects/cloverefiboot) for maintenance
+
 - [FallenChromium](https://github.com/FallenChromium) and [Javmain](https://github.com/javmain) and [johnnync13](https://github.com/johnnync13) for valuable suggestions
+
+- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightInjector](https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/tree/master/kexts/AppleBacklightInjector.kext) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
 
 
 ## Installation
