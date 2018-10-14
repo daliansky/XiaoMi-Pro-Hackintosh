@@ -307,16 +307,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleBacklight</string>
-				<key>Find</key>
-				<data>RiV1VCUwNHgA</data>
-				<key>Replace</key>
-				<data>RiV1VHh4eHgA</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IOAHCIBlockStorage</string>
