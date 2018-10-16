@@ -5,21 +5,22 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLFurP8E.aml, Tue Sep 18 11:14:41 2018
+ * Disassembly of iASL9kyho5.aml, Tue Oct 16 23:26:14 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000806 (2054)
+ *     Length           0x00000894 (2196)
  *     Revision         0x02
- *     Checksum         0x4A
+ *     Checksum         0x72
  *     OEM ID           "hack"
- *     OEM Table ID     "PCIList"
+ *     OEM Table ID     "_PCIList"
  *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20180810 (538445840)
  */
 DefinitionBlock ("", "SSDT", 2, "hack", "_PCIList", 0x00000000)
 {
+    External (_SB_.PCI0.RP09.PXSX, DeviceObj)
     External (DTGP, MethodObj)    // 5 Arguments
 
     Method (_SB.PCI0.HDEF._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
@@ -364,29 +365,57 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PCIList", 0x00000000)
         Return (Local0)
     }
 
-    Method (_SB.PCI0.RP09.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+    Scope (_SB.PCI0.RP09.PXSX)
     {
-        Local0 = Package (0x08)
+        Name (NVME, One)
+        Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+        {
+            If ((NVME == One))
             {
-                "AAPL,slot-name", 
-                Buffer (0x0A)
-                {
-                    "M.2 key M"
-                }, 
+                Local0 = Package (0x08)
+                    {
+                        "AAPL,slot-name", 
+                        Buffer (0x0A)
+                        {
+                            "M.2 key M"
+                        }, 
 
-                "model", 
-                Buffer (0x2A)
-                {
-                    "Sunrise Point-LP PCI Express Root Port #9"
-                }, 
+                        "model", 
+                        Buffer (0x2A)
+                        {
+                            "Sunrise Point-LP PCI Express Root Port #9"
+                        }, 
 
-                "use-msi", 
-                One, 
-                "nvme-LPSR-during-S3-S4", 
-                One
+                        "use-msi", 
+                        One, 
+                        "nvme-LPSR-during-S3-S4", 
+                        One
+                    }
             }
-        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-        Return (Local0)
+            Else
+            {
+                Local0 = Package (0x06)
+                    {
+                        "AAPL,slot-name", 
+                        Buffer (0x0A)
+                        {
+                            "M.2 key M"
+                        }, 
+
+                        "model", 
+                        Buffer (0x2A)
+                        {
+                            "Sunrise Point-LP PCI Express Root Port #9"
+                        }, 
+
+                        "use-msi", 
+                        One
+                    }
+            }
+
+            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+            Return (Local0)
+        }
     }
 
     Method (_SB.PCI0.PPMC._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
