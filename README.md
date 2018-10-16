@@ -33,7 +33,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 - [FallenChromium](https://github.com/FallenChromium) and [Javmain](https://github.com/javmain) and [johnnync13](https://github.com/johnnync13) for valuable suggestions
 
-- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) for maintenance
+- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext) for maintenance
 
 
 ## Installation
