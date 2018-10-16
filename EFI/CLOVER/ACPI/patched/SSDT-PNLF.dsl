@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLeL4mIS.aml, Sun Sep 23 00:14:22 2018
+ * Disassembly of iASLGj0QGv.aml, Tue Oct 16 21:30:10 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000404 (1028)
+ *     Length           0x00000452 (1106)
  *     Revision         0x02
- *     Checksum         0x9F
+ *     Checksum         0xC3
  *     OEM ID           "hack"
  *     OEM Table ID     "_PNLF"
  *     OEM Revision     0x00000000 (0)
@@ -60,8 +60,38 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
             Offset (0xC8250), 
             LEVW,   32, 
             LEVX,   32, 
+            LEVD,   32, 
             Offset (0xE1180), 
             PCHL,   32
+        }
+
+        Method (INI1, 1, NotSerialized)
+        {
+            If ((Zero == (0x02 & Arg0)))
+            {
+                Local5 = 0xC0000000
+                If (CondRefOf (\RMCF.LEVW))
+                {
+                    If ((Ones != \RMCF.LEVW))
+                    {
+                        Local5 = \RMCF.LEVW /* External reference */
+                    }
+                }
+
+                ^LEVW = Local5
+            }
+
+            If ((0x04 & Arg0))
+            {
+                If (CondRefOf (\RMCF.GRAN))
+                {
+                    ^GRAN = \RMCF.GRAN /* External reference */
+                }
+                Else
+                {
+                    ^GRAN = Zero
+                }
+            }
         }
 
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
@@ -72,7 +102,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                 Local4 = \RMCF.BKLT /* External reference */
             }
 
-            If ((Zero == (One & Local4)))
+            If (!(One & Local4))
             {
                 Return (Zero)
             }
@@ -90,9 +120,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                 Local3 = \RMCF.FBTP /* External reference */
             }
 
-            If ((Zero == Local3))
-            {
-                If ((Ones != Match (Package (0x10)
+            If (((One == Local3) || (Ones != Match (Package (0x10)
                                 {
                                     0x010B, 
                                     0x0102, 
@@ -110,17 +138,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                                     0x016A, 
                                     0x46, 
                                     0x42
-                                }, MEQ, Local0, MTR, Zero, Zero)))
-                {
-                    Local3 = One
-                }
-                Else
-                {
-                    Local3 = 0x02
-                }
-            }
-
-            If ((One == Local3))
+                                }, MEQ, Local0, MTR, Zero, Zero))))
             {
                 If ((Ones == Local2))
                 {
@@ -149,7 +167,42 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                     }
                 }
             }
-            ElseIf ((0x02 == Local3))
+            ElseIf (((0x03 == Local3) || (Ones != Match (Package (0x04)
+                                {
+                                    0x3E9B, 
+                                    0x3EA5, 
+                                    0x3E92, 
+                                    0x3E91
+                                }, MEQ, Local0, MTR, Zero, Zero))))
+            {
+                If ((Ones == Local2))
+                {
+                    Local2 = 0xFFFF
+                }
+
+                INI1 (Local4)
+                Local1 = ^LEVX /* \_SB_.PCI0.IGPU.PNLF.LEVX */
+                If (!Local1)
+                {
+                    Local1 = Local2
+                }
+
+                If ((Local2 != Local1))
+                {
+                    Local0 = ((^LEVD * Local2) / Local1)
+                    If ((Local2 > Local1))
+                    {
+                        ^LEVX = Local2
+                        ^LEVD = Local0
+                    }
+                    Else
+                    {
+                        ^LEVD = Local0
+                        ^LEVX = Local2
+                    }
+                }
+            }
+            Else
             {
                 If ((Ones == Local2))
                 {
@@ -181,48 +234,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                     {
                         Local2 = 0x0AD9
                     }
-                    ElseIf ((Ones != Match (Package (0x04)
-                                    {
-                                        0x3E9B, 
-                                        0x3EA5, 
-                                        0x3E92, 
-                                        0x3E91
-                                    }, MEQ, Local0, MTR, Zero, Zero)))
-                    {
-                        Local2 = 0xFF7B
-                    }
                     Else
                     {
                         Local2 = 0x056C
                     }
                 }
 
-                If ((Zero == (0x02 & Local4)))
-                {
-                    Local5 = 0xC0000000
-                    If (CondRefOf (\RMCF.LEVW))
-                    {
-                        If ((Ones != \RMCF.LEVW))
-                        {
-                            Local5 = \RMCF.LEVW /* External reference */
-                        }
-                    }
-
-                    ^LEVW = Local5
-                }
-
-                If ((0x04 & Local4))
-                {
-                    If (CondRefOf (\RMCF.GRAN))
-                    {
-                        ^GRAN = \RMCF.GRAN /* External reference */
-                    }
-                    Else
-                    {
-                        ^GRAN = Zero
-                    }
-                }
-
+                INI1 (Local4)
                 Local1 = (^LEVX >> 0x10)
                 If (!Local1)
                 {
@@ -257,7 +275,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
             {
                 _UID = 0x12
             }
-            ElseIf ((Local2 == 0xFF7B))
+            ElseIf ((Local2 == 0xFFFF))
             {
                 _UID = 0x13
             }
