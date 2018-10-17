@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLGj0QGv.aml, Tue Oct 16 21:30:10 2018
+ * Disassembly of iASL64kco4.aml, Wed Oct 17 12:28:54 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000452 (1106)
+ *     Length           0x00000453 (1107)
  *     Revision         0x02
- *     Checksum         0xC3
+ *     Checksum         0xA1
  *     OEM ID           "hack"
  *     OEM Table ID     "_PNLF"
  *     OEM Revision     0x00000000 (0)
@@ -37,7 +37,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
         Name (_ADR, Zero)  // _ADR: Address
         Name (_HID, EisaId ("APP0002"))  // _HID: Hardware ID
         Name (_CID, "backlight")  // _CID: Compatible ID
-        Name (_UID, Zero)  // _UID: Unique ID
+        Name (_UID, 0x16)  // _UID: Unique ID
         Name (_STA, 0x0B)  // _STA: Status
         Field (^RMP3, AnyAcc, NoLock, Preserve)
         {
