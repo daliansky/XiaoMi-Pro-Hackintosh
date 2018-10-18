@@ -7,20 +7,66 @@
 ## 支持列表
 
 * 支持10.13.x 和 10.14。
-* CPU为第八代，原生支持。如果需要更高的性能（或者更长续航），请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`。
-* 声卡型号为`Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹，运行`install.command`，然后重启来给声卡驱动打补丁。
-    * 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。
-* 触摸板驱动使用 `VoodooI2C`，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒。
-* 大小写切换键可能工作不正常，请阅读[#2](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/2)里的步骤来关闭 `使用大写锁定键切换“ABC”输入模式`。
-* 最新键盘驱动在打字的时候会短暂禁用触控板。如果你感觉体验不佳，请阅读[#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19)里的解决方法。
-* 其他ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
-* USB遮盖使用的是[Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
-* 使用左侧的HDMI接口可能会导致笔记本内屏黑屏，可以尝试合盖再开盖来恢复。
-* 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
+* ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
+
+### 声卡
+* 声卡型号为 `Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。
+* 如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹，运行`install.command`，然后重启来给声卡驱动打补丁。每次开机后可能需要重新插拔耳机。
+* 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。
+
+### 蓝牙
 * 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
     * 禁用原生蓝牙来省电或者使用USB蓝牙代替原生蓝牙，请阅读[#24](https://github.com/daliansky/XiaoMi-Pro/issues/24)给出的步骤。
     * 购买一个兼容的内置网卡并插在M.2插槽。小心地把D+和D-线焊接到WLAN_LTE接口上。然后替换[#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7)里的附件。
+
+### CPU
+* 型号是 `i5-8250U` 或 `i7-8550U`。原生支持XCPM电源管理。
+* XCPM和HWP最好同时工作来达到高效电源管理 (>=10.13.6)。请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`来开启HWP。
+
+### 显卡
+* 型号是 `Intel UHD Graphics 620`，通过注入ig-platform-id `00001659` 仿冒成 `Intel HD Graphics 620` `00001659`。
+* 使用左侧的HDMI接口可能会导致笔记本内屏黑屏，可以尝试合盖再开盖来恢复。
+* 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
+
+### 键盘
+* 大小写切换键可能工作不正常，请阅读[#2](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/2)里的步骤来关闭 `使用大写锁定键切换“ABC”输入模式`。
+* 最新键盘驱动在打字的时候会短暂禁用触控板。如果你感觉体验不佳，请阅读[#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19)里的解决方法。
+
+### 硬盘
 * 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[How to fix PM981 in 10.3.3]( https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/)。
+
+### 触控板
+* 触摸板驱动使用修正过的 `VoodooI2C`，解决了缩放和休眠问题。
+
+### USB
+* USB遮盖使用的是[Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
+* SD读卡器型号是 `RTS5129`。因为它不被支持，所以禁用了它来增加续航。
+
+### 无线网卡
+* 无线网卡型号是 `Intel® Dual Band Wireless-AC 8265`。很不幸，没有驱动支持它。你可以访问[Intel WiFi Driver Effort](https://www.tonymacx86.com/threads/intel-wifi-driver-effort.186344) 来获取最新进展。
+* 你也可以插入一个兼容的无线网卡到M.2插槽。更多信息可以加入[小米PRO黑苹果高级群(群号:247451054)](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)参与讨论。
+
+
+## 鸣谢
+
+- [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [CPUFriend](https://github.com/acidanthera/CPUFriend) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 `USBPower` 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
+
+- [alexandred](https://github.com/alexandred) 和 [hieplpvip](https://github.com/hieplpvip) 提供 [VoodooI2C](https://github.com/alexandred/VoodooI2C) 的维护
+
+- [apianti](https://sourceforge.net/u/apianti) 和 [blackosx](https://sourceforge.net/u/blackosx) 和 [blusseau](https://sourceforge.net/u/blusseau) 和 [dmazar](https://sourceforge.net/u/dmazar) 和 [slice2009](https://sourceforge.net/u/slice2009) 提供 [Clover](https://sourceforge.net/projects/cloverefiboot) 的维护
+
+- [FallenChromium](https://github.com/FallenChromium) 和 [Javmain](https://github.com/javmain) 和 [johnnync13](https://github.com/johnnync13) 的宝贵建议
+
+- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext) 的维护
+
+
+## 安装
+
+请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)，视频教程[小米笔记本Pro安装macOS 10.13.4（黑苹果+Windows双系统）过程](https://www.bilibili.com/video/av23052183)。
+
+完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新。
+
+如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开`终端.app`并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 更新日期：
@@ -85,8 +131,6 @@
     * `Lilu` v1.2.1目前还不稳定，存在无法进入系统的风险，所以降级到v1.2.0版本
     * `AppleALC` 降级到V1.2.0
 
-    **EFI暂不支持macOS 10.13.2Beta版本的安装，Lilu不抽风后会持续更新**
-
 
 * 1-25-2018
 
@@ -97,6 +141,7 @@
     * 修复屏幕亮度无法保存的问题
     * 更新 `Lilu` v1.2.2
     * 更新 `AppleALC` v1.2.2 支持小米Pro，注入ID:99
+    * 更新 `IntelGraphicsFixup` v1.2.3
 
 
 * 4-8-2018
@@ -206,27 +251,6 @@
     * 新增 `USBPower` 来代替 `USBInjectAll` 和 `SSDT-USB.aml`
     * 移除 `SSDT-MATH.aml`
     * 清洁 `config.plist` 里的代码
-
-
-## 鸣谢
-
-- [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [CPUFriend](https://github.com/acidanthera/CPUFriend) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 `USBPower` 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
-
-- [alexandred](https://github.com/alexandred) 和 [hieplpvip](https://github.com/hieplpvip) 提供 [VoodooI2C](https://github.com/alexandred/VoodooI2C) 的维护
-
-- [apianti](https://sourceforge.net/u/apianti) 和 [blackosx](https://sourceforge.net/u/blackosx) 和 [blusseau](https://sourceforge.net/u/blusseau) 和 [dmazar](https://sourceforge.net/u/dmazar) 和 [slice2009](https://sourceforge.net/u/slice2009) 提供 [Clover](https://sourceforge.net/projects/cloverefiboot) 的维护
-
-- [FallenChromium](https://github.com/FallenChromium) 和 [Javmain](https://github.com/javmain) 和 [johnnync13](https://github.com/johnnync13) 的宝贵建议
-
-- [RehabMan](https://github.com/RehabMan) 提供 [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup) 和 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) 和 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) 和 [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext) 的维护
-
-
-## 安装
-
-请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
-完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新.
-
-如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开`终端.app`并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 关于打赏

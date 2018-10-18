@@ -7,20 +7,44 @@ Hackintosh your XiaoMi Pro Notebook
 ## Features
 
 * Support 10.13.x and 10.14.
-* CPU native support. For people who want better performance (or longer battery life), please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53).
-* The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` in layout-id 99; injection information is located in `/CLOVER/config.plist`. If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder, run `install.command`, and restart to patch the audio driver.
-    * Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).
-* Touchpad driver is `VoodooI2C`, which supports multiple gestures without drift.
-* Caps Lock may not function well, please read instructions in [#2](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/2) to uncheck `Use the Caps Lock key to switch to and from ABC`. 
-* The latest keyboard driver can temporily disable the touchpad during typing. If you are not happy with the lag, a workaround is provided in [#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19).
-* Other ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
-* USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.
-* Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
-* Native Brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
+* ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
+
+### Audio
+* The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` on layout-id 99; injection information is located in `/CLOVER/config.plist`. 
+* If headphones are not working, please download [ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) folder, run `install.command`, and restart to patch the audio driver. You may need to replug the headphone after every boot.
+* Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).
+    
+### Bluetooth
 * Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
     * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
     * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
-* Recent model uses `PM981` SSD instead of `PM961`. This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs or visit [How to fix PM981 in 10.3.3]( https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/).
+
+### CPU
+* The model is `i5-8250U` or `i7-8550U`, and XCPM power management is native supported. 
+* XCPM and HWP are recommended to work together to reach better power management (>=10.13.6). Please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53) to enable HWP.
+
+### Graphics
+* The model name is `Intel UHD Graphics 620`, faked to `Intel HD Graphics 620` by injecting ig-platform-id `00001659`.
+* Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
+* Native brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
+
+### Keyboard
+* Caps Lock may not function well, please read instructions in [#2](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/2) to uncheck `Use the Caps Lock key to switch to and from ABC`. 
+* The latest keyboard driver can temporily disable the touchpad during typing. If you are not happy with the lag, a workaround is provided in [#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19).
+
+### SSD
+* Recent model uses `PM981` SSD instead of `PM961`. This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs or visit [How to fix PM981 in 10.3.3](https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/).
+
+### Touchpad
+* Touchpad driver is a patched verison of `VoodooI2C`, which has no scale problem or sleep issue.
+
+### USB
+* USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.
+* SD Card Reader's model name is `RTS5129`. It is not supported and be disabled to save power.
+
+### Wi-Fi
+* The wireless model is `Intel® Dual Band Wireless-AC 8265`. Unfortunately, there's no way to enable it. You can follow [Intel WiFi Driver Effort](https://www.tonymacx86.com/threads/intel-wifi-driver-effort.186344) to check the latest progress.
+* A workaround is to insert a supported wireless card into M.2 slot. More information can be viewed in [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724).
 
 
 ## Credits
@@ -38,7 +62,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Installation
 
-Please refer to the detailed installation tutorial (Chinese version) [macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html).
+Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial[Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
 
 A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page,Thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
 
@@ -106,7 +130,6 @@ If the tracpad doesn't work during installation, please plug a wired mouse or a 
     
     - `Lilu` v1.2.1 is not stable at the moment, with the risk of inability to enter the system, so downgrade to v1.2.0
     - `AppleALC` downgraded to V1.2.0
-       **EFI temporarily does not support macOS 10.13.2Beta version of the installation, Lilu does not exhaust will continue to update**
 
 
 - 1-25-2018
