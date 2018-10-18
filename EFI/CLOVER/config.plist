@@ -8,8 +8,6 @@
 		<true/>
 		<key>FixHeaders</key>
 		<true/>
-		<key>FixMCFG</key>
-		<true/>
 		<key>DSDT</key>
 		<dict>
 			<key>DropOEM_DSM</key>
@@ -19,6 +17,12 @@
 				<key>AddDTGP</key>
 				<true/>
 				<key>AddMCHC</key>
+				<true/>
+				<key>FixHPET</key>
+				<true/>
+				<key>FixRTC</key>
+				<true/>
+				<key>FixTMR</key>
 				<true/>
 				<key>FixADP1</key>
 				<true/>
