@@ -115,6 +115,36 @@
 					<key>TgtBridge</key>
 					<data>TUFUSA==</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change WMIE._HID to XHID</string>
+					<key>Find</key>
+					<data>X0hJRA==</data>
+					<key>Replace</key>
+					<data>WEhJRA==</data>
+					<key>TgtBridge</key>
+					<data>V01JRQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change WMIE._STA to XSTA</string>
+					<key>Find</key>
+					<data>X1NUQQ==</data>
+					<key>Replace</key>
+					<data>WFNUQQ==</data>
+					<key>TgtBridge</key>
+					<data>V01JRQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change WTBT._HID to XHID</string>
+					<key>Find</key>
+					<data>X0hJRA==</data>
+					<key>Replace</key>
+					<data>WEhJRA==</data>
+					<key>TgtBridge</key>
+					<data>V1RCVA==</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
