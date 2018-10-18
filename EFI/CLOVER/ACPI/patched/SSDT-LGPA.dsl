@@ -5,31 +5,33 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLtXmTM5.aml, Tue Sep 18 11:13:51 2018
+ * Disassembly of iASLJhceR5.aml, Thu Oct 18 16:47:38 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000E15 (3605)
+ *     Length           0x00000E33 (3635)
  *     Revision         0x02
- *     Checksum         0xDF
+ *     Checksum         0x4F
  *     OEM ID           "hack"
- *     OEM Table ID     "LGPA"
+ *     OEM Table ID     "_LGPA"
  *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20180427 (538444839)
+ *     Compiler Version 0x20180810 (538445840)
  */
 DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)
     External (_SB_.PCI0.IGPU.CBLV, UnknownObj)
     External (_SB_.PCI0.IGPU.DD1F, DeviceObj)
-    External (_SB_.PCI0.LID0, DeviceObj)
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.ACTL, FieldUnitObj)
+    External (_SB_.PCI0.LPCB.BSLF, IntObj)
     External (_SB_.PCI0.LPCB.DCTL, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC92, FieldUnitObj)
     External (_SB_.PCI0.LPCB.HIDD.HPEM, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.LPCB.LID0, DeviceObj)
     External (_SB_.PCI0.LPCB.MDCS, FieldUnitObj)
+    External (_SB_.PCI0.LPCB.MGIF, UnknownObj)
     External (_SB_.PCI0.LPCB.OCPF, FieldUnitObj)
     External (_SB_.PCI0.LPCB.PS2K, DeviceObj)
     External (_SB_.PCI0.LPCB.PWCG, MethodObj)    // 0 Arguments
@@ -264,7 +266,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                 Notify (^^RP01.PXSX, 0xD5) // Hardware-Specific
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
-                                OG00 = (^^IGPU.CBLV & 0xFF)
+                                OG00 &= 0xFF
                                 Notify (^^IGPU.DD1F, 0x88) // Device-Specific
                             }
                             Default
@@ -380,7 +382,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                 Notify (^^RP01.PXSX, 0xD5) // Hardware-Specific
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
-                                OG00 = (^^IGPU.CBLV & 0xFF)
+                                OG00 &= 0xFF
                                 Notify (^^IGPU.DD1F, 0x88) // Device-Specific
                             }
                             Default
