@@ -24,7 +24,7 @@
 * XCPM和HWP最好同时工作来达到高效电源管理 (>=10.13.6)。请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`来开启HWP。
 
 ### 显卡
-* 型号是 `Intel UHD Graphics 620`，通过注入ig-platform-id `00001659` 仿冒成 `Intel HD Graphics 620` `00001659`。
+* 型号是 `Intel UHD Graphics 620`，通过注入ig-platform-id `00001659` 仿冒成 `Intel HD Graphics 620`。
 * 使用左侧的HDMI接口可能会导致笔记本内屏黑屏，可以尝试合盖再开盖来恢复。
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
 
@@ -33,7 +33,7 @@
 * 最新键盘驱动在打字的时候会短暂禁用触控板。如果你感觉体验不佳，请阅读[#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19)里的解决方法。
 
 ### 硬盘
-* 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[How to fix PM981 in 10.3.3]( https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063/)。
+* 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[10.13.X-10.14.X 解决PM981死机以及开启建兴/浦科特/海力士 NVMe原生支持补丁](http://bbs.pcbeta.com/viewthread-1774117-1-1.html)。
 
 ### 触控板
 * 触摸板驱动使用修正过的 `VoodooI2C`，解决了缩放和休眠问题。
@@ -43,7 +43,7 @@
 * SD读卡器型号是 `RTS5129`。因为它不被支持，所以禁用了它来增加续航。
 
 ### 无线网卡
-* 无线网卡型号是 `Intel® Dual Band Wireless-AC 8265`。很不幸，没有驱动支持它。你可以访问[Intel WiFi Driver Effort](https://www.tonymacx86.com/threads/intel-wifi-driver-effort.186344) 来获取最新进展。
+* 无线网卡型号是 `Intel® Dual Band Wireless-AC 8265`。很不幸，没有驱动支持它。你可以访问[Intel无线网卡macOS驱动 是的你没有看错就是Intel无线网卡macOS驱动](http://bbs.pcbeta.com/viewthread-1791409-1-1.html)来获取最新进展。
 * 你也可以插入一个兼容的无线网卡到M.2插槽。更多信息可以加入[小米PRO黑苹果高级群(群号:247451054)](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)参与讨论。
 
 
@@ -62,7 +62,7 @@
 
 ## 安装
 
-请参考详细的安装教程（中文版）[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)，视频教程[小米笔记本Pro安装macOS 10.13.4（黑苹果+Windows双系统）过程](https://www.bilibili.com/video/av23052183)。
+请参考详细的安装教程[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)，视频教程[小米笔记本Pro安装macOS 10.13.4（黑苹果+Windows双系统）过程](https://www.bilibili.com/video/av23052183)。
 
 完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新。
 
