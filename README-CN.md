@@ -47,6 +47,23 @@
 * 你也可以插入一个兼容的无线网卡到M.2插槽。更多信息可以加入[小米PRO黑苹果高级群(群号:247451054)](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)参与讨论。
 
 
+## 常见问题解答
+
+### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
+
+有很多种解决办法。对于我来说最好理解的方法是刷BIOS来清理`nvram.plist`。请阅读[BIOS文件夹](https://github.com/daliansky/XiaoMi-Pro/blob/master/BIOS/README-CN.md)里的 `怎么升级BIOS`。
+
+
+### 我开启了 `文件保险箱`，开机时找不到macos启动项，怎么办？
+
+一般情况下不推荐开启 `文件保险箱`。你可以在Clover开机界面时按下Fn + F3，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
+
+
+### 我的触控板升级系统后无法使用。
+
+你需要在每次更新系统后重建缓存。运行 `Kext Utility` 或者在 `终端.app` 输入 `sudo kextcache -i /`，然后重启。如果触控板还是失效，试试按下F9键。
+
+
 ## 鸣谢
 
 - [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC) 和 [CPUFriend](https://github.com/acidanthera/CPUFriend) 和 [HibernationFixup](https://github.com/acidanthera/HibernationFixup) 和 [Lilu](https://github.com/acidanthera/Lilu) 和 `USBPower` 和 [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen) 的维护
@@ -66,7 +83,7 @@
 
 完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新。
 
-如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开`终端.app`并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
+如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 更新日期：
