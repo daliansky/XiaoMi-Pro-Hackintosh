@@ -39,7 +39,7 @@
 * 触摸板驱动使用修正过的 `VoodooI2C`，解决了缩放和休眠问题。
 
 ### USB
-* USB遮盖使用的是[Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559/)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
+* USB遮盖使用的是[Intel FB-Patcher](https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
 * SD读卡器型号是 `RTS5129`。因为它不被支持，所以禁用了它来增加续航。
 
 ### 无线网卡
