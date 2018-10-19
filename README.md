@@ -61,7 +61,7 @@ It is not recommened to open `FileVault`. You can press Fn + F3 in the Clover bo
 
 ### My touchpad isn't working after update.
 
-You need to rebuild the kext cache after every system update. Use `Kext Utility` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
+You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
 
 ## Credits
