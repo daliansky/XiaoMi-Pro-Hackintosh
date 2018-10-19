@@ -47,6 +47,23 @@ Hackintosh your XiaoMi Pro Notebook
 * A workaround is to insert a supported wireless card into M.2 slot. More information can be viewed in [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724).
 
 
+## Q&A
+
+### My device is locked by `Find My Mac` and can't be booted, what should I do now?
+
+I believe there are many ways to solve this problem. I give a most understandable one here (at least for me). The solution is to refresh your BIOS in order to clean `nvram.plist`. Please read `How to update BIOS` in [BIOS folder](https://github.com/daliansky/XiaoMi-Pro/blob/master/BIOS/README.md).
+
+
+### I opened the `FileVault` and I can't find macos partition in Clover boot page, how can I solve it?
+
+It is not recommened to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
+
+
+### My touchpad isn't working after update.
+
+You need to rebuild the kext cache after every system update. Use `Kext Utility` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
+
+
 ## Credits
 
 - [Acidanthera](https://github.com/acidanthera) Updated [AppleALC](https://github.com/acidanthera/AppleALC) and [CPUFriend](https://github.com/acidanthera/CPUFriend) and [HibernationFixup](https://github.com/acidanthera/HibernationFixup) and [Lilu](https://github.com/acidanthera/Lilu) and `USBPower` and [VirtualSMC](https://github.com/acidanthera/VirtualSMC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance

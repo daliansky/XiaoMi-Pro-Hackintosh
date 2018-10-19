@@ -4,9 +4,9 @@
 
 ### Introduction
 
-The BIOS packet in [Firmware v0603](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder is from Xiaomi stuff, so it is reliable. It is highly recommended to update to `0603` version because the script for fan fix is based on that version.
+The BIOS packet in [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder is from Xiaomi stuff, so it is reliable. It is highly recommended to update to `0603` version because the script for fan fix is based on that version.
 
-The ME firmware in [ME](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps avoiding potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.
+The ME firmware in [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps avoiding potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.
 
 Warning: Since the operations are related to BIOS, there's possibility that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)), the whole system may unable to boot.
 
@@ -15,7 +15,7 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 ### How to update BIOS
 
-1. Download all the files in [Firmware v0603](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder.
+1. Download all the files in [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder.
 
 2. Extract all the files and copy them to the root directory of a FAT32 U disk.
 
@@ -31,7 +31,7 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 ### How to update ME firmware
 
-1. Download all the files in [ME](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/ME) folder.
+1. Download all the files in [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) folder.
 
 2. Create a new folder within the drive C and name it "Win64" (path: C:\Win64) and copy all the files into "Win64" folder.
 

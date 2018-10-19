@@ -4,9 +4,9 @@
 
 ### 简介
 
-文件夹 [Firmware v0603](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 的BIOS包来自小米官方，来源可靠。建议把BIOS升级到 `0603` 版本，因为后文的风扇逻辑优化脚本是基于这个版本制作的。
+文件夹 [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 的BIOS包来自小米官方，来源可靠。建议把BIOS升级到 `0603` 版本，因为后文的风扇逻辑优化脚本是基于这个版本制作的。
 
-文件夹 [ME](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
+文件夹 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
 
 警告：因为操作涉及到BIOS等底层代码，如果在升级过程中出现错误（比如升级程序强制退出，或不正确地运行[#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)里的脚本)，电脑可能无法启动。
 
@@ -15,7 +15,7 @@
 
 ### 怎么升级BIOS
 
-1. 下载 [Firmware v0603](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 文件夹里的所有文件。
+1. 下载 [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 文件夹里的所有文件。
 
 2. 提取所有文件，并把它们拷贝进一个FAT32文件格式的U盘的根目录。
 
@@ -31,7 +31,7 @@
 
 ### 怎么升级ME固件
 
-1. 下载 [ME](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/BIOS/ME) 文件夹里的所有文件。
+1. 下载 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 文件夹里的所有文件。
 
 2. 在C盘根目录下创建一个文件夹，命名为 `Win64` (路径: C:\Win64) 然后把第一步里得到的所有文件拷贝进 `Win64` 文件夹。
 
