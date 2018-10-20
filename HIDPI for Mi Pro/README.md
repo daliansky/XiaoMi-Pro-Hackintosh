@@ -1,4 +1,4 @@
-# Open MacOS HIDPI
+# Open macOS HIDPI
 
 [English](README.md) | [中文](README-CN.md)
 
@@ -6,7 +6,7 @@
 
 This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. The resolution is faked to 2688 x 1512, and UI looks like 1344 x 756. Comparing to the previous version, this one solves glitter in boot page and in wake up.
 
-MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the vision experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
+macOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while macOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the vision experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
 
 Logo scaling up may not be resolved, because the higher resolution is faked.
 
