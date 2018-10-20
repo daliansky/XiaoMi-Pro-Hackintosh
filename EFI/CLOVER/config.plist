@@ -149,16 +149,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change PEPD._HID to XHID</string>
-					<key>Find</key>
-					<data>X0hJRA==</data>
-					<key>Replace</key>
-					<data>WEhJRA==</data>
-					<key>TgtBridge</key>
-					<data>UEVQRA==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change WMIE._HID to XHID</string>
 					<key>Find</key>
 					<data>X0hJRA==</data>
