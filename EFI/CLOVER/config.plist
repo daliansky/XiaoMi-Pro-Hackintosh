@@ -129,16 +129,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change IOTR._HID to XHID</string>
-					<key>Find</key>
-					<data>X0hJRA==</data>
-					<key>Replace</key>
-					<data>WEhJRA==</data>
-					<key>TgtBridge</key>
-					<data>SU9UUg==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change MATH._STA to XSTA</string>
 					<key>Find</key>
 					<data>X1NUQQ==</data>
