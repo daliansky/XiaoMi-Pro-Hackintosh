@@ -1,33 +1,27 @@
-# Run Two Files to open MacOS HIDPI
+# Open MacOS HIDPI
 
 [English](README.md) | [中文](README-CN.md)
 
 ### Instruction
 
-This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. (Currently I found that macOS 10.13.4 only supports 1440x810 HiDPI, and macOS 10.13.3 works great.)
+This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. The resolution is faked to 2688 x 1512, and UI looks like 1344 x 756. Comparing to the previous version, this one solves glitter in boot page and in wake up.
 
 MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
 
-In addition, this program is adjusted for Mi Pro to avoid wake problems.
+Logo scaling up may not be resolved, because the higher resolution is faked.
 
-Appearance:
+In addition, this program is only for Mi Pro.
 
-![HIDPI.png](https://i.loli.net/2018/05/27/5b09ff7b4745c.jpg)
 
 ### How to install
 
-Run script in Terminal
+Run `install.command`, and restart.
 
-```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
-```
-![RUN.jpg](https://i.loli.net/2018/08/28/5b844de4dbb9e.jpg)
-
-Then, also run `install.command`. This program is used to avoid wake problems.
+Choose `1344 x 756` in `SysPref - Display`.
 
 ### Recovery
 
-If you cant boot into system, or get any another issues, you can use clover `-x ` reboot or into Recovery mode, remove your display's DisplayVendorID folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files
+If you cant boot into system, or get any another issues, you can use clover `-x ` reboot or into Recovery mode, remove your display's DisplayVendorID folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files.
 
 In Terminal: 
 
@@ -41,7 +35,5 @@ $ cp -r ./backup/* ./
 
 
 ## Credit
-
-Thanks to [xzhih](https://github.com/xzhih) for providing base function of this program and the sample picture in README.
 
 Thanks to [zysuper](https://github.com/zysuper) for providing base function of this program.
