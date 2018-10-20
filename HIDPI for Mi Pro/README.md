@@ -6,7 +6,7 @@
 
 This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. The resolution is faked to 2688 x 1512, and UI looks like 1344 x 756. Comparing to the previous version, this one solves glitter in boot page and in wake up.
 
-MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
+MacOS has different dpi mechanism with Windows 10. For example, Win10 provides 125% scale or 150% scale option, while MacOS can only change to lower resolution if users choose "Scale" on a non-Retina screen. In this way, the vision experience is bad since UI and text seem small in 1080p, and they seem fuzzy if people choose "Scale".
 
 Logo scaling up may not be resolved, because the higher resolution is faked.
 
@@ -15,7 +15,7 @@ In addition, this program is only for Mi Pro.
 
 ### How to install
 
-Run `install.command`, and restart.
+Download the whole folder and run `install.command`, then restart.
 
 Choose `1344 x 756` in `SysPref - Display`.
 
