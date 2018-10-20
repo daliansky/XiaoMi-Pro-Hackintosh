@@ -1,18 +1,14 @@
 #!/bin/bash
 
 path=${0%/*}
+sudo launchctl remove /Library/LaunchAgents/org.zysuper.riceCracker.plist
+sudo pkill riceCrackerDaemon
+sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
+sudo rm -f /usr/bin/riceCrackerDaemon
 
-sudo cp "$path/org.zysuper.ricecracker.daemon.plist" /Library/LaunchAgents
-sudo cp "$path/riceCrackerDaemon" /usr/bin
+sudo rm -rf /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5
+echo 'Uninstall previous version complete！'
 
-sudo chmod 755 /usr/bin/riceCrackerDaemon
-sudo chown root:wheel /usr/bin/riceCrackerDaemon
-
-sudo chmod 644 /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
-sudo chown root:wheel /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
-
-sudo launchctl load /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
-
-echo 'Install HiScale Complete！'
-echo 'This is the end of the installation!'
+sudo cp -r "$path/DisplayVendorID-9e5" /System/Library/Displays/Contents/Resources/Overrides
+echo 'This is the end of the installation, please reboot and choose 1344x756 in SysPref! '
 bash read -p 'Press any key to exit'
