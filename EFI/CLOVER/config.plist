@@ -109,26 +109,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change CIND._HID to XHID</string>
-					<key>Find</key>
-					<data>X0hJRA==</data>
-					<key>Replace</key>
-					<data>WEhJRA==</data>
-					<key>TgtBridge</key>
-					<data>Q0lORA==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change CIND._STA to XSTA</string>
-					<key>Find</key>
-					<data>X1NUQQ==</data>
-					<key>Replace</key>
-					<data>WFNUQQ==</data>
-					<key>TgtBridge</key>
-					<data>Q0lORA==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change HPET._STA to XSTA</string>
 					<key>Find</key>
 					<data>X1NUQQ==</data>
