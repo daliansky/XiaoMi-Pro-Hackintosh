@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLliArsq.aml, Mon Oct 22 00:08:03 2018
+ * Disassembly of iASL2kETlt.aml, Mon Oct 22 09:57:13 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00000057 (87)
  *     Revision         0x02
- *     Checksum         0x4C
+ *     Checksum         0x62
  *     OEM ID           "hack"
  *     OEM Table ID     "_HPET"
  *     OEM Revision     0x00000000 (0)
@@ -24,7 +24,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)
 
     Scope (_SB.PCI0.LPCB.HPET)
     {
-        Name (_STA, Zero)  // _STA: Status
+        Name (HPTE, Zero)
     }
 }
 
