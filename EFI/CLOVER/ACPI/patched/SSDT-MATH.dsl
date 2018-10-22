@@ -5,20 +5,20 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLsJZoDv.aml, Mon Oct 22 09:57:26 2018
+ * Disassembly of iASLUlonad.aml, Mon Oct 22 10:12:51 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00000059 (89)
  *     Revision         0x02
- *     Checksum         0x4A
+ *     Checksum         0xFE
  *     OEM ID           "hack"
- *     OEM Table ID     "MATH"
+ *     OEM Table ID     "_MATH"
  *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20180427 (538444839)
+ *     Compiler Version 0x20180810 (538445840)
  */
-DefinitionBlock ("", "SSDT", 2, "hack", "MATH", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "_MATH", 0x00000000)
 {
     Device (_SB.PCI0.LPCB.MATH)
     {
