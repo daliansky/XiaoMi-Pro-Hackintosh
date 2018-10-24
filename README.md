@@ -25,6 +25,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 ### Graphics
 * The model name is `Intel UHD Graphics 620`, faked to `Intel HD Graphics 620` by injecting ig-platform-id `00001659`.
+* The discrete graphics GPU's name is `NVIDIA GeForce MX150`, disabled by `SSDT-DDGPU.aml` becuase macOS doesn't support Optimus technology.
 * Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
 * Native brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
 
@@ -34,9 +35,11 @@ Hackintosh your XiaoMi Pro Notebook
 
 ### SSD
 * Recent model uses `PM981` SSD instead of `PM961`. This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs or visit [How to fix PM981 in 10.3.3](https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063).
+    * `PM981` SSD's serial number starts with `MZVLB`, and `PM961` SSD's serial number starts with `MZVLW`.
 
 ### Touchpad
-* Touchpad driver is a patched verison of `VoodooI2C`, which has no scale problem or sleep issue.
+* The model name is `ETD2303`(ELAN), and the driver is a patched verison of `VoodooI2C`, which has no scale problem or sleep issue.
+* Don't forget to uncheck `Smart Zoom` in `SysPref - Trackpad - Scroll & Zoom` to help trackpad work better.
 
 ### USB
 * USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559), related file is located in `/CLOVER/kexts/Other/USBPower.kext`.

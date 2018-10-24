@@ -25,6 +25,7 @@
 
 ### 显卡
 * 型号是 `Intel UHD Graphics 620`，通过注入ig-platform-id `00001659` 仿冒成 `Intel HD Graphics 620`。
+* 独显型号是 `NVIDIA GeForce MX150`，通过 `SSDT-DDGPU.aml` 来禁用，因为macOS不支持Optimus显卡切换技术。
 * 使用左侧的HDMI接口可能会导致笔记本内屏黑屏，可以尝试合盖再开盖来恢复。
 * 原生亮度快捷键支持，注入信息位于 `/CLOVER/ACPI/patched/SSDT-LGPA.aml`。
 
@@ -34,9 +35,11 @@
 
 ### 硬盘
 * 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[10.13.X-10.14.X 解决PM981死机以及开启建兴/浦科特/海力士 NVMe原生支持补丁](http://bbs.pcbeta.com/viewthread-1774117-1-1.html)。
+    * `PM981` 硬盘序列号以 `MZVLB` 开头，`PM961` 硬盘序列号以 `MZVLW` 开头。
 
 ### 触控板
-* 触摸板驱动使用修正过的 `VoodooI2C`，解决了缩放和休眠问题。
+* 型号是 `ETD2303`(ELAN)，触摸板驱动使用修正过的 `VoodooI2C`，解决了缩放和休眠问题。
+* 记得要取消 `系统偏好设置 - 触控板 - 滚动缩放` 里的 `智能缩放`。
 
 ### USB
 * USB遮盖使用的是[Intel FB-Patcher](https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
