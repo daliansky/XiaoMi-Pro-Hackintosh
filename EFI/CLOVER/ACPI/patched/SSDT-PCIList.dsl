@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASL9kyho5.aml, Tue Oct 16 23:26:14 2018
+ * Disassembly of iASLfI4UlA.aml, Wed Oct 24 12:35:26 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000894 (2196)
+ *     Length           0x0000087E (2174)
  *     Revision         0x02
- *     Checksum         0x72
+ *     Checksum         0xC8
  *     OEM ID           "hack"
  *     OEM Table ID     "_PCIList"
  *     OEM Revision     0x00000000 (0)
@@ -490,7 +490,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PCIList", 0x00000000)
             })
         }
 
-        Local0 = Package (0x08)
+        Local0 = Package (0x06)
             {
                 "name", 
                 Buffer (0x0D)
@@ -508,12 +508,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PCIList", 0x00000000)
                 Buffer (0x29)
                 {
                     "Sunrise Point-LP USB 3.0 xHCI Controller"
-                }, 
-
-                "RM,pr2-force", 
-                Buffer (0x04)
-                {
-                     0x00, 0x00, 0x00, 0x00                           // ....
                 }
             }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
