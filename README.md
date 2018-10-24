@@ -25,7 +25,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 ### Graphics
 * The model name is `Intel UHD Graphics 620`, faked to `Intel HD Graphics 620` by injecting ig-platform-id `00001659`.
-* The discrete graphics GPU's name is `NVIDIA GeForce MX150`, disabled by `SSDT-DDGPU.aml` becuase macOS doesn't support Optimus technology.
+* The discrete graphics' name is `NVIDIA GeForce MX150`, disabled by `SSDT-DDGPU.aml` becuase macOS doesn't support Optimus technology.
 * Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
 * Native brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
 
