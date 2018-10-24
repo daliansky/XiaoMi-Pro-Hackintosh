@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLeKinK1.aml, Fri Sep 14 10:38:23 2018
+ * Disassembly of iASLhGPWbq.aml, Thu Oct 25 04:14:06 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x0000038F (911)
  *     Revision         0x02
- *     Checksum         0x9B
+ *     Checksum         0x9C
  *     OEM ID           "hack"
  *     OEM Table ID     "_RMCF"
  *     OEM Revision     0x00000000 (0)
@@ -40,7 +40,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_RMCF", 0x00000000)
         Name (TYPE, One)
         Name (HIGH, One)
         Name (IGPI, Ones)
-        Name (DPTS, One)
+        Name (DPTS, Zero)
         Name (SHUT, One)
         Name (XPEE, One)
         Name (SSTF, Zero)
