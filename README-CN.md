@@ -39,7 +39,7 @@
 
 ### 触控板
 * 型号是 `ETD2303`(ELAN)，触摸板驱动使用修正过的 `VoodooI2C`，解决了缩放和休眠问题。
-* 记得要取消 `系统偏好设置 - 触控板 - 滚动缩放` 里的 `智能缩放`。
+* 记得要取消 `系统偏好设置 - 触控板 - 滚动缩放` 里的 `智能缩放` 来让触控板工作得更好。
 
 ### USB
 * USB遮盖使用的是[Intel FB-Patcher](https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
