@@ -57,7 +57,7 @@ Hackintosh your XiaoMi Pro Notebook
 I believe there are many ways to solve this problem. I give a most understandable one here (at least for me). The solution is to refresh your BIOS in order to clean `nvram.plist`. Please read `How to update BIOS` in [BIOS folder](https://github.com/daliansky/XiaoMi-Pro/blob/master/BIOS/README.md).
 
 
-### I opened the `FileVault` and I can't find macos partition in Clover boot page, how can I solve it?
+### I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
 
 It is not recommened to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
 
