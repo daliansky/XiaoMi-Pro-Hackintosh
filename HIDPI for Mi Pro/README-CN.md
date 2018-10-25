@@ -36,4 +36,4 @@ $ cp -r ./backup/* ./
 
 ## 鸣谢
 
-感谢 [zysuper](https://github.com/zysuper) 提供唤醒后恢复分辨率的脚本。
+感谢 [zysuper](https://github.com/zysuper) 提供基本功能。
