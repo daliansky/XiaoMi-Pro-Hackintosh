@@ -57,7 +57,7 @@
 有很多种解决办法。对于我来说最好理解的方法是刷BIOS来清理`nvram.plist`。请阅读[BIOS文件夹](https://github.com/daliansky/XiaoMi-Pro/blob/master/BIOS/README-CN.md)里的 `怎么升级BIOS`。
 
 
-### 我开启了 `文件保险箱`，开机时找不到macos启动项，怎么办？
+### 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
 
 一般情况下不推荐开启 `文件保险箱`。你可以在Clover开机界面时按下Fn + F3，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
 
@@ -91,7 +91,7 @@
 
 ## 更新日志
 
-详细更新日志请看 [Changelog-CN](Changelog-CN.md)。
+详细更新日志请看 [更新日志中文版](Changelog-CN.md)。
 
 
 ## 关于打赏
