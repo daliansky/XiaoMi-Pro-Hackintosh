@@ -11,7 +11,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 ### Audio
 * The model of the sound card is `Realtek ALC298`, which is drived by `AppleALC` on layout-id 99; injection information is located in `/CLOVER/config.plist`. 
-* If headphones are not working, please see [ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README.md).
+* If headphones are not working, please see [ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README.md). You may need to replug headphone after every boot.
 * Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).
     
 ### Bluetooth

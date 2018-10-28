@@ -11,7 +11,7 @@
 
 ### 声卡
 * 声卡型号为 `Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。
-* 如果耳机工作不正常，请下载[ALCPlugFix](https://github.com/stevezhengshiqi/XiaoMi-Pro/tree/master/ALCPlugFix) 文件夹，运行`install.command`，然后重启来给声卡驱动打补丁。每次开机后可能需要重新插拔耳机。
+* 如果耳机工作不正常，请阅读[ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README-CN.md)。每次开机后可能需要重新插拔耳机。
 * 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。
 
 ### 蓝牙

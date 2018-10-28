@@ -13,14 +13,14 @@
 
 * Download the whole [XiaoMi-Pro Pack](https://github.com/daliansky/XiaoMi-Pro/archive/master.zip), go to `ALCPlugFix` folder, and double click `english_install.command`.
 
-* Wait while the script copies the required files and reflash kextcache (related files are in the `fix` folder). It may take a few seconds.
+* Wait while the script copies the required files and reflashes kextcache (related files are in the `fix` folder). It may take a few seconds.
 
 * When it's done, you'll see `Press any key to Exit`. Type any key and press Enter, then restart your computer. The installation now completes.
 
 ATTENTION: You may have to replug the headphone after every boot to let headphone work.
 
 
-## Credit
+## Credits
 
 * Thanks to [goodwin](https://github.com/goodwin) for providing [ALCPlugFix](https://github.com/goodwin/ALCPlugFix).
 

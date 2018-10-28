@@ -35,6 +35,6 @@ $ cp -r ./backup/* ./
 ```
 
 
-## Credit
+## Credits
 
 Thanks to [zysuper](https://github.com/zysuper) for providing base function of this program.

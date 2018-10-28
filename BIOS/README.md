@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README-CN.md)
 
-### Introduction
+## Introduction
 
 The BIOS packet in [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder is from Xiaomi stuff, so it is reliable. It is highly recommended to update to `0603` version because the script for fan fix is based on that version.
 
@@ -13,7 +13,7 @@ Warning: Since the operations are related to BIOS, there's possibility that if s
 If unfortunately this situation happens on you, you need to find Xiaomi stuff to fix your device. If you use this program, you should agree that you are the person who take whole responsibility, instead of the author.
 
 
-### How to update BIOS
+## How to update BIOS
 
 1. Download all the files in [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder.
 
@@ -29,7 +29,7 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 6. Wait until the update process ends.
 
 
-### How to update ME firmware
+## How to update ME firmware
 
 1. Download all the files in [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) folder.
 
@@ -55,12 +55,12 @@ The rest will be done automaticly.
 7. Restart the notebook.
 
 
-### How to unlock better performance
+## How to unlock better performance
 
 [FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32MB to 64MB, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
 
 
-### Credit
+## Credits
 
 Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
 
