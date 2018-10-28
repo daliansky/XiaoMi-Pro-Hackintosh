@@ -67,19 +67,6 @@ It is not recommened to open `FileVault`. You can press Fn + F3 in the Clover bo
 You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
 
-## Credits
-
-- [Acidanthera](https://github.com/acidanthera) Updated [AppleALC](https://github.com/acidanthera/AppleALC) and [CPUFriend](https://github.com/acidanthera/CPUFriend) and [HibernationFixup](https://github.com/acidanthera/HibernationFixup) and [Lilu](https://github.com/acidanthera/Lilu) and `USBPower` and [VirtualSMC](https://github.com/acidanthera/VirtualSMC) and [WhateverGreen](https://github.com/acidanthera/WhateverGreen) for maintenance
-
-- [alexandred](https://github.com/alexandred) and [hieplpvip](https://github.com/hieplpvip) Updated [VoodooI2C](https://github.com/alexandred/VoodooI2C) for maintenance
-
-- [apianti](https://sourceforge.net/u/apianti) and [blackosx](https://sourceforge.net/u/blackosx) and [blusseau](https://sourceforge.net/u/blusseau) and [dmazar](https://sourceforge.net/u/dmazar) and [slice2009](https://sourceforge.net/u/slice2009) Updated [Clover](https://sourceforge.net/projects/cloverefiboot) for maintenance
-
-- [FallenChromium](https://github.com/FallenChromium) and [Javmain](https://github.com/javmain) and [johnnync13](https://github.com/johnnync13) for valuable suggestions
-
-- [RehabMan](https://github.com/RehabMan) Updated [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup) and [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander) and [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config) and [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext) for maintenance
-
-
 ## Installation
 
 Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
@@ -101,6 +88,19 @@ All the project is made for free, but you can reward me if you want.
 | Wechat                                                     | Alipay                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
 | ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
+
+
+## Credits
+
+- Thanks to [Acidanthera](https://github.com/acidanthera) for providing [AppleALC](https://github.com/acidanthera/AppleALC), [CPUFriend](https://github.com/acidanthera/CPUFriend), [HibernationFixup](https://github.com/acidanthera/HibernationFixup), [Lilu](https://github.com/acidanthera/Lilu), `USBPower`, [VirtualSMC](https://github.com/acidanthera/VirtualSMC), and [WhateverGreen](https://github.com/acidanthera/WhateverGreen).
+
+- Thanks to [alexandred](https://github.com/alexandred) and [hieplpvip](https://github.com/hieplpvip) for providing [VoodooI2C](https://github.com/alexandred/VoodooI2C).
+
+- Thanks to [apianti](https://sourceforge.net/u/apianti), [blackosx](https://sourceforge.net/u/blackosx), [blusseau](https://sourceforge.net/u/blusseau), [dmazar](https://sourceforge.net/u/dmazar), and [slice2009](https://sourceforge.net/u/slice2009) for providing [Clover](https://sourceforge.net/projects/cloverefiboot).
+
+- Thanks to [FallenChromium](https://github.com/FallenChromium), [Javmain](https://github.com/javmain), and [johnnync13](https://github.com/johnnync13) for valuable suggestions.
+
+- Thanks to [RehabMan](https://github.com/RehabMan) for providing [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup), [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
 
 
 ## Support and discussion

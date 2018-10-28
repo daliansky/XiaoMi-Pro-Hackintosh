@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README-CN.md)
 
-### Instruction
+## Instruction
 
 This program is to open native Apple HiDPI settings for non-Retina screen, and no need for RDM. The resolution is faked to 2688 x 1512, and UI looks like 1344 x 756. Comparing to the previous version, this one solves glitter in boot page and in wake up.
 
@@ -13,13 +13,14 @@ Logo scaling up may not be resolved, because the higher resolution is faked.
 In addition, this program is only for Mi Pro.
 
 
-### How to install
+## How to install
 
 Download the whole folder and run `install.command`, then restart.
 
 Choose `1344 x 756` in `SysPref - Display`.
 
-### Recovery
+
+## Recovery
 
 If you cant boot into system, or get any another issues, you can use clover `-x ` reboot or into Recovery mode, remove your display's DisplayVendorID folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files.
 
