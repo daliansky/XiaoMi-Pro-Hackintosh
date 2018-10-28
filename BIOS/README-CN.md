@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README-CN.md)
 
-### 简介
+## 简介
 
 文件夹 [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 的BIOS包来自小米官方，来源可靠。建议把BIOS升级到 `0603` 版本，因为后文的风扇逻辑优化脚本是基于这个版本制作的。
 
@@ -13,7 +13,7 @@
 如果很不幸这些悲惨的事情发生在你身上，建议你去咨询小米售后进行维修。如果你使用了本仓库的任意脚本或固件包，你需要承担所有后果，作者只是提供固件和途径，请大家谨慎斟酌。
 
 
-### 怎么升级BIOS
+## 怎么升级BIOS
 
 1. 下载 [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 文件夹里的所有文件。
 
@@ -29,7 +29,7 @@
 6. 耐心等待直到安装进程结束。
 
 
-### 怎么升级ME固件
+## 怎么升级ME固件
 
 1. 下载 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 文件夹里的所有文件。
 
@@ -55,12 +55,12 @@ cd C:\Win64
 7. 重启电脑。
 
 
-### 怎么提升性能
+## 怎么提升性能
 
 [FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大DVMT大小（从32MB扩大到64MB），解锁MSR 0xE2寄位器，和修改EC固件来减少风扇噪声。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
 
 
-### 鸣谢
+## 鸣谢
 
 感谢 [Xiaomi Official](https://www.mi.com/service/bijiben/) 提供BIOS包。
 
