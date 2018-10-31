@@ -4,9 +4,11 @@
 
 ## 注意：仅限BOE NV156FHM-N61 LCD Panel (小米笔记本Pro默认)
 
+## 注意：对屏幕色彩有专业要求的话请亲自校正
+
 ## 功能
 
-由 X-Rite Color Munki Photo校准
+由 X-Rite Color Munki Photo 校准
 
 
 ## 安装
