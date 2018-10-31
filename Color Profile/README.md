@@ -22,6 +22,14 @@ sRGB 84% -> 97,1
 4. Reboot
 
 
+## Known Problems
+
+* Lag in Chrome, Wechat, or other software.
+    * If you suffer from lag in `Chrome.app`, you can try solution in [#12](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/12).
+
+Hope someone can give a better solution.
+
+
 ## Credits
 
 Thanks to [qeeqez](https://github.com/qeeqez) for providing the good Color Profile and instruction.
