@@ -6,9 +6,7 @@
 
 ## 功能
 
-由Spyder5校准
-
-sRGB 84% -> 97,1
+由 X-Rite Color Munki Photo校准
 
 
 ## 安装
@@ -20,14 +18,6 @@ sRGB 84% -> 97,1
 3. 选择 `NV156FHM-N61` 描述文件
 
 4. 重启
-
-
-## 已知问题
-
-* 使用Chrome，微信等软件时会卡顿。
-    * 如果你在使用 `Chrome.app` 的时候遇到卡顿，你可以尝试[#12](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/12)里的解决方法。
-
-希望有人能给出更好的解决方案。
 
 
 ## 鸣谢
