@@ -4,11 +4,11 @@
 
 ## Note: Only for BOE NV156FHM-N61 LCD Panel (Default Xiaomi Pro)
 
+## Note: For professional usage you should calibrate yourself
+
 ## Features
 
-Calibrated on Spyder5
-
-sRGB 84% -> 97,1
+Calibrated on X-Rite Color Munki Photo
 
 
 ## Installation
@@ -20,14 +20,6 @@ sRGB 84% -> 97,1
 3. Select `NV156FHM-N61` profile
 
 4. Reboot
-
-
-## Known Problems
-
-* Lag in Chrome, Wechat, or other software.
-    * If you suffer from lag in `Chrome.app`, you can try solution in [#12](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/12).
-
-Hope someone can give a better solution.
 
 
 ## Credits
