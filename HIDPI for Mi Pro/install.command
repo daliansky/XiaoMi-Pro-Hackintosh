@@ -9,7 +9,7 @@ sudo rm -f /usr/bin/riceCrackerDaemon
 sudo rm -rf /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5
 echo 'Uninstall previous version complete！'
 
-sudo cp -r "$path/DisplayVendorID-9e5" /System/Library/Displays/Contents/Resources/Overrides
+sudo cp -r "$path/DisplayVendorID-9e5" /System/Library/Displays/Contents/Resources/Overrides/
 sudo mkdir -p /System/Library/Displays/Contents/Resources/Overrides/backup
 sudo cp /System/Library/Displays/Contents/Resources/Overrides/Icons.plist /System/Library/Displays/Contents/Resources/Overrides/backup/
 sudo cp -r "$path/Icons.plist" /System/Library/Displays/Contents/Resources/Overrides/
