@@ -3,7 +3,6 @@
 sudo rm -rf /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5
 
 if [ -f "/System/Library/Displays/Contents/Resources/Overrides/backup/Icons.plist" ];then
-sudo rm -rf /System/Library/Displays/Contents/Resources/Overrides/Icons.plist
 sudo cp -r /System/Library/Displays/Contents/Resources/Overrides/backup/Icons.plist /System/Library/Displays/Contents/Resources/Overrides/
 fi
 
