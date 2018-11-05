@@ -10,15 +10,11 @@
 		<true/>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<false/>
 			<key>Fixes</key>
 			<dict>
 				<key>AddDTGP</key>
 				<true/>
 				<key>AddMCHC</key>
-				<true/>
-				<key>FixRTC</key>
 				<true/>
 				<key>FixTMR</key>
 				<true/>
@@ -152,15 +148,11 @@
 		</array>
 		<key>SSDT</key>
 		<dict>
-			<key>DropOem</key>
-			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
 				<true/>
 			</dict>
-			<key>NoOemTableId</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>Boot</key>
@@ -178,6 +170,8 @@
 		<key>Timeout</key>
 		<integer>4</integer>
 		<key>HibernationFixup</key>
+		<true/>
+		<key>RtcHibernateAware</key>
 		<true/>
 	</dict>
 	<key>Devices</key>
@@ -278,7 +272,7 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
-		<true/>
+		<false/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
