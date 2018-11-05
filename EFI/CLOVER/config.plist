@@ -10,6 +10,8 @@
 		<true/>
 		<key>DSDT</key>
 		<dict>
+			<key>DropOEM_DSM</key>
+ 			<false/>
 			<key>Fixes</key>
 			<dict>
 				<key>AddDTGP</key>
@@ -148,11 +150,15 @@
 		</array>
 		<key>SSDT</key>
 		<dict>
+			<key>DropOem</key>
+ 			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
 				<true/>
 			</dict>
+			<key>NoOemTableId</key>
+ 			<false/>
 		</dict>
 	</dict>
 	<key>Boot</key>
