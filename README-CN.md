@@ -42,7 +42,7 @@
 * 记得要取消 `系统偏好设置 - 触控板 - 滚动缩放` 里的 `智能缩放` 来让触控板工作得更好。
 
 ### USB
-* USB遮盖使用的是[Intel FB-Patcher](https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html)，相关文件位于 `/CLOVER/kexts/Other/USBPower.kext`。
+* USB遮盖使用的是[Intel FB-Patcher](https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html)，相关文件位于 `/CLOVER/kexts/Other/USBPorts.kext`。
 * SD读卡器型号是 `RTS5129`。因为它不被支持，所以禁用了它来增加续航。
 
 ### 无线网卡
@@ -92,7 +92,7 @@
 
 ## 鸣谢
 
-- 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC)，[CPUFriend](https://github.com/acidanthera/CPUFriend)，[HibernationFixup](https://github.com/acidanthera/HibernationFixup)，[Lilu](https://github.com/acidanthera/Lilu)， `USBPower`，[VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen)。
+- 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC)，[CPUFriend](https://github.com/acidanthera/CPUFriend)，[HibernationFixup](https://github.com/acidanthera/HibernationFixup)，[Lilu](https://github.com/acidanthera/Lilu)， `USBPorts`，[VirtualSMC](https://github.com/acidanthera/VirtualSMC) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen)。
 
 - 感谢 [alexandred](https://github.com/alexandred) 和 [hieplpvip](https://github.com/hieplpvip) 提供 [VoodooI2C](https://github.com/alexandred/VoodooI2C)。
 
