@@ -67,6 +67,11 @@
 你需要在每次更新系统后重建缓存。运行 `Kext Utility.app` 或者在 `终端.app` 输入 `sudo kextcache -i /`，然后重启。如果触控板还是失效，试试按下F9键。
 
 
+### 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
+
+很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers64UEFI/` 里的 `AptioMemoryFix-64.efi`，然后替换进 [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
+
+
 ## 安装
 
 请参考详细的安装教程[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)，视频教程[小米笔记本Pro安装macOS 10.13.4（黑苹果+Windows双系统）过程](https://www.bilibili.com/video/av23052183)。
