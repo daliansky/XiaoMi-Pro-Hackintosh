@@ -69,7 +69,7 @@
 
 ### 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
 
-很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers64UEFI/` 里的 `AptioMemoryFix-64.efi`，然后替换进 [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
+很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers64UEFI/` 里的 `AptioMemoryFix-64.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
 
 
 ## 安装
