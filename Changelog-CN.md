@@ -180,3 +180,29 @@
     * 新增 `USBPower` 来代替 `USBInjectAll` 和 `SSDT-USB.aml`
     * 移除 `SSDT-MATH.aml`
     * 清洁 `config.plist` 里的代码
+
+
+* XX-XX-2018
+    
+    * 新增回 `config.plist` 里的TRIM补丁 
+    * 新增 `AppleBacklightFixup` 来替代 `AppleBacklightInjector`
+    * 新增参数 `RtcHibernateAware` 根据[官方解答]https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
+    * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
+    * 新增 `SSDT-SLPB`，`SSDT-PNP0C14` 和 `SSDT-HPET` 让机子表现得更像白果
+    * 新增回 `SSDT-MATH` 因为tgtbridge会导致问题
+    * 新增IRQ修复到 `config.plist`
+    * 迁移PCI信息从 `SSDT-PCIList` 到 `config.plist`
+    * 更新 `VoodooPS2Controller` v1.9.2
+    * 更新 `CodecCommander` v2.7.1
+    * 更新 `Lilu` v1.2.8
+    * 更新 `AppleALC` v1.3.3
+    * 更新 `WhateverGreen` v1.2.4
+    * 更新 `VirtualSMC` v1.0.1
+    * 更新 `USBPower` 到 `USBPorts`
+    * 更新 `SSDT-PNLF`， `SSDT-LGPA`，`SSDT-RMCF` 和 `SSDT-PTSWAK`
+    * 更新 `Clover` r4701 RM 版本
+    * 移除 `SSDT-ALS0`
+    * 设置 `HighCurrent` 成 false
+    * 更改 layout-id 的数据类型
+    * 清洁 `config.plist` 代码
+    * 等待 `VoodooI2C` 更新。。
