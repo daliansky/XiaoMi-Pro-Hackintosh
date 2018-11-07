@@ -1,5 +1,7 @@
 # XiaoMi NoteBook Pro EFI 更新日志
 
+[English](Changelog.md) | [中文](Changelog-CN.md)
+
 * 10-14-2017
 
     * EFI更新，触摸板工作正常
@@ -186,7 +188,7 @@
     
     * 新增回 `config.plist` 里的TRIM补丁 
     * 新增 `AppleBacklightFixup` 来替代 `AppleBacklightInjector`
-    * 新增参数 `RtcHibernateAware` 根据[官方解答]https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
+    * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
     * 新增 `SSDT-SLPB`，`SSDT-PNP0C14` 和 `SSDT-HPET` 让机子表现得更像白果
     * 新增回 `SSDT-MATH` 因为tgtbridge会导致问题
