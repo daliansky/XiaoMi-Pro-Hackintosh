@@ -178,3 +178,29 @@
     - Add `USBPower` to replace `USBInjectAll` and `SSDT-USB.aml`
     - Remove `SSDT-MATH.aml`
     - Clean code in `config.plist` 
+
+
+- XX-XX-2018
+
+    - Add back Trim patch to `config.plist`
+    - Add `AppleBacklightFixup` to replace `AppleBacklightInjector`
+    - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
+    - Add `SATA-unsupported` to replace `SSDT-SATA`
+    - Add `SSDT-SLPB`, `SSDT-PNP0C14`, and `SSDT-HPET` to behave more like a real Mac
+    - Add back `SSDT-MATH` because tgtbridge has problem
+    - Add IRQ fixes in `config.plist`
+    - Move PCI Information from `SSDT-PCIList` to `config.plist`
+    - Update `VoodooPS2Controller` v1.9.2
+    - Update `CodecCommander` v2.7.1
+    - Update `Lilu` v1.2.8
+    - Update `AppleALC` v1.3.3
+    - Update `WhateverGreen` v1.2.4
+    - Update `VirtualSMC` v1.0.1
+    - Update `USBPower` to `USBPorts`
+    - Update `SSDT-PNLF`, `SSDT-LGPA`, `SSDT-RMCF`, and `SSDT-PTSWAK`
+    - Update `Clover` r4701 RM version
+    - Remove `SSDT-ALS0`
+    - Set `HighCurrent` to false
+    - Change layout-id's datatype
+    - Clean up `config.plist`
+    - Wait for `VoodooI2C` update..
