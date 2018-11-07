@@ -50,7 +50,7 @@ Hackintosh your XiaoMi Pro Notebook
 * A workaround is to insert a supported wireless card into M.2 slot. More information can be viewed in [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724).
 
 
-## Q&A
+## FAQ
 
 ### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
@@ -65,6 +65,11 @@ It is not recommened to open `FileVault`. You can press Fn + F3 in the Clover bo
 ### My touchpad isn't working after update.
 
 You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
+
+
+### I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
+
+Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix-64.efi` in `/CLOVER/drivers64UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
 
 
 ## Installation
