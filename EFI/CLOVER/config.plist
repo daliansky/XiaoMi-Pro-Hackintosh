@@ -319,8 +319,6 @@
 			<string>Preboot</string>
 			<string>Recovery</string>
 		</array>
-		<key>Language</key>
-		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
