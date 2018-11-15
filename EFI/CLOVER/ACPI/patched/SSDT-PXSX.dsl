@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLYhbRih.aml, Tue Nov  6 13:43:20 2018
+ * Disassembly of iASLo2JKXv.aml, Thu Nov 15 21:14:13 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x000002DD (733)
+ *     Length           0x000002C2 (706)
  *     Revision         0x02
- *     Checksum         0x8F
+ *     Checksum         0xB8
  *     OEM ID           "hack"
  *     OEM Table ID     "_PXSX"
  *     OEM Revision     0x00000000 (0)
@@ -25,14 +25,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
 
     Method (_SB.PCI0.RP01.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (!Arg2)
-        {
-            Return (Buffer (One)
-            {
-                 0x03                                             // .
-            })
-        }
-
         Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
@@ -53,14 +45,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
 
     Method (_SB.PCI0.RP05.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (!Arg2)
-        {
-            Return (Buffer (One)
-            {
-                 0x03                                             // .
-            })
-        }
-
         Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
@@ -81,14 +65,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
 
     Method (_SB.PCI0.RP08.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        If (!Arg2)
-        {
-            Return (Buffer (One)
-            {
-                 0x03                                             // .
-            })
-        }
-
         Local0 = Package (0x04)
             {
                 "AAPL,slot-name", 
