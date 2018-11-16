@@ -189,7 +189,6 @@
     - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     - Add `SATA-unsupported` to replace `SSDT-SATA`
     - Add `SSDT-SLPB`, `SSDT-PNP0C14`, and `SSDT-HPET` to behave more like a real Mac
-    - Add back `SSDT-MATH` because tgtbridge has problem
     - Add IRQ fixes in `config.plist`
     - Move PCI Information from `SSDT-PCIList` to `config.plist`
     - Update `VoodooPS2Controller` v1.9.2
@@ -202,7 +201,9 @@
     - Update `SSDT-PNLF`, `SSDT-LGPA`, `SSDT-RMCF`, and `SSDT-PTSWAK`
     - Update `Clover` r4701 RM version
     - Remove `SSDT-ALS0`
-    - Set `HighCurrent` to false
+    - Remove tgtbridge because it has problem
+    - Set `HighCurrent` to false according to [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
     - Change layout-id's datatype
     - Clean up `config.plist`
+    - Clean up SSDT's formats
     - Wait for `VoodooI2C` update..

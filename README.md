@@ -105,6 +105,8 @@ All the project is made for free, but you can reward me if you want.
 
 - Thanks to [FallenChromium](https://github.com/FallenChromium), [Javmain](https://github.com/javmain), and [johnnync13](https://github.com/johnnync13) for valuable suggestions.
 
+- Thanks to [hieplpvip](https://github.com/hieplpvip) and [syscl](https://github.com/syscl) for providing sample of DSDT patches.
+
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [AppleBacklightFixup](https://github.com/RehabMan/AppleBacklightFixup), [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
 
 
