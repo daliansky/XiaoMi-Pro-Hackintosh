@@ -205,5 +205,5 @@
     - Set `HighCurrent` to false according to [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
     - Change layout-id's datatype
     - Clean up `config.plist`
-    - Clean up SSDT's formats
+    - Clean up SSDTs' formats
     - Wait for `VoodooI2C` update..
