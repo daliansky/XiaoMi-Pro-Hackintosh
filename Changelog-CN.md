@@ -204,7 +204,7 @@
     * 更新 `Clover` r4701 RM 版本
     * 移除 `SSDT-ALS0`
     * 移除 tgtbridge 因为它会导致问题
-    * 设置 `HighCurrent` 成 false 根据[#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
+    * 设置 `HighCurrent` 成 false 根据 [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
