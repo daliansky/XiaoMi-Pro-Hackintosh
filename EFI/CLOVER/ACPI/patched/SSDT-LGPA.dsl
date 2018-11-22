@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of iASLJhceR5.aml, Thu Oct 18 16:47:38 2018
+ * Disassembly of iASLZlRGCP.aml, Thu Nov 22 21:25:04 2018
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000E33 (3635)
+ *     Length           0x00000E15 (3605)
  *     Revision         0x02
- *     Checksum         0x4F
+ *     Checksum         0xC7
  *     OEM ID           "hack"
  *     OEM Table ID     "_LGPA"
  *     OEM Revision     0x00000000 (0)
@@ -138,12 +138,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                 }
                 Case (0x03)
                 {
-                    Notify (\_SB.PCI0.LPCB.PS2K, 0x0405)
+                    Notify (PS2K, 0x0405)
                     OG00 = Zero
                 }
                 Case (0x04)
                 {
-                    Notify (\_SB.PCI0.LPCB.PS2K, 0x0406)
+                    Notify (PS2K, 0x0406)
                     OG00 = Zero
                 }
                 Case (0x05)
