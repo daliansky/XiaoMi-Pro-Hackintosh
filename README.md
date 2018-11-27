@@ -23,6 +23,10 @@ Hackintosh your XiaoMi Pro Notebook
 * The model is `i5-8250U` or `i7-8550U`, and XCPM power management is native supported. 
 * XCPM and HWP are recommended to work together to reach better power management (>=10.13.6). Please replace `/CLOVER/kexts/Other/CPUFriendDataProvider.kext` with the archive in [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53) to enable HWP.
 
+### Ethernet
+* The model name is `RTL8153`, and is natively supported by 10.13+.
+* This ethernet card is connected to USB port.
+
 ### Graphics
 * The model name is `Intel UHD Graphics 620`, faked to `Intel HD Graphics 620` by injecting ig-platform-id `00001659`.
 * The discrete graphics' name is `NVIDIA GeForce MX150`, disabled by `SSDT-DDGPU.aml` becuase macOS doesn't support Optimus technology.
