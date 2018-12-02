@@ -119,33 +119,7 @@
 		<array>
 			<dict>
 				<key>Signature</key>
-				<string>DBG2</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DBGP</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
 				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>MSDM</string>
-			</dict>
-			<dict>
-				<key>Length</key>
-				<integer>1219</integer>
-				<key>Signature</key>
-				<string>SSDT</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>TPM2</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>WSMT</string>
 			</dict>
 		</array>
 		<key>SSDT</key>
