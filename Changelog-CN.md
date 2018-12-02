@@ -190,7 +190,7 @@
     * 新增 `AppleBacklightFixup` 来替代 `AppleBacklightInjector`
     * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
-    * 新增 `SSDT-SLPB`，`SSDT-PNP0C14` 和 `SSDT-HPET` 让机子表现得更像白果
+    * 新增 `SSDT-HPET` 让机子表现得更像白果
     * 新增IRQ修复到 `config.plist`
     * 迁移PCI信息从 `SSDT-PCIList` 到 `config.plist`
     * 更新 `VoodooPS2Controller` v1.9.2
@@ -201,7 +201,7 @@
     * 更新 `VirtualSMC` v1.0.1
     * 更新 `USBPower` 到 `USBPorts`
     * 更新 `SSDT-PNLF`， `SSDT-LGPA`，`SSDT-RMCF` 和 `SSDT-PTSWAK`
-    * 更新 `Clover` r4701 RM 版本
+    * 更新 `Clover` r4784
     * 移除 `SSDT-ALS0`
     * 移除 tgtbridge 因为它会导致问题
     * 设置 `HighCurrent` 成 false 根据 [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
