@@ -1,23 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLZlRGCP.aml, Thu Nov 22 21:25:04 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00000E15 (3605)
- *     Revision         0x02
- *     Checksum         0xC7
- *     OEM ID           "hack"
- *     OEM Table ID     "_LGPA"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: stevezhengshiqi
+// Reference: https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659 by Rehabman
+// Let brightness key work with VoodooPS2Controller.kext
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)

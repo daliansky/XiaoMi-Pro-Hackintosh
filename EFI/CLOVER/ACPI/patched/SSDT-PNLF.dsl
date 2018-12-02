@@ -1,23 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLpKwvcr.aml, Fri Oct 19 17:59:54 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00000452 (1106)
- *     Revision         0x02
- *     Checksum         0xC3
- *     OEM ID           "hack"
- *     OEM Table ID     "_PNLF"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: Rehabman
+// Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-PNLF.dsl by Rehabman
+// Adding PNLF device for AppleBacklight.kext+AppleBacklightFixup.kext
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
 {
     External (_SB_.PCI0.IGPU, DeviceObj)

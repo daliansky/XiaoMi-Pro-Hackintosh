@@ -1,23 +1,8 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLhGPWbq.aml, Thu Oct 25 04:14:06 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x0000038F (911)
- *     Revision         0x02
- *     Checksum         0x9C
- *     OEM ID           "hack"
- *     OEM Table ID     "_RMCF"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: Rehabman
+// Edited by: stevezhengshiqi and daliansky
+// Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-RMCF.dsl by Rehabman
+// Configuration data for other SSDTs(SSDT-GPRW and SSDT-PTSWAK)
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_RMCF", 0x00000000)
 {
     Device (RMCF)
