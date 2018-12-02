@@ -107,7 +107,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change MATH._STA and LDR2._STA  to XSTA</string>
+					<string>change MATH._STA and LDR2._STA to XSTA</string>
 					<key>Find</key>
 					<data>X1NUQQCgDZNQ</data>
 					<key>Replace</key>
