@@ -1,23 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLC2fzgj.aml, Thu Nov 15 21:22:43 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x000000E2 (226)
- *     Revision         0x02
- *     Checksum         0x78
- *     OEM ID           "hack"
- *     OEM Table ID     "_RMNE"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: Rehabman
+// Reference: https://github.com/RehabMan/OS-X-Null-Ethernet/blob/master/SSDT-RMNE.dsl by Rehabman
+// Fake an ethernet card to make the system still allow Mac App Store access, work with NullEthernet.kext.
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_RMNE", 0x00000000)
 {
     External (DTGP, MethodObj)    // 5 Arguments

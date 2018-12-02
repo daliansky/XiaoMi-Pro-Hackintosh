@@ -1,23 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180427 (64-bit version)(RM)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to non-symbolic legacy ASL operators
- *
- * Disassembly of iASLspPV1w.aml, Wed Aug 22 20:41:35 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x000000CE (206)
- *     Revision         0x02
- *     Checksum         0x0D
- *     OEM ID           "hack"
- *     OEM Table ID     "_XOSI"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180427 (538444839)
- */
+// Maintained by: Rehabman
+// Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-XOSI.dsl by Rehabman
+// Override for host defined _OSI to handle "Darwin"...
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_XOSI", 0x00000000)
 {
     Method (XOSI, 1, NotSerialized)

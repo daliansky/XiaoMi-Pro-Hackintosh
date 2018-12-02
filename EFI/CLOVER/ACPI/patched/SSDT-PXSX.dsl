@@ -1,23 +1,6 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLo2JKXv.aml, Thu Nov 15 21:14:13 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x000002C2 (706)
- *     Revision         0x02
- *     Checksum         0xB8
- *     OEM ID           "hack"
- *     OEM Table ID     "_PXSX"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: daliansky and stevezhengshiqi
+// Add device information, and can be seen in AppleLogo-About This Mac-System Report-PCI.
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
 {
     External (_SB_.PCI0.RP09.PXSX, DeviceObj)
