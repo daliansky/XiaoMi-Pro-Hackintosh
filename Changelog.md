@@ -188,7 +188,7 @@
     - Add `AppleBacklightFixup` to replace `AppleBacklightInjector`
     - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     - Add `SATA-unsupported` to replace `SSDT-SATA`
-    - Add `SSDT-SLPB`, `SSDT-PNP0C14`, and `SSDT-HPET` to behave more like a real Mac
+    - Add `SSDT-HPET` to behave more like a real Mac
     - Add IRQ fixes in `config.plist`
     - Move PCI Information from `SSDT-PCIList` to `config.plist`
     - Update `VoodooPS2Controller` v1.9.2
@@ -199,7 +199,7 @@
     - Update `VirtualSMC` v1.0.1
     - Update `USBPower` to `USBPorts`
     - Update `SSDT-PNLF`, `SSDT-LGPA`, `SSDT-RMCF`, and `SSDT-PTSWAK`
-    - Update `Clover` r4701 RM version
+    - Update `Clover` r4784
     - Remove `SSDT-ALS0`
     - Remove tgtbridge because it has problem
     - Set `HighCurrent` to false according to [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
