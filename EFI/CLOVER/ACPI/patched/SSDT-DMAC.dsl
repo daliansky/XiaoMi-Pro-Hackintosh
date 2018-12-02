@@ -1,23 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLfvmOhj.aml, Tue Sep 18 11:13:11 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00000072 (114)
- *     Revision         0x02
- *     Checksum         0x23
- *     OEM ID           "hack"
- *     OEM Table ID     "DMAC"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180427 (538444839)
- */
+// Maintained by: stevezhengshiqi
+// Reference: https://github.com/syscl/XPS9350-macOS/blob/master/DSDT/patches/syscl_DMAC.txt by syscl
+// Add missing DMAC Device
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_DMAC", 0x00000000)
 {
     Device (_SB.PCI0.LPCB.DMAC)

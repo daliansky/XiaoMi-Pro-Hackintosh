@@ -1,23 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLQFZhTd.aml, Fri Sep 14 10:38:04 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00000086 (134)
- *     Revision         0x02
- *     Checksum         0x35
- *     OEM ID           "hack"
- *     OEM Table ID     "_GPRW"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: Rehabman
+// Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-GPRW.dsl by Rehabman
+// For solving instant wake by hooking GPRW
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_GPRW", 0x00000000)
 {
     External (RMCF.DWOU, IntObj)

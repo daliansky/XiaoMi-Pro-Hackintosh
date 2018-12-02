@@ -1,23 +1,8 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180810 (64-bit version)
- * Copyright (c) 2000 - 2018 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLfqBhiJ.aml, Thu Oct 25 04:13:50 2018
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00000272 (626)
- *     Revision         0x02
- *     Checksum         0xE7
- *     OEM ID           "hack"
- *     OEM Table ID     "_PTSWAK"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20180810 (538445840)
- */
+// Maintained by: Rehabman
+// Edited by: stevezhengshiqi
+// Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-PTSWAK.dsl by Rehabman
+// Overriding _PTS and _WAK. I modified the address of discrete card to fit Xiaomi-Pro.
+
 DefinitionBlock ("", "SSDT", 2, "hack", "_PTSWAK", 0x00000000)
 {
     External (_SB_.PCI0.RP01.PXSX._OFF, MethodObj)    // 0 Arguments
