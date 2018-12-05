@@ -190,12 +190,24 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
 			<dict>
+				<key>AAPL,current-available</key>
+				<data>NAgAAA==</data>
+				<key>AAPL,current-extra</key>
+				<data>mAgAAA==</data>
+				<key>AAPL,current-extra-in-sleep</key>
+				<data>QAYAAA==</data>
+				<key>AAPL,max-port-current-in-sleep</key>
+				<data>NAgAAA==</data>
 				<key>AAPL,slot-name</key>
 				<string>PCI-Express</string>
 				<key>model</key>
 				<string>Sunrise Point-LP USB 3.0 xHCI Controller</string>
 				<key>name</key>
 				<string>pci8086,9d2f</string>
+				<key>subsystem-id</key>
+				<data>cHIAAA==</data>
+				<key>subsystem-vendor-id</key>
+				<data>hoAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x15,0x0)</key>
 			<dict>
