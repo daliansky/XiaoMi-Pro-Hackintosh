@@ -50,10 +50,6 @@
 			<string>org.tw.CodecCommander</string>
 			<key>Codec Profile</key>
 			<dict>
-				<key>1002</key>
-				<string>Disabled HDMI</string>
-				<key>10de</key>
-				<string>Disabled HDMI</string>
 				<key>10ec_0233</key>
 				<string>Realtek ALC283,etc</string>
 				<key>10ec_0235</key>
@@ -84,8 +80,6 @@
 				<string>Realtek ALC892 desktop</string>
 				<key>10ec_0900</key>
 				<string>Realtek ALC1150</string>
-				<key>8086</key>
-				<string>Disabled HDMI</string>
 				<key>Default</key>
 				<dict>
 					<key>Check Infinitely</key>
