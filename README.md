@@ -38,7 +38,7 @@ Hackintosh your XiaoMi Pro Notebook
 * The latest keyboard driver can temporily disable the touchpad during typing. If you are not happy with the lag, a workaround is provided in [#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19).
 
 ### SSD
-* Recent model uses `PM981` SSD instead of `PM961`. This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs or visit [How to fix PM981 in 10.3.3](https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063).
+* Recent model uses `PM981` SSD instead of `PM961`. <b>This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs</b> or visit [How to fix PM981 in 10.3.3](https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063)(Not working yet!) to see the progress.
     * `PM981` SSD's serial number starts with `MZVLB`, and `PM961` SSD's serial number starts with `MZVLW`.
 
 ### Touchpad

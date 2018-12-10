@@ -38,7 +38,7 @@
 * 最新键盘驱动在打字的时候会短暂禁用触控板。如果你感觉体验不佳，请阅读[#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19)里的解决方法。
 
 ### 硬盘
-* 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD或者阅读[10.13.X-10.14.X 解决PM981死机以及开启建兴/浦科特/海力士 NVMe原生支持补丁](http://bbs.pcbeta.com/viewthread-1774117-1-1.html)。
+* 最近的机型采用了 `PM981` SSD而不是原来的 `PM961`。<b>此EFI不完全支持 `PM981`。装有 `PM981` 的机友可以更换SSD</b>或者阅读[10.13.X-10.14.X 解决PM981死机以及开启建兴/浦科特/海力士 NVMe原生支持补丁](http://bbs.pcbeta.com/viewthread-1774117-1-1.html)(不太有效！)来关注进展。
     * `PM981` 硬盘序列号以 `MZVLB` 开头，`PM961` 硬盘序列号以 `MZVLW` 开头。
 
 ### 触控板
