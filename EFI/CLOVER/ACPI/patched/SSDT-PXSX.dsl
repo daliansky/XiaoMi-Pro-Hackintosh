@@ -33,7 +33,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
                 "AAPL,slot-name", 
                 Buffer (0x0A)
                 {
-                    "M.2 key B"
+                    "M.2 key M"
                 }, 
 
                 "model", 
