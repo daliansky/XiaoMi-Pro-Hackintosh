@@ -290,10 +290,6 @@
 		<dict>
 			<key>FixOwnership</key>
 			<true/>
-			<key>AddClockID</key>
-			<true/>
-			<key>HighCurrent</key>
-			<false/>
 			<key>Inject</key>
 			<false/>
 		</dict>
