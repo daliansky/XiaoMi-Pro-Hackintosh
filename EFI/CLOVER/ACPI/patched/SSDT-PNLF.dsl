@@ -135,7 +135,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                     Local1 = Local2
                 }
 
-                If ((Local2 != Local1))
+                If ((!(0x08 & Local4) && (Local2 != Local1)))
                 {
                     Local0 = ((^LEVL * Local2) / Local1)
                     Local3 = (Local2 << 0x10)
@@ -171,7 +171,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                     Local1 = Local2
                 }
 
-                If ((Local2 != Local1))
+                If ((!(0x08 & Local4) && (Local2 != Local1)))
                 {
                     Local0 = ((^LEVD * Local2) / Local1)
                     If ((Local2 > Local1))
@@ -231,7 +231,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
                     Local1 = Local2
                 }
 
-                If ((Local2 != Local1))
+                If ((!(0x08 & Local4) && (Local2 != Local1)))
                 {
                     Local0 = ((((^LEVX & 0xFFFF) * Local2) / Local1) | 
                         (Local2 << 0x10))
