@@ -195,17 +195,18 @@
     * 迁移PCI信息从 `SSDT-PCIList` 到 `config.plist`
     * 更新 `VoodooPS2Controller` v1.9.2
     * 更新 `CodecCommander` v2.7.1
-    * 更新 `Lilu` v1.2.8
-    * 更新 `AppleALC` v1.3.3
-    * 更新 `WhateverGreen` v1.2.4
-    * 更新 `VirtualSMC` v1.0.1
+    * 更新 `Lilu` v1.2.9
+    * 更新 `AppleALC` v1.3.4
+    * 更新 `WhateverGreen` v1.2.5
+    * 更新 `VirtualSMC` v1.0.2
     * 更新 `USBPower` 到 `USBPorts`
     * 更新 `SSDT-PNLF`， `SSDT-LGPA`，`SSDT-RMCF` 和 `SSDT-PTSWAK`
-    * 更新 `Clover` r4784
+    * 更新 `Clover` r4821
+    * 更新 `VoodooI2C` 到最新提交
     * 移除 `SSDT-ALS0`
     * 移除 tgtbridge 因为它会导致问题
     * 设置 `HighCurrent` 成 false 根据 [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
-    * 等待 `VoodooI2C` 更新。。
+    * 等待 `VoodooI2C` 和 `WhateverGreen`(v1.2.5会破坏KBL背光)更新。。
