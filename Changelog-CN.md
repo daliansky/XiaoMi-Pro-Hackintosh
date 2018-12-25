@@ -184,7 +184,7 @@
     * 清洁 `config.plist` 里的代码
 
 
-* 12-XX-2018
+* 12-26-2018
     
     * 新增回 `config.plist` 里的TRIM补丁 
     * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
@@ -205,7 +205,7 @@
     * 移除 `SSDT-ALS0`
     * 移除 `AppleBacklightInjector` 因为 `WhateverGreen` 囊括了它
     * 移除 tgtbridge 因为它会导致问题
-    * 设置 `HighCurrent` 成 false 根据 [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
+    * 设置 `HighCurrent` 参数
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
