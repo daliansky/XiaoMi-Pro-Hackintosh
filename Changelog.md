@@ -182,10 +182,9 @@
     - Clean code in `config.plist` 
 
 
-- XX-XX-2018
+- 12-XX-2018
 
     - Add back Trim patch to `config.plist`
-    - Add `AppleBacklightFixup` to replace `AppleBacklightInjector`
     - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     - Add `SATA-unsupported` to replace `SSDT-SATA`
     - Add `SSDT-HPET` to behave more like a real Mac
@@ -195,16 +194,16 @@
     - Update `CodecCommander` v2.7.1
     - Update `Lilu` v1.2.9
     - Update `AppleALC` v1.3.4
-    - Update `WhateverGreen` v1.2.5
+    - Update `WhateverGreen` v1.2.6
     - Update `VirtualSMC` v1.0.2
     - Update `USBPower` to `USBPorts`
     - Update `SSDT-PNLF`, `SSDT-LGPA`, `SSDT-RMCF`, and `SSDT-PTSWAK`
     - Update `Clover` r4821
     - Update `VoodooI2C` to the latest commit
     - Remove `SSDT-ALS0`
+    - Remove `AppleBacklightInjector` because `WhateverGreen` includes it
     - Remove tgtbridge because it has problem
     - Set `HighCurrent` to false according to [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
     - Change layout-id's datatype
     - Clean up `config.plist`
     - Clean up SSDTs' formats
-    - Wait for `VoodooI2C` and `WhateverGreen`(v1.2.5 breaks KBL backlight) updates..
