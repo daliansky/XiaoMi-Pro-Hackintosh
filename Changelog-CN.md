@@ -184,10 +184,9 @@
     * 清洁 `config.plist` 里的代码
 
 
-* XX-XX-2018
+* 12-XX-2018
     
     * 新增回 `config.plist` 里的TRIM补丁 
-    * 新增 `AppleBacklightFixup` 来替代 `AppleBacklightInjector`
     * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
     * 新增 `SSDT-HPET` 让机子表现得更像白果
@@ -197,16 +196,16 @@
     * 更新 `CodecCommander` v2.7.1
     * 更新 `Lilu` v1.2.9
     * 更新 `AppleALC` v1.3.4
-    * 更新 `WhateverGreen` v1.2.5
+    * 更新 `WhateverGreen` v1.2.6
     * 更新 `VirtualSMC` v1.0.2
     * 更新 `USBPower` 到 `USBPorts`
     * 更新 `SSDT-PNLF`， `SSDT-LGPA`，`SSDT-RMCF` 和 `SSDT-PTSWAK`
     * 更新 `Clover` r4821
-    * 更新 `VoodooI2C` 到最新提交
+    * 更新 `VoodooI2C` 作者最新提交
     * 移除 `SSDT-ALS0`
+    * 移除 `AppleBacklightInjector` 因为 `WhateverGreen` 囊括了它
     * 移除 tgtbridge 因为它会导致问题
     * 设置 `HighCurrent` 成 false 根据 [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
-    * 等待 `VoodooI2C` 和 `WhateverGreen`(v1.2.5会破坏KBL背光)更新。。
