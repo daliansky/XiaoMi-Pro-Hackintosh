@@ -293,7 +293,7 @@
 			<key>AddClockID</key>
 			<true/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>GUI</key>
