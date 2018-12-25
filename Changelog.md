@@ -182,7 +182,7 @@
     - Clean code in `config.plist` 
 
 
-- 12-XX-2018
+- 12-26-2018
 
     - Add back Trim patch to `config.plist`
     - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
@@ -203,7 +203,7 @@
     - Remove `SSDT-ALS0`
     - Remove `AppleBacklightInjector` because `WhateverGreen` includes it
     - Remove tgtbridge because it has problem
-    - Set `HighCurrent` to false according to [#78](https://github.com/daliansky/XiaoMi-Pro/issues/78)
+    - Remove `HighCurrent` argument
     - Change layout-id's datatype
     - Clean up `config.plist`
     - Clean up SSDTs' formats
