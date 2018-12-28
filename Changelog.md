@@ -188,6 +188,7 @@
     - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     - Add `SATA-unsupported` to replace `SSDT-SATA`
     - Add `SSDT-HPET` to behave more like a real Mac
+    - Add `SSDT-LGPAGTX` to let GTX version works better (GTX users need to replace `SSDT-LGPA` with `SSDT-LGPAGTX`)
     - Add IRQ fixes in `config.plist`
     - Move PCI Information from `SSDT-PCIList` to `config.plist`
     - Update `VoodooPS2Controller` v1.9.2

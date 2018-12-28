@@ -190,6 +190,7 @@
     * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
     * 新增 `SSDT-HPET` 让机子表现得更像白果
+    * 新增 `SSDT-LGPAGTX` 使GTX版运行得更好 (GTX用户需要把 `SSDT-LGPA` 替换成 `SSDT-LGPAGTX`)
     * 新增IRQ修复到 `config.plist`
     * 迁移PCI信息从 `SSDT-PCIList` 到 `config.plist`
     * 更新 `VoodooPS2Controller` v1.9.2
@@ -205,7 +206,7 @@
     * 移除 `SSDT-ALS0`
     * 移除 `AppleBacklightInjector` 因为 `WhateverGreen` 囊括了它
     * 移除 tgtbridge 因为它会导致问题
-    * 设置 `HighCurrent` 参数
+    * 移除 `HighCurrent` 参数
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
