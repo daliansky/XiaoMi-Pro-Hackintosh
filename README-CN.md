@@ -23,10 +23,6 @@
 * 型号是 `i5-8250U` 或 `i7-8550U`。原生支持XCPM电源管理。
 * XCPM和HWP最好同时工作来达到高效电源管理 (>=10.13.6)。请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`来开启HWP。
 
-### 有线网卡
-* 型号是 `RTL8153`, 10.13+的系统原生支持。
-* 此有线网卡连接的是USB通道。
-
 ### 显卡
 * 型号是 `Intel UHD Graphics 620`，通过注入ig-platform-id `00001659` 仿冒成 `Intel HD Graphics 620`。
 * 独显型号是 `NVIDIA GeForce MX150`，通过 `SSDT-DDGPU.aml` 来禁用，因为macOS不支持Optimus显卡切换技术。
