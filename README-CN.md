@@ -12,7 +12,7 @@
 ### 声卡
 * 声卡型号为 `Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为30 (测试中！) ，注入信息位于 `/CLOVER/config.plist`。
 * ~~如果耳机工作不正常，请阅读[ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README-CN.md)。每次开机后可能需要重新插拔耳机。~~
-* ~~ 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。~~
+* ~~一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。~~
 
 ### 蓝牙
 * 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
