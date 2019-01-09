@@ -274,7 +274,7 @@
 				<key>hda-idle-support</key>
 				<string>1</string>
 				<key>layout-id</key>
-				<integer>99</integer>
+				<integer>30</integer>
 				<key>model</key>
 				<string>Realtek ALC298 Audio Controller</string>
 			</dict>
