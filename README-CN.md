@@ -10,9 +10,9 @@
 * ACPI补丁修复使用hotpatch方式，相关文件位于 `/CLOVER/ACPI/patched` 。
 
 ### 声卡
-* 声卡型号为 `Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为99，注入信息位于 `/CLOVER/config.plist`。
-* 如果耳机工作不正常，请阅读[ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README-CN.md)。每次开机后可能需要重新插拔耳机。
-* 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。
+* 声卡型号为 `Realtek ALC298`，采用 `AppleALC` 仿冒，layout-id为30 (测试中！) ，注入信息位于 `/CLOVER/config.plist`。
+* ~~如果耳机工作不正常，请阅读[ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README-CN.md)。每次开机后可能需要重新插拔耳机。~~
+* ~~ 一些i5机型可能麦克风工作不正常，请按照[#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13)里的步骤来修复。~~
 
 ### 蓝牙
 * 原生蓝牙[不完美](https://github.com/daliansky/XiaoMi-Pro/issues/50)。型号是`Intel® Dual Band Wireless-AC 8265`。有两种方式可以让你的体验更好：
@@ -103,7 +103,7 @@
 
 - 感谢 [apianti](https://sourceforge.net/u/apianti)，[blackosx](https://sourceforge.net/u/blackosx)，[blusseau](https://sourceforge.net/u/blusseau)，[dmazar](https://sourceforge.net/u/dmazar) 和 [slice2009](https://sourceforge.net/u/slice2009) 提供 [Clover](https://sourceforge.net/projects/cloverefiboot)。
 
-- 感谢 [FallenChromium](https://github.com/FallenChromium)，[Javmain](https://github.com/javmain) 和 [johnnync13](https://github.com/johnnync13) 的宝贵建议。
+- 感谢 [FallenChromium](https://github.com/FallenChromium)，[Javmain](https://github.com/javmain)，[johnnync13](https://github.com/johnnync13) 和 [qeeqez](https://github.com/qeeqez) 的宝贵建议。
 
 - 感谢 [hieplpvip](https://github.com/hieplpvip) 和 [syscl](https://github.com/syscl) 提供 DSDT 补丁样本。
 
