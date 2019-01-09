@@ -10,7 +10,7 @@ Hackintosh your XiaoMi Pro Notebook
 * ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
 
 ### Audio
-* The model of the sound card is `Realtek ALC298`, which is driven by `AppleALC` on layout-id 30 (Testing!) ; injection information is located in `/CLOVER/config.plist`. 
+* The model of the sound card is `Realtek ALC298`, which is driven by `AppleALC` on layout-id 30 ([Testing!](https://github.com/daliansky/XiaoMi-Pro/issues/96)) ; injection information is located in `/CLOVER/config.plist`. 
 * ~~If headphones are not working, please see [ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README.md). You may need to replug headphone after every boot.~~
 * ~~Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).~~
     
