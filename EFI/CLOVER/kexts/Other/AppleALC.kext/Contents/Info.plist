@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17D102</string>
+	<string>18D38a</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -29,17 +29,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9F2000</string>
+	<string>10B61</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>17E189</string>
+	<string>18B71</string>
 	<key>DTSDKName</key>
-	<string>macosx10.13</string>
+	<string>macosx10.14</string>
 	<key>DTXcode</key>
-	<string>0941</string>
+	<string>1010</string>
 	<key>DTXcodeBuild</key>
-	<string>9F2000</string>
+	<string>10B61</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -1509,6 +1509,35 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>56</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>DalianSky - Realtek ALC256 for Matebook X Pro</string>
+					<key>CodecID</key>
+					<integer>283902550</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccMAEnHQEBJx6mAScfkAE3HPABNx0AATce
+					AAE3H0ABRxxBAUcdAQFHHhcBRx+QAYcc8AGH
+					HQABhx4AAYcfQAGXHCABlx0QAZcegQGXHwQB
+					pxzwAacdAAGnHgABpx9AAbccQAG3HQEBtx4X
+					AbcfkAHnHPAB5x0AAeceAAHnH0ACFxwQAhcd
+					EAIXHiECFx8EAUcMAg==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>99</integer>
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAg==
