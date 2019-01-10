@@ -50,6 +50,10 @@
 			<string>org.tw.CodecCommander</string>
 			<key>Codec Profile</key>
 			<dict>
+				<key>1002</key>
+				<string>Disabled HDMI</string>
+				<key>10de</key>
+				<string>Disabled HDMI</string>
 				<key>10ec_0233</key>
 				<string>Realtek ALC283,etc</string>
 				<key>10ec_0235</key>
@@ -80,6 +84,8 @@
 				<string>Realtek ALC892 desktop</string>
 				<key>10ec_0900</key>
 				<string>Realtek ALC1150</string>
+				<key>8086</key>
+				<string>Disabled HDMI</string>
 				<key>Default</key>
 				<dict>
 					<key>Check Infinitely</key>
@@ -114,7 +120,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AgUABw==</data>
+							<data>
+							AgUABw==
+							</data>
 							<key>Comment</key>
 							<string>0x20 SET_COEF_INDEX 0x07</string>
 							<key>On Init</key>
@@ -126,7 +134,9 @@
 						</dict>
 						<dict>
 							<key>Command</key>
-							<data>AgR8sA==</data>
+							<data>
+							AgR8sA==
+							</data>
 							<key>Comment</key>
 							<string>0x20 SET_PROC_COEF 0x7CB0</string>
 							<key>On Init</key>
@@ -150,7 +160,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AVcIgw==</data>
+							<data>
+							AVcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x15 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -168,7 +180,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AVcIgw==</data>
+							<data>
+							AVcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x15 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -186,7 +200,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AhcIgw==</data>
+							<data>
+							AhcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x21 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -208,7 +224,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AZcHJQ==</data>
+							<data>
+							AZcHJQ==
+							</data>
 							<key>Comment</key>
 							<string>0x19 SET_PIN_WIDGET_CONTROL 0x25</string>
 							<key>On Init</key>
@@ -220,7 +238,9 @@
 						</dict>
 						<dict>
 							<key>Command</key>
-							<data>AhcIgw==</data>
+							<data>
+							AhcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x21 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -256,7 +276,9 @@
 						</dict>
 						<dict>
 							<key>Command</key>
-							<data>AVcIgw==</data>
+							<data>
+							AVcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x15 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -276,9 +298,11 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AYcHIg==</data>
+							<data>
+							AYcHJQ==
+							</data>
 							<key>Comment</key>
-							<string>0x18 SET_PIN_WIDGET_CONTROL 0x22</string>
+							<string>0x18 SET_PIN_WIDGET_CONTROL 0x25</string>
 							<key>On Init</key>
 							<true/>
 							<key>On Sleep</key>
@@ -288,19 +312,9 @@
 						</dict>
 						<dict>
 							<key>Command</key>
-							<data>AacHIw==</data>
-							<key>Comment</key>
-							<string>0x1a SET_PIN_WIDGET_CONTROL 0x23</string>
-							<key>On Init</key>
-							<true/>
-							<key>On Sleep</key>
-							<false/>
-							<key>On Wake</key>
-							<true/>
-						</dict>
-						<dict>
-							<key>Command</key>
-							<data>AhcIgw==</data>
+							<data>
+							AhcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x21 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -313,8 +327,6 @@
 					</array>
 					<key>Perform Reset</key>
 					<false/>
-					<key>Perform Reset on External Wake</key>
-					<false/>
 					<key>Send Delay</key>
 					<integer>10</integer>
 					<key>Sleep Nodes</key>
@@ -326,7 +338,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AVcIgw==</data>
+							<data>
+							AVcIgw==
+							</data>
 							<key>Comment</key>
 							<string>0x15 SET_UNSOLICITED_ENABLE 0x83</string>
 							<key>On Init</key>
@@ -338,7 +352,9 @@
 						</dict>
 						<dict>
 							<key>Command</key>
-							<data>AbcHIA==</data>
+							<data>
+							AbcHIA==
+							</data>
 							<key>Comment</key>
 							<string>Node 0x1b - Pin Control (In Enable)</string>
 							<key>On Init</key>
