@@ -206,15 +206,6 @@
 				<key>model</key>
 				<string>Sunrise Point-LP Serial IO I2C Controller #0</string>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x15,0x1)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
-				<key>device_type</key>
-				<string>I2C</string>
-				<key>model</key>
-				<string>Sunrise Point-LP Serial IO I2C Controller #1</string>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
