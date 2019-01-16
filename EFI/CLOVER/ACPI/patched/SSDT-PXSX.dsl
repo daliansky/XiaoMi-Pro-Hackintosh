@@ -1,4 +1,5 @@
 // Maintained by: daliansky and stevezhengshiqi
+// Reference: https://pci-ids.ucw.cz/read/PC
 // Add device information, and can be seen in AppleLogo-About This Mac-System Report-PCI.
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
@@ -37,9 +38,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
                 }, 
 
                 "model", 
-                Buffer (0x2A)
+                Buffer (0x30)
                 {
-                    "Sunrise Point-LP PCI Express Root Port #5"
+                    "Intel Sunrise Point-LP PCI Express Root Port #5"
                 }
             }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -57,9 +58,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
                 }, 
 
                 "model", 
-                Buffer (0x21)
+                Buffer (0x14)
                 {
-                    "Intel Dual Band Wireless-AC 8265"
+                    "Intel Wireless 8265"
                 }
             }
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -71,49 +72,25 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
         Name (NVME, One)
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            If ((NVME == One))
-            {
-                Local0 = Package (0x08)
+            Local0 = Package (0x08)
+                {
+                    "AAPL,slot-name", 
+                    Buffer (0x0A)
                     {
-                        "AAPL,slot-name", 
-                        Buffer (0x0A)
-                        {
-                            "M.2 key M"
-                        }, 
+                        "M.2 key M"
+                    }, 
 
-                        "model", 
-                        Buffer (0x2A)
-                        {
-                            "Sunrise Point-LP PCI Express Root Port #9"
-                        }, 
-
-                        "use-msi", 
-                        One, 
-                        "nvme-LPSR-during-S3-S4", 
-                        One
-                    }
-            }
-            Else
-            {
-                Local0 = Package (0x06)
+                    "model", 
+                    Buffer (0x30)
                     {
-                        "AAPL,slot-name", 
-                        Buffer (0x0A)
-                        {
-                            "M.2 key M"
-                        }, 
+                        "Intel Sunrise Point-LP PCI Express Root Port #9"
+                    }, 
 
-                        "model", 
-                        Buffer (0x2A)
-                        {
-                            "Sunrise Point-LP PCI Express Root Port #9"
-                        }, 
-
-                        "use-msi", 
-                        One
-                    }
-            }
-
+                    "use-msi", 
+                    One, 
+                    "nvme-LPSR-during-S3-S4", 
+                    One
+                }
             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
             Return (Local0)
         }
