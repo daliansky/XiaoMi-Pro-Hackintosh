@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18A384a</string>
+	<string>17D102</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.5</string>
+	<string>1.1.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,7 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.1.5</string>
+	<string>1.1.6</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -61,16 +61,6 @@
 			<string>org.vanilla.driver.CPUFriend</string>
 			<key>IOClass</key>
 			<string>CPUFriendData</string>
-			<key>IOParentMatch</key>
-			<dict>
-				<key>IOPropertyMatch</key>
-				<dict>
-					<key>plugin-type</key>
-					<integer>1</integer>
-				</dict>
-				<key>IOProviderClass</key>
-				<string>IOACPIPlatformDevice</string>
-			</dict>
 			<key>IOProbeScore</key>
 			<integer>6000</integer>
 			<key>IOPropertyMatch</key>
