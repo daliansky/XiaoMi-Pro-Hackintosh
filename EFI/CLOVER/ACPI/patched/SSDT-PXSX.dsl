@@ -4,7 +4,6 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
 {
-    External (_SB_.PCI0.RP09.PXSX, DeviceObj)
     External (DTGP, MethodObj)    // 5 Arguments
 
     Method (_SB.PCI0.RP01.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
@@ -67,12 +66,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
         Return (Local0)
     }
 
-    Scope (_SB.PCI0.RP09.PXSX)
-    {
-        Name (NVME, One)
-        Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+ 
+        Method (_SB.PCI0.RP09.PXSX._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            Local0 = Package (0x08)
+            Local0 = Package (0x06)
                 {
                     "AAPL,slot-name", 
                     Buffer (0x0A)
@@ -87,13 +84,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PXSX", 0x00000000)
                     }, 
 
                     "use-msi", 
-                    One, 
-                    "nvme-LPSR-during-S3-S4", 
                     One
                 }
             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
             Return (Local0)
         }
-    }
+    
 }
 
