@@ -6,7 +6,7 @@ Hackintosh your XiaoMi Pro Notebook
 
 ## Features
 
-* Support 10.13.x and 10.14.
+* Support 10.13.x and 10.14.x.
 * ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
 
 ### Audio
