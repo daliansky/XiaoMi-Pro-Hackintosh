@@ -64,7 +64,7 @@ cd C:\Win64
 
 ## 鸣谢
 
-感谢 [Xiaomi Official](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供BIOS包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
+感谢 [小米官方](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供BIOS包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 
 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
 
