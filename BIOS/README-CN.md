@@ -4,7 +4,7 @@
 
 ## 简介
 
-文件夹 [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 的BIOS包来自小米官方，来源可靠。
+[XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 的BIOS包来自小米官方，来源可靠。<b>此包仅支持MX150版本。</b>
 
 文件夹 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
 
