@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The BIOS packet in [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder is from Xiaomi stuff, so it is reliable. It is highly recommended to update to `0603` version because the script for fan fix is based on that version.
+The BIOS packet in [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) folder is from Xiaomi stuff, so it is reliable.
 
 The ME firmware in [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps avoiding potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.
 
@@ -13,20 +13,22 @@ Warning: Since the operations are related to BIOS, there's possibility that if s
 If unfortunately this situation happens on you, you need to find Xiaomi stuff to fix your device. If you use this program, you should agree that you are the person who take whole responsibility, instead of the author.
 
 
+### What's new in 0906 BIOS
+
+- a new setting `KB Backlight Mode` appears in BIOS panel. Users can choose `Power Saving` (default, KB backlight off when keyboard idle 15s) or `Standard` (KB backligh always on in S0 mode).
+- Reduce fan noise when CPU is running in low load.
+
+
 ## How to update BIOS
 
-1. Download all the files in [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) folder.
+1. Download all the files in [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) folder.
 
-2. Extract all the files and copy them to the root directory of a FAT32 U disk.
-
-3. Restart your laptop and press `F12` botton to choose U disk to boot.
+2. Run `H2OFFT-Wx64.eve` with administrator.
   - IMPORTANT: From this step, your computer should keep in charged by AC adapter until the whole update process finishes.
 
-4. In the new shell interface, type `unlockme.nsh` and press `Enter`, then the system will automatically restart.
+3. A warning may appear, ignore it and update.
 
-5. Repeat the third step, and this time type `flash.nsh`.
-
-6. Wait until the update process ends.
+4. The laptop will restart, wait until the update process ends.
 
 
 ## How to update ME firmware
@@ -62,7 +64,7 @@ The rest will be done automaticly.
 
 ## Credits
 
-Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) for providing BIOS packet.
+Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 
 Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.
 

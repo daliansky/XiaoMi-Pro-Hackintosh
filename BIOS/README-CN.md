@@ -4,7 +4,7 @@
 
 ## 简介
 
-文件夹 [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 的BIOS包来自小米官方，来源可靠。建议把BIOS升级到 `0603` 版本，因为后文的风扇逻辑优化脚本是基于这个版本制作的。
+文件夹 [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 的BIOS包来自小米官方，来源可靠。
 
 文件夹 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
 
@@ -13,20 +13,22 @@
 如果很不幸这些悲惨的事情发生在你身上，建议你去咨询小米售后进行维修。如果你使用了本仓库的任意脚本或固件包，你需要承担所有后果，作者只是提供固件和途径，请大家谨慎斟酌。
 
 
+### 新版BIOS更新了什么
+
+- BIOS面板里新增 `KB Backlight Mode` 选项，可选择 `Power Saving` （默认，键盘灯空闲15秒后自动熄灭）或 `Standard` （键盘灯在系统非睡眠时常亮）
+- 减少低负载下的风扇噪声
+
+
 ## 怎么升级BIOS
 
-1. 下载 [Firmware v0603](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/Firmware%20v0603) 文件夹里的所有文件。
+1. 下载 [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 文件夹里的所有文件。
 
-2. 提取所有文件，并把它们拷贝进一个FAT32文件格式的U盘的根目录。
-
-3. 重启你的电脑并狂按 `F12` 来选择U盘启动。
+2. 用管理员权限运行 `H2OFFT-Wx64.eve`。
   - 注意：从这一步开始，你的电脑最好接上电源，直到整个安装进程结束。
 
-4. 在出现的命令操作界面，输入 `unlockme.nsh`，然后按 `Enter`。接着电脑会自动重启。
+3. 一个警告可能会出现，忽视它并继续更新。
 
-5. 重复第三步，这次在出现的命令操作界面输入 `flash.nsh`。
-
-6. 耐心等待直到安装进程结束。
+4. 电脑会自动重启，等待，直到安装过程结束。
 
 
 ## 怎么升级ME固件
@@ -62,10 +64,10 @@ cd C:\Win64
 
 ## 鸣谢
 
-感谢 [Xiaomi Official](https://www.mi.com/service/bijiben/) 提供BIOS包。
+感谢 [Xiaomi Official](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供BIOS包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 
 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
 
 感谢 [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) 提供ME固件。
 
-感谢 [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) 提供升级ME固件的教程。原教程在 [这里](http://en.miui.com/thread-3260884-1-1.html)。
+感谢 [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) 提供升级ME固件的教程。原教程在[这里](http://en.miui.com/thread-3260884-1-1.html)。
