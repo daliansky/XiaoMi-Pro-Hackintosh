@@ -21,6 +21,8 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 ## How to update BIOS
 
+ As the old proverb says "Fight no battle unprepared",<b>backing up important data is always a good choice.</b>Some users face with blue screen after running the updating program.
+
 1. Download all the files in [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) folder.
 
 2. Run `H2OFFT-Wx64.eve` with administrator.
