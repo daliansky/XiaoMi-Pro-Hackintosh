@@ -21,6 +21,8 @@
 
 ## 怎么升级BIOS
 
+有句老话说得好，“不打无准备之仗”。<b>备份重要资料永远不会错。</b>有用户反映运行程序后会遇到蓝屏问题。
+
 1. 下载 [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 文件夹里的所有文件。
 
 2. 用管理员权限运行 `H2OFFT-Wx64.eve`。
