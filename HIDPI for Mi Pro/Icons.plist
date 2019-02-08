@@ -723,7 +723,7 @@
 				<key>747</key>
 				<dict>
 					<key>display-resolution-preview-icon</key>
-					<string>/System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/XiaoMi-Pro.tiff</string>
+					<string>/System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747.tiff</string>
 					<key>resolution-preview-x</key>
 					<integer>57</integer>
 					<key>resolution-preview-y</key>
@@ -733,7 +733,7 @@
 					<key>resolution-preview-height</key>
 					<integer>171</integer>
 					<key>display-icon</key>
-					<string>com.apple.cinema-display</string>
+					<string>/System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747.icns</string>
 				</dict>
 			</dict>
 		</dict>
