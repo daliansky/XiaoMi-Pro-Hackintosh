@@ -25,7 +25,7 @@
 
 1. 下载 [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 文件夹里的所有文件。
 
-2. 用管理员权限运行 `H2OFFT-Wx64.eve`。
+2. 用管理员权限运行 `H2OFFT-Wx64.exe`。
   - 注意：从这一步开始，你的电脑最好接上电源，直到整个安装进程结束。
 
 3. 一个警告可能会出现，忽视它并继续更新。
