@@ -339,6 +339,10 @@
 	<dict>
 		<key>AppleRTC</key>
 		<false/>
+		<key>ForceKextsToLoad</key>
+		<array>
+			<string>\System\Library\Extensions\IOGraphicsFamily.kext</string>
+		</array>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
