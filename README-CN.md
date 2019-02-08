@@ -21,7 +21,7 @@
 
 ### CPU
 * 型号是 `i5-8250U` 或 `i7-8550U`。原生支持XCPM电源管理。
-* XCPM和HWP最好同时工作来达到高效电源管理 (>=10.13.6)。请前往[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)，把附件的`CPUFriendDataProvider.kext` 替换进 `/CLOVER/kexts/Other/`来开启HWP。
+* XCPM和HWP最好同时工作来达到高效电源管理 (>=10.13.6)。请使用[one-key-cpufriend](https://github.com/daliansky/XiaoMi-Pro/blob/master/one-key-cpufriend)来开启HWP。
 
 ### 显卡
 * 型号是 `Intel UHD Graphics 620`，通过注入ig-platform-id `00001659` 仿冒成 `Intel HD Graphics 620`。
