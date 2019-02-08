@@ -35,7 +35,7 @@
 
  - 当你进入Clover界面时，按 `空格键` 
  - 用键盘来选择 `Block Injected kexts` - `Other` 
- - 取消勾选 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext`
+ - 勾选 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext`
  - Return到主界面并启动系统，然后从你的CLOVER文件夹删除 `CPUFriend*.kext`
 
 
