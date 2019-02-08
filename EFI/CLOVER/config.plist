@@ -113,6 +113,14 @@
 					<key>Replace</key>
 					<data>WFNUQQCgDZNQ</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change RTC to XRTC</string>
+					<key>Find</key>
+					<data>UlRDXw==</data>
+					<key>Replace</key>
+					<data>WFJUQw==</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
@@ -149,8 +157,6 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
-		<key>HibernationFixup</key>
-		<true/>
 		<key>RtcHibernateAware</key>
 		<true/>
 	</dict>
@@ -278,8 +284,8 @@
 		<dict>
 			<key>FixOwnership</key>
 			<true/>
-			<key>AddClockID</key>
-			<true/>
+			<key>HighCurrent</key>
+			<false/>
 			<key>Inject</key>
 			<false/>
 		</dict>

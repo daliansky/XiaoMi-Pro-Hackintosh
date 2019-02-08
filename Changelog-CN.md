@@ -210,3 +210,16 @@
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
+
+
+* XX-XX-2019
+
+    * 更新 `Clover` r4871
+    * 更新 `Lilu` v1.3.1
+    * 更新 `AppleALC` v1.3.5
+    * 更新 `SSDT-PXSX`
+    * 移除 `CPUFriend*` 因为不同macOS版本有不同的plists在 `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`。推荐使用[one-key-cpufriend_cn]()来定制驱动
+    * 移除 `HibernationFixup` 因为它不稳定，`RtcHibernateAware` 可能足够让机子睡眠
+    * 移除 `dart=0`
+    * 移除 `AddClockID`，因为它对新系统不起作用
+    * 新增 `SSDT-RTC` 来安全地移除IRQFlags，`FixRTC` 会缩短IO长度
