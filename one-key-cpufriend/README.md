@@ -35,7 +35,7 @@ If unfortunately, you can't boot into the system, and you are sure the issue is 
  
  - Press `Space` when you are in Clover page
  - Use keyboard to choose `Block Injected kexts` - `Other`
- - Uncheck `CPUFriend.kext` and `CPUFriendDataProvider.kext`
+ - Check `CPUFriend.kext` and `CPUFriendDataProvider.kext`
  - Return to the main menu and boot into the system, then delete `CPUFriend*.kext` from your CLOVER folder
 
 
