@@ -47,4 +47,5 @@
 ## 鸣谢
 
 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [CPUFriend](https://github.com/acidanthera/CPUFriend)。
+
 感谢 [shuhung](https://www.tonymacx86.com/members/shuhung.957282) 提供[配置修改思路](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)。
