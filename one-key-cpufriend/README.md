@@ -47,4 +47,5 @@ If unfortunately, you can't boot into the system, and you are sure the issue is 
 ## Credits
 
 Thanks to [Acidanthera](https://github.com/acidanthera) for providing [CPUFriend](https://github.com/acidanthera/CPUFriend).
+
 Thanks to [shuhung](https://www.tonymacx86.com/members/shuhung.957282) for providing [configuration modification ideas](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7).
