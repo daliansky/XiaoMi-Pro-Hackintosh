@@ -6,7 +6,7 @@
 
 [I](https://github.com/stevezhengshiqi) am really a newcomer for bash language, and welcome pros to help improve the script.
 
-<b>The script is only for 8th generation CPU(KBL-R, CNL, CFL...) yet.<b/> I will try to add support for more models if needed.
+<b>The script is only for 8th generation CPU(KBL-R, CNL, CFL...) yet.</b> I will try to add support for more models if needed.
 
 The script can modify certain configurations of power management, and use [ResourceConverter.sh](https://github.com/acidanthera/CPUFriend/tree/master/ResourceConverter) to generate customized `CPUFriendDataProvider.kext`.
 
