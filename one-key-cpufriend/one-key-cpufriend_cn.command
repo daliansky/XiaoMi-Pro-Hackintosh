@@ -91,7 +91,7 @@ else
     read -p "你想要把最低频率从 1300mhz 降低到 800mhz吗? (y/n):" lfm_selection
     case $lfm_selection in
         y)
-        sudo sed -i "" "s:AgAAAAwAAAA:AgAAAAgAAAA:g" Mac-B4831CEBD52A0C4C.plist
+        sudo sed -i "" "s:AgAAAA0AAAA:AgAAAAgAAAA:g" Mac-B4831CEBD52A0C4C.plist
         ;;
 
         n)

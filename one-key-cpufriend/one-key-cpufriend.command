@@ -91,7 +91,7 @@ else
     read -p "Do you want to change minimum frequency from 1300mhz to 800mhz? (y/n):" lfm_selection
     case $lfm_selection in
         y)
-        sudo sed -i "" "s:AgAAAAwAAAA:AgAAAAgAAAA:g" Mac-B4831CEBD52A0C4C.plist
+        sudo sed -i "" "s:AgAAAA0AAAA:AgAAAAgAAAA:g" Mac-B4831CEBD52A0C4C.plist
         ;;
 
         n)
@@ -138,7 +138,7 @@ else
         ;;
     esac
 
-    # Create CPUFriendDataProvider.kext and move to desktop
+    # Generate CPUFriendDataProvider.kext and move to desktop
     CPUFriend/ResourceConverter/ResourceConverter.sh --kext Mac-B4831CEBD52A0C4C.plist
     cp -r CPUFriendDataProvider.kext ../../
 fi
