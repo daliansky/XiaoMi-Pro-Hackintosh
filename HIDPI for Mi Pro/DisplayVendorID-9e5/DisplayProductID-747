@@ -6,6 +6,10 @@
     <integer>1863</integer>
     <key>DisplayVendorID</key>
     <integer>2533</integer>
+    <key>DisplayProductName</key>
+    <string>Color LCD</string>
+    <key>IOGFlags</key>
+    <integer>4</integer>
     <key>scale-resolutions</key>
     <array>
         <data>AAALIAAABkQA</data>
