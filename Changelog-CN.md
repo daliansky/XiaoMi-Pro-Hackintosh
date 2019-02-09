@@ -223,3 +223,4 @@
     * 移除 `dart=0`
     * 移除 `AddClockID`，因为它对新系统不起作用
     * 新增 `SSDT-RTC` 来安全地移除IRQFlags，`FixRTC` 会缩短IO长度
+    * 修改layout-id为30
