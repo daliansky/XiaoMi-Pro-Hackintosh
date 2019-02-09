@@ -221,3 +221,4 @@
     - Remove `dart=0`
     - Remove `AddClockID`, because it doesn't make a difference in new macOS version
     - Add `SSDT-RTC` to remove IRQFlags safely, `FixRTC` will shorten the IO length
+    - Change layout-id to 30
