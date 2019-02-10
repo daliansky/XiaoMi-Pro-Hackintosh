@@ -15,9 +15,12 @@ echo "===================================================================== "
 # Download CPUFriend repository
 mkdir -p Desktop/tmp/one-key-cpufriend
 cd Desktop/tmp/one-key-cpufriend
-echo '|* Downloading CPUFriend master branch from https://github.com/acidanthera/CPUFriend, credit @PMHeart *|'
-echo '--------------------------------------------------------------------------------------------------------'
-git clone --recursive https://github.com/acidanthera/CPUFriend.git
+echo '|* Downloading CPUFriend from github.com/acidanthera/CPUFriend @PMHeart *|'
+echo '--------------------------------------------------------------------------'
+# Exit if connection fails
+curl -fsSL https://github.com/acidanthera/CPUFriend/archive/master.zip -o ./CPUFriend.zip && unzip CPUFriend.zip || exit 0
+
+echo ' '
 
 # Check whether MacBookPro15,2 PM plist exists (>=10.13.6(17G2112))
 if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-827FB448E656EC26.plist" ];then
@@ -26,7 +29,7 @@ if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns
     sudo cp -r /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-827FB448E656EC26.plist ./
 
     # Lower down the min frequency to 800mhz
-    echo '|* Lower min frequency may help save power when CPU is running in low load *|'
+    echo -e "\033[1m|* Lower min frequency may help save power when CPU is running in low load *|\033[0m"
     read -p "Do you want to change minimum frequency from 1300mhz to 800mhz? (y/n):" lfm_selection
     case $lfm_selection in
         y)
@@ -41,6 +44,8 @@ if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns
         exit 0
         ;;
     esac
+
+    echo ' '
 
     # Choose EPP value to adjust performance (ref: https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)
     echo '---------------------------------------'
@@ -78,7 +83,7 @@ if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns
     esac
 
     # Create CPUFriendDataProvider.kext and move to desktop
-    CPUFriend/ResourceConverter/ResourceConverter.sh --kext Mac-827FB448E656EC26.plist
+    CPUFriend-master/ResourceConverter/ResourceConverter.sh --kext Mac-827FB448E656EC26.plist
     cp -r CPUFriendDataProvider.kext ../../
 
 else
@@ -87,7 +92,7 @@ else
     sudo cp -r /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-B4831CEBD52A0C4C.plist ./
 
     # Lower down the min frequency to 800mhz
-    echo 'Lower min frequency may help save power when CPU is running in low load'
+    echo -e "\033[1m|* Lower min frequency may help save power when CPU is running in low load *|\033[0m"
     read -p "Do you want to change minimum frequency from 1300mhz to 800mhz? (y/n):" lfm_selection
     case $lfm_selection in
         y)
@@ -102,6 +107,8 @@ else
         exit 0
         ;;
     esac
+
+    echo ' '
 
     # Choose EPP value to adjust performance (ref: https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)
     echo '---------------------------------------'
@@ -139,15 +146,20 @@ else
     esac
 
     # Generate CPUFriendDataProvider.kext and move to desktop
-    CPUFriend/ResourceConverter/ResourceConverter.sh --kext Mac-B4831CEBD52A0C4C.plist
+    CPUFriend-master/ResourceConverter/ResourceConverter.sh --kext Mac-B4831CEBD52A0C4C.plist
     cp -r CPUFriendDataProvider.kext ../../
 fi
+
+echo ' '
 
 # Download, unzip, and copy the latest release of CPUFriend to desktop
 echo '|**** Downloading the latest release of CPUFriend, credit @PMHeart ****|'
 curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || echo "ERROR: Fail to download CPUFriend release, please download it maunally from https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip."
 
+echo ' '
+
 # Delete tmp folder
 sudo rm -rf ../../tmp
 
-echo 'This is the end of the script, please copy CPUFriend and CPUFriendDataProvider from desktop to /CLOVER/kexts/Other/! '
+echo -e "\033[1mGreat! This is the end of the script, please copy CPUFriend and CPUFriendDataProvider from desktop to /CLOVER/kexts/Other/\033[0m"
+exit 0

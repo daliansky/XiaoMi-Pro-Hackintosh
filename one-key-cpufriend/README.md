@@ -15,10 +15,10 @@ By using this script, no file under the System folder will be edited. If you are
 
 ## Before install
 
+- Good network
 - Make sure [Lilu](https://github.com/acidanthera/Lilu) is working
-- `plugin-type=1`
 - Make sure `IOPlatformPluginFamily.kext` untouched
-
+- `plugin-type=1`
 
 ## How to install
 
