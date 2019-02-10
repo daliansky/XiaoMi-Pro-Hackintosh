@@ -5,6 +5,7 @@
 # 此脚本很依赖于 CPUFriend(https://github.com/acidanthera/CPUFriend), 感谢 Acidanthera。
 
 # 界面 (源自: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=C%20P%20U%20F%20R%20I%20E%20N%20D)
+printf '\e[8;40;110t'
 echo "  ____   ____    _   _   _____   ____    ___   _____   _   _   ____ "
 echo " / ___| |  _ \  | | | | |  ___| |  _ \  |_ _| | ____| | \ | | |  _ \ "
 echo "| |     | |_) | | | | | | |_    | |_) |  | |  |  _|   |  \| | | | | | "
