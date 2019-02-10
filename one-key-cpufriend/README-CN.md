@@ -15,9 +15,10 @@
 
 ## 使用前提
 
+- 网络环境良好
 - 确保[Lilu](https://github.com/acidanthera/Lilu)在工作
-- `plugin-type=1`
 - 确保 `IOPlatformPluginFamily.kext` 未经修改
+- `plugin-type=1`
 
 
 ## 使用方法
