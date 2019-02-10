@@ -210,7 +210,7 @@
     - Clean up SSDTs' formats
 
 
-- XX-XX-2019
+- 2-10-2019
 
     - Update `Clover` r4871
     - Update `Lilu` v1.3.1
