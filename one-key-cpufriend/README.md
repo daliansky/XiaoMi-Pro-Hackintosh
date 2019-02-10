@@ -20,6 +20,7 @@ By using this script, no file under the System folder will be edited. If you are
 - Make sure `IOPlatformPluginFamily.kext` untouched
 - `plugin-type=1`
 
+
 ## How to install
 
 Download the whole folder and run `one-key-cpufriend.command`.
