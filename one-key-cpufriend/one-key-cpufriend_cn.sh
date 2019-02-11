@@ -1,5 +1,5 @@
 #!/bin/bash
-# 创建者：stevezhengshiqi
+# stevezhengshiqi 创建于2019年2月8日。
 # 暂时只支持8代U, 此脚本会强制系统使用 MacBookPro15,2(Mac-827FB448E656EC26.plist)的 X86PlatformPlugin 配置。
 # 如果macOS版本低于 10.13.6(17G2112), 此脚本会使用 MacBookPro14,1(Mac-B4831CEBD52A0C4C.plist)的配置。
 # 此脚本很依赖于 CPUFriend(https://github.com/acidanthera/CPUFriend), 感谢 Acidanthera。
