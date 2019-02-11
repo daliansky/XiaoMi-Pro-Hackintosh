@@ -23,9 +23,13 @@ By using this script, no file under the System folder will be edited. If you are
 
 ## How to install
 
-Download the whole folder and run `one-key-cpufriend.command`.
+- Run this script in Terminal
 
-Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/CLOVER/kexts/Other/` and restart.
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-cpufriend/one-key-cpufriend.sh)"
+```
+
+- Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/CLOVER/kexts/Other/` and restart.
 
 
 ## Recovery
@@ -50,3 +54,5 @@ If unfortunately, you can't boot into the system, and you are sure the issue is 
 Thanks to [Acidanthera](https://github.com/acidanthera) for providing [CPUFriend](https://github.com/acidanthera/CPUFriend).
 
 Thanks to [shuhung](https://www.tonymacx86.com/members/shuhung.957282) for providing [configuration modification ideas](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7).
+
+Thanks to [xzhih](https://github.com/xzhih) for giving me advice.

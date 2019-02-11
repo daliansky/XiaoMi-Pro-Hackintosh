@@ -23,9 +23,13 @@
 
 ## 使用方法
 
-下载整个文件夹，然后运行目录里的 `one-key-cpufriend_cn.command`。
+- 在终端输入以下命令并回车
 
-把桌面上的 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext` 复制进 `/CLOVER/kexts/Other/` 并重启。
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-cpufriend/one-key-cpufriend_cn.sh)"
+```
+
+- 把桌面上的 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext` 复制进 `/CLOVER/kexts/Other/` 并重启。
 
 
 ## 恢复
@@ -50,3 +54,5 @@
 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [CPUFriend](https://github.com/acidanthera/CPUFriend)。
 
 感谢 [shuhung](https://www.tonymacx86.com/members/shuhung.957282) 提供[配置修改思路](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)。
+
+感谢 [xzhih](https://github.com/xzhih) 提供一些建议。

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Created by stevezhengshiqi
+# Created by stevezhengshiqi on 8 Feb, 2019.
 # Only support 8th CPU yet, this script will force system to use MacBookPro15,2(Mac-827FB448E656EC26.plist)'s X86PlatformPlugin configuration.
 # If macOS version is lower than 10.13.6(17G2112), the script will turn to MacBookPro14,1(Mac-B4831CEBD52A0C4C.plist)'s configuration.
 # This script depends on CPUFriend(https://github.com/acidanthera/CPUFriend) a lot, thanks to Acidanthera.
