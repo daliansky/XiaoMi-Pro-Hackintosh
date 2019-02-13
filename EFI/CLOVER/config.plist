@@ -18,6 +18,8 @@
 				<true/>
 				<key>AddMCHC</key>
 				<true/>
+				<key>AddPNLF</key>
+				<true/>
 				<key>FixTMR</key>
 				<true/>
 				<key>FixADP1</key>
@@ -280,6 +282,10 @@
 				<string>Intel Sunrise Point-LP SMBus</string>
 			</dict>
 		</dict>
+		<key>SetIntelBacklight</key>
+		<true/>
+		<key>SetIntelMaxBacklight</key>
+		<true/>
 		<key>USB</key>
 		<dict>
 			<key>FixOwnership</key>
