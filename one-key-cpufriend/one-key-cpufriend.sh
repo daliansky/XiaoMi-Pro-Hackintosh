@@ -1,80 +1,71 @@
 #!/bin/bash
 # Created by stevezhengshiqi on 8 Feb, 2019.
-# Only support 8th CPU yet, this script will force system to use MacBookPro15,2(Mac-827FB448E656EC26.plist)'s X86PlatformPlugin configuration.
-# If macOS version is lower than 10.13.6(17G2112), the script will turn to MacBookPro14,1(Mac-B4831CEBD52A0C4C.plist)'s configuration.
-# This script depends on CPUFriend(https://github.com/acidanthera/CPUFriend) a lot, thanks to Acidanthera.
+# Only support most 8th CPU.
+# This script depends on CPUFriend(https://github.com/acidanthera/CPUFriend) a lot, thanks to Acidanthera and PMHeart.
 
 # Interface (Ref: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=C%20P%20U%20F%20R%20I%20E%20N%20D)
-printf '\e[8;40;110t'
-echo "  ____   ____    _   _   _____   ____    ___   _____   _   _   ____ "
-echo " / ___| |  _ \  | | | | |  ___| |  _ \  |_ _| | ____| | \ | | |  _ \ "
-echo "| |     | |_) | | | | | | |_    | |_) |  | |  |  _|   |  \| | | | | | "
-echo "| |___  |  __/  | |_| | |  _|   |  _ <   | |  | |___  | |\  | | |_| | "
-echo " \____| |_|      \___/  |_|     |_| \_\ |___| |_____| |_| \_| |____/ "
-echo "===================================================================== "
+function interface(){
+    printf "\e[8;40;110t"
+    boardid=0
+    echo "  ____   ____    _   _   _____   ____    ___   _____   _   _   ____ "
+    echo " / ___| |  _ \  | | | | |  ___| |  _ \  |_ _| | ____| | \ | | |  _ \ "
+    echo "| |     | |_) | | | | | | |_    | |_) |  | |  |  _|   |  \| | | | | | "
+    echo "| |___  |  __/  | |_| | |  _|   |  _ <   | |  | |___  | |\  | | |_| | "
+    echo " \____| |_|      \___/  |_|     |_| \_\ |___| |_____| |_| \_| |____/ "
+    echo " "
+    echo "===================================================================== "
+}
 
-# Download CPUFriend repository
-mkdir -p Desktop/tmp/one-key-cpufriend
-cd Desktop/tmp/one-key-cpufriend
-echo '|* Downloading CPUFriend from github.com/acidanthera/CPUFriend @PMHeart *|'
-echo '--------------------------------------------------------------------------'
 # Exit if connection fails
-curl -fsSL https://github.com/acidanthera/CPUFriend/archive/master.zip -o ./CPUFriend.zip && unzip CPUFriend.zip || exit 0
+function networkwarn(){
+    echo "ERROR: Fail to download CPUFriend, please check the network state"
+    exit 0
+}
 
-echo ' '
+# Download CPUFriend repository and unzip latest release
+function download(){
+    mkdir -p Desktop/tmp/one-key-cpufriend
+    cd Desktop/tmp/one-key-cpufriend
+    echo "--------------------------------------------------------------------------"
+    echo "|* Downloading CPUFriend from github.com/acidanthera/CPUFriend @PMHeart *|"
+    echo "--------------------------------------------------------------------------"
+    curl -fsSL https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh -o ./ResourceConverter.sh || networkwarn
+    sudo chmod +x ./ResourceConverter.sh
+    curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || networkwarn
+}
 
-# Check whether MacBookPro15,2 PM plist exists (>=10.13.6(17G2112))
-if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-827FB448E656EC26.plist" ];then
+# Check board-id, only system version >=10.13.6(17G2112) supports Mac-827FB448E656EC26.plist(MBP15,2)
+function checkboardid(){
+    if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-827FB448E656EC26.plist" ]; then
+        boardid=Mac-827FB448E656EC26
+    else
+        boardid=Mac-B4831CEBD52A0C4C
+    fi
+}
 
-    # Copy MacBookPro15,2 PM plist to tmp folder
-    sudo cp -r /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-827FB448E656EC26.plist ./
+# Copy the target plist
+function copyplist(){
+    sudo cp -r /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/$boardid.plist ./
+}
 
-    # Lower down the min frequency to 800mhz
-    echo -e "\033[1m|* Lower min frequency may help save power when CPU is running in low load *|\033[0m"
-    read -p "Do you want to change minimum frequency from 1300mhz to 800mhz? (y/n):" lfm_selection
+# chenge LFM value to adjust lowest frequency
+# Reconsider whether this function is necessary because LFM seems doesn't effect energy performance
+function changelfm(){
+    echo "-----------------------------------------"
+    echo "|****** Choose Low Frequency Mode ******|"
+    echo "-----------------------------------------"
+    echo "(1) Remain the same (1200/1300mhz)"
+    echo "(2) 800mhz (Lower frequency in low load)"
+    read -p "Which option you want to choose? (1/2):" lfm_selection
     case $lfm_selection in
-        y)
-        sudo sed -i "" "s:AgAAAAwAAAA:AgAAAAgAAAA:g" Mac-827FB448E656EC26.plist
-        ;;
-
-        n)
-        ;;
-
-        *)
-        echo "ERROR: Invalid input, closing the script"
-        exit 0
-        ;;
-    esac
-
-    echo ' '
-
-    # Choose EPP value to adjust performance (ref: https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)
-    echo '---------------------------------------'
-    echo '|**** Choose CPU performance mode ****|'
-    echo '---------------------------------------'
-    echo '(1) Max Power Saving'
-    echo '(2) Balance Power (Default)'
-    echo '(3) Balance performance'
-    echo '(4) Performance'
-    read -p "Which mode is your favourite? (1/2/3/4):" epp_selection
-    case $epp_selection in
         1)
-        # Change 90 to C0, max power saving
-        sudo sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" Mac-827FB448E656EC26.plist
+        # Keep default
         ;;
 
         2)
-        # Keep default 90, balance power
-        ;;
-
-        3)
-        # Change 90 to 40, balance performance
-        sudo sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" Mac-827FB448E656EC26.plist
-        ;;
-
-        4)
-        # Change 90 to 00, performance
-        sudo sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" Mac-827FB448E656EC26.plist
+        # Change 1200/1300 to 800
+        sudo /usr/bin/sed -i "" "s:AgAAAA0AAAA:AgAAAAgAAAA:g" $boardid.plist
+        sudo /usr/bin/sed -i "" "s:AgAAAAwAAAA:AgAAAAgAAAA:g" $boardid.plist
         ;;
 
         *)
@@ -82,62 +73,39 @@ if [ -f "/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns
         exit 0
         ;;
     esac
+}
 
-    # Create CPUFriendDataProvider.kext and move to desktop
-    CPUFriend-master/ResourceConverter/ResourceConverter.sh --kext Mac-827FB448E656EC26.plist
-    cp -r CPUFriendDataProvider.kext ../../
-
-else
-
-    # Copy MacBookPro14,1's PM plist to tmp folder
-    sudo cp -r /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/Mac-B4831CEBD52A0C4C.plist ./
-
-    # Lower down the min frequency to 800mhz
-    echo -e "\033[1m|* Lower min frequency may help save power when CPU is running in low load *|\033[0m"
-    read -p "Do you want to change minimum frequency from 1300mhz to 800mhz? (y/n):" lfm_selection
-    case $lfm_selection in
-        y)
-        sudo sed -i "" "s:AgAAAA0AAAA:AgAAAAgAAAA:g" Mac-B4831CEBD52A0C4C.plist
-        ;;
-
-        n)
-        ;;
-
-        *)
-        echo "ERROR: Invalid input, closing the script"
-        exit 0
-        ;;
-    esac
-
-    echo ' '
-
-    # Choose EPP value to adjust performance (ref: https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)
-    echo '---------------------------------------'
-    echo '|**** Choose CPU performance mode ****|'
-    echo '---------------------------------------'
-    echo '(1) Max Power Saving'
-    echo '(2) Balance Power (Default)'
-    echo '(3) Balance performance'
-    echo '(4) Performance'
+# change EPP value to adjust performance (ref: https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)
+function changeepp(){
+    echo "----------------------------------------"
+    echo "| Choose Energy Performance Preference |"
+    echo "----------------------------------------"
+    echo "(1) Max Power Saving"
+    echo "(2) Balance Power (Default)"
+    echo "(3) Balance performance"
+    echo "(4) Performance"
     read -p "Which mode is your favourite? (1/2/3/4):" epp_selection
     case $epp_selection in
         1)
-        # Change 80 to C0, max power saving
-        sudo sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" Mac-B4831CEBD52A0C4C.plist
+        # Change 80/90/92 to C0, max power saving
+        sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
+        sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         2)
-        # Keep default 80, balance power
+        # Keep default 80/90/92, balance power
         ;;
 
         3)
-        # Change 80 to 40, balance performance
-        sudo sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" Mac-B4831CEBD52A0C4C.plist
+        # Change 80/90/92 to 40, balance performance
+        sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
+        sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         4)
-        # Change 80 to 00, performance
-        sudo sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" Mac-B4831CEBD52A0C4C.plist
+        # Change 80/90/92 to 00, performance
+        sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
+        sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         *)
@@ -145,22 +113,39 @@ else
         exit 0
         ;;
     esac
+}
 
-    # Generate CPUFriendDataProvider.kext and move to desktop
-    CPUFriend-master/ResourceConverter/ResourceConverter.sh --kext Mac-B4831CEBD52A0C4C.plist
+# Generate CPUFriendDataProvider.kext and move to desktop
+function generatekext(){
+    echo "Generating CPUFriendDataProvider.kext"
+    sudo ./ResourceConverter.sh --kext $boardid.plist
     cp -r CPUFriendDataProvider.kext ../../
-fi
+}
 
-echo ' '
+# Delete tmp folder and end
+function clean(){
+    sudo rm -rf ../../tmp
 
-# Download, unzip, and copy the latest release of CPUFriend to desktop
-echo '|**** Downloading the latest release of CPUFriend, credit @PMHeart ****|'
-curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || echo "ERROR: Fail to download CPUFriend release, please download it maunally from https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip."
+    echo "Great! This is the end of the script, please copy CPUFriend and CPUFriendDataProvider from desktop to /CLOVER/kexts/Other/"
+    exit 0
+}
 
-echo ' '
+# Main function
+function main(){
+    interface
+    echo " "
+    download
+    echo " "
+    checkboardid
+    copyplist
+    changelfm
+    echo " "
+    changeepp
+    echo " "
+    generatekext
+    echo " "
+    clean
+    exit 0
+}
 
-# Delete tmp folder
-sudo rm -rf ../../tmp
-
-echo -e "\033[1mGreat! This is the end of the script, please copy CPUFriend and CPUFriendDataProvider from desktop to /CLOVER/kexts/Other/\033[0m"
-exit 0
+main
