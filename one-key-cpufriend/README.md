@@ -6,9 +6,9 @@
 
 [I](https://github.com/stevezhengshiqi) am really a newcomer for bash language, and welcome pros to help improve the script.
 
-<b>The script is only for 8th generation CPU(KBL-R, CNL, CFL...) yet.</b> I will try to add support for more models if needed.
+<b>The script is only for 8th generation CPU(KBL-R, CNL, CFL...).</b>
 
-The script can modify certain configurations of power management, and use [ResourceConverter.sh](https://github.com/acidanthera/CPUFriend/tree/master/ResourceConverter) to generate customized `CPUFriendDataProvider.kext`.
+The script can modify low frequency mode and energy performance preference, and use [ResourceConverter.sh](https://github.com/acidanthera/CPUFriend/tree/master/ResourceConverter) to generate customized `CPUFriendDataProvider.kext`.
 
 By using this script, no file under the System folder will be edited. If you are not happy with the modification, just remove `CPUFriend*.kext` from `/CLOVER/kexts/Other/` and restart.
 
@@ -16,8 +16,8 @@ By using this script, no file under the System folder will be edited. If you are
 ## Before install
 
 - Good network
-- Make sure [Lilu](https://github.com/acidanthera/Lilu) is working
 - Make sure `IOPlatformPluginFamily.kext` untouched
+- Make sure [Lilu](https://github.com/acidanthera/Lilu) is working
 - `plugin-type=1`
 
 
@@ -55,4 +55,4 @@ Thanks to [Acidanthera](https://github.com/acidanthera) for providing [CPUFriend
 
 Thanks to [shuhung](https://www.tonymacx86.com/members/shuhung.957282) for providing [configuration modification ideas](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7).
 
-Thanks to [xzhih](https://github.com/xzhih) for giving me advice.
+Thanks to [PMheart](https://github.com/PMheart) and [xzhih](https://github.com/xzhih) for giving me advice.
