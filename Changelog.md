@@ -216,7 +216,7 @@
     - Update `Lilu` v1.3.1
     - Update `AppleALC` v1.3.5
     - Update `SSDT-PXSX`
-    - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](https://github.com/daliansky/XiaoMi-Pro/blob/master/one-key-cpufriend/one-key-cpufriend.command) to customize kext is recommended
+    - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](https://github.com/daliansky/XiaoMi-Pro/blob/master/one-key-cpufriend/one-key-cpufriend) to customize kext is recommended
     - Remove `HibernationFixup` because it's not stable, `RtcHibernateAware` is may enough for device to hibernate
     - Remove `dart=0`
     - Remove `AddClockID`, because it doesn't make a difference in new macOS version
