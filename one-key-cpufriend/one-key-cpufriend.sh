@@ -87,23 +87,23 @@ function changeepp(){
     read -p "Which mode is your favourite? (1/2/3/4):" epp_selection
     case $epp_selection in
         1)
-        # Change 80/90/92 to C0, max power saving
+        # Change 80/90 to C0, max power saving
         sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         2)
-        # Keep default 80/90/92, balance power
+        # Keep default 80/90, balance power
         ;;
 
         3)
-        # Change 80/90/92 to 40, balance performance
+        # Change 80/90 to 40, balance performance
         sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         4)
-        # Change 80/90/92 to 00, performance
+        # Change 80/90 to 00, performance
         sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;

@@ -87,23 +87,23 @@ function changeepp(){
     read -p "你想选择哪个模式? (1/2/3/4):" epp_selection
     case $epp_selection in
         1)
-        # 把 80/90/92 改成 C0, 最省电模式
+        # 把 80/90 改成 C0, 最省电模式
         sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:DAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         2)
-        # 保持默认值 80/90/92, 平衡电量模式
+        # 保持默认值 80/90, 平衡电量模式
         ;;
 
         3)
-        # 把 80/90/92 改成 40, 平衡性能模式
+        # 把 80/90 改成 40, 平衡性能模式
         sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:BAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
 
         4)
-        # 把 80/90/92 改成 00, 高性能模式
+        # 把 80/90 改成 00, 高性能模式
         sudo /usr/bin/sed -i "" "s:CAAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         sudo /usr/bin/sed -i "" "s:CQAAAAAAAAAAAAAAAAAAAAc:AAAAAAAAAAAAAAAAAAAAAAc:g" $boardid.plist
         ;;
