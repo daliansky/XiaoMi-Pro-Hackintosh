@@ -21,8 +21,11 @@ sudo cp /System/Library/Displays/Contents/Resources/Overrides/Icons.plist /Syste
 # Override Icon.plist
 sudo cp -r "$path/Icons.plist" /System/Library/Displays/Contents/Resources/Overrides/
 
-# Fix permission for Icon.plist
+# Fix permission
 sudo chown root:wheel /System/Library/Displays/Contents/Resources/Overrides/Icons.plist
+sudo chown root:wheel /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747
+sudo chown root:wheel /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747.icns
+sudo chown root:wheel /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747.tiff
 
 echo 'This is the end of the installation, please reboot and choose 1424x802 in SysPref! '
 bash read -p 'Press any key to exit'
