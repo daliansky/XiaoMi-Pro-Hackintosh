@@ -98,8 +98,6 @@
     * 更新 `SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
     * 修改 `SSDT-LPC.aml` 已加载原生电源驱动AppleLPC
     * 更新 `Clover` r4438
-    * 发布Clover v2.4 r4438小米笔记本PRO专用安装程序
-        ![Clover_v2.4k_r4438](http://7.daliansky.net/clover4438/2.png)
 
 
 * 5-14-2018
@@ -226,9 +224,9 @@
     * 修改layout-id为30
 
 
-* X-XX-2019
+* 3-1-2019
 
-    * 更新 `Clover` r4888
+    * 更新 `Clover` r4892
     * 更新 `USBPorts` 来支持更多型号
     * 移除 `SSDT-PNLF` 并替换为 `AddPNLF`，根据[WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
     * 移除 `RtcHibernateAware` 并替换为 `NeverHibernate`。解决一些睡眠重启问题，但会消耗更多电能。 `RtcHibernateAware` 需要解锁CFG才会正常工作。
