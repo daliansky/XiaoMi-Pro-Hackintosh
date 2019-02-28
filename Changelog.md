@@ -224,9 +224,9 @@
     - Change layout-id to 30
 
 
-- X-XX-2019
+- 3-1-2019
 
-    - Update `Clover` r4888
+    - Update `Clover` r4892
     - Update `USBPorts` to support more models
     - Remove `SSDT-PNLF` and replace with `AddPNLF` argument as suggested in [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
     - Remove `RtcHibernateAware` and replace with `NeverHibernate`. Sleep will consume more battery. Only after unlocking CFG then `RtcHibernateAware` could work properly
