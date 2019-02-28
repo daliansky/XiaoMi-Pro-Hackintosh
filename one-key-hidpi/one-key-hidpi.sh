@@ -34,18 +34,20 @@ function networkWarn(){
 
 # Download from https://github.com/daliansky/XiaoMi-Pro/tree/master/one-key-hidpi
 function download(){
-    echo 'Downloading display files'
+    echo 'Downloading display files...'
     mkdir -p one-key-hidpi
     cd one-key-hidpi
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/Icons.plist -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747 -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.icns -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.tiff -O || networkWarn
+    echo 'Download complete'
+    echo
 }
 
 function removeold() {
     # Uninstall HiScale (Added in commit https://github.com/daliansky/XiaoMi-Pro/commit/fa35968b5acf851e274932ca52e67c43fe747877)
-    echo 'Removing previous version'
+    echo 'Removing previous version...'
     sudo launchctl remove /Library/LaunchAgents/org.zysuper.riceCracker.plist
     sudo pkill riceCrackerDaemon
     sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
@@ -53,39 +55,49 @@ function removeold() {
 
     # Remove previous one-key-hidpi (Added in commit https://github.com/daliansky/XiaoMi-Pro/commit/a3b7f136209a91455944b4afece7e14a931e62ba)
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
+    echo 'Remove complete'
+    echo
 }
 
 # Create backup for Icons.plist
 function backup() {
-    echo 'Backing up'
+    echo 'Backing up...'
     sudo mkdir -p $DISPLAYPATH/backup
     sudo cp $DISPLAYPATH/Icons.plist $DISPLAYPATH/backup/
+    echo 'Back up complete'
+    echo
 }
 
 # Copy the display folder
 function copy() {
-    echo 'Copying file to target address'
+    echo 'Copying file to target address...'
     sudo mkdir -p $DISPLAYPATH/DisplayVendorID-9e5
     sudo cp ./Icons.plist $DISPLAYPATH/
     sudo cp ./DisplayProductID-747 $DISPLAYPATH/DisplayVendorID-9e5/
     sudo cp ./DisplayProductID-747.icns $DISPLAYPATH/DisplayVendorID-9e5/
     sudo cp ./DisplayProductID-747.tiff $DISPLAYPATH/DisplayVendorID-9e5/
+    echo 'Copy complete'
+    echo
 }
 
 # Fix permission
 function fixpermission() {
-    echo 'Fixing permission'
+    echo 'Fixing permission...'
     sudo chown root:wheel $DISPLAYPATH/Icons.plist
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5/DisplayProductID-747
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5/DisplayProductID-747.icns
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5/DisplayProductID-747.tiff
+    echo 'Fix complete'
+    echo
 }
 
 # Clean
 function clean() {
-    echo 'Cleaning temporary files'
+    echo 'Cleaning temporary files...'
     sudo rm -rf ../one-key-hidpi
+    echo 'Clean complete'
+    echo
 }
 
 # Install
@@ -101,7 +113,7 @@ function install() {
 
 # Uninstall
 function uninstall() {
-    echo 'Uninstalling one-key-hidpi'
+    echo 'Uninstalling one-key-hidpi...'
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
 
     # Restore Icon.plist in backup folder if presents
@@ -112,6 +124,7 @@ function uninstall() {
 
     # Remove backup folder
     sudo rm -rf $DISPLAYPATH/backup
+    echo 'Uninstall complete'
 }
 
 # Main function
