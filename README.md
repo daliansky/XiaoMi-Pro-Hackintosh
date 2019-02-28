@@ -1,60 +1,51 @@
 # XiaoMi NoteBook Pro for macOS Mojave & High Sierra
 
-Hackintosh your XiaoMi Pro Notebook
+Hackintosh your XiaoMi Notebook Pro
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
-## Features
+## Configuration
 
-* Support 10.13.x and 10.14.x.
-* ACPI fixes use hotpatch; related files are located in `/CLOVER/ACPI/patched`.
+| Specifications | Detail                                                  |
+| -------------- | ------------------------------------------- |
+| Computer model | Xiaomi NoteBook Pro 15.6''(MX150/GTX)       |
+| Processor      | Intel Core i5-8550U/i7-8550U Processor      |
+| Memory         | 8GB/16GB Samsung DDR4 2400MHz               |
+| HardDisk       | Samsung NVMe SSD Controller PM961 256GB     |
+| Graphic Card   | Intel UHD Graphics 620/NVIDIA GeForce MX150     |
+| Monitor        | BOE NV156FHM-N61 FHD 1920x1080 (15.6 inch)  |
+| Sound Card     | Realtek ALC298 (layout-id:30/99)            |
+| Wireless Card  | Intel Wireless 8265                         |
+| SD Card Reader | Realtek RTS5129                             |
 
-### Audio
-* The model of the sound card is `Realtek ALC298`, which is driven by `AppleALC` on layout-id 30 ([Testing!](https://github.com/daliansky/XiaoMi-Pro/issues/96)) ; injection information is located in `/CLOVER/config.plist`. 
-* ~~If headphones are not working, please see [ALCPlugFix](https://github.com/daliansky/XiaoMi-Pro/tree/master/ALCPlugFix/README.md). You may need to replug headphone after every boot.~~
-* ~~Some i5 devices may fail to drive microphone, please follow instructions in [#13](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/13).~~
-    
-### Bluetooth
-* Native Bluetooth is [not working well](https://github.com/daliansky/XiaoMi-Pro/issues/50). The model is `Intel® Dual Band Wireless-AC 8265`. There are two options you can do with it:
-    * Disable it to save power or use a BT dongle. Please read instructions here: [#24](https://github.com/daliansky/XiaoMi-Pro/issues/24).
-    * Buy and insert a supported wireless card in M.2 slot and carefully solder D+ and D- wires to the WLAN_LTE slot. After that, please replace the archive in [#7](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/7).
 
-### CPU
-* The model is `i5-8250U` or `i7-8550U`, and XCPM power management is native supported. 
-* XCPM and HWP are recommended to work together to reach better power management (>=10.13.6). Please use [one-key-cpufriend](https://github.com/daliansky/XiaoMi-Pro/blob/master/one-key-cpufriend) to enable HWP.
+## What's not Working
 
-### Graphics
-* The model name is `Intel UHD Graphics 620`, faked to `Intel HD Graphics 620` by injecting ig-platform-id `00001659`.
-* The discrete graphics' name is `NVIDIA GeForce MX150`, disabled by `SSDT-DDGPU.aml` becuase macOS doesn't support Optimus technology.
-* Use HDMI port on the left side may cause black internal display, please try to reopen the lid.
-* Native brightness hotkey support; related file is located in `/CLOVER/ACPI/patched/SSDT-LGPA.aml`.
+- Discrete graphic card, since macOS doesn't support Optimus technology
+  - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it to save power
+- Fingerprint sensor
+  - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it to save power
+- Intel Bluetooth only works after warm restart from Windows
+  - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
+- Intel Wi-Fi(Intel Wireless 8265)
+  - Buy a USB Wi-Fi dongle or supported wireless card
+- Realtek USB SD Card Reader(RTS5129)
+  - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it to save power
+- Everything else works well
 
-### Keyboard
-* Caps Lock may not function well, please read instructions in [#2](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/2) to uncheck `Use the Caps Lock key to switch to and from ABC`. 
-* The latest keyboard driver can temporily disable the touchpad during typing. If you are not happy with the lag, a workaround is provided in [#19](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/19).
 
-### SSD
-* Recent model uses `PM981` SSD instead of `PM961`. <b>This EFI doesn't fully support `PM981`, and `PM981` users can replace their SSDs</b> or visit [How to fix PM981 in 10.3.3](https://www.tonymacx86.com/threads/how-to-fix-pm981-in-10-13-3-17d47.245063)(Not working yet!) to see the progress.
-    * `PM981` SSD's serial number starts with `MZVLB`, and `PM961` SSD's serial number starts with `MZVLW`.
+## What can work better
 
-### Touchpad
-* The model name is `ETD2303`(ELAN), and the driver is a patched verison of `VoodooI2C`, which has no scale problem or sleep issue.
-* Don't forget to uncheck `Smart Zoom` in `SysPref - Trackpad - Scroll & Zoom` to help trackpad work better.
-
-### USB
-* USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559), related file is located in `/CLOVER/kexts/Other/USBPorts.kext`.
-* SD Card Reader's model name is `RTS5129`. It is not supported and be disabled to save power.
-
-### Wi-Fi
-* The wireless model is `Intel® Dual Band Wireless-AC 8265`. Unfortunately, there's no way to enable it. You can follow [Intel WiFi Driver Effort](https://www.tonymacx86.com/threads/intel-wifi-driver-effort.186344) to check the latest progress.
-* A workaround is to insert a supported wireless card into M.2 slot. More information can be viewed in [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724).
+- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT 64MB and unlock CFG
+- Use [one-key-hidpi](one-key-hidpi) to improve quality of system UI
+- Use [one-key-cpufriend](one-key-cpufriend) to improve CPU efficiency
 
 
 ## FAQ
 
 ### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
-I believe there are many ways to solve this problem. I give a most understandable one here (at least for me). The solution is to refresh your BIOS in order to clean `nvram.plist`. Please read `How to update BIOS` in [BIOS folder](https://github.com/daliansky/XiaoMi-Pro/blob/master/BIOS/README.md).
+I believe there are many ways to solve this problem. I give a most understandable one here (at least for me). The solution is to refresh your BIOS in order to clean `nvram.plist`. Please read `How to update BIOS` in [BIOS folder](BIOS/README.md).
 
 
 ### I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
@@ -71,12 +62,14 @@ You need to rebuild the kext cache after every system update. Use `Kext Utility.
 
 Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix-64.efi` in `/CLOVER/drivers64UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
 
+Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro/wiki/FAQ).
+
 
 ## Installation
 
 Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
 
-A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page,Thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
+A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page, thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
 
 If the tracpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 
@@ -107,7 +100,9 @@ All the project is made for free, but you can reward me if you want.
 
 - Thanks to [hieplpvip](https://github.com/hieplpvip) and [syscl](https://github.com/syscl) for providing sample of DSDT patches.
 
-- Thanks to [RehabMan](https://github.com/RehabMan) for providing [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
+- Thanks to [RehabMan](https://github.com/RehabMan) for providing [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander),  [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet), [OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
+
+- For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro/wiki/References).
 
 
 ## Support and discussion
@@ -118,6 +113,4 @@ All the project is made for free, but you can reward me if you want.
 - QQ:
   - 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
   - 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
-  - 331686786 [一起吃苹果](http://shang.qq.com/wpa/qunwpa?idkey=db511a29e856f37cbb871108ffa77a6e79dde47e491b8f2c8d8fe4d3c310de91)
-  - 688324116 [一起黑苹果](https://shang.qq.com/wpa/qunwpa?idkey=6bf69a6f4b983dce94ab42e439f02195dfd19a1601522c10ad41f4df97e0da82)
-  - 257995340 [一起啃苹果](http://shang.qq.com/wpa/qunwpa?idkey=8a63c51acb2bb80184d788b9f419ffcc33aa1ed2080132c82173a3d881625be8)
+  - 689011732 小米笔记本Pro黑苹果

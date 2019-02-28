@@ -1,6 +1,6 @@
-# Open macOS HIDPI
+# Open macOS HiDPI
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## Instruction
 
@@ -15,9 +15,11 @@ In addition, this program is only for Mi Pro.
 
 ## How to install
 
-Download the whole folder and run `install.command`, then restart.
+- Run the following command in Terminal:
 
-Choose `1424 x 802` in `SysPref - Display`.
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/one-key-hidpi.sh)"
+```
 
 
 ## Recovery
@@ -37,4 +39,7 @@ $ cp -r ./backup/* ./
 
 ## Credits
 
-Thanks to [zysuper](https://github.com/zysuper) for providing base function of this program.
+Thanks to [xzhih](https://github.com/xzhih) for providing interface.
+    - Father script: [one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
+
+Thanks to [zysuper](https://github.com/zysuper) for providing resolution.

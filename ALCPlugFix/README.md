@@ -1,6 +1,6 @@
 # ALC Plug Fix
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## Introduction
 
@@ -9,13 +9,15 @@
 * `hda-verb` is originally from a command of `alsa-project` in linux. Its function is to send HD-audio commands.
 
 
-## How to Install
+## How to install
 
-* Download the whole [XiaoMi-Pro Pack](https://github.com/daliansky/XiaoMi-Pro/archive/master.zip), go to `ALCPlugFix` folder, and double click `english_install.command`.
+- Run the following command in Terminal:
 
-* Wait while the script copies the required files and reflashes kextcache (related files are in the `fix` folder). It may take a few seconds.
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/one-key-alcplugfix.sh)"
+```
 
-* When it's done, you'll see `Press any key to Exit`. Type any key and press Enter, then restart your computer. The installation now completes.
+- When it's done, restart your computer. The installation now completes.
 
 ATTENTION: You may have to replug the headphone after every boot to let headphone work.
 
