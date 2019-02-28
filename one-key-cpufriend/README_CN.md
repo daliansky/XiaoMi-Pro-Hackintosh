@@ -1,6 +1,6 @@
 # 调整 macOS CPU性能
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## 简介
 
@@ -23,7 +23,7 @@
 
 ## 使用方法
 
-- 在终端输入以下命令并回车
+- 在终端输入以下命令并回车：
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-cpufriend/one-key-cpufriend_cn.sh)"

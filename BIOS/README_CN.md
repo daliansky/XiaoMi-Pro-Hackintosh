@@ -1,12 +1,12 @@
 # 升级BIOS和增强性能
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## 简介
 
-[XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 的BIOS包来自小米官方，来源可靠。<b>此包仅支持MX150版本。</b>
+[XMAKB5R0P0906](XMAKB5R0P0906) 的BIOS包来自小米官方，来源可靠。<b>此包仅支持MX150版本。</b>
 
-文件夹 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
+文件夹 [ME](ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
 
 警告：因为操作涉及到BIOS等底层代码，如果在升级过程中出现错误（比如升级程序强制退出，或不正确地运行[#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)里的脚本)，电脑可能无法启动。
 
@@ -23,7 +23,7 @@
 
 有句老话说得好，“不打无准备之仗”。<b>备份重要资料永远不会错。</b>有用户反映运行程序后会遇到蓝屏问题。
 
-1. 下载 [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) 文件夹里的所有文件。
+1. 下载 [XMAKB5R0P0906](XMAKB5R0P0906) 文件夹里的所有文件。
 
 2. 用管理员权限运行 `H2OFFT-Wx64.exe`。
   - 注意：从这一步开始，你的电脑最好接上电源，直到整个安装进程结束。
@@ -35,7 +35,7 @@
 
 ## 怎么升级ME固件
 
-1. 下载 [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) 文件夹里的所有文件。
+1. 下载 [ME](ME) 文件夹里的所有文件。
 
 2. 在C盘根目录下创建一个文件夹，命名为 `Win64` (路径: C:\Win64) 然后把第一步里得到的所有文件拷贝进 `Win64` 文件夹。
 
@@ -62,6 +62,8 @@ cd C:\Win64
 ## 怎么提升性能
 
 [FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大DVMT大小（从32MB扩大到64MB），解锁MSR 0xE2寄位器，和修改EC固件来减少风扇噪声。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
+
+DVMT扩容脚本和解锁CFG脚本被囊括在了最新release里。
 
 
 ## 鸣谢

@@ -1,6 +1,6 @@
 # ALC 耳机修复
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## 简介
 
@@ -9,13 +9,15 @@
 * `hda-verb` 是原本来自于linux下面的 `alsa-project` 的一条命令，它的作用是发送HD-audio命令。
 
 
-## 怎么安装
+## 使用方法
 
-* 下载整个 [XiaoMi-Pro包](https://github.com/daliansky/XiaoMi-Pro/archive/master.zip), 前往 `ALCPlugFix` 文件夹， 双击 `chinese_install.command`。
+- 在终端输入以下命令并回车：
 
-* 等待脚本部署补丁文件和重建缓存（补丁文件在 `fix` 文件夹），这可能要花上几秒。
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/one-key-alcplugix_cn.sh)"
+```
 
-* 当你看到 `按任何键退出` 时，说明安装结束。请按任意键回车，然后重启电脑，完成。
+- 重启电脑，完成。
 
 注意：每次开机后，你可能需要重新插拔耳机来让耳机正常工作。
 

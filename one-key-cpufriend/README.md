@@ -1,6 +1,6 @@
 # Modify macOS CPU Performance
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## Instruction
 
@@ -23,7 +23,7 @@ By using this script, no file under the System folder will be edited. If you are
 
 ## How to install
 
-- Run this script in Terminal
+- Run the following command in Terminal:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-cpufriend/one-key-cpufriend.sh)"

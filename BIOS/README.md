@@ -1,12 +1,12 @@
 # Update BIOS and Unlock Better Performance
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## Introduction
 
-The BIOS packet in [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) folder is from Xiaomi stuff, so it is reliable. <b>This pack is only compatible with MX150 version.</b>
+The BIOS packet in [XMAKB5R0P0906](XMAKB5R0P0906) folder is from Xiaomi stuff, so it is reliable. <b>This pack is only compatible with MX150 version.</b>
 
-The ME firmware in [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps avoiding potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.
+The ME firmware in [ME](ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps avoiding potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.
 
 Warning: Since the operations are related to BIOS, there's possibility that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)), the whole system may unable to boot.
 
@@ -23,7 +23,7 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
  As the old proverb says "Fight no battle unprepared", <b>backing up important data is always a good choice.</b> Some users face with blue screen after running the updating program.
 
-1. Download all the files in [XMAKB5R0P0906](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/XMAKB5R0P0906) folder.
+1. Download all the files in [XMAKB5R0P0906](XMAKB5R0P0906) folder.
 
 2. Run `H2OFFT-Wx64.exe` with administrator.
   - IMPORTANT: From this step, your computer should keep in charged by AC adapter until the whole update process finishes.
@@ -35,7 +35,7 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 
 ## How to update ME firmware
 
-1. Download all the files in [ME](https://github.com/daliansky/XiaoMi-Pro/tree/master/BIOS/ME) folder.
+1. Download all the files in [ME](ME) folder.
 
 2. Create a new folder within the drive C and name it "Win64" (path: C:\Win64) and copy all the files into "Win64" folder.
 
@@ -62,6 +62,8 @@ The rest will be done automaticly.
 ## How to unlock better performance
 
 [FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32MB to 64MB, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
+
+DVMT set and CFG unlock scripts are included in latest release.
 
 
 ## Credits

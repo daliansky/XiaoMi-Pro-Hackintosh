@@ -1,6 +1,6 @@
 # XiaoMi NoteBook Pro EFI Changelog
 
-[English](Changelog.md) | [中文](Changelog-CN.md)
+[English](Changelog.md) | [中文](Changelog_CN.md)
 
 - 10-14-2017
     
@@ -216,9 +216,18 @@
     - Update `Lilu` v1.3.1
     - Update `AppleALC` v1.3.5
     - Update `SSDT-PXSX`
-    - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](https://github.com/daliansky/XiaoMi-Pro/blob/master/one-key-cpufriend/one-key-cpufriend) to customize kext is recommended
+    - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](one-key-cpufriend/README.md) to customize kext is recommended
     - Remove `HibernationFixup` because it's not stable, `RtcHibernateAware` is may enough for device to hibernate
     - Remove `dart=0`
     - Remove `AddClockID`, because it doesn't make a difference in new macOS version
     - Add `SSDT-RTC` to remove IRQFlags safely, `FixRTC` will shorten the IO length
     - Change layout-id to 30
+
+
+- X-XX-2019
+
+    - Update `Clover` r4888
+    - Update `USBPorts` to support more models
+    - Remove `SSDT-PNLF` and replace with `AddPNLF` argument as suggested in [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
+    - Remove `RtcHibernateAware` and replace with `NeverHibernate`. Sleep will consume more battery. Only after unlocking CFG then `RtcHibernateAware` could work properly
+    - Change `igfxrst=1` to `gfxrst=1` according to [WhateverGreen README](https://github.com/acidanthera/WhateverGreen/blob/master/README.md)

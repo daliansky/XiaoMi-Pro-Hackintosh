@@ -1,6 +1,6 @@
 # Improved Color Profile
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## Note: Only for BOE NV156FHM-N61 LCD Panel (Default Xiaomi Pro)
 
@@ -13,7 +13,11 @@ Calibrated on X-Rite Color Munki Photo
 
 ## Installation
 
-1. Copy `NV156FHM-N61.icm` to `~/Library/ColorSync/Profiles`
+1. Run the following command in Terminal:
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ColorProfile/one-key-colorprofile.sh)"
+```
 
 2. Open `System Preferences -> Displays -> Color`
 
