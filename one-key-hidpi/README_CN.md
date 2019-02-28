@@ -1,6 +1,6 @@
-# 开启macOS HIDPI
+# 开启macOS HiDPI
 
-[English](README.md) | [中文](README-CN.md)
+[English](README.md) | [中文](README_CN.md)
 
 ## 简介
 
@@ -15,9 +15,11 @@ macOS 的 DPI 机制和 Windows 下不一样，比如 1080p 的屏幕在 Windows
 
 ## 使用方法
 
-下载整个文件夹，然后运行目录里的 `install.command`，重启。
+- 在终端输入以下命令并回车：
 
-在 `系统偏好设置 - 显示器` 里选择 `1424 x 802`。
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/one-key-hidpi_cn.sh)"
+```
 
 
 ## 恢复
@@ -37,4 +39,7 @@ $ cp -r ./backup/* ./
 
 ## 鸣谢
 
-感谢 [zysuper](https://github.com/zysuper) 提供基本功能。
+感谢[xzhih](https://github.com/xzhih) 提供界面。
+    - 父级脚本: [one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
+
+感谢 [zysuper](https://github.com/zysuper) 提供分辨率。

@@ -1,6 +1,6 @@
 # XiaoMi NoteBook Pro EFI 更新日志
 
-[English](Changelog.md) | [中文](Changelog-CN.md)
+[English](Changelog.md) | [中文](Changelog_CN.md)
 
 * 10-14-2017
 
@@ -218,9 +218,18 @@
     * 更新 `Lilu` v1.3.1
     * 更新 `AppleALC` v1.3.5
     * 更新 `SSDT-PXSX`
-    * 移除 `CPUFriend*` 因为不同macOS版本有不同的plists在 `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`。推荐使用[one-key-cpufriend_cn](https://github.com/daliansky/XiaoMi-Pro/blob/master/one-key-cpufriend/one-key-cpufriend_cn)来定制驱动
+    * 移除 `CPUFriend*` 因为不同macOS版本有不同的plists在 `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`。推荐使用[one-key-cpufriend_cn](one-key-cpufriend/README_CN.md)来定制驱动
     * 移除 `HibernationFixup` 因为它不稳定，`RtcHibernateAware` 可能足够让机子睡眠
     * 移除 `dart=0`
     * 移除 `AddClockID`，因为它对新系统不起作用
     * 新增 `SSDT-RTC` 来安全地移除IRQFlags，`FixRTC` 会缩短IO长度
     * 修改layout-id为30
+
+
+* X-XX-2019
+
+    * 更新 `Clover` r4888
+    * 更新 `USBPorts` 来支持更多型号
+    * 移除 `SSDT-PNLF` 并替换为 `AddPNLF`，根据[WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
+    * 移除 `RtcHibernateAware` 并替换为 `NeverHibernate`。解决一些睡眠重启问题，但会消耗更多电能。 `RtcHibernateAware` 需要解锁CFG才会正常工作。
+    * 修改 `igfxrst=1` 为 `gfxrst=1`，根据[WhateverGreen README](https://github.com/acidanthera/WhateverGreen/blob/master/README.md)

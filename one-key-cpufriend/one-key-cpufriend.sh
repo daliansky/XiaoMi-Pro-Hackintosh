@@ -17,7 +17,7 @@ function interface(){
 }
 
 # Exit if connection fails
-function networkwarn(){
+function networkWarn(){
     echo "ERROR: Fail to download CPUFriend, please check the network state"
     exit 0
 }
@@ -29,9 +29,9 @@ function download(){
     echo "--------------------------------------------------------------------------"
     echo "|* Downloading CPUFriend from github.com/acidanthera/CPUFriend @PMHeart *|"
     echo "--------------------------------------------------------------------------"
-    curl -fsSL https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh -o ./ResourceConverter.sh || networkwarn
+    curl -fsSL https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh -o ./ResourceConverter.sh || networkWarn
     sudo chmod +x ./ResourceConverter.sh
-    curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || networkwarn
+    curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || networkWarn
 }
 
 # Check board-id, only system version >=10.13.6(17G2112) supports Mac-827FB448E656EC26.plist(MBP15,2)

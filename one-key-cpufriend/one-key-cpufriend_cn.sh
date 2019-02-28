@@ -17,8 +17,8 @@ function interface(){
 }
 
 # 如果网络异常，退出
-function networkwarn(){
-    echo "ERROR: 下载CPUFriend失败, 请检查网络状态"
+function networkWarn(){
+    echo "错误: 下载CPUFriend失败, 请检查网络状态"
     exit 0
 }
 
@@ -29,9 +29,9 @@ function download(){
     echo "--------------------------------------------------------------------"
     echo "|* 正在下载CPUFriend，源自github.com/acidanthera/CPUFriend @PMHeart *|"
     echo "--------------------------------------------------------------------"
-    curl -fsSL https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh -o ./ResourceConverter.sh || networkwarn
+    curl -fsSL https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh -o ./ResourceConverter.sh || networkWarn
     sudo chmod +x ./ResourceConverter.sh
-    curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || networkwarn
+    curl -fsSL https://github.com/acidanthera/CPUFriend/releases/download/1.1.6/1.1.6.RELEASE.zip -o ./1.1.6.RELEASE.zip && unzip 1.1.6.RELEASE.zip && cp -r CPUFriend.kext ../../ || networkWarn
 }
 
 # 检查board-id, 系统版本>=10.13.6(17G2112)才支持Mac-827FB448E656EC26.plist(MBP15,2)
@@ -69,7 +69,7 @@ function changelfm(){
         ;;
 
         *)
-        echo "ERROR: 输入有误, 脚本将退出"
+        echo "错误: 输入有误, 脚本将退出"
         exit 0
         ;;
     esac
@@ -109,7 +109,7 @@ function changeepp(){
         ;;
 
         *)
-        echo "ERROR: 输入有误, 脚本将退出"
+        echo "错误: 输入有误, 脚本将退出"
         exit 0
         ;;
     esac
