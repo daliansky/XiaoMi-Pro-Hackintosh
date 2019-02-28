@@ -7,16 +7,16 @@ Hackintosh your XiaoMi Notebook Pro
 ## Configuration
 
 | Specifications | Detail                                                  |
-| -------------- | ------------------------------------------- |
-| Computer model | Xiaomi NoteBook Pro 15.6''(MX150/GTX)       |
-| Processor      | Intel Core i5-8550U/i7-8550U Processor      |
-| Memory         | 8GB/16GB Samsung DDR4 2400MHz               |
-| HardDisk       | Samsung NVMe SSD Controller PM961 256GB     |
-| Graphic Card   | Intel UHD Graphics 620/NVIDIA GeForce MX150     |
-| Monitor        | BOE NV156FHM-N61 FHD 1920x1080 (15.6 inch)  |
-| Sound Card     | Realtek ALC298 (layout-id:30/99)            |
-| Wireless Card  | Intel Wireless 8265                         |
-| SD Card Reader | Realtek RTS5129                             |
+| ------------------- | ------------------------------------------- |
+| Computer model      | Xiaomi NoteBook Pro 15.6''(MX150/GTX)      |
+| Processor           | Intel Core i5-8550U/i7-8550U Processor     |
+| Memory              | 8GB/16GB Samsung DDR4 2400MHz              |
+| Hard Disk           | Samsung NVMe SSD Controller PM961 256GB    |
+| Integrated Graphics | Intel UHD Graphics 620                     |
+| Monitor             | BOE NV156FHM-N61 FHD 1920x1080 (15.6 inch) |
+| Sound Card          | Realtek ALC298 (layout-id:30/99)           |
+| Wireless Card       | Intel Wireless 8265                        |
+| SD Card Reader      | Realtek RTS5129                            |
 
 
 ## What's not Working

@@ -34,18 +34,20 @@ function networkWarn(){
 
 # 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/tree/master/one-key-hidpi
 function download(){
-    echo '正在下载屏幕文件'
+    echo '正在下载屏幕文件...'
     mkdir -p one-key-hidpi
     cd one-key-hidpi
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/Icons.plist -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747 -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.icns -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.tiff -O || networkWarn
+    echo '下载完成'
+    echo
 }
 
 function removeold() {
     # 卸载 HiScale (在commit https://github.com/daliansky/XiaoMi-Pro/commit/fa35968b5acf851e274932ca52e67c43fe747877 加入)
-    echo '正在移除旧版本'
+    echo '正在移除旧版本...'
     sudo launchctl remove /Library/LaunchAgents/org.zysuper.riceCracker.plist
     sudo pkill riceCrackerDaemon
     sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
@@ -53,39 +55,49 @@ function removeold() {
 
     # 卸载旧版本one-key-hidpi (在commit https://github.com/daliansky/XiaoMi-Pro/commit/a3b7f136209a91455944b4afece7e14a931e62ba 加入)
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
+    echo '移除完成'
+    echo
 }
 
 # 给Icons.plist创建备份
 function backup() {
-    echo '正在备份'
+    echo '正在备份...'
     sudo mkdir -p $DISPLAYPATH/backup
     sudo cp $DISPLAYPATH/Icons.plist $DISPLAYPATH/backup/
+    echo '备份完成'
+    echo
 }
 
 # 拷贝屏幕文件夹
 function copy() {
-    echo '正在拷贝文件到目标路径'
+    echo '正在拷贝文件到目标路径...'
     sudo mkdir -p $DISPLAYPATH/DisplayVendorID-9e5
     sudo cp ./Icons.plist $DISPLAYPATH/
     sudo cp ./DisplayProductID-747 $DISPLAYPATH/DisplayVendorID-9e5/
     sudo cp ./DisplayProductID-747.icns $DISPLAYPATH/DisplayVendorID-9e5/
     sudo cp ./DisplayProductID-747.tiff $DISPLAYPATH/DisplayVendorID-9e5/
+    echo '拷贝完成'
+    echo
 }
 
 # 修复权限
 function fixpermission() {
-    echo '正在修复权限'
+    echo '正在修复权限...'
     sudo chown root:wheel $DISPLAYPATH/Icons.plist
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5/DisplayProductID-747
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5/DisplayProductID-747.icns
     sudo chown root:wheel $DISPLAYPATH/DisplayVendorID-9e5/DisplayProductID-747.tiff
+    echo '修复完成'
+    echo
 }
 
 # 清理
 function clean() {
-    echo '正在清理临时文件'
+    echo '正在清理临时文件...'
     sudo rm -rf ../one-key-hidpi
+    echo '清理完成'
+    echo
 }
 
 # 安装
@@ -101,7 +113,7 @@ function install() {
 
 # 卸载
 function uninstall() {
-    echo '正在卸载one-key-hidpi'
+    echo '正在卸载one-key-hidpi...'
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
 
     # 恢复 Icon.plist 从备份文件夹（如果存在）
@@ -112,6 +124,7 @@ function uninstall() {
 
     # 移除备份文件夹
     sudo rm -rf $DISPLAYPATH/backup
+    echo '卸载完成'
 }
 
 # 主程序
