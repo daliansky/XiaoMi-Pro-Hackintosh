@@ -13,7 +13,7 @@
 
 3. Execute `bios_unlock.cmd` before making any further changes to BIOS.
 
-4. Execute `DVMT_set.cmd` to make DVMT=64MB. You need to restart again and it wouldn't work if you wouldn't, you can't apply all patches and restart aftetwards as it would apply only latest patch.
+4. Execute `DVMT_set.cmd` to make DVMT=64mb. You need to restart again and it wouldn't work if you wouldn't, you can't apply all patches and restart aftetwards as it would apply only latest patch.
 
 5. Execute `CFG_unlock.cmd`, restart again. 
 
