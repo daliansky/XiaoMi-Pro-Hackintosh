@@ -26,7 +26,7 @@
 - 指纹传感器
   - 使用了[USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext)来禁用它以节省电量
 - 英特尔蓝牙只有在从Windows热重启后有效
-  - 阅读[Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
+  - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡
   - 购买USB网卡或者支持的内置网卡
 - 瑞昱USB SD读卡器
@@ -102,7 +102,7 @@
 
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet)，[OS-X-Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
 
-- 请前往[参考页面](https://github.com/daliansky/XiaoMi-Pro/wiki/References)来获取更多内容。
+- 请前往[参考](https://github.com/daliansky/XiaoMi-Pro/wiki/参考)来获取更多内容。
 
 
 ## 支持与讨论
