@@ -1,4 +1,5 @@
 # 小米笔记本Pro安装macOS Mojave & High Sierra 使用说明
+![release](https://img.shields.io/github/release/daliansky/XiaoMi-Pro.svg) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki/主页) [![Chat](https://img.shields.io/badge/chat-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 
 让你的小米笔记本Pro吃上黑苹果
 
