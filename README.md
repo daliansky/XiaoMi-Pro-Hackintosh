@@ -1,4 +1,5 @@
 # XiaoMi NoteBook Pro for macOS Mojave & High Sierra
+![release](https://img.shields.io/github/release/daliansky/XiaoMi-Pro.svg) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 
 Hackintosh your XiaoMi Notebook Pro
 
