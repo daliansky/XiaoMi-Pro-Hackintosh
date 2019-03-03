@@ -51,8 +51,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/maste
 
 ## 鸣谢
 
-感谢 [Acidanthera](https://github.com/acidanthera) 提供 [CPUFriend](https://github.com/acidanthera/CPUFriend)。
-
-感谢 [shuhung](https://www.tonymacx86.com/members/shuhung.957282) 提供[配置修改思路](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)。
-
-感谢 [PMheart](https://github.com/PMheart) 和 [xzhih](https://github.com/xzhih) 提供一些建议。
+- 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [CPUFriend](https://github.com/acidanthera/CPUFriend)。
+- 感谢 [shuhung](https://www.tonymacx86.com/members/shuhung.957282) 提供[配置修改思路](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/page-7)。
+- 感谢 [PMheart](https://github.com/PMheart) 和 [xzhih](https://github.com/xzhih) 提供一些建议。

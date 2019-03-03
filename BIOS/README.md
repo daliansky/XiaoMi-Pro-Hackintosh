@@ -68,10 +68,7 @@ DVMT set and CFG unlock scripts are included in latest release.
 
 ## Credits
 
-Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
-
-Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.
-
-Thanks to [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) for providing the ME firmware.
-
-Thanks to [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) for providing the instruction of flashing ME firmware. The original instruction is at [here](http://en.miui.com/thread-3260884-1-1.html).
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
+- Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.
+- Thanks to [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) for providing the ME firmware.
+- Thanks to [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) for providing the instruction of flashing ME firmware. The original instruction is at [here](http://en.miui.com/thread-3260884-1-1.html).

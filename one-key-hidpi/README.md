@@ -39,7 +39,6 @@ $ cp -r ./backup/* ./
 
 ## Credits
 
-Thanks to [xzhih](https://github.com/xzhih) for providing interface.
+- Thanks to [xzhih](https://github.com/xzhih) for providing interface.
     - Father script: [one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
-
-Thanks to [zysuper](https://github.com/zysuper) for providing resolution.
+- Thanks to [zysuper](https://github.com/zysuper) for providing resolution.
