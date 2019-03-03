@@ -23,7 +23,7 @@
 ## 哪些不能正常工作
 
 - 独立显卡，因为macOS不支持Optimus技术
-  - 使用了[config.plist](EFI/CLOVER/config.plist)里的 `disable-external-gpu` 来禁用它以节省电量
+  - 使用了[SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl)来禁用它以节省电量
 - 指纹传感器
   - 使用了[USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext)来禁用它以节省电量
 - 英特尔蓝牙只有在从Windows热重启后有效
