@@ -20,21 +20,13 @@
 				<true/>
 				<key>AddPNLF</key>
 				<true/>
-				<key>FixTMR</key>
-				<true/>
 				<key>FixADP1</key>
+				<true/>
+				<key>FixTMR</key>
 				<true/>
 			</dict>
 			<key>Patches</key>
 			<array>
-				<dict>
-					<key>Comment</key>
-					<string>change _OSI to XOSI</string>
-					<key>Find</key>
-					<data>X09TSQ==</data>
-					<key>Replace</key>
-					<data>WE9TSQ==</data>
-				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change _DSM to XDSM</string>
@@ -42,6 +34,22 @@
 					<data>X0RTTQ==</data>
 					<key>Replace</key>
 					<data>WERTTQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _OSI to XOSI, pair with SSDT-XOSI.aml</string>
+					<key>Find</key>
+					<data>X09TSQ==</data>
+					<key>Replace</key>
+					<data>WE9TSQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change GFX0 to IGPU</string>
+					<key>Find</key>
+					<data>R0ZYMA==</data>
+					<key>Replace</key>
+					<data>SUdQVQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -61,14 +69,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Find</key>
-					<data>R0ZYMA==</data>
-					<key>Replace</key>
-					<data>SUdQVQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change SAT0 to SATA</string>
 					<key>Find</key>
 					<data>U0FUMA==</data>
@@ -77,7 +77,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_PTS,1,N) to ZPTS</string>
+					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
 					<key>Find</key>
 					<data>X1BUUwE=</data>
 					<key>Replace</key>
@@ -85,7 +85,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_WAK,1,S) to ZWAK</string>
+					<string>change Method(_WAK,1,S) to ZWAK, pair with SSDT-PTSWAK.aml</string>
 					<key>Find</key>
 					<data>X1dBSwk=</data>
 					<key>Replace</key>
@@ -93,7 +93,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(GPRW,2,N) to XPRW</string>
+					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
 					<key>Find</key>
 					<data>R1BSVwI=</data>
 					<key>Replace</key>
@@ -101,7 +101,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change LGPA to XGPA</string>
+					<string>change LGPA to XGPA, pair with SSDT-LGPA.aml</string>
 					<key>Find</key>
 					<data>TEdQQQk=</data>
 					<key>Replace</key>
@@ -117,7 +117,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change RTC to XRTC</string>
+					<string>change RTC to XRTC, pair with SSDT-RTC.aml</string>
 					<key>Find</key>
 					<data>UlRDXw==</data>
 					<key>Replace</key>
