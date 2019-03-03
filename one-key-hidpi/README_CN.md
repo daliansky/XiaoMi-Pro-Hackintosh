@@ -39,7 +39,6 @@ $ cp -r ./backup/* ./
 
 ## 鸣谢
 
-感谢[xzhih](https://github.com/xzhih) 提供界面。
+- 感谢[xzhih](https://github.com/xzhih) 提供界面。
     - 父级脚本: [one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
-
-感谢 [zysuper](https://github.com/zysuper) 提供分辨率。
+- 感谢 [zysuper](https://github.com/zysuper) 提供分辨率。
