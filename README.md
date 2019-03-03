@@ -23,7 +23,7 @@ Hackintosh your XiaoMi Notebook Pro
 ## What's not Working
 
 - Discrete graphic card, since macOS doesn't support Optimus technology
-  - Have used `disable-external-gpu` in [config.plist](EFI/CLOVER/config.plist) to disable it in order to save power
+  - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
 - Fingerprint sensor
   - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it in order to save power
 - Intel Bluetooth only works after warm restart from Windows
