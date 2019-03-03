@@ -68,10 +68,7 @@ DVMT扩容脚本和解锁CFG脚本被囊括在了最新release里。
 
 ## 鸣谢
 
-感谢 [小米官方](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供BIOS包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
-
-感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
-
-感谢 [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) 提供ME固件。
-
-感谢 [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) 提供升级ME固件的教程。原教程在[这里](http://en.miui.com/thread-3260884-1-1.html)。
+- 感谢 [小米官方](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供BIOS包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
+- 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
+- 感谢 [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) 提供ME固件。
+- 感谢 [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) 提供升级ME固件的教程。原教程在[这里](http://en.miui.com/thread-3260884-1-1.html)。
