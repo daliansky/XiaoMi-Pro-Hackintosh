@@ -17,7 +17,9 @@
 
 5. 运行 `CFG_unlock.cmd`，再次重启。
 
-6. 现在你可以删除帧缓存补丁和开启 `RtcHibernateAware` 来获得更低功耗睡眠。
+6. 运行 `bios_lock.cmd` 来给BIOS重新上锁，让电脑更安全。
+
+7. 删除帧缓存补丁
 
 - 打开 `/EFI/CLOVER/config.plist`，删除以下代码：
 ```
@@ -27,7 +29,7 @@
 <data>AAAwAQ==</data>
 ```
 
-6b. 开启 `RtcHibernateAware`
+8. 开启 `RtcHibernateAware`
 
 - 打开 `/EFI/CLOVER/config.plist`，找到以下代码：
 ```
@@ -38,8 +40,6 @@
 ```
 <key>RtcHibernateAware</key>
 ```
-
-7. 运行 `bios_lock.cmd` 来给BIOS重新上锁，让电脑更安全。
 
 
 ## 鸣谢

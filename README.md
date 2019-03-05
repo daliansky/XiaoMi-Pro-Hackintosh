@@ -37,7 +37,7 @@ Hackintosh your XiaoMi Notebook Pro
 
 ## What can work better
 
-- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT 64MB and unlock CFG
+- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT 64mb and unlock CFG
 - Use [one-key-hidpi](one-key-hidpi) to improve quality of system UI
 - Use [one-key-cpufriend](one-key-cpufriend) to improve CPU efficiency
 
@@ -102,6 +102,13 @@ All the project is made for free, but you can reward me if you want.
 
 
 ## Support and discussion
+
+- Mi Notebooks supported by other projects:
+  - [Mi-Gaming-Laptop](https://github.com/johnnync13/XiaomiGaming) by [johnnync13](https://github.com/johnnync13)
+  - [Mi-NB-Air-125-6y30](https://github.com/johnnync13/EFI-Xiaomi-Notebook-air-12-5) by [johnnync13](https://github.com/johnnync13)
+  - [Mi-NB-Air-125-7y30](https://github.com/influenist/Mi-NB-Gaming-Laptop-MacOS) by [influenist](https://github.com/influenist)
+  - [Mi-NB-Air-133-Gen1](https://github.com/johnnync13/Xiaomi-Notebook-Air-1Gen) by [johnnync13](https://github.com/johnnync13)
+  - [Mi-NB-Air-133-2018](https://github.com/johnnync13/Xiaomi-Mi-Air) by [johnnync13](https://github.com/johnnync13)
 
 - tonymacx86.com:
   - [[Guide] Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)

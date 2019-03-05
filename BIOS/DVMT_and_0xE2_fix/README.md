@@ -17,31 +17,29 @@
 
 5. Execute `CFG_unlock.cmd`, restart again. 
 
-6. Now you can delete DVMT patches and enable `RtcHibernateAware` to get more power-saving sleep. 
+6. Execute `bios_lock.cmd` to lock BIOS settings for security.
 
-6a. Delete DVMT patches
+7. Delete DVMT patches
 
 - Open `/EFI/CLOVER/config.plist`, delete the following code:
 ```
-    <key>framebuffer-fbmem</key>
-    <data>AACQAA==</data>
-    <key>framebuffer-stolenmem</key>
-    <data>AAAwAQ==</data>
+<key>framebuffer-fbmem</key>
+<data>AACQAA==</data>
+<key>framebuffer-stolenmem</key>
+<data>AAAwAQ==</data>
 ```
 
-6b. Enable `RtcHibernateAware`
+8. Enable `RtcHibernateAware`
 
 - Open `/EFI/CLOVER/config.plist`, find the following code:
 ```
-    <key>NeverHibernate</key>
+<key>NeverHibernate</key>
 ```
 
 - Replace with:
 ```
-    <key>RtcHibernateAware</key>
+<key>RtcHibernateAware</key>
 ```
-
-7. Execute `bios_lock.cmd` to lock BIOS settings for security.
 
 
 ## Credits
