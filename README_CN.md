@@ -37,7 +37,7 @@
 
 ## 哪些可以工作得更好
 
-- 使用[DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix)来把帧缓存设为64MB并解锁CFG
+- 使用[DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix)来把帧缓存设为64mb并解锁CFG
 - 使用[one-key-hidpi](one-key-hidpi)来提升系统UI质量
 - 使用[one-key-cpufriend](one-key-cpufriend)来提升CPU性能
 
@@ -102,6 +102,13 @@
 
 
 ## 支持与讨论
+
+* 其他项目维护的小米笔记本系列：
+  * [小米游戏笔记本](https://github.com/johnnync13/XiaomiGaming) by [johnnync13](https://github.com/johnnync13)
+  * [小米笔记本Air-12.5-6y30](https://github.com/johnnync13/EFI-Xiaomi-Notebook-air-12-5) by [johnnync13](https://github.com/johnnync13)
+  * [小米笔记本Air-12.5-7y30](https://github.com/influenist/Mi-NB-Gaming-Laptop-MacOS) by [influenist](https://github.com/influenist)
+  * [小米笔记本Air-13.3-第一代](https://github.com/johnnync13/Xiaomi-Notebook-Air-1Gen) by [johnnync13](https://github.com/johnnync13)
+  * [小米笔记本Air-13.3-2018](https://github.com/johnnync13/Xiaomi-Mi-Air) by [johnnync13](https://github.com/johnnync13)
 
 * tonymacx86.com:
   * [[Guide] Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
