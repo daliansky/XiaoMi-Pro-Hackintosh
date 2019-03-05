@@ -10,7 +10,7 @@ Hackintosh your XiaoMi Notebook Pro
 | Specifications | Detail                                                  |
 | ------------------- | ------------------------------------------- |
 | Computer model      | Xiaomi NoteBook Pro 15.6''(MX150/GTX)      |
-| Processor           | Intel Core i5-8550U/i7-8550U Processor     |
+| Processor           | Intel Core i5-8250U/i7-8550U Processor     |
 | Memory              | 8GB/16GB Samsung DDR4 2400MHz              |
 | Hard Disk           | Samsung NVMe SSD Controller PM961 256GB    |
 | Integrated Graphics | Intel UHD Graphics 620                     |
