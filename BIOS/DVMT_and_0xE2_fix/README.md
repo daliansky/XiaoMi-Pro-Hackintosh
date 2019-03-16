@@ -4,6 +4,8 @@
 
 ## Instruction
 
+<b>MX150 Only!</b>
+
 0. <b>SUPER IMPORTANT! Modifications only checked on BIOS 603. Neither @FallenChromium nor Cyb is responsible for any damage, all is working for us, but you're doing all on your risk.</b>
     - After several tests, I found that the script is safe for 0906 BIOS.
 
