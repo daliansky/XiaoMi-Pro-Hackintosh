@@ -44,6 +44,11 @@
 ```
 
 
+## Tutorial
+
+You can watch video tutorial in this link:[Xiaomi Mi Notebook Pro Прошивка BIOS + Патч кулеров [4K]](https://www.youtube.com/watch?v=he4QNY2slE0&feature=youtu.be)
+
+
 ## Credits
 
 - Thanks to [FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) for writing the script and instruction.
