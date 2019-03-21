@@ -46,7 +46,7 @@ Hackintosh your XiaoMi Notebook Pro
 
 ### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
-I believe there are many ways to solve this problem. I give a most understandable one here (at least for me). The solution is to refresh your BIOS in order to clean `nvram.plist`. Please read `How to update BIOS` in [BIOS folder](BIOS/README.md).
+Press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
 
 
 ### I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?

@@ -4,9 +4,14 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_PMCR", 0x00000000)
 {
-    Device (_SB.PCI0.PMCR)
+    External (_SB_.PCI0, DeviceObj)
+
+    Scope (_SB.PCI0)
     {
-        Name (_ADR, 0x001F0002)  // _ADR: Address
+        Device (PMCR)
+        {
+            Name (_ADR, 0x001F0002)  // _ADR: Address
+        }
     }
 }
 

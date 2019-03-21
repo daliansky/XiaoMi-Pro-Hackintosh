@@ -5,7 +5,7 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)
-    External (_SB_.PCI0.IGPU.CBLV, UnknownObj)
+    External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
     External (_SB_.PCI0.IGPU.DD1F, DeviceObj)
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.ACTL, FieldUnitObj)
