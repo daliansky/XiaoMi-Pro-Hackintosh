@@ -46,7 +46,7 @@
 
 ### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 
-有很多种解决办法。对于我来说最好理解的方法是刷BIOS来清理`nvram.plist`。请阅读[BIOS文件夹](BIOS/README_CN.md)里的 `怎么升级BIOS`。
+在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。
 
 
 ### 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
