@@ -45,6 +45,22 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change MATH._STA and LDR2._STA to XSTA</string>
+					<key>Find</key>
+					<data>X1NUQQCgDZNQ</data>
+					<key>Replace</key>
+					<data>WFNUQQCgDZNQ</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+					<key>Find</key>
+					<data>R1BSVwI=</data>
+					<key>Replace</key>
+					<data>WFBSVwI=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
 					<key>Find</key>
 					<data>R0ZYMA==</data>
@@ -69,38 +85,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Find</key>
-					<data>U0FUMA==</data>
-					<key>Replace</key>
-					<data>U0FUQQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
-					<key>Find</key>
-					<data>X1BUUwE=</data>
-					<key>Replace</key>
-					<data>WlBUUwE=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(_WAK,1,S) to ZWAK, pair with SSDT-PTSWAK.aml</string>
-					<key>Find</key>
-					<data>X1dBSwk=</data>
-					<key>Replace</key>
-					<data>WldBSwk=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
-					<key>Find</key>
-					<data>R1BSVwI=</data>
-					<key>Replace</key>
-					<data>WFBSVwI=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change LGPA to XGPA, pair with SSDT-LGPA.aml</string>
 					<key>Find</key>
 					<data>TEdQQQk=</data>
@@ -109,19 +93,19 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change MATH._STA and LDR2._STA to XSTA</string>
-					<key>Find</key>
-					<data>X1NUQQCgDZNQ</data>
-					<key>Replace</key>
-					<data>WFNUQQCgDZNQ</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change RTC to XRTC, pair with SSDT-RTC.aml</string>
 					<key>Find</key>
 					<data>UlRDXw==</data>
 					<key>Replace</key>
 					<data>WFJUQw==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change SAT0 to SATA</string>
+					<key>Find</key>
+					<data>U0FUMA==</data>
+					<key>Replace</key>
+					<data>U0FUQQ==</data>
 				</dict>
 			</array>
 		</dict>
