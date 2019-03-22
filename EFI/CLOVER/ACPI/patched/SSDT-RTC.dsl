@@ -1,4 +1,4 @@
-// NOT Necessary hotpatch
+// NOT Necessary hotpatch, pair with `change RTC to XRTC` rename patch
 // Maintained by: stevezhengshiqi
 // Remove IRQNoFlags {8} from RTC device. `FixRTC` in Clover would shorten the IO length.
 
