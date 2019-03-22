@@ -1,3 +1,4 @@
+// NOT Necessary hotpatch
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/syscl/XPS9350-macOS/blob/master/DSDT/patches/syscl_iGPU_MEM2.txt by syscl
 // Add missing MEM2 device as macOS expects.

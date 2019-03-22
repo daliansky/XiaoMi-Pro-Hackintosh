@@ -1,3 +1,4 @@
+// Necessary hotpatch
 // Maintained by: stevezhengshiqi and daliansky
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-DDGPU.dsl by Rehabman
 // For disabling the discrete GPU on Xiaomi-Pro

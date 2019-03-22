@@ -1,3 +1,4 @@
+// NOT Necessary hotpatch
 // Maintained by: stevezhengshiqi
 // Disable HPET device by passing value 0 to HPTE
 

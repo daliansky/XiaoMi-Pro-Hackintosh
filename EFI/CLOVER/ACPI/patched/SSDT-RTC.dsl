@@ -1,3 +1,4 @@
+// NOT Necessary hotpatch
 // Maintained by: stevezhengshiqi
 // Remove IRQNoFlags {8} from RTC device. `FixRTC` in Clover would shorten the IO length.
 
