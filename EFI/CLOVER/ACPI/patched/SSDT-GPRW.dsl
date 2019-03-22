@@ -1,4 +1,4 @@
-// Necessary hotpatch
+// Necessary hotpatch, pair with `change Method(GPRW,2,N) to XPRW` rename patch
 // Maintained by: Rehabman
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-GPRW.dsl by Rehabman
 // For solving instant wake by hooking GPRW
