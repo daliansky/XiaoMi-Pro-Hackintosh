@@ -1,3 +1,4 @@
+// NOT Necessary hotpatch
 // Maintained by: daliansky and stevezhengshiqi
 // Reference: https://pci-ids.ucw.cz/read/PC
 // Add device information, and can be seen in AppleLogo-AboutThisMac-SystemReport-PCI.

@@ -1,3 +1,4 @@
+// Necessary hotpatch
 // Maintained by: Rehabman
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-XOSI.dsl by Rehabman
 // Override for host defined _OSI to handle "Darwin"...

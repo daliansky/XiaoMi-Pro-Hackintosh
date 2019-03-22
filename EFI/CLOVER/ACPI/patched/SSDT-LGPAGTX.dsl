@@ -1,3 +1,4 @@
+// Necessary hotpatch for GTX
 // Maintained by: stevezhengshiqi
 // Reference: https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659 by Rehabman
 // Let brightness key work with VoodooPS2Controller.kext(for XiaoMi-Pro GTX)
