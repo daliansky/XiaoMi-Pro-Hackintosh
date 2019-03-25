@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18A391</string>
+	<string>18D109</string>
 	<key>CFBundleExecutable</key>
 	<string>VoodooPS2Keyboard</string>
 	<key>CFBundleGetInfoString</key>
@@ -29,17 +29,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9F2000</string>
+	<string>10B61</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>16C58</string>
 	<key>DTSDKName</key>
-	<string>macosx10.8</string>
+	<string>macosx10.12</string>
 	<key>DTXcode</key>
-	<string>0941</string>
+	<string>1010</string>
 	<key>DTXcodeBuild</key>
-	<string>9F2000</string>
+	<string>10B61</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ApplePS2Keyboard</key>
@@ -269,14 +269,32 @@
 				</dict>
 				<key>Default</key>
 				<dict>
+					<key>Action2FingersTap</key>
+					<string>3b d, 37 d, 1c d, 1c u, 37 u, 3b u</string>
+					<key>Action3FingersTap</key>
+					<string>3b d, 37 d, 2 d, 2 u, 37 u, 3b u</string>
+					<key>Action4FingersTap</key>
+					<string>3b d, 37 d, 2 d, 2 u, 37 u, 3b u</string>
+					<key>ActionSwipe4FingersDown</key>
+					<string>37 d, 2e d, 2e u, 37 u</string>
+					<key>ActionSwipe4FingersLeft</key>
+					<string>3b d, 7c d, 7c u, 3b u</string>
+					<key>ActionSwipe4FingersRight</key>
+					<string>3b d, 7b d, 7b u, 3b u</string>
+					<key>ActionSwipe4FingersUp</key>
+					<string>67 d, 67 u</string>
 					<key>ActionSwipeDown</key>
 					<string>3b d, 37 d, 7d d, 7d u, 37 u, 3b u</string>
 					<key>ActionSwipeLeft</key>
-					<string>3b d, 37 d, 7b d, 7b u, 37 u, 3b u</string>
+					<string>37 d, 1e d, 1e u, 37 u</string>
+					<key>ActionSwipeLeftFromEdge</key>
+					<string>3b d, 37 d, 1d d, 1d u, 37 u, 3b u</string>
 					<key>ActionSwipeRight</key>
-					<string>3b d, 37 d, 7c d, 7c u, 37 u, 3b u</string>
+					<string>37 d, 21 d, 21 u, 37 u</string>
+					<key>ActionSwipeRightFromEdge</key>
+					<string>3b d, 37 d, 19 d, 19 u, 37 u, 3b u</string>
 					<key>ActionSwipeUp</key>
-					<string>3b d, 37 d, 7e d, 7e u, 37 u, 3b u</string>
+					<string>3b d, 7e d, 7e u, 3b u</string>
 					<key>Breakless PS2</key>
 					<array>
 						<string>;Items must be strings in the form of breaklessscan (in hex)</string>
