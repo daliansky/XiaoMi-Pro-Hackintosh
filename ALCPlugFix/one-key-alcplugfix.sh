@@ -44,8 +44,8 @@ function download(){
 # Copy the audio fix files
 function copy() {
     echo "Copying audio fix patch..."
-    sudo cp "./ALCPlugFix" /usr/bin/
-    sudo cp "./hda-verb" /usr/bin/
+    sudo cp "./ALCPlugFix" /usr/local/bin/
+    sudo cp "./hda-verb" /usr/local/bin/
     sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchAgents/
     echo "Copy complete"
     echo
@@ -54,10 +54,10 @@ function copy() {
 # Fix permission
 function fixpermission() {
     echo "Fixing permission..."
-    sudo chmod 755 /usr/bin/ALCPlugFix
-    sudo chown root:wheel /usr/bin/ALCPlugFix
-    sudo chmod 755 /usr/bin/hda-verb
-    sudo chown root:wheel /usr/bin/hda-verb
+    sudo chmod 755 /usr/local/bin/ALCPlugFix
+    sudo chown root:wheel /usr/local/bin/ALCPlugFix
+    sudo chmod 755 /usr/local/bin/hda-verb
+    sudo chown root:wheel /usr/local/bin/hda-verb
     sudo chmod 644 /Library/LaunchAgents/good.win.ALCPlugFix.plist
     sudo chown root:wheel /Library/LaunchAgents/good.win.ALCPlugFix.plist
     echo "Fix complete"
@@ -85,8 +85,8 @@ function uninstall() {
     echo "Uninstalling..."
     sudo launchctl remove /Library/LaunchAgents/good.win.ALCPlugFix.plist
     sudo rm -rf /Library/LaunchAgents/good.win.ALCPlugFix.plist
-    sudo rm -rf /usr/bin/ALCPlugFix
-    sudo rm -rf /usr/bin/hda-verb
+    sudo rm -rf /usr/local/bin/ALCPlugFix
+    sudo rm -rf /usr/local/bin/hda-verb
     echo "Uninstall complete"
 }
 
