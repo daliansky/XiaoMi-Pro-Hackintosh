@@ -231,3 +231,14 @@
     - Remove `SSDT-PNLF` and replace with `AddPNLF` argument as suggested in [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
     - Remove `RtcHibernateAware` and replace with `NeverHibernate`. Sleep will consume more battery. Only after unlocking CFG then `RtcHibernateAware` could work properly
     - Change `igfxrst=1` to `gfxrst=1` according to [WhateverGreen README](https://github.com/acidanthera/WhateverGreen/blob/master/README.md)
+
+
+- X-XX-2019
+
+    - Update `AppleALC` v1.3.6
+    - Update `WhateverGreen` v1.2.7
+    - Update `Lilu` v1.3.5
+    - Update `USBPorts` and merge `SSDT-USBX`
+    - Edit hotpatches to fit ACPI 6.3 standard
+    - Remove `SSDT-PTSWAK` because Xiaomi-Pro doesn't need it
+    - Change `AppleRTC` back to true and `InjectKexts` mode to `Detect`
