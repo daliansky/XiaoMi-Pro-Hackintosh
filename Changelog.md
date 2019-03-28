@@ -233,12 +233,15 @@
     - Change `igfxrst=1` to `gfxrst=1` according to [WhateverGreen README](https://github.com/acidanthera/WhateverGreen/blob/master/README.md)
 
 
-- X-XX-2019
+- 3-28-2019
 
+    - Update `Clover` r4910
     - Update `AppleALC` v1.3.6
-    - Update `WhateverGreen` v1.2.7
+    - Update `WhateverGreen` v1.2.8
     - Update `Lilu` v1.3.5
+    - Update `VoodooPS2`
     - Update `USBPorts` and merge `SSDT-USBX`
     - Edit hotpatches to fit ACPI 6.3 standard
     - Remove `SSDT-PTSWAK` because Xiaomi-Pro doesn't need it
+    - Remove `SMCSuperIO.kext` because it failed to detect supported SuperIO chip
     - Change `AppleRTC` back to true and `InjectKexts` mode to `Detect`
