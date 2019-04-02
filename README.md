@@ -37,6 +37,7 @@ Hackintosh your XiaoMi Notebook Pro
 
 ## What can work better
 
+- Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT 64mb and unlock CFG
 - Use [one-key-hidpi](one-key-hidpi) to improve quality of system UI
 - Use [one-key-cpufriend](one-key-cpufriend) to improve CPU efficiency
