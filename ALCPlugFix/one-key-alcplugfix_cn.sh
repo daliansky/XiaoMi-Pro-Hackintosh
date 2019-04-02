@@ -44,8 +44,8 @@ function download(){
 # 拷贝声卡修复文件
 function copy() {
     echo "正在拷贝声卡修复文件..."
-    sudo cp "./ALCPlugFix" /usr/local/bin/
-    sudo cp "./hda-verb" /usr/local/bin/
+    sudo cp "./ALCPlugFix" /usr/bin/
+    sudo cp "./hda-verb" /usr/bin/
     sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchAgents/
     echo "拷贝完成"
     echo
@@ -54,10 +54,10 @@ function copy() {
 # 修复权限
 function fixpermission() {
     echo "正在修复权限..."
-    sudo chmod 755 /usr/local/bin/ALCPlugFix
-    sudo chown root:wheel /usr/local/bin/ALCPlugFix
-    sudo chmod 755 /usr/local/bin/hda-verb
-    sudo chown root:wheel /usr/local/bin/hda-verb
+    sudo chmod 755 /usr/bin/ALCPlugFix
+    sudo chown root:wheel /usr/bin/ALCPlugFix
+    sudo chmod 755 /usr/bin/hda-verb
+    sudo chown root:wheel /usr/bin/hda-verb
     sudo chmod 644 /Library/LaunchAgents/good.win.ALCPlugFix.plist
     sudo chown root:wheel /Library/LaunchAgents/good.win.ALCPlugFix.plist
     echo "修复完成"
@@ -85,8 +85,8 @@ function uninstall() {
     echo "正在卸载..."
     sudo launchctl remove /Library/LaunchAgents/good.win.ALCPlugFix.plist
     sudo rm -rf /Library/LaunchAgents/good.win.ALCPlugFix.plist
-    sudo rm -rf /usr/local/bin/ALCPlugFix
-    sudo rm -rf /usr/local/bin/hda-verb
+    sudo rm -rf /usr/bin/ALCPlugFix
+    sudo rm -rf /usr/bin/hda-verb
     echo "卸载完成"
 }
 
