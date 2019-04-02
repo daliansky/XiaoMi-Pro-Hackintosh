@@ -276,9 +276,9 @@
 					<array>
 						<dict>
 							<key>Command</key>
-							<data>AYcHJQ==</data>
+							<data>AYcHIA==</data>
 							<key>Comment</key>
-							<string>0x18 SET_PIN_WIDGET_CONTROL 0x25</string>
+							<string>0x18 SET_PIN_WIDGET_CONTROL 0x20</string>
 							<key>On Init</key>
 							<true/>
 							<key>On Sleep</key>
