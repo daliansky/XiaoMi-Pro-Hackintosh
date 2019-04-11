@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18E226</string>
+	<string>17D102</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -29,17 +29,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>10B61</string>
+	<string>9F2000</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>16C58</string>
+	<string>17E189</string>
 	<key>DTSDKName</key>
-	<string>macosx10.12</string>
+	<string>macosx10.13</string>
 	<key>DTXcode</key>
-	<string>1010</string>
+	<string>0941</string>
 	<key>DTXcodeBuild</key>
-	<string>10B61</string>
+	<string>9F2000</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -1053,32 +1053,6 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
-					<string>vusun123 - Realtek ALC235 for Lenovo Legion Y520</string>
-					<key>CodecID</key>
-					<integer>283902517</integer>
-					<key>ConfigData</key>
-					<data>
-					ASccQAEnHQABJx6gAScfsAFHHBABRx0AAUce
-					FwFHH5ABRwwCAZccMAGXHRABlx6BAZcfAAIX
-					HGACFx0QAhceIQIXHwA=
-					</data>
-					<key>FuncGroup</key>
-					<integer>1</integer>
-					<key>LayoutID</key>
-					<integer>28</integer>
-					<key>WakeConfigData</key>
-					<data>
-					AUcMAg==
-					</data>
-					<key>WakeVerbReinit</key>
-					<true/>
-				</dict>
-				<dict>
-					<key>AFGLowPowerState</key>
-					<data>
-					AwAAAA==
-					</data>
-					<key>Codec</key>
 					<string>qiuchenly - Realtek ALC235 for ASUS FX53VD</string>
 					<key>CodecID</key>
 					<integer>283902517</integer>
@@ -1097,6 +1071,58 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>15</integer>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>MacPeet - Realtek ALC235 for ASUS GL553VD</string>
+					<key>CodecID</key>
+					<integer>283902517</integer>
+					<key>ConfigData</key>
+					<data>
+					AhccIAIXHRACFx4rAhcfAAG3HDABtx0AAbce
+					pwG3H5ABlxwwAZcdEAGXHosBlx8BAUccQAFH
+					HQABRx4XAUcfkAFHDAI=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>16</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>vusun123 - Realtek ALC235 for Lenovo Legion Y520</string>
+					<key>CodecID</key>
+					<integer>283902517</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccQAEnHQABJx6gAScfsAFHHBABRx0AAUce
+					FwFHH5ABRwwCAZccMAGXHRABlx6BAZcfAAIX
+					HGACFx0QAhceIQIXHwA=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
 				</dict>
@@ -1754,6 +1780,36 @@
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Kk for magicbook</string>
+					<key>CodecID</key>
+					<integer>283902550</integer>
+					<key>ConfigData</key>
+					<data>
+					AScccAEnHQEBJx6mAScfkAE3HPABNx0AATce
+					AAE3H0ABRxzwAUcdAAFHHgABRx9AAYcc8AGH
+					HQABhx4AAYcfQAGXHDABlx0QAZceiwGXHwIB
+					pxzwAacdAAGnHgABpx9AAbccQAG3HQEBtx4Q
+					AbcfkAG3DAIB1xzwAdcdAAHXHgAB1x9AAecc
+					8AHnHQAB5x4AAecfQAIXHFACFx0QAhceKwIX
+					HwICFwwC
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>57</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AbcMAgIXDAI=
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
