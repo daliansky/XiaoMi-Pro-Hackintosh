@@ -165,6 +165,10 @@
 				<data>FlkAAA==</data>
 				<key>disable-external-gpu</key>
 				<data>AQAAAA==</data>
+				<key>#dpcd-max-link-rate</key>
+				<data>CgAAAA==</data>
+				<key>#enable-dpcd-max-link-rate-fix</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-pipe</key>
