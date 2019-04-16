@@ -245,3 +245,13 @@
     - Remove `SSDT-PTSWAK` because Xiaomi-Pro doesn't need it
     - Remove `SMCSuperIO.kext` because it failed to detect supported SuperIO chip
     - Change `AppleRTC` back to true and `InjectKexts` mode to `Detect`
+
+
+- 4-16-2019
+
+    - Update `Clover` r4920
+    - Update `AppleALC` v1.3.7
+    - Update `WhateverGreen`
+    - Update `VoodooPS2`
+    - Update `VoodooI2C` v2.1.6
+    - Remove `SSDT-RTC` and replace with `Rtc8Allowed` and `FixRTC`
