@@ -245,3 +245,13 @@
     * 移除 `SSDT-PTSWAK` 因为小米Pro不需要它
     * 移除 `SMCSuperIO.kext` 因为它没检测到受支持的SuperIO芯片
     * 修改 `AppleRTC` 为true，`InjectKexts` 模式为 `Detect`
+    
+    
+    * 4-16-2019
+    
+        * 更新 `Clover` r4920
+        * 更新 `AppleALC` v1.3.7
+        * 更新 `WhateverGreen`
+        * 更新 `VoodooPS2`
+        * 更新 `VoodooI2C` v2.1.6
+        * 移除 `SSDT-RTC` 并用 `Rtc8Allowed` 和 `FixRTC` 来代替
