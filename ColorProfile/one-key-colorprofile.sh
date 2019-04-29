@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Create on Feb 27, 2019 by stevezhengshiqi
 # Only support Xiaomi-Pro (NV156FHM-N61)
 

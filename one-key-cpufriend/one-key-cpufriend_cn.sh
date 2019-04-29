@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # stevezhengshiqi 创建于2019年2月8日。
 # 只支持大部分8代U。
 # 此脚本很依赖于 CPUFriend(https://github.com/acidanthera/CPUFriend), 感谢 Acidanthera 和 PMHeart。

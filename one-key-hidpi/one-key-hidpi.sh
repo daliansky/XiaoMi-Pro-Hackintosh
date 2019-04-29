@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Rewrite on Feb 25, 2019 by stevezhengshiqi
 # The script is a mini version of https://github.com/xzhih/one-key-hidpi, thanks to @xzhih
 # Only support Xiaomi-Pro (9e5,747)
