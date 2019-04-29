@@ -24,7 +24,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/maste
 
 ## 鸣谢
 
-* 感谢 [goodwin](https://github.com/goodwin) 提供 [ALCPlugFix](https://github.com/goodwin/ALCPlugFix)。
+* 感谢 [goodwin](https://github.com/goodwin) 和 [Menchen](https://github.com/Menchen/ALCPlugFix) 提供和维护 [ALCPlugFix](https://github.com/goodwin/ALCPlugFix)。
 
 * 感谢 [Keven Lefebvre](https://github.com/orditeck) 对脚本的改善。
 

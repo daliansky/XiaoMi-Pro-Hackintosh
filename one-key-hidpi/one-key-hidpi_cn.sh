@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # stevezhengshiqi重写于2019.02.25
 # 这个脚本是 https://github.com/xzhih/one-key-hidpi 的一个精简，谢谢@xzhih
 # 只支持小米笔记本Pro (9e5,747)
