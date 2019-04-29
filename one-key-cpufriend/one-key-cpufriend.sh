@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Created by stevezhengshiqi on 8 Feb, 2019.
 # Only support most 8th CPU.
 # This script depends on CPUFriend(https://github.com/acidanthera/CPUFriend) a lot, thanks to Acidanthera and PMHeart.

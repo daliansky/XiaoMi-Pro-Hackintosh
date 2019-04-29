@@ -24,7 +24,7 @@ ATTENTION: You may have to replug the headphone after every boot to let headphon
 
 ## Credits
 
-* Thanks to [goodwin](https://github.com/goodwin) for providing [ALCPlugFix](https://github.com/goodwin/ALCPlugFix).
+* Thanks to [goodwin](https://github.com/goodwin) and [Menchen](https://github.com/Menchen/ALCPlugFix) for providing and maintaining [ALCPlugFix](https://github.com/goodwin/ALCPlugFix).
 
 * Thanks to [Keven Lefebvre](https://github.com/orditeck) for updating the script.
 
