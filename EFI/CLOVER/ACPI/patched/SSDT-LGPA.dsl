@@ -142,11 +142,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                 }
                 Case (0x03)
                 {
+                    // Brightness Down
                     Notify (PS2K, 0x0405)
                     OG00 = Zero
                 }
                 Case (0x04)
                 {
+                    // Brightness Up
                     Notify (PS2K, 0x0406)
                     OG00 = Zero
                 }
