@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# stevezhengshiqi重写于2019.02.27
+# stevezhengshiqi重写于2019.02.27, 特别感谢@Menchen
 # 支持小米笔记本Pro (ALC298,节点99)
 
 # 界面 (参考:http://patorjk.com/software/taag/#p=display&f=Ivrit&t=P%20l%20u%20g%20F%20i%20x)
@@ -47,7 +47,7 @@ function copy() {
     echo "正在拷贝声卡修复文件..."
     sudo cp "./ALCPlugFix" /usr/local/bin/
     sudo cp "./hda-verb" /usr/local/bin/
-    sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchAgents/
+    sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchDaemons/
     echo "拷贝完成"
     echo
 }
@@ -59,8 +59,8 @@ function fixpermission() {
     sudo chown $USER:admin /usr/local/bin/ALCPlugFix
     sudo chmod 755 /usr/local/bin/hda-verb
     sudo chown $USER:admin /usr/local/bin/hda-verb
-    sudo chmod 644 /Library/LaunchAgents/good.win.ALCPlugFix.plist
-    sudo chown root:wheel /Library/LaunchAgents/good.win.ALCPlugFix.plist
+    sudo chmod 644 /Library/LaunchDaemons/good.win.ALCPlugFix.plist
+    sudo chown root:wheel /Library/LaunchDaemons/good.win.ALCPlugFix.plist
     echo "修复完成"
     echo
 }
@@ -68,7 +68,7 @@ function fixpermission() {
 # 加载进程
 function loadservice() {
     echo "正在加载进程..."
-    sudo launchctl load /Library/LaunchAgents/good.win.ALCPlugFix.plist
+    sudo launchctl load /Library/LaunchDaemons/good.win.ALCPlugFix.plist
     echo "加载完成"
     echo
 }
@@ -85,7 +85,9 @@ function clean() {
 function uninstall() {
     echo "正在卸载..."
     sudo launchctl remove /Library/LaunchAgents/good.win.ALCPlugFix.plist
+    sudo launchctl remove /Library/LaunchDaemons/good.win.ALCPlugFix.plist
     sudo rm -rf /Library/LaunchAgents/good.win.ALCPlugFix.plist
+    sudo rm -rf /Library/LaunchDaemons/good.win.ALCPlugFix.plist
     sudo rm -rf /usr/bin/ALCPlugFix
     sudo rm -rf /usr/bin/hda-verb
     sudo rm -rf /usr/local/bin/ALCPlugFix
