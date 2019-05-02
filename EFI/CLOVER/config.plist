@@ -33,14 +33,6 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>change _DSM to XDSM</string>
-					<key>Find</key>
-					<data>X0RTTQ==</data>
-					<key>Replace</key>
-					<data>WERTTQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change _OSI to XOSI, pair with SSDT-XOSI.aml</string>
 					<key>Find</key>
 					<data>X09TSQ==</data>
