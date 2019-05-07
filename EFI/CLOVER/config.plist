@@ -213,20 +213,50 @@
 				<key>reg-ltrovr</key>
 				<data>AAQAAAAAAAA=</data>
 			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>PCI-Express</string>
+				<key>model</key>
+				<string>NVIDIA GeForce MX150</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x4)</key>
 			<dict>
 				<key>reg-ltrovr</key>
 				<data>AAQAAAAAAAA=</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x4)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>M.2 key M</string>
+				<key>model</key>
+				<string>Intel Sunrise Point-LP PCI Express Root Port #5</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x7)</key>
 			<dict>
 				<key>reg-ltrovr</key>
 				<data>AAQAAAAAAAA=</data>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x8)</key>
+			<key>PciRoot(0x0)/Pci(0x1c,0x7)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>PCI-Express</string>
+				<key>model</key>
+				<string>Intel Wireless 8265</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1d,0x0)</key>
 			<dict>
 				<key>reg-ltrovr</key>
 				<data>AAQAAAAAAAA=</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1d,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>M.2 key M</string>
+				<key>model</key>
+				<string>Intel Sunrise Point-LP PCI Express Root Port #9</string>
+				<key>use-msi</key>
+				<string>1</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
 			<dict>
