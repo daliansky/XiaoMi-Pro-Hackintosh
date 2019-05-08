@@ -6,8 +6,8 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)
-    External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
-    External (_SB_.PCI0.IGPU.DD1F, DeviceObj)
+    External (_SB_.PCI0.GFX0.CBLV, FieldUnitObj)
+    External (_SB_.PCI0.GFX0.DD1F, DeviceObj)
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.ACTL, FieldUnitObj)
     External (_SB_.PCI0.LPCB.BSLF, IntObj)
@@ -125,7 +125,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                         While (Local1)
                         {
                             Local1--
-                            Notify (^^IGPU.DD1F, 0x86) // Device-Specific
+                            Notify (^^GFX0.DD1F, 0x86) // Device-Specific
                             Sleep (0x32)
                         }
 
@@ -260,7 +260,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                     While (Local1)
                                     {
                                         Local1--
-                                        Notify (^^IGPU.DD1F, 0x86) // Device-Specific
+                                        Notify (^^GFX0.DD1F, 0x86) // Device-Specific
                                         Sleep (0x32)
                                     }
 
@@ -273,7 +273,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
                                 OG00 &= 0xFF
-                                Notify (^^IGPU.DD1F, 0x88) // Device-Specific
+                                Notify (^^GFX0.DD1F, 0x88) // Device-Specific
                             }
                             Default
                             {
@@ -376,7 +376,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                     While (Local1)
                                     {
                                         Local1--
-                                        Notify (^^IGPU.DD1F, 0x86) // Device-Specific
+                                        Notify (^^GFX0.DD1F, 0x86) // Device-Specific
                                         Sleep (0x32)
                                     }
 
@@ -389,7 +389,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
                                 OG00 &= 0xFF
-                                Notify (^^IGPU.DD1F, 0x88) // Device-Specific
+                                Notify (^^GFX0.DD1F, 0x88) // Device-Specific
                             }
                             Default
                             {
