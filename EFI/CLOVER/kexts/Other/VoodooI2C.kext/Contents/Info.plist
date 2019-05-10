@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17G2112</string>
+	<string>18D109</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -17,27 +17,27 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.4</string>
+	<string>2.1.6</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.1.4</string>
+	<string>2.1.6</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>10A255</string>
+	<string>10E125</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>16C58</string>
+	<string>16E185</string>
 	<key>DTSDKName</key>
 	<string>macosx10.12</string>
 	<key>DTXcode</key>
-	<string>1000</string>
+	<string>1020</string>
 	<key>DTXcodeBuild</key>
-	<string>10A255</string>
+	<string>10E125</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>Custom MT2 Personality</key>
@@ -532,9 +532,15 @@
 			<array>
 				<string>pci8086,9d60</string>
 				<string>pci8086,9d61</string>
+				<string>pci8086,9d62</string>
+				<string>pci8086,9d63</string>
+				<string>pci8086,9de8</string>
+				<string>pci8086,9de9</string>
 				<string>pci8086,a160</string>
 				<string>pci8086,a161</string>
 				<string>pci8086,a162</string>
+				<string>pci8086,a368</string>
+				<string>pci8086,a369</string>
 			</array>
 			<key>IOProbeScore</key>
 			<integer>9999</integer>
