@@ -37,11 +37,13 @@ Hackintosh your XiaoMi Notebook Pro
 
 ## What's not Working in OpenCore
 
-- All the things in `What's not Working` section
+- All the things in `What's not Working in Clover` section
 - No theme
 - Windows boot option is lost
 - Slightly slower booting speed
+
 Need more testing...
+
 These not working items do not represent `OpenCore` bootloader is weaker than `Clover`, but do relate to my lack of experience.
 
 
@@ -102,7 +104,7 @@ All the project is made for free, but you can reward me if you want.
 
 ## Credits
 
-- Thanks to [Acidanthera](https://github.com/acidanthera) for providing [AppleALC](https://github.com/acidanthera/AppleALC), [Lilu](https://github.com/acidanthera/Lilu), `USBPorts`, [VirtualSMC](https://github.com/acidanthera/VirtualSMC), [VoodooPS2](https://github.com/acidanthera/VoodooPS2), and [WhateverGreen](https://github.com/acidanthera/WhateverGreen).
+- Thanks to [Acidanthera](https://github.com/acidanthera) for providing [AppleALC](https://github.com/acidanthera/AppleALC), [Lilu](https://github.com/acidanthera/Lilu), [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg), `USBPorts`, [VirtualSMC](https://github.com/acidanthera/VirtualSMC), [VoodooPS2](https://github.com/acidanthera/VoodooPS2), and [WhateverGreen](https://github.com/acidanthera/WhateverGreen).
 - Thanks to [alexandred](https://github.com/alexandred) for providing [VoodooI2C](https://github.com/alexandred/VoodooI2C).
 - Thanks to [apianti](https://sourceforge.net/u/apianti), [blackosx](https://sourceforge.net/u/blackosx), [blusseau](https://sourceforge.net/u/blusseau), [dmazar](https://sourceforge.net/u/dmazar), and [slice2009](https://sourceforge.net/u/slice2009) for providing [Clover](https://sourceforge.net/projects/cloverefiboot).
 - Thanks to [FallenChromium](https://github.com/FallenChromium), [Javmain](https://github.com/javmain), [johnnync13](https://github.com/johnnync13), [Menchen](https://github.com/Menchen) and [qeeqez](https://github.com/qeeqez) for valuable suggestions.
