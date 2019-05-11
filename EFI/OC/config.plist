@@ -24,7 +24,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fake EC device</string>
+				<string>Add EC device</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -56,6 +56,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Add MCHC device</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-MCHC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Add MEM2 device</string>
 				<key>Enabled</key>
 				<true/>
@@ -64,7 +72,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Inject plugin-type=1</string>
+				<string>Add plugin-type=1</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -80,7 +88,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Inject PNLF device</string>
+				<string>Add PNLF device</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -679,7 +687,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>dS4Ptg==</data>
 				<key>Identifier</key>
@@ -705,7 +713,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>dTMPtw==</data>
 				<key>Identifier</key>
@@ -749,7 +757,7 @@
 			<key>ConsoleBehaviourUi</key>
 			<string></string>
 			<key>HideSelf</key>
-			<true/>
+			<false/>
 			<key>Resolution</key>
 			<string></string>
 			<key>ShowPicker</key>

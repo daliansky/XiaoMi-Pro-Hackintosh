@@ -23,7 +23,7 @@ Hackintosh your XiaoMi Notebook Pro
 ## What's not Working in Clover
 
 - Discrete graphic card, since macOS doesn't support Optimus technology
-  - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
+  - Have used `disable-external-gpu` to disable it in order to save power
 - Fingerprint sensor
   - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it in order to save power
 - Intel Bluetooth only works after warm restart from Windows
@@ -39,7 +39,7 @@ Hackintosh your XiaoMi Notebook Pro
 
 - All the things in `What's not Working in Clover` section
 - No theme
-- Windows boot option is lost
+- Can not boot Windows
 - Slightly slower booting speed
 
 Need more testing...
