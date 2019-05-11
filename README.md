@@ -20,7 +20,7 @@ Hackintosh your XiaoMi Notebook Pro
 | SD Card Reader      | Realtek RTS5129                            |
 
 
-## What's not Working
+## What's not Working in Clover
 
 - Discrete graphic card, since macOS doesn't support Optimus technology
   - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
@@ -33,6 +33,16 @@ Hackintosh your XiaoMi Notebook Pro
 - Realtek USB SD Card Reader(RTS5129)
   - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it in order to save power
 - Everything else works well
+
+
+## What's not Working in OpenCore
+
+- All the things in `What's not Working` section
+- No theme
+- Windows boot option is lost
+- Slightly slower booting speed
+Need more testing...
+These not working items do not represent `OpenCore` bootloader is weaker than `Clover`, but do relate to my lack of experience.
 
 
 ## What can work better
