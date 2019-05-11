@@ -20,7 +20,7 @@
 | 读卡器   | 瑞昱 RTS5129                               |
 
 
-## 哪些不能正常工作
+## 哪些不能在Clover正常工作
 
 - 独立显卡，因为macOS不支持Optimus技术
   - 使用了[SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl)来禁用它以节省电量
@@ -33,6 +33,16 @@
 - 瑞昱USB SD读卡器
   - 使用了[USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext)来禁用它以节省电量
 - 其他都工作正常
+
+
+## 哪些不能在OpenCore正常工作
+
+- 所有在 `哪些不能在Clover正常工作` 小节提到的
+- 没有主题
+- Windows启动项丢失
+- 稍慢的开机速度
+需要更多测试。。。
+这些不能正常工作的项目不代表 `OpenCore` 弱于 `Clover`，而是因为我缺少 `OpenCore` 的操作经验。
 
 
 ## 哪些可以工作得更好
