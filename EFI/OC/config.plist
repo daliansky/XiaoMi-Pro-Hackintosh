@@ -48,6 +48,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>IRQ fix</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-IRQ.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Brightness key</string>
 				<key>Enabled</key>
 				<true/>
@@ -72,14 +80,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Add plugin-type=1</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Add PMCR device</string>
 				<key>Enabled</key>
 				<true/>
@@ -101,6 +101,14 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-RMNE.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Inject plugin-type=1</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-XCPM.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -236,6 +244,58 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>change ADP0 to ADP1</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>QURQMA==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>QURQMQ==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change RTC to XRTC, pair with SSDT-IRQ.aml</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>UlRDXw==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WFJUQw==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>change SAT0 to SATA</string>
 				<key>Count</key>
 				<integer>0</integer>
@@ -251,6 +311,32 @@
 				<data></data>
 				<key>Replace</key>
 				<data>U0FUQQ==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change TIMR to XIMR, pair with SSDT-IRQ.aml</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>VElNUg==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WElNUg==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
