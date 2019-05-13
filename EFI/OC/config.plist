@@ -354,7 +354,7 @@
 			<key>IgnoreForWindows</key>
 			<false/>
 			<key>NormalizeHeaders</key>
-			<false/>
+			<true/>
 			<key>RebaseRegions</key>
 			<false/>
 		</dict>
@@ -921,7 +921,6 @@
 		<array>
 			<string>ApfsDriverLoader-64.efi</string>
 			<string>AppleImageLoader-64.efi</string>
-			<string>AppleKeyFeeder-64.efi</string>
 			<string>AppleUISupport-64.efi</string>
 			<string>AptioInputFix-64.efi</string>
 			<string>AptioMemoryFix-64.efi</string>
