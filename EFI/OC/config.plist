@@ -368,7 +368,7 @@
 				<key>AAPL,ig-platform-id</key>
 				<data>AAAWWQ==</data>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
 				<key>disable-external-gpu</key>
@@ -392,10 +392,19 @@
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 			</dict>
+			<key>PciRoot(0x0)/Pci(0x8,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>System Peripheral</string>
+				<key>model</key>
+				<string>Intel Xeon E3-1200 v5/v6 / E3-1500 v5 / 6th/7th Gen Core Processor Gaussian Mixture Model</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP USB 3.0 xHCI Controller</string>
 				<key>name</key>
@@ -404,27 +413,27 @@
 			<key>PciRoot(0x0)/Pci(0x15,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>device_type</key>
-				<string>I2C</string>
+				<string>Signal Processing Controller</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP Serial IO I2C Controller #0</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x15,0x1)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>device_type</key>
-				<string>I2C</string>
+				<string>Signal Processing Controller</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP Serial IO I2C Controller #1</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>device_type</key>
-				<string>IMEI</string>
+				<string>Communication Controller</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP CSME HECI #1</string>
 			</dict>
@@ -436,7 +445,7 @@
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>model</key>
 				<string>NVIDIA GeForce MX150</string>
 			</dict>
@@ -448,7 +457,7 @@
 			<key>PciRoot(0x0)/Pci(0x1c,0x4)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>M.2 key M</string>
+				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP PCI Express Root Port #5</string>
 			</dict>
@@ -460,7 +469,7 @@
 			<key>PciRoot(0x0)/Pci(0x1c,0x7)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Wireless 8265</string>
 			</dict>
@@ -472,7 +481,7 @@
 			<key>PciRoot(0x0)/Pci(0x1d,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>M.2 key M</string>
+				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP PCI Express Root Port #9</string>
 				<key>use-msi</key>
@@ -481,16 +490,16 @@
 			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>device_type</key>
-				<string>PCHPMC Controller</string>
+				<string>Memory Controller</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP PMC</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>hda-idle-support</key>
@@ -503,7 +512,7 @@
 			<key>PciRoot(0x0)/Pci(0x1f,0x4)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP SMBus</string>
 			</dict>
