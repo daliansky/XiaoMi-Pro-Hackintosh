@@ -526,6 +526,20 @@
 		<array>
 			<dict>
 				<key>BundlePath</key>
+				<string>Lilu.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/Lilu</string>
+				<key>MatchKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>AppleALC.kext</string>
 				<key>Comment</key>
 				<string>Sound</string>
@@ -547,20 +561,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/CodecCommander</string>
-				<key>MatchKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>Lilu.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/Lilu</string>
 				<key>MatchKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -652,20 +652,6 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>VoodooI2C.kext</string>
-				<key>Comment</key>
-				<string>Trackpad</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/VoodooI2C</string>
-				<key>MatchKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooGPIO.kext</string>
 				<key>Comment</key>
 				<string>Trackpad</string>
@@ -687,6 +673,20 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2CServices</string>
+				<key>MatchKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>VoodooI2C.kext</string>
+				<key>Comment</key>
+				<string>Trackpad</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/VoodooI2C</string>
 				<key>MatchKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -755,7 +755,7 @@
 				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Identifier</key>
 				<string>com.apple.driver.AppleIntelLpssI2C</string>
 				<key>MatchKernel</key>
@@ -765,7 +765,7 @@
 				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Identifier</key>
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
 				<key>MatchKernel</key>
@@ -928,11 +928,11 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>ApfsDriverLoader-64.efi</string>
-			<string>AppleImageLoader-64.efi</string>
-			<string>AppleUISupport-64.efi</string>
-			<string>AptioInputFix-64.efi</string>
-			<string>AptioMemoryFix-64.efi</string>
+			<string>ApfsDriverLoader.efi</string>
+			<string>AppleImageLoader.efi</string>
+			<string>AppleUISupport.efi</string>
+			<string>AptioInputFix.efi</string>
+			<string>AptioMemoryFix.efi</string>
 			<string>HFSPlus.efi</string>
 			<string>VirtualSmc.efi</string>
 		</array>
