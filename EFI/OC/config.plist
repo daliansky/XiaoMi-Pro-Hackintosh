@@ -344,7 +344,7 @@
 			<key>FadtEnableReset</key>
 			<false/>
 			<key>IgnoreForWindows</key>
-			<false/>
+			<true/>
 			<key>NormalizeHeaders</key>
 			<true/>
 			<key>RebaseRegions</key>
