@@ -96,19 +96,19 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Enable trackpad interrupt mode</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TPD0.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Inject plugin-type=1</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-XCPM.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Override for host defined _OSI to handle &quot;Darwin&quot;...</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-XOSI.aml</string>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -130,32 +130,6 @@
 		</array>
 		<key>Patch</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>change _OSI to XOSI, pair with SSDT-XOSI.aml</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X09TSQ==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>WE9TSQ==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>RFNEVA==</data>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>change LGPA to XGPA, pair with SSDT-LGPA.aml</string>
@@ -344,7 +318,7 @@
 			<key>FadtEnableReset</key>
 			<false/>
 			<key>IgnoreForWindows</key>
-			<true/>
+			<false/>
 			<key>NormalizeHeaders</key>
 			<true/>
 			<key>RebaseRegions</key>
