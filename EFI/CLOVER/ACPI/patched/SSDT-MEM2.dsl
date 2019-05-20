@@ -5,16 +5,15 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_MEM2", 0x00000000)
 {
-    External (_SB_.PCI0, DeviceObj)
+    External (_SB_.PCI0.GFX0, DeviceObj)
 
-    Scope (_SB.PCI0)
+    Scope (_SB.PCI0.GFX0)
     {
-        Device (MEM2)
+        Device (^^MEM2)
         {
             Name (_HID, EisaId ("PNP0C01") /* System Board */)  // _HID: Hardware ID
             Name (_UID, 0x02)  // _UID: Unique ID
-            Name (_STA, 0x0F)  // _STA: Status
-            Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+            Name (CRS, ResourceTemplate ()
             {
                 Memory32Fixed (ReadWrite,
                     0x20000000,         // Address Base
@@ -25,6 +24,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_MEM2", 0x00000000)
                     0x00200000,         // Address Length
                     )
             })
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Return (CRS) /* \_SB_.MEM2.CRS_ */
+            }
         }
     }
 }

@@ -39,7 +39,6 @@ Hackintosh your XiaoMi Notebook Pro
 
 - All the things in `What's not Working in Clover` section
 - No theme
-- Can not boot Windows
 - Slightly slower booting speed
 
 Need more testing...
