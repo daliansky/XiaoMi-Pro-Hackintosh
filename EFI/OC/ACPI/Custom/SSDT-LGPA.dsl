@@ -1,9 +1,9 @@
-// Necessary hotpatch for GTX, pair with `change LGPA to XGPA` rename patch
+// Necessary hotpatch for MX150, pair with `change LGPA to XGPA` rename patch
 // Maintained by: stevezhengshiqi
 // Reference: https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659 by Rehabman
-// Let brightness key work with VoodooPS2Controller.kext(for XiaoMi-Pro GTX)
+// Let brightness key work with VoodooPS2Controller.kext
 
-DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
 {
     External (_PR_.CPPC, IntObj)
     External (_SB_.PCI0.GFX0.CBLV, FieldUnitObj)
@@ -37,7 +37,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
     External (_SB_.PCI0.LPCB.MGIE, UnknownObj)
     External (_SB_.PCI0.LPCB.MGIF, UnknownObj)
     External (_SB_.PCI0.LPCB.OCPF, FieldUnitObj)
-    External (_SB_.PCI0.LPCB.OSMI, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.PS2K, DeviceObj)
     External (_SB_.PCI0.LPCB.PWCG, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.VGBI, DeviceObj)
@@ -52,7 +51,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
     External (_SB_.PCI0.WMIE.EVTA, UnknownObj)
     External (_SB_.PCI0.WMIE.EVTB, UnknownObj)
     External (_SB_.PCI0.WMIE.EVTC, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVTD, UnknownObj)
     External (_SB_.STXD, MethodObj)    // 2 Arguments
     External (_SB_.UBTC, UnknownObj)
     External (_SB_.UBTC.CCI0, UnknownObj)
@@ -145,13 +143,29 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                 Case (0x03)
                 {
                     // Brightness Down
-                    Notify (PS2K, 0x0405)
+                    If (_OSI ("Darwin"))
+                    {
+                        Notify (PS2K, 0x0405)
+                    }
+                    Else
+                    {
+                        Notify (^^GFX0.DD1F, 0x87) // Device-Specific
+                    }
+                    
                     OG00 = Zero
                 }
                 Case (0x04)
                 {
                     // Brightness Up
-                    Notify (PS2K, 0x0406)
+                    If (_OSI ("Darwin"))
+                    {
+                        Notify (PS2K, 0x0406)
+                    }
+                    Else
+                    {
+                        Notify (^^GFX0.DD1F, 0x86) // Device-Specific
+                    }
+                    
                     OG00 = Zero
                 }
                 Case (0x05)
@@ -493,17 +507,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                 {
                     OCPF = Zero
                     Notify (UBTC, One) // Device Check
-                }
-                Case (0x15)
-                {
-                    If ((^^WMIE.EVTD != Zero))
-                    {
-                        Notify (WMIE, 0x8D) // Device-Specific
-                    }
-                }
-                Case (0x16)
-                {
-                    OSMI (0xF8)
                 }
                 Case (0x0100)
                 {

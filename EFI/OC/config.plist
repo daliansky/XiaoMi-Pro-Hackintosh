@@ -56,6 +56,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Brightness key for GTX</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-LGPAGTX.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Add MCHC device</string>
 				<key>Enabled</key>
 				<true/>

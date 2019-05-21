@@ -16,8 +16,6 @@
 			<true/>
 			<key>Fixes</key>
 			<dict>
-				<key>AddDTGP</key>
-				<true/>
 				<key>AddMCHC</key>
 				<true/>
 				<key>AddPNLF</key>
