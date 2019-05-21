@@ -40,6 +40,7 @@ Hackintosh your XiaoMi Notebook Pro
 - All the things in `What's not Working in Clover` section
 - No theme
 - Slightly slower booting speed
+- Fail to shutdown because of incompatibility with `VoodooI2CHID`
 
 Need more testing...
 
