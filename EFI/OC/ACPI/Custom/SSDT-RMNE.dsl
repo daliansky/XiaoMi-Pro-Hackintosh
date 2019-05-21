@@ -13,6 +13,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_RMNE", 0x00000000)
         {
              0x11, 0x22, 0x33, 0x44, 0x55, 0x66               // ."3DUf
         })
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
+
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
             If ((Arg2 == Zero))
