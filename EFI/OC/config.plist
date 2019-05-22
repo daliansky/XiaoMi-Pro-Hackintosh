@@ -140,7 +140,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>change LGPA to XGPA, pair with SSDT-LGPA.aml</string>
+				<string>Rename LGPA to XGPA, pair with SSDT-LGPA.aml (Brightness Key)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -166,33 +166,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change MATH._STA and LDR2._STA to XSTA</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1NUQQCgDZNQ</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>WFNUQQCgDZNQ</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>RFNEVA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+				<string>Rename Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml (Instant Wake)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -218,7 +192,33 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change ADP0 to ADP1</string>
+				<string>Rename MATH._STA and LDR2._STA to XSTA</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X1NUQQCgDZNQ</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WFNUQQCgDZNQ</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>RFNEVA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Rename ADP0 to ADP1 (AC Charge)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -244,7 +244,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change RTC to XRTC, pair with SSDT-IRQ.aml</string>
+				<string>Rename RTC to XRTC, pair with SSDT-IRQ.aml (IRQ Fix)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -270,7 +270,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change SAT0 to SATA</string>
+				<string>Rename SAT0 to SATA (Disk)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -296,7 +296,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change TIMR to XIMR, pair with SSDT-IRQ.aml</string>
+				<string>Rename TIMR to XIMR, pair with SSDT-IRQ.aml (IRQ Fix)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>

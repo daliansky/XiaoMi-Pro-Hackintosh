@@ -31,7 +31,7 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>change LGPA to XGPA, pair with SSDT-LGPA.aml</string>
+					<string>Rename LGPA to XGPA, pair with SSDT-LGPA.aml (Brightness Key)</string>
 					<key>Find</key>
 					<data>TEdQQQk=</data>
 					<key>Replace</key>
@@ -39,15 +39,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change MATH._STA and LDR2._STA to XSTA</string>
-					<key>Find</key>
-					<data>X1NUQQCgDZNQ</data>
-					<key>Replace</key>
-					<data>WFNUQQCgDZNQ</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+					<string>Rename Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml (Instant Wake)</string>
 					<key>Find</key>
 					<data>R1BSVwI=</data>
 					<key>Replace</key>
@@ -55,7 +47,15 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
+					<string>Rename MATH._STA and LDR2._STA to XSTA</string>
+					<key>Find</key>
+					<data>X1NUQQCgDZNQ</data>
+					<key>Replace</key>
+					<data>WFNUQQCgDZNQ</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Rename SAT0 to SATA (Disk)</string>
 					<key>Find</key>
 					<data>U0FUMA==</data>
 					<key>Replace</key>
