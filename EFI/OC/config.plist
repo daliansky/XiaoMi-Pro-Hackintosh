@@ -218,7 +218,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Rename ADP0 to ADP1 (AC Charge)</string>
+				<string>Rename ADP0 to ADP1 (AC Power)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>

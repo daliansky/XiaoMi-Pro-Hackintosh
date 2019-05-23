@@ -33,32 +33,6 @@ If unfortunately this situation happens on you, you need to find Xiaomi stuff to
 4. The laptop will restart, wait until the update process ends.
 
 
-## How to update ME firmware
-
-1. Download all the files in [ME](ME) folder.
-
-2. Create a new folder within the drive C and name it "Win64" (path: C:\Win64) and copy all the files into "Win64" folder.
-
-3. Make sure, that your notebook is connected to a charger and in the loading mode.
-
-4. Run the Windows PowerShell as Admin and type the following:
-```
-cd C:\Win64
-```
-After having hit the Enter key you should now be within the related folder.
-
-5. Now type the following command:
-```
-.\FWUpdLcl64.exe -F ME.bin
-```
-(note: the first character is a dot!) and hit the Enter key.
-The rest will be done automaticly.
-
-6. Wait until the process has been successfully completed.
-
-7. Restart the notebook.
-
-
 ## How to unlock better performance
 
 <b>MX150 Only.</b>
@@ -71,5 +45,3 @@ DVMT set and CFG unlock scripts are included in latest release.
 
 - Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.
-- Thanks to [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) for providing the ME firmware.
-- Thanks to [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) for providing the instruction of flashing ME firmware. The original instruction is at [here](http://en.miui.com/thread-3260884-1-1.html).
