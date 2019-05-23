@@ -33,32 +33,6 @@
 4. 电脑会自动重启，等待，直到安装过程结束。
 
 
-## 怎么升级ME固件
-
-1. 下载 [ME](ME) 文件夹里的所有文件。
-
-2. 在C盘根目录下创建一个文件夹，命名为 `Win64` (路径: C:\Win64) 然后把第一步里得到的所有文件拷贝进 `Win64` 文件夹。
-
-3. 确保你的电脑插上了电源而且状态正常。
-
-4. 用管理员身份运行 `Windows PowerShell`，然后输入以下命令：
-```
-cd C:\Win64
-```
-按下 `Enter` 键之后 `PowerShell` 应该定位到了相关文件夹。
-
-5. 现在输入以下命令：
-```
-.\FWUpdLcl64.exe -F ME.bin
-```
-(注意：第一个字符是一个点！) 然后按下 `Enter` 键。
-之后的操作会由系统自动完成。
-
-6. 耐心等待，直到这个程序成功结束。
-
-7. 重启电脑。
-
-
 ## 怎么提升性能
 
 <b>仅支持MX150。</b>
@@ -71,5 +45,3 @@ DVMT扩容脚本和解锁CFG脚本被囊括在了最新release里。
 
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供BIOS包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 - 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
-- 感谢 [plutomaniac's post](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html) 提供ME固件。
-- 感谢 [Fernando_Uno](http://en.miui.com/space-uid-2239545255.html) 提供升级ME固件的教程。原教程在[这里](http://en.miui.com/thread-3260884-1-1.html)。
