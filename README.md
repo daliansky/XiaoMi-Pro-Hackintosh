@@ -76,7 +76,7 @@ You need to rebuild the kext cache after every system update. Use `Kext Utility.
 
 Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix-64.efi` in `/CLOVER/drivers64UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
 
-Also make sure `Sandbox` function in Windows 10 is closed.
+Also make sure `Sandbox` function in Windows 10 is disabled.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro/wiki/FAQ).
 
