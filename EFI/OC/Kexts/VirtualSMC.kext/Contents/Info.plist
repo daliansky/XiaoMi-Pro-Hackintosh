@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.3</string>
+	<string>1.0.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,7 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.3</string>
+	<string>1.0.4</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -361,77 +361,15 @@
 					AigPAAAH
 					</data>
 				</dict>
-				<key>Mac-27ADBB7B4CEE8E61</key>
+				<key>GenericV3</key>
 				<dict>
-					<key>branch</key>
-					<data>
-					ajE2ajE3AAA=
-					</data>
-					<key>platform</key>
-					<data>
-					ajE3AAAAAAA=
-					</data>
-					<key>rev</key>
-					<data>
-					AhUPAAAH
-					</data>
-					<key>revfb</key>
-					<data>
-					AhUPAAAH
-					</data>
-					<key>revfu</key>
-					<data>
-					AhUPAAAH
-					</data>
-				</dict>
-				<key>Mac-42FD25EABCABB274</key>
-				<dict>
-					<key>branch</key>
-					<data>
-					ajc4ajc4YW0=
-					</data>
-					<key>platform</key>
-					<data>
-					ajc4AAAAAAA=
-					</data>
-					<key>rev</key>
-					<data>
-					AiIPAAAW
-					</data>
-					<key>revfb</key>
-					<data>
-					AiIPAAAW
-					</data>
-					<key>revfu</key>
-					<data>
-					AiIPAAAW
-					</data>
-				</dict>
-				<key>Mac-7DF21CB3ED6977E5</key>
-				<dict>
-					<key>branch</key>
-					<data>
-					ajc4ajc4YW0=
-					</data>
 					<key>hwname</key>
 					<data>
-					c21jLXBpa2V0b24A
+					c21jLWh1cm9ucml2ZXIA
 					</data>
 					<key>platform</key>
 					<data>
-					ajc4AAAAAAA=
-					</data>
-					<key>rev</key>
-					<data>
-					AiIPAAAW
-					</data>
-					<key>revfb</key>
-					<data>
-					AiIPAAAW
-					</data>
-					<key>revfu</key>
-					<data>
-					AiIPAAAW
+					ajUyAAAAAAA=
 					</data>
 				</dict>
 			</dict>
