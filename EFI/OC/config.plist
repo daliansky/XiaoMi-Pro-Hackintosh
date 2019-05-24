@@ -331,6 +331,8 @@
 			<true/>
 			<key>RebaseRegions</key>
 			<false/>
+			<key>ResetLogoStatus</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -819,11 +821,11 @@
 	<dict>
 		<key>Boot</key>
 		<dict>
-			<key>ConsoleMode</key>
-			<string></string>
 			<key>ConsoleBehaviourOs</key>
 			<string></string>
 			<key>ConsoleBehaviourUi</key>
+			<string></string>
+			<key>ConsoleMode</key>
 			<string></string>
 			<key>HideSelf</key>
 			<false/>
@@ -842,19 +844,21 @@
 			<integer>0</integer>
 			<key>DisplayLevel</key>
 			<real>2147483650</real>
-			<key>ExposeBootPath</key>
-			<false/>
 			<key>Target</key>
 			<integer>19</integer>
 		</dict>
 		<key>Security</key>
 		<dict>
+			<key>ExposeSensitiveData</key>
+			<integer>2</integer>
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
 			<key>RequireSignature</key>
 			<false/>
 			<key>RequireVault</key>
 			<false/>
+			<key>ScanPolicy</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>NVRAM</key>
@@ -894,7 +898,7 @@
 		<key>UpdateSMBIOS</key>
 		<true/>
 		<key>UpdateSMBIOSMode</key>
-		<string>Auto</string>
+		<string>Create</string>
 	</dict>
 	<key>UEFI</key>
 	<dict>
@@ -902,17 +906,21 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
+			<string>HFSPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>AppleImageLoader.efi</string>
 			<string>AppleUISupport.efi</string>
 			<string>AptioInputFix.efi</string>
 			<string>AptioMemoryFix.efi</string>
-			<string>HFSPlus.efi</string>
 			<string>VirtualSmc.efi</string>
 		</array>
 		<key>Protocols</key>
 		<dict>
 			<key>AppleBootPolicy</key>
+			<false/>
+			<key>ConsoleControl</key>
+			<true/>
+			<key>DataHub</key>
 			<false/>
 			<key>DeviceProperties</key>
 			<false/>
@@ -925,8 +933,6 @@
 			<false/>
 			<key>IgnoreTextInGraphics</key>
 			<false/>
-			<key>ProvideConsoleControl</key>
-			<true/>
 			<key>ProvideConsoleGop</key>
 			<false/>
 			<key>ReleaseUsbOwnership</key>
