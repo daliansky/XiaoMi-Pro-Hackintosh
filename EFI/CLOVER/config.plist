@@ -47,6 +47,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>Rename HPET._STA to XSTA, pair with SSDT-HPET.aml (IRQ Fix)</string>
+					<key>Find</key>
+					<data>X1NUQQCgCEg=</data>
+					<key>Replace</key>
+					<data>WFNUQQCgCEg=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>Rename MATH._STA and LDR2._STA to XSTA</string>
 					<key>Find</key>
 					<data>X1NUQQCgDZNQ</data>

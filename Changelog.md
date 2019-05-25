@@ -255,3 +255,25 @@
     - Update `VoodooPS2`
     - Update `VoodooI2C` v2.1.6
     - Remove `SSDT-RTC` and replace with `Rtc8Allowed` and `FixRTC`
+
+
+- X-XX-2019
+
+    - Update `Clover` r4934
+    - Update `Lilu` v1.3.6
+    - Update `AppleALC` v1.3.8
+    - Update `WhateverGreen` v1.2.9
+    - Update `VirtualSMC` v1.0.4
+    - Update and edit `VoodooPS2` v2.0.1 to avoid F11 disabling trackpad
+    - Update Device Properties obtained by `Hackintool`
+    - Update `SSDT-MEM2`
+    - Update `SSDT-HPET`
+    - Update comments in `config.plist` using `Hackintool` style
+    - Remove `SSDT-XOSI` and  `_OSI -> XOSI` because as [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) says, "Avoid patching _OSI to support a higher level of feature sets unless absolutely required. Commonly this enables a number of hacks on APTIO firmwares, which result in the need to add more patches. Modern firmwares generally do not need it at all, and those that do are fine with much smaller patches."
+    - Remove `_DSM -> XDSM` because as [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) says, "Try to avoid hacky changes like renaming _PRW or _DSM whenever possible."
+    - Remove `SSDT-DDGPU` because `disable-external-egpu` does the same thing
+    - Remove `SSDT-PXSX` and move device properties to `config.plist`
+    - Remove `AppleKeyFeeder.efi` and `DataHubDxe-64.efi` which XiaoMi-Pro doesn't need
+    - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
+    - Add back `SSDT-ALS0` to ensure backlight can be preserved
+    - Wait for macOS 10.15...
