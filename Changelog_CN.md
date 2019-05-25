@@ -247,11 +247,33 @@
     * 修改 `AppleRTC` 为true，`InjectKexts` 模式为 `Detect`
     
     
- * 4-16-2019
+* 4-16-2019
 
-     * 更新 `Clover` r4920
-     * 更新 `AppleALC` v1.3.7
-     * 更新 `WhateverGreen`
-     * 更新 `VoodooPS2`
-     * 更新 `VoodooI2C` v2.1.6
-     * 移除 `SSDT-RTC` 并用 `Rtc8Allowed` 和 `FixRTC` 来代替
+    * 更新 `Clover` r4920
+    * 更新 `AppleALC` v1.3.7
+    * 更新 `WhateverGreen`
+    * 更新 `VoodooPS2`
+    * 更新 `VoodooI2C` v2.1.6
+    * 移除 `SSDT-RTC` 并用 `Rtc8Allowed` 和 `FixRTC` 来代替x
+
+
+* X-XX-2019
+
+    * 更新 `Clover` r4934
+    * 更新 `Lilu` v1.3.6
+    * 更新 `AppleALC` v1.3.8
+    * 更新 `WhateverGreen` v1.2.9
+    * 更新 `VirtualSMC` v1.0.4
+    * 更新并修改 `VoodooPS2` v2.0.1 以防止F11键禁用触控板
+    * 更新从 `Hackintool` 获取的设备信息
+    * 更新 `SSDT-MEM2`
+    * 更新 `SSDT-HPET`
+    * 更新 `config.plist` 里的注释，采用 `Hackintool` 风格
+    * 移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“避免修正_OSI来支持更高级别的功能集，除非一定必要。通常这个补丁会引发很多APTIO固件的问题，导致需要更多的补丁。新版固件通常不需要这个补丁了，而且需要用到_OSI补丁的情况也可以用更轻量的补丁来代替”
+    * 移除 `_DSM -> XDSM` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“尝试避免风险操作，例如只要有可能就给_PRW或_DSM重命名”
+    * 移除 `SSDT-DDGPU` 因为和 `disable-external-egpu` 功能重叠
+    * 移除 `SSDT-PXSX` 并迁移设备信息到 `config.plist`
+    * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
+    * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
+    * 放回 `SSDT-ALS0` 来保证背光被保存
+    * 等待macOS 10.15...
