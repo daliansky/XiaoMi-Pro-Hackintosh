@@ -72,12 +72,7 @@
 			</array>
 		</dict>
 		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-		</array>
+		<array/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -94,7 +89,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=0 gfxrst=1</string>
+		<string>darkwake=0 dart=0 gfxrst=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
