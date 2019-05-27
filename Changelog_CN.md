@@ -269,10 +269,12 @@
     * 更新 `SSDT-MEM2`
     * 更新 `SSDT-HPET`
     * 更新 `config.plist` 里的注释，采用 `Hackintool` 风格
+    * 移除 `GFX0 -> IGPU`，`HECI -> IMEI` 和 `HDAS -> HDEF` 根据[WhateverGreen FAQ.IntelHD.cn.md](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.cn.md#建议)
     * 移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“避免修正_OSI来支持更高级别的功能集，除非一定必要。通常这个补丁会引发很多APTIO固件的问题，导致需要更多的补丁。新版固件通常不需要这个补丁了，而且需要用到_OSI补丁的情况也可以用更轻量的补丁来代替”
     * 移除 `_DSM -> XDSM` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“尝试避免风险操作，例如只要有可能就给_PRW或_DSM重命名”
     * 移除 `SSDT-DDGPU` 因为和 `disable-external-egpu` 功能重叠
     * 移除 `SSDT-PXSX` 并迁移设备信息到 `config.plist`
+    * 移除 `Drop DRAM` 并替换成 `dart=0`
     * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
