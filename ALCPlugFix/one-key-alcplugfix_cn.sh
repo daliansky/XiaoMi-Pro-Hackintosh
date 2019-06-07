@@ -45,6 +45,11 @@ function download(){
 # 拷贝声卡修复文件
 function copy() {
     echo "正在拷贝声卡修复文件..."
+	if [ ! -d "/usr/local/bin" ]; then
+		echo "'/usr/local/bin' 不存在, 新建中..."
+		sudo mkdir -p -m 775 /usr/local/bin
+		sudo chown $USER:admin /usr/local/bin
+	fi
     sudo cp "./ALCPlugFix" /usr/local/bin/
     sudo cp "./hda-verb" /usr/local/bin/
     sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchDaemons/
