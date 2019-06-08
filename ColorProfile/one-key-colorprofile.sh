@@ -26,7 +26,8 @@ function choice() {
 # Exit if connection fails
 function networkWarn(){
     echo "ERROR: Fail to download Color Profile, please check the network state"
-    exit 0
+    clean
+    exit 1
 }
 
 # Download from https://github.com/daliansky/XiaoMi-Pro/master/ColorProfile
@@ -67,6 +68,7 @@ function uninstall() {
     echo "Uninstalling..."
     sudo rm -rf /Library/ColorSync/Profiles/NV156FHM-N61.icm
     echo "Uninstall complete"
+    exit 0
 }
 
 # Install function
@@ -76,6 +78,7 @@ function install() {
     fixpermission
     clean
     echo 'Nice! The installation of the Color Profile completes.'
+    exit 0
 }
 
 # Main function
@@ -94,7 +97,7 @@ function main() {
         ;;
         *)
         echo "ERROR: Invalid input, closing the script"
-        exit 0
+        exit 1
         ;;
     esac
 }

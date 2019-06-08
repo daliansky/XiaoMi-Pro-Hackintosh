@@ -26,7 +26,8 @@ function choice() {
 # 如果网络连接失败，则退出
 function networkWarn(){
     echo "错误: 下载色彩描述文件失败, 请检查网络连接状态"
-    exit 0
+    clean
+    exit 1
 }
 
 # 下载文件来自 https://github.com/daliansky/XiaoMi-Pro/master/ColorProfile
@@ -67,6 +68,7 @@ function uninstall() {
     echo "正在卸载..."
     sudo rm -rf /Library/ColorSync/Profiles/NV156FHM-N61.icm
     echo "卸载完成"
+    exit 0
 }
 
 # 安装程序
@@ -76,6 +78,7 @@ function install() {
     fixpermission
     clean
     echo '棒! 色彩描述文件安装完成。'
+    exit 0
 }
 
 # 主程序
@@ -94,7 +97,7 @@ function main() {
         ;;
         *)
         echo "错误: 输入有误, 将退出脚本"
-        exit 0
+        exit 1
         ;;
     esac
 }
