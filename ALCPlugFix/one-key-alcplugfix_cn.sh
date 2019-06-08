@@ -27,7 +27,8 @@ function choice() {
 # 如果网络连接失败则退出
 function networkWarn(){
     echo "错误: 下载ALCPlugFix失败, 请检查网络连接状态"
-    exit 0
+    clean
+    exit 1
 }
 
 # 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix
@@ -98,7 +99,7 @@ function uninstall() {
     sudo rm -rf /usr/local/bin/ALCPlugFix
     sudo rm -rf /usr/local/bin/hda-verb
     echo "卸载完成"
-    echo
+    exit 0
 }
 
 # 安装程序
@@ -110,6 +111,7 @@ function install(){
     loadservice
     clean
     echo '棒！安装ALCPlugFix守护进程完成！'
+    exit 0
 }
 
 # 主程序
@@ -128,7 +130,7 @@ function main() {
         ;;
         *)
         echo "错误: 输入有误, 将关闭脚本"
-        exit 0
+        exit 1
         ;;
     esac
 }

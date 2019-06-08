@@ -30,7 +30,8 @@ function choice() {
 # Exit if connection fails
 function networkWarn(){
     echo "ERROR: Fail to download one-key-hidpi, please check the network state"
-    exit 0
+    clean
+    exit 1
 }
 
 # Download from https://github.com/daliansky/XiaoMi-Pro/tree/master/one-key-hidpi
@@ -110,6 +111,7 @@ function install() {
     fixpermission
     clean
     echo 'Wonderful! This is the end of the installation, please reboot and choose 1424x802 in SysPref! '
+    exit 0
 }
 
 # Uninstall
@@ -126,6 +128,7 @@ function uninstall() {
     # Remove backup folder
     sudo rm -rf $DISPLAYPATH/backup
     echo 'Uninstall complete'
+    exit 0
 }
 
 # Main function
@@ -147,7 +150,7 @@ function main() {
 
         *)
         echo "ERROR: Invalid input, the script will exit";
-        exit 0
+        exit 1
         ;;
     esac
 }

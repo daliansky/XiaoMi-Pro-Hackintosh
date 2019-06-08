@@ -27,7 +27,8 @@ function choice() {
 # Exit if connection fails
 function networkWarn(){
     echo "ERROR: Fail to download ALCPlugFix, please check the network state"
-    exit 0
+    clean
+    exit 1
 }
 
 # Download from https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix
@@ -98,7 +99,7 @@ function uninstall() {
     sudo rm -rf /usr/local/bin/ALCPlugFix
     sudo rm -rf /usr/local/bin/hda-verb
     echo "Uninstall complete"
-    echo
+    exit 0
 }
 
 # Install function
@@ -110,6 +111,7 @@ function install() {
     loadservice
     clean
     echo 'Nice! The installation of the ALCPlugFix daemon completes.'
+    exit 0
 }
 
 # Main function
@@ -128,7 +130,7 @@ function main() {
         ;;
         *)
         echo "ERROR: Invalid input, closing the script"
-        exit 0
+        exit 1
         ;;
     esac
 }
