@@ -99,13 +99,17 @@ function uninstall() {
     sudo rm -rf /usr/local/bin/ALCPlugFix
     sudo rm -rf /usr/local/bin/hda-verb
     echo "Uninstall complete"
-    exit 0
+    echo 
+    if [[ $1 = "cleanup" ]]; then 
+    return
+    else exit 0 
+    fi
 }
 
 # Install function
 function install() {
     download
-    uninstall
+    uninstall "cleanup"
     copy
     fixpermission
     loadservice
