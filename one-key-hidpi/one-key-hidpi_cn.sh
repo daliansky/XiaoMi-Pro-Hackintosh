@@ -30,7 +30,8 @@ function choice() {
 # 如果网络连接失败，则退出
 function networkWarn(){
     echo "错误: 下载one-key-hidpi失败, 请检查网络连接状态"
-    exit 0
+    clean
+    exit 1
 }
 
 # 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/tree/master/one-key-hidpi
@@ -110,6 +111,7 @@ function install() {
     fixpermission
     clean
     echo '很棒! 安装已结束, 请重启并在显示器面板选择1424x802分辨率! '
+    exit 0
 }
 
 # 卸载
@@ -126,6 +128,7 @@ function uninstall() {
     # 移除备份文件夹
     sudo rm -rf $DISPLAYPATH/backup
     echo '卸载完成'
+    exit 0
 }
 
 # 主程序
@@ -147,7 +150,7 @@ function main() {
 
         *)
         echo "错误: 无效输入, 脚本将退出";
-        exit 0
+        exit 1
         ;;
     esac
 }
