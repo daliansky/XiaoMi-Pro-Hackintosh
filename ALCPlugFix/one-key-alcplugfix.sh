@@ -36,9 +36,9 @@ function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix
     echo "Downloading audio fix patch..."
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/ALCPlugFix -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/hda-verb -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/ALCPlugFix -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/hda-verb -O || networkWarn
     echo "Download complete"
     echo
 }

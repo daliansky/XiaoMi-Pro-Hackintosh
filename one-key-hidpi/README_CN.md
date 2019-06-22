@@ -18,7 +18,7 @@ macOS 的 DPI 机制和 Windows 下不一样，比如 1080p 的屏幕在 Windows
 - 在终端输入以下命令并回车：
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/one-key-hidpi_cn.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi_cn.sh)"
 ```
 
 
