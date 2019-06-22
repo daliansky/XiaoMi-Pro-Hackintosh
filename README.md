@@ -87,6 +87,12 @@ Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High 
 
 A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page, thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
 
+- You can also update EFI by running the following command in Terminal:
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
+```
+
 If the tracpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 
 

@@ -34,28 +34,28 @@ function networkWarn(){
     exit 1
 }
 
-# Download from https://github.com/daliansky/XiaoMi-Pro/tree/master/one-key-hidpi
+# Download from https://github.com/daliansky/XiaoMi-Pro-Hackintosh/tree/master/one-key-hidpi
 function download(){
     echo 'Downloading display files...'
     mkdir -p one-key-hidpi
     cd one-key-hidpi
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/Icons.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747 -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.icns -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.tiff -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/Icons.plist -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747 -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.icns -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.tiff -O || networkWarn
     echo 'Download complete'
     echo
 }
 
 function removeold() {
-    # Uninstall HiScale (Added in commit https://github.com/daliansky/XiaoMi-Pro/commit/fa35968b5acf851e274932ca52e67c43fe747877)
+    # Uninstall HiScale (Added in commit https://github.com/daliansky/XiaoMi-Pro-Hackintosh/commit/fa35968b5acf851e274932ca52e67c43fe747877)
     echo 'Removing previous version...'
     sudo launchctl remove /Library/LaunchAgents/org.zysuper.riceCracker.plist
     sudo pkill riceCrackerDaemon
     sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
     sudo rm -f /usr/bin/riceCrackerDaemon
 
-    # Remove previous one-key-hidpi (Added in commit https://github.com/daliansky/XiaoMi-Pro/commit/a3b7f136209a91455944b4afece7e14a931e62ba)
+    # Remove previous one-key-hidpi (Added in commit https://github.com/daliansky/XiaoMi-Pro-Hackintosh/commit/a3b7f136209a91455944b4afece7e14a931e62ba)
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
     echo 'Remove complete'
     echo
