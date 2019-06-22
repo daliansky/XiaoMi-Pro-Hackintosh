@@ -14,7 +14,7 @@
 - 在终端输入以下命令并回车：
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/one-key-alcplugfix_cn.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/one-key-alcplugfix_cn.sh)"
 ```
 
 - 重启电脑，完成。
