@@ -35,6 +35,7 @@ function checkMainboard() {
   if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
     echo "Your mainboard is ${MAINBOARD}"
     echo -e "[ ${RED}ERROR${OFF} ]:Not a XiaoMi-Pro, please check your model!"
+    clean
     exit 1
   fi
 }
@@ -115,7 +116,8 @@ function backupEFI() {
   # new folder for backup
   echo
   echo "Creating backup..."
-  BACKUP_DIR="/Users/`users`/Desktop/backupEFI"
+  local DATE=date "+%m.%d_%H-%M-%S"
+  BACKUP_DIR="/Users/`users`/Desktop/backupEFI-${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
   cp -prf "${EFI_ADR}/EFI/CLOVER" ${BACKUP_DIR} && cp -prf "${EFI_ADR}/EFI/BOOT" ${BACKUP_DIR}
