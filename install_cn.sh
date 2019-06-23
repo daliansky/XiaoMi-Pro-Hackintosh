@@ -35,6 +35,7 @@ function checkMainboard() {
   if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
     echo "您的主板型号是 ${MAINBOARD}"
     echo -e "[ ${RED}ERROR${OFF} ]:不是小米笔记本Pro, 请检查您的型号!"
+    clean
     exit 1
   fi
 }
@@ -115,7 +116,8 @@ function backupEFI() {
   # 创建备份文件夹
   echo
   echo "正在备份..."
-  BACKUP_DIR="/Users/`users`/Desktop/backupEFI"
+  local DATE=date "+%m.%d_%H-%M-%S"
+  BACKUP_DIR="/Users/`users`/Desktop/backupEFI-${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
   cp -prf "${EFI_ADR}/EFI/CLOVER" ${BACKUP_DIR} && cp -prf "${EFI_ADR}/EFI/BOOT" ${BACKUP_DIR}
