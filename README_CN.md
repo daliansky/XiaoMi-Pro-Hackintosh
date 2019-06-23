@@ -55,6 +55,21 @@
 - 使用[one-key-cpufriend](one-key-cpufriend)来提升CPU性能
 
 
+## 安装
+
+请参考详细的安装教程[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
+
+完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新。
+
+- 你也可以更新EFI通过在终端输入以下命令：
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install_cn.sh)"
+```
+
+如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
+
+
 ## 常见问题解答
 
 ### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
@@ -79,21 +94,6 @@
 同时确保 `沙盒`(Sandbox) 功能关闭。
 
 ### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro/wiki/常见问题解答)。
-
-
-## 安装
-
-请参考详细的安装教程[macOS安装教程兼小米Pro安装过程记录](https://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
-
-完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新。
-
-- 你也可以更新EFI通过在终端输入以下命令：
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install_cn.sh)"
-```
-
-如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 更新日志

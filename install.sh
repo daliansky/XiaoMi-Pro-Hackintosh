@@ -17,6 +17,28 @@ function networkWarn() {
   exit 1
 }
 
+# Check Mainboard
+function checkMainboard() {
+  local MODEL_MX150="TM1701"
+  local MODEL_GTX="TM1707"
+
+  # new folder for work
+  WORK_DIR="/Users/`users`/Desktop/EFI_XIAOMI-PRO"
+  [[ -d "${WORK_DIR}" ]] && rm -rf "${WORK_DIR}"
+  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
+
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
+  curl --silent -O "${repoURL}" || networkWarn
+  sudo chmod +x bdmesg
+
+  MAINBOARD="$( "${WORK_DIR}/bdmesg" | grep Running | awk '{print $5}' | sed "s/\'//g")"
+  if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
+    echo "Your mainboard is ${MAINBOARD}"
+    echo -e "[ ${RED}ERROR${OFF} ]:Not a XiaoMi-Pro, please check your model!"
+    exit 1
+  fi
+}
+
 # Check kexts with invalid signature by rebuilding kextcache
 function checkSystemIntegrity() {
   echo
@@ -277,6 +299,7 @@ function changeBT() {
 
 function fixWindows() {
   echo
+  echo "Make sure you can boot Windows with F12"
   echo "Fixing Windows boot..."
   local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix-64.efi"
   curl --silent -O "${repoURL}" || networkWarn
@@ -305,25 +328,10 @@ function clean() {
 }
 
 function main() {
-  local MODEL_MX150="TM1701"
-  local MODEL_GTX="TM1707"
 
   printf '\e[8;40;90t'
 
-  # new folder for work
-  WORK_DIR="/Users/`users`/Desktop/EFI_XIAOMI-PRO"
-  [[ -d "${WORK_DIR}" ]] && rm -rf "${WORK_DIR}"
-  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
-
-  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
-  curl --silent -O "${repoURL}" || networkWarn
-
-  MAINBOARD="$(bdmesg | grep Running | awk '{print $5}' | sed "s/\'//g")"
-  if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
-    echo "Your mainboard is ${MAINBOARD}"
-    echo -e "[ ${RED}ERROR${OFF} ]:Not a XiaoMi-Pro, please check your model!"
-    exit 1
-  fi
+  checkMainboard
 
   # Interface (ref: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=X%20i%20a%20o%20M%20i%20-%20P%20r%20o)
   echo ' __  __  _                   __  __   _          ____                 '
