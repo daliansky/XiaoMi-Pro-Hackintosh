@@ -17,6 +17,28 @@ function networkWarn() {
   exit 1
 }
 
+# 检查主板型号
+function checkMainboard() {
+  local MODEL_MX150="TM1701"
+  local MODEL_GTX="TM1707"
+
+  # 创建工程文件夹
+  WORK_DIR="/Users/`users`/Desktop/EFI_XIAOMI-PRO"
+  [[ -d "${WORK_DIR}" ]] && rm -rf "${WORK_DIR}"
+  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
+
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
+  curl --silent -O "${repoURL}" || networkWarn
+  sudo chmod +x bdmesg
+
+  MAINBOARD="$( "${WORK_DIR}/bdmesg" | grep Running | awk '{print $5}' | sed "s/\'//g")"
+  if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
+    echo "您的主板型号是 ${MAINBOARD}"
+    echo -e "[ ${RED}ERROR${OFF} ]:不是小米笔记本Pro, 请检查您的型号!"
+    exit 1
+  fi
+}
+
 # 检查未签名的扩展，通过重建缓存的方式
 function checkSystemIntegrity() {
   echo
@@ -277,6 +299,7 @@ function changeBT() {
 
 function fixWindows() {
   echo
+  echo "确保能通过F12启动Windows"
   echo "正在修复Windows启动..."
   local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix-64.efi"
   curl --silent -O "${repoURL}" || networkWarn
@@ -305,25 +328,10 @@ function clean() {
 }
 
 function main() {
-  local MODEL_MX150="TM1701"
-  local MODEL_GTX="TM1707"
 
   printf '\e[8;40;90t'
 
-  # 创建工程文件夹
-  WORK_DIR="/Users/`users`/Desktop/EFI_XIAOMI-PRO"
-  [[ -d "${WORK_DIR}" ]] && rm -rf "${WORK_DIR}"
-  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
-
-  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
-  curl --silent -O "${repoURL}" || networkWarn
-
-  MAINBOARD="$(bdmesg | grep Running | awk '{print $5}' | sed "s/\'//g")"
-  if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
-    echo "您的主板型号是 ${MAINBOARD}"
-    echo -e "[ ${RED}ERROR${OFF} ]:不是小米笔记本Pro, 请检查您的型号!"
-    exit 1
-  fi
+  checkMainboard
 
   # 界面 (参考: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=X%20i%20a%20o%20M%20i%20-%20P%20r%20o)
   echo ' __  __  _                   __  __   _          ____                 '
