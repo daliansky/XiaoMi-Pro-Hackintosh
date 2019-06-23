@@ -55,6 +55,21 @@ These not working items do not represent `OpenCore` bootloader is weaker than `C
 - Use [one-key-cpufriend](one-key-cpufriend) to improve CPU efficiency
 
 
+## Installation
+
+Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
+
+A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page, thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
+
+- You can also update EFI by running the following command in Terminal:
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
+```
+
+If the tracpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
+
+
 ## FAQ
 
 ### My device is locked by `Find My Mac` and can't be booted, what should I do now?
@@ -79,21 +94,6 @@ Many people met this problem by using the new version of `AptioMemoryFix.efi`. A
 Also make sure `Sandbox` function in Windows 10 is disabled.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro/wiki/FAQ).
-
-
-## Installation
-
-Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
-
-A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page, thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
-
-- You can also update EFI by running the following command in Terminal:
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
-```
-
-If the tracpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 
 
 ## Changelog
