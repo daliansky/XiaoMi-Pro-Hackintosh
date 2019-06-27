@@ -68,6 +68,7 @@ function mountEFI() {
   if [[ -z "${EFI_ADR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect EFI partition, this script will end.
     exit 1
+
   # check whether EFI/CLOVER exists
   elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: CLOVER folder undetected, this script will end.
