@@ -116,8 +116,9 @@ function backupEFI() {
   # 创建备份文件夹
   echo
   echo "正在备份..."
-  local DATE=date "+%m.%d_%H-%M-%S"
-  BACKUP_DIR="/Users/`users`/Desktop/backupEFI-${DATE}"
+  # 生成时间戳
+  local DATE="$(date "+%Y-%m-%d %H-%M-%S")"
+  BACKUP_DIR="/Users/`users`/Desktop/backupEFI ${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
   cp -prf "${EFI_ADR}/EFI/CLOVER" ${BACKUP_DIR} && cp -prf "${EFI_ADR}/EFI/BOOT" ${BACKUP_DIR}
