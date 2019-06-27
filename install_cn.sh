@@ -68,6 +68,7 @@ function mountEFI() {
   if [[ -z "${EFI_ADR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区, 此脚本将退出.
     exit 1
+
   # 检查EFI/CLOVER是否存在
   elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹, 此脚本将退出.
