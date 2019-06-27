@@ -18,15 +18,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_GPRW", 0x00000000)
             })
         }
 
-        If ((0x0D == Arg0))
-        {
-            Return (Package (0x02)
-            {
-                0x0D, 
-                Zero
-            })
-        }
-
         Return (XPRW (Arg0, Arg1))
     }
 }
