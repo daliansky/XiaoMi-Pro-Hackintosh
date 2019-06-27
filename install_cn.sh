@@ -117,22 +117,22 @@ function backupEFI() {
   echo
   echo "正在备份..."
   # 生成时间戳
-  local DATE="$(date "+%Y-%m-%d %H-%M-%S")"
-  BACKUP_DIR="/Users/`users`/Desktop/backupEFI ${DATE}"
+  local DATE="$(date "+%Y-%m-%d_%H-%M-%S")"
+  BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -prf "${EFI_ADR}/EFI/CLOVER" ${BACKUP_DIR} && cp -prf "${EFI_ADR}/EFI/BOOT" ${BACKUP_DIR}
+  cp -rf "${EFI_ADR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_ADR}/EFI/BOOT" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]备份完成"
 
   echo
   echo "正在拷贝序列号到新CLOVER文件夹..."
   local pledit=/usr/libexec/PlistBuddy
-  local SerialNumber="$($pledit -c "Print SMBIOS:SerialNumber" ${BACKUP_DIR}/CLOVER/config.plist)"
-  local BoardSerialNumber="$($pledit -c "Print SMBIOS:BoardSerialNumber" ${BACKUP_DIR}/CLOVER/config.plist)"
-  local SmUUID="$($pledit -c "Print SMBIOS:SmUUID" ${BACKUP_DIR}/CLOVER/config.plist)"
-  local ROM="$($pledit -c "Print RtVariables:ROM" ${BACKUP_DIR}/CLOVER/config.plist)"
-  local MLB="$($pledit -c "Print RtVariables:MLB" ${BACKUP_DIR}/CLOVER/config.plist)"
-  local CustomUUID="$($pledit -c "Print :SystemParameters:CustomUUID" ${BACKUP_DIR}/CLOVER/config.plist)"
+  local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local ROM="$($pledit -c 'Print RtVariables:ROM' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local CustomUUID="$($pledit -c 'Print :SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
 
   # 检查序列号是否存在，如果存在则拷贝
   if [[ -z "${SerialNumber}" ]]; then
@@ -337,6 +337,7 @@ function main() {
   checkMainboard
 
   # 界面 (参考: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=X%20i%20a%20o%20M%20i%20-%20P%20r%20o)
+  echo
   echo ' __  __  _                   __  __   _          ____                 '
   echo ' \ \/ / (_)   __ _    ___   |  \/  | (_)        |  _ \   _ __    ___  '
   echo '  \  /  | |  / _` |  / _ \  | |\/| | | |  ____  | |_) | |  __|  / _ \ '
