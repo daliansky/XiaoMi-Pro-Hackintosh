@@ -90,7 +90,7 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
-		<key>NeverHibernate</key>
+		<key>RtcHibernateAware</key>
 		<true/>
 	</dict>
 	<key>Devices</key>
@@ -362,6 +362,14 @@
 		</array>
 		<key>KernelToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 release kernel (credit vit9696)</string>
