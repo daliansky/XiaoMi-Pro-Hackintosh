@@ -112,6 +112,30 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>USB power injection and customization(Native Bluetooth)</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-USB.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB power injection and customization(Disable native Bluetooth)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-USB-USBBT.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB power injection and customization(Soldered Bluetooth)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-USB-SolderBT.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Inject plugin-type=1</string>
 				<key>Enabled</key>
 				<true/>
@@ -505,13 +529,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBPorts.kext</string>
+				<string>USBInjectAll.kext</string>
 				<key>Comment</key>
 				<string>USB Ports</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string></string>
+				<string>Contents/MacOS/USBInjectAll</string>
 				<key>MatchKernel</key>
 				<string></string>
 				<key>PlistPath</key>
