@@ -262,7 +262,6 @@ function updateEFI() {
 }
 
 function changeBT() {
-  downloadEFI
   echo
   echo "--------------------------------------------"
   echo "|************** 选择蓝牙模式 **************|"
@@ -279,18 +278,28 @@ function changeBT() {
 
     2)
     mountEFI
-    rm -rf "${EFI_ADR}/EFI/CLOVER/kexts/Other/USBPorts.kext" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/kexts/Other/USBPorts-USBBT.kext" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/kexts/Other/USBPorts-SolderBT.kext" >/dev/null 2>&1
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/USBPorts-USBBT.kext" "${EFI_ADR}/EFI/CLOVER/kexts/Other/"
+    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
+    cp -rf "SSDT-USB-USBBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+
+    echo "如果您使用的是博通USB蓝牙，您可能需要下载安装https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads 里的驱动"
     ;;
 
     3)
     mountEFI
-    rm -rf "${EFI_ADR}/EFI/CLOVER/kexts/Other/USBPorts.kext" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/kexts/Other/USBPorts-USBBT.kext" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/kexts/Other/USBPorts-SolderBT.kext" >/dev/null 2>&1
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/USBPorts-SolderBT.kext" "${EFI_ADR}/EFI/CLOVER/kexts/Other/"
+    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
+    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     *)
