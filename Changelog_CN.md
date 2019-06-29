@@ -277,6 +277,7 @@
     * 移除 `SSDT-PXSX` 并迁移设备信息到 `config.plist`
     * 移除 `Drop DRAM` 并替换成 `dart=0`
     * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
+    * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
     * 等待macOS 10.15...

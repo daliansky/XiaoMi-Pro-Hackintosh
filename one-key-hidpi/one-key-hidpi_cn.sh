@@ -61,6 +61,14 @@ function removeold() {
     echo
 }
 
+# 重新挂载系统分区, 如果>=macOS10.15
+function remountSystem() {
+    swver=$(sw_vers -productVersion | sed 's/\.//g' | colrm 5)
+    if [[ $swver -ge 1015 ]]; then
+        sudo mount -uw /
+    fi
+}
+
 # 给Icons.plist创建备份
 function backup() {
     echo '正在备份...'
@@ -106,6 +114,7 @@ function clean() {
 function install() {
     download
     removeold
+    remountSystem
     backup
     copy
     fixpermission

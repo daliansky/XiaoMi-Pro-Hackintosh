@@ -277,6 +277,7 @@
     - Remove `SSDT-PXSX` and move device properties to `config.plist`
     - Remove `Drop DRAM` and replace with `dart=0`
     - Remove `AppleKeyFeeder.efi` and `DataHubDxe-64.efi` which XiaoMi-Pro doesn't need
+    - Remove `USBPorts.kext` and replace with `SSDT-USB`
     - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
     - Add back `SSDT-ALS0` to ensure backlight can be preserved
     - Wait for macOS 10.15...

@@ -61,6 +61,14 @@ function removeold() {
     echo
 }
 
+# Remount system partition if macOS version >= 10.15
+function remountSystem() {
+    swver=$(sw_vers -productVersion | sed 's/\.//g' | colrm 5)
+    if [[ $swver -ge 1015 ]]; then
+        sudo mount -uw /
+    fi
+}
+
 # Create backup for Icons.plist
 function backup() {
     echo 'Backing up...'
@@ -106,6 +114,7 @@ function clean() {
 function install() {
     download
     removeold
+    remountSystem
     backup
     copy
     fixpermission
