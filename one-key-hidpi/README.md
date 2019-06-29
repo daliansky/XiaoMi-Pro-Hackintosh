@@ -24,15 +24,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hacki
 
 ## Recovery
 
-If you cant boot into system, or get any another issues, you can use clover `-x ` reboot or into Recovery mode, remove your display's DisplayVendorID folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files.
+If you cant boot into system, or get any another issues, you can use clover `-x ` reboot or into Recovery mode, remove `DisplayVendorID-9e5` folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files.
 
 In Terminal: 
 
 ```
 $ cd /Volumes/"Your System Disk Part"/System/Library/Displays/Contents/Resources/Overrides
-$ VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $8}')
-$ Vid=$(echo "obase=16;$VendorID" | bc | tr 'A-Z' 'a-z')
-$ rm -rf ./DisplayVendorID-$Vid
+$ rm -rf ./DisplayVendorID-9e5
 $ cp -r ./backup/* ./
 ```
 

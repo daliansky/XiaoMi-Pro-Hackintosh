@@ -126,6 +126,7 @@ function install() {
 # 卸载
 function uninstall() {
     echo '正在卸载one-key-hidpi...'
+    remountSystem
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
 
     # 恢复 Icon.plist 从备份文件夹（如果存在）

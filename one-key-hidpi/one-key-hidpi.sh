@@ -126,6 +126,7 @@ function install() {
 # Uninstall
 function uninstall() {
     echo 'Uninstalling one-key-hidpi...'
+    remountSystem
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
 
     # Restore Icon.plist in backup folder if presents
