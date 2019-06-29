@@ -24,15 +24,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hacki
 
 ## 恢复
 
-如果使用此脚本后，开机无法进入系统，请到恢复模式中或使用 clover `-x` 安全模式进入系统 ，使用终端删除 `/System/Library/Displays/Contents/Resources/Overrides` 下删除显示器 VendorID 对应的文件夹，并把 backup 文件夹中的备份复制出来。
+如果使用此脚本后，开机无法进入系统，请到恢复模式中或使用 clover `-x` 安全模式进入系统 ，使用终端删除 `/System/Library/Displays/Contents/Resources/Overrides` 下删除 `DisplayVendorID-9e5` 文件夹，并把 backup 文件夹中的备份复制出来。
 
 具体命令如下：
 
 ```
 $ cd /Volumes/你的系统盘/System/Library/Displays/Contents/Resources/Overrides
-$ VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $8}')
-$ Vid=$(echo "obase=16;$VendorID" | bc | tr 'A-Z' 'a-z')
-$ rm -rf ./DisplayVendorID-$Vid
+$ rm -rf ./DisplayVendorID-9e5
 $ cp -r ./backup/* ./
 ```
 
