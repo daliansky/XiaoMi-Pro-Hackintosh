@@ -61,11 +61,15 @@ function removeold() {
     echo
 }
 
-# 重新挂载系统分区, 如果>=macOS10.15
+# 重新挂载系统分区, 如果macOS版本>=10.15
 function remountSystem() {
     swver=$(sw_vers -productVersion | sed 's/\.//g' | colrm 5)
     if [[ $swver -ge 1015 ]]; then
+        echo '正在重新挂载系统分区来获得写入权限...'
         sudo mount -uw /
+        echo '挂载完成'
+        echo '请在脚本运行结束后立即重启电脑, 让电脑重新给系统分区上锁!'
+        echo
     fi
 }
 

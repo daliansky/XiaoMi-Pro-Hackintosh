@@ -65,7 +65,11 @@ function removeold() {
 function remountSystem() {
     swver=$(sw_vers -productVersion | sed 's/\.//g' | colrm 5)
     if [[ $swver -ge 1015 ]]; then
+        echo 'Remounting system partition to get write permission...'
         sudo mount -uw /
+        echo 'Remount complete'
+        echo 'Please reboot device immediately after this script ends to lock system partition!'
+        echo
     fi
 }
 
