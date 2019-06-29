@@ -78,6 +78,14 @@ function mountEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]EFI分区已挂载到${EFI_ADR} (credits RehabMan)"
 }
 
+# Unmount EFI for safety
+function unmountEFI() {
+  echo
+  echo "Unmounting EFI partition..."
+  diskutil unmount $EFI_ADR &>/dev/null
+  echo -e "[ ${GREEN}OK${OFF} ]Unmount complete"
+}
+
 function getGitHubLatestRelease() {
   local repoURL='https://api.github.com/repos/daliansky/XiaoMi-Pro-Hackintosh/releases/latest'
   ver="$(curl --silent "${repoURL}" | grep 'tag_name' | head -n 1 | awk -F ":" '{print $2}' | tr -d '"' | tr -d ',' | tr -d ' ')"
@@ -410,6 +418,7 @@ function main() {
 
     9)
     clean
+    unmountEFI
     echo
     echo "祝您有开心的一天! 再见"
     exit 0

@@ -56,7 +56,7 @@ function checkSystemIntegrity() {
   fi
 }
 
-# mount EFI by using mount_efi.sh, credits Rehabman
+# Mount EFI by using mount_efi.sh, credits Rehabman
 function mountEFI() {
   local repoURL="https://raw.githubusercontent.com/RehabMan/hack-tools/master/mount_efi.sh"
   curl --silent -O "${repoURL}" || networkWarn
@@ -76,6 +76,14 @@ function mountEFI() {
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Mounted EFI at ${EFI_ADR} (credits RehabMan)"
+}
+
+# Unmount EFI for safety
+function unmountEFI() {
+  echo
+  echo "Unmounting EFI partition..."
+  diskutil unmount $EFI_ADR &>/dev/null
+  echo -e "[ ${GREEN}OK${OFF} ]Unmount complete"
 }
 
 function getGitHubLatestRelease() {
@@ -410,6 +418,7 @@ function main() {
 
     9)
     clean
+    unmountEFI
     echo
     echo "Wish you have a good day! Bye"
     exit 0
