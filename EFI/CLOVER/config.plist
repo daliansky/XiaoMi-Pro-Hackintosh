@@ -90,7 +90,7 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
-		<key>RtcHibernateAware</key>
+		<key>HibernationFixup</key>
 		<true/>
 	</dict>
 	<key>Devices</key>

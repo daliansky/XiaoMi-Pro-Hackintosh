@@ -117,8 +117,8 @@ function clean() {
 # 安装
 function install() {
     download
-    removeold
     remountSystem
+    removeold
     backup
     copy
     fixpermission
