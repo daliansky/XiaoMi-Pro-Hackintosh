@@ -280,4 +280,5 @@
     * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
+    * 放回 `HibernationFixup`
     * 等待macOS 10.15...
