@@ -31,16 +31,18 @@
 <data>AAAwAQ==</data>
 ```
 
-8. 开启 `RtcHibernateAware`
+8. 删除 Clover MSR 0xE2 补丁
 
-- 打开 `/EFI/CLOVER/config.plist`，找到以下代码：
+- 打开 `/EFI/CLOVER/config.plist`，删除以下代码：
 ```
-<key>NeverHibernate</key>
-```
-
-- 替换为：
-```
-<key>RtcHibernateAware</key>
+<dict>
+    <key>Comment</key>
+    <string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+    <key>Find</key>
+    <data>ILniAAAADzA=</data>
+    <key>Replace</key>
+    <data>ILniAAAAkJA=</data>
+</dict>
 ```
 
 
