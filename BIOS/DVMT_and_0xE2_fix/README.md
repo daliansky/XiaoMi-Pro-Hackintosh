@@ -31,16 +31,18 @@
 <data>AAAwAQ==</data>
 ```
 
-8. Enable `RtcHibernateAware`
+8. Delete Clover MSR 0xE2 patch
 
-- Open `/EFI/CLOVER/config.plist`, find the following code:
+- Open `/EFI/CLOVER/config.plist`, remove the following code:
 ```
-<key>NeverHibernate</key>
-```
-
-- Replace with:
-```
-<key>RtcHibernateAware</key>
+<dict>
+    <key>Comment</key>
+    <string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+    <key>Find</key>
+    <data>ILniAAAADzA=</data>
+    <key>Replace</key>
+    <data>ILniAAAAkJA=</data>
+</dict>
 ```
 
 
