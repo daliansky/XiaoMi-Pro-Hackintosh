@@ -280,4 +280,5 @@
     - Remove `USBPorts.kext` and replace with `SSDT-USB`
     - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
     - Add back `SSDT-ALS0` to ensure backlight can be preserved
+    - Add back `HibernationFixup`
     - Wait for macOS 10.15...
