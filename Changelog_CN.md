@@ -259,12 +259,13 @@
 
 * X-XX-2019
 
-    * 更新 `Clover` r4934
-    * 更新 `Lilu` v1.3.6
-    * 更新 `AppleALC` v1.3.8
-    * 更新 `WhateverGreen` v1.2.9
-    * 更新 `VirtualSMC` v1.0.4
+    * 更新 `Clover` r4979
+    * 更新 `Lilu` v1.3.7
+    * 更新 `AppleALC` v1.3.9
+    * 更新 `WhateverGreen` v1.3.0
+    * 更新 `VirtualSMC` v1.0.5
     * 更新并修改 `VoodooPS2` v2.0.1 以防止F11键禁用触控板
+    * 更新 `VoodooI2C`
     * 更新从 `Hackintool` 获取的设备信息
     * 更新 `SSDT-MEM2`
     * 更新 `SSDT-HPET`
@@ -280,5 +281,6 @@
     * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
+    * 新增 `enable-hdmi-dividers-fix` 和 `enable-lspcon-support` 来更好地支持HDMI，需要更多测试...
     * 放回 `HibernationFixup`
-    * 等待macOS 10.15...
+    * 等待新版 `SMCBatteryManager` 来支持10.15b3...
