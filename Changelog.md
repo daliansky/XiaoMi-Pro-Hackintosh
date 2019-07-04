@@ -259,12 +259,13 @@
 
 - X-XX-2019
 
-    - Update `Clover` r4934
-    - Update `Lilu` v1.3.6
-    - Update `AppleALC` v1.3.8
-    - Update `WhateverGreen` v1.2.9
-    - Update `VirtualSMC` v1.0.4
+    - Update `Clover` r4979
+    - Update `Lilu` v1.3.7
+    - Update `AppleALC` v1.3.9
+    - Update `WhateverGreen` v1.3.0
+    - Update `VirtualSMC` v1.0.5
     - Update and edit `VoodooPS2` v2.0.1 to avoid F11 disabling trackpad
+    - Update `VoodooI2C`
     - Update Device Properties obtained by `Hackintool`
     - Update `SSDT-MEM2`
     - Update `SSDT-HPET`
@@ -281,4 +282,5 @@
     - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
     - Add back `SSDT-ALS0` to ensure backlight can be preserved
     - Add back `HibernationFixup`
-    - Wait for macOS 10.15...
+    - Add `enable-hdmi-dividers-fix` and `enable-lspcon-support` properties for HDMI, and needs testing...
+    - Waiting for update of `SMCBatteryManager` to support 10.15b3...

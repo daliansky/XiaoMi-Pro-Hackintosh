@@ -78,12 +78,12 @@ function mountEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]EFI分区已挂载到${EFI_ADR} (credits RehabMan)"
 }
 
-# Unmount EFI for safety
+# 取消挂载EFI，因为安全因素
 function unmountEFI() {
   echo
-  echo "Unmounting EFI partition..."
+  echo "正在取消挂载EFI分区..."
   diskutil unmount $EFI_ADR &>/dev/null
-  echo -e "[ ${GREEN}OK${OFF} ]Unmount complete"
+  echo -e "[ ${GREEN}OK${OFF} ]取消挂载成功"
 }
 
 function getGitHubLatestRelease() {

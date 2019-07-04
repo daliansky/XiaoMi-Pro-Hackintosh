@@ -1,0 +1,1 @@
+../../CLOVER/ACPI/patched/SSDT-MEM2.dsl
