@@ -1,4 +1,4 @@
-# XiaoMi NoteBook Pro for macOS Mojave & High Sierra
+# XiaoMi NoteBook Pro for macOS Catalina & Mojave & High Sierra
 [![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 
 Hackintosh your XiaoMi Notebook Pro
@@ -25,13 +25,13 @@ Hackintosh your XiaoMi Notebook Pro
 - Discrete graphic card, since macOS doesn't support Optimus technology
   - Have used `disable-external-gpu` to disable it in order to save power
 - Fingerprint sensor
-  - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it in order to save power
+  - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
 - Intel Bluetooth only works after warm restart from Windows
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265)
   - Buy a USB Wi-Fi dongle or supported wireless card
 - Realtek USB SD Card Reader(RTS5129)
-  - Have used [USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext) to disable it in order to save power
+  - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
 - Everything else works well
 
 
