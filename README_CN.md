@@ -1,4 +1,4 @@
-# 小米笔记本Pro安装macOS Mojave & High Sierra 使用说明
+# 小米笔记本Pro安装macOS Catalina & Mojave & High Sierra
 [![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 
 让你的小米笔记本Pro吃上黑苹果
@@ -25,13 +25,13 @@
 - 独立显卡，因为macOS不支持Optimus技术
   - 使用了 `disable-external-gpu` 来禁用它以节省电量
 - 指纹传感器
-  - 使用了[USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext)来禁用它以节省电量
+  - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - 英特尔蓝牙只有在从Windows热重启后有效
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡
   - 购买USB网卡或者支持的内置网卡
 - 瑞昱USB SD读卡器
-  - 使用了[USBPorts](EFI/CLOVER/kexts/Other/USBPorts.kext)来禁用它以节省电量
+  - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - 其他都工作正常
 
 
