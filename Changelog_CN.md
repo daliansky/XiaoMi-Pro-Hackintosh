@@ -263,7 +263,7 @@
     * 更新 `Lilu` v1.3.7
     * 更新 `AppleALC` v1.3.9
     * 更新 `WhateverGreen` v1.3.0
-    * 更新 `VirtualSMC` v1.0.5
+    * 更新 `VirtualSMC` v1.0.6
     * 更新并修改 `VoodooPS2` v2.0.1 以防止F11键禁用触控板
     * 更新 `VoodooI2C`
     * 更新从 `Hackintool` 获取的设备信息
@@ -278,9 +278,9 @@
     * 移除 `SSDT-PXSX` 并迁移设备信息到 `config.plist`
     * 移除 `Drop DRAM` 并替换成 `dart=0`
     * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
-    * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`
+    * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`，根据[#197](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/197)
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
     * 新增 `enable-hdmi-dividers-fix` 和 `enable-lspcon-support` 来更好地支持HDMI，需要更多测试...
     * 放回 `HibernationFixup`
-    * 等待新版 `SMCBatteryManager` 来支持10.15b3...
+    * 支持macOS10.15
