@@ -263,7 +263,7 @@
     - Update `Lilu` v1.3.7
     - Update `AppleALC` v1.3.9
     - Update `WhateverGreen` v1.3.0
-    - Update `VirtualSMC` v1.0.5
+    - Update `VirtualSMC` v1.0.6
     - Update and edit `VoodooPS2` v2.0.1 to avoid F11 disabling trackpad
     - Update `VoodooI2C`
     - Update Device Properties obtained by `Hackintool`
