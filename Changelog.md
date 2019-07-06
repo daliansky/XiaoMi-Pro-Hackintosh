@@ -257,14 +257,14 @@
     - Remove `SSDT-RTC` and replace with `Rtc8Allowed` and `FixRTC`
 
 
-- X-XX-2019
+- 7-XX-2019
 
     - Update `Clover` r4979
     - Update `Lilu` v1.3.7
     - Update `AppleALC` v1.3.9
-    - Update `WhateverGreen` v1.3.0
+    - Update `WhateverGreen` v1.3.1
     - Update `VirtualSMC` v1.0.6
-    - Update and edit `VoodooPS2` v2.0.1 to avoid F11 disabling trackpad
+    - Update and edit `VoodooPS2` v2.0.2 to avoid F11 disabling trackpad
     - Update `VoodooI2C`
     - Update Device Properties obtained by `Hackintool`
     - Update `SSDT-MEM2`
