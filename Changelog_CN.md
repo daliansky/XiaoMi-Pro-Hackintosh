@@ -257,14 +257,14 @@
     * 移除 `SSDT-RTC` 并用 `Rtc8Allowed` 和 `FixRTC` 来代替x
 
 
-* X-XX-2019
+* 7-XX-2019
 
     * 更新 `Clover` r4979
     * 更新 `Lilu` v1.3.7
     * 更新 `AppleALC` v1.3.9
-    * 更新 `WhateverGreen` v1.3.0
+    * 更新 `WhateverGreen` v1.3.1
     * 更新 `VirtualSMC` v1.0.6
-    * 更新并修改 `VoodooPS2` v2.0.1 以防止F11键禁用触控板
+    * 更新并修改 `VoodooPS2` v2.0.2 以防止F11键禁用触控板
     * 更新 `VoodooI2C`
     * 更新从 `Hackintool` 获取的设备信息
     * 更新 `SSDT-MEM2`
