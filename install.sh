@@ -267,6 +267,7 @@ function updateEFI() {
   compareEFI
   editEFI
   replaceEFI
+  unmountEFI
 }
 
 function changeBT() {
@@ -295,6 +296,7 @@ function changeBT() {
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
 
+    echo
     echo "If you are using Broadcom USB BT, you may need to download & install kexts from https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads"
     ;;
 
@@ -316,6 +318,8 @@ function changeBT() {
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]Change complete"
+
+  unmountEFI
 }
 
 function fixWindows() {
@@ -329,6 +333,7 @@ function fixWindows() {
   cp -rf "AptioMemoryFix-64.efi" "${EFI_ADR}/EFI/CLOVER/drivers64UEFI/"
   echo -e "[ ${GREEN}OK${OFF} ]Fix complete"
 
+  unmountEFI
 }
 
 # Report problem and generate problem shooting by using gen_debug.sh @black-dragon74
@@ -365,7 +370,7 @@ function main() {
   echo "Your mainboard is ${MAINBOARD}"
   echo '====================================================================='
   echo -e "${BOLD}(1) Update EFI${OFF}"
-  echo "(2) Change Bluetooth mode"
+  echo "(2) Change Bluetooth mode(Only support latest release)"
   echo "(3) General audio fix"
   echo "(4) Add color profile"
   echo "(5) Update power management"
@@ -418,7 +423,6 @@ function main() {
 
     9)
     clean
-    unmountEFI
     echo
     echo "Wish you have a good day! Bye"
     exit 0
