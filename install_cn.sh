@@ -267,6 +267,7 @@ function updateEFI() {
   compareEFI
   editEFI
   replaceEFI
+  unmountEFI
 }
 
 function changeBT() {
@@ -295,6 +296,7 @@ function changeBT() {
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
 
+    echo
     echo "如果您使用的是博通USB蓝牙，您可能需要下载安装https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads 里的驱动"
     ;;
 
@@ -316,6 +318,8 @@ function changeBT() {
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
+
+  unmountEFI
 }
 
 function fixWindows() {
@@ -329,6 +333,7 @@ function fixWindows() {
   cp -rf "AptioMemoryFix-64.efi" "${EFI_ADR}/EFI/CLOVER/drivers64UEFI/"
   echo -e "[ ${GREEN}OK${OFF} ]修复完成"
 
+  unmountEFI
 }
 
 # 报告问题并生成错误信息通过使用 gen_debug.sh @black-dragon74
@@ -365,7 +370,7 @@ function main() {
   echo "您的主板型号是 ${MAINBOARD}"
   echo '====================================================================='
   echo -e "${BOLD}(1) 更新EFI${OFF}"
-  echo "(2) 更改蓝牙模式"
+  echo "(2) 更改蓝牙模式(仅支持最新release)"
   echo "(3) 通用声卡修复"
   echo "(4) 添加色彩文件"
   echo "(5) 更新变频管理"
@@ -418,7 +423,6 @@ function main() {
 
     9)
     clean
-    unmountEFI
     echo
     echo "祝您有开心的一天! 再见"
     exit 0

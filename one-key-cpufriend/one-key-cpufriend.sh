@@ -34,6 +34,7 @@ function checkPlist() {
   if [[ ! -f "${X86_PLIST}" ]]; then
     # Use MBP14,1's plist if no Mac-827FB448E656EC26.plist
     BOARD_ID="Mac-B4831CEBD52A0C4C"
+    X86_PLIST="/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/${BOARD_ID}.plist"
   fi
 }
 
