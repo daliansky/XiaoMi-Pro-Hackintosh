@@ -331,11 +331,11 @@ function fixWindows() {
   echo
   echo "Make sure you can boot Windows with F12"
   echo "Fixing Windows boot..."
-  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix-64.efi"
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix.efi"
   curl --silent -O "${repoURL}" || networkWarn
 
   mountEFI
-  cp -rf "AptioMemoryFix-64.efi" "${EFI_ADR}/EFI/CLOVER/drivers64UEFI/"
+  cp -rf "AptioMemoryFix.efi" "${EFI_ADR}/EFI/CLOVER/drivers/UEFI/"
   echo -e "[ ${GREEN}OK${OFF} ]Fix complete"
 
   unmountEFI
@@ -380,7 +380,7 @@ function main() {
   echo "(4) Add color profile"
   echo "(5) Update power management"
   echo "(6) Enable HiDPI"
-  echo "(7) Fix Windows boot"
+  echo "(7) Fix Windows boot(Only support latest release)"
   echo "(8) Problem report"
   echo "(9) Exit"
   echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9)${OFF}"
