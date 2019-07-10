@@ -331,11 +331,11 @@ function fixWindows() {
   echo
   echo "确保能通过F12启动Windows"
   echo "正在修复Windows启动..."
-  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix-64.efi"
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix.efi"
   curl --silent -O "${repoURL}" || networkWarn
 
   mountEFI
-  cp -rf "AptioMemoryFix-64.efi" "${EFI_ADR}/EFI/CLOVER/drivers64UEFI/"
+  cp -rf "AptioMemoryFix.efi" "${EFI_ADR}/EFI/CLOVER/drivers/UEFI/"
   echo -e "[ ${GREEN}OK${OFF} ]修复完成"
 
   unmountEFI
@@ -380,7 +380,7 @@ function main() {
   echo "(4) 添加色彩文件"
   echo "(5) 更新变频管理"
   echo "(6) 开启HiDPI"
-  echo "(7) 修复Windows启动"
+  echo "(7) 修复Windows启动(仅支持最新release)"
   echo "(8) 反馈问题"
   echo "(9) 退出"
   echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9)${OFF}"
