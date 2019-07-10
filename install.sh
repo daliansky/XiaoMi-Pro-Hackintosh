@@ -170,7 +170,9 @@ function backupEFI() {
   fi
 
   if [[ ! -z "${InjectSystemID}" ]]; then
-    $pledit -c "Add SystemParameters:InjectSystemID boolean ${InjectSystemID}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "Set SystemParameters:InjectSystemID ${InjectSystemID}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  else
+    $pledit -c "Set SystemParameters:InjectSystemID false" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
