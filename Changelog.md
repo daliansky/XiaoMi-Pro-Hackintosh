@@ -257,9 +257,9 @@
     - Remove `SSDT-RTC` and replace with `Rtc8Allowed` and `FixRTC`
 
 
-- 7-XX-2019
+- 7-10-2019
 
-    - Update `Clover` r4979
+    - Update `Clover` r4986
     - Update `Lilu` v1.3.7
     - Update `AppleALC` v1.3.9
     - Update `WhateverGreen` v1.3.1
@@ -273,6 +273,7 @@
     - Remove `GFX0 -> IGPU`, `HECI -> IMEI`, and `HDAS -> HDEF` according to [WhateverGreen FAQ.IntelHD.en.md](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#general-recommendations)
     - Remove `SSDT-XOSI` and  `_OSI -> XOSI` because as [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) says, "Avoid patching _OSI to support a higher level of feature sets unless absolutely required. Commonly this enables a number of hacks on APTIO firmwares, which result in the need to add more patches. Modern firmwares generally do not need it at all, and those that do are fine with much smaller patches."
     - Remove `_DSM -> XDSM` because as [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) says, "Try to avoid hacky changes like renaming _PRW or _DSM whenever possible."
+    - Remove `SAT0 -> SATA`
     - Remove IRQ fixes due to [OpenCore discussion](https://www.insanelymac.com/forum/topic/338516-opencore-discussion/?do=findComment&comment=2675659), "...but be very careful about the IRQs, some people remove them, yet this is usually strongly undesired."
     - Remove `SSDT-DDGPU` because `disable-external-egpu` does the same thing
     - Remove `SSDT-PXSX` and move device properties to `config.plist`
@@ -282,5 +283,5 @@
     - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
     - Add back `SSDT-ALS0` to ensure backlight can be preserved
     - Add back `HibernationFixup`
-    - Add `enable-hdmi-dividers-fix` and `enable-lspcon-support` properties for HDMI, and needs testing...
+    - Add `enable-hdmi-dividers-fix` properties for HDMI
     - Support macOS10.15
