@@ -142,9 +142,10 @@ function backupEFI() {
   local ROM="$($pledit -c 'Print RtVariables:ROM' ${BACKUP_DIR}/CLOVER/config.plist)"
   local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
   local CustomUUID="$($pledit -c 'Print :SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local InjectSystemID="$($pledit -c 'Print :SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
 
   # check whether serial numbers exist, copy if yes
-  if [[ -z "${SerialNumber}" ]]; then
+  if [[ ! -z "${SerialNumber}" ]]; then
     $pledit -c "Add SMBIOS:SerialNumber string ${SerialNumber}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   fi
 
@@ -166,6 +167,10 @@ function backupEFI() {
 
   if [[ ! -z "${CustomUUID}" ]]; then
     $pledit -c "Add SystemParameters:CustomUUID string ${CustomUUID}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ ! -z "${InjectSystemID}" ]]; then
+    $pledit -c "Add SystemParameters:InjectSystemID boolean ${InjectSystemID}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
@@ -234,13 +239,13 @@ function editEFI() {
     ;;
 
     2)
-    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/USBPorts.kext"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/USBPorts-USBBT.kext" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/"
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-USBBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     3)
-    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/USBPorts.kext"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/USBPorts-SolderBT.kext" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/"
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-SolderBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     *)
