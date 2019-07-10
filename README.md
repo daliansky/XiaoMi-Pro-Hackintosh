@@ -26,6 +26,9 @@ Hackintosh your XiaoMi Notebook Pro
   - Have used `disable-external-gpu` to disable it in order to save power
 - Fingerprint sensor
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
+- HDMI
+  - Can not boot when an external monitor is connected
+  - Need reopen the lid to let the internal screen work, need help here
 - Intel Bluetooth only works after warm restart from Windows
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265)
@@ -88,7 +91,7 @@ You need to rebuild the kext cache after every system update. Use `Kext Utility.
 
 ### I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
 
-Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix-64.efi` in `/CLOVER/drivers64UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
+Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix.efi` in `/CLOVER/drivers/UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
 
 Also make sure `Sandbox` function in Windows 10 is disabled.
 

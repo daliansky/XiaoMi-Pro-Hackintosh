@@ -26,6 +26,9 @@
   - 使用了 `disable-external-gpu` 来禁用它以节省电量
 - 指纹传感器
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
+- HDMI
+  - 开机时不能连接外接显示器
+  - 需要合盖再开盖让内屏工作，需要帮助
 - 英特尔蓝牙只有在从Windows热重启后有效
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡
@@ -88,7 +91,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ### 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
 
-很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers64UEFI/` 里的 `AptioMemoryFix-64.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
+很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
 
 同时确保 `沙盒`(Sandbox) 功能关闭。
 
