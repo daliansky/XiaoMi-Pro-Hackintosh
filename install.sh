@@ -1,7 +1,13 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# Created by stevezhengshiqi on 9 Jun, 2019, based on Rehabman and black-dragon74's work.
+# Created by stevezhengshiqi on 9 Jun, 2019
+# Reference:
+# https://github.com/black-dragon74/OSX-Debug/blob/master/gen_debug.sh by black-dragon74
+# https://github.com/RehabMan/hack-tools/blob/master/mount_efi.sh by Rehabman
+# https://github.com/syscl/Fix-usb-sleep/blob/master/fixUSB.sh by syscl
+# https://github.com/xzhih/one-key-hidpi/blob/master/hidpi.sh by xzhih
+
 # Only support Xiaomi NoteBook Pro.
 
 # Display style setting
@@ -14,6 +20,7 @@ OFF="\033[m"
 # Exit in case of network failure
 function networkWarn() {
   echo -e "[ ${RED}ERROR${OFF} ]: Fail to download resources from ${repoURL}, please check your connection!"
+  clean
   exit 1
 }
 
@@ -49,7 +56,7 @@ function checkSystemIntegrity() {
 
   # check total line number of kextcache_log.txt
   local KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
-  if [ ${KEXT_LIST} != 1 ]; then
+  if [ ${KEXT_LIST} -lt 1 ]; then
     # if larger than one, means that native kexts may be modified, or unknown kexts are installed in /L/E or /S/L/E
     echo -e "[ ${BOLD}WARNING${OFF} ]: Your system has kext(s) with invalid signature, which may cause serious trouble!"
     echo "Please backup EFI folder to an external device before updating EFI"
@@ -66,13 +73,13 @@ function mountEFI() {
 
   # check whether EFI partition exists
   if [[ -z "${EFI_ADR}" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect EFI partition, this script will end.
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect EFI partition, return to the main menu
+    main
 
   # check whether EFI/CLOVER exists
   elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: CLOVER folder undetected, this script will end.
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: CLOVER folder undetected, return to the main menu
+    main
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Mounted EFI at ${EFI_ADR} (credits RehabMan)"
@@ -93,7 +100,7 @@ function getGitHubLatestRelease() {
   if [[ -z "${ver}" ]]; then
     echo
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to retrieve latest release from ${repoURL}."
-    exit 1
+    main
   fi
 }
 
@@ -118,7 +125,7 @@ function downloadEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]Download complete"
 }
 
-# Backup Serial Numbers, BOOT and CLOVER folder
+# Backup DefaultVolume, Timeout, Serial Numbers, theme, BOOT and CLOVER folder
 function backupEFI() {
   mountEFI
 
@@ -136,13 +143,24 @@ function backupEFI() {
   echo
   echo "Copying serial numbers to new CLOVER..."
   local pledit=/usr/libexec/PlistBuddy
+  local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
   local BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
   local ROM="$($pledit -c 'Print RtVariables:ROM' ${BACKUP_DIR}/CLOVER/config.plist)"
   local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local CustomUUID="$($pledit -c 'Print :SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local InjectSystemID="$($pledit -c 'Print :SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
+
+  # check whether DefaultVolume and Timeout exist, copy if yes
+  if [[ ! -z "${DefaultVolume}" ]]; then
+    $pledit -c "Set Boot:DefaultVolume ${DefaultVolume}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ ! -z "${Timeout}" ]]; then
+    $pledit -c "Set Boot:Timeout ${Timeout}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
 
   # check whether serial numbers exist, copy if yes
   if [[ ! -z "${SerialNumber}" ]]; then
@@ -176,6 +194,31 @@ function backupEFI() {
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
+
+  echo
+  echo "Copying theme to new CLOVER..."
+
+  rm -rf "XiaoMi_Pro-${ver}/EFI/CLOVER/themes"
+  cp -rf "${BACKUP_DIR}/CLOVER/themes" "XiaoMi_Pro-${ver}/EFI/CLOVER/"
+
+  # create a config.plist with only GUI directory inside
+  # TODO: use a more efficient way to copy GUI directory
+  cp -r "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
+  $pledit -c "Delete ACPI" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete Boot" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete CPU" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete Devices" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete Graphics" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete KernelAndKextPatches" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete RtVariables" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete SMBIOS" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete SystemParameters" ${WORK_DIR}/GUI.plist
+
+  # merge GUI.plist to config.plist to save theme settings
+  $pledit -c "Delete GUI" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  $pledit -c "Merge GUI.plist" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+
+  echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
 }
 
 # Compare new and old CLOVER folders
@@ -205,15 +248,16 @@ function compareEFI() {
     ;;
 
     n)
-    exit 0
+    unmountEFI
+    main
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, closing the script"
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, return to the main menu"
+    unmountEFI
+    main
     ;;
   esac
-
 
 }
 
@@ -251,8 +295,9 @@ function editEFI() {
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, closing the script"
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, return to the main menu"
+    unmountEFI
+    main
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]Change complete"
@@ -305,6 +350,7 @@ function changeBT() {
 
     echo
     echo "If you are using Broadcom USB BT, you may need to download & install kexts from https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads"
+    unmountEFI
     ;;
 
     3)
@@ -317,16 +363,16 @@ function changeBT() {
     curl --silent -O "${repoURL}" || networkWarn
 
     cp -rf "SSDT-USB-SolderBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+    unmountEFI
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, closing the script"
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, return to the main menu"
+    unmountEFI
+    main
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]Change complete"
-
-  unmountEFI
 }
 
 function fixWindows() {
@@ -434,6 +480,10 @@ function main() {
     echo "Wish you have a good day! Bye"
     exit 0
     ;;
+
+    *)
+    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, return to the main menu"
+    main
 
   esac
 }
