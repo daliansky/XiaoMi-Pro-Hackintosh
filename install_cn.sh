@@ -1,7 +1,13 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# stevezhengshiqi创建于9 Jun, 2019, 基于 Rehabman 和 black-dragon74 的脚本.
+# stevezhengshiqi创建于2019年6月9日
+# 鸣谢:
+# https://github.com/black-dragon74/OSX-Debug/blob/master/gen_debug.sh by black-dragon74
+# https://github.com/RehabMan/hack-tools/blob/master/mount_efi.sh by Rehabman
+# https://github.com/syscl/Fix-usb-sleep/blob/master/fixUSB.sh by syscl
+# https://github.com/xzhih/one-key-hidpi/blob/master/hidpi.sh by xzhih
+
 # 仅支持小米笔记本Pro.
 
 # 输出样式设置
@@ -14,6 +20,7 @@ OFF="\033[m"
 # 退出如果网络异常
 function networkWarn() {
   echo -e "[ ${RED}ERROR${OFF} ]: 从${repoURL}下载资源失败, 请检查您的网络连接!"
+  clean
   exit 1
 }
 
@@ -49,7 +56,7 @@ function checkSystemIntegrity() {
 
   # 检查kextcache_log.txt的总行数
   local KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
-  if [ ${KEXT_LIST} != 1 ]; then
+  if [ ${KEXT_LIST} -lt 1 ]; then
     # 如果总行数大于1, 说明原生驱动被修改, 或者未知的驱动装进了/L/E 或 /S/L/E
     echo -e "[ ${BOLD}WARNING${OFF} ]: 您的系统含有未签名的驱动扩展, 可能会导致严重的问题!"
     echo "升级EFI前请把EFI备份到外置磁盘"
@@ -66,13 +73,13 @@ function mountEFI() {
 
   # 检查EFI分区是否存在
   if [[ -z "${EFI_ADR}" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区, 此脚本将退出.
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区, 回到主菜单
+    main
 
   # 检查EFI/CLOVER是否存在
   elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹, 此脚本将退出.
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹, 回到主菜单
+    main
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]EFI分区已挂载到${EFI_ADR} (credits RehabMan)"
@@ -93,7 +100,7 @@ function getGitHubLatestRelease() {
   if [[ -z "${ver}" ]]; then
     echo
     echo -e "[ ${RED}ERROR${OFF} ]: 从${repoURL}获取最新release失败."
-    exit 1
+    main
   fi
 }
 
@@ -118,7 +125,7 @@ function downloadEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]下载完成"
 }
 
-# 备份序列号, BOOT 和 CLOVER 文件夹
+# 备份序列号, 主题, BOOT 和 CLOVER 文件夹
 function backupEFI() {
   mountEFI
 
@@ -136,13 +143,26 @@ function backupEFI() {
   echo
   echo "正在拷贝序列号到新CLOVER文件夹..."
   local pledit=/usr/libexec/PlistBuddy
+  local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
   local BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
   local ROM="$($pledit -c 'Print RtVariables:ROM' ${BACKUP_DIR}/CLOVER/config.plist)"
   local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local CustomUUID="$($pledit -c 'Print :SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local InjectSystemID="$($pledit -c 'Print :SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
+
+  $pledit -c "Set Boot:Timeout ${Timeout}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+
+  # 检查默认启动宗卷和倒计时是否存在，如果存在则拷贝
+  if [[ ! -z "${DefaultVolume}" ]]; then
+    $pledit -c "Set Boot:DefaultVolume ${DefaultVolume}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ ! -z "${Timeout}" ]]; then
+    $pledit -c "Set Boot:Timeout ${Timeout}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
 
   # 检查序列号是否存在，如果存在则拷贝
   if [[ ! -z "${SerialNumber}" ]]; then
@@ -176,6 +196,31 @@ function backupEFI() {
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]拷贝完成"
+
+  echo
+  echo "正在拷贝主题到新CLOVER文件夹..."
+
+  rm -rf "XiaoMi_Pro-${ver}/EFI/CLOVER/themes"
+  cp -rf "${BACKUP_DIR}/CLOVER/themes" "XiaoMi_Pro-${ver}/EFI/CLOVER/"
+
+  # 创建一个只含有GUI目录的config.plist
+  # TODO: 用更有效的方式去保留原config.plist的GUI目录
+  cp -r "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
+  $pledit -c "Delete ACPI" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete Boot" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete CPU" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete Devices" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete Graphics" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete KernelAndKextPatches" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete RtVariables" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete SMBIOS" ${WORK_DIR}/GUI.plist
+  $pledit -c "Delete SystemParameters" ${WORK_DIR}/GUI.plist
+
+  # 合并GUI.plist到config.plist来保存主题设置
+  $pledit -c "Delete GUI" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  $pledit -c "Merge GUI.plist" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+
+  echo -e "[ ${GREEN}OK${OFF} ]拷贝完成"
 }
 
 # 比较新旧CLOVER文件夹
@@ -205,15 +250,16 @@ function compareEFI() {
     ;;
 
     n)
-    exit 0
+    unmountEFI
+    main
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 脚本将退出"
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    unmountEFI
+    main
     ;;
   esac
-
 
 }
 
@@ -251,8 +297,9 @@ function editEFI() {
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 脚本将退出"
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    unmountEFI
+    main
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
@@ -305,6 +352,7 @@ function changeBT() {
 
     echo
     echo "如果您使用的是博通USB蓝牙，您可能需要下载安装https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads 里的驱动"
+    unmountEFI
     ;;
 
     3)
@@ -317,16 +365,16 @@ function changeBT() {
     curl --silent -O "${repoURL}" || networkWarn
 
     cp -rf "SSDT-USB-SolderBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+    unmountEFI
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 脚本将退出"
-    exit 1
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    unmountEFI
+    main
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
-
-  unmountEFI
 }
 
 function fixWindows() {
@@ -434,6 +482,10 @@ function main() {
     echo "祝您有开心的一天! 再见"
     exit 0
     ;;
+
+    *)
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    main
 
   esac
 }
