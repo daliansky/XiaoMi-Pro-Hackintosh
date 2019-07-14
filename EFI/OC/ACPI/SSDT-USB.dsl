@@ -1,6 +1,6 @@
 // Necessary hotpatch
 // Maintained by: stevezhengshiqi
-// Reference: https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311 by Rehabman
+// Reference: https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311 and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
 // USB power injection and patch USB ports, pair with USBInjectAll.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
@@ -57,7 +57,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                 "ports", 
                 Package (0x14)
                 {
-                    "HS01", 
+                    "HS01", // HS USB3 near right
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -69,7 +69,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "HS03", 
+                    "HS03", // HS USB3 near left
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -81,7 +81,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "HS04", 
+                    "HS04", // HS USB3 far right
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -93,7 +93,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "HS05", 
+                    "HS05", // bluetooth
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -105,7 +105,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "HS06", 
+                    "HS06", // camera
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -117,7 +117,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "HS09", 
+                    "HS09", // HS USB3 far left
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -129,7 +129,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "SS01", 
+                    "SS01", // SS USB3 near right
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -141,7 +141,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "SS02", 
+                    "SS02", // SS USB3 near left
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -153,7 +153,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "SS03", 
+                    "SS03", // SS USB3 far left
                     Package (0x04)
                     {
                         "UsbConnector", 
@@ -165,7 +165,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
-                    "SS04", 
+                    "SS04", // SS USB3 far right
                     Package (0x04)
                     {
                         "UsbConnector", 

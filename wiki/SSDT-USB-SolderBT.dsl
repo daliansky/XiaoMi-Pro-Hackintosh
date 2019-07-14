@@ -8,6 +8,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
     Device (_SB.USBX)
     {
         Name (_ADR, Zero)  // _ADR: Address
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
+
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
             If (!Arg2)
@@ -57,6 +69,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
+                    "HS02", // WLAN_LTE
+                    Package (0x04)
+                    {
+                        "UsbConnector", 
+                        0xFF, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x02, 0x00, 0x00, 0x00                           // ....
+                        }
+                    }, 
+
                     "HS03", // HS USB3 near left
                     Package (0x04)
                     {
@@ -78,18 +102,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         Buffer (0x04)
                         {
                              0x04, 0x00, 0x00, 0x00                           // ....
-                        }
-                    }, 
-
-                    "HS05", // bluetooth
-                    Package (0x04)
-                    {
-                        "UsbConnector", 
-                        0xFF, 
-                        "port", 
-                        Buffer (0x04)
-                        {
-                             0x05, 0x00, 0x00, 0x00                           // ....
                         }
                     }, 
 
@@ -167,6 +179,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                 }
             }
         })
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
     }
 }
 
