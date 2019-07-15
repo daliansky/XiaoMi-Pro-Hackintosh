@@ -201,32 +201,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Rename HPET._STA to XSTA, pair with SSDT-HPET.aml</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1NUQQCgCEg=</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>WFNUQQCgCEg=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>RFNEVA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Rename MATH._STA and LDR2._STA to XSTA</string>
 				<key>Count</key>
 				<integer>0</integer>

@@ -12,12 +12,12 @@ Hackintosh your XiaoMi Notebook Pro
 | Computer model      | Xiaomi NoteBook Pro 15.6''(MX150/GTX)      |
 | Processor           | Intel Core i5-8250U/i7-8550U Processor     |
 | Memory              | 8GB/16GB Samsung DDR4 2400MHz              |
-| Hard Disk           | Samsung NVMe SSD Controller PM961 256GB    |
+| Hard Disk           | Samsung NVMe SSD Controller PM961/PM981    |
 | Integrated Graphics | Intel UHD Graphics 620                     |
 | Monitor             | BOE NV156FHM-N61 FHD 1920x1080 (15.6 inch) |
 | Sound Card          | Realtek ALC298 (layout-id:30/99)           |
 | Wireless Card       | Intel Wireless 8265                        |
-| SD Card Reader      | Realtek RTS5129                            |
+| SD Card Reader      | Realtek RTS5129/RTS5250S                   |
 
 
 ## What's not Working in Clover
@@ -52,9 +52,9 @@ These not working items do not represent `OpenCore` bootloader is weaker than `C
 ## What can work better
 
 - Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
-- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT 64mb and unlock CFG
+- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64MB and unlock CFG
 - Use [one-key-hidpi](one-key-hidpi) to improve quality of system UI
-- Use [one-key-cpufriend](one-key-cpufriend) to improve CPU efficiency
+- Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management
 
 
 ## Installation
