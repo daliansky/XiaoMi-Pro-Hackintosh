@@ -28,7 +28,6 @@
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - HDMI
   - 开机时不能连接外接显示器
-  - 需要合盖再开盖让内屏工作，需要帮助
 - 英特尔蓝牙只有在从Windows热重启后有效
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡

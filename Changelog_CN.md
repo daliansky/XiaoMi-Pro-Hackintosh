@@ -285,3 +285,10 @@
     * 放回 `HibernationFixup`
     * 新增 `enable-hdmi-dividers-fix` 来更好地支持HDMI
     * 支持macOS10.15
+
+
+* 7-XX-2019
+
+    * 更新 `WhateverGreen` 来改善HDMI
+    * 更新 `SSDT-TPD0`
+    * 新增 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS`，搭配 `SSDT-TPD0`
