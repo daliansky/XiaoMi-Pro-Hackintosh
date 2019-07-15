@@ -28,7 +28,6 @@ Hackintosh your XiaoMi Notebook Pro
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
 - HDMI
   - Can not boot when an external monitor is connected
-  - Need reopen the lid to let the internal screen work, need help here
 - Intel Bluetooth only works after warm restart from Windows
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265)

@@ -285,3 +285,10 @@
     - Add back `HibernationFixup`
     - Add `enable-hdmi-dividers-fix` properties for HDMI
     - Support macOS10.15
+
+
+- 7-XX-2019
+
+    - Update `WhateverGreen` to improve HDMI
+    - Update `SSDT-TPD0`
+    - Add `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS`, pair with `SSDT-TPD0`
