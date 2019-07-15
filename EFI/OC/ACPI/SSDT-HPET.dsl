@@ -1,6 +1,6 @@
 // NOT Necessary hotpatch
 // Maintained by: stevezhengshiqi
-// Disable HPET device by giving value 0 to _STA
+// Disable HPET device by giving value 0 to HPTE
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)
 {
@@ -9,19 +9,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)
 
     Scope (_SB.PCI0.LPCB.HPET)
     {
-        Method (_STA, 0, NotSerialized)  // _STA: Status
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             If (_OSI ("Darwin"))
             {
-                Return (Zero)
-            }
-            ElseIf (HPTE)
-            {
-                Return (0x0F)
-            }
-            Else
-            {
-                Return (Zero)
+                HPTE = Zero
             }
         }
     }
