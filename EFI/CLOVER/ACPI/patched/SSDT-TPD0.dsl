@@ -1,6 +1,6 @@
 // Necessary hotpatch
 // Maintained by: stevezhengshiqi
-// Rewrite TPD0._INI and TPD0._CRS method to enable trackpad interrupt mode, pair with `Rename TPD0._INI to XINI` and `Rename TPD0._CRS to XCRS` 
+// Rewrite TPD0._INI and TPD0._CRS method to enable trackpad interrupt mode, pair with `Rename TPD0._INI to XINI` and `Rename TPD0._CRS to XCRS`
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
 {
@@ -14,9 +14,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
     External (_SB_.PCI0.I2C0.TPD0.SBFB, UnknownObj)
     External (_SB_.PCI0.I2C0.TPD0.SBFG, UnknownObj)
     External (_SB_.SHPO, MethodObj)    // 2 Arguments
-    External (GPDI, UnknownObj)
-    External (SDM0, UnknownObj)
-    External (SDS0, UnknownObj)
+    External (GPDI, FieldUnitObj)
+    External (SDM0, FieldUnitObj)
+    External (SDS0, FieldUnitObj)
 
     Scope (_SB.PCI0.I2C0.TPD0)
     {
