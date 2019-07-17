@@ -287,8 +287,10 @@
     - Support macOS10.15
 
 
-- 7-XX-2019
+- 7-17-2019
 
+    - Update `Clover` r5018
     - Update `WhateverGreen` to improve HDMI
+    - Update `SSDT-LGPA`
     - Update `SSDT-TPD0`
     - Add `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS`, pair with `SSDT-TPD0`

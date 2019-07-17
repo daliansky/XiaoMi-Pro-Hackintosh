@@ -287,8 +287,10 @@
     * 支持macOS10.15
 
 
-* 7-XX-2019
+* 7-17-2019
 
+    * 更新 `Clover` r5018
     * 更新 `WhateverGreen` 来改善HDMI
+    * 更新 `SSDT-LGPA`
     * 更新 `SSDT-TPD0`
     * 新增 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS`，搭配 `SSDT-TPD0`
