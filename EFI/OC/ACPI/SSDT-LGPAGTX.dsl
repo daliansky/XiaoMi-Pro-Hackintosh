@@ -11,92 +11,72 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.ACTL, FieldUnitObj)
     External (_SB_.PCI0.LPCB.BSLF, IntObj)
-    External (_SB_.PCI0.LPCB.CCI0, UnknownObj)
-    External (_SB_.PCI0.LPCB.CCI1, UnknownObj)
-    External (_SB_.PCI0.LPCB.CCI2, UnknownObj)
-    External (_SB_.PCI0.LPCB.CCI3, UnknownObj)
+    External (_SB_.PCI0.LPCB.CCI0, IntObj)
+    External (_SB_.PCI0.LPCB.CCI1, IntObj)
+    External (_SB_.PCI0.LPCB.CCI2, IntObj)
+    External (_SB_.PCI0.LPCB.CCI3, IntObj)
     External (_SB_.PCI0.LPCB.DCTL, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC92, FieldUnitObj)
     External (_SB_.PCI0.LPCB.HIDD.HPEM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.LID0, DeviceObj)
     External (_SB_.PCI0.LPCB.MDCS, FieldUnitObj)
-    External (_SB_.PCI0.LPCB.MGI0, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI1, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI2, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI3, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI4, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI5, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI6, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI7, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI8, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGI9, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGIA, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGIB, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGIC, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGID, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGIE, UnknownObj)
-    External (_SB_.PCI0.LPCB.MGIF, UnknownObj)
+    External (_SB_.PCI0.LPCB.MGI0, IntObj)
+    External (_SB_.PCI0.LPCB.MGI1, IntObj)
+    External (_SB_.PCI0.LPCB.MGI2, IntObj)
+    External (_SB_.PCI0.LPCB.MGI3, IntObj)
+    External (_SB_.PCI0.LPCB.MGI4, IntObj)
+    External (_SB_.PCI0.LPCB.MGI5, IntObj)
+    External (_SB_.PCI0.LPCB.MGI6, IntObj)
+    External (_SB_.PCI0.LPCB.MGI7, IntObj)
+    External (_SB_.PCI0.LPCB.MGI8, IntObj)
+    External (_SB_.PCI0.LPCB.MGI9, IntObj)
+    External (_SB_.PCI0.LPCB.MGIA, IntObj)
+    External (_SB_.PCI0.LPCB.MGIB, IntObj)
+    External (_SB_.PCI0.LPCB.MGIC, IntObj)
+    External (_SB_.PCI0.LPCB.MGID, IntObj)
+    External (_SB_.PCI0.LPCB.MGIE, IntObj)
+    External (_SB_.PCI0.LPCB.MGIF, IntObj)
     External (_SB_.PCI0.LPCB.OCPF, FieldUnitObj)
     External (_SB_.PCI0.LPCB.OSMI, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.PS2K, DeviceObj)
     External (_SB_.PCI0.LPCB.PWCG, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.VGBI, DeviceObj)
-    External (_SB_.PCI0.LPCB.VGBI.VBTN, UnknownObj)
+    External (_SB_.PCI0.LPCB.VGBI.VBTN, IntObj)
     External (_SB_.PCI0.RP01.PXSX, DeviceObj)
     External (_SB_.PCI0.WMIE, DeviceObj)
-    External (_SB_.PCI0.WMIE.EVT5, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVT6, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVT7, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVT8, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVT9, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVTA, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVTB, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVTC, UnknownObj)
-    External (_SB_.PCI0.WMIE.EVTD, UnknownObj)
+    External (_SB_.PCI0.WMIE.EVT5, IntObj)
+    External (_SB_.PCI0.WMIE.EVT6, IntObj)
+    External (_SB_.PCI0.WMIE.EVT7, IntObj)
+    External (_SB_.PCI0.WMIE.EVT8, IntObj)
+    External (_SB_.PCI0.WMIE.EVT9, IntObj)
+    External (_SB_.PCI0.WMIE.EVTA, IntObj)
+    External (_SB_.PCI0.WMIE.EVTB, IntObj)
+    External (_SB_.PCI0.WMIE.EVTC, IntObj)
+    External (_SB_.PCI0.WMIE.EVTD, IntObj)
     External (_SB_.STXD, MethodObj)    // 2 Arguments
-    External (_SB_.UBTC, UnknownObj)
-    External (_SB_.UBTC.CCI0, UnknownObj)
-    External (_SB_.UBTC.CCI1, UnknownObj)
-    External (_SB_.UBTC.CCI2, UnknownObj)
-    External (_SB_.UBTC.CCI3, UnknownObj)
-    External (_SB_.UBTC.MGI0, UnknownObj)
-    External (_SB_.UBTC.MGI1, UnknownObj)
-    External (_SB_.UBTC.MGI2, UnknownObj)
-    External (_SB_.UBTC.MGI3, UnknownObj)
-    External (_SB_.UBTC.MGI4, UnknownObj)
-    External (_SB_.UBTC.MGI5, UnknownObj)
-    External (_SB_.UBTC.MGI6, UnknownObj)
-    External (_SB_.UBTC.MGI7, UnknownObj)
-    External (_SB_.UBTC.MGI8, UnknownObj)
-    External (_SB_.UBTC.MGI9, UnknownObj)
-    External (_SB_.UBTC.MGIA, UnknownObj)
-    External (_SB_.UBTC.MGIB, UnknownObj)
-    External (_SB_.UBTC.MGIC, UnknownObj)
-    External (_SB_.UBTC.MGID, UnknownObj)
-    External (_SB_.UBTC.MGIE, UnknownObj)
-    External (_SB_.UBTC.MGIF, UnknownObj)
+    External (_SB_.UBTC, DeviceObj)
+    External (_SB_.UBTC.CCI0, FieldUnitObj)
+    External (_SB_.UBTC.CCI1, FieldUnitObj)
+    External (_SB_.UBTC.CCI2, FieldUnitObj)
+    External (_SB_.UBTC.CCI3, FieldUnitObj)
+    External (_SB_.UBTC.MGI0, FieldUnitObj)
+    External (_SB_.UBTC.MGI1, FieldUnitObj)
+    External (_SB_.UBTC.MGI2, FieldUnitObj)
+    External (_SB_.UBTC.MGI3, FieldUnitObj)
+    External (_SB_.UBTC.MGI4, FieldUnitObj)
+    External (_SB_.UBTC.MGI5, FieldUnitObj)
+    External (_SB_.UBTC.MGI6, FieldUnitObj)
+    External (_SB_.UBTC.MGI7, FieldUnitObj)
+    External (_SB_.UBTC.MGI8, FieldUnitObj)
+    External (_SB_.UBTC.MGI9, FieldUnitObj)
+    External (_SB_.UBTC.MGIA, FieldUnitObj)
+    External (_SB_.UBTC.MGIB, FieldUnitObj)
+    External (_SB_.UBTC.MGIC, FieldUnitObj)
+    External (_SB_.UBTC.MGID, FieldUnitObj)
+    External (_SB_.UBTC.MGIE, FieldUnitObj)
+    External (_SB_.UBTC.MGIF, FieldUnitObj)
     External (BSLF, UnknownObj)
-    External (CCI0, IntObj)
-    External (CCI1, IntObj)
-    External (CCI2, IntObj)
-    External (CCI3, IntObj)
     External (GPDI, FieldUnitObj)
-    External (MGI0, IntObj)
-    External (MGI1, IntObj)
-    External (MGI2, IntObj)
-    External (MGI3, IntObj)
-    External (MGI4, IntObj)
-    External (MGI5, IntObj)
-    External (MGI6, IntObj)
-    External (MGI7, IntObj)
-    External (MGI8, IntObj)
-    External (MGI9, IntObj)
-    External (MGIA, IntObj)
-    External (MGIB, IntObj)
-    External (MGIC, IntObj)
-    External (MGID, IntObj)
-    External (MGIE, IntObj)
-    External (MGIF, IntObj)
     External (OG00, FieldUnitObj)
     External (PNOT, MethodObj)    // 0 Arguments
     External (SEN1, DeviceObj)
@@ -153,7 +133,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                     {
                         Notify (^^GFX0.DD1F, 0x87) // Device-Specific
                     }
-                    
+
                     OG00 = Zero
                 }
                 Case (0x04)
@@ -167,7 +147,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                     {
                         Notify (^^GFX0.DD1F, 0x86) // Device-Specific
                     }
-                    
+
                     OG00 = Zero
                 }
                 Case (0x05)
@@ -476,26 +456,26 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                 }
                 Case (0x12)
                 {
-                    ^^^UBTC.MGI0 = MGI0 /* External reference */
-                    ^^^UBTC.MGI1 = MGI1 /* External reference */
-                    ^^^UBTC.MGI2 = MGI2 /* External reference */
-                    ^^^UBTC.MGI3 = MGI3 /* External reference */
-                    ^^^UBTC.MGI4 = MGI4 /* External reference */
-                    ^^^UBTC.MGI5 = MGI5 /* External reference */
-                    ^^^UBTC.MGI6 = MGI6 /* External reference */
-                    ^^^UBTC.MGI7 = MGI7 /* External reference */
-                    ^^^UBTC.MGI8 = MGI8 /* External reference */
-                    ^^^UBTC.MGI9 = MGI9 /* External reference */
-                    ^^^UBTC.MGIA = MGIA /* External reference */
-                    ^^^UBTC.MGIB = MGIB /* External reference */
-                    ^^^UBTC.MGIC = MGIC /* External reference */
-                    ^^^UBTC.MGID = MGID /* External reference */
-                    ^^^UBTC.MGIE = MGIE /* External reference */
-                    ^^^UBTC.MGIF = MGIF /* External reference */
-                    ^^^UBTC.CCI0 = CCI0 /* External reference */
-                    ^^^UBTC.CCI1 = CCI1 /* External reference */
-                    ^^^UBTC.CCI2 = CCI2 /* External reference */
-                    ^^^UBTC.CCI3 = CCI3 /* External reference */
+                    ^^^UBTC.MGI0 = \_SB.PCI0.LPCB.MGI0 /* External reference */
+                    ^^^UBTC.MGI1 = \_SB.PCI0.LPCB.MGI1 /* External reference */
+                    ^^^UBTC.MGI2 = \_SB.PCI0.LPCB.MGI2 /* External reference */
+                    ^^^UBTC.MGI3 = \_SB.PCI0.LPCB.MGI3 /* External reference */
+                    ^^^UBTC.MGI4 = \_SB.PCI0.LPCB.MGI4 /* External reference */
+                    ^^^UBTC.MGI5 = \_SB.PCI0.LPCB.MGI5 /* External reference */
+                    ^^^UBTC.MGI6 = \_SB.PCI0.LPCB.MGI6 /* External reference */
+                    ^^^UBTC.MGI7 = \_SB.PCI0.LPCB.MGI7 /* External reference */
+                    ^^^UBTC.MGI8 = \_SB.PCI0.LPCB.MGI8 /* External reference */
+                    ^^^UBTC.MGI9 = \_SB.PCI0.LPCB.MGI9 /* External reference */
+                    ^^^UBTC.MGIA = \_SB.PCI0.LPCB.MGIA /* External reference */
+                    ^^^UBTC.MGIB = \_SB.PCI0.LPCB.MGIB /* External reference */
+                    ^^^UBTC.MGIC = \_SB.PCI0.LPCB.MGIC /* External reference */
+                    ^^^UBTC.MGID = \_SB.PCI0.LPCB.MGID /* External reference */
+                    ^^^UBTC.MGIE = \_SB.PCI0.LPCB.MGIE /* External reference */
+                    ^^^UBTC.MGIF = \_SB.PCI0.LPCB.MGIF /* External reference */
+                    ^^^UBTC.CCI0 = \_SB.PCI0.LPCB.CCI0 /* External reference */
+                    ^^^UBTC.CCI1 = \_SB.PCI0.LPCB.CCI1 /* External reference */
+                    ^^^UBTC.CCI2 = \_SB.PCI0.LPCB.CCI2 /* External reference */
+                    ^^^UBTC.CCI3 = \_SB.PCI0.LPCB.CCI3 /* External reference */
                     Notify (UBTC, 0x80) // Status Change
                 }
                 Case (0x13)

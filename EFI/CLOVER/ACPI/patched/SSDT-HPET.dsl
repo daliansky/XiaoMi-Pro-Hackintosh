@@ -5,7 +5,7 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)
 {
     External (_SB_.PCI0.LPCB.HPET, DeviceObj)
-    External (HPTE, UnknownObj)
+    External (HPTE, FieldUnitObj)
 
     Scope (_SB.PCI0.LPCB.HPET)
     {

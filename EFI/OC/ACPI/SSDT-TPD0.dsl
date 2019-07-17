@@ -16,18 +16,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
     External (_SB_.PCI0.I2C0.TPD0.SBFI, UnknownObj)
     External (_SB_.SHPO, MethodObj)    // 2 Arguments
     External (_SB_.SRXO, MethodObj)    // 2 Arguments
-    External (GPDI, UnknownObj)
-    External (OSYS, MethodObj)    // 0 Arguments
+    External (GPDI, FieldUnitObj)
+    External (OSYS, FieldUnitObj)
     External (SBFI, IntObj)
-    External (SDM0, UnknownObj)
-    External (SDS0, UnknownObj)
+    External (SDM0, FieldUnitObj)
+    External (SDS0, FieldUnitObj)
 
     Scope (_SB.PCI0.I2C0.TPD0)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             If (_OSI ("Darwin")){}
-            ElseIf ((OSYS () < 0x07DC))
+            ElseIf ((OSYS < 0x07DC))
             {
                 SRXO (GPDI, One)
             }
@@ -64,7 +64,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
                 Return (ConcatenateResTemplate (SBFB, SBFG))
             }
 
-            If ((OSYS () < 0x07DC))
+            If ((OSYS < 0x07DC))
             {
                 Return (SBFI) /* External reference */
             }
