@@ -56,7 +56,25 @@ function checkSystemIntegrity() {
 
   # 检查kextcache_log.txt的总行数
   local KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
-  if [ ${KEXT_LIST} -lt 1 ]; then
+  # 检查苹果原生驱动是否被修改
+  local APPLE_KEXT=$(grep 'com.apple' kextcache_log.txt)
+  # 检查S/L/E和L/E的FakeSMC
+  local FakeSMC=$(grep 'FakeSMC' kextcache_log.txt)
+  # 检查S/L/E和L/E的VirtualSMC
+  local VirtualSMC=$(grep 'VirtualSMC' kextcache_log.txt)
+
+  if [[ ! -z ${APPLE_KEXT} ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]:苹果原生驱动被修改, 请确保S/L/E和L/E目录里的驱动未被修改!"
+    clean
+    exit 1
+  elif [[ ! -z ${FakeSMC} ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]:在系统分区里检测到FakeSMC, CLOVER目录里的驱动将不工作!"
+    clean
+    exit 1
+  elif [[ ! -z ${VirtualSMC} ]]; then
+    echo -e "[ ${BOLD}WARNING${OFF} ]:在系统分区里检测到VirtualSMC, CLOVER目录里的驱动可能不工作!"
+    echo "升级EFI前请把EFI备份到外置磁盘"
+  elif [ ${KEXT_LIST} -lt 1 ]; then
     # 如果总行数大于1, 说明原生驱动被修改, 或者未知的驱动装进了/L/E 或 /S/L/E
     echo -e "[ ${BOLD}WARNING${OFF} ]: 您的系统含有未签名的驱动扩展, 可能会导致严重的问题!"
     echo "升级EFI前请把EFI备份到外置磁盘"
