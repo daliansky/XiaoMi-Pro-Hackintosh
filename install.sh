@@ -56,8 +56,26 @@ function checkSystemIntegrity() {
 
   # check total line number of kextcache_log.txt
   local KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
-  if [ ${KEXT_LIST} -lt 1 ]; then
-    # if larger than one, means that native kexts may be modified, or unknown kexts are installed in /L/E or /S/L/E
+  # check if apple kexts have been modified
+  local APPLE_KEXT=$(grep 'com.apple' kextcache_log.txt)
+  # check FakeSMC in S/L/E and L/E
+  local FakeSMC=$(grep 'FakeSMC' kextcache_log.txt)
+  # check VirtualSMC in S/L/E and L/E
+  local VirtualSMC=$(grep 'VirtualSMC' kextcache_log.txt)
+
+  if [[ ! -z ${APPLE_KEXT} ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]:Native apple kexts have been modified, please keep S/L/E and L/E untouched!"
+    clean
+    exit 1
+  elif [[ ! -z ${FakeSMC} ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]:Detected FakeSMC in system partition, kexts in CLOVER folder will not work!"
+    clean
+    exit 1
+  elif [[ ! -z ${VirtualSMC} ]]; then
+    echo -e "[ ${BOLD}WARNING${OFF} ]:Detected VirtualSMC in system partition, kexts in CLOVER folder may not work!"
+    echo "Please backup EFI folder to an external device before updating EFI"
+  elif [ ${KEXT_LIST} -lt 1 ]; then
+  # if larger than one, means that native kexts may be modified, or unknown kexts are installed in /L/E or /S/L/E
     echo -e "[ ${BOLD}WARNING${OFF} ]: Your system has kext(s) with invalid signature, which may cause serious trouble!"
     echo "Please backup EFI folder to an external device before updating EFI"
   fi
