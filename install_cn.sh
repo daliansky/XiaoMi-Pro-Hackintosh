@@ -456,16 +456,16 @@ function main() {
   echo
   echo "您的主板型号是 ${MAINBOARD}"
   echo '====================================================================='
-  echo -e "  ${BOLD}(1) 更新EFI${OFF}"
-  echo "  (2) 更改蓝牙模式(仅支持最新release)"
-  echo "  (3) 通用声卡修复"
-  echo "  (4) 添加色彩文件"
-  echo "  (5) 更新变频管理"
-  echo "  (6) 开启HiDPI"
-  echo "  (7) 修复Windows启动(仅支持最新release)"
-  echo "  (8) 修复AppStore"
-  echo "  (9) 反馈问题"
-  echo "  (10) 退出"
+  echo -e "${BOLD}(1) 更新EFI${OFF}"
+  echo "(2) 更改蓝牙模式 (仅支持最新release)"
+  echo "(3) 通用声卡修复"
+  echo "(4) 添加色彩文件"
+  echo "(5) 更新变频管理"
+  echo "(6) 开启HiDPI"
+  echo "(7) 修复Windows启动 (仅支持最新release)"
+  echo "(8) 修复AppStore"
+  echo "(9) 反馈问题"
+  echo "(10) 退出"
   echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
