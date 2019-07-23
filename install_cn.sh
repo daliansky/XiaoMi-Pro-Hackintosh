@@ -91,13 +91,13 @@ function mountEFI() {
 
   # 检查EFI分区是否存在
   if [[ -z "${EFI_ADR}" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区, 回到主菜单
-    main
+    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区"
+    returnMenu
 
   # 检查EFI/CLOVER是否存在
   elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹, 回到主菜单
-    main
+    echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹"
+    returnMenu
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]EFI分区已挂载到${EFI_ADR} (credits RehabMan)"
@@ -117,8 +117,8 @@ function getGitHubLatestRelease() {
 
   if [[ -z "${ver}" ]]; then
     echo
-    echo -e "[ ${RED}ERROR${OFF} ]: 从${repoURL}获取最新release失败."
-    main
+    echo -e "[ ${RED}ERROR${OFF} ]: 从${repoURL}获取最新release失败"
+    returnMenu
   fi
 }
 
@@ -267,13 +267,13 @@ function compareEFI() {
 
     n)
     unmountEFI
-    main
+    returnMenu
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
     unmountEFI
-    main
+    returnMenu
     ;;
   esac
 
@@ -313,9 +313,9 @@ function editEFI() {
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
     unmountEFI
-    main
+    returnMenu
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
@@ -385,9 +385,9 @@ function changeBT() {
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
     unmountEFI
-    main
+    returnMenu
     ;;
   esac
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
@@ -436,6 +436,12 @@ function reportProblem() {
   echo -e "${BOLD}请注明您的型号并完整上传gen_debug.sh生成的错误信息${OFF}"
 }
 
+function returnMenu() {
+  echo
+  read -p "请按任何键返回主菜单..."
+  main
+}
+
 function clean() {
   rm -rf "/Users/`users`/Desktop/EFI_XIAOMI-PRO"
 }
@@ -445,6 +451,8 @@ function main() {
   printf '\e[8;40;90t'
 
   checkMainboard
+
+  clear
 
   # 界面 (参考: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=X%20i%20a%20o%20M%20i%20-%20P%20r%20o)
   echo
@@ -471,47 +479,47 @@ function main() {
   case ${xm_selection} in
     1)
     updateEFI
-    main
+    returnMenu
     ;;
 
     2)
     changeBT
-    main
+    returnMenu
     ;;
 
     3)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/one-key-alcplugfix_cn.sh)"
-    main
+    returnMenu
     ;;
 
     4)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile_cn.sh)"
-    main
+    returnMenu
     ;;
 
     5)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-cpufriend/one-key-cpufriend_cn.sh)"
-    main
+    returnMenu
     ;;
 
     6)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi_cn.sh)"
-    main
+    returnMenu
     ;;
 
     7)
     fixWindows
-    main
+    returnMenu
     ;;
 
     8)
     fixAppStore
-    main
+    returnMenu
     ;;
 
     9)
     reportProblem
-    main
+    returnMenu
     ;;
 
     10)
@@ -522,8 +530,8 @@ function main() {
     ;;
 
     *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误, 回到主菜单"
-    main
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
+    returnMenu
 
   esac
 }
