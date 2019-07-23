@@ -72,11 +72,11 @@ function checkSystemIntegrity() {
     clean
     exit 1
   elif [[ ! -z ${VirtualSMC} ]]; then
-    echo -e "[ ${BOLD}WARNING${OFF} ]:在系统分区里检测到VirtualSMC, CLOVER目录里的驱动可能不工作!"
+    echo -e "[ ${BLUE}WARNING${OFF} ]:在系统分区里检测到VirtualSMC, CLOVER目录里的驱动可能不工作!"
     echo "升级EFI前请把EFI备份到外置磁盘"
   elif [ ${KEXT_LIST} -lt 1 ]; then
-    # 如果总行数大于1, 说明原生驱动被修改, 或者未知的驱动装进了/L/E 或 /S/L/E
-    echo -e "[ ${BOLD}WARNING${OFF} ]: 您的系统含有未签名的驱动扩展, 可能会导致严重的问题!"
+  # 如果总行数大于1, 说明原生驱动被修改, 或者未知的驱动装进了/L/E 或 /S/L/E
+    echo -e "[ ${BLUE}WARNING${OFF} ]: 您的系统含有未签名的驱动扩展, 可能会导致严重的问题!"
     echo "升级EFI前请把EFI备份到外置磁盘"
   fi
 }
@@ -407,6 +407,22 @@ function fixWindows() {
   unmountEFI
 }
 
+function fixAppStore() {
+  echo
+  echo "正在修复AppStore..."
+  echo "如果您正在注册新的苹果账号, 请使用非黑苹果设备来注册"
+
+  # 让以太网在en0端口, 根据 https://www.tonymacx86.com/threads/faq-read-first-laptop-frequent-questions.164990 by Rehabman
+  # 备份NetworkInterfaces.plist到NetworkInterfaces_backup.plist
+  sudo cp -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist /Library/Preferences/SystemConfiguration/NetworkInterfaces_backup.plist
+  # 删除NetworkInterfaces.plist来让系统重新生成
+  sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
+
+  defaults delete com.apple.appstore.commerce Storefront
+  echo "请重启您的设备!"
+  echo -e "[ ${GREEN}OK${OFF} ]修复完成"
+}
+
 # 报告问题并生成错误信息通过使用 gen_debug.sh @black-dragon74
 # 此方法还没有被测试因为它太花时间
 function reportProblem() {
@@ -440,16 +456,17 @@ function main() {
   echo
   echo "您的主板型号是 ${MAINBOARD}"
   echo '====================================================================='
-  echo -e "${BOLD}(1) 更新EFI${OFF}"
-  echo "(2) 更改蓝牙模式(仅支持最新release)"
-  echo "(3) 通用声卡修复"
-  echo "(4) 添加色彩文件"
-  echo "(5) 更新变频管理"
-  echo "(6) 开启HiDPI"
-  echo "(7) 修复Windows启动(仅支持最新release)"
-  echo "(8) 反馈问题"
-  echo "(9) 退出"
-  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9)${OFF}"
+  echo -e "  ${BOLD}(1) 更新EFI${OFF}"
+  echo "  (2) 更改蓝牙模式(仅支持最新release)"
+  echo "  (3) 通用声卡修复"
+  echo "  (4) 添加色彩文件"
+  echo "  (5) 更新变频管理"
+  echo "  (6) 开启HiDPI"
+  echo "  (7) 修复Windows启动(仅支持最新release)"
+  echo "  (8) 修复AppStore"
+  echo "  (9) 反馈问题"
+  echo "  (10) 退出"
+  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
     1)
@@ -488,11 +505,16 @@ function main() {
     ;;
 
     8)
-    reportProblem
+    fixAppStore
     main
     ;;
 
     9)
+    reportProblem
+    main
+    ;;
+
+    10)
     clean
     echo
     echo "祝您有开心的一天! 再见"

@@ -72,11 +72,11 @@ function checkSystemIntegrity() {
     clean
     exit 1
   elif [[ ! -z ${VirtualSMC} ]]; then
-    echo -e "[ ${BOLD}WARNING${OFF} ]:Detected VirtualSMC in system partition, kexts in CLOVER folder may not work!"
+    echo -e "[ ${BLUE}WARNING${OFF} ]:Detected VirtualSMC in system partition, kexts in CLOVER folder may not work!"
     echo "Please backup EFI folder to an external device before updating EFI"
   elif [ ${KEXT_LIST} -lt 1 ]; then
   # if larger than one, means that native kexts may be modified, or unknown kexts are installed in /L/E or /S/L/E
-    echo -e "[ ${BOLD}WARNING${OFF} ]: Your system has kext(s) with invalid signature, which may cause serious trouble!"
+    echo -e "[ ${BLUE}WARNING${OFF} ]: Your system has kext(s) with invalid signature, which may cause serious trouble!"
     echo "Please backup EFI folder to an external device before updating EFI"
   fi
 }
@@ -407,6 +407,22 @@ function fixWindows() {
   unmountEFI
 }
 
+function fixAppStore() {
+  echo
+  echo "Fixing AppStore..."
+  echo "If you are signing up a new Apple account, please use another device but a hackintosh"
+
+  # make Ethernet at en0, according to https://www.tonymacx86.com/threads/faq-read-first-laptop-frequent-questions.164990 by Rehabman
+  # backup NetworkInterfaces.plist to NetworkInterfaces_backup.plist
+  sudo cp -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist /Library/Preferences/SystemConfiguration/NetworkInterfaces_backup.plist
+  # delete NetworkInterfaces.plist and let system to re-generate it
+  sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
+
+  defaults delete com.apple.appstore.commerce Storefront
+  echo "Please restart your device!"
+  echo -e "[ ${GREEN}OK${OFF} ]Fix complete"
+}
+
 # Report problem and generate problem shooting by using gen_debug.sh @black-dragon74
 # This function hasn't been tested yet because it takes time
 function reportProblem() {
@@ -440,16 +456,17 @@ function main() {
   echo
   echo "Your mainboard is ${MAINBOARD}"
   echo '====================================================================='
-  echo -e "${BOLD}(1) Update EFI${OFF}"
-  echo "(2) Change Bluetooth mode(Only support latest release)"
-  echo "(3) General audio fix"
-  echo "(4) Add color profile"
-  echo "(5) Update power management"
-  echo "(6) Enable HiDPI"
-  echo "(7) Fix Windows boot(Only support latest release)"
-  echo "(8) Problem report"
-  echo "(9) Exit"
-  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9)${OFF}"
+  echo -e "  ${BOLD}(1) Update EFI${OFF}"
+  echo "  (2) Change Bluetooth mode(Only support latest release)"
+  echo "  (3) General audio fix"
+  echo "  (4) Add color profile"
+  echo "  (5) Update power management"
+  echo "  (6) Enable HiDPI"
+  echo "  (7) Fix Windows boot(Only support latest release)"
+  echo "  (8) Fix AppStore"
+  echo "  (9) Problem report"
+  echo "  (10) Exit"
+  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
     1)
@@ -488,11 +505,16 @@ function main() {
     ;;
 
     8)
-    reportProblem
+    fixAppStore
     main
     ;;
 
     9)
+    reportProblem
+    main
+    ;;
+
+    10)
     clean
     echo
     echo "Wish you have a good day! Bye"
