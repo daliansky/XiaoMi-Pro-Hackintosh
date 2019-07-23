@@ -410,7 +410,7 @@ function fixWindows() {
 function fixAppStore() {
   echo
   echo "Fixing AppStore..."
-  echo "If you are signing up a new Apple account, please use another device but a hackintosh"
+  echo "If you are signing up a new Apple account, please use another device except hackintosh"
 
   # make Ethernet at en0, according to https://www.tonymacx86.com/threads/faq-read-first-laptop-frequent-questions.164990 by Rehabman
   # backup NetworkInterfaces.plist to NetworkInterfaces_backup.plist
@@ -456,16 +456,16 @@ function main() {
   echo
   echo "Your mainboard is ${MAINBOARD}"
   echo '====================================================================='
-  echo -e "  ${BOLD}(1) Update EFI${OFF}"
-  echo "  (2) Change Bluetooth mode(Only support latest release)"
-  echo "  (3) General audio fix"
-  echo "  (4) Add color profile"
-  echo "  (5) Update power management"
-  echo "  (6) Enable HiDPI"
-  echo "  (7) Fix Windows boot(Only support latest release)"
-  echo "  (8) Fix AppStore"
-  echo "  (9) Problem report"
-  echo "  (10) Exit"
+  echo -e "${BOLD}(1) Update EFI${OFF}"
+  echo "(2) Change Bluetooth mode (Only support the latest release)"
+  echo "(3) General audio fix"
+  echo "(4) Add color profile"
+  echo "(5) Update power management"
+  echo "(6) Enable HiDPI"
+  echo "(7) Fix Windows boot (Only support the latest release)"
+  echo "(8) Fix AppStore"
+  echo "(9) Problem report"
+  echo "(10) Exit"
   echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
