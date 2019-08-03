@@ -257,14 +257,15 @@
     * 移除 `SSDT-RTC` 并用 `Rtc8Allowed` 和 `FixRTC` 来代替x
 
 
-* X-XX-2019
+* 7-10-2019
 
-    * 更新 `Clover` r4934
-    * 更新 `Lilu` v1.3.6
-    * 更新 `AppleALC` v1.3.8
-    * 更新 `WhateverGreen` v1.2.9
-    * 更新 `VirtualSMC` v1.0.4
-    * 更新并修改 `VoodooPS2` v2.0.1 以防止F11键禁用触控板
+    * 更新 `Clover` r4986
+    * 更新 `Lilu` v1.3.7
+    * 更新 `AppleALC` v1.3.9
+    * 更新 `WhateverGreen` v1.3.1
+    * 更新 `VirtualSMC` v1.0.6
+    * 更新并修改 `VoodooPS2` v2.0.2 以防止F11键禁用触控板
+    * 更新 `VoodooI2C`
     * 更新从 `Hackintool` 获取的设备信息
     * 更新 `SSDT-MEM2`
     * 更新 `SSDT-HPET`
@@ -272,10 +273,24 @@
     * 移除 `GFX0 -> IGPU`，`HECI -> IMEI` 和 `HDAS -> HDEF` 根据[WhateverGreen FAQ.IntelHD.cn.md](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.cn.md#建议)
     * 移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“避免修正_OSI来支持更高级别的功能集，除非一定必要。通常这个补丁会引发很多APTIO固件的问题，导致需要更多的补丁。新版固件通常不需要这个补丁了，而且需要用到_OSI补丁的情况也可以用更轻量的补丁来代替”
     * 移除 `_DSM -> XDSM` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“尝试避免风险操作，例如只要有可能就给_PRW或_DSM重命名”
+    * 移除 `SAT0 -> SATA`
+    * 移除IRQ修复，根据[OpenCore discussion](https://www.insanelymac.com/forum/topic/338516-opencore-discussion/?do=findComment&comment=2675659), "...但是要非常小心IRQ，很多人移除了他们，尽管这通常是很不需要的。"
     * 移除 `SSDT-DDGPU` 因为和 `disable-external-egpu` 功能重叠
     * 移除 `SSDT-PXSX` 并迁移设备信息到 `config.plist`
     * 移除 `Drop DRAM` 并替换成 `dart=0`
     * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
+    * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`，根据[#197](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/197)
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
-    * 等待macOS 10.15...
+    * 放回 `HibernationFixup`
+    * 新增 `enable-hdmi-dividers-fix` 来更好地支持HDMI
+    * 支持macOS10.15
+
+
+* 7-17-2019
+
+    * 更新 `Clover` r5018
+    * 更新 `WhateverGreen` 来改善HDMI
+    * 更新 `SSDT-LGPA`
+    * 更新 `SSDT-TPD0`
+    * 新增 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS`，搭配 `SSDT-TPD0`

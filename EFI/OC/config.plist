@@ -48,14 +48,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IRQ fix</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-IRQ.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Brightness key</string>
 				<key>Enabled</key>
 				<true/>
@@ -117,6 +109,30 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-TPD0.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB power injection and customization(Native Bluetooth)</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-USB.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB power injection and customization(Disable native Bluetooth)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-USB-USBBT.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB power injection and customization(Soldered Bluetooth)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-USB-SolderBT.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -185,32 +201,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Rename HPET._STA to XSTA, pair with SSDT-HPET.aml (IRQ Fix)</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1NUQQCgCEg=</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>WFNUQQCgCEg=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>RFNEVA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Rename MATH._STA and LDR2._STA to XSTA</string>
 				<key>Count</key>
 				<integer>0</integer>
@@ -237,13 +227,13 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Rename ADP0 to ADP1 (AC Power)</string>
+				<string>Rename TPD0._INI to XINI (Trackpad)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>QURQMA==</data>
+				<data>FEwJX0lOSQA=</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
@@ -251,7 +241,7 @@
 				<key>OemTableId</key>
 				<data></data>
 				<key>Replace</key>
-				<data>QURQMQ==</data>
+				<data>FEwJWElOSQA=</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -263,13 +253,13 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Rename RTC to XRTC, pair with SSDT-IRQ.aml (IRQ Fix)</string>
+				<string>Rename TPD0._CRS to XCRS (Trackpad)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>UlRDXw==</data>
+				<data>M19DUlMAoA4=</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
@@ -277,59 +267,7 @@
 				<key>OemTableId</key>
 				<data></data>
 				<key>Replace</key>
-				<data>WFJUQw==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>RFNEVA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename SAT0 to SATA (Disk)</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>U0FUMA==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>U0FUQQ==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data></data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename TIMR to XIMR, pair with SSDT-IRQ.aml (IRQ Fix)</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>VElNUg==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>WElNUg==</data>
+				<data>M1hDUlMAoA4=</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -344,11 +282,11 @@
 		<dict>
 			<key>FadtEnableReset</key>
 			<false/>
-			<key>IgnoreForWindows</key>
-			<false/>
 			<key>NormalizeHeaders</key>
 			<true/>
 			<key>RebaseRegions</key>
+			<false/>
+			<key>ResetHwSig</key>
 			<false/>
 			<key>ResetLogoStatus</key>
 			<false/>
@@ -367,10 +305,6 @@
 				<key>device-id</key>
 				<data>FlkAAA==</data>
 				<key>disable-external-gpu</key>
-				<data>AQAAAA==</data>
-				<key>dpcd-max-link-rate</key>
-				<data>CgAAAA==</data>
-				<key>enable-dpcd-max-link-rate-fix</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
@@ -563,6 +497,48 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
+				<string>CPUFriend.kext</string>
+				<key>Comment</key>
+				<string>Power Management</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/CPUFriend</string>
+				<key>MatchKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>CPUFriendDataProvider.kext</string>
+				<key>Comment</key>
+				<string>Power Management</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MatchKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>HibernationFixup.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/HibernationFixup</string>
+				<key>MatchKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>NullEthernet.kext</string>
 				<key>Comment</key>
 				<string>Fake an ethernet card, pair with SSDT-RMNE.aml</string>
@@ -591,13 +567,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBPorts.kext</string>
+				<string>USBInjectAll.kext</string>
 				<key>Comment</key>
 				<string>USB Ports</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string></string>
+				<string>Contents/MacOS/USBInjectAll</string>
 				<key>MatchKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -744,6 +720,8 @@
 				<string>Contents/Info.plist</string>
 			</dict>
 		</array>
+		<key>Emulate</key>
+		<dict/>
 		<key>Block</key>
 		<array>
 			<dict>
@@ -828,8 +806,18 @@
 			<true/>
 			<key>AppleXcpmCfgLock</key>
 			<true/>
+			<key>AppleXcpmExtraMsrs</key>
+			<true/>
+			<key>CustomSMBIOSGuid</key>
+			<false/>
+			<key>DisableIoMapper</key>
+			<true/>
 			<key>ExternalDiskIcons</key>
 			<false/>
+			<key>LapicKernelPanic</key>
+			<false/>
+			<key>PanicNoKextDump</key>
+			<true/>
 			<key>ThirdPartyTrim</key>
 			<true/>
 			<key>XhciPortLimit</key>
@@ -846,6 +834,8 @@
 			<string></string>
 			<key>ConsoleMode</key>
 			<string></string>
+			<key>HibernateMode</key>
+			<string>Auto</string>
 			<key>HideSelf</key>
 			<false/>
 			<key>Resolution</key>
@@ -854,6 +844,8 @@
 			<true/>
 			<key>Timeout</key>
 			<integer>4</integer>
+			<key>UsePicker</key>
+			<true/>
 		</dict>
 		<key>Debug</key>
 		<dict>
@@ -862,9 +854,9 @@
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
-			<real>2147483650</real>
+			<integer>2147483650</integer>
 			<key>Target</key>
-			<integer>19</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Security</key>
 		<dict>
@@ -879,6 +871,19 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 		</dict>
+		<key>Tools</key>
+		<array>
+			<dict>
+				<key>Name</key>
+				<string>UEFI Shell</string>
+				<key>Comment</key>
+				<string>Not signed for security reasons</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>Shell.efi</string>
+			</dict>
+		</array>
 	</dict>
 	<key>NVRAM</key>
 	<dict>
@@ -887,7 +892,7 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>darkwake=0 dart=0 gfxrst=1</string>
+				<string>darkwake=0 gfxrst=1</string>
 				<key>bootercfg</key>
 				<string>log=0 debug=0 level=0</string>
 				<key>csr-active-config</key>
@@ -900,6 +905,10 @@
 		</dict>
 		<key>Block</key>
 		<dict/>
+		<key>LegacyEnable</key>
+		<false/>
+		<key>LegacySchema</key>
+		<dict/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -907,6 +916,8 @@
 		<true/>
 		<key>Generic</key>
 		<dict>
+			<key>SpoofVendor</key>
+			<true/>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
 		</dict>
@@ -927,7 +938,6 @@
 		<array>
 			<string>HFSPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
-			<string>AppleImageLoader.efi</string>
 			<string>AppleUISupport.efi</string>
 			<string>AptioInputFix.efi</string>
 			<string>AptioMemoryFix.efi</string>

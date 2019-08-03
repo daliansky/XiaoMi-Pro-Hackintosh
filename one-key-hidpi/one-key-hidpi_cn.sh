@@ -30,34 +30,47 @@ function choice() {
 # 如果网络连接失败，则退出
 function networkWarn(){
     echo "错误: 下载one-key-hidpi失败, 请检查网络连接状态"
-    exit 0
+    clean
+    exit 1
 }
 
-# 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/tree/master/one-key-hidpi
+# 下载资源来自 https://github.com/daliansky/XiaoMi-Pro-Hackintosh/tree/master/one-key-hidpi
 function download(){
     echo '正在下载屏幕文件...'
     mkdir -p one-key-hidpi
     cd one-key-hidpi
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/Icons.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747 -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.icns -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.tiff -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/Icons.plist -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747 -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.icns -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/DisplayVendorID-9e5/DisplayProductID-747.tiff -O || networkWarn
     echo '下载完成'
     echo
 }
 
 function removeold() {
-    # 卸载 HiScale (在commit https://github.com/daliansky/XiaoMi-Pro/commit/fa35968b5acf851e274932ca52e67c43fe747877 加入)
+    # 卸载 HiScale (在commit https://github.com/daliansky/XiaoMi-Pro-Hackintosh/commit/fa35968b5acf851e274932ca52e67c43fe747877 加入)
     echo '正在移除旧版本...'
     sudo launchctl remove /Library/LaunchAgents/org.zysuper.riceCracker.plist
     sudo pkill riceCrackerDaemon
     sudo rm -f /Library/LaunchAgents/org.zysuper.ricecracker.daemon.plist
     sudo rm -f /usr/bin/riceCrackerDaemon
 
-    # 卸载旧版本one-key-hidpi (在commit https://github.com/daliansky/XiaoMi-Pro/commit/a3b7f136209a91455944b4afece7e14a931e62ba 加入)
+    # 卸载旧版本one-key-hidpi (在commit https://github.com/daliansky/XiaoMi-Pro-Hackintosh/commit/a3b7f136209a91455944b4afece7e14a931e62ba 加入)
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
     echo '移除完成'
     echo
+}
+
+# 重新挂载系统分区, 如果macOS版本>=10.15
+function remountSystem() {
+    swver=$(sw_vers -productVersion | sed 's/\.//g' | colrm 5)
+    if [[ $swver -ge 1015 ]]; then
+        echo '正在重新挂载系统分区来获得写入权限...'
+        sudo mount -uw /
+        echo '挂载完成'
+        echo '请在脚本运行结束后立即重启电脑, 让电脑重新给系统分区上锁!'
+        echo
+    fi
 }
 
 # 给Icons.plist创建备份
@@ -104,17 +117,20 @@ function clean() {
 # 安装
 function install() {
     download
+    remountSystem
     removeold
     backup
     copy
     fixpermission
     clean
     echo '很棒! 安装已结束, 请重启并在显示器面板选择1424x802分辨率! '
+    exit 0
 }
 
 # 卸载
 function uninstall() {
     echo '正在卸载one-key-hidpi...'
+    remountSystem
     sudo rm -rf $DISPLAYPATH/DisplayVendorID-9e5
 
     # 恢复 Icon.plist 从备份文件夹（如果存在）
@@ -126,6 +142,7 @@ function uninstall() {
     # 移除备份文件夹
     sudo rm -rf $DISPLAYPATH/backup
     echo '卸载完成'
+    exit 0
 }
 
 # 主程序
@@ -147,7 +164,7 @@ function main() {
 
         *)
         echo "错误: 无效输入, 脚本将退出";
-        exit 0
+        exit 1
         ;;
     esac
 }

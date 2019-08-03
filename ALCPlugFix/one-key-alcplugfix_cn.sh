@@ -27,7 +27,8 @@ function choice() {
 # 如果网络连接失败则退出
 function networkWarn(){
     echo "错误: 下载ALCPlugFix失败, 请检查网络连接状态"
-    exit 0
+    clean
+    exit 1
 }
 
 # 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix
@@ -35,9 +36,9 @@ function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix
     echo "正在下载声卡修复文件..."
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/ALCPlugFix -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ALCPlugFix/hda-verb -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/ALCPlugFix -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/hda-verb -O || networkWarn
     echo "下载完成"
     echo
 }
@@ -98,18 +99,23 @@ function uninstall() {
     sudo rm -rf /usr/local/bin/ALCPlugFix
     sudo rm -rf /usr/local/bin/hda-verb
     echo "卸载完成"
-    echo
+    echo 
+    if [[ $1 = "cleanup" ]]; then 
+    return
+    else exit 0 
+    fi
 }
 
 # 安装程序
 function install(){
     download
-    uninstall
+    uninstall "cleanup"
     copy
     fixpermission
     loadservice
     clean
     echo '棒！安装ALCPlugFix守护进程完成！'
+    exit 0
 }
 
 # 主程序
@@ -128,7 +134,7 @@ function main() {
         ;;
         *)
         echo "错误: 输入有误, 将关闭脚本"
-        exit 0
+        exit 1
         ;;
     esac
 }
