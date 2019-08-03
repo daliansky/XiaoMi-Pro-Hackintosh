@@ -17,6 +17,8 @@ GREEN="\033[1;32m"
 BLUE="\033[1;34m"
 OFF="\033[m"
 
+pledit=/usr/libexec/PlistBuddy
+
 # Exit in case of network failure
 function networkWarn() {
   echo -e "[ ${RED}ERROR${OFF} ]: Fail to download resources from ${repoURL}, please check your connection!"
@@ -87,27 +89,27 @@ function mountEFI() {
   curl --silent -O "${repoURL}" || networkWarn
   echo
   echo "Mounting EFI partition..."
-  EFI_ADR="$(sh "mount_efi.sh")"
+  EFI_DIR="$(sh "mount_efi.sh")"
 
   # check whether EFI partition exists
-  if [[ -z "${EFI_ADR}" ]]; then
+  if [[ -z "${EFI_DIR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect EFI partition"
     returnMenu
 
   # check whether EFI/CLOVER exists
-  elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
-    echo -e "[ ${RED}ERROR${OFF} ]: CLOVER folder undetected"
+  elif [[ ! -e "${EFI_DIR}/EFI/CLOVER" ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect CLOVER folder"
     returnMenu
   fi
 
-  echo -e "[ ${GREEN}OK${OFF} ]Mounted EFI at ${EFI_ADR} (credits RehabMan)"
+  echo -e "[ ${GREEN}OK${OFF} ]Mounted EFI at ${EFI_DIR} (credits RehabMan)"
 }
 
 # Unmount EFI for safety
 function unmountEFI() {
   echo
   echo "Unmounting EFI partition..."
-  diskutil unmount $EFI_ADR &>/dev/null
+  diskutil unmount $EFI_DIR &>/dev/null
   echo -e "[ ${GREEN}OK${OFF} ]Unmount complete"
 }
 
@@ -155,12 +157,11 @@ function backupEFI() {
   BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -rf "${EFI_ADR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_ADR}/EFI/BOOT" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]Backup complete"
 
   echo
   echo "Copying serial numbers to new CLOVER..."
-  local pledit=/usr/libexec/PlistBuddy
   local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
   local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
@@ -325,8 +326,8 @@ function editEFI() {
 function replaceEFI() {
   echo
   echo "Updating EFI folder..."
-  rm -rf "${EFI_ADR}/EFI/CLOVER" && rm -rf "${EFI_ADR}/EFI/BOOT"
-  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_ADR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_ADR}/EFI/"
+  rm -rf "${EFI_DIR}/EFI/CLOVER" && rm -rf "${EFI_DIR}/EFI/BOOT"
+  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"
   echo -e "[ ${GREEN}OK${OFF} ]Update complete"
 }
 
@@ -357,14 +358,14 @@ function changeBT() {
 
     2)
     mountEFI
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
 
     local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
-    cp -rf "SSDT-USB-USBBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
     echo
     echo "If you are using Broadcom USB BT, you may need to download & install kexts from https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads"
@@ -373,14 +374,14 @@ function changeBT() {
 
     3)
     mountEFI
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
 
     local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
-    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
     ;;
 
@@ -401,13 +402,13 @@ function fixWindows() {
   curl --silent -O "${repoURL}" || networkWarn
 
   mountEFI
-  cp -rf "AptioMemoryFix.efi" "${EFI_ADR}/EFI/CLOVER/drivers/UEFI/"
+  cp -rf "AptioMemoryFix.efi" "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/"
   echo -e "[ ${GREEN}OK${OFF} ]Fix complete"
 
   unmountEFI
 }
 
-function fixAppStore() {
+function fixAppleService() {
   echo
   echo "Fixing AppStore..."
   echo "If you are signing up a new Apple account, please use another device except hackintosh"
@@ -419,8 +420,31 @@ function fixAppStore() {
   sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
 
   defaults delete com.apple.appstore.commerce Storefront
-  echo "Please restart your device!"
+
+  # Replace with random MAC address to solve some Apple services
+  # Idea comes from: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/193#issuecomment-510689917
+  mountEFI
+  # generate random MAC address
+  MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
+
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/EFI/CLOVER/ACPI/patched/SSDT-RMNE.dsl"
+  curl --silent -O "${repoURL}" || networkWarn
+
+  # change 11:22:33:44:55:66 to ${MAC_ADDRESS} in SSDT-RMNE.dsl
+  /usr/bin/sed -i "" "s:0x11, 0x22, 0x33, 0x44, 0x55, 0x66:${MAC_ADDRESS}:g" ${WORK_DIR}/SSDT-RMNE.dsl
+
+  # compile SSDT-RMNE.dsl to SSDT-RMNE.aml
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl"
+  curl --silent -O "${repoURL}" || networkWarn
+  sudo chmod +x iasl
+  ${WORK_DIR}/iasl -l ${WORK_DIR}/SSDT-RMNE.dsl
+
+  mountEFI
+  cp -rf "${WORK_DIR}/SSDT-RMNE.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+  unmountEFI
+
   echo -e "[ ${GREEN}OK${OFF} ]Fix complete"
+  echo "Please restart your device!"
 }
 
 # Report problem and generate problem shooting by using gen_debug.sh @black-dragon74
@@ -466,15 +490,16 @@ function main() {
   echo '====================================================================='
   echo -e "${BOLD}(1) Update EFI${OFF}"
   echo "(2) Change Bluetooth mode (Only support the latest release)"
-  echo "(3) General audio fix"
+  echo "(3) General audio fix (credits Menchen)"
   echo "(4) Add color profile"
   echo "(5) Update power management"
-  echo "(6) Enable HiDPI"
-  echo "(7) Fix Windows boot (Only support the latest release)"
-  echo "(8) Fix AppStore"
-  echo "(9) Problem report"
-  echo "(10) Exit"
-  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10)${OFF}"
+  echo "(6) Modify TDP and CPU voltage (credits Pasi-Studio)"
+  echo "(7) Enable HiDPI"
+  echo "(8) Fix Windows boot (Only support the latest release)"
+  echo "(9) Fix Apple Service"
+  echo "(10) Problem report"
+  echo "(11) Exit"
+  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
     1)
@@ -503,26 +528,31 @@ function main() {
     ;;
 
     6)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
     returnMenu
     ;;
 
     7)
-    fixWindows
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi.sh)"
     returnMenu
     ;;
 
     8)
-    fixAppStore
+    fixWindows
     returnMenu
     ;;
 
     9)
-    reportProblem
+    fixAppleService
     returnMenu
     ;;
 
     10)
+    reportProblem
+    returnMenu
+    ;;
+
+    11)
     clean
     echo
     echo "Wish you have a good day! Bye"
@@ -532,7 +562,7 @@ function main() {
     *)
     echo -e "[ ${RED}ERROR${OFF} ]: Invalid input"
     returnMenu
-
+    ;;
   esac
 }
 

@@ -17,6 +17,8 @@ GREEN="\033[1;32m"
 BLUE="\033[1;34m"
 OFF="\033[m"
 
+pledit=/usr/libexec/PlistBuddy
+
 # 退出如果网络异常
 function networkWarn() {
   echo -e "[ ${RED}ERROR${OFF} ]: 从${repoURL}下载资源失败, 请检查您的网络连接!"
@@ -87,27 +89,27 @@ function mountEFI() {
   curl --silent -O "${repoURL}" || networkWarn
   echo
   echo "正在挂载EFI分区..."
-  EFI_ADR="$(sh "mount_efi.sh")"
+  EFI_DIR="$(sh "mount_efi.sh")"
 
   # 检查EFI分区是否存在
-  if [[ -z "${EFI_ADR}" ]]; then
+  if [[ -z "${EFI_DIR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区"
     returnMenu
 
   # 检查EFI/CLOVER是否存在
-  elif [[ ! -e "${EFI_ADR}/EFI/CLOVER" ]]; then
+  elif [[ ! -e "${EFI_DIR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹"
     returnMenu
   fi
 
-  echo -e "[ ${GREEN}OK${OFF} ]EFI分区已挂载到${EFI_ADR} (credits RehabMan)"
+  echo -e "[ ${GREEN}OK${OFF} ]EFI分区已挂载到${EFI_DIR} (credits RehabMan)"
 }
 
 # 取消挂载EFI，因为安全因素
 function unmountEFI() {
   echo
   echo "正在取消挂载EFI分区..."
-  diskutil unmount $EFI_ADR &>/dev/null
+  diskutil unmount $EFI_DIR &>/dev/null
   echo -e "[ ${GREEN}OK${OFF} ]取消挂载成功"
 }
 
@@ -155,12 +157,11 @@ function backupEFI() {
   BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -rf "${EFI_ADR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_ADR}/EFI/BOOT" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]备份完成"
 
   echo
   echo "正在拷贝序列号到新CLOVER文件夹..."
-  local pledit=/usr/libexec/PlistBuddy
   local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
   local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
@@ -325,8 +326,8 @@ function editEFI() {
 function replaceEFI() {
   echo
   echo "正在更新EFI文件夹..."
-  rm -rf "${EFI_ADR}/EFI/CLOVER" && rm -rf "${EFI_ADR}/EFI/BOOT"
-  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_ADR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_ADR}/EFI/"
+  rm -rf "${EFI_DIR}/EFI/CLOVER" && rm -rf "${EFI_DIR}/EFI/BOOT"
+  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"
   echo -e "[ ${GREEN}OK${OFF} ]更新完成"
 }
 
@@ -357,14 +358,14 @@ function changeBT() {
 
     2)
     mountEFI
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
 
     local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
-    cp -rf "SSDT-USB-USBBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
     echo
     echo "如果您使用的是博通USB蓝牙，您可能需要下载安装https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads 里的驱动"
@@ -373,14 +374,14 @@ function changeBT() {
 
     3)
     mountEFI
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_ADR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
 
     local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
-    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_ADR}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
     ;;
 
@@ -401,13 +402,13 @@ function fixWindows() {
   curl --silent -O "${repoURL}" || networkWarn
 
   mountEFI
-  cp -rf "AptioMemoryFix.efi" "${EFI_ADR}/EFI/CLOVER/drivers/UEFI/"
+  cp -rf "AptioMemoryFix.efi" "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/"
   echo -e "[ ${GREEN}OK${OFF} ]修复完成"
 
   unmountEFI
 }
 
-function fixAppStore() {
+function fixAppleService() {
   echo
   echo "正在修复AppStore..."
   echo "如果您正在注册新的苹果账号, 请使用非黑苹果设备来注册"
@@ -419,8 +420,31 @@ function fixAppStore() {
   sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
 
   defaults delete com.apple.appstore.commerce Storefront
-  echo "请重启您的设备!"
+
+  # 替换为随机MAC地址来解决一些苹果服务问题
+  # 想法来源: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/193#issuecomment-510689917
+  mountEFI
+  # 生成随机MAC地址
+  MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
+
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/EFI/CLOVER/ACPI/patched/SSDT-RMNE.dsl"
+  curl --silent -O "${repoURL}" || networkWarn
+
+  # 更改SSDT-RMNE.dsl的 11:22:33:44:55:66 为 ${MAC_ADDRESS}
+  /usr/bin/sed -i "" "s:0x11, 0x22, 0x33, 0x44, 0x55, 0x66:${MAC_ADDRESS}:g" ${WORK_DIR}/SSDT-RMNE.dsl
+
+  # 编译 SSDT-RMNE.dsl 为 SSDT-RMNE.aml
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl"
+  curl --silent -O "${repoURL}" || networkWarn
+  sudo chmod +x iasl
+  ${WORK_DIR}/iasl -l ${WORK_DIR}/SSDT-RMNE.dsl
+
+  mountEFI
+  cp -rf "${WORK_DIR}/SSDT-RMNE.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+  unmountEFI
+
   echo -e "[ ${GREEN}OK${OFF} ]修复完成"
+  echo "请重启您的设备!"
 }
 
 # 报告问题并生成错误信息通过使用 gen_debug.sh @black-dragon74
@@ -466,15 +490,16 @@ function main() {
   echo '====================================================================='
   echo -e "${BOLD}(1) 更新EFI${OFF}"
   echo "(2) 更改蓝牙模式 (仅支持最新release)"
-  echo "(3) 通用声卡修复"
+  echo "(3) 通用声卡修复 (credits Menchen)"
   echo "(4) 添加色彩文件"
   echo "(5) 更新变频管理"
-  echo "(6) 开启HiDPI"
-  echo "(7) 修复Windows启动 (仅支持最新release)"
-  echo "(8) 修复AppStore"
-  echo "(9) 反馈问题"
-  echo "(10) 退出"
-  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10)${OFF}"
+  echo "(6) 更改TDP和CPU电压 (credits Pasi-Studio)"
+  echo "(7) 开启HiDPI"
+  echo "(8) 修复Windows启动 (仅支持最新release)"
+  echo "(9) 修复Apple服务"
+  echo "(10) 反馈问题"
+  echo "(11) 退出"
+  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10/11)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
     1)
@@ -503,26 +528,31 @@ function main() {
     ;;
 
     6)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi_cn.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
     returnMenu
     ;;
 
     7)
-    fixWindows
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi_cn.sh)"
     returnMenu
     ;;
 
     8)
-    fixAppStore
+    fixWindows
     returnMenu
     ;;
 
     9)
-    reportProblem
+    fixAppleService
     returnMenu
     ;;
 
     10)
+    reportProblem
+    returnMenu
+    ;;
+
+    11)
     clean
     echo
     echo "祝您有开心的一天! 再见"
@@ -532,7 +562,7 @@ function main() {
     *)
     echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
     returnMenu
-
+    ;;
   esac
 }
 
