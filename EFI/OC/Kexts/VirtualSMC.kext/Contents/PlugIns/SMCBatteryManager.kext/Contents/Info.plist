@@ -46,6 +46,8 @@
 			<string>ru.usrsse2.SMCBatteryManager</string>
 			<key>IOClass</key>
 			<string>SMCSMBusController</string>
+			<key>IOMatchCategory</key>
+			<string>SMCSMBusController</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>

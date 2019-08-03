@@ -16,7 +16,7 @@
 1. 在终端输入以下命令并回车：
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro/master/ColorProfile/one-key-colorprofile_cn.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile_cn.sh)"
 ```
 
 2. 打开 `系统偏好设置 -> 显示器 -> 颜色`

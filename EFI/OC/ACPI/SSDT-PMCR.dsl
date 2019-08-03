@@ -1,0 +1,1 @@
+../../CLOVER/ACPI/patched/SSDT-PMCR.dsl

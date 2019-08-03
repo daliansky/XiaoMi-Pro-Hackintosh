@@ -12,19 +12,11 @@
 		<dict>
 			<key>DropOEM_DSM</key>
 			<false/>
-			<key>Rtc8Allowed</key>
-			<true/>
 			<key>Fixes</key>
 			<dict>
 				<key>AddMCHC</key>
 				<true/>
 				<key>AddPNLF</key>
-				<true/>
-				<key>FixADP1</key>
-				<true/>
-				<key>FixRTC</key>
-				<true/>
-				<key>FixTMR</key>
 				<true/>
 			</dict>
 			<key>Patches</key>
@@ -47,14 +39,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename HPET._STA to XSTA, pair with SSDT-HPET.aml (IRQ Fix)</string>
-					<key>Find</key>
-					<data>X1NUQQCgCEg=</data>
-					<key>Replace</key>
-					<data>WFNUQQCgCEg=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>Rename MATH._STA and LDR2._STA to XSTA</string>
 					<key>Find</key>
 					<data>X1NUQQCgDZNQ</data>
@@ -63,16 +47,22 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename SAT0 to SATA (Disk)</string>
+					<string>Rename TPD0._INI to XINI (Trackpad)</string>
 					<key>Find</key>
-					<data>U0FUMA==</data>
+					<data>FEwJX0lOSQA=</data>
 					<key>Replace</key>
-					<data>U0FUQQ==</data>
+					<data>FEwJWElOSQA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Rename TPD0._CRS to XCRS (Trackpad)</string>
+					<key>Find</key>
+					<data>M19DUlMAoA4=</data>
+					<key>Replace</key>
+					<data>M1hDUlMAoA4=</data>
 				</dict>
 			</array>
 		</dict>
-		<key>DropTables</key>
-		<array/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -100,7 +90,7 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
-		<key>NeverHibernate</key>
+		<key>HibernationFixup</key>
 		<true/>
 	</dict>
 	<key>Devices</key>
@@ -121,10 +111,6 @@
 				<key>device-id</key>
 				<data>FlkAAA==</data>
 				<key>disable-external-gpu</key>
-				<data>AQAAAA==</data>
-				<key>dpcd-max-link-rate</key>
-				<data>CgAAAA==</data>
-				<key>enable-dpcd-max-link-rate-fix</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
@@ -372,6 +358,14 @@
 		</array>
 		<key>KernelToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 release kernel (credit vit9696)</string>
