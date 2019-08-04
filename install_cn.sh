@@ -94,11 +94,13 @@ function mountEFI() {
   # 检查EFI分区是否存在
   if [[ -z "${EFI_DIR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区"
+    unmountEFI
     returnMenu
 
   # 检查EFI/CLOVER是否存在
   elif [[ ! -e "${EFI_DIR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹"
+    unmountEFI
     returnMenu
   fi
 
@@ -157,7 +159,8 @@ function backupEFI() {
   BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/Boot" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/boot" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]备份完成"
 
   echo
@@ -322,12 +325,24 @@ function editEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
 }
 
+function restoreEFI() {
+  echo -e "[ ${RED}ERROR${OFF} ]: 更新EFI失败"
+  echo
+  echo "正在从备份中恢复EFI..."
+  cp -rf "${BACKUP_DIR}/BOOT" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/Boot" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/boot" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: 恢复BOOT文件夹失败, 请在关机前手动更新EFI"
+  cp -rf "${BACKUP_DIR}/CLOVER" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: 恢复CLOVER文件夹失败, 请在关机前手动更新EFI"
+  echo -e "[ ${GREEN}OK${OFF} ]恢复完成"
+  clean
+  exit 1
+}
+
 # 更新 BOOT 和 CLOVER 文件夹
 function replaceEFI() {
   echo
   echo "正在更新EFI文件夹..."
   rm -rf "${EFI_DIR}/EFI/CLOVER" && rm -rf "${EFI_DIR}/EFI/BOOT"
-  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" || restoreEFI
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"  || restoreEFI
   echo -e "[ ${GREEN}OK${OFF} ]更新完成"
 }
 
@@ -357,13 +372,13 @@ function changeBT() {
     ;;
 
     2)
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
     mountEFI
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
-    curl --silent -O "${repoURL}" || networkWarn
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
@@ -373,13 +388,13 @@ function changeBT() {
     ;;
 
     3)
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
     mountEFI
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
-    curl --silent -O "${repoURL}" || networkWarn
 
     cp -rf "SSDT-USB-SolderBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI

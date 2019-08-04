@@ -94,11 +94,13 @@ function mountEFI() {
   # check whether EFI partition exists
   if [[ -z "${EFI_DIR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect EFI partition"
+    unmountEFI
     returnMenu
 
   # check whether EFI/CLOVER exists
   elif [[ ! -e "${EFI_DIR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect CLOVER folder"
+    unmountEFI
     returnMenu
   fi
 
@@ -157,7 +159,8 @@ function backupEFI() {
   BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/Boot" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/boot" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]Backup complete"
 
   echo
@@ -322,12 +325,24 @@ function editEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]Change complete"
 }
 
+function restoreEFI() {
+  echo -e "[ ${RED}ERROR${OFF} ]: Failed to update EFI folder"
+  echo
+  echo "Restoring the EFI folder from backup..."
+  cp -rf "${BACKUP_DIR}/BOOT" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/Boot" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/boot" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: Failed to restore BOOT folder, please update EFI manually before shutting down"
+  cp -rf "${BACKUP_DIR}/CLOVER" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: Failed to restore CLOVER folder, please update EFI manually before shutting down"
+  echo -e "[ ${GREEN}OK${OFF} ]Restore complete"
+  clean
+  exit 1
+}
+
 # Update BOOT and CLOVER folder
 function replaceEFI() {
   echo
   echo "Updating EFI folder..."
   rm -rf "${EFI_DIR}/EFI/CLOVER" && rm -rf "${EFI_DIR}/EFI/BOOT"
-  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" || restoreEFI
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"  || restoreEFI
   echo -e "[ ${GREEN}OK${OFF} ]Update complete"
 }
 
@@ -357,13 +372,13 @@ function changeBT() {
     ;;
 
     2)
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
     mountEFI
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
-    curl --silent -O "${repoURL}" || networkWarn
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
@@ -373,13 +388,13 @@ function changeBT() {
     ;;
 
     3)
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
     mountEFI
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
     rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
-    curl --silent -O "${repoURL}" || networkWarn
 
     cp -rf "SSDT-USB-SolderBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
@@ -496,7 +511,7 @@ function main() {
   echo "(6) Modify TDP and CPU voltage (credits Pasi-Studio)"
   echo "(7) Enable HiDPI"
   echo "(8) Fix Windows boot (Only support the latest release)"
-  echo "(9) Fix Apple Service"
+  echo "(9) Fix Apple services"
   echo "(10) Problem report"
   echo "(11) Exit"
   echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11)${OFF}"
