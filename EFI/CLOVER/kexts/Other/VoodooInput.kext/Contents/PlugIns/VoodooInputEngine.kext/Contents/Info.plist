@@ -7,13 +7,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>VoodooI2CServices</string>
+	<string>VoodooInputEngine</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.alexandred.VoodooI2CServices</string>
+	<string>me.kishorprins.VoodooInputEngine</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>VoodooI2CServices</string>
+	<string>VoodooInputEngine</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
@@ -40,35 +40,24 @@
 	<string>10B61</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>VoodooI2CLogger</key>
+		<key>Voodoo Input Engine</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.alexandred.VoodooI2CServices</string>
+			<string>me.kishorprins.VoodooInputEngine</string>
 			<key>IOClass</key>
-			<string>VoodooI2CLogger</string>
-			<key>IOMatchCategory</key>
-			<string>VoodooI2CLogger</string>
+			<string>VoodooInputEngine</string>
 			<key>IOProviderClass</key>
-			<string>VoodooI2CServices</string>
-		</dict>
-		<key>VoodooI2CServices</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>com.alexandred.VoodooI2CServices</string>
-			<key>IOClass</key>
-			<string>VoodooI2CServices</string>
-			<key>IOMatchCategory</key>
-			<string>VoodooI2CServices</string>
-			<key>IOProviderClass</key>
-			<string>IOResources</string>
+			<string>VoodooI2CMultitouchInterface</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Alexandre Daoud. All rights reserved.</string>
-	<key>OSBundleCompatibleVersion</key>
-	<string>1.0.0</string>
+	<string>Copyright © 2019 Kishor Prins. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
+		<key>com.alexandred.VoodooI2C</key>
+		<string>2.0</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0</string>
 		<key>com.apple.kpi.iokit</key>
 		<string>14</string>
 		<key>com.apple.kpi.libkern</key>
