@@ -438,7 +438,7 @@ function fixAppleService() {
 
   # Replace with random MAC address to solve some Apple services
   # Idea comes from: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/193#issuecomment-510689917
-  mountEFI
+
   # generate random MAC address
   MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
 

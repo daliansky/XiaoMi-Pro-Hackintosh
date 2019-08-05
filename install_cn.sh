@@ -438,7 +438,7 @@ function fixAppleService() {
 
   # 替换为随机MAC地址来解决一些苹果服务问题
   # 想法来源: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/193#issuecomment-510689917
-  mountEFI
+
   # 生成随机MAC地址
   MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
 
