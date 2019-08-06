@@ -292,6 +292,26 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>Booter</key>
+	<dict>
+		<key>Quirks</key>
+		<dict>
+			<key>DiscardAppleS4Map</key>
+			<false/>
+			<key>EnableAppleSmSlide</key>
+			<false/>
+			<key>ForceExitBootServices</key>
+			<false/>
+			<key>ProtectCsmRegion</key>
+			<false/>
+			<key>SetupAppleMap</key>
+			<true/>
+			<key>SetupAppleSlide</key>
+			<true/>
+			<key>ShrinkMemoryMap</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>DeviceProperties</key>
 	<dict>
 		<key>Add</key>
@@ -826,6 +846,8 @@
 	</dict>
 	<key>Misc</key>
 	<dict>
+		<key>BlessOverride</key>
+		<array/>
 		<key>Boot</key>
 		<dict>
 			<key>ConsoleBehaviourOs</key>
@@ -884,6 +906,8 @@
 				<string>Shell.efi</string>
 			</dict>
 		</array>
+		<key>Entries</key>
+		<array/>
 	</dict>
 	<key>NVRAM</key>
 	<dict>
@@ -936,11 +960,12 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HFSPlus.efi</string>
+			<string>HfsPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>AppleUISupport.efi</string>
-			<string>AptioInputFix.efi</string>
-			<string>AptioMemoryFix.efi</string>
+			<string>AppleGenericInput.efi
+FwRuntimeServices.efi</string>
+			<string>FwRuntimeServices.efi</string>
 			<string>VirtualSmc.efi</string>
 		</array>
 		<key>Protocols</key>
@@ -956,6 +981,8 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+			<key>AvoidHighAlloc</key>
+			<false/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>IgnoreInvalidFlexRatio</key>
