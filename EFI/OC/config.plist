@@ -962,7 +962,7 @@
 		<array>
 			<string>HfsPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
-			<string>AppleUISupport.efi</string>
+			<string>AppleUiSupport.efi</string>
 			<string>AppleGenericInput.efi</string>
 			<string>FwRuntimeServices.efi</string>
 			<string>VirtualSmc.efi</string>
