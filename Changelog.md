@@ -1,6 +1,6 @@
 # XiaoMi NoteBook Pro EFI Changelog
 
-[English](Changelog.md) | [中文](Changelog_CN.md)
+English | [中文](Changelog_CN.md)
 
 - 10-14-2017
     
