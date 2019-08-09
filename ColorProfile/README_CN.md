@@ -1,6 +1,6 @@
 # 改善屏幕色彩文件
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | 中文
 
 ## 注意：仅限BOE NV156FHM-N61 LCD Panel (小米笔记本Pro默认)
 

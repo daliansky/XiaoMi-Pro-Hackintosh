@@ -1,6 +1,6 @@
 # 升级BIOS和增强性能
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | 中文
 
 ## 简介
 

@@ -5,7 +5,7 @@
 # 此脚本很依赖于 CPUFriend(https://github.com/acidanthera/CPUFriend), 感谢PMHeart。
 
 # 当前的board-id
-BOARD_ID="Mac-827FB448E656EC26"
+BOARD_ID="Mac-53FDB3D8DB8CA971"
 
 # 输出样式设置
 BOLD="\033[1m"
@@ -29,12 +29,19 @@ function printHeader() {
   echo '====================================================================='
 }
 
-# 检查board-id, 系统版本>=10.13.6(17G2112)才支持Mac-827FB448E656EC26.plist(MBP15,2)
+# 检查board-id, 只有系统版本>=10.14.6(18G87)(?)才支持Mac-53FDB3D8DB8CA971.plist(MBP15,4)
 function checkPlist() {
   if [[ ! -f "${X86_PLIST}" ]]; then
-    # 使用MBP14,1的plist, 如果没有Mac-827FB448E656EC26.plist
-    BOARD_ID="Mac-B4831CEBD52A0C4C"
+    # 使用MBP15,2的plist, 如果没有Mac-53FDB3D8DB8CA971.plist
+    BOARD_ID="Mac-827FB448E656EC26"
     X86_PLIST="/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/${BOARD_ID}.plist"
+
+    # 检查board-id, 只有系统版本>=10.13.6(17G2112)才支持Mac-827FB448E656EC26.plist(MBP15,2)
+    if [[ ! -f "${X86_PLIST}" ]]; then
+      # 使用MBP14,1的plist, 如果没有Mac-827FB448E656EC26.plist
+      BOARD_ID="Mac-B4831CEBD52A0C4C"
+      X86_PLIST="/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/${BOARD_ID}.plist"
+    fi
   fi
 }
 

@@ -3,7 +3,7 @@
 
 让你的小米笔记本Pro吃上黑苹果
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | 中文
 
 ## 电脑配置
 
