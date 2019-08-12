@@ -573,5 +573,7 @@
 		<key>org.coolstar.VoodooGPIO</key>
 		<string>1.1</string>
 	</dict>
+	<key>OSBundleRequired</key>
+	<string>Root</string>
 </dict>
 </plist>
