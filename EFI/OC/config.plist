@@ -296,17 +296,23 @@
 	<dict>
 		<key>Quirks</key>
 		<dict>
-			<key>DiscardAppleS4Map</key>
+			<key>AvoidRuntimeDefrag</key>
+			<true/>
+			<key>DisableVariableWrite</key>
 			<false/>
-			<key>EnableAppleSmSlide</key>
+			<key>DiscardHibernateMap</key>
 			<false/>
+			<key>EnableSafeModeSlide</key>
+			<true/>
+			<key>EnableWriteUnprotector</key>
+			<true/>
 			<key>ForceExitBootServices</key>
 			<false/>
 			<key>ProtectCsmRegion</key>
 			<false/>
-			<key>SetupAppleMap</key>
+			<key>ProvideCustomSlide</key>
 			<true/>
-			<key>SetupAppleSlide</key>
+			<key>SetupVirtualMap</key>
 			<true/>
 			<key>ShrinkMemoryMap</key>
 			<false/>
@@ -940,10 +946,14 @@
 		<true/>
 		<key>Generic</key>
 		<dict>
+			<key>MLB</key>
+			<string>C02140302D5DMT31M</string>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
+			<key>SystemSerialNumber</key>
+			<string>C02TNHACHV29</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
