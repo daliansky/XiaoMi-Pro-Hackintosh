@@ -323,30 +323,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelLpssI2C</string>
-				<key>Find</key>
-				<data>SU9LaXQ=</data>
-				<key>Replace</key>
-				<data>SU9LaXM=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelLpssI2CController</string>
-				<key>Find</key>
-				<data>SU9LaXQ=</data>
-				<key>Replace</key>
-				<data>SU9LaXM=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Name</key>
 				<string>com.apple.iokit.IOAHCIBlockStorage</string>
