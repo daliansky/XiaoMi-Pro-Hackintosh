@@ -82,7 +82,7 @@ function downloadKext() {
 
   # 下载CPUFriend.kext
   local cfVER="${ver}"
-  local cfFileName="${cfVER}.RELEASE.zip"
+  local cfFileName="CPUFriend-${cfVER}-RELEASE.zip"
   local cfURL="https://github.com/acidanthera/CPUFriend/releases/download/${cfVER}/${cfFileName}"
   # GitHub的CDN是被Amazon所拥有, 所以我们在这添加 -L 来支持重置链接
   curl -# -L -O "${cfURL}" || networkWarn

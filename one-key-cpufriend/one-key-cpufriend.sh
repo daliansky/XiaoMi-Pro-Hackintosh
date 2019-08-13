@@ -82,7 +82,7 @@ function downloadKext() {
 
   # download CPUFriend.kext
   local cfVER="${ver}"
-  local cfFileName="${cfVER}.RELEASE.zip"
+  local cfFileName="CPUFriend-${cfVER}-RELEASE.zip"
   local cfURL="https://github.com/acidanthera/CPUFriend/releases/download/${cfVER}/${cfFileName}"
   # GitHub's CDN is hosted on Amazon, so here we add -L for redirection support
   curl -# -L -O "${cfURL}" || networkWarn
