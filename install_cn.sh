@@ -243,6 +243,20 @@ function backupEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]拷贝完成"
 }
 
+# 检查${BACKUP_DIR}/CLOVER目录是否存在
+function confirmBackup() {
+  echo
+  echo "正在检查备份..."
+  if [[ ! -e "${BACKUP_DIR}/CLOVER" ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]: 备份CLOVER文件夹失败!"
+    unmountEFI
+    clean
+    exit 1
+  else
+    echo -e "[ ${GREEN}OK${OFF} ]检查完成"
+  fi
+}
+
 # 比较新旧CLOVER文件夹
 function compareEFI() {
   echo
@@ -350,6 +364,7 @@ function updateEFI() {
   checkSystemIntegrity
   downloadEFI
   backupEFI
+  confirmBackup
   compareEFI
   editEFI
   replaceEFI

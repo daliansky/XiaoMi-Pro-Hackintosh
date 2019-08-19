@@ -243,6 +243,20 @@ function backupEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
 }
 
+# Check whether ${BACKUP_DIR}/CLOVER exists or not
+function confirmBackup() {
+  echo
+  echo "Confirming backup..."
+  if [[ ! -e "${BACKUP_DIR}/CLOVER" ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]: Failed to backup CLOVER folder!"
+    unmountEFI
+    clean
+    exit 1
+  else
+    echo -e "[ ${GREEN}OK${OFF} ]Confirm complete"
+  fi
+}
+
 # Compare new and old CLOVER folders
 function compareEFI() {
   echo
@@ -350,6 +364,7 @@ function updateEFI() {
   checkSystemIntegrity
   downloadEFI
   backupEFI
+  confirmBackup
   compareEFI
   editEFI
   replaceEFI
