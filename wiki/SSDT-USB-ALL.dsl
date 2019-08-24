@@ -1,7 +1,7 @@
 // Optional hotpatch
 // Maintained by: stevezhengshiqi
 // Reference: https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311 and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
-// USB power injection and patch USB ports to disable native Intel BT, pair with USBInjectAll.kext
+// USB power injection and patch USB ports to enable all the ports, pair with USBInjectAll.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
 {
@@ -55,7 +55,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                 }, 
 
                 "ports", 
-                Package (0x12)
+                Package (0x1A)
                 {
                     "HS01", // HS USB3 near right
                     Package (0x04)
@@ -66,6 +66,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         Buffer (0x04)
                         {
                              0x01, 0x00, 0x00, 0x00                           // ....
+                        }
+                    }, 
+
+                    "HS02", // WLAN_LTE
+                    Package (0x04)
+                    {
+                        "UsbConnector", 
+                        0xFF, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x02, 0x00, 0x00, 0x00                           // ....
                         }
                     }, 
 
@@ -93,6 +105,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         }
                     }, 
 
+                    "HS05", // bluetooth
+                    Package (0x04)
+                    {
+                        "UsbConnector", 
+                        0xFF, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x05, 0x00, 0x00, 0x00                           // ....
+                        }
+                    }, 
+
                     "HS06", // camera
                     Package (0x04)
                     {
@@ -102,6 +126,30 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         Buffer (0x04)
                         {
                              0x06, 0x00, 0x00, 0x00                           // ....
+                        }
+                    }, 
+
+                    "HS07", // SD card reader
+                    Package (0x04)
+                    {
+                        "UsbConnector", 
+                        0xFF, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x07, 0x00, 0x00, 0x00                           // ....
+                        }
+                    }, 
+
+                    "HS08", // fingerprint
+                    Package (0x04)
+                    {
+                        "UsbConnector", 
+                        0xFF, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x08, 0x00, 0x00, 0x00                           // ....
                         }
                     }, 
 
