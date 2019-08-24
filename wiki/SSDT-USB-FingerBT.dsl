@@ -1,7 +1,8 @@
 // Optional hotpatch
-// Maintained by: stevezhengshiqi
+// Maintained by: radmanz
+// Reference: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/246#issue-484782413 by radmanz
 // Reference: https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311 and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
-// USB power injection and patch USB ports to disable native Intel BT, pair with USBInjectAll.kext
+// USB power injection and patch USB ports to enable fingerprint port, pair with USBInjectAll.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
 {
@@ -55,7 +56,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                 }, 
 
                 "ports", 
-                Package (0x12)
+                Package (0x14)
                 {
                     "HS01", // HS USB3 near right
                     Package (0x04)
@@ -102,6 +103,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                         Buffer (0x04)
                         {
                              0x06, 0x00, 0x00, 0x00                           // ....
+                        }
+                    }, 
+
+                    "HS08", // fingerprint
+                    Package (0x04)
+                    {
+                        "UsbConnector", 
+                        0xFF, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x08, 0x00, 0x00, 0x00                           // ....
                         }
                     }, 
 
