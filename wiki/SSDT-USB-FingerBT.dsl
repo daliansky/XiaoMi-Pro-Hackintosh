@@ -1,5 +1,5 @@
 // Optional hotpatch
-// Maintained by: radmanz
+// Created by: radmanz
 // Reference: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/246#issue-484782413 by radmanz
 // Reference: https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311 and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
 // USB power injection and patch USB ports to enable fingerprint port, pair with USBInjectAll.kext
