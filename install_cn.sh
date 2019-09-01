@@ -487,10 +487,10 @@ function fixAppleService() {
   /usr/bin/sed -i "" "s:0x11, 0x22, 0x33, 0x44, 0x55, 0x66:${MAC_ADDRESS}:g" ${WORK_DIR}/SSDT-RMNE.dsl
 
   # 编译 SSDT-RMNE.dsl 为 SSDT-RMNE.aml
-  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl"
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl63"
   curl --silent -O "${repoURL}" || networkWarn
-  sudo chmod +x iasl
-  ${WORK_DIR}/iasl -l ${WORK_DIR}/SSDT-RMNE.dsl
+  sudo chmod +x iasl63
+  ${WORK_DIR}/iasl63 -l ${WORK_DIR}/SSDT-RMNE.dsl
 
   mountEFI
   cp -rf "${WORK_DIR}/SSDT-RMNE.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
