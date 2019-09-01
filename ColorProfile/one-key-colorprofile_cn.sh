@@ -1,4 +1,5 @@
 #!/bin/bash
+#set -x # for DEBUGGING
 
 # stevezhengshiqi创建于2019.02.27
 # 仅支持小米笔记本Pro(NV156FHM-N61)
