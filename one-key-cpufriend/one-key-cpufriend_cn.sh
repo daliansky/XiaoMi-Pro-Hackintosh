@@ -78,7 +78,7 @@ function downloadKext() {
   echo '----------------------------------------------------------------------'
 
   # 下载ResourceConverter.sh
-  local rcURL='https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh'
+  local rcURL='https://raw.githubusercontent.com/acidanthera/CPUFriend/master/Tools/ResourceConverter.sh'
   curl --silent -O "${rcURL}" && chmod +x ./ResourceConverter.sh || networkWarn
 
   # 下载CPUFriend.kext
