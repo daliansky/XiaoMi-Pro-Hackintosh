@@ -1,6 +1,6 @@
 # 调整 macOS CPU性能
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | 中文
 
 ## 简介
 
@@ -15,6 +15,7 @@
 
 ## 使用前提
 
+- 阅读 [CPUFriend WARNING](https://github.com/acidanthera/CPUFriend/blob/master/Instructions.md#warning)
 - 网络环境良好
 - 确保 `IOPlatformPluginFamily.kext` 未经修改
 - 确保[Lilu](https://github.com/acidanthera/Lilu)在工作

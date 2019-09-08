@@ -1,11 +1,12 @@
 #!/bin/bash
+#set -x # for DEBUGGING
 
 # Created by stevezhengshiqi on 8 Feb, 2019.
 # Only support most 8th CPU.
 # This script depends on CPUFriend(https://github.com/acidanthera/CPUFriend) a lot, thanks to PMHeart.
 
 # default board-id
-BOARD_ID="Mac-827FB448E656EC26"
+BOARD_ID="Mac-53FDB3D8DB8CA971" # MacBookPro15,4
 
 # Display style setting
 BOLD="\033[1m"
@@ -29,12 +30,19 @@ function printHeader() {
   echo '====================================================================='
 }
 
-# Check board-id, only system version >=10.13.6(17G2112) supports Mac-827FB448E656EC26.plist(MBP15,2)
+# Check board-id, only system version >=10.14.6(18G87)(?) supports Mac-53FDB3D8DB8CA971.plist(MBP15,4)
 function checkPlist() {
   if [[ ! -f "${X86_PLIST}" ]]; then
-    # Use MBP14,1's plist if no Mac-827FB448E656EC26.plist
-    BOARD_ID="Mac-B4831CEBD52A0C4C"
+    # Use MBP15,2's plist if no Mac-53FDB3D8DB8CA971.plist
+    BOARD_ID="Mac-827FB448E656EC26" # MacBookPro15,2
     X86_PLIST="/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/${BOARD_ID}.plist"
+
+    # check board-id, only system version >=10.13.6(17G2112) supports Mac-827FB448E656EC26.plist(MBP15,2)
+    if [[ ! -f "${X86_PLIST}" ]]; then
+      # Use MBP14,1's plist if no Mac-827FB448E656EC26.plist
+      BOARD_ID="Mac-B4831CEBD52A0C4C" # MacBookPro14,1
+      X86_PLIST="/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/${BOARD_ID}.plist"
+    fi
   fi
 }
 
@@ -70,12 +78,12 @@ function downloadKext() {
   echo '----------------------------------------------------------------------------------'
 
   # download ResourceConverter.sh
-  local rcURL='https://raw.githubusercontent.com/acidanthera/CPUFriend/master/ResourceConverter/ResourceConverter.sh'
+  local rcURL='https://raw.githubusercontent.com/acidanthera/CPUFriend/master/Tools/ResourceConverter.sh'
   curl --silent -O "${rcURL}" && chmod +x ./ResourceConverter.sh || networkWarn
 
   # download CPUFriend.kext
   local cfVER="${ver}"
-  local cfFileName="${cfVER}.RELEASE.zip"
+  local cfFileName="CPUFriend-${cfVER}-RELEASE.zip"
   local cfURL="https://github.com/acidanthera/CPUFriend/releases/download/${cfVER}/${cfFileName}"
   # GitHub's CDN is hosted on Amazon, so here we add -L for redirection support
   curl -# -L -O "${cfURL}" || networkWarn

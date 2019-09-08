@@ -94,11 +94,13 @@ function mountEFI() {
   # check whether EFI partition exists
   if [[ -z "${EFI_DIR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect EFI partition"
+    unmountEFI
     returnMenu
 
   # check whether EFI/CLOVER exists
   elif [[ ! -e "${EFI_DIR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: Failed to detect CLOVER folder"
+    unmountEFI
     returnMenu
   fi
 
@@ -157,7 +159,8 @@ function backupEFI() {
   BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/Boot" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/boot" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]Backup complete"
 
   echo
@@ -222,7 +225,7 @@ function backupEFI() {
 
   # create a config.plist with only GUI directory inside
   # TODO: use a more efficient way to copy GUI directory
-  cp -r "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
+  cp -rf "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
   $pledit -c "Delete ACPI" ${WORK_DIR}/GUI.plist
   $pledit -c "Delete Boot" ${WORK_DIR}/GUI.plist
   $pledit -c "Delete CPU" ${WORK_DIR}/GUI.plist
@@ -238,6 +241,20 @@ function backupEFI() {
   $pledit -c "Merge GUI.plist" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
+}
+
+# Check whether ${BACKUP_DIR}/CLOVER exists or not
+function confirmBackup() {
+  echo
+  echo "Confirming backup..."
+  if [[ ! -e "${BACKUP_DIR}/CLOVER" ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]: Failed to backup CLOVER folder!"
+    unmountEFI
+    clean
+    exit 1
+  else
+    echo -e "[ ${GREEN}OK${OFF} ]Confirm complete"
+  fi
 }
 
 # Compare new and old CLOVER folders
@@ -286,7 +303,7 @@ function editEFI() {
   # if GTX, SSDT-LGPA need to be replaced with SSDT-LGPAGTX
   if [ "${MAINBOARD}" == "TM1707" ]; then
     rm -f "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-LGPA.aml"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/GTX_Users_Read_This/SSDT-LGPAGTX.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/GTX_Users_Read_This/SSDT-LGPAGTX.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
   fi
 
   echo
@@ -296,7 +313,8 @@ function editEFI() {
   echo "(1) Native Intel BT (Default)"
   echo "(2) USB BT / Disable native BT / Solder BT on camera port"
   echo "(3) Solder BT on WLAN_LTE port"
-  echo -e "${BOLD}Which option you want to choose? (1/2/3)${OFF}"
+  echo "(4) Solder BT on fingerprint port"
+  echo -e "${BOLD}Which option you want to choose? (1/2/3/4)${OFF}"
   read -p ":" bt_selection
   case ${bt_selection} in
     1)
@@ -305,12 +323,17 @@ function editEFI() {
 
     2)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-USBBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-USBBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     3)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-SolderBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-WLAN_LTEBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    ;;
+
+    4)
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-FingerBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     *)
@@ -322,12 +345,24 @@ function editEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]Change complete"
 }
 
+function restoreEFI() {
+  echo -e "[ ${RED}ERROR${OFF} ]: Failed to update EFI folder"
+  echo
+  echo "Restoring the EFI folder from backup..."
+  cp -rf "${BACKUP_DIR}/BOOT" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/Boot" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/boot" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: Failed to restore BOOT folder, please update EFI manually before shutting down"
+  cp -rf "${BACKUP_DIR}/CLOVER" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: Failed to restore CLOVER folder, please update EFI manually before shutting down"
+  echo -e "[ ${GREEN}OK${OFF} ]Restore complete"
+  clean
+  exit 1
+}
+
 # Update BOOT and CLOVER folder
 function replaceEFI() {
   echo
   echo "Updating EFI folder..."
   rm -rf "${EFI_DIR}/EFI/CLOVER" && rm -rf "${EFI_DIR}/EFI/BOOT"
-  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" || restoreEFI
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"  || restoreEFI
   echo -e "[ ${GREEN}OK${OFF} ]Update complete"
 }
 
@@ -335,10 +370,23 @@ function updateEFI() {
   checkSystemIntegrity
   downloadEFI
   backupEFI
+  confirmBackup
   compareEFI
   editEFI
   replaceEFI
   unmountEFI
+}
+
+# Delete previous Bluetooth configurations(SSDT-USB, SSDT-USB-USBBT, SSDT-SolderBT(changed to SSDT-USB-WLAN_LTEBT), SSDT-USB-WLAN_LTEBT, and SSDT-USB-FingerBT)
+function deleteBT() {
+  mountEFI
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-WLAN_LTEBT.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-FingerBT.aml" >/dev/null 2>&1
+
+  # need unmountEFI after calling this function
 }
 
 function changeBT() {
@@ -349,7 +397,8 @@ function changeBT() {
   echo "(1) Remain the same"
   echo "(2) USB BT / Disable native BT / Solder BT on camera port"
   echo "(3) Solder BT on WLAN_LTE port"
-  echo -e "${BOLD}Which option you want to choose? (1/2/3)${OFF}"
+  echo "(4) Solder BT on fingerprint port"
+  echo -e "${BOLD}Which option you want to choose? (1/2/3/4)${OFF}"
   read -p ":" bt_selection_new
   case ${bt_selection_new} in
     1)
@@ -357,13 +406,10 @@ function changeBT() {
     ;;
 
     2)
-    mountEFI
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
     local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
+
+    deleteBT
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
@@ -373,15 +419,22 @@ function changeBT() {
     ;;
 
     3)
-    mountEFI
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-WLAN_LTEBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
-    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+    deleteBT
+
+    cp -rf "SSDT-USB-WLAN_LTEBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+    unmountEFI
+    ;;
+
+    4)
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-FingerBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
+    deleteBT
+
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-FingerBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
     ;;
 
@@ -423,7 +476,7 @@ function fixAppleService() {
 
   # Replace with random MAC address to solve some Apple services
   # Idea comes from: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/193#issuecomment-510689917
-  mountEFI
+
   # generate random MAC address
   MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
 
@@ -434,10 +487,10 @@ function fixAppleService() {
   /usr/bin/sed -i "" "s:0x11, 0x22, 0x33, 0x44, 0x55, 0x66:${MAC_ADDRESS}:g" ${WORK_DIR}/SSDT-RMNE.dsl
 
   # compile SSDT-RMNE.dsl to SSDT-RMNE.aml
-  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl"
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl63"
   curl --silent -O "${repoURL}" || networkWarn
-  sudo chmod +x iasl
-  ${WORK_DIR}/iasl -l ${WORK_DIR}/SSDT-RMNE.dsl
+  sudo chmod +x iasl63
+  ${WORK_DIR}/iasl63 -l ${WORK_DIR}/SSDT-RMNE.dsl
 
   mountEFI
   cp -rf "${WORK_DIR}/SSDT-RMNE.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
@@ -496,7 +549,7 @@ function main() {
   echo "(6) Modify TDP and CPU voltage (credits Pasi-Studio)"
   echo "(7) Enable HiDPI"
   echo "(8) Fix Windows boot (Only support the latest release)"
-  echo "(9) Fix Apple Service"
+  echo "(9) Fix Apple services"
   echo "(10) Problem report"
   echo "(11) Exit"
   echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11)${OFF}"

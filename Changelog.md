@@ -1,6 +1,6 @@
 # XiaoMi NoteBook Pro EFI Changelog
 
-[English](Changelog.md) | [中文](Changelog_CN.md)
+English | [中文](Changelog_CN.md)
 
 - 10-14-2017
     
@@ -294,3 +294,17 @@
     - Update `SSDT-LGPA`
     - Update `SSDT-TPD0`
     - Add `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS`, pair with `SSDT-TPD0`
+    
+
+- X-XX-2019
+
+    - Update `Lilu` v1.3.8
+    - Update `AppleALC` v1.4.0
+    - Update `WhateverGreen` v1.3.1
+    - Update `HibernationFixup` v1.2.7
+    - Update `VirtualSMC` v1.0.7
+    - Update and edit `VoodooPS2` v2.0.2
+    - Update `AppleSupportPkg` v2.0.9
+    - Update `VoodooI2C`
+    - Update `AptioMemoryFix` to https://github.com/acidanthera/AptioFixPkg/commit/fb63fcb3d6d7163e517a67ba04da7d1315fc16f3
+    - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the beat problem

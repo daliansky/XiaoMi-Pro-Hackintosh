@@ -94,11 +94,13 @@ function mountEFI() {
   # 检查EFI分区是否存在
   if [[ -z "${EFI_DIR}" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到EFI分区"
+    unmountEFI
     returnMenu
 
   # 检查EFI/CLOVER是否存在
   elif [[ ! -e "${EFI_DIR}/EFI/CLOVER" ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]: 未检测到CLOVER文件夹"
+    unmountEFI
     returnMenu
   fi
 
@@ -157,7 +159,8 @@ function backupEFI() {
   BACKUP_DIR="/Users/`users`/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
-  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}" && cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/BOOT" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/Boot" "${BACKUP_DIR}" || cp -rf "${EFI_DIR}/EFI/boot" "${BACKUP_DIR}"
+  cp -rf "${EFI_DIR}/EFI/CLOVER" "${BACKUP_DIR}"
   echo -e "[ ${GREEN}OK${OFF} ]备份完成"
 
   echo
@@ -222,7 +225,7 @@ function backupEFI() {
 
   # 创建一个只含有GUI目录的config.plist
   # TODO: 用更有效的方式去保留原config.plist的GUI目录
-  cp -r "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
+  cp -rf "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
   $pledit -c "Delete ACPI" ${WORK_DIR}/GUI.plist
   $pledit -c "Delete Boot" ${WORK_DIR}/GUI.plist
   $pledit -c "Delete CPU" ${WORK_DIR}/GUI.plist
@@ -238,6 +241,20 @@ function backupEFI() {
   $pledit -c "Merge GUI.plist" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
 
   echo -e "[ ${GREEN}OK${OFF} ]拷贝完成"
+}
+
+# 检查${BACKUP_DIR}/CLOVER目录是否存在
+function confirmBackup() {
+  echo
+  echo "正在检查备份..."
+  if [[ ! -e "${BACKUP_DIR}/CLOVER" ]]; then
+    echo -e "[ ${RED}ERROR${OFF} ]: 备份CLOVER文件夹失败!"
+    unmountEFI
+    clean
+    exit 1
+  else
+    echo -e "[ ${GREEN}OK${OFF} ]检查完成"
+  fi
 }
 
 # 比较新旧CLOVER文件夹
@@ -286,7 +303,7 @@ function editEFI() {
   # 如果是GTX, SSDT-LGPA 需要替换成 SSDT-LGPAGTX
   if [ "${MAINBOARD}" == "TM1707" ]; then
     rm -f "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-LGPA.aml"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/GTX_Users_Read_This/SSDT-LGPAGTX.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/GTX_Users_Read_This/SSDT-LGPAGTX.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
   fi
 
   echo
@@ -296,7 +313,8 @@ function editEFI() {
   echo "(1) 原厂英特尔蓝牙 (默认)"
   echo "(2) USB蓝牙 / 屏蔽自带蓝牙 / 飞线蓝牙到摄像头"
   echo "(3) 飞线蓝牙到WLAN_LTE接口"
-  echo -e "${BOLD}您想选择哪个模式? (1/2/3)${OFF}"
+  echo "(4) 飞线蓝牙到指纹接口"
+  echo -e "${BOLD}您想选择哪个模式? (1/2/3/4)${OFF}"
   read -p ":" bt_selection
   case ${bt_selection} in
     1)
@@ -305,12 +323,17 @@ function editEFI() {
 
     2)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-USBBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-USBBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     3)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
-    cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-SolderBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-WLAN_LTEBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    ;;
+
+    4)
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-FingerBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     *)
@@ -322,12 +345,24 @@ function editEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
 }
 
+function restoreEFI() {
+  echo -e "[ ${RED}ERROR${OFF} ]: 更新EFI失败"
+  echo
+  echo "正在从备份中恢复EFI..."
+  cp -rf "${BACKUP_DIR}/BOOT" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/Boot" "${EFI_DIR}/EFI/" || cp -rf "${BACKUP_DIR}/boot" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: 恢复BOOT文件夹失败, 请在关机前手动更新EFI"
+  cp -rf "${BACKUP_DIR}/CLOVER" "${EFI_DIR}/EFI/" || echo -e "[ ${RED}ERROR${OFF} ]: 恢复CLOVER文件夹失败, 请在关机前手动更新EFI"
+  echo -e "[ ${GREEN}OK${OFF} ]恢复完成"
+  clean
+  exit 1
+}
+
 # 更新 BOOT 和 CLOVER 文件夹
 function replaceEFI() {
   echo
   echo "正在更新EFI文件夹..."
   rm -rf "${EFI_DIR}/EFI/CLOVER" && rm -rf "${EFI_DIR}/EFI/BOOT"
-  cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" && cp -r "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/BOOT" "${EFI_DIR}/EFI/" || restoreEFI
+  cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER" "${EFI_DIR}/EFI/"  || restoreEFI
   echo -e "[ ${GREEN}OK${OFF} ]更新完成"
 }
 
@@ -335,10 +370,23 @@ function updateEFI() {
   checkSystemIntegrity
   downloadEFI
   backupEFI
+  confirmBackup
   compareEFI
   editEFI
   replaceEFI
   unmountEFI
+}
+
+# 删除之前的蓝牙配置文件(SSDT-USB, SSDT-USB-USBBT, SSDT-SolderBT(更改为SSDT-USB-WLAN_LTEBT), SSDT-USB-WLAN_LTEBT, 和 SSDT-USB-FingerBT)
+function deleteBT() {
+  mountEFI
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-WLAN_LTEBT.aml" >/dev/null 2>&1
+  rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-FingerBT.aml" >/dev/null 2>&1
+
+# 运行此方法后需要运行unmountEFI方法
 }
 
 function changeBT() {
@@ -349,7 +397,8 @@ function changeBT() {
   echo "(1) 保持默认"
   echo "(2) USB蓝牙 / 屏蔽自带蓝牙 / 飞线蓝牙到摄像头"
   echo "(3) 飞线蓝牙到WLAN_LTE接口"
-  echo -e "${BOLD}您想选择哪个模式? (1/2/3)${OFF}"
+  echo "(4) 飞线蓝牙到指纹接口"
+  echo -e "${BOLD}您想选择哪个模式? (1/2/3/4)${OFF}"
   read -p ":" bt_selection_new
   case ${bt_selection_new} in
     1)
@@ -357,13 +406,10 @@ function changeBT() {
     ;;
 
     2)
-    mountEFI
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
     local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
+
+    deleteBT
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
@@ -373,15 +419,22 @@ function changeBT() {
     ;;
 
     3)
-    mountEFI
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-USBBT.aml" >/dev/null 2>&1
-    rm -rf "${EFI_DIR}/EFI/CLOVER/ACPI/patched/SSDT-USB-SolderBT.aml" >/dev/null 2>&1
-
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-SolderBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-WLAN_LTEBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
-    cp -rf "SSDT-USB-SolderBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+    deleteBT
+
+    cp -rf "SSDT-USB-WLAN_LTEBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+    unmountEFI
+    ;;
+
+    4)
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-FingerBT.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
+    deleteBT
+
+    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-FingerBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
     ;;
 
@@ -423,7 +476,7 @@ function fixAppleService() {
 
   # 替换为随机MAC地址来解决一些苹果服务问题
   # 想法来源: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/193#issuecomment-510689917
-  mountEFI
+
   # 生成随机MAC地址
   MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
 
@@ -434,10 +487,10 @@ function fixAppleService() {
   /usr/bin/sed -i "" "s:0x11, 0x22, 0x33, 0x44, 0x55, 0x66:${MAC_ADDRESS}:g" ${WORK_DIR}/SSDT-RMNE.dsl
 
   # 编译 SSDT-RMNE.dsl 为 SSDT-RMNE.aml
-  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl"
+  local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/iasl63"
   curl --silent -O "${repoURL}" || networkWarn
-  sudo chmod +x iasl
-  ${WORK_DIR}/iasl -l ${WORK_DIR}/SSDT-RMNE.dsl
+  sudo chmod +x iasl63
+  ${WORK_DIR}/iasl63 -l ${WORK_DIR}/SSDT-RMNE.dsl
 
   mountEFI
   cp -rf "${WORK_DIR}/SSDT-RMNE.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"

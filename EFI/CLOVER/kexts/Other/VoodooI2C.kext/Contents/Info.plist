@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18G29g</string>
+	<string>18G87</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -573,5 +573,7 @@
 		<key>org.coolstar.VoodooGPIO</key>
 		<string>1.1</string>
 	</dict>
+	<key>OSBundleRequired</key>
+	<string>Root</string>
 </dict>
 </plist>

@@ -1,12 +1,12 @@
 # 升级BIOS和增强性能
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | 中文
 
 ## 简介
 
 [XMAKB5R0P0906](XMAKB5R0P0906) 的BIOS包来自小米官方，来源可靠。<b>此包仅支持MX150版本。</b>
 
-文件夹 [ME](ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。
+~文件夹 [ME](ME) 的ME固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的ME固件有助于抵御潜在的恶意攻击。上述文件夹里的ME固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。~
 
 警告：因为操作涉及到BIOS等底层代码，如果在升级过程中出现错误（比如升级程序强制退出，或不正确地运行[#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)里的脚本)，电脑可能无法启动。
 

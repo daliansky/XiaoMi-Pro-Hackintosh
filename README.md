@@ -3,7 +3,7 @@
 
 Hackintosh your XiaoMi Notebook Pro
 
-[English](README.md) | [中文](README_CN.md)
+English | [中文](README_CN.md)
 
 ## Configuration
 
@@ -116,6 +116,7 @@ All the project is made for free, but you can reward me if you want.
 - Thanks to [apianti](https://sourceforge.net/u/apianti), [blackosx](https://sourceforge.net/u/blackosx), [blusseau](https://sourceforge.net/u/blusseau), [dmazar](https://sourceforge.net/u/dmazar), and [slice2009](https://sourceforge.net/u/slice2009) for providing [Clover](https://sourceforge.net/projects/cloverefiboot).
 - Thanks to [FallenChromium](https://github.com/FallenChromium), [jackxuechen](https://github.com/jackxuechen), [Javmain](https://github.com/javmain), [johnnync13](https://github.com/johnnync13), [Menchen](https://github.com/Menchen), [Pasi-Studio](https://github.com/Pasi-Studio), and [qeeqez](https://github.com/qeeqez) for valuable suggestions.
 - Thanks to [hieplpvip](https://github.com/hieplpvip) and [syscl](https://github.com/syscl) for providing sample of DSDT patches.
+- Thanks to [kprinssu](https://github.com/kprinssu) for providing [VoodooInput](https://github.com/kprinssu/VoodooInput) and [VoodooInputEngine](https://github.com/kprinssu/VoodooInputEngine).
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander),  [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet), [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
 
 - For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro/wiki/References).

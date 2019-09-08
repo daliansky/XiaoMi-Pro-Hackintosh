@@ -1,7 +1,7 @@
-// Necessary hotpatch
+// Optional hotpatch
 // Maintained by: stevezhengshiqi
 // Reference: https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311 and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
-// USB power injection and patch USB ports, pair with USBInjectAll.kext
+// USB power injection and patch USB ports to disable native Intel BT, pair with USBInjectAll.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
 {

@@ -292,6 +292,32 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>Booter</key>
+	<dict>
+		<key>Quirks</key>
+		<dict>
+			<key>AvoidRuntimeDefrag</key>
+			<true/>
+			<key>DisableVariableWrite</key>
+			<false/>
+			<key>DiscardHibernateMap</key>
+			<false/>
+			<key>EnableSafeModeSlide</key>
+			<true/>
+			<key>EnableWriteUnprotector</key>
+			<true/>
+			<key>ForceExitBootServices</key>
+			<false/>
+			<key>ProtectCsmRegion</key>
+			<false/>
+			<key>ProvideCustomSlide</key>
+			<true/>
+			<key>SetupVirtualMap</key>
+			<true/>
+			<key>ShrinkMemoryMap</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>DeviceProperties</key>
 	<dict>
 		<key>Add</key>
@@ -723,28 +749,7 @@
 		<key>Emulate</key>
 		<dict/>
 		<key>Block</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Prevent Apple I2C kexts from attaching to I2C controllers</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleIntelLpssI2C</string>
-				<key>MatchKernel</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Prevent Apple I2C kexts from attaching to I2C controllers</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleIntelLpssI2CController</string>
-				<key>MatchKernel</key>
-				<string></string>
-			</dict>
-		</array>
+		<array/>
 		<key>Patch</key>
 		<array>
 			<dict>
@@ -826,6 +831,8 @@
 	</dict>
 	<key>Misc</key>
 	<dict>
+		<key>BlessOverride</key>
+		<array/>
 		<key>Boot</key>
 		<dict>
 			<key>ConsoleBehaviourOs</key>
@@ -884,6 +891,8 @@
 				<string>Shell.efi</string>
 			</dict>
 		</array>
+		<key>Entries</key>
+		<array/>
 	</dict>
 	<key>NVRAM</key>
 	<dict>
@@ -916,10 +925,14 @@
 		<true/>
 		<key>Generic</key>
 		<dict>
+			<key>MLB</key>
+			<string>C02140302D5DMT31M</string>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
+			<key>SystemSerialNumber</key>
+			<string>C02TNHACHV29</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -936,11 +949,11 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HFSPlus.efi</string>
+			<string>HfsPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
-			<string>AppleUISupport.efi</string>
-			<string>AptioInputFix.efi</string>
-			<string>AptioMemoryFix.efi</string>
+			<string>AppleUiSupport.efi</string>
+			<string>AppleGenericInput.efi</string>
+			<string>FwRuntimeServices.efi</string>
 			<string>VirtualSmc.efi</string>
 		</array>
 		<key>Protocols</key>
@@ -956,6 +969,8 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+			<key>AvoidHighAlloc</key>
+			<false/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>IgnoreInvalidFlexRatio</key>
