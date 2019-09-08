@@ -347,10 +347,10 @@ function editEFI() {
   echo "---------------------------------------------------------"
   echo "|**************** Choose Clover patches ****************|"
   echo "---------------------------------------------------------"
-  echo -e "(1) 0xE2 MSR patch & DVMT to 64mb (${GREEN}Default${OFF}, choose this if you don't know what it mean)"
-  echo -e "(2) 0xE2 MSR patch only (${RED}Advanced user only${OFF}, use this only if you have already unlocked 0xE2 with bios patch)"
-  echo -e "(3) DVMT to 64m only(${RED}Advanced user only${OFF}, use this obly if you have already set DVMT to 64m in bios)"
-  echo -e "(4) No special patch(${RED}Advanced user only${OFF}, this option will ${BOLD}delete${OFF} both DVMT & 0xE2 patches)"
+  echo -e "(1) 0xE2 MSR patch & DVMT to 64mb (${GREEN}Default${OFF}, choose this if you don't know which one you need)"
+  echo -e "(2) 0xE2 MSR patch only (${RED}Advanced user only${OFF}, use this only if you have already unlocked 0xE2 with BIOS patch)"
+  echo -e "(3) DVMT to 64m only(${RED}Advanced user only${OFF}, use this obly if you have already set DVMT to 64m in BIOS)"
+  echo -e "(4) No patch(${RED}Advanced user only${OFF}, use this only if you have both patch in BIOS)"
   echo -e "${BOLD}Which option you want to choose? (1/2/3/4)${OFF}"
   read -p ":" cloverpatch_selection
   case ${cloverpatch_selection} in
@@ -359,12 +359,12 @@ function editEFI() {
     ;;
 
 	2)
-    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
 	;;
 
 	3)
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
 	;;
 
 	4)
