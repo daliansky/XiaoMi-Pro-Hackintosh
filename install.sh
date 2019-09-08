@@ -41,7 +41,6 @@ function checkMainboard() {
   sudo chmod +x bdmesg
 
   MAINBOARD="$( "${WORK_DIR}/bdmesg" | grep Running | awk '{print $5}' | sed "s/\'//g" | tr -d "''")"
-  echo $MAINBOARD
   if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
     echo "Your mainboard is ${MAINBOARD}"
     echo -e "[ ${RED}ERROR${OFF} ]:Not a XiaoMi-Pro, please check your model!"
