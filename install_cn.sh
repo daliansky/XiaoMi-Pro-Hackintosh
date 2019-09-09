@@ -164,7 +164,7 @@ function backupEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]备份完成"
 
   echo
-  echo "正在拷贝序列号到新CLOVER文件夹..."
+  echo "正在恢复旧版配置到新CLOVER文件夹..."
   local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
   local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
@@ -174,6 +174,8 @@ function backupEFI() {
   local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
   local CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
   local InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' ${BACKUP_DIR}/CLOVER/config.plist)"
 
   # 检查默认启动宗卷和倒计时是否存在，如果存在则拷贝
   if [[ ! -z "${DefaultVolume}" ]]; then
@@ -213,6 +215,14 @@ function backupEFI() {
     $pledit -c "Set SystemParameters:InjectSystemID ${InjectSystemID}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   else
     $pledit -c "Set SystemParameters:InjectSystemID false" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ -z "${framebufferfbmem}" ]]; then
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ -z "${framebufferstolenmem}" ]]; then
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]拷贝完成"
@@ -343,43 +353,6 @@ function editEFI() {
     ;;
   esac
 
-  echo
-  echo "---------------------------------------------------------"
-  echo "|**************** 选择 Clover 补丁 ****************|"
-  echo "---------------------------------------------------------"
-  echo -e "(1) 欺骗64mb帧缓存 & 0xE2寄存器 (${GREEN}默认${OFF}, 选这个如果你不知道该选哪个)"
-  echo -e "(2) 只0xE2寄存器 (${RED}高级用户${OFF}, 选这个如果你在BIOS里面只设置了64mb帧缓存)"
-  echo -e "(3) 只欺骗64mb帧缓存 (${RED}高级用户${OFF}, 选这个如果你在BIOS里面只解锁了0xE2)"
-  echo -e "(4) 都不要 (${RED}高级用户${OFF}, 选这个如果你在BIOS里面解锁和设置了0xE2和64mb帧缓存)"
-  echo -e "${BOLD}您想选择哪个模式? (1/2/3/4)${OFF}"
-  read -p ":" cloverpatch_selection
-  case ${cloverpatch_selection} in
-    1)
-    # Keep default
-    ;;
-
-	2)
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-	;;
-
-	3)
-    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-	;;
-
-	4)
-    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
-	;;
-
-    *)
-    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
-    unmountEFI
-    returnMenu
-    ;;
-  esac
-
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
 }
 
@@ -478,7 +451,56 @@ function changeBT() {
 
     *)
     echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
+    returnMenu
+    ;;
+  esac
+  echo -e "[ ${GREEN}OK${OFF} ]修改完成"
+}
+
+# 移除帧缓存补丁和0xE2寄存器补丁如果安装了 https://github.com/daliansky/XiaoMi-Pro-Hackintosh/tree/master/BIOS/DVMT_and_0xE2_fix 里的脚本, credit Menchen
+function removeDVMTMSR() {
+  echo
+  echo "修改前请先阅读 https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/master/BIOS/DVMT_and_0xE2_fix/README_CN.md"
+  open -a "/Applications/Safari.app" https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/master/BIOS/DVMT_and_0xE2_fix/README_CN.md
+
+  echo
+  echo "-----------------------------------------------------------"
+  echo "|******************** 选择 Clover 补丁 ********************|"
+  echo "-----------------------------------------------------------"
+  echo "(1) 32mb帧缓存补丁 和 0xE2寄存器补丁(默认)"
+  echo "(2) 仅0xE2寄存器补丁, 选这个如果帧缓存=64mb"
+  echo "(3) 仅32mb帧缓存补丁, 选这个如果解锁了0xE2寄存器"
+  echo "(4) 无需任何补丁, 选这个如果你在BIOS里面解锁和设置了0xE2和64mb帧缓存"
+  echo -e "${BOLD}您想选择哪个模式? (1/2/3/4)${OFF}"
+  read -p ":" cloverpatch_selection
+  case ${cloverpatch_selection} in
+    1)
+    # 保持默认
+    ;;
+
+    2)
+    mountEFI
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" ${EFI_DIR}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" ${EFI_DIR}/EFI/CLOVER/config.plist
     unmountEFI
+    ;;
+
+    3)
+    mountEFI
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" ${EFI_DIR}/EFI/CLOVER/config.plist
+    unmountEFI
+    ;;
+
+    4)
+    mountEFI
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" ${EFI_DIR}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" ${EFI_DIR}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" ${EFI_DIR}/EFI/CLOVER/config.plist
+    unmountEFI
+    ;;
+
+    *)
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
     returnMenu
     ;;
   esac
@@ -586,11 +608,12 @@ function main() {
   echo "(5) 更新变频管理"
   echo "(6) 更改TDP和CPU电压 (credits Pasi-Studio)"
   echo "(7) 开启HiDPI"
-  echo "(8) 修复Windows启动 (仅支持最新release)"
-  echo "(9) 修复Apple服务"
-  echo "(10) 反馈问题"
-  echo "(11) 退出"
-  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10/11)${OFF}"
+  echo "(8) 设置帧缓存为64mb (4K 屏幕) 和 解锁0xE2寄存器 (credit Menchen)"
+  echo "(9) 修复Windows启动 (仅支持最新release)"
+  echo "(10) 修复Apple服务"
+  echo "(11) 反馈问题"
+  echo "(12) 退出"
+  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10/11/12)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
     1)
@@ -629,21 +652,26 @@ function main() {
     ;;
 
     8)
-    fixWindows
+    removeDVMTMSR
     returnMenu
     ;;
 
     9)
-    fixAppleService
+    fixWindows
     returnMenu
     ;;
 
     10)
-    reportProblem
+    fixAppleService
     returnMenu
     ;;
 
     11)
+    reportProblem
+    returnMenu
+    ;;
+
+    12)
     clean
     echo
     echo "祝您有开心的一天! 再见"
