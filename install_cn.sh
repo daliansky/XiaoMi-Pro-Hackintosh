@@ -40,7 +40,7 @@ function checkMainboard() {
   curl --silent -O "${repoURL}" || networkWarn
   sudo chmod +x bdmesg
 
-  MAINBOARD="$( "${WORK_DIR}/bdmesg" | grep Running | awk '{print $5}' | sed "s/\'//g")"
+  MAINBOARD="$( "${WORK_DIR}/bdmesg" | grep Running | awk '{print $5}' | sed "s/\'//g" | tr -d "'" )"
   if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
     echo "您的主板型号是 ${MAINBOARD}"
     echo -e "[ ${RED}ERROR${OFF} ]:不是小米笔记本Pro, 请检查您的型号!"
@@ -342,6 +342,44 @@ function editEFI() {
     returnMenu
     ;;
   esac
+
+  echo
+  echo "---------------------------------------------------------"
+  echo "|**************** 选择 Clover 补丁 ****************|"
+  echo "---------------------------------------------------------"
+  echo -e "(1) 欺骗64mb帧缓存 & 0xE2寄存器 (${GREEN}默认${OFF}, 选这个如果你不知道该选哪个)"
+  echo -e "(2) 只0xE2寄存器 (${RED}高级用户${OFF}, 选这个如果你在BIOS里面只设置了64mb帧缓存)"
+  echo -e "(3) 只欺骗64mb帧缓存 (${RED}高级用户${OFF}, 选这个如果你在BIOS里面只解锁了0xE2)"
+  echo -e "(4) 都不要 (${RED}高级用户${OFF}, 选这个如果你在BIOS里面解锁和设置了0xE2和64mb帧缓存)"
+  echo -e "${BOLD}您想选择哪个模式? (1/2/3/4)${OFF}"
+  read -p ":" cloverpatch_selection
+  case ${cloverpatch_selection} in
+    1)
+    # Keep default
+    ;;
+
+	2)
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+	;;
+
+	3)
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+	;;
+
+	4)
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+	;;
+
+    *)
+    echo -e "[ ${RED}ERROR${OFF} ]: 输入有误"
+    unmountEFI
+    returnMenu
+    ;;
+  esac
+
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
 }
 
