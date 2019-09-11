@@ -32,12 +32,12 @@ function networkWarn(){
     exit 1
 }
 
-# Download from https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix
+# Download from https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix and https://github.com/Menchen/ALCPlugFix/tree/master/build/Release
 function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix
     echo "Downloading audio fix patch..."
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/ALCPlugFix -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/hda-verb -O || networkWarn
     echo "Download complete"
