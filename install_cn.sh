@@ -353,7 +353,6 @@ function editEFI() {
     ;;
   esac
 
-<<<<<<< HEAD
   echo
   echo "---------------------------------------------------------"
   echo "|**************** 选择 Clover 补丁 ****************|"
@@ -401,8 +400,6 @@ function editEFI() {
     ;;
   esac
 
-=======
->>>>>>> cf695a69bfffd0b1b18018df9efa72b210854ada
   echo -e "[ ${GREEN}OK${OFF} ]修改完成"
 }
 
