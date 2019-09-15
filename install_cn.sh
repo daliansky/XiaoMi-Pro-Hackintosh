@@ -372,16 +372,26 @@ function editEFI() {
 	2)
     $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
     $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+
 	;;
 
 	3)
     $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+
+	# 0xE2 unlocked, use 'RtcHibernateAware'
+    $pledit -c "delete Boot:HibernationFixup" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "add Boot:RtcHibernateAware bool true" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+	rm -rf "XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/HibernationFixup.kext"
 	;;
 
 	4)
     $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
     $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
     $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+	# 0xE2 unlocked, use 'RtcHibernateAware'
+    $pledit -c "delete Boot:HibernationFixup" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+    $pledit -c "add Boot:RtcHibernateAware bool true" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+	rm -rf "XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/HibernationFixup.kext"
 	;;
 
     *)
