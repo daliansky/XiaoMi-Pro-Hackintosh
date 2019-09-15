@@ -164,7 +164,7 @@ function backupEFI() {
   echo -e "[ ${GREEN}OK${OFF} ]Backup complete"
 
   echo
-  echo "Copying serial numbers to new CLOVER..."
+  echo "Copying previous settings to new CLOVER..."
   local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
   local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
   local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
@@ -174,6 +174,8 @@ function backupEFI() {
   local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
   local CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
   local InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' ${BACKUP_DIR}/CLOVER/config.plist)"
+  local framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' ${BACKUP_DIR}/CLOVER/config.plist)"
 
   # check whether DefaultVolume and Timeout exist, copy if yes
   if [[ ! -z "${DefaultVolume}" ]]; then
@@ -213,6 +215,14 @@ function backupEFI() {
     $pledit -c "Set SystemParameters:InjectSystemID ${InjectSystemID}" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   else
     $pledit -c "Set SystemParameters:InjectSystemID false" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ -z "${framebufferfbmem}" ]]; then
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
+  fi
+
+  if [[ -z "${framebufferstolenmem}" ]]; then
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" XiaoMi_Pro-${ver}/EFI/CLOVER/config.plist
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
@@ -343,6 +353,7 @@ function editEFI() {
     ;;
   esac
 
+<<<<<<< HEAD
   echo
   echo "---------------------------------------------------------"
   echo "|**************** Choose Clover patches ****************|"
@@ -380,6 +391,8 @@ function editEFI() {
     ;;
   esac
 
+=======
+>>>>>>> cf695a69bfffd0b1b18018df9efa72b210854ada
   echo -e "[ ${GREEN}OK${OFF} ]Change complete"
 }
 
@@ -478,7 +491,56 @@ function changeBT() {
 
     *)
     echo -e "[ ${RED}ERROR${OFF} ]: Invalid input"
+    returnMenu
+    ;;
+  esac
+  echo -e "[ ${GREEN}OK${OFF} ]Change complete"
+}
+
+# Remove DVMT patch or 0xE2 MSR patch if scripts in https://github.com/daliansky/XiaoMi-Pro-Hackintosh/tree/master/BIOS/DVMT_and_0xE2_fix are installed, credit Menchen
+function removeDVMTMSR() {
+  echo
+  echo "Before editing, please read https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/master/BIOS/DVMT_and_0xE2_fix/README.md"
+  open -a "/Applications/Safari.app" https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/master/BIOS/DVMT_and_0xE2_fix/README.md
+
+  echo
+  echo "---------------------------------------------------------"
+  echo "|**************** Choose Clover patches ****************|"
+  echo "---------------------------------------------------------"
+  echo "(1) 0xE2 MSR patch & 32mb DVMT patch (Default)"
+  echo "(2) 0xE2 MSR patch only, choose this if DVMT = 64mb"
+  echo "(3) 32m DVMT patch only, choose this if 0xE2 MSR is unlocked"
+  echo "(4) No patch, choose this if you have both patches in BIOS"
+  echo "${BOLD}Which option you want to choose? (1/2/3/4)${OFF}"
+  read -p ":" cloverpatch_selection
+  case ${cloverpatch_selection} in
+    1)
+    # Keep default
+    ;;
+
+    2)
+    mountEFI
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" ${EFI_DIR}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" ${EFI_DIR}/EFI/CLOVER/config.plist
     unmountEFI
+    ;;
+
+    3)
+    mountEFI
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" ${EFI_DIR}/EFI/CLOVER/config.plist
+    unmountEFI
+    ;;
+
+    4)
+    mountEFI
+    $pledit -c "delete KernelAndKextPatches:KernelToPatch:0" ${EFI_DIR}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" ${EFI_DIR}/EFI/CLOVER/config.plist
+    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" ${EFI_DIR}/EFI/CLOVER/config.plist
+    unmountEFI
+    ;;
+
+    *)
+    echo -e "[ ${RED}ERROR${OFF} ]: Invalid input"
     returnMenu
     ;;
   esac
@@ -578,7 +640,7 @@ function main() {
   echo ' /_/\_\ |_|  \__,_|  \___/  |_|  |_| |_|        |_|     |_|     \___/ '
   echo
   echo "Your mainboard is ${MAINBOARD}"
-  echo '====================================================================='
+  echo '========================================================================='
   echo -e "${BOLD}(1) Update EFI${OFF}"
   echo "(2) Change Bluetooth mode (Only support the latest release)"
   echo "(3) General audio fix (credits Menchen)"
@@ -586,11 +648,12 @@ function main() {
   echo "(5) Update power management"
   echo "(6) Modify TDP and CPU voltage (credits Pasi-Studio)"
   echo "(7) Enable HiDPI"
-  echo "(8) Fix Windows boot (Only support the latest release)"
-  echo "(9) Fix Apple services"
-  echo "(10) Problem report"
-  echo "(11) Exit"
-  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11)${OFF}"
+  echo "(8) Set DVMT to 64mb (for 4K screen) and unlock 0xE2 MSR (credit Menchen)"
+  echo "(9) Fix Windows boot (Only support the latest release)"
+  echo "(10) Fix Apple services"
+  echo "(11) Problem report"
+  echo "(12) Exit"
+  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11/12)${OFF}"
   read -p ":" xm_selection
   case ${xm_selection} in
     1)
@@ -629,21 +692,26 @@ function main() {
     ;;
 
     8)
-    fixWindows
+    removeDVMTMSR
     returnMenu
     ;;
 
     9)
-    fixAppleService
+    fixWindows
     returnMenu
     ;;
 
     10)
-    reportProblem
+    fixAppleService
     returnMenu
     ;;
 
     11)
+    reportProblem
+    returnMenu
+    ;;
+
+    12)
     clean
     echo
     echo "Wish you have a good day! Bye"

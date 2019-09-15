@@ -32,12 +32,12 @@ function networkWarn(){
     exit 1
 }
 
-# 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix
+# 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix 和 https://github.com/Menchen/ALCPlugFix/tree/master/build/Release
 function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix
     echo "正在下载声卡修复文件..."
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/ALCPlugFix -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/hda-verb -O || networkWarn
     echo "下载完成"
