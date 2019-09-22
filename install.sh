@@ -445,7 +445,7 @@ function changeBT() {
 
     deleteBT
 
-    cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-FingerBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
+    cp -rf "SSDT-USB-FingerBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
     ;;
 
@@ -469,7 +469,7 @@ function removeDVMTMSR() {
   echo "---------------------------------------------------------"
   echo "(1) 0xE2 MSR patch & 32mb DVMT patch (Default)"
   echo "(2) 0xE2 MSR patch only, choose this if DVMT = 64mb"
-  echo "(3) 32m DVMT patch only, choose this if 0xE2 MSR is unlocked"
+  echo "(3) 32mb DVMT patch only, choose this if 0xE2 MSR is unlocked"
   echo "(4) No patch, choose this if you have both patches in BIOS"
   echo "${BOLD}Which option you want to choose? (1/2/3/4)${OFF}"
   read -p ":" cloverpatch_selection
