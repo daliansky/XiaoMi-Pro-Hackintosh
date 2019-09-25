@@ -405,7 +405,7 @@ function changeBT() {
   echo "--------------------------------------------"
   echo "|************** 选择蓝牙模式 **************|"
   echo "--------------------------------------------"
-  echo "(1) 保持默认"
+  echo "(1) 原生Intel蓝牙 (默认)"
   echo "(2) USB蓝牙 / 屏蔽自带蓝牙 / 飞线蓝牙到摄像头"
   echo "(3) 飞线蓝牙到WLAN_LTE接口"
   echo "(4) 飞线蓝牙到指纹接口"
@@ -413,7 +413,13 @@ function changeBT() {
   read -p ":" bt_selection_new
   case ${bt_selection_new} in
     1)
-    # 保持默认
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
+    deleteBT
+
+    cp -rf "SSDT-USB.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+    unmountEFI
     ;;
 
     2)

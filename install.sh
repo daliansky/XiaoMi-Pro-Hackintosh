@@ -405,7 +405,7 @@ function changeBT() {
   echo "---------------------------------------------------------"
   echo "|************** Choose the Bluetooth Mode **************|"
   echo "---------------------------------------------------------"
-  echo "(1) Remain the same"
+  echo "(1) Native Intel BT (Default)"
   echo "(2) USB BT / Disable native BT / Solder BT on camera port"
   echo "(3) Solder BT on WLAN_LTE port"
   echo "(4) Solder BT on fingerprint port"
@@ -413,7 +413,13 @@ function changeBT() {
   read -p ":" bt_selection_new
   case ${bt_selection_new} in
     1)
-    # Keep default
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    curl --silent -O "${repoURL}" || networkWarn
+
+    deleteBT
+
+    cp -rf "SSDT-USB.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
+    unmountEFI
     ;;
 
     2)
