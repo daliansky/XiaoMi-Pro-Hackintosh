@@ -66,7 +66,7 @@ A complete EFI archive is available in [releases](https://github.com/daliansky/X
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
 ```
 
-If the tracpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
+If the trackpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 
 
 ## FAQ
@@ -77,9 +77,9 @@ Press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram
 
 ### I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
 
-It is not recommened to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
+It is not recommended to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
 
-### My screen truns to black and has no response during the updating process.
+### My screen turns to black and has no response during the updating process.
 
 If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
 

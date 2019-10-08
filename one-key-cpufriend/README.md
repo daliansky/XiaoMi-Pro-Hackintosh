@@ -4,7 +4,7 @@ English | [中文](README_CN.md)
 
 ## Instruction
 
-[I](https://github.com/stevezhengshiqi) am really a newcomer for bash language, and welcome pros to help improve the script.
+[I](https://github.com/stevezhengshiqi) am a newcomer for bash language, and welcome pros to help improve the script.
 
 <b>The script is only for 8th generation CPU(KBL-R, CNL, CFL...).</b>
 
