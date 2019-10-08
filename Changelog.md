@@ -4,7 +4,7 @@ English | [中文](Changelog_CN.md)
 
 - 10-14-2017
     
-    - EFI update, touch pad is working
+    - EFI update, trackpad is working
 
 
 - 10-17-2017
@@ -39,7 +39,7 @@ English | [中文](Changelog_CN.md)
 - 10-31-2017
 
     - Update sound card driver, fix earphone problem
-    - New driver to increase layoutid: 13
+    - New driver to increase layout-id: 13
     - Supports four nodes to support the headset to switch freely, Mic / LineIn is working properly
 
 
@@ -52,7 +52,7 @@ English | [中文](Changelog_CN.md)
 - 11-5-2017
 
     - Integrate `AppleALC_ALC298_id13_id28.kext` driver to EFI
-    - Add EFL directory ALCPlugFix directory, please enter the ALCPlugFix directory after the installation is complete, double-click the `install.command` to automatically install. Command Install the headset plug-in state correction daemon
+    - Add EFI directory ALCPlugFix directory, please enter the ALCPlugFix directory after the installation is complete, double-click the `install.command` to automatically install. Command Install the headset plug-in state correction daemon
     - Fixed Drivers64UEFI to solve the problem that can not be installed
     - Updated `apfs.efi` to version 10.13.1
 

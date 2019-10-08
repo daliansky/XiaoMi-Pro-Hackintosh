@@ -4,7 +4,7 @@ English | [中文](README_CN.md)
 
 ## Note: Only for BOE NV156FHM-N61 LCD Panel (Default Xiaomi Pro)
 
-## Note: For professional usage you should calibrate yourself
+## Note: For professional usage, you should calibrate yourself
 
 ## Features
 

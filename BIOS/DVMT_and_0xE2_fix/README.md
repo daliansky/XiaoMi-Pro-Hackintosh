@@ -9,13 +9,13 @@
 0. <b>SUPER IMPORTANT! Modifications only checked on BIOS 603. Neither @FallenChromium nor Cyb is responsible for any damage, all is working for us, but you're doing all on your risk.</b>
     - After several tests, I found that the script is safe for 0906 BIOS.
 
-1. <b>IMPORTANT - Make a backup file using `backup.cmd`, save output file `mybackup.bin` somewhere in the cloud. This is proof-of-concept and not stable revision.</b>
+1. <b>IMPORTANT - Make a backup file using `backup.cmd`, save output file `mybackup.bin` somewhere in the cloud. This is a proof-of-concept and not stable revision.</b>
 
 2. Before any other manipulations, make sure PowerShell scripts execution is allowed on your Windows machine. Further info [here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6). I set all of policies (CurrentUser and etc.) to Unrestricted and only after this executables worked for me.
 
 3. Execute `bios_unlock.cmd` before making any further changes to BIOS.
 
-4. Execute `DVMT_set.cmd` to make DVMT=64mb. You need to restart again and it wouldn't work if you wouldn't, you can't apply all patches and restart aftetwards as it would apply only latest patch.
+4. Execute `DVMT_set.cmd` to make DVMT=64mb. You need to restart to let it work. You can't apply all the patches and restart aftetward as it would apply only the latest patch.
 
 5. Execute `CFG_unlock.cmd`, restart again. 
 

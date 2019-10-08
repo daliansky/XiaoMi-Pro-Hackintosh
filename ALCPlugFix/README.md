@@ -6,7 +6,7 @@ English | [中文](README_CN.md)
 
 * The script can solve unworking headphone jack.
 * It sends command: `hda-verb 0xNode SET_PIN_WIDGET_CONTROL 0xVerbs` to activate headphone jack.
-* `hda-verb` is originally from a command of `alsa-project` in linux. Its function is to send HD-audio commands.
+* `hda-verb` is originally from a command of `alsa-project` in Linux. Its function is to send HD-audio commands.
 
 
 ## How to install
