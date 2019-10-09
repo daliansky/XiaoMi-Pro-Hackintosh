@@ -294,17 +294,22 @@
     * 更新 `SSDT-LGPA`
     * 更新 `SSDT-TPD0`
     * 新增 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS`，搭配 `SSDT-TPD0`
+    * 移除 `enable-hdmi-dividers-fix`
 
 
-* X-XX-2019
+* XX-XX-2019
 
-    * 更新 `Lilu` v1.3.8
-    * 更新 `AppleALC` v1.4.0
-    * 更新 `WhateverGreen` v1.3.1
-    * 更新 `HibernationFixup` v1.2.7
-    * 更新 `VirtualSMC` v1.0.7
-    * 更新并修改 `VoodooPS2` v2.0.2
-    * 更新 `AppleSupportPkg` v2.0.9
+    * 更新 `Clover` r5
+    * 更新 `Lilu` v1.3.9
+    * 更新 `AppleALC` v1.4.2
+    * 更新 `WhateverGreen` v1.3.3
+    * 更新 `HibernationFixup` v1.2.9
+    * 更新 `VirtualSMC` v1.0.8
+    * 更新并修改 `VoodooPS2` v2.0.4
+    * 更新 `AppleSupportPkg` v2.1.1
     * 更新 `VoodooI2C`
-    * 更新 `AptioMemoryFix` 至 https://github.com/acidanthera/AptioFixPkg/commit/fb63fcb3d6d7163e517a67ba04da7d1315fc16f3
+    * 新增 `complete-modeset-framebuffers` 来改善HDMI
+    * 新增 `PanicNoKextDump` 来替代 panic kext logging 补丁
+    * 新增 `EFICheckDisabler`
+    * 修改 layout-id 回 30
     * 移除 AppleIntelLpssI2C 补丁因为 https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 修复了驱动冲突问题
