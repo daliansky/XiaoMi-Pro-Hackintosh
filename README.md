@@ -22,6 +22,7 @@ English | [中文](README_CN.md)
 
 ## What's not Working in Clover
 
+- <b>Ethernet is not working in macOS 10.15, help wanted</b>
 - Discrete graphic card, since macOS doesn't support Optimus technology
   - Have used `disable-external-gpu` to disable it in order to save power
 - Fingerprint sensor

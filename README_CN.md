@@ -22,6 +22,7 @@
 
 ## 哪些不能在Clover正常工作
 
+- <b>有线网在macOS 10.15下无法工作，需要帮助</b>
 - 独立显卡，因为macOS不支持Optimus技术
   - 使用了 `disable-external-gpu` 来禁用它以节省电量
 - 指纹传感器
