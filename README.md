@@ -1,7 +1,7 @@
 # macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro
 [![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 
-Hackintosh your XiaoMi Notebook Pro
+XiaoMi Notebook Pro Hackintosh
 
 English | [中文](README_CN.md)
 
@@ -23,22 +23,22 @@ English | [中文](README_CN.md)
 ## Current Status in Clover
 
 - <b>Ethernet is not working in macOS 10.15, help wanted</b>
-- Discrete graphic card, since macOS doesn't support Optimus technology
+- Discrete graphic card is not working, since macOS doesn't support Optimus technology
   - Have used `disable-external-gpu` to disable it in order to save power
-- Fingerprint sensor
+- Fingerprint sensor is not working
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
 - Intel Bluetooth only works after warm restart from Windows
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
-- Intel Wi-Fi(Intel Wireless 8265)
+- Intel Wi-Fi(Intel Wireless 8265) is not working
   - Buy a USB Wi-Fi dongle or supported wireless card
-- Realtek USB SD Card Reader(RTS5129)
+- Realtek USB SD Card Reader(RTS5129) is not working
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
 - Everything else works well
 
 
 ## Current Status in OpenCore
 
-- All the things in `What's not Working in Clover` section
+- Basically the same with [Current Status in Clover](#current-status-in-clover) section
 - No theme
 
 Need more testing...
@@ -59,7 +59,7 @@ These not working items do not represent `OpenCore` bootloader is weaker than `C
 ### First-time installation
 
 - Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
-- If the trackpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and run `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
+- If the trackpad doesn't work during the installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and run `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 - Complete EFI packs are available in the [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page.
  - Please don't clone or download the master branch for daily use.
  

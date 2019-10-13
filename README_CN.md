@@ -23,22 +23,22 @@
 ## Clover版本的目前情况
 
 - <b>有线网在macOS 10.15下无法工作，需要帮助</b>
-- 独立显卡，因为macOS不支持Optimus技术
+- 独立显卡无法工作，因为macOS不支持Optimus技术
   - 使用了 `disable-external-gpu` 来禁用它以节省电量
-- 指纹传感器
+- 指纹传感器无法工作
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - 英特尔蓝牙只有在从Windows热重启后有效
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
-- 英特尔无线网卡
+- 英特尔无线网卡无法工作
   - 购买USB网卡或者支持的内置网卡
-- 瑞昱USB SD读卡器
+- 瑞昱USB SD读卡器无法工作
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - 其他都工作正常
 
 
 ## OpenCore版本的目前情况
 
-- 所有在 `哪些不能在Clover正常工作` 小节提到的
+- 和[Clover版本的目前情况](#clover版本的目前情况)小节基本一致
 - 没有主题
 
 需要更多测试。。。
