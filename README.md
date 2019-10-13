@@ -1,4 +1,4 @@
-# XiaoMi NoteBook Pro for macOS Catalina & Mojave & High Sierra
+# macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro
 [![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 
 Hackintosh your XiaoMi Notebook Pro
@@ -20,7 +20,7 @@ English | [中文](README_CN.md)
 | SD Card Reader      | Realtek RTS5129/RTS5250S                   |
 
 
-## What's not Working in Clover
+## Current Status in Clover
 
 - <b>Ethernet is not working in macOS 10.15, help wanted</b>
 - Discrete graphic card, since macOS doesn't support Optimus technology
@@ -36,18 +36,17 @@ English | [中文](README_CN.md)
 - Everything else works well
 
 
-## What's not Working in OpenCore
+## Current Status in OpenCore
 
 - All the things in `What's not Working in Clover` section
 - No theme
-- Slightly slower booting speed
 
 Need more testing...
 
 These not working items do not represent `OpenCore` bootloader is weaker than `Clover`, but do relate to my lack of experience.
 
 
-## What can work better
+## Improvements
 
 - Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64MB and unlock CFG
@@ -57,17 +56,23 @@ These not working items do not represent `OpenCore` bootloader is weaker than `C
 
 ## Installation
 
-Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
+### First-time installation
 
-A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page, thanks to the continuous update of [stevezhengshiqi](https://github.com/stevezhengshiqi).
+- Please refer to the detailed installation tutorial [Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724) or video tutorial [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc).
 
+- A complete EFI archive is available in [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page.
+ - Please don't clone or download the master branch for daily use.
+
+### Upgrade
+
+- A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro/releases).
 - You can also update EFI by running the following command in Terminal:
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
 ```
 
-If the trackpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
+- If the trackpad doesn't work during installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and type `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 
 
 ## FAQ
