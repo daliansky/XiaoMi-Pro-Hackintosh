@@ -59,9 +59,12 @@
 ### 首次安装
 
 - 请参考详细的安装教程[【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
-
+- 如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并运行 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 - 完整的EFI附件请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面。
  - 如果是日常使用，请不要克隆或者下载master分支。
+ 
+ <img src="img/donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
+ <img src="img/get_Release.jpg" width="300px" alt="get_release">
  
  ### 更新
  
@@ -71,8 +74,6 @@
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install_cn.sh)"
 ```
-
-- 如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 常见问题解答
