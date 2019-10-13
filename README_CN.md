@@ -20,7 +20,7 @@
 | 读卡器   | 瑞昱 RTS5129/RTS5250S                      |
 
 
-## 哪些不能在Clover正常工作
+## Clover版本的目前情况
 
 - <b>有线网在macOS 10.15下无法工作，需要帮助</b>
 - 独立显卡，因为macOS不支持Optimus技术
@@ -36,18 +36,17 @@
 - 其他都工作正常
 
 
-## 哪些不能在OpenCore正常工作
+## OpenCore版本的目前情况
 
 - 所有在 `哪些不能在Clover正常工作` 小节提到的
 - 没有主题
-- 稍慢的开机速度
 
 需要更多测试。。。
 
 这些不能正常工作的项目不代表 `OpenCore` 弱于 `Clover`，而是因为我缺少 `OpenCore` 的操作经验。
 
 
-## 哪些可以工作得更好
+## 改善体验
 
 - 使用[ALCPlugFix](ALCPlugFix)来修复耳机重新插拔后无声
 - 使用[DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix)来把帧缓存设为64mb并解锁CFG
@@ -57,17 +56,23 @@
 
 ## 安装
 
-请参考详细的安装教程[【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
+### 首次安装
 
-完整的EFI压缩版请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面，感谢[stevezhengshiqi](https://github.com/stevezhengshiqi)的持续更新。
+- 请参考详细的安装教程[【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
 
+- 完整的EFI附件请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面。
+ - 如果是日常使用，请不要克隆或者下载master分支。
+ 
+ ### 更新
+ 
+- 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro/releases)拷贝新的。
 - 你也可以更新EFI通过在终端输入以下命令：
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install_cn.sh)"
 ```
 
-如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
+- 如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并输入 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 
 
 ## 常见问题解答
