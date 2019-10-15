@@ -16,9 +16,28 @@ macOS 的 DPI 机制和 Windows 下不一样，比如 1080p 的屏幕在 Windows
 ## 使用方法
 
 - 在终端输入以下命令并回车：
-
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi_cn.sh)"
+```
+
+- macOS 10.14或以上，你可能需要开启次像素抗锯齿来获得更好的体验
+ - 在终端输入以下命令并回车：
+ ```bash
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+```
+
+ - 然后调整抗锯齿的配置：
+  - 最强级别
+```bash
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 3
+```
+  - 中等级别
+```bash
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+```
+  - 轻微级别
+```bash
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
 ```
 
 
@@ -27,11 +46,19 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hacki
 如果使用此脚本后，开机无法进入系统，请到恢复模式中或使用 clover `-x` 安全模式进入系统 ，使用终端删除 `/System/Library/Displays/Contents/Resources/Overrides` 下删除 `DisplayVendorID-9e5` 文件夹，并把 backup 文件夹中的备份复制出来。
 
 具体命令如下：
-
 ```
 $ cd /Volumes/你的系统盘/System/Library/Displays/Contents/Resources/Overrides
 $ rm -rf ./DisplayVendorID-9e5
 $ cp -r ./backup/* ./
+```
+
+如果要回滚次像素抗锯齿设置，在终端输入以下命令并回车：
+```bash
+defaults -currentHost delete -globalDomain AppleFontSmoothing
+```
+和：
+```bash
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool YES
 ```
 
 
