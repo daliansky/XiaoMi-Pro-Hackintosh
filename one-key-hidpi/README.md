@@ -16,22 +16,49 @@ Also, this program is only for Mi Pro.
 ## How to install
 
 - Run the following command in Terminal:
-
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-hidpi/one-key-hidpi.sh)"
 ```
 
+- For macOS 10.14 and above, you may also need to enable font smoothing to get better experience
+ - Run the following command in Terminal:
+```bash
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+```
 
+- And adjust font smoothing setting:
+ - Strong font smoothing
+```bash
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 3
+```
+ - Medium font smoothing
+```bash
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+```
+ - Light font smoothing
+```bash
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+```
+ 
+ 
 ## Recovery
 
 If you cant boot into the system, or get any other issues, you can use clover `-x ` reboot or into Recovery mode, remove `DisplayVendorID-9e5` folder under `/System/Library/Displays/Contents/Resources/Overrides` , and move backup files.
 
 In Terminal: 
-
 ```
 $ cd /Volumes/"Your System Disk Part"/System/Library/Displays/Contents/Resources/Overrides
 $ rm -rf ./DisplayVendorID-9e5
 $ cp -r ./backup/* ./
+```
+
+To return font smoothing settings to default, run the following commands in Terminal:
+```bash
+defaults -currentHost delete -globalDomain AppleFontSmoothing
+```
+And:
+```bash
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool YES
 ```
 
 
