@@ -98,7 +98,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
 
-同时确保 `沙盒`(Sandbox) 功能关闭。
+同时确保 `沙盒`(Sandbox) 和 `Hyper-V` 功能关闭。
 
 ### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro/wiki/常见问题解答)。
 
