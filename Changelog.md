@@ -308,6 +308,7 @@ English | [中文](Changelog_CN.md)
     - Update and edit `VoodooPS2` v2.0.4
     - Update `AppleSupportPkg` v2.1.1
     - Update `VoodooI2C`
+    - Update `SSDT-USB`
     - Add `complete-modeset-framebuffers` property to improve HDMI
     - Add `PanicNoKextDump` to replace panic kext logging patches
     - Add `EFICheckDisabler`
