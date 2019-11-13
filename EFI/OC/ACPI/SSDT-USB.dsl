@@ -45,13 +45,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
         Name (_HID, "UIA00000")  // _HID: Hardware ID
         Name (RMCF, Package (0x02)
         {
-            "8086_9d2f", 
+            "8086_9dxx", 
             Package (0x04)
             {
                 "port-count", 
                 Buffer (0x04)
                 {
-                     0x12, 0x00, 0x00, 0x00                           // ....
+                     0x10, 0x00, 0x00, 0x00                           // ....
                 }, 
 
                 "ports", 
@@ -61,7 +61,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x03, 
+                        0x0A, 
                         "port", 
                         Buffer (0x04)
                         {
@@ -85,7 +85,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x03, 
+                        0x0A, 
                         "port", 
                         Buffer (0x04)
                         {
@@ -133,7 +133,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x03, 
+                        0x0A, 
                         "port", 
                         Buffer (0x04)
                         {
@@ -169,7 +169,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x03, 
+                        0x0A, 
                         "port", 
                         Buffer (0x04)
                         {
