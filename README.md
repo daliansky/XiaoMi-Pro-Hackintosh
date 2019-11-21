@@ -23,6 +23,8 @@ English | [中文](README_CN.md)
 ## Current Status in Clover
 
 - <b>Ethernet is not working in macOS 10.15, help wanted</b>
+- In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
+  - If you are not using macOS 10.15, it's still recommended to update the driver above
 - Discrete graphic card is not working, since macOS doesn't support Optimus technology
   - Have used `disable-external-gpu` to disable it in order to save power
 - Fingerprint sensor is not working
@@ -42,8 +44,6 @@ English | [中文](README_CN.md)
 - No theme
 
 Need more testing...
-
-These not working items do not represent `OpenCore` bootloader is weaker than `Clover`, but do relate to my lack of experience.
 
 
 ## Improvements
