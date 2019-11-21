@@ -23,6 +23,8 @@
 ## Clover版本的目前情况
 
 - <b>有线网在macOS 10.15下无法工作，需要帮助</b>
+- 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
+  - 如果不是macOS 10.15，也推荐更新上述驱动
 - 独立显卡无法工作，因为macOS不支持Optimus技术
   - 使用了 `disable-external-gpu` 来禁用它以节省电量
 - 指纹传感器无法工作
@@ -42,8 +44,6 @@
 - 没有主题
 
 需要更多测试。。。
-
-这些不能正常工作的项目不代表 `OpenCore` 弱于 `Clover`，而是因为我缺少 `OpenCore` 的操作经验。
 
 
 ## 改善体验
@@ -69,7 +69,7 @@
  ### 更新
  
 - 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro/releases)拷贝新的。
-- 你也可以更新EFI通过在终端输入以下命令：
+- 你也可以在终端输入以下命令来更新EFI：
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install_cn.sh)"
