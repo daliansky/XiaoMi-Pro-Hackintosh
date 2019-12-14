@@ -309,6 +309,7 @@ English | [中文](Changelog_CN.md)
     - Update `AppleSupportPkg` v2.1.1
     - Update `VoodooI2C`
     - Update `SSDT-USB`
+    - Add `SSDT-DRP08` to disable Intel Wireless Card
     - Add `complete-modeset-framebuffers` property to improve HDMI
     - Add `PanicNoKextDump` to replace panic kext logging patches
     - Add `EFICheckDisabler`

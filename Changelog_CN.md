@@ -309,6 +309,7 @@
     * 更新 `AppleSupportPkg` v2.1.1
     * 更新 `VoodooI2C`
     * 更新 `SSDT-USB`
+    * 新增 `SSDT-DRP08` 来禁用Intel无线网卡
     * 新增 `complete-modeset-framebuffers` 来改善HDMI
     * 新增 `PanicNoKextDump` 来替代 panic kext logging 补丁
     * 新增 `EFICheckDisabler`
