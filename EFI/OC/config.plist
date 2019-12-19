@@ -16,6 +16,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Disable discrete graphics card</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-DDGPU.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Add DMAC device</string>
 				<key>Enabled</key>
 				<true/>
@@ -340,8 +348,6 @@
 				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
-				<key>disable-external-gpu</key>
-				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-pipe</key>

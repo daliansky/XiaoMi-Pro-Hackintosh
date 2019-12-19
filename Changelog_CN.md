@@ -313,5 +313,6 @@
     * 新增 `complete-modeset-framebuffers` 来改善HDMI
     * 新增 `PanicNoKextDump` 来替代 panic kext logging 补丁
     * 新增 `EFICheckDisabler`
+    * 放回 `SSDT-DDGPU` 来禁用独显，而不是用 `disable-external-egpu`
     * 修改 layout-id 回 30
     * 移除 AppleIntelLpssI2C 补丁因为 https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 修复了驱动冲突问题
