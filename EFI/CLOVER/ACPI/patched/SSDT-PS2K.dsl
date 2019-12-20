@@ -18,9 +18,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
                 Package (0x02)
                 {
                     Package (0x00){}, 
-                    "e037=0"
+                    "e037=0" // prevent F11 from disabling the trackpad
                 }, 
-
+                
+                // command = win; otherwise, command = alt
                 "Swap command and option", 
                 ">n"
             }
