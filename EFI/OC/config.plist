@@ -659,7 +659,7 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>VirtualSMC.kext/Contents/PlugIns/SMCBatteryManager.kext</string>
+				<string>SMCBatteryManager.kext</string>
 				<key>Comment</key>
 				<string>SMC Battery</string>
 				<key>Enabled</key>
@@ -673,7 +673,7 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>VirtualSMC.kext/Contents/PlugIns/SMCProcessor.kext</string>
+				<string>SMCProcessor.kext</string>
 				<key>Comment</key>
 				<string>SMC Prosessor</string>
 				<key>Enabled</key>
