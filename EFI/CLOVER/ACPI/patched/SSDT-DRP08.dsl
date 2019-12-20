@@ -20,7 +20,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_DRP08", 0x00000000)
 
     Scope (\)
     {
-        \_SB.PCI0.RP08.DDDD = One
+        If (_OSI ("Darwin"))
+        {
+            \_SB.PCI0.RP08.DDDD = One
+        }
     }
 }
 

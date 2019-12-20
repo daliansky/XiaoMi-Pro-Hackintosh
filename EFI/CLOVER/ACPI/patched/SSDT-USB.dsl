@@ -8,6 +8,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
     Device (_SB.USBX)
     {
         Name (_ADR, Zero)  // _ADR: Address
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
+
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
             If (!Arg2)
@@ -167,6 +179,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                 }
             }
         })
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
     }
 }
 
