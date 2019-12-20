@@ -41,6 +41,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_DMAC", 0x00000000)
                 DMA (Compatibility, NotBusMaster, Transfer8_16, )
                     {4}
             })
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If (_OSI ("Darwin"))
+                {
+                    Return (0x0F)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
         }
     }
 }

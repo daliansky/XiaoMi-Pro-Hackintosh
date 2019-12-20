@@ -13,8 +13,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
     External (_SB_.PCI0.I2C0.TPD0.INT2, UnknownObj)
     External (_SB_.PCI0.I2C0.TPD0.SBFB, UnknownObj)
     External (_SB_.PCI0.I2C0.TPD0.SBFG, UnknownObj)
+    External (_SB_.PCI0.I2C0.TPD0.SBFI, UnknownObj)
     External (_SB_.SHPO, MethodObj)    // 2 Arguments
+    External (_SB_.SRXO, MethodObj)    // 2 Arguments
     External (GPDI, FieldUnitObj)
+    External (OSYS, FieldUnitObj)
+    External (SBFI, IntObj)
     External (SDM0, FieldUnitObj)
     External (SDS0, FieldUnitObj)
 
@@ -22,6 +26,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
+            If (_OSI ("Darwin")){}
+            ElseIf ((OSYS < 0x07DC))
+            {
+                SRXO (GPDI, One)
+            }
+
             INT1 = GNUM (GPDI)
             INT2 = INUM (GPDI)
             If ((SDM0 == Zero))
@@ -49,7 +59,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
 
         Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
         {
-            Return (ConcatenateResTemplate (SBFB, SBFG))
+            If (_OSI ("Darwin"))
+            {
+                Return (ConcatenateResTemplate (SBFB, SBFG))
+            }
+
+            If ((OSYS < 0x07DC))
+            {
+                Return (SBFI) /* External reference */
+            }
+
+            If ((SDM0 == Zero))
+            {
+                Return (ConcatenateResTemplate (SBFB, SBFG))
+            }
+
+            Return (ConcatenateResTemplate (SBFB, SBFI))
         }
     }
 }

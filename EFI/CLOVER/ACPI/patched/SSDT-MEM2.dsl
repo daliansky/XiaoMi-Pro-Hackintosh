@@ -28,6 +28,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_MEM2", 0x00000000)
             {
                 Return (CRS) /* \_SB_.MEM2.CRS_ */
             }
+
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If (_OSI ("Darwin"))
+                {
+                    Return (0x0F)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_DDGPU", 0x00000000)
 {
-    External (_SB_.PCI0.RP01.PXSX._OFF, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP01.PXSX._OFF, MethodObj)    // 0 Arguments
 
     Device (RMD1)
     {
@@ -15,6 +15,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_DDGPU", 0x00000000)
             If (CondRefOf (\_SB.PCI0.RP01.PXSX._OFF))
             {
                 \_SB.PCI0.RP01.PXSX._OFF ()
+            }
+        }
+
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
             }
         }
     }

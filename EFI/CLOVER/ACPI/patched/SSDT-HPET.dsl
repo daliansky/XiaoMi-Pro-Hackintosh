@@ -11,7 +11,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
-            HPTE = Zero
+            If (_OSI ("Darwin"))
+            {
+                HPTE = Zero
+            }
         }
     }
 }

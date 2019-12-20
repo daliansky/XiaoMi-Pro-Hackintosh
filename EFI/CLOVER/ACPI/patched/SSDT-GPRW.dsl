@@ -9,16 +9,23 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_GPRW", 0x00000000)
 
     Method (GPRW, 2, NotSerialized)
     {
-        If ((0x6D == Arg0))
+        If (_OSI ("Darwin"))
         {
-            Return (Package (0x02)
+            If ((0x6D == Arg0))
             {
-                0x6D, 
-                Zero
-            })
-        }
+                Return (Package (0x02)
+                {
+                    0x6D, 
+                    Zero
+                })
+            }
 
-        Return (XPRW (Arg0, Arg1))
+            Return (XPRW (Arg0, Arg1))
+        }
+        Else
+        {
+            Return (XPRW (Arg0, Arg1))
+        }
     }
 }
 

@@ -112,6 +112,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Customize VoodooPS2Keyboard</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PS2K.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Fake an ethernet card, pair with NullEthernet.kext</string>
 				<key>Enabled</key>
 				<true/>
