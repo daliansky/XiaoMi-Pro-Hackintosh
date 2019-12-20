@@ -23,7 +23,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
         Name (_HID, EisaId ("APP0002"))  // _HID: Hardware ID
         Name (_CID, "backlight")  // _CID: Compatible ID
         Name (_UID, Zero)  // _UID: Unique ID
-        Name (_STA, 0x0B)  // _STA: Status
         Field (^RMP3, AnyAcc, NoLock, Preserve)
         {
             Offset (0x02), 
@@ -267,6 +266,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
             Else
             {
                 _UID = 0x63
+            }
+        }
+
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0B)
+            }
+            Else
+            {
+                Return (Zero)
             }
         }
     }
