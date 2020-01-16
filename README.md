@@ -29,8 +29,8 @@ English | [中文](README_CN.md)
   - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
 - Fingerprint sensor is not working
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
-- Intel Bluetooth only works after warm restart from Windows
-  - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
+- ~~Intel Bluetooth only works after warm restart from Windows~~
+  - ~~View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)~~
 - Intel Wi-Fi(Intel Wireless 8265) is not working
   - Have used [SSDT-DRP08](EFI/CLOVER/ACPI/patched/SSDT-DRP08.dsl) to disable it in order to save power
   - Buy a USB Wi-Fi dongle or supported wireless card
@@ -128,6 +128,7 @@ All the project is made for free, but you can reward me if you want.
 - Thanks to [hieplpvip](https://github.com/hieplpvip) and [syscl](https://github.com/syscl) for providing sample of DSDT patches.
 - Thanks to [kprinssu](https://github.com/kprinssu) for providing [VoodooInput](https://github.com/kprinssu/VoodooInput) and [VoodooInputEngine](https://github.com/kprinssu/VoodooInputEngine).
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander), [EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet), [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
+- Thanks to [zxystd](https://github.com/zxystd) for providing [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware)
 
 - For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro/wiki/References).
 
