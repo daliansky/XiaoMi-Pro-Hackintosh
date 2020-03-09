@@ -971,7 +971,7 @@
 			<true/>
 			<key>PowerTimeoutKernelPanic</key>
 			<false/>
-			<key>ThirdPartyTrim</key>
+			<key>ThirdPartyDrives</key>
 			<true/>
 			<key>XhciPortLimit</key>
 			<false/>
@@ -986,7 +986,7 @@
 			<key>HibernateMode</key>
 			<string>Auto</string>
 			<key>PickerMode</key>
-			<string>Builtin</string>
+			<string>External</string>
 			<key>HideAuxiliary</key>
 			<true/>
 			<key>HideSelf</key>
@@ -1110,6 +1110,7 @@
 			<string>HfsPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
+			<string>BootLiquor.efi</string>
 		</array>
 		<key>Audio</key>
 		<dict>
@@ -1181,7 +1182,7 @@
 			<key>AppleImageConversion</key>
 			<false/>
 			<key>AppleKeyMap</key>
-			<false/>
+			<true/>
 			<key>AppleSmcIo</key>
 			<true/>
 			<key>AppleUserInterfaceTheme</key>

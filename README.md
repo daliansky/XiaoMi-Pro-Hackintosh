@@ -29,7 +29,7 @@ English | [中文](README_CN.md)
   - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
 - Fingerprint sensor is not working
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
-- Intel Bluetooth only works on macOS Catalina and does not support some bluetooth devices
+- Intel Bluetooth only works on macOS Catalina and does not support some Bluetooth devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265) is not working
   - Have used [SSDT-DRP08](EFI/CLOVER/ACPI/patched/SSDT-DRP08.dsl) to disable it in order to save power
@@ -43,7 +43,7 @@ English | [中文](README_CN.md)
 ## Current Status in OpenCore
 
 - Basically the same with [Current Status in Clover](#current-status-in-clover) section
-- No theme
+- Limited theme
 
 Need more testing...
 

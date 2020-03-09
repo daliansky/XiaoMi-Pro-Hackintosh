@@ -25,7 +25,7 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 - It's very easy to upgrade to this version. Just download and open [XMAKB5R0P0A07](XMAKB5R0P0A07.exe).
 
 
-## How to update BIOS
+## How to update 0906 BIOS
 
  As the old proverb says "Fight no battle unprepared", <b>backing up important data is always a good choice.</b> Some users face with blue screen after running the updating program.
 
