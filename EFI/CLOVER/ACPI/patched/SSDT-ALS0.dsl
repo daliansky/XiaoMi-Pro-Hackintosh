@@ -1,7 +1,7 @@
 // NOT Necessary hotpatch
 // Maintained by: Rehabman
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-ALS0.dsl
-// Fake ambient light sensor device, but causes error log issued by AppleSMCLMU if using VirtualSMC.
+// Fake ambient light sensor device
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_ALS0", 0x00000000)
 {
