@@ -22,7 +22,7 @@
 
 ## Clover版本的目前情况
 
-- <b>有线网在macOS 10.15下无法工作，需要帮助。见[#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
+- <b>有线网在macOS 10.15下无法工作，需要帮助。见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - 如果不是macOS 10.15，也推荐更新上述驱动
 - 独立显卡无法工作，因为macOS不支持Optimus技术
@@ -45,7 +45,7 @@
 - 和[Clover版本的目前情况](#clover版本的目前情况)小节基本一致
 - 有限的主题
 - 触控板会经常不工作因为没有 `ForceKextsToLoad`
- - 打开 `终端.app` 并运行 `sudo kextcache -i /`，然后重启
+  - 打开 `终端.app` 并运行 `sudo kextcache -i /`，然后重启
 
 需要更多测试。。。
 

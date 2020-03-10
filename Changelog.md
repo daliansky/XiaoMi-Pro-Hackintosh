@@ -297,17 +297,17 @@ English | [中文](Changelog_CN.md)
     - Remove `enable-hdmi-dividers-fix`
     
 
-- XX-XX-2019
+- 3-10-2020
 
     - Update `Clover` r5105
-    - Update `Lilu` v1.3.9
-    - Update `AppleALC` v1.4.2
-    - Update `WhateverGreen` v1.3.3
-    - Update `HibernationFixup` v1.2.9
-    - Update `VirtualSMC` v1.0.8
-    - Update and edit `VoodooPS2` v2.0.4
-    - Update `AppleSupportPkg` v2.1.1
-    - Update `VoodooI2C`
+    - Update `Lilu` v1.4.2
+    - Update `AppleALC` v1.4.7
+    - Update `WhateverGreen` v1.3.7
+    - Update `HibernationFixup` v1.3.2
+    - Update `VirtualSMC` v1.1.1
+    - Update and edit `VoodooPS2` v2.1.2
+    - Update `AppleSupportPkg` v2.1.6
+    - Update `VoodooI2C` v2.3
     - Update `SSDT-USB`
     - Add `IntelBluetoothFirmware` and `IntelBluetoothInjector` to support native Intel Bluetooth
     - Add `SSDT-DRP08` to disable Intel Wireless Card
@@ -315,6 +315,7 @@ English | [中文](Changelog_CN.md)
     - Add `complete-modeset-framebuffers` property to improve HDMI
     - Add `PanicNoKextDump` to replace panic kext logging patches
     - Add `EFICheckDisabler`
+    - Add `NVMeFix`
     - Add back `SSDT-DDGPU` to disable discrete graphics card instead of using `disable-external-egpu`
     - Change layout-id back to 30
     - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the beat problem

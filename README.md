@@ -22,7 +22,7 @@ English | [中文](README_CN.md)
 
 ## Current Status in Clover
 
-- <b>Ethernet is not working in macOS 10.15, help wanted. View[#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
+- <b>Ethernet is not working in macOS 10.15, help wanted. View [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - Discrete graphic card is not working, since macOS doesn't support Optimus technology
@@ -45,7 +45,7 @@ English | [中文](README_CN.md)
 - Basically the same with [Current Status in Clover](#current-status-in-clover) section
 - Limited theme
 - Trackpad does not work frequently because of the lack of `ForceKextsToLoad`
- - open `Terminal.app` and run `sudo kextcache -i /`, then restart
+  - open `Terminal.app` and run `sudo kextcache -i /`, then restart
 
 Need more testing...
 

@@ -24,7 +24,7 @@
 7. Delete DVMT patches
 
 - For both Clover and OC users:
- - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
+  - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
 ```
 <key>framebuffer-fbmem</key>
 <data>AACQAA==</data>
@@ -35,7 +35,7 @@
 8. Delete Clover MSR 0xE2 patch
 
 - For Clover users:
- - Open `/EFI/CLOVER/config.plist`, remove the following code:
+  - Open `/EFI/CLOVER/config.plist`, remove the following code:
 ```
 <dict>
     <key>Comment</key>
@@ -48,14 +48,14 @@
 ```
 
 - For OC users:
- - Open `/EFI/OC/config.plist`, find the following code:
+  - Open `/EFI/OC/config.plist`, find the following code:
 ```
 <key>AppleCpuPmCfgLock</key>
 <true/>
 <key>AppleXcpmCfgLock</key>
 <true/>
 ```
- - Change to:
+Change to:
 ```
 <key>AppleCpuPmCfgLock</key>
 <false/>
