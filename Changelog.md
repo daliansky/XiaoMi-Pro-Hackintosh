@@ -299,7 +299,7 @@ English | [中文](Changelog_CN.md)
 
 - XX-XX-2019
 
-    - Update `Clover` r5
+    - Update `Clover` r5105
     - Update `Lilu` v1.3.9
     - Update `AppleALC` v1.4.2
     - Update `WhateverGreen` v1.3.3

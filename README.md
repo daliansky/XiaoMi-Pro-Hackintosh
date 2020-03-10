@@ -22,7 +22,7 @@ English | [中文](README_CN.md)
 
 ## Current Status in Clover
 
-- <b>Ethernet is not working in macOS 10.15, help wanted</b>
+- <b>Ethernet is not working in macOS 10.15, help wanted. View[#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - Discrete graphic card is not working, since macOS doesn't support Optimus technology
@@ -44,6 +44,8 @@ English | [中文](README_CN.md)
 
 - Basically the same with [Current Status in Clover](#current-status-in-clover) section
 - Limited theme
+- Trackpad does not work frequently because of the lack of `ForceKextsToLoad`
+ - open `Terminal.app` and run `sudo kextcache -i /`, then restart
 
 Need more testing...
 
@@ -71,7 +73,7 @@ Need more testing...
 ### Upgrade
 
 - A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro/releases).
-- You can also update EFI by running the following command in Terminal:
+- You can also update Clover EFI by running the following command in Terminal:
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
@@ -80,23 +82,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## FAQ
 
-### My device is locked by `Find My Mac` and can't be booted, what should I do now?
+### [Clover] My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
 Press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
 
-### I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
+### [Clover] I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
 
 It is not recommended to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
 
-### My screen turns to black and has no response during the updating process.
+### [Clover] My screen turns to black and has no response during the updating process.
 
 If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
 
-### My touchpad isn't working after update.
+### [OC] My touchpad isn't working after update.
 
 You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
-### I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
+### [Clover] I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
 
 Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix.efi` in `/CLOVER/drivers/UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
 
@@ -107,7 +109,7 @@ Also make sure `Sandbox` and `Hyper-V` functions in Windows 10 are disabled.
 
 ## Changelog
 
-You can view [Changelog](Changelog.md) for detailed information.
+You can view Clover [Changelog](Changelog.md) for detailed information.
 
 
 ## A reward

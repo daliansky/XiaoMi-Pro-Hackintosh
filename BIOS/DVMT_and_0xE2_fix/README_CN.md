@@ -23,7 +23,8 @@
 
 7. 删除帧缓存补丁
 
-- 打开 `/EFI/CLOVER/config.plist`，删除以下代码：
+- 如果你是 Clover 或 OC 用户:
+ - 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：
 ```
 <key>framebuffer-fbmem</key>
 <data>AACQAA==</data>
@@ -33,7 +34,8 @@
 
 8. 删除 Clover MSR 0xE2 补丁
 
-- 打开 `/EFI/CLOVER/config.plist`，删除以下代码：
+- 如果你是 Clover 用户：
+ - 打开 `/EFI/CLOVER/config.plist`，删除以下代码：
 ```
 <dict>
     <key>Comment</key>
@@ -43,6 +45,22 @@
     <key>Replace</key>
     <data>ILniAAAAkJA=</data>
 </dict>
+```
+
+- 如果你是 OC 用户：
+ - 打开 `/EFI/OC/config.plist`，并找到以下代码：
+```
+<key>AppleCpuPmCfgLock</key>
+<true/>
+<key>AppleXcpmCfgLock</key>
+<true/>
+```
+ - 修改为：
+```
+<key>AppleCpuPmCfgLock</key>
+<false/>
+<key>AppleXcpmCfgLock</key>
+<false/>
 ```
 
 

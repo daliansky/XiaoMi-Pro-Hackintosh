@@ -1116,7 +1116,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>AudioSupport</key>
-			<true/>
+			<false/>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1f,0x3)</string>
 			<key>AudioCodec</key>

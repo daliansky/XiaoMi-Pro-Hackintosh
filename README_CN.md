@@ -22,7 +22,7 @@
 
 ## Clover版本的目前情况
 
-- <b>有线网在macOS 10.15下无法工作，需要帮助</b>
+- <b>有线网在macOS 10.15下无法工作，需要帮助。见[#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - 如果不是macOS 10.15，也推荐更新上述驱动
 - 独立显卡无法工作，因为macOS不支持Optimus技术
@@ -44,6 +44,8 @@
 
 - 和[Clover版本的目前情况](#clover版本的目前情况)小节基本一致
 - 有限的主题
+- 触控板会经常不工作因为没有 `ForceKextsToLoad`
+ - 打开 `终端.app` 并运行 `sudo kextcache -i /`，然后重启
 
 需要更多测试。。。
 
@@ -71,7 +73,7 @@
  ### 更新
  
 - 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro/releases)拷贝新的。
-- 你也可以在终端输入以下命令来更新EFI：
+- 你也可以在终端输入以下命令来更新Clover EFI：
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install_cn.sh)"
@@ -80,23 +82,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 常见问题解答
 
-### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
+### [Clover] 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 
 在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。
 
-### 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
+### [Clover] 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
 
 一般情况下不推荐开启 `文件保险箱`。你可以在Clover开机界面时按下Fn + F3，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
 
-### 在升级过程中显示器黑屏并且机子无反应
+### [Clover] 在升级过程中显示器黑屏并且机子无反应
 
 如果显示器持续黑屏并且无反应超过五分钟，请强制重启电脑(长按电源键)并选择 `Boot macOS Install from ~` 启动项。
 
-### 我的触控板升级系统后无法使用。
+### [OC] 我的触控板升级系统后无法使用。
 
 你需要在每次更新系统后重建缓存。运行 `Kext Utility.app` 或者在 `终端.app` 输入 `sudo kextcache -i /`，然后重启。如果触控板还是失效，试试按下F9键。
 
-### 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
+### [Clover] 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
 
 很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
 
@@ -107,7 +109,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 更新日志
 
-详细更新日志请看 [更新日志中文版](Changelog_CN.md)。
+详细更新日志请看 Clover [更新日志中文版](Changelog_CN.md)。
 
 
 ## 关于打赏

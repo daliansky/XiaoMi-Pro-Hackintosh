@@ -299,7 +299,7 @@
 
 * XX-XX-2019
 
-    * 更新 `Clover` r5
+    * 更新 `Clover` r5105
     * 更新 `Lilu` v1.3.9
     * 更新 `AppleALC` v1.4.2
     * 更新 `WhateverGreen` v1.3.3
