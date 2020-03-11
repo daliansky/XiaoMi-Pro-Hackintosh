@@ -299,7 +299,7 @@ English | [中文](Changelog_CN.md)
 
 - 3-10-2020
 
-    - Update `Clover` r5105
+    - Update `Clover` r5104
     - Update `Lilu` v1.4.2
     - Update `AppleALC` v1.4.7
     - Update `WhateverGreen` v1.3.7
