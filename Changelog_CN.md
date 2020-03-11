@@ -309,6 +309,7 @@
     * 更新 `AppleSupportPkg` v2.1.6
     * 更新 `VoodooI2C` v2.3
     * 更新 `SSDT-USB`
+    * 更新 `SSDT-MCHC`
     * 新增 `IntelBluetoothFirmware` 和 `IntelBluetoothInjector` 来支持内置Intel蓝牙
     * 新增 `SSDT-DRP08` 来禁用Intel无线网卡
     * 新增 `SSDT-PS2K` 来定制 `VoodooPS2Keyboard` 而不是直接修改 `info.plist`

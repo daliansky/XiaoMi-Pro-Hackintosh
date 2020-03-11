@@ -309,6 +309,7 @@ English | [中文](Changelog_CN.md)
     - Update `AppleSupportPkg` v2.1.6
     - Update `VoodooI2C` v2.3
     - Update `SSDT-USB`
+    - Update `SSDT-MCHC`
     - Add `IntelBluetoothFirmware` and `IntelBluetoothInjector` to support native Intel Bluetooth
     - Add `SSDT-DRP08` to disable Intel Wireless Card
     - Add `SSDT-PS2K` to customize `VoodooPS2Keyboard` instead of directly editing `info.plist`
