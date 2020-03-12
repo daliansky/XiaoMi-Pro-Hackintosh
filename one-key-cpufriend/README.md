@@ -78,7 +78,7 @@ Change to:
     <string></string>
     <key>PlistPath</key>
     <string>Contents/Info.plist</string>
-    </dict>
+</dict>
 <dict>
     <key>BundlePath</key>
     <string>CPUFriendDataProvider.kext</string>

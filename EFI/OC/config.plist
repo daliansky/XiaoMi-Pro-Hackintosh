@@ -1086,14 +1086,17 @@
 			<dict>
 				<key>boot-args</key>
 				<string>darkwake=0 gfxrst=1</string>
-				<key>bootercfg</key>
-				<string>log=0 debug=0 level=0</string>
 				<key>csr-active-config</key>
 				<data>ZwAAAA==</data>
 			</dict>
 		</dict>
 		<key>Block</key>
-		<dict/>
+		<dict>
+			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
+			<array>
+				<string>boot-args</string>
+			</array>
+		</dict>
 		<key>LegacyEnable</key>
 		<false/>
 		<key>LegacyOverwrite</key>
