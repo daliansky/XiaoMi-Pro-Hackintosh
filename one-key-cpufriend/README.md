@@ -30,19 +30,79 @@ By using this script, no file under the System folder will be edited. If you are
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-cpufriend/one-key-cpufriend.sh)"
 ```
 
-- Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/CLOVER/kexts/Other/` and restart.
+- <b>For Clover users:</b>
+  - Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/CLOVER/kexts/Other/` and restart.
+
+- <b>For OC users:</b>
+  - Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
+  - Open `/OC/config.plist` and find the following code:
+```
+<dict>
+    <key>BundlePath</key>
+    <string>CPUFriend.kext</string>
+    <key>Comment</key>
+    <string>Power Management</string>
+    <key>Enabled</key>
+    <false/>
+    <key>ExecutablePath</key>
+    <string>Contents/MacOS/CPUFriend</string>
+    <key>MaxKernel</key>
+    <string></string>
+    <key>MinKernel</key>
+    <string></string>
+    <key>PlistPath</key>
+    <string>Contents/Info.plist</string>
+</dict>
+<dict>
+    <key>BundlePath</key>
+    <string>CPUFriendDataProvider.kext</string>
+    <key>Comment</key>
+    <string>Power Management</string>
+    <key>Enabled</key>
+    <false/> 
+```
+Change to:
+```
+<dict>
+    <key>BundlePath</key>
+    <string>CPUFriend.kext</string>
+    <key>Comment</key>
+    <string>Power Management</string>
+    <key>Enabled</key>
+    <true/>
+    <key>ExecutablePath</key>
+    <string>Contents/MacOS/CPUFriend</string>
+    <key>MaxKernel</key>
+    <string></string>
+    <key>MinKernel</key>
+    <string></string>
+    <key>PlistPath</key>
+    <string>Contents/Info.plist</string>
+    </dict>
+<dict>
+    <key>BundlePath</key>
+    <string>CPUFriendDataProvider.kext</string>
+    <key>Comment</key>
+    <string>Power Management</string>
+    <key>Enabled</key>
+    <true/>  
+```
 
 
 ## Recovery
 
-If you are not happy with the modification, just remove `CPUFriend.kext` and `CPUFriendDataProvider.kext` from `/CLOVER/kexts/Other/` and restart.
+- <b>For Clover users:</b>
+  - If you are not happy with the modification, just remove `CPUFriend.kext` and `CPUFriendDataProvider.kext` from `/CLOVER/kexts/Other/` and restart.
 
-If unfortunately, you can't boot into the system, and you are sure the issue is caused by `CPUFriend*.kext`,
+  - If unfortunately, you can't boot into the system, and you are sure the issue is caused by `CPUFriend*.kext`,
  
- - Press `Space` when you are in Clover page
- - Use keyboard to choose `Block Injected kexts` - `Other`
- - Check `CPUFriend.kext` and `CPUFriendDataProvider.kext`
- - Return to the main menu and boot into the system, then delete `CPUFriend*.kext` from your CLOVER folder
+    - Press `Space` when you are in Clover page
+    - Use keyboard to choose `Block Injected kexts` - `Other`
+    - Check `CPUFriend.kext` and `CPUFriendDataProvider.kext`
+    - Return to the main menu and boot into the system, then delete `CPUFriend*.kext` from your CLOVER folder
+    
+- <b>For OC users:</b>
+  - Reverse the [How to install](#how-to-install) part and restart
 
 
 ## Modify macOS CPU voltage
