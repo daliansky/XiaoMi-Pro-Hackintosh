@@ -1117,7 +1117,7 @@
 			<key>MLB</key>
 			<string>C02140302D5DMT31M</string>
 			<key>SpoofVendor</key>
-			<true/>
+			<false/>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
 			<key>SystemSerialNumber</key>
