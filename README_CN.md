@@ -49,6 +49,7 @@
   - 按下 Win + 空格 来打开搜索框并输入 `终端`
   - 打开 `终端.app` 并运行 `sudo kextcache -i /`，然后重启
 - <b>Windows的软件会丢失激活，因为OpenCore注入了不同的硬件UUID</b>
+  - 我不确定这么做有没有用。根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的  `PlatformInfo - Generic - SystemUUID`
 - 使用Clover后需要清理NVRAM
   - 在OpenCore启动界面按下 `空格`，选中进入 `Clean NVRAM`
 
