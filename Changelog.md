@@ -305,7 +305,7 @@ English | [中文](Changelog_CN.md)
     - Update `WhateverGreen` v1.3.7
     - Update `HibernationFixup` v1.3.2
     - Update `VirtualSMC` v1.1.1
-    - Update and edit `VoodooPS2` v2.1.2
+    - Update `VoodooPS2` v2.1.2
     - Update `AppleSupportPkg` v2.1.6
     - Update `VoodooI2C` v2.3
     - Update `SSDT-USB`

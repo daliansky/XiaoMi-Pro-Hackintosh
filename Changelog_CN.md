@@ -305,7 +305,7 @@
     * 更新 `WhateverGreen` v1.3.7
     * 更新 `HibernationFixup` v1.3.2
     * 更新 `VirtualSMC` v1.1.1
-    * 更新并修改 `VoodooPS2` v2.1.2
+    * 更新 `VoodooPS2` v2.1.2
     * 更新 `AppleSupportPkg` v2.1.6
     * 更新 `VoodooI2C` v2.3
     * 更新 `SSDT-USB`
