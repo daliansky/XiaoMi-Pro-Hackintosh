@@ -1112,6 +1112,8 @@
 		<true/>
 		<key>Generic</key>
 		<dict>
+			<key>AdviseWindows</key>
+			<true/>
 			<key>MLB</key>
 			<string>C02140302D5DMT31M</string>
 			<key>SpoofVendor</key>
