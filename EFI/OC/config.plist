@@ -152,11 +152,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization(Soldered Bluetooth)</string>
+				<string>USB power injection and customization(WLAN_LTE Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
-				<string>SSDT-USB-SolderBT.aml</string>
+				<string>SSDT-USB-WLAN_LTEBT.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
