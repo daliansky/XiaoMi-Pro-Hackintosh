@@ -44,7 +44,7 @@ English | [中文](README_CN.md)
 
 - Basically the same with [Current Status in Clover](#current-status-in-clover) section
 - Limited theme
-- Trackpad does not work frequently because of the lack of `ForceKextsToLoad`
+- Trackpad does not work frequently because of the lack of `ForceKextsToLoad`, and the following steps can help you rebuild the kextcache without a mouse:
   - Press Win + H to hide unwanted windows
   - Press Win + Space to open Spotlight and type `Terminal`
   - Open `Terminal.app` and run `sudo kextcache -i /`, then restart
