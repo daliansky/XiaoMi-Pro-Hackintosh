@@ -48,6 +48,9 @@
   - 按下 Win + H 来隐藏烦人的窗口
   - 按下 Win + 空格 来打开搜索框并输入 `终端`
   - 打开 `终端.app` 并运行 `sudo kextcache -i /`，然后重启
+- <b>Windows的软件会丢失激活，因为OpenCore注入了不同的硬件UUID</b>
+- 使用Clover后需要清理NVRAM
+  - 在OpenCore启动界面按下 `空格`，选中进入 `Clean NVRAM`
 
 需要更多测试。。。
 
