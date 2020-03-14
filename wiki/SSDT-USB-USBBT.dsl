@@ -61,7 +61,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x0A, 
+                        0x09, 
                         "port", 
                         Buffer (0x04)
                         {
@@ -85,7 +85,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x0A, 
+                        0x09, 
                         "port", 
                         Buffer (0x04)
                         {
@@ -121,7 +121,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x0A, 
+                        0x09, 
                         "port", 
                         Buffer (0x04)
                         {
@@ -157,7 +157,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
                     Package (0x04)
                     {
                         "UsbConnector", 
-                        0x0A, 
+                        0x09, 
                         "port", 
                         Buffer (0x04)
                         {

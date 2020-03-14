@@ -320,3 +320,9 @@ English | [中文](Changelog_CN.md)
     - Add back `SSDT-DDGPU` to disable discrete graphics card instead of using `disable-external-egpu`
     - Change layout-id back to 30
     - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the race problem
+
+
+- 3-XX-2020
+
+    - Update `SSDT-USB`
+        - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
