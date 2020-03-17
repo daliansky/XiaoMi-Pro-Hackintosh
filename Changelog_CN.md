@@ -324,5 +324,7 @@
 
 * 3-XX-2020
 
+    * 更新 `USBInjectAll` v0.7.3 来自 [Sniki的分支](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
+        * 原[Rehabman的分支](https://github.com/RehabMan/OS-X-USB-Inject-All)很长时间没有更新了
     * 更新 `SSDT-USB`
         * 我们机型上的type-c口带有转向器，所以 `UsbConnector` 应该为 `0x09`

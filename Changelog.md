@@ -324,5 +324,7 @@ English | [中文](Changelog_CN.md)
 
 - 3-XX-2020
 
+    - Update `USBInjectAll` v0.7.3 from [Sniki's fork](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
+        - The origin [Rehabman's fork](https://github.com/RehabMan/OS-X-USB-Inject-All) does not update a long time ago
     - Update `SSDT-USB`
         - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
