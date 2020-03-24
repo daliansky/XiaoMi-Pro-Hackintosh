@@ -328,3 +328,4 @@ English | [中文](Changelog_CN.md)
         - The origin [Rehabman's fork](https://github.com/RehabMan/OS-X-USB-Inject-All) does not update a long time ago
     - Update `SSDT-USB`
         - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
+    - [Clover] Add `setpowerstate_panic=0` kernel patch according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)

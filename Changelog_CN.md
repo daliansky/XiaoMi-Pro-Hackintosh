@@ -328,3 +328,4 @@
         * 原[Rehabman的分支](https://github.com/RehabMan/OS-X-USB-Inject-All)很长时间没有更新了
     * 更新 `SSDT-USB`
         * 我们机型上的type-c口带有转向器，所以 `UsbConnector` 应该为 `0x09`
+    * [Clover] 新增 `setpowerstate_panic=0` 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)

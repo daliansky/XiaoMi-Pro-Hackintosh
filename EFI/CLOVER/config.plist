@@ -351,6 +351,18 @@
 				<key>Replace</key>
 				<data>ILniAAAAkJA=</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable setPowerState panic with setpowerstate_panic=0 boot-args on 10.15 (credit vit9696)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.15</string>
+				<key>Find</key>
+				<data>Y29tLmFwcGxlAF9fa2VybmVsX18A</data>
+				<key>Replace</key>
+				<data>bm90LmFwcGxlAF9fa2VybmVsX18A</data>
+			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
