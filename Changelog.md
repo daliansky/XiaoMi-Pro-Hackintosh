@@ -322,10 +322,13 @@ English | [中文](Changelog_CN.md)
     - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the race problem
 
 
-- 3-XX-2020
+- 3-25-2020
 
+    - Update `Clover` r5107 to support macOS10.15.4
     - Update `USBInjectAll` v0.7.3 from [Sniki's fork](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
         - The origin [Rehabman's fork](https://github.com/RehabMan/OS-X-USB-Inject-All) does not update a long time ago
     - Update `SSDT-USB`
         - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
-    - [Clover] Add `setpowerstate_panic=0` kernel patch according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+    - [Clover] Update `Xiaomi` theme to support Clover r5105+
+    - [Clover] Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+    - [Clover] Remove MSR 0xE2 patch because Clover can automatically patch

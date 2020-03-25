@@ -32,23 +32,9 @@
 <data>AAAwAQ==</data>
 ```
 
-8. 删除 Clover MSR 0xE2 补丁
+8. 删除 OC MSR 0xE2 补丁
 
-- <b>如果你是 Clover 用户：</b>
-  - 打开 `/EFI/CLOVER/config.plist`，删除以下代码：
-```
-<dict>
-    <key>Comment</key>
-    <string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-    <key>Find</key>
-    <data>ILniAAAADzA=</data>
-    <key>Replace</key>
-    <data>ILniAAAAkJA=</data>
-</dict>
-```
-
-- <b>如果你是 OC 用户：</b>
-  - 打开 `/EFI/OC/config.plist`，并找到以下代码：
+打开 `/EFI/OC/config.plist`，并找到以下代码：
 ```
 <key>AppleCpuPmCfgLock</key>
 <true/>

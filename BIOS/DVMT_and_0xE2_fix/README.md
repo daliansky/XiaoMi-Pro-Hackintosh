@@ -32,23 +32,9 @@ English | [中文](README_CN.md)
 <data>AAAwAQ==</data>
 ```
 
-8. Delete Clover MSR 0xE2 patch
+8. Delete OC MSR 0xE2 patch
 
-- <b>For Clover users:</b>
-  - Open `/EFI/CLOVER/config.plist`, remove the following code:
-```
-<dict>
-    <key>Comment</key>
-    <string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-    <key>Find</key>
-    <data>ILniAAAADzA=</data>
-    <key>Replace</key>
-    <data>ILniAAAAkJA=</data>
-</dict>
-```
-
-- <b>For OC users:</b>
-  - Open `/EFI/OC/config.plist`, find the following code:
+Open `/EFI/OC/config.plist`, find the following code:
 ```
 <key>AppleCpuPmCfgLock</key>
 <true/>

@@ -322,10 +322,13 @@
     * 移除 AppleIntelLpssI2C 补丁因为 https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 修复了驱动冲突问题
 
 
-* 3-XX-2020
+* 3-25-2020
 
+    * 更新 `Clover` r5107 来支持 macOS10.15.4
     * 更新 `USBInjectAll` v0.7.3 来自 [Sniki的分支](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
         * 原[Rehabman的分支](https://github.com/RehabMan/OS-X-USB-Inject-All)很长时间没有更新了
     * 更新 `SSDT-USB`
         * 我们机型上的type-c口带有转向器，所以 `UsbConnector` 应该为 `0x09`
-    * [Clover] 新增 `setpowerstate_panic=0` 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+    * [Clover] 更新 `Xiaomi` 主题以支持 Clover r5105+
+    * [Clover] 新增 `setpowerstate_panic=0` macOS10.15 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+    * [Clover] 移除 MSR 0xE2 补丁因为 Clover 可以自动修正
