@@ -58,10 +58,11 @@
 
 ## 改善体验
 
-- 使用[ALCPlugFix](ALCPlugFix)来修复耳机重新插拔后无声
-- 使用[DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix)来把帧缓存设为64mb并解锁CFG
-- 使用[one-key-hidpi](one-key-hidpi)来提升系统UI质量
-- 使用[one-key-cpufriend](one-key-cpufriend)来提升CPU性能
+- 使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
+- 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把帧缓存设为64mb并解锁CFG
+- 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统UI质量
+  - 支持 1440x810 HiDPI 分辨率
+- 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能
 
 
 ## 安装

@@ -332,3 +332,8 @@
     * [Clover] 更新 `Xiaomi` 主题以支持 Clover r5105+
     * [Clover] 新增 `setpowerstate_panic=0` macOS10.15 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
     * [Clover] 移除 MSR 0xE2 补丁因为 Clover 可以自动修正
+
+
+- 4-XX-2020
+
+    * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率

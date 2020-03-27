@@ -332,3 +332,8 @@ English | [中文](Changelog_CN.md)
     - [Clover] Update `Xiaomi` theme to support Clover r5105+
     - [Clover] Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
     - [Clover] Remove MSR 0xE2 patch because Clover can automatically patch
+
+
+- 4-XX-2020
+
+    - Add `framebuffer-flags` property to support 1440x810 HiDPI resolution
