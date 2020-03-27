@@ -22,7 +22,8 @@ English | [中文](README_CN.md)
 
 ## Current Status in Clover
 
-- <b>Ethernet is not working in macOS 10.15, help wanted. View [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
+- <b>Ethernet may not work in macOS 10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
+- <b>Never connect to an external monitor before boot</b>
 - In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - Discrete graphic card is not working, since macOS doesn't support Optimus technology
@@ -62,7 +63,7 @@ Need more testing...
 - Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1440x810 HiDPI resolution
-  - On macOS > 10.13.6, to enable higher resolution (<1600x900), you need to use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb first
+  - On macOS > 10.13.6, to enable higher HiDPI resolution (<1600x900), you need to use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb first
 - Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management
 
 
