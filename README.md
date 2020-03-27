@@ -59,9 +59,10 @@ Need more testing...
 ## Improvements
 
 - Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
-- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64MB and unlock CFG
+- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1440x810 HiDPI resolution
+  - On macOS > 10.13.6, to enable higher resolution (<1600x900), you need to use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb first
 - Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management
 
 

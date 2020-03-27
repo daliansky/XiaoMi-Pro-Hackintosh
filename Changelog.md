@@ -336,5 +336,6 @@ English | [中文](Changelog_CN.md)
 
 - 4-XX-2020
 
+    - Update `VoodooI2C` v , support trackpad in Recovery mode, and no need to rebuild kextcache after system update
     - Add `VoodooInput`
     - Add `framebuffer-flags` property to support 1440x810 HiDPI resolution

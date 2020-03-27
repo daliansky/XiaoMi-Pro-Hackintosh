@@ -336,5 +336,6 @@
 
 - 4-XX-2020
 
+    * 更新 `VoodooI2C` v ，支持在恢复模式下使用触控板，并且每次升级后不用重建缓存
     * 新增 `VoodooInput`
     * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率

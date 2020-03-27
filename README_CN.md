@@ -62,6 +62,7 @@
 - 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把帧缓存设为64mb并解锁CFG
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统UI质量
   - 支持 1440x810 HiDPI 分辨率
+  - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1600x900)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把帧缓存设为64mb
 - 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能
 
 
