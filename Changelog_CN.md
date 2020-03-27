@@ -336,4 +336,5 @@
 
 - 4-XX-2020
 
+    * 新增 `VoodooInput`
     * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率

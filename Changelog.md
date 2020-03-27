@@ -336,4 +336,5 @@ English | [中文](Changelog_CN.md)
 
 - 4-XX-2020
 
+    - Add `VoodooInput`
     - Add `framebuffer-flags` property to support 1440x810 HiDPI resolution
