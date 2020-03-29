@@ -351,9 +351,9 @@
 				<key>MatchOS</key>
 				<string>10.15</string>
 				<key>Find</key>
-				<data>Y29tLmFwcGxlAF9fa2VybmVsX18A</data>
+				<data>Y29tLmFwcGxlAA==</data>
 				<key>Replace</key>
-				<data>bm90LmFwcGxlAF9fa2VybmVsX18A</data>
+				<data>bm90LmFwcGxlAA==</data>
 			</dict>
 		</array>
 	</dict>

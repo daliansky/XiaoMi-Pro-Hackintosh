@@ -339,3 +339,4 @@
     * 更新 `VoodooI2C` v ，支持在恢复模式下使用触控板，并且每次升级后不用重建缓存
     * 新增 `VoodooInput`
     * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率
+    * [Clover] 更新 `setpowerstate_panic=0` 内核补丁来适配 macOS10.15.4
