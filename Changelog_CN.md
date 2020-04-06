@@ -341,3 +341,4 @@
     * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率
     * 新增 `force-online` 和 `force-online-framebuffers` 属性来修正 macOS10.15.4 下的 HDMI
     * [Clover] 更新 `setpowerstate_panic=0` 内核补丁来适配 macOS10.15.4
+    * [OC] 更新 config 来支持 `OpenCore` v0.5.7

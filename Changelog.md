@@ -341,3 +341,4 @@ English | [中文](Changelog_CN.md)
     - Add `framebuffer-flags` property to support 1440x810 HiDPI resolution
     - Add `force-online` and `force-online-framebuffers` properties to fix HDMI on macOS10.15.4
     - [Clover] Update `setpowerstate_panic=0` kernel patch for macOS10.15.4
+    - [OC] Update config to support `OpenCore` v0.5.7
