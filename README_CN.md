@@ -45,10 +45,6 @@
 
 - 和[Clover版本的目前情况](#clover版本的目前情况)小节基本一致
 - 有限的主题
-- 触控板会经常不工作因为没有 `ForceKextsToLoad`，下面这几步可以让你在没有鼠标的情况下重建缓存：
-  - 按下 Win + H 来隐藏烦人的窗口
-  - 按下 Win + 空格 来打开搜索框并输入 `终端`
-  - 打开 `终端.app` 并运行 `sudo kextcache -i /`，然后重启
 - <b>Windows的软件会丢失激活，因为OpenCore注入了不同的硬件UUID</b>
   - 我不确定这么做有没有用。根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的  `PlatformInfo - Generic - SystemUUID`
 - 使用Clover后需要清理NVRAM
