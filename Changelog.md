@@ -280,6 +280,7 @@ English | [中文](Changelog_CN.md)
     - Remove `Drop DRAM` and replace with `dart=0`
     - Remove `AppleKeyFeeder.efi` and `DataHubDxe-64.efi` which XiaoMi-Pro doesn't need
     - Remove `USBPorts.kext` and replace with `SSDT-USB`, according to [#197](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/197)
+    - Add `OpenCore`
     - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
     - Add back `SSDT-ALS0` to ensure backlight can be preserved
     - Add back `HibernationFixup`
@@ -290,16 +291,19 @@ English | [中文](Changelog_CN.md)
 - 7-17-2019
 
     - Update `Clover` r5018
+    - Update `OpenCore` v0.0.4
     - Update `WhateverGreen` to improve HDMI
     - Update `SSDT-LGPA`
     - Update `SSDT-TPD0`
     - Add `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS`, pair with `SSDT-TPD0`
     - Remove `enable-hdmi-dividers-fix`
+    - [OC] Update config to support `OpenCore` v0.0.4
     
 
 - 3-10-2020
 
     - Update `Clover` r5104
+    - Update `OpenCore` v0.5.6
     - Update `Lilu` v1.4.2
     - Update `AppleALC` v1.4.7
     - Update `WhateverGreen` v1.3.7
@@ -320,6 +324,7 @@ English | [中文](Changelog_CN.md)
     - Add back `SSDT-DDGPU` to disable discrete graphics card instead of using `disable-external-egpu`
     - Change layout-id back to 30
     - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the race problem
+    - [OC] Update config to support `OpenCore` v0.5.6
 
 
 - 3-25-2020
@@ -332,11 +337,21 @@ English | [中文](Changelog_CN.md)
     - [Clover] Update `Xiaomi` theme to support Clover r5105+
     - [Clover] Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
     - [Clover] Remove MSR 0xE2 patch because Clover can automatically patch
+    - [OC] Update config to better support `OpenCore` v0.5.6
 
 
 - 4-XX-2020
 
-    - Update `VoodooI2C` v , support trackpad in Recovery mode, and no need to rebuild kextcache after system update
+    - Update `Clover` r5109
+    - Update `OpenCore` v0.5.7
+    - Update `Lilu` v1.4.3
+    - Update `AppleALC` v1.4.8
+    - Update `VirtualSMC` v1.1.2
+    - Update `WhateverGreen` v1.3.8
+    - Update `NVMeFix` v1.0.2
+    - Update `VoodooPS2` v2.1.3
+    - Update `VoodooI2C` v2.4, support trackpad in Recovery mode, and no need to rebuild kextcache after system update
+    - Update `IntelBluetoothFirmware` v1.0.3
     - Add `VoodooInput`
     - Add `framebuffer-flags` property to support 1440x810 HiDPI resolution
     - Add `force-online` and `force-online-framebuffers` properties to fix HDMI on macOS10.15.4

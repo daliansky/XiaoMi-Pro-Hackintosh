@@ -280,6 +280,7 @@
     * 移除 `Drop DRAM` 并替换成 `dart=0`
     * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
     * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`，根据[#197](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/197)
+    * 新增 `OpenCore`
     * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
     * 放回 `SSDT-ALS0` 来保证背光被保存
     * 放回 `HibernationFixup`
@@ -290,16 +291,19 @@
 * 7-17-2019
 
     * 更新 `Clover` r5018
+    * 更新 `OpenCore` v0.0.4
     * 更新 `WhateverGreen` 来改善HDMI
     * 更新 `SSDT-LGPA`
     * 更新 `SSDT-TPD0`
     * 新增 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS`，搭配 `SSDT-TPD0`
     * 移除 `enable-hdmi-dividers-fix`
+    * [OC] 更新 config 来支持 `OpenCore` v0.0.4
 
 
 * 3-10-2020
 
     * 更新 `Clover` r5104
+    * 更新 `OpenCore` v0.5.6
     * 更新 `Lilu` v1.4.2
     * 更新 `AppleALC` v1.4.7
     * 更新 `WhateverGreen` v1.3.7
@@ -320,6 +324,7 @@
     * 放回 `SSDT-DDGPU` 来禁用独显，而不是用 `disable-external-egpu`
     * 修改 layout-id 回 30
     * 移除 AppleIntelLpssI2C 补丁因为 https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 修复了驱动冲突问题
+    * [OC] 更新 config 来支持 `OpenCore` v0.5.6
 
 
 * 3-25-2020
@@ -332,11 +337,21 @@
     * [Clover] 更新 `Xiaomi` 主题以支持 Clover r5105+
     * [Clover] 新增 `setpowerstate_panic=0` macOS10.15 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
     * [Clover] 移除 MSR 0xE2 补丁因为 Clover 可以自动修正
+    * [OC] 更新 config 来更好地支持 `OpenCore` v0.5.6
 
 
 - 4-XX-2020
 
-    * 更新 `VoodooI2C` v ，支持在恢复模式下使用触控板，并且每次升级后不用重建缓存
+    * 更新 `Clover` r5109
+    * 更新 `OpenCore` v0.5.7
+    * 更新  `Lilu` v1.4.3
+    * 更新 `AppleALC` v1.4.8
+    * 更新 `VirtualSMC` v1.1.2
+    * 更新 `WhateverGreen` v1.3.8
+    * 更新 `NVMeFix` v1.0.2
+    * 更新 `VoodooPS2` v2.1.3
+    * 更新 `VoodooI2C` v2.4，支持在恢复模式下使用触控板，并且每次升级后不用重建缓存
+    * 更新 `IntelBluetoothFirmware` v1.0.3
     * 新增 `VoodooInput`
     * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率
     * 新增 `force-online` 和 `force-online-framebuffers` 属性来修正 macOS10.15.4 下的 HDMI
