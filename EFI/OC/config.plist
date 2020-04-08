@@ -1158,14 +1158,10 @@
 		<dict>
 			<key>AdviseWindows</key>
 			<true/>
-			<key>MLB</key>
-			<string>C02140302D5DMT31M</string>
 			<key>SpoofVendor</key>
 			<false/>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
-			<key>SystemSerialNumber</key>
-			<string>C02TNHACHV29</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
