@@ -23,14 +23,13 @@ English | [中文](README_CN.md)
 ## Current Status in Clover
 
 - <b>Ethernet may not work in macOS 10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
-- <b>Never connect to an external monitor before boot</b>
 - In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - Discrete graphic card is not working, since macOS doesn't support Optimus technology
   - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
 - Fingerprint sensor is not working
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
-- Intel Bluetooth only works on macOS Catalina and does not support some Bluetooth devices
+- Intel Bluetooth may cause sleep problems and does not support some Bluetooth devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265) is not working
   - Have used [SSDT-DRP08](EFI/CLOVER/ACPI/patched/SSDT-DRP08.dsl) to disable it in order to save power

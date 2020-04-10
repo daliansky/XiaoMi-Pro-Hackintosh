@@ -23,14 +23,13 @@
 ## Clover版本的目前情况
 
 - <b>有线网在macOS 10.15下可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
-- <b>开机前不要外接显示器</b>
 - 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - 如果不是macOS 10.15，也推荐更新上述驱动
 - 独立显卡无法工作，因为macOS不支持Optimus技术
   - 使用了 [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) 来禁用它以节省电量
 - 指纹传感器无法工作
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
-- 英特尔蓝牙只能在macOS Catalina版本生效，并且不支持部分蓝牙设备
+- 英特尔蓝牙可能会导致睡眠问题，并且不支持部分蓝牙设备
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡无法工作
   - 使用了[SSDT-DRP08](EFI/CLOVER/ACPI/patched/SSDT-DRP08.dsl)来禁用它以节省电量
