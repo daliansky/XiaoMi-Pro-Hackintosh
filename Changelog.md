@@ -2,124 +2,158 @@
 
 English | [中文](Changelog_CN.md)
 
-- 10-14-2017
-    
-    - EFI update, trackpad is working
+<b>10-14-2017</b>
+
+  - EFI update, trackpad is working
 
 
-- 10-17-2017
-    
-    - EFI update, fixed graphics driver
+<b>10-17-2017</b>
+
+  - EFI update, fixed graphics driver
+
+  - <b>Update</b>
+    - Update `Lilu` v1.2.0
+    - Update `AppleALC` v1.2.1
+    - Update `IntelGraphicsDVMTFixup` v1.2.0
+    - Update `AirportBrcmFixup` v1.1.0
+
+  - <b>Add</b>
     - Add HDMI Audio output
-    - Driver Update:
-        - `Lilu` v1.2.0
-        - `AppleALC` v1.2.1
-        - `IntelGraphicsDVMTFixup` v1.2.0
-        - `AirportBrcmFixup` v1.1.0
-    - Driver repair:
-        - `IntelGraphicsFixup` v1.2.0
+
+  - <b>Change</b>
+    - Fix `IntelGraphicsFixup` v1.2.0
 
 
-- 10-18-2017
+<b>10-18-2017</b>
 
-    - tested graphics driver is not as good as the first version, now the graphics driver is restored to fake 0x19160000
-    - ACPI repair
-    - Driver fixes
-    - Remove `USBInjectAll` with `SSDT-UIAL.aml` built-in USB device
+  - tested graphics driver is not as good as the first version, now the graphics driver is restored to fake 0x19160000
 
+  - <b>Remove</b>
+    - Remove `USBInjectAll`, replace with `SSDT-UIAC.aml` to customize USB device
 
-- 10-19-2017
-
-    - Graphics driver is normal
-    - The touchpad turns on normally, multi-gestures are normal after waking up
-    - normal sleep
-    - Battery information is normal
+  - <b>Change</b>
+    - Fix ACPI
+    - Fix Drivers
 
 
-- 10-31-2017
+<b>10-19-2017</b>
 
-    - Update sound card driver, fix earphone problem
-    - New driver to increase layout-id: 13
-    - Support four nodes to support the headset to switch freely, Mic / LineIn is working properly
-
-
-- 11-2-2017
-    
-    - `Lilu` v1.2.0 update, support 10.13.2Beta
-    - `AppleALC` update, using the latest revision of Lilu co-compiler to solve 10.13.1 update can not be driven after the problem
+  - Graphics driver is normal
+  - The touchpad turns on normally, multi-gestures are normal after waking up
+  - normal sleep
+  - Battery information is normal
 
 
-- 11-5-2017
+<b>10-31-2017</b>
 
-    - Integrate `AppleALC_ALC298_id13_id28.kext` driver to EFI
-    - Add EFI directory ALCPlugFix directory, please enter the ALCPlugFix directory after the installation is complete, double-click the `install.command` to automatically install. Command Install the headset plug-in state correction daemon
-    - Fixed Drivers64UEFI to solve the problem that can not be installed
+  - Update sound card driver, fix earphone problem
+  - New driver to add layout-id: 13
+  - Support four nodes to support the headset to switch freely, Mic / LineIn is working properly
+
+
+<b>11-2-2017</b>
+
+  - <b>Update</b>
+    - Update `Lilu` v1.2.0, support 10.13.2Beta
+    - Update `AppleALC`, using the latest revision of Lilu co-compiler to solve 10.13.1 update can not be driven after the problem
+
+
+<b>11-5-2017</b>
+
+  - <b>Update</b>
     - Update `apfs.efi` to version 10.13.1
 
+  - <b>Add</b>
+    - Add ALCPlugFix directory, please enter the ALCPlugFix directory after the installation is complete, double-click the `install.command` to automatically install. Command Install the headset plug-in state correction daemon
 
-- 11-7-2017
-    
-    - `Lilu` v1.2.1 is not stable at the moment, with the risk of inability to enter the system, so downgrade to v1.2.0
-    - `AppleALC` downgraded to V1.2.0
+  - <b>Change</b>
+    - Integrate `AppleALC_ALC298_id13_id28.kext` driver to EFI
+    - Fix Drivers64UEFI to solve the problem that can not be installed
 
 
-### [XiaoMi NoteBook Pro EFI v1.0.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.0.0)
-- 1-25-2018
-    
-    - Support for 10.13.x installation
+<b>11-7-2017</b>
+
+  - <b>Downgrade</b>
+    - Downgrade `Lilu` v1.2.0, because v1.2.1 is not stable at the moment and may fail to enter the system
+    - Downgrade `AppleALC` v1.2.0
+
+
+## [XiaoMi NoteBook Pro EFI v1.0.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.0.0)
+<b>1-25-2018</b>
+
+  - Support for 10.13.x installation
+
+  - <b>Update</b>
     - Update `Lilu` v1.2.2
-    - Update `AppleALC` v1.2.2 support millet pro, injection ID: 99
+    - Update `AppleALC` v1.2.2 to support XiaoMi-Pro, layout-id: 99
     - Update `IntelGraphicsFixup` v1.2.3
     - Update `VoodooI2C` to version 2.0.1, supports multi-gestures, touchpad boot can be used normally, no drift, no wakeup
+
+  - <b>Change</b>
     - Fix the issue of percentage refreshes
     - Fix sound card sleep wake up soundless problem
     - Fix screen brightness can not be saved problem
 
 
-### [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.1.1)
-- 4-8-2018
-  
-    - Support for 10.13.4 installation
+## [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.1.1)
+<b>4-8-2018</b>
+
+  - Support for 10.13.4 installation
+
+  - <b>Update</b>
     - Update `ACPIBatteryManager` v1.81.4
     - Update `AppleALC` v1.2.6
     - Update `FakeSMC` v6.26-344-g1cf53906.1787
     - Update `IntelGraphicsDVMTFixup` v1.2.1
-    - Update `IntelGraphicsFixup` v1.2.7, no need kexts for faking Intel Graphics' ID
+    - Update `IntelGraphicsFixup` v1.2.7, no need kexts for faking Intel Graphics ID
     - Update `Lilu` v1.2.3
     - Update `Shiki` v2.2.6
     - Update `USBInjectAll` v0.6.4
+
+  - <b>Add</b>
     - Add `AppleBacklightInjector` to widen the range of brightness
-    - Add `CPUFriend` and `CPUFriendDataProvider` to enable native XCPM
-    - Add boot flags `shikigva=1`, `igfxrst=1` and `igfxfw=1` to make the Graphics card more powerful and fix strange secondary boot interface.
+    - Add `CPUFriend` and `CPUFriendDataProvider` to enable native XCPM and HWP power management
+    - Add boot-args `shikigva=1`, `igfxrst=1` and `igfxfw=1` to make the Graphics card more powerful and fix strange secondary boot interface.
     - Add `SSDT-LGPA.aml`, support native brightness hotkey
 
 
-- 4-13-2018
+<b>4-13-2018</b>
 
+  - <b>Update</b>
     - Update `Clover` r4438
     - Update `AppleALC` v1.2.7
-    - Update `SSDT-IMEL.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml` from Rehabman's Github
+    - Update `SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml` from Rehabman's Github
+
+  - <b>Change</b>
     - Edit `SSDT-LPC.aml` to load native AppleLPC
 
 
-### [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.2)
-- 5-14-2018
+## [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.2)
+<b>5-14-2018</b>
 
+  - <b>Update</b>
     - Update `Clover` r4458
     - Update `Lilu` v1.2.4
     - Update `CPUFriendDataProvider` to save power
+
+  - <b>Add</b>
     - Add `SSDT-EC.aml` and `SSDT-SMBUS.aml` to launch AppleBusPowerController and AppleSMBusPCI
-    - Remove some useless renames in config and incorrect boot flag `shikigva=1`
+
+  - <b>Remove</b>
+    - Remove some useless renames in config and incorrect boot-args `shikigva=1`
     - Remove `SSDT-ADBG.aml` since it's useless
     - Remove `SSDT-IMEI.aml` to avoid kernel error report(Graphics id is automatically injected by `IntelGraphicsFixup`)
+
+  - <b>Change</b>
     - Rename some SSDTs to fit with Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config. Also update `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` and `SSDT-XHC.aml`
     - Redo the USB Injection, now it supports type-c USB3.0
     - Edit `SSDT-PCIList.aml` to let System Information.app show correct information
 
 
-### [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.4)
-- 7-27-2018
-    
+## [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.4)
+<b>7-27-2018</b>
+
+  - <b>Update</b>
     - Update `Clover` r4625
     - Update `AppleALC` v1.3.1
     - Update `Lilu` v1.2.6
@@ -127,38 +161,50 @@ English | [中文](Changelog_CN.md)
     - Update `VoodooI2C` v2.0.3
     - Update `USBInjectAll` v0.6.6
     - Update `CodecCommander` v2.6.3 by merging `SSDT-MiPro_ALC298.aml`
+
+  - <b>Add</b>
     - Add minStolen Clover patch
     - Add support for Mojave
     - Add `WhateverGreen` to replace `IntelGraphicsFixup`, `Shiki` and `IntelGraphicsDVMTFixup`
     - Add `VoodooPS2Controller` to replace `ApplePS2SmartTouchPad`
-    - Remove useless boot flags `igfxfw=1` and  `-disablegfxfirmware`
+
+   - <b>Remove</b>
+    - Remove useless boot-args `igfxfw=1` and  `-disablegfxfirmware`
+
+  - <b>Change</b>
     - Edit `SSDT-PCIList.aml` to let `System Information.app` show more PCI devices
 
 
-### [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
-- 8-9-2018
- 
+## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
+<b>8-9-2018</b>
+
+  - Mojave installation become easier
+
+  - <b>Update</b>
     - Update `Clover` r4641
     - Update `WhateverGreen` v1.2.1
     - Update `AppleALC`
     - Update `CPUFriendDataProvider` by using default EPP value to enhance performance
     - Update `Lilu`
     - Update `config.plist`, using AddProperties to replace minStolen Clover patch
+
+  - <b>Change</b>
     - Edit `config.plist` to increase VRAM from 1536MB to 2048MB
     - Change AppleIntelFramebuffer@0's connertor-type from LVDS to eDP because MiPro uses eDP pin
     - No injection of ig-platform-id 0x12345678 by using `config_install.plist` anymore, `WhateverGreen` can help do this.
-    - Mojave installation become easier
 
 
-### [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
-- 8-13-2018
+## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
+<b>8-13-2018</b>
 
+  - <b>Change</b>
     - Reverse back `CPUFriendProvider.kext` to the one in v1.2.2 because the one in v1.2.5 will cause KP in some devices in 10.13.3~10.13.5. If you want better CPU performance or better battery life, please read [#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
-    
 
-### [XiaoMi NoteBook Pro EFI v1.2.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.7)
-- 9-15-2018
 
+## [XiaoMi NoteBook Pro EFI v1.2.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.7)
+<b>9-15-2018</b>
+
+  - <b>Update</b>
     - Update `Clover` r4671
     - Update  `WhateverGreen` v1.2.3
     - Update `AppleALC` v1.3.2
@@ -166,33 +212,49 @@ English | [中文](Changelog_CN.md)
     - Update `Lilu` v1.2.7
     - Update `USBInjectAll` v0.6.7
     - Update `SSDT-GPRW.aml` and `SSDT-RMCF.aml` from Rehabman's sample:https://github.com/RehabMan/OS-X-Clover-Laptop-Config
-    - Update `SSDT-PCIList.aml` to add more Properties in PCI0 devices 
+    - Update `SSDT-PCIList.aml` to add more Properties in PCI0 devices
+
+  - <b>Add</b>
     - Add `SSDT-DMAC.aml` , `SSDT-MATH.aml` , `SSDT-MEM2.aml` , and `SSDT-PMCR.aml` to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches)
     - Add `HibernationFixup` to enable time setting in `System Preferences - Energy Saver`
     - Add `VirtualSMC` to replace `FakeSMC`. You can get more CPU Core Information by using `iStat Menus`, and more SMC keys are added in nvram.
+
+  - <b>Remove</b>
     - Remove VRAM 2048MB patch in `config.plist`, the actual VRAM isn't affected by this patch
+
+  - <b>Change</b>
     - Drop useless ACPI tables in `config.plist`
     - Reverse AppleIntelFramebuffer@0's connertor-type to default value
 
 
-### [XiaoMi NoteBook Pro EFI v1.2.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.8)
-- 9-28-2018
+## [XiaoMi NoteBook Pro EFI v1.2.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.8)
+<b>9-28-2018</b>
 
+  - <b>Downgrade</b>
     - Downgrade [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) because Rehabman's version is more reliable
+
+  - <b>Update</b>
     - Update `WhateverGreen`, `AppleALC`, `Lilu`, `CPUFriend`, and `HibernationFixup` by using official release
     - Update `AppleBacklightInjector` to support HD630
     - Update `SSDT-PNLF.aml` to support HD630
     - Update `VoodooI2C*` v2.1.4. (This driver is a patched version from [official release](https://github.com/alexandred/VoodooI2C/releases), the official one has scalling issue.)
     - Update `VoodooPS2Controller` v1.9.0 to stop trackpad when using keyboard
     - Update headers in hotpatch
+
+  - <b>Add</b>
     - Add `USBPower` to replace `USBInjectAll` and `SSDT-USB.aml`
+
+  - <b>Remove</b>
     - Remove `SSDT-MATH.aml`, replace with `MATH._STA -> XSTA` rename
+
+  - <b>Change</b>
     - Clean code in `config.plist` 
 
 
-### [XiaoMi NoteBook Pro EFI v1.2.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.9)
-- 12-26-2018
+## [XiaoMi NoteBook Pro EFI v1.2.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.9)
+<b>12-26-2018</b>
 
+  - <b>Update</b>
     - Update `Clover` r4821
     - Update `VoodooPS2Controller` v1.9.2
     - Update `CodecCommander` v2.7.1
@@ -204,76 +266,105 @@ English | [中文](Changelog_CN.md)
     - Update `SSDT-PNLF`, `SSDT-LGPA`, `SSDT-RMCF`, and `SSDT-PTSWAK`
     - Update `VoodooI2C` to the latest commit
     - Update `MATH._STA -> XSTA` rename to `MATH._STA and LDR2._STA -> XSTA` rename
+
+  - <b>Add</b>
     - Add back Trim patch to `config.plist`
     - Add argument `RtcHibernateAware` according to [Official Explanations](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
     - Add `SATA-unsupported` to replace `SSDT-SATA`
     - Add `SSDT-HPET` to behave more like a real Mac
     - Add `SSDT-LGPAGTX` to let GTX version works better (GTX users need to replace `SSDT-LGPA` with `SSDT-LGPAGTX`)
     - Add IRQ fixes in `config.plist`
+
+  - <b>Remove</b>
     - Remove `SSDT-ALS0`
     - Remove `AppleBacklightInjector` because `WhateverGreen` includes it
     - Remove tgtbridge because it has problem
     - Remove `HighCurrent` argument
+
+  - <b>Change</b>
     - Move PCI Information from `SSDT-PCIList` to `config.plist`
     - Change layout-id's datatype
     - Clean up `config.plist`
     - Clean up SSDTs' formats
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.0)
-- 2-10-2019
+## [XiaoMi NoteBook Pro EFI v1.3.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.0)
+<b>2-10-2019</b>
 
+  - <b>Update</b>
     - Update `Clover` r4871
     - Update `Lilu` v1.3.1
     - Update `AppleALC` v1.3.5
     - Update `SSDT-PXSX`
+
+  - <b>Add</b>
     - Add `SSDT-RTC` to remove IRQFlags safely, `FixRTC` will shorten the IO length
+
+  - <b>Remove</b>
     - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](one-key-cpufriend/README.md) to customize kext is recommended
     - Remove `HibernationFixup` because it's not stable, `RtcHibernateAware` is may enough for device to hibernate
     - Remove `dart=0`
     - Remove `AddClockID`, because it doesn't make a difference in new macOS version
+
+  - <b>Change</b>
     - Change layout-id to 30
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.1)
-- 3-1-2019
+## [XiaoMi NoteBook Pro EFI v1.3.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.1)
+<b>3-1-2019</b>
 
+  - <b>Update</b>
     - Update `Clover` r4892
     - Update `USBPorts` to support more models
+
+  - <b>Remove</b>
     - Remove `SSDT-PNLF` and replace with `AddPNLF` argument as suggested in [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
     - Remove `RtcHibernateAware` and replace with `NeverHibernate`. Sleep will consume more battery. Only after unlocking CFG then `RtcHibernateAware` could work properly
+
+  - <b>Change</b>
     - Change `igfxrst=1` to `gfxrst=1` according to [WhateverGreen README](https://github.com/acidanthera/WhateverGreen/blob/master/README.md)
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.2)
-- 3-28-2019
+## [XiaoMi NoteBook Pro EFI v1.3.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.2)
+<b>3-28-2019</b>
 
+  - <b>Update</b>
     - Update `Clover` r4910
     - Update `AppleALC` v1.3.6
     - Update `WhateverGreen` v1.2.8
     - Update `Lilu` v1.3.5
     - Update `VoodooPS2`
     - Update `USBPorts` and merge `SSDT-USBX`
+
+  - <b>Remove</b>
     - Remove `SSDT-PTSWAK` because Xiaomi-Pro doesn't need it
     - Remove `SMCSuperIO.kext` because it failed to detect supported SuperIO chip
+
+  - <b>Change</b>
     - Edit hotpatches to fit ACPI 6.3 standard
     - Change `AppleRTC` back to true and `InjectKexts` mode to `Detect`
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.3)
-- 4-16-2019
+## [XiaoMi NoteBook Pro EFI v1.3.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.3)
+<b>4-16-2019</b>
 
+  - <b>Update</b>
     - Update `Clover` r4920
     - Update `AppleALC` v1.3.7
     - Update `WhateverGreen`
     - Update `VoodooPS2`
     - Update `VoodooI2C` v2.1.6
+
+  - <b>Remove</b>
     - Remove `SSDT-RTC` and replace with `Rtc8Allowed` and `FixRTC`
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.4)
-- 7-10-2019
+## [XiaoMi NoteBook Pro EFI v1.3.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.4)
+<b>7-10-2019</b>
 
+  - Support macOS10.15
+
+  - <b>Update</b>
     - Update `Clover` r4986
     - Update `Lilu` v1.3.7
     - Update `AppleALC` v1.3.9
@@ -285,11 +376,15 @@ English | [中文](Changelog_CN.md)
     - Update `SSDT-MEM2`
     - Update `SSDT-HPET`
     - Update comments in `config.plist` using `Hackintool` style
+
+  - <b>Add</b>
     - Add `OpenCore`
     - Add `SSDT-TPD0` to solve unworking trackpad after removing `SSDT-XOSI` and  `_OSI -> XOSI`
     - Add back `SSDT-ALS0` to ensure backlight can be preserved
     - Add back `HibernationFixup`
     - Add `enable-hdmi-dividers-fix` properties for HDMI
+
+  - <b>Remove</b>
     - Remove `GFX0 -> IGPU`, `HECI -> IMEI`, and `HDAS -> HDEF` according to [WhateverGreen FAQ.IntelHD.en.md](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#general-recommendations)
     - Remove `SSDT-XOSI` and  `_OSI -> XOSI` because as [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) says, "Avoid patching _OSI to support a higher level of feature sets unless absolutely required. Commonly this enables a number of hacks on APTIO firmwares, which result in the need to add more patches. Modern firmwares generally do not need it at all, and those that do are fine with much smaller patches."
     - Remove `_DSM -> XDSM` because as [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) says, "Try to avoid hacky changes like renaming _PRW or _DSM whenever possible."
@@ -300,25 +395,32 @@ English | [中文](Changelog_CN.md)
     - Remove `Drop DRAM` and replace with `dart=0`
     - Remove `AppleKeyFeeder.efi` and `DataHubDxe-64.efi` which XiaoMi-Pro doesn't need
     - Remove `USBPorts.kext` and replace with `SSDT-USB`, according to [#197](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/197)
-    - Support macOS10.15
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.5)
-- 7-17-2019
+## [XiaoMi NoteBook Pro EFI v1.3.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.5)
+<b>7-17-2019</b>
 
+  - <b>Update</b>
     - Update `Clover` r5018
     - Update `OpenCore` v0.0.4
     - Update `WhateverGreen` to improve HDMI
     - Update `SSDT-LGPA`
     - Update `SSDT-TPD0`
+
+  - <b>Add</b>
     - Add `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS`, pair with `SSDT-TPD0`
+
+  - <b>Remove</b>
     - Remove `enable-hdmi-dividers-fix`
+
+  - <b>OC</b>
     - [OC] Update config to support `OpenCore` v0.0.4
-    
 
-### [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
-- 3-10-2020
 
+## [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
+<b>3-10-2020</b>
+
+  - <b>Add</b>
     - Update `Clover` r5104
     - Update `OpenCore` v0.5.6
     - Update `Lilu` v1.4.2
@@ -331,6 +433,8 @@ English | [中文](Changelog_CN.md)
     - Update `VoodooI2C` v2.3
     - Update `SSDT-USB`
     - Update `SSDT-MCHC`
+
+  - <b>Add</b>
     - Add `IntelBluetoothFirmware` and `IntelBluetoothInjector` to support native Intel Bluetooth
     - Add `SSDT-DRP08` to disable Intel Wireless Card
     - Add `SSDT-PS2K` to customize `VoodooPS2Keyboard` instead of directly editing `info.plist`
@@ -339,28 +443,40 @@ English | [中文](Changelog_CN.md)
     - Add `EFICheckDisabler`
     - Add `NVMeFix`
     - Add back `SSDT-DDGPU` to disable discrete graphics card instead of using `disable-external-egpu`
+
+  - <b>Remove</b>
     - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the race problem
+
+  - <b>Change</b>
     - Change layout-id back to 30
+
+  - <b>OC</b>
     - [OC] Update config to support `OpenCore` v0.5.6
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
-- 3-25-2020
+## [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
+<b>3-25-2020</b>
 
+  - <b>Update</b>
     - Update `Clover` r5107 to support macOS10.15.4
     - Update `USBInjectAll` v0.7.3 from [Sniki's fork](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
         - The origin [Rehabman's fork](https://github.com/RehabMan/OS-X-USB-Inject-All) does not update a long time ago
     - Update `SSDT-USB`
         - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
+
+  - <b>Clover</b>
     - [Clover] Update `Xiaomi` theme to support Clover r5105+
     - [Clover] Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
     - [Clover] Remove MSR 0xE2 patch because Clover can automatically patch
+
+  - <b>OC</b>
     - [OC] Update config to better support `OpenCore` v0.5.6
 
 
-### [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
-- 4-XX-2020
+## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
+<b>4-XX-2020</b>
 
+  - <b>Update</b>
     - Update `Clover` r5109
     - Update `OpenCore` v0.5.7
     - Update `Lilu` v1.4.3
@@ -372,10 +488,18 @@ English | [中文](Changelog_CN.md)
     - Update `VoodooI2C` v2.4, support trackpad in Recovery mode, and no need to rebuild kextcache after system update
     - Update `IntelBluetoothFirmware` v1.0.3
     - Update `SSDT-TPD0`, based on [#365](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/365)
+
+  - <b>Add</b>
     - Add `VoodooInput`
     - Add `framebuffer-flags` property to support 1440x810 HiDPI resolution
     - Add `force-online` and `force-online-framebuffers` properties to fix HDMI on macOS10.15.4
+
+  - <b>Remove</b>
     - Remove `MATH._STA and LDR2._STA -> XSTA` rename
     - Remove `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS` renames
+
+  - <b>Clover</b>
     - [Clover] Update `setpowerstate_panic=0` kernel patch for macOS10.15.4
+
+  - <b>OC</b>
     - [OC] Update config to support `OpenCore` v0.5.7
