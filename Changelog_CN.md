@@ -63,18 +63,20 @@
     * `AppleALC` 降级到V1.2.0
 
 
+### [XiaoMi NoteBook Pro EFI v1.0.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.0.0)
 * 1-25-2018
 
     * 支持10.13.x安装使用
+    * 更新 `Lilu` v1.2.2
+    * 更新 `AppleALC` v1.2.2 支持小米Pro，注入ID:99
+    * 更新 `IntelGraphicsFixup` v1.2.3
     * 更新 `VoodooI2C` 到2.0.1版本，支持多手势，触摸板开机可正常使用，不漂移，无需唤醒
     * 修复电量百分比不刷新的问题
     * 修复声卡睡眠唤醒无声音的问题
     * 修复屏幕亮度无法保存的问题
-    * 更新 `Lilu` v1.2.2
-    * 更新 `AppleALC` v1.2.2 支持小米Pro，注入ID:99
-    * 更新 `IntelGraphicsFixup` v1.2.3
 
 
+### [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.1.1)
 * 4-8-2018
 
     * 支持10.13.4安装使用
@@ -87,33 +89,35 @@
     * 更新 `Shiki` v2.2.6
     * 更新 `USBInjectAll` v0.6.4
     * 新增驱动 `AppleBacklightInjector`，开启更多档位的亮度调节
-    * 新增驱动 `CPUFriend` 和`CPUFriendDataProvider`，开启原生XCPM和HWP电源管理方案
+    * 新增驱动 `CPUFriend` 和`CPUFriendDataProvider`，开启原生 XCPM 和 HWP 电源管理方案
     * 新增启动参数 `shikigva=1`，`igfxrst=1` 和 `igfxfw=1` 增强核显性能，并用新的方法修复启动第二阶段的八个苹果
     * 新增 `SSDT-LGPA.aml`，支持原生亮度快捷键
 
 
 * 4-13-2018
 
+    * 更新 `Clover` r4438
     * 更新 `AppleALC` v1.2.7
     * 更新 `SSDT-IMEI.aml`, `SSDT-PTSWAK.aml`, `SSDT-SATA.aml`, `SSDT-XOSI.aml`
-    * 修改 `SSDT-LPC.aml` 已加载原生电源驱动AppleLPC
-    * 更新 `Clover` r4438
+    * 修改 `SSDT-LPC.aml` 已加载原生电源驱动 AppleLPC
 
 
+### [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.2)
 * 5-14-2018
 
-    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了 `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` 和 `SSDT-XHC.aml`
-    * 删除config里的一些无用重命名和错误启动参数 `shikigva=1`
-    * 重做了USB驱动，现在type-c接口支持USB3.0了 
-    * 删除 `SSDT-ADBG.aml`，它是个无用的方法覆写
-    * 删除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
-    * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载AppleBusPowerController和AppleSMBusPCI
-    * 修改 `SSDT-PCIList.aml`，使 `系统报告.app` 显示正确的信息
+    * 更新 `Clover` r4458
     * 更新 `Lilu` v1.2.4
     * 更新 `CPUFriendDataProvider` 让系统更省电
-    * 更新 `Clover` r4458
+    * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载 AppleBusPowerController 和 AppleSMBusPCI
+    * 移除 config 里的一些无用重命名和错误启动参数 `shikigva=1`
+    * 移除 `SSDT-ADBG.aml`，它是个无用的方法覆写
+    * 移除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
+    * 重命名了一些SSDT，让他们更符合Rehabman的标准，方便后期维护。同时更新了 `SSDT-GPRW.aml`, `SSDT-DDGPU.aml`, `SSDT-RMCF.aml` 和 `SSDT-XHC.aml`
+    * 重做了USB驱动，现在type-c接口支持USB3.0了 
+    * 修改 `SSDT-PCIList.aml`，使 `系统报告.app` 显示正确的信息    
 
 
+### [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.4)
 * 7-27-2018
 
     * 更新 `Clover` r4625
@@ -123,14 +127,15 @@
     * 更新 `VoodooI2C` v2.0.3
     * 更新 `USBInjectAll` v0.6.6
     * 更新 `CodecCommander` v2.6.3, 融合了 `SSDT-MiPro_ALC298.aml`
-    * 删除多余启动参数 `igfxfw=1` 和 `-disablegfxfirmware`
-    * 修改 `SSDT-PCIList.aml`，让 `系统报告.app` 显示更多PCI设备
+    * 新增 minStolen Clover 补丁
+    * 新增对Mojave的支持
     * 新增 `WhateverGreen` 来代替 `IntelGraphicsFixup`, `Shiki` 和 `IntelGraphicsDVMTFixup`
     * 新增 `VoodooPS2Controller` 来代替 `ApplePS2SmartTouchPad`
-    * 新增minStolen的Clover补丁
-    * 新增对Mojave的支持（安装教程在下面）
+    * 移除多余启动参数 `igfxfw=1` 和 `-disablegfxfirmware`
+    * 修改 `SSDT-PCIList.aml`，让 `系统报告.app` 显示更多PCI设备
+    
 
-
+### [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
 * 8-9-2018
 
     * 更新 `Clover` r4641
@@ -145,11 +150,13 @@
     * Mojave的安装变得更简单
 
 
+### [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
 * 8-13-2018
 
-    * 将 `CPUFriendProvider.kext` 回滚至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
+    * 回滚 `CPUFriendProvider.kext` 至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro/issues/53)
 
 
+### [XiaoMi NoteBook Pro EFI v1.2.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.7)
 * 9-15-2018
 
     * 更新 `Clover` r4671 
@@ -165,9 +172,10 @@
     * 新增 `VirtualSMC` 来代替 `FakeSMC`。你可以使用 `iStat Menus` 获得更多传感器数据，而且更多SMC键值被添加进nvram
     * 移除 `config.plist` 里的VRAM 2048MB补丁，真实的VRAM并没有被改变
     * 修改 `config.plist` 以丢掉无用ACPI表
-    * 还原AppleIntelFramebuffer@0的接口类型
+    * 回滚 AppleIntelFramebuffer@0 的接口类型
 
 
+### [XiaoMi NoteBook Pro EFI v1.2.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.8)
 * 9-28-2018
 
     * 降级 [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) 因为Rehabman的版本更稳定
@@ -178,19 +186,14 @@
     * 更新 `VoodooPS2Controller` v1.9.0，使用键盘的时候自动禁用触控板
     * 更新 热补丁的头部代码
     * 新增 `USBPower` 来代替 `USBInjectAll` 和 `SSDT-USB.aml`
-    * 移除 `SSDT-MATH.aml`
+    * 移除 `SSDT-MATH.aml`，替换为 `MATH._STA -> XSTA` 重命名
     * 清洁 `config.plist` 里的代码
 
 
+### [XiaoMi NoteBook Pro EFI v1.2.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.9)
 * 12-26-2018
     
-    * 新增回 `config.plist` 里的TRIM补丁 
-    * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
-    * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
-    * 新增 `SSDT-HPET` 让机子表现得更像白果
-    * 新增 `SSDT-LGPAGTX` 使GTX版运行得更好 (GTX用户需要把 `SSDT-LGPA` 替换成 `SSDT-LGPAGTX`)
-    * 新增IRQ修复到 `config.plist`
-    * 迁移PCI信息从 `SSDT-PCIList` 到 `config.plist`
+    * 更新 `Clover` r4821
     * 更新 `VoodooPS2Controller` v1.9.2
     * 更新 `CodecCommander` v2.7.1
     * 更新 `Lilu` v1.2.9
@@ -199,31 +202,40 @@
     * 更新 `VirtualSMC` v1.0.2
     * 更新 `USBPower` 到 `USBPorts`
     * 更新 `SSDT-PNLF`， `SSDT-LGPA`，`SSDT-RMCF` 和 `SSDT-PTSWAK`
-    * 更新 `Clover` r4821
     * 更新 `VoodooI2C` 作者最新提交
+    * 更新 `MATH._STA -> XSTA` 重命名为 `MATH._STA and LDR2._STA -> XSTA` 重命名
+    * 新增回 `config.plist` 里的TRIM补丁 
+    * 新增参数 `RtcHibernateAware` 根据[官方解答](https://www.insanelymac.com/forum/topic/304530-clover-change-explanations/?page=5)
+    * 新增 `SATA-unsupported` 来替代 `SSDT-SATA`
+    * 新增 `SSDT-HPET` 让机子表现得更像白果
+    * 新增 `SSDT-LGPAGTX` 使GTX版运行得更好 (GTX用户需要把 `SSDT-LGPA` 替换成 `SSDT-LGPAGTX`)
+    * 新增 IRQ修复 到 `config.plist`
     * 移除 `SSDT-ALS0`
     * 移除 `AppleBacklightInjector` 因为 `WhateverGreen` 囊括了它
     * 移除 tgtbridge 因为它会导致问题
     * 移除 `HighCurrent` 参数
+    * 迁移PCI信息从 `SSDT-PCIList` 到 `config.plist`
     * 更改 layout-id 的数据类型
     * 清洁 `config.plist` 代码
     * 清洁 SSDTs 的格式
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.0)
 * 2-10-2019
 
     * 更新 `Clover` r4871
     * 更新 `Lilu` v1.3.1
     * 更新 `AppleALC` v1.3.5
     * 更新 `SSDT-PXSX`
+    * 新增 `SSDT-RTC` 来安全地移除IRQFlags，`FixRTC` 会缩短IO长度
     * 移除 `CPUFriend*` 因为不同macOS版本有不同的plists在 `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`。推荐使用[one-key-cpufriend_cn](one-key-cpufriend/README_CN.md)来定制驱动
     * 移除 `HibernationFixup` 因为它不稳定，`RtcHibernateAware` 可能足够让机子睡眠
     * 移除 `dart=0`
     * 移除 `AddClockID`，因为它对新系统不起作用
-    * 新增 `SSDT-RTC` 来安全地移除IRQFlags，`FixRTC` 会缩短IO长度
     * 修改layout-id为30
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.1)
 * 3-1-2019
 
     * 更新 `Clover` r4892
@@ -233,6 +245,7 @@
     * 修改 `igfxrst=1` 为 `gfxrst=1`，根据[WhateverGreen README](https://github.com/acidanthera/WhateverGreen/blob/master/README.md)
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.2)
 * 3-28-2019
 
     * 更新 `Clover` r4910
@@ -241,12 +254,13 @@
     * 更新 `Lilu` v1.3.5
     * 更新 `VoodooPS2`
     * 更新 `USBPorts`，合并 `SSDT-USBX`
-    * 修改热补丁来适配ACPI 6.3标准
     * 移除 `SSDT-PTSWAK` 因为小米Pro不需要它
     * 移除 `SMCSuperIO.kext` 因为它没检测到受支持的SuperIO芯片
+    * 修改热补丁来适配ACPI 6.3标准
     * 修改 `AppleRTC` 为true，`InjectKexts` 模式为 `Detect`
     
-    
+
+### [XiaoMi NoteBook Pro EFI v1.3.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.3)
 * 4-16-2019
 
     * 更新 `Clover` r4920
@@ -257,6 +271,7 @@
     * 移除 `SSDT-RTC` 并用 `Rtc8Allowed` 和 `FixRTC` 来代替x
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.4)
 * 7-10-2019
 
     * 更新 `Clover` r4986
@@ -270,6 +285,11 @@
     * 更新 `SSDT-MEM2`
     * 更新 `SSDT-HPET`
     * 更新 `config.plist` 里的注释，采用 `Hackintool` 风格
+    * 新增 `OpenCore`
+    * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
+    * 放回 `SSDT-ALS0` 来保证背光被保存
+    * 放回 `HibernationFixup`
+    * 新增 `enable-hdmi-dividers-fix` 来更好地支持HDMI
     * 移除 `GFX0 -> IGPU`，`HECI -> IMEI` 和 `HDAS -> HDEF` 根据[WhateverGreen FAQ.IntelHD.cn.md](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.cn.md#建议)
     * 移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“避免修正_OSI来支持更高级别的功能集，除非一定必要。通常这个补丁会引发很多APTIO固件的问题，导致需要更多的补丁。新版固件通常不需要这个补丁了，而且需要用到_OSI补丁的情况也可以用更轻量的补丁来代替”
     * 移除 `_DSM -> XDSM` 因为如[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)所说，“尝试避免风险操作，例如只要有可能就给_PRW或_DSM重命名”
@@ -280,14 +300,10 @@
     * 移除 `Drop DRAM` 并替换成 `dart=0`
     * 移除 `AppleKeyFeeder.efi` 和 `DataHubDxe-64.efi` 因为小米Pro不需要
     * 移除 `USBPorts.kext` 并替换成 `SSDT-USB`，根据[#197](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/197)
-    * 新增 `OpenCore`
-    * 新增 `SSDT-TPD0` 来解决移除 `SSDT-XOSI` 和  `_OSI -> XOSI` 后触控板无法使用的问题
-    * 放回 `SSDT-ALS0` 来保证背光被保存
-    * 放回 `HibernationFixup`
-    * 新增 `enable-hdmi-dividers-fix` 来更好地支持HDMI
     * 支持macOS10.15
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.5)
 * 7-17-2019
 
     * 更新 `Clover` r5018
@@ -300,6 +316,7 @@
     * [OC] 更新 config 来支持 `OpenCore` v0.0.4
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
 * 3-10-2020
 
     * 更新 `Clover` r5104
@@ -322,11 +339,12 @@
     * 新增 `EFICheckDisabler`
     * 新增 `NVMeFix`
     * 放回 `SSDT-DDGPU` 来禁用独显，而不是用 `disable-external-egpu`
-    * 修改 layout-id 回 30
     * 移除 AppleIntelLpssI2C 补丁因为 https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 修复了驱动冲突问题
+    * 修改 layout-id 回 30
     * [OC] 更新 config 来支持 `OpenCore` v0.5.6
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
 * 3-25-2020
 
     * 更新 `Clover` r5107 来支持 macOS10.15.4
@@ -340,6 +358,7 @@
     * [OC] 更新 config 来更好地支持 `OpenCore` v0.5.6
 
 
+### [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
 - 4-XX-2020
 
     * 更新 `Clover` r5109
@@ -352,8 +371,11 @@
     * 更新 `VoodooPS2` v2.1.3
     * 更新 `VoodooI2C` v2.4，支持在恢复模式下使用触控板，并且每次升级后不用重建缓存
     * 更新 `IntelBluetoothFirmware` v1.0.3
+    * 更新 `SSDT-TPD0`，基于 [#365](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/365)
     * 新增 `VoodooInput`
     * 新增 `framebuffer-flags` 属性来支持 1440x810 HiDPI 分辨率
     * 新增 `force-online` 和 `force-online-framebuffers` 属性来修正 macOS10.15.4 下的 HDMI
+    * 移除 `MATH._STA and LDR2._STA -> XSTA` 重命名
+    * 移除 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS` 重命名
     * [Clover] 更新 `setpowerstate_panic=0` 内核补丁来适配 macOS10.15.4
     * [OC] 更新 config 来支持 `OpenCore` v0.5.7

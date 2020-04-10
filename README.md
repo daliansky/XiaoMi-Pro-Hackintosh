@@ -96,6 +96,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
+### My screen turns to black and has no response during the updating process.
+
+If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
+
 ### [Clover] My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
 Press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
@@ -103,10 +107,6 @@ Press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram
 ### [Clover] I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
 
 It is not recommended to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
-
-### [Clover] My screen turns to black and has no response during the updating process.
-
-If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
 
 ### [Clover] I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
 

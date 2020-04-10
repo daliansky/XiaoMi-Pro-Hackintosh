@@ -1,7 +1,7 @@
 // Necessary hotpatch, pair with NullEthernet.kext
 // Maintained by: Rehabman
 // Reference: https://github.com/RehabMan/OS-X-Null-Ethernet/blob/master/SSDT-RMNE.dsl by Rehabman
-// Fake an ethernet card to make the system still allow Mac App Store access, work with NullEthernet.kext.
+// Fake an ethernet card to make the system still allow Mac App Store access, work with NullEthernet.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_RMNE", 0x00000000)
 {

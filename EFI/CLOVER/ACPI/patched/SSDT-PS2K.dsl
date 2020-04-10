@@ -1,6 +1,6 @@
 // NOT Necessary hotpatch
 // Maintained by: stevezhengshiqi
-// Reference: https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/blob/master/SSDT-Swap-LeftControlCapsLock.dslby Rehabman
+// Reference: https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/blob/master/SSDT-Swap-LeftControlCapsLock.dsl by Rehabman
 // Customize VoodooPS2Keyboard.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
