@@ -268,7 +268,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                 Notify (^^RP01.PXSX, 0xD5) // Hardware-Specific
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
-                                OG00 &= 0xFF
+                                OG00 = (^^GFX0.CBLV & 0xFF)
                                 Notify (^^GFX0.DD1F, 0x88) // Device-Specific
                             }
                             Default
@@ -384,7 +384,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                                 Notify (^^RP01.PXSX, 0xD5) // Hardware-Specific
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
-                                OG00 &= 0xFF
+                                OG00 = (^^GFX0.CBLV & 0xFF)
                                 Notify (^^GFX0.DD1F, 0x88) // Device-Specific
                             }
                             Default

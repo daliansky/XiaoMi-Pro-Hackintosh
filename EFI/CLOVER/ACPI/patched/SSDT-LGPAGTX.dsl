@@ -75,7 +75,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
     External (_SB_.UBTC.MGID, FieldUnitObj)
     External (_SB_.UBTC.MGIE, FieldUnitObj)
     External (_SB_.UBTC.MGIF, FieldUnitObj)
-    External (BSLF, UnknownObj)
+    External (BSLF, IntObj)
     External (GPDI, FieldUnitObj)
     External (OG00, FieldUnitObj)
     External (PNOT, MethodObj)    // 0 Arguments
@@ -270,7 +270,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                                 Notify (^^RP01.PXSX, 0xD5) // Hardware-Specific
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
-                                OG00 &= 0xFF
+                                OG00 = (^^GFX0.CBLV & 0xFF)
                                 Notify (^^GFX0.DD1F, 0x88) // Device-Specific
                             }
                             Default
@@ -386,7 +386,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                                 Notify (^^RP01.PXSX, 0xD5) // Hardware-Specific
                                 \_PR.CPPC = 0x0E
                                 PNOT ()
-                                OG00 &= 0xFF
+                                OG00 = (^^GFX0.CBLV & 0xFF)
                                 Notify (^^GFX0.DD1F, 0x88) // Device-Specific
                             }
                             Default
