@@ -32,7 +32,6 @@
 - 英特尔蓝牙可能会导致睡眠问题，并且不支持部分蓝牙设备
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡无法工作
-  - 使用了[SSDT-DRP08](EFI/CLOVER/ACPI/patched/SSDT-DRP08.dsl)来禁用它以节省电量
   - 购买USB网卡或者支持的内置网卡
   - 阅读[#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330)，里面提供了测试驱动
 - 瑞昱USB SD读卡器无法工作

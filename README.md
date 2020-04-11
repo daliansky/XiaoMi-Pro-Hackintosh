@@ -32,7 +32,6 @@ English | [中文](README_CN.md)
 - Intel Bluetooth may cause sleep problems and does not support some Bluetooth devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265) is not working
-  - Have used [SSDT-DRP08](EFI/CLOVER/ACPI/patched/SSDT-DRP08.dsl) to disable it in order to save power
   - Buy a USB Wi-Fi dongle or supported wireless card
   - View [#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330), some test drivers are provided there
 - Realtek USB SD Card Reader(RTS5129) is not working

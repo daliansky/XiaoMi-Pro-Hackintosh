@@ -504,3 +504,10 @@ English | [中文](Changelog_CN.md)
 
 ### OC
   - [OC] Update config to support `OpenCore` v0.5.7
+
+
+## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
+## X-XX-2020
+
+### Remove
+  - Remove `SSDT-DRP08` to unlock Intel Wi-Fi

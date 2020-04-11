@@ -32,14 +32,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable RP08 device</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-DRP08.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Add EC device</string>
 				<key>Enabled</key>
 				<true/>
