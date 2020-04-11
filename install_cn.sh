@@ -230,6 +230,8 @@ function backupEFI() {
   echo
   echo "正在拷贝主题到新CLOVER文件夹..."
 
+  rm -rf "${BACKUP_DIR}/CLOVER/themes/Xiaomi"
+  cp -rf "XiaoMi_Pro-${ver}/EFI/CLOVER/themes/Xiaomi" "${BACKUP_DIR}/CLOVER/themes/"
   rm -rf "XiaoMi_Pro-${ver}/EFI/CLOVER/themes"
   cp -rf "${BACKUP_DIR}/CLOVER/themes" "XiaoMi_Pro-${ver}/EFI/CLOVER/"
 
@@ -333,16 +335,22 @@ function editEFI() {
 
     2)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
     cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-USBBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     3)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
     cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-WLAN_LTEBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
     4)
     rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
+    rm -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
     cp -rf "${WORK_DIR}/XiaoMi_Pro-${ver}/SSDT-USB-FingerBT.aml" "${WORK_DIR}/XiaoMi_Pro-${ver}/EFI/CLOVER/ACPI/patched/"
     ;;
 
@@ -427,6 +435,8 @@ function changeBT() {
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
+    rm -rf "${EFI_DIR}/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
 
     cp -rf "SSDT-USB-USBBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
 
@@ -440,6 +450,8 @@ function changeBT() {
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
+    rm -rf "${EFI_DIR}/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
 
     cp -rf "SSDT-USB-WLAN_LTEBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
@@ -450,6 +462,8 @@ function changeBT() {
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
+    rm -rf "${EFI_DIR}/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
+    rm -rf "${EFI_DIR}/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
 
     cp -rf "SSDT-USB-FingerBT.aml" "${EFI_DIR}/EFI/CLOVER/ACPI/patched/"
     unmountEFI
