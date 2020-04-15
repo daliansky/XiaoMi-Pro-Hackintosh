@@ -16,7 +16,17 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>Rename LGPA to XGPA, pair with SSDT-LGPA.aml (Brightness Key)</string>
+					<string>Rename Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml (Instant Wake)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>R1BSVwI=</data>
+					<key>Replace</key>
+					<data>WFBSVwI=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Rename Method(LGPA,1,S) to XGPA, pair with SSDT-LGPA.aml (Brightness Key)</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -26,13 +36,13 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml (Instant Wake)</string>
+					<string>Rename Method(UPC,0,S) to XUPC, pair with SSDT-USB.aml (USB Port Customization)</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>R1BSVwI=</data>
+					<data>X1VQQwg=</data>
 					<key>Replace</key>
-					<data>WFBSVwI=</data>
+					<data>WFVQQwg=</data>
 				</dict>
 			</array>
 		</dict>

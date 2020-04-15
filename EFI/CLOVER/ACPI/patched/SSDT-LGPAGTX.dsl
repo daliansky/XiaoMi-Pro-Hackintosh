@@ -1,4 +1,4 @@
-// Necessary hotpatch for GTX, pair with `change LGPA to XGPA` rename patch
+// Necessary hotpatch for GTX, pair with `Rename Method(LGPA,1,S) to XGPA` rename patch
 // Maintained by: stevezhengshiqi
 // Reference: https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659 by Rehabman
 // Let brightness key work with VoodooPS2Controller.kext(for XiaoMi-Pro GTX)

@@ -439,7 +439,6 @@ English | [中文](Changelog_CN.md)
   - Add `SSDT-DRP08` to disable Intel Wireless Card
   - Add `SSDT-PS2K` to customize `VoodooPS2Keyboard` instead of directly editing `info.plist`
   - Add `complete-modeset-framebuffers` property to improve HDMI
-  - Add `PanicNoKextDump` to replace panic kext logging patches
   - Add `EFICheckDisabler`
   - Add `NVMeFix`
   - Add back `SSDT-DDGPU` to disable discrete graphics card instead of using `disable-external-egpu`
@@ -449,6 +448,9 @@ English | [中文](Changelog_CN.md)
 
 ### Change
   - Change layout-id back to 30
+
+### Clover
+  - [Clover] Add `PanicNoKextDump` to replace panic kext logging patches
 
 ### OC
   - [OC] Update config to support `OpenCore` v0.5.6
@@ -509,5 +511,12 @@ English | [中文](Changelog_CN.md)
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
 ## X-XX-2020
 
+### Update
+  - Update `SSDT-USB`
+
+### Add
+  - Add `UPC -> XUPC` rename
+
 ### Remove
   - Remove `SSDT-DRP08` to unlock Intel Wi-Fi
+  - Remove `USBInjectAll`
