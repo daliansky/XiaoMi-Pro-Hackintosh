@@ -622,18 +622,19 @@ function main() {
   echo "您的主板型号是 ${MAINBOARD}"
   echo '====================================================================='
   echo -e "${BOLD}(1) 更新EFI${OFF}"
-  echo "(2) 更改蓝牙模式 (仅支持最新release)"
-  echo "(3) 通用声卡修复 (credits Menchen)"
-  echo "(4) 添加色彩文件"
-  echo "(5) 更新变频管理"
-  echo "(6) 更改TDP和CPU电压 (credits Pasi-Studio)"
-  echo "(7) 开启HiDPI"
-  echo "(8) 设置帧缓存为64mb (4K 屏幕) 和 解锁0xE2寄存器 (credit Menchen)"
-  echo "(9) 修复Windows启动 (仅支持最新release)"
-  echo "(10) 修复Apple服务"
-  echo "(11) 反馈问题"
-  echo "(12) 退出"
-  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10/11/12)${OFF}"
+  echo "(2) 构建最新测试版EFI"
+  echo "(3) 更改蓝牙模式 (仅支持最新release)"
+  echo "(4) 通用声卡修复 (credits Menchen)"
+  echo "(5) 添加色彩文件"
+  echo "(6) 更新变频管理"
+  echo "(7) 更改TDP和CPU电压 (credits Pasi-Studio)"
+  echo "(8) 开启HiDPI"
+  echo "(9) 设置帧缓存为64mb (4K 屏幕) 和 解锁0xE2寄存器 (credit Menchen)"
+  echo "(10) 修复Windows启动 (仅支持最新release)"
+  echo "(11) 修复Apple服务"
+  echo "(12) 反馈问题"
+  echo "(13) 退出"
+  echo -e "${BOLD}您想选择哪个选项? (1/2/3/4/5/6/7/8/9/10/11/12/13)${OFF}"
   read -rp ":" xm_selection
   case ${xm_selection} in
     1)
@@ -642,56 +643,60 @@ function main() {
     ;;
 
     2)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+    returnMenu
+
+    3)
     changeBT
     returnMenu
     ;;
 
-    3)
+    4)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/one-key-alcplugfix_cn.sh)"
     returnMenu
     ;;
 
-    4)
+    5)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile_cn.sh)"
     returnMenu
     ;;
 
-    5)
+    6)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-cpufriend/one-key-cpufriend_cn.sh)"
     returnMenu
     ;;
 
-    6)
+    7)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
     returnMenu
     ;;
 
-    7)
+    8)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
     returnMenu
     ;;
 
-    8)
+    9)
     removeDVMTMSR
     returnMenu
     ;;
 
-    9)
+    10)
     fixWindows
     returnMenu
     ;;
 
-    10)
+    11)
     fixAppleService
     returnMenu
     ;;
 
-    11)
+    12)
     reportProblem
     returnMenu
     ;;
 
-    12)
+    13)
     clean
     echo
     echo "祝您有开心的一天! 再见"

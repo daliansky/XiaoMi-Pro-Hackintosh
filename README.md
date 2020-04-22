@@ -5,6 +5,23 @@ macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
 
 English | [中文](README_CN.md)
 
+## Contents
+
+- [Configuration](#configuration)
+- [Current Status in Clover](#current-status-in-clover)
+- [Current Status in OpenCore](#current-status-in-opencore)
+- [Improvements](#improvements)
+- [Installation](#installation)
+  - [First-time installation](#first-time-installation)
+  - [Build](#build)
+  - [Upgrade](#upgrade)
+- [FAQ](#faq)
+- [Changelog](#changelog)
+- [A reward](#a-reward)
+- [Credits](#credits)
+- [Support and discussion](#support-and-discussion)
+
+
 ## Configuration
 
 | Specifications | Detail                                                  |
@@ -77,6 +94,19 @@ Need more testing...
  
  <img src="img/donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
  <img src="img/get_Release.jpg" width="300px" alt="get_release">
+
+### Build
+
+- Build the latest beta EFI by running the following command in Terminal:
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+```
+- Or running the following command in Terminal:
+```
+git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
+cd XiaoMi-Pro-Hackintosh
+./makefile.sh
+```
 
 ### Upgrade
 

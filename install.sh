@@ -622,18 +622,19 @@ function main() {
   echo "Your mainboard is ${MAINBOARD}"
   echo '========================================================================='
   echo -e "${BOLD}(1) Update EFI${OFF}"
-  echo "(2) Change Bluetooth mode (Only support the latest release)"
-  echo "(3) General audio fix (credits Menchen)"
-  echo "(4) Add color profile"
-  echo "(5) Update power management"
-  echo "(6) Modify TDP and CPU voltage (credits Pasi-Studio)"
-  echo "(7) Enable HiDPI"
-  echo "(8) Set DVMT to 64mb (for 4K screen) and unlock 0xE2 MSR (credit Menchen)"
-  echo "(9) Fix Windows boot (Only support the latest release)"
-  echo "(10) Fix Apple services"
-  echo "(11) Problem report"
-  echo "(12) Exit"
-  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11/12)${OFF}"
+  echo "(2) Build beta EFI"
+  echo "(3) Change Bluetooth mode (Only support the latest release)"
+  echo "(4) General audio fix (credits Menchen)"
+  echo "(5) Add color profile"
+  echo "(6) Update power management"
+  echo "(7) Modify TDP and CPU voltage (credits Pasi-Studio)"
+  echo "(8) Enable HiDPI"
+  echo "(9) Set DVMT to 64mb (for 4K screen) and unlock 0xE2 MSR (credit Menchen)"
+  echo "(10) Fix Windows boot (Only support the latest release)"
+  echo "(11) Fix Apple services"
+  echo "(12) Problem report"
+  echo "(13) Exit"
+  echo -e "${BOLD}Which option you want to choose? (1/2/3/4/5/6/7/8/9/10/11/12/13)${OFF}"
   read -rp ":" xm_selection
   case ${xm_selection} in
     1)
@@ -642,56 +643,60 @@ function main() {
     ;;
 
     2)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+    returnMenu
+
+    3)
     changeBT
     returnMenu
     ;;
 
-    3)
+    4)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/one-key-alcplugfix.sh)"
     returnMenu
     ;;
 
-    4)
+    5)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile.sh)"
     returnMenu
     ;;
 
-    5)
+    6)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-cpufriend/one-key-cpufriend.sh)"
     returnMenu
     ;;
 
-    6)
+    7)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
     returnMenu
     ;;
 
-    7)
+    8)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
     returnMenu
     ;;
 
-    8)
+    9)
     removeDVMTMSR
     returnMenu
     ;;
 
-    9)
+    10)
     fixWindows
     returnMenu
     ;;
 
-    10)
+    11)
     fixAppleService
     returnMenu
     ;;
 
-    11)
+    12)
     reportProblem
     returnMenu
     ;;
 
-    12)
+    13)
     clean
     echo
     echo "Wish you have a good day! Bye"

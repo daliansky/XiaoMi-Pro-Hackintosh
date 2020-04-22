@@ -5,6 +5,23 @@
 
 [English](README.md) | 中文
 
+## 目录
+
+- [电脑配置](#电脑配置)
+- [Clover版本的目前情况](#clover版本的目前情况)
+- [OpenCore版本的目前情况](#opencore版本的目前情况)
+- [改善体验](#改善体验)
+- [安装](#安装)
+  - [首次安装](#首次安装)
+  - [构建](#构建)
+  - [更新](#更新)
+- [常见问题解答](#常见问题解答)
+- [更新日志](#更新日志)
+- [关于打赏](#关于打赏)
+- [鸣谢](#鸣谢)
+- [支持与讨论](#支持与讨论)
+
+
 ## 电脑配置
 
 | 规格     | 详细信息                                     |
@@ -54,10 +71,10 @@
 ## 改善体验
 
 - 使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
-- 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把帧缓存设为64mb并解锁CFG
+- 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁CFG
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统UI质量
   - 支持 1440x810 HiDPI 分辨率
-  - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1600x900)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把帧缓存设为64mb
+  - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1600x900)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb
 - 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能
 
 
@@ -72,6 +89,19 @@
  
  <img src="img/donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
  <img src="img/get_Release.jpg" width="300px" alt="get_release">
+ 
+ ### 构建
+ 
+ - 如果要构建最新测试版EFI，在终端输入以下命令：
+ ```
+ sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+ ```
+ - 或者在终端输入以下命令：
+ ```
+ git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
+ cd XiaoMi-Pro-Hackintosh
+ ./makefile.sh
+ ```
  
  ### 更新
  

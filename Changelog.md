@@ -513,6 +513,7 @@ English | [中文](Changelog_CN.md)
 
 ### Update
   - Update `SSDT-USB`
+  - Update `framebuffer-flags` property
 
 ### Add
   - Add `UPC -> XUPC` rename
