@@ -645,6 +645,7 @@ function main() {
     2)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
     returnMenu
+    ;;
 
     3)
     changeBT
