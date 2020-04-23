@@ -207,12 +207,8 @@ function ExtractOC() {
   unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
   cp -R OpenCore/EFI/BOOT/BOOTx64.efi "XiaoMi_Pro-OC-local/EFI/BOOT/"
   cp -R OpenCore/EFI/OC/OpenCore.efi "XiaoMi_Pro-OC-local/EFI/OC/"
-  cp -R OpenCore/EFI/OC/Drivers/OpenRuntime.efi "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
-  cp -R OpenCore/EFI/OC/Drivers/OpenCanopy.efi "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
-  cp -R OpenCore/EFI/OC/Tools/CleanNvram.efi "XiaoMi_Pro-OC-local/EFI/OC/Tools/"
-  cp -R OpenCore/EFI/OC/Tools/OpenShell.efi "XiaoMi_Pro-OC-local/EFI/OC/Tools/"
-  cp -R OpenCore/Drivers/ApfsDriverLoader.efi "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
-  cp -R OpenCore/Drivers/AudioDxe.efi "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
+  cp -R {OpenCore/EFI/OC/Drivers/OpenRuntime.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/Drivers/ApfsDriverLoader.efi,OpenCore/Drivers/AudioDxe.efi} "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
+  cp -R {OpenCore/EFI/OC/Tools/CleanNvram.efi,OpenCore/EFI/OC/Tools/OpenShell.efi} "XiaoMi_Pro-OC-local/EFI/OC/Tools/"
 }
 
 # Unpack
@@ -293,13 +289,13 @@ function Install() {
   if [[ $REMOTE == True ]]; then
     cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist "XiaoMi_Pro-local/EFI/CLOVER/"
     cp -R XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist "XiaoMi_Pro-OC-local/EFI/OC/"
-    cp -R XiaoMi-Pro-Hackintosh-master/README.md "XiaoMi_Pro-local/" && cp -R XiaoMi-Pro-Hackintosh-master/README_CN.md "XiaoMi_Pro-local/"
-    cp -R XiaoMi-Pro-Hackintosh-master/README.md "XiaoMi_Pro-OC-local/" && cp -R XiaoMi-Pro-Hackintosh-master/README_CN.md "XiaoMi_Pro-OC-local/"
+    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "XiaoMi_Pro-local/"
+    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "XiaoMi_Pro-OC-local/"
   else
     cp -R ../EFI/CLOVER/config.plist "XiaoMi_Pro-local/EFI/CLOVER/"
     cp -R ../EFI/OC/config.plist "XiaoMi_Pro-OC-local/EFI/OC/"
-    cp -R ../README.md "XiaoMi_Pro-local/" && cp -R ../README_CN.md "XiaoMi_Pro-local/"
-    cp -R ../README.md "XiaoMi_Pro-OC-local/" && cp -R ../README_CN.md "XiaoMi_Pro-OC-local/"
+    cp -R {../README.md,../README_CN.md} "XiaoMi_Pro-local/"
+    cp -R {../README.md,../README_CN.md} "XiaoMi_Pro-OC-local/"
   fi
 }
 
