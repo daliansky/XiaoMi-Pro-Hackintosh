@@ -10,6 +10,8 @@
 
 # WorkSpaceDir
 WSDir="$( cd "$(dirname "$0")" ; pwd -P )/build"
+OUTDir="XiaoMi_Pro-local"
+OUTDir_OC="XiaoMi_Pro-OC-local"
 
 # Vars
 GH_API=True
@@ -167,27 +169,27 @@ function DPB() {
 
 # Exclude Trash
 function CTrash() {
-  ls | grep -v "XiaoMi_Pro-local\|XiaoMi_Pro-OC-local" | xargs rm -rf
+  ls | grep -v "$OUTDir\|$OUTDir_OC" | xargs rm -rf
 }
 
 # Extract files for Clover
 function ExtractClover() {
-  mkdir -p "XiaoMi_Pro-local/EFI/BOOT/"
-  mkdir -p "XiaoMi_Pro-local/EFI/Clover/tools/"
+  mkdir -p "$OUTDir/EFI/BOOT/"
+  mkdir -p "$OUTDir/EFI/Clover/tools/"
   # From CloverISO
   tar --lzma -xvf Clover/CloverISO*.tar.lzma >/dev/null 2>&1
   hdiutil mount Clover-*.iso >/dev/null 2>&1
   ImageMountDir="$(dirname /Volumes/Clover-*/EFI/CLOVER)/CLOVER"
-  cp -R "$ImageMountDir"/../BOOT/BOOTX64.efi "XiaoMi_Pro-local/EFI/BOOT/"
-  cp -R "$ImageMountDir"/CLOVERX64.efi "XiaoMi_Pro-local/EFI/Clover/"
-  cp -R "$ImageMountDir"/tools/*.efi "XiaoMi_Pro-local/EFI/Clover/tools/"
+  cp -R "$ImageMountDir"/../BOOT/BOOTX64.efi "$OUTDir/EFI/BOOT/"
+  cp -R "$ImageMountDir"/CLOVERX64.efi "$OUTDir/EFI/Clover/"
+  cp -R "$ImageMountDir"/tools/*.efi "$OUTDir/EFI/Clover/tools/"
 
   for CLOVERdotEFIdrv in ApfsDriverLoader AptioMemoryFix; do
-    cp -R "$ImageMountDir"/drivers/off/${CLOVERdotEFIdrv}.efi "XiaoMi_Pro-local/EFI/Clover/drivers/UEFI/"
+    cp -R "$ImageMountDir"/drivers/off/${CLOVERdotEFIdrv}.efi "$OUTDir/EFI/Clover/drivers/UEFI/"
   done
 
   for CLOVERdotEFIdrv in AudioDxe FSInject; do
-    cp -R "$ImageMountDir"/drivers/UEFI/${CLOVERdotEFIdrv}.efi "XiaoMi_Pro-local/EFI/Clover/drivers/UEFI/"
+    cp -R "$ImageMountDir"/drivers/UEFI/${CLOVERdotEFIdrv}.efi "$OUTDir/EFI/Clover/drivers/UEFI/"
   done
 
   hdiutil unmount "$(dirname /Volumes/Clover-*/EFI)" >/dev/null 2>&1
@@ -196,19 +198,19 @@ function ExtractClover() {
   unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
 
   for CLOVERdotEFIdrvASPKG in AppleGenericInput AppleUiSupport; do
-    cp -R Clover/Drivers/${CLOVERdotEFIdrvASPKG}.efi "XiaoMi_Pro-local/EFI/Clover/drivers/UEFI"
+    cp -R Clover/Drivers/${CLOVERdotEFIdrvASPKG}.efi "$OUTDir/EFI/Clover/drivers/UEFI"
   done
 }
 
 # Extract files from OpenCore
 function ExtractOC() {
-  mkdir -p "XiaoMi_Pro-OC-local/EFI/BOOT"
-  mkdir -p "XiaoMi_Pro-OC-local/EFI/OC/Tools"
+  mkdir -p "$OUTDir_OC/EFI/BOOT"
+  mkdir -p "$OUTDir_OC/EFI/OC/Tools"
   unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
-  cp -R OpenCore/EFI/BOOT/BOOTx64.efi "XiaoMi_Pro-OC-local/EFI/BOOT/"
-  cp -R OpenCore/EFI/OC/OpenCore.efi "XiaoMi_Pro-OC-local/EFI/OC/"
-  cp -R {OpenCore/EFI/OC/Drivers/OpenRuntime.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/Drivers/ApfsDriverLoader.efi,OpenCore/Drivers/AudioDxe.efi} "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
-  cp -R {OpenCore/EFI/OC/Tools/CleanNvram.efi,OpenCore/EFI/OC/Tools/OpenShell.efi} "XiaoMi_Pro-OC-local/EFI/OC/Tools/"
+  cp -R OpenCore/EFI/BOOT/BOOTx64.efi "$OUTDir_OC/EFI/BOOT/"
+  cp -R OpenCore/EFI/OC/OpenCore.efi "$OUTDir_OC/EFI/OC/"
+  cp -R {OpenCore/EFI/OC/Drivers/OpenRuntime.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/Drivers/ApfsDriverLoader.efi,OpenCore/Drivers/AudioDxe.efi} "$OUTDir_OC/EFI/OC/Drivers/"
+  cp -R {OpenCore/EFI/OC/Tools/CleanNvram.efi,OpenCore/EFI/OC/Tools/OpenShell.efi} "$OUTDir_OC/EFI/OC/Tools/"
 }
 
 # Unpack
@@ -221,36 +223,36 @@ function Unpack() {
 # Install
 function Install() {
   # Kexts
-  mkdir -p "XiaoMi_Pro-local/EFI/CLOVER/kexts/Other/"
-  mkdir -p "XiaoMi_Pro-OC-local/EFI/OC/Kexts/"
+  mkdir -p "$OUTDir/EFI/CLOVER/kexts/Other/"
+  mkdir -p "$OUTDir_OC/EFI/OC/Kexts/"
 
-  for Kextdir in "XiaoMi_Pro-local/EFI/CLOVER/kexts/Other/" "XiaoMi_Pro-OC-local/EFI/OC/Kexts/"; do
+  for Kextdir in "$OUTDir/EFI/CLOVER/kexts/Other/" "$OUTDir_OC/EFI/OC/Kexts/"; do
     cp -R {AppleALC.kext,HibernationFixup.kext,IntelBluetoothFirmware.kext,IntelBluetoothInjector.kext,Lilu.kext,NVMeFix.kext,VoodooI2C.kext,VoodooI2CHID.kext,VoodooInput.kext,VoodooPS2Controller.kext,WhateverGreen.kext,hack-tools-master/kexts/EFICheckDisabler.kext,hack-tools-master/kexts/SATA-unsupported.kext,Kexts/SMCBatteryManager.kext,Kexts/SMCLightSensor.kext,Kexts/SMCProcessor.kext,Kexts/VirtualSMC.kext,Release/CodecCommander.kext,Release/NullEthernet.kext} "$Kextdir"
   done
 
   # Drivers
-  mkdir -p "XiaoMi_Pro-local/EFI/CLOVER/drivers/UEFI/"
-  mkdir -p "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"
+  mkdir -p "$OUTDir/EFI/CLOVER/drivers/UEFI/"
+  mkdir -p "$OUTDir_OC/EFI/OC/Drivers/"
 
-  for Driverdir in "XiaoMi_Pro-local/EFI/CLOVER/drivers/UEFI/" "XiaoMi_Pro-OC-local/EFI/OC/Drivers/"; do
+  for Driverdir in "$OUTDir/EFI/CLOVER/drivers/UEFI/" "$OUTDir_OC/EFI/OC/Drivers/"; do
     cp -R "OcBinaryData-master/Drivers/HfsPlus.efi" "$Driverdir"
   done
 
-  cp -R VirtualSmc.efi "XiaoMi_Pro-local/EFI/CLOVER/drivers/UEFI/"
+  cp -R VirtualSmc.efi "$OUTDir/EFI/CLOVER/drivers/UEFI/"
 
   if [[ $REMOTE == True ]]; then
-    cp -R XiaoMi-Pro-Hackintosh-master/wiki/AptioMemoryFix.efi "XiaoMi_Pro-local/"
+    cp -R XiaoMi-Pro-Hackintosh-master/wiki/AptioMemoryFix.efi "$OUTDir/"
   else
-    cp -R ../wiki/AptioMemoryFix.efi "XiaoMi_Pro-local/"
+    cp -R ../wiki/AptioMemoryFix.efi "$OUTDir/"
   fi
 
   # ACPI
-  mkdir -p "XiaoMi_Pro-local/EFI/CLOVER/ACPI/patched/"
-  mkdir -p "XiaoMi_Pro-OC-local/EFI/OC/ACPI/"
-  mkdir "XiaoMi_Pro-local/GTX_Users_Read_This/"
-  mkdir "XiaoMi_Pro-OC-local/GTX_Users_Read_This/"
+  mkdir -p "$OUTDir/EFI/CLOVER/ACPI/patched/"
+  mkdir -p "$OUTDir_OC/EFI/OC/ACPI/"
+  mkdir "$OUTDir/GTX_Users_Read_This/"
+  mkdir "$OUTDir_OC/GTX_Users_Read_This/"
 
-  for ACPIdir in "XiaoMi_Pro-local/GTX_Users_Read_This/" "XiaoMi_Pro-OC-local/GTX_Users_Read_This/"; do
+  for ACPIdir in "$OUTDir/GTX_Users_Read_This/" "$OUTDir_OC/GTX_Users_Read_This/"; do
     if [[ $REMOTE == True ]]; then
       cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml "$ACPIdir"
     else
@@ -258,7 +260,7 @@ function Install() {
     fi
   done
 
-  for ACPIdir in "XiaoMi_Pro-local/EFI/CLOVER/ACPI/patched/" "XiaoMi_Pro-OC-local/EFI/OC/ACPI/"; do
+  for ACPIdir in "$OUTDir/EFI/CLOVER/ACPI/patched/" "$OUTDir_OC/EFI/OC/ACPI/"; do
     if [[ $REMOTE == True ]]; then
       cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/*.aml "$ACPIdir"
       rm -rf "$ACPIdir"SSDT-LGPAGTX.aml
@@ -268,7 +270,7 @@ function Install() {
     fi
   done
 
-  for ACPIdir in "XiaoMi_Pro-local/" "XiaoMi_Pro-OC-local/"; do
+  for ACPIdir in "$OUTDir/" "$OUTDir_OC/"; do
     if [[ $REMOTE == True ]]; then
       cp -R XiaoMi-Pro-Hackintosh-master/wiki/*.aml "$ACPIdir"
     else
@@ -278,24 +280,24 @@ function Install() {
 
   # Theme
   if [[ $REMOTE == True ]]; then
-    cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/themes "XiaoMi_Pro-local/EFI/CLOVER/"
+    cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/themes "$OUTDir/EFI/CLOVER/"
   else
-    cp -R ../EFI/CLOVER/themes "XiaoMi_Pro-local/EFI/CLOVER/"
+    cp -R ../EFI/CLOVER/themes "$OUTDir/EFI/CLOVER/"
   fi
 
-  cp -R OcBinaryData-master/Resources "XiaoMi_Pro-OC-local/EFI/OC/"
+  cp -R OcBinaryData-master/Resources "$OUTDir_OC/EFI/OC/"
 
   # config & README
   if [[ $REMOTE == True ]]; then
-    cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist "XiaoMi_Pro-local/EFI/CLOVER/"
-    cp -R XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist "XiaoMi_Pro-OC-local/EFI/OC/"
-    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "XiaoMi_Pro-local/"
-    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "XiaoMi_Pro-OC-local/"
+    cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist "$OUTDir/EFI/CLOVER/"
+    cp -R XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist "$OUTDir_OC/EFI/OC/"
+    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "$OUTDir/"
+    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "$OUTDir_OC/"
   else
-    cp -R ../EFI/CLOVER/config.plist "XiaoMi_Pro-local/EFI/CLOVER/"
-    cp -R ../EFI/OC/config.plist "XiaoMi_Pro-OC-local/EFI/OC/"
-    cp -R {../README.md,../README_CN.md} "XiaoMi_Pro-local/"
-    cp -R {../README.md,../README_CN.md} "XiaoMi_Pro-OC-local/"
+    cp -R ../EFI/CLOVER/config.plist "$OUTDir/EFI/CLOVER/"
+    cp -R ../EFI/OC/config.plist "$OUTDir_OC/EFI/OC/"
+    cp -R {../README.md,../README_CN.md} "$OUTDir/"
+    cp -R {../README.md,../README_CN.md} "$OUTDir_OC/"
   fi
 }
 
@@ -369,8 +371,8 @@ function Init() {
   mkdir $WSDir
   cd $WSDir
 
-  mkdir "XiaoMi_Pro-local"
-  mkdir "XiaoMi_Pro-OC-local"
+  mkdir $OUTDir
+  mkdir $OUTDir_OC
   mkdir "XiaoMi-Pro-Hackintosh-master"
   mkdir "Clover"
   mkdir "OpenCore"
