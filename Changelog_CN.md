@@ -514,6 +514,7 @@
 ### 更新
   * 更新 `SSDT-USB`
   * 更新 `framebuffer-flags` 属性
+  * 更新 PCI 设备属性
 
 ### 新增
   * 新增 `UPC -> XUPC` 重命名

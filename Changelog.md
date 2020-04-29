@@ -514,6 +514,7 @@ English | [中文](Changelog_CN.md)
 ### Update
   - Update `SSDT-USB`
   - Update `framebuffer-flags` property
+  - Update PCI device properties
 
 ### Add
   - Add `UPC -> XUPC` rename
