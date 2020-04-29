@@ -521,4 +521,5 @@ English | [中文](Changelog_CN.md)
 
 ### Remove
   - Remove `SSDT-DRP08` to unlock Intel Wi-Fi
+  - Remove `SSDT-DMAC` and `SSDT-MEM2` to save system memory
   - Remove `USBInjectAll`

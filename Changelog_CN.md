@@ -520,5 +520,6 @@
   * 新增 `UPC -> XUPC` 重命名
 
 ### 移除
-  * 移除 `SSDT-DRP08` 来解锁内置 Intel Wi-FI
+  * 移除 `SSDT-DRP08` 来解锁内置 Intel Wi-Fi
+  * 移除 `SSDT-DMAC` 和 `SSDT-MEM2` 来释放系统运存
   * 移除 `USBInjectAll`
