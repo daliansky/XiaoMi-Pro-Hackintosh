@@ -115,27 +115,34 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 常见问题解答
 
-### 我的触控板升级系统后无法使用。
+#### 我的触控板升级系统后无法使用。
 
 你需要在每次更新系统后重建缓存。运行 `Kext Utility.app` 或者在 `终端.app` 输入 `sudo kextcache -i /`，然后重启。如果触控板还是失效，试试按下F9键。
 
-### 在升级过程中显示器黑屏并且机子无反应
+#### 在升级过程中显示器黑屏并且机子无反应
 
 如果显示器持续黑屏并且无反应超过五分钟，请强制重启电脑(长按电源键)并选择 `Boot macOS Install from ~` 启动项。
 
-### [Clover] 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
+#### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 
-在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。
+- 如果是Clover用户，在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。
+- 如果是OC用户，开机时按 `Esc` 键来进入引导菜单。然后按下 `空格` 键并选择 `Clean NVRAM`。
 
-### [Clover] 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
+#### [Clover] 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
 
 一般情况下不推荐开启 `文件保险箱`。你可以在Clover开机界面时按下Fn + F3，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
 
-### [Clover] 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
+#### [Clover] 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
 
 很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
 
 同时确保 `沙盒`(Sandbox) 和 `Hyper-V` 功能关闭。
+
+#### [OC] 怎么跳过引导菜单并直接进入系统？
+
+- 首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。
+- 然后，打开 `/EFI/OC/config.plist`，关闭`ShowPicker`。
+- 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
 
 ### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro/wiki/常见问题解答)。
 

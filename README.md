@@ -120,27 +120,34 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## FAQ
 
-### My touchpad isn't working after update.
+#### My touchpad isn't working after update.
 
 You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
-### My screen turns to black and has no response during the updating process.
+#### My screen turns to black and has no response during the updating process.
 
 If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
 
-### [Clover] My device is locked by `Find My Mac` and can't be booted, what should I do now?
+#### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
-Press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
+- For Clover users, press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
+- For OC users, press `Esc` to enter the boot menu during startup. Then, press `Space` key and choose `Clean NVRAM`.
 
-### [Clover] I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
+#### [Clover] I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
 
 It is not recommended to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
 
-### [Clover] I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
+#### [Clover] I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
 
 Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix.efi` in `/CLOVER/drivers/UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
 
 Also make sure `Sandbox` and `Hyper-V` functions in Windows 10 are disabled.
+
+#### [OC] How to skip the boot menu and automatically boot into the system?
+
+- First, in macOS, open `SysPref - Startup Disk`. Choose the target system.
+- Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.
+- When you want to switch OS, press `Esc` during startup to call the boot menu.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro/wiki/FAQ).
 
