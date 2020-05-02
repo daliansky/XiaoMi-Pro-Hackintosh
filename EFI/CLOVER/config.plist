@@ -115,8 +115,6 @@
 				<data>AQAAAA==</data>
 				<key>framebuffer-con2-flags</key>
 				<data>xwMAAA==</data>
-				<key>framebuffer-con2-type</key>
-				<data>AAgAAA==</data>
 				<key>framebuffer-fbmem</key>
 				<data>AACQAA==</data>
 				<key>framebuffer-flags</key>
@@ -238,8 +236,6 @@
 				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point LPC Controller</string>
-				<key>name</key>
-				<string>pci8086,9d4e</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
 			<dict>
