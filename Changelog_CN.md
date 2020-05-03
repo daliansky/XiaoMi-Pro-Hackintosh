@@ -522,3 +522,6 @@
 ### 移除
   * 移除 `SSDT-DRP08` 来解锁内置 Intel Wi-Fi
   * 移除 `USBInjectAll`
+
+### OC
+  * [OC] 更新 config 来支持 `OpenCore` v0.5.8

@@ -522,3 +522,6 @@ English | [中文](Changelog_CN.md)
 ### Remove
   - Remove `SSDT-DRP08` to unlock Intel Wi-Fi
   - Remove `USBInjectAll`
+
+### OC
+  - [OC] Update config to support  `OpenCore` v0.5.8

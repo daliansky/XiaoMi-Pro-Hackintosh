@@ -204,12 +204,12 @@ function ExtractClover() {
 
 # Extract files from OpenCore
 function ExtractOC() {
-  mkdir -p "$OUTDir_OC/EFI/BOOT"
   mkdir -p "$OUTDir_OC/EFI/OC/Tools"
   unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
-  cp -R OpenCore/EFI/BOOT/BOOTx64.efi "$OUTDir_OC/EFI/BOOT/"
+  cp -R OpenCore/EFI/BOOT "$OUTDir_OC/EFI/"
   cp -R OpenCore/EFI/OC/OpenCore.efi "$OUTDir_OC/EFI/OC/"
-  cp -R {OpenCore/EFI/OC/Drivers/OpenRuntime.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/Drivers/ApfsDriverLoader.efi,OpenCore/Drivers/AudioDxe.efi} "$OUTDir_OC/EFI/OC/Drivers/"
+  cp -R OpenCore/EFI/OC/Bootstrap "$OUTDir_OC/EFI/OC/"
+  cp -R {OpenCore/EFI/OC/Drivers/OpenRuntime.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/Drivers/AudioDxe.efi} "$OUTDir_OC/EFI/OC/Drivers/"
   cp -R {OpenCore/EFI/OC/Tools/CleanNvram.efi,OpenCore/EFI/OC/Tools/OpenShell.efi} "$OUTDir_OC/EFI/OC/Tools/"
 }
 
@@ -343,7 +343,7 @@ function DL() {
   DGR CloverHackyColor CloverBootloader NULL "Clover"
 
   # OpenCore
-  # DGR williambj1 OpenCore-Factory PreRelease
+  # DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
   DGR $ACDT OpenCorePkg NULL "OpenCore"
 
   # UEFI
