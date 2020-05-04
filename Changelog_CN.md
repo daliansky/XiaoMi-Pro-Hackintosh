@@ -414,7 +414,7 @@
   * 移除 `enable-hdmi-dividers-fix`
 
 ### OC
-  * [OC] 更新 config 来支持 `OpenCore` v0.0.4
+  * OC: 更新 config 来支持 `OpenCore` v0.0.4
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
@@ -444,16 +444,16 @@
   * 放回 `SSDT-DDGPU` 来禁用独显，而不是用 `disable-external-egpu`
 
 ### 移除
-  * 移除 AppleIntelLpssI2C 补丁因为 https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 修正了驱动冲突问题
+  * 移除 AppleIntelLpssI2C 补丁因为 [alexandred/VoodooI2C@c6e3c27](https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405) 修正了驱动冲突问题
 
 ### 变更
   * 修改 layout-id 回 30
 
 ### Clover
-  * [Clover] 新增 `PanicNoKextDump` 来替代 panic kext logging 补丁
+  * Clover: 新增 `PanicNoKextDump` 来替代 panic kext logging 补丁
 
 ### OC
-  * [OC] 更新 config 来支持 `OpenCore` v0.5.6
+  * OC: 更新 config 来支持 `OpenCore` v0.5.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
@@ -467,12 +467,12 @@
     * 我们机型上的type-c口带有转向器，所以 `UsbConnector` 应该为 `0x09`
 
 ### Clover
-  * [Clover] 更新 `Xiaomi` 主题以支持 Clover r5105+
-  * [Clover] 新增 `setpowerstate_panic=0` macOS10.15 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
-  * [Clover] 移除 MSR 0xE2 补丁因为 Clover 可以自动修正
+  * Clover: 更新 `Xiaomi` 主题以支持 Clover r5105+
+  * Clover: 新增 `setpowerstate_panic=0` macOS10.15 内核补丁，根据 [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+  * Clover: 移除 MSR 0xE2 补丁因为 Clover 可以自动修正
 
 ### OC
-  * [OC] 更新 config 来更好地支持 `OpenCore` v0.5.6
+  * OC: 更新 config 来更好地支持 `OpenCore` v0.5.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
@@ -502,16 +502,25 @@
   * 移除 `TPD0._INI -> XINI` 和 `TPD0._CRS -> XCRS` 重命名
 
 ### Clover
-  * [Clover] 更新 `setpowerstate_panic=0` 内核补丁来适配 macOS10.15.4
+  * Clover: 更新 `setpowerstate_panic=0` 内核补丁来适配 macOS10.15.4
 
 ### OC
-  * [OC] 更新 config 来支持 `OpenCore` v0.5.7
+  * OC: 更新 config 来支持 `OpenCore` v0.5.7
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
 ## X-XX-2020
 
 ### 更新
+  * 更新 `Clover` r5115
+  * 更新 `OpenCore` v0.5.8
+  * 更新 `Lilu` v1.4.4
+  * 更新 `WhateverGreen` v1.3.9
+  * 更新 `HibernationFixup` v1.3.3
+  * 更新 `VoodooInput` v1.0.5
+  * 更新 `VoodooI2C` v2.4.2
+  * 更新 `VoodooPS2` v2.1.4
+  * 更新 `VirtualSMC` v1.1.3
   * 更新 `SSDT-USB`
   * 更新 `framebuffer-flags` 属性
   * 更新 PCI 设备属性
@@ -524,4 +533,4 @@
   * 移除 `USBInjectAll`
 
 ### OC
-  * [OC] 更新 config 来支持 `OpenCore` v0.5.8
+  * OC: 更新 config 来支持 `OpenCore` v0.5.8

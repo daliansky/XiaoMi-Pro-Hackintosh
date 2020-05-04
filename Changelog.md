@@ -414,7 +414,7 @@ English | [中文](Changelog_CN.md)
   - Remove `enable-hdmi-dividers-fix`
 
 ### OC
-  - [OC] Update config to support `OpenCore` v0.0.4
+  - OC: Update config to support `OpenCore` v0.0.4
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
@@ -444,16 +444,16 @@ English | [中文](Changelog_CN.md)
   - Add back `SSDT-DDGPU` to disable discrete graphics card instead of using `disable-external-egpu`
 
 ### Remove
-  - Remove AppleIntelLpssI2C patches because https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405 solved the race problem
+  - Remove AppleIntelLpssI2C patches because [alexandred/VoodooI2C@c6e3c27](https://github.com/alexandred/VoodooI2C/commit/c6e3c278cda84a26f400a77f5ea57d819df9e405) solved the race problem
 
 ### Change
   - Change layout-id back to 30
 
 ### Clover
-  - [Clover] Add `PanicNoKextDump` to replace panic kext logging patches
+  - Clover: Add `PanicNoKextDump` to replace panic kext logging patches
 
 ### OC
-  - [OC] Update config to support `OpenCore` v0.5.6
+  - OC: Update config to support `OpenCore` v0.5.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
@@ -467,12 +467,12 @@ English | [中文](Changelog_CN.md)
     - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
 
 ### Clover
-  - [Clover] Update `Xiaomi` theme to support Clover r5105+
-  - [Clover] Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
-  - [Clover] Remove MSR 0xE2 patch because Clover can automatically patch
+  - Clover: Update `Xiaomi` theme to support Clover r5105+
+  - Clover: Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+  - Clover: Remove MSR 0xE2 patch because Clover can automatically patch
 
 ### OC
-  - [OC] Update config to better support `OpenCore` v0.5.6
+  - OC: Update config to better support `OpenCore` v0.5.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
@@ -502,16 +502,25 @@ English | [中文](Changelog_CN.md)
   - Remove `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS` renames
 
 ### Clover
-  - [Clover] Update `setpowerstate_panic=0` kernel patch for macOS10.15.4
+  - Clover: Update `setpowerstate_panic=0` kernel patch for macOS10.15.4
 
 ### OC
-  - [OC] Update config to support `OpenCore` v0.5.7
+  - OC: Update config to support `OpenCore` v0.5.7
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
 ## X-XX-2020
 
 ### Update
+  - Update `Clover` r5115
+  - Update `OpenCore` v0.5.8
+  - Update `Lilu` v1.4.4
+  - Update `WhateverGreen` v1.3.9
+  - Update `HibernationFixup` v1.3.3
+  - Update `VoodooInput` v1.0.5
+  - Update `VoodooI2C` v2.4.2
+  - Update `VoodooPS2` v2.1.4
+  - Update `VirtualSMC` v1.1.3
   - Update `SSDT-USB`
   - Update `framebuffer-flags` property
   - Update PCI device properties
@@ -524,4 +533,4 @@ English | [中文](Changelog_CN.md)
   - Remove `USBInjectAll`
 
 ### OC
-  - [OC] Update config to support  `OpenCore` v0.5.8
+  - OC: Update config to support  `OpenCore` v0.5.8
