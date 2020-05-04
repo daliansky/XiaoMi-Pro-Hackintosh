@@ -533,7 +533,7 @@ English | [中文](Changelog_CN.md)
   - Remove `USBInjectAll`
 
 ### Clover
-  - Clover: Update font.png in `Xiaomi` theme to support Clover r5115
+  - Clover: Update font.png in `Xiaomi` theme to support `Clover` r5115
 
 ### OC
   - OC: Update config to support  `OpenCore` v0.5.8

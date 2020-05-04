@@ -533,7 +533,7 @@
   * 移除 `USBInjectAll`
 
 ### Clover
-  * Clover: 更新 `Xiaomi` 主题的 font.png 来兼容 Clover r5115
+  * Clover: 更新 `Xiaomi` 主题的 font.png 来兼容 `Clover` r5115
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.5.8
