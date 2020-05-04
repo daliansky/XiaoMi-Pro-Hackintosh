@@ -509,7 +509,7 @@ English | [中文](Changelog_CN.md)
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
-## X-XX-2020
+## 5-4-2020
 
 ### Update
   - Update `Clover` r5115
@@ -531,6 +531,9 @@ English | [中文](Changelog_CN.md)
 ### Remove
   - Remove `SSDT-DRP08` to unlock Intel Wi-Fi
   - Remove `USBInjectAll`
+
+### Clover
+  - Clover: Update font.png in `Xiaomi` theme to support Clover r5115
 
 ### OC
   - OC: Update config to support  `OpenCore` v0.5.8

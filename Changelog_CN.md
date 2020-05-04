@@ -509,7 +509,7 @@
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
-## X-XX-2020
+## 5-4-2020
 
 ### 更新
   * 更新 `Clover` r5115
@@ -531,6 +531,9 @@
 ### 移除
   * 移除 `SSDT-DRP08` 来解锁内置 Intel Wi-Fi
   * 移除 `USBInjectAll`
+
+### Clover
+  * Clover: 更新 `Xiaomi` 主题的 font.png 来兼容 Clover r5115
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.5.8
