@@ -225,7 +225,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Rename Method(UPC,0,S) to XUPC, pair with SSDT-USB.aml (USB Port Customization)</string>
+				<string>Rename Method(_UPC,0,S) to XUPC, pair with SSDT-USB.aml (USB Port Customization)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
