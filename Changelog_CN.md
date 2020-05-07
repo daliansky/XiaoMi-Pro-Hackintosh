@@ -537,3 +537,10 @@
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.5.8
+
+
+## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
+## X-XX-2020
+
+### Clover
+  * Clover: 回滚 `Xiaomi` 主题里的 font.png，因为 `Clover` r5116 修复了字体问题
