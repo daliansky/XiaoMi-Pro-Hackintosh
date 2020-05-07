@@ -1,4 +1,4 @@
-// Optional hotpatch, pair with `Rename Method(UPC,0,S) to XUPC` rename patch
+// Optional hotpatch, pair with `Rename Method(_UPC,0,S) to XUPC` rename patch
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/daliansky/OC-little and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
 // USB power injection and patch USB ports to enable fingerprint port
