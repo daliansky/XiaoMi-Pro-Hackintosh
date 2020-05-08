@@ -542,5 +542,11 @@ English | [中文](Changelog_CN.md)
 ## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
 ## X-XX-2020
 
+### Update
+  - Update `SSDT-TPD0`
+
+### Change
+  - Use `VoodooInput` bundled with `VoodooI2C`
+
 ### Clover
   - Clover: Reverse back font.png in `Xiaomi` theme since `Clover` r5116 fixed the font problem

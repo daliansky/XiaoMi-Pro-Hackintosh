@@ -227,7 +227,7 @@ function Install() {
   mkdir -p "$OUTDir_OC/EFI/OC/Kexts/"
 
   for Kextdir in "$OUTDir/EFI/CLOVER/kexts/Other/" "$OUTDir_OC/EFI/OC/Kexts/"; do
-    cp -R {AppleALC.kext,HibernationFixup.kext,IntelBluetoothFirmware.kext,IntelBluetoothInjector.kext,Lilu.kext,NVMeFix.kext,VoodooI2C.kext,VoodooI2CHID.kext,VoodooInput.kext,VoodooPS2Controller.kext,WhateverGreen.kext,hack-tools-master/kexts/EFICheckDisabler.kext,hack-tools-master/kexts/SATA-unsupported.kext,Kexts/SMCBatteryManager.kext,Kexts/SMCLightSensor.kext,Kexts/SMCProcessor.kext,Kexts/VirtualSMC.kext,Release/CodecCommander.kext,Release/NullEthernet.kext} "$Kextdir"
+    cp -R {AppleALC.kext,HibernationFixup.kext,IntelBluetoothFirmware.kext,IntelBluetoothInjector.kext,Lilu.kext,NVMeFix.kext,VoodooI2C.kext,VoodooI2CHID.kext,VoodooPS2Controller.kext,WhateverGreen.kext,hack-tools-master/kexts/EFICheckDisabler.kext,hack-tools-master/kexts/SATA-unsupported.kext,Kexts/SMCBatteryManager.kext,Kexts/SMCLightSensor.kext,Kexts/SMCProcessor.kext,Kexts/VirtualSMC.kext,Release/CodecCommander.kext,Release/NullEthernet.kext} "$Kextdir"
   done
 
   # Drivers
@@ -303,7 +303,7 @@ function Install() {
 
 # Patch
 function Patch() {
-  rm -rf "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext" "VoodooI2C.kext/Contents/PlugIns/VoodooInput.dSYM" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+  rm -rf "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature" "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
 
   cd "OcBinaryData-master/Resources/Audio/" && ls | grep -v "OCEFIAudio_VoiceOver_Boot.wav" | xargs rm && cd $WSDir
 }
@@ -325,7 +325,7 @@ function DL() {
   DGR $ACDT AppleALC
   DGR $ACDT HibernationFixup
   DGR $ACDT NVMeFix
-  DGR $ACDT VoodooInput
+  # DGR $ACDT VoodooInput
   DGR $ACDT VoodooPS2
   DGR alexandred VoodooI2C
   DGR zxystd IntelBluetoothFirmware

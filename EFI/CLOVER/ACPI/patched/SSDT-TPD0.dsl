@@ -1,7 +1,7 @@
 // Necessary hotpatch
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/365 by okexi and http://bbs.pcbeta.com/viewthread-1839143-1-1.html by 965987400abc
-// Enable trackpad interrupt mode, work with VoodooI2C.kext, VoodooI2CHID.kext, and VoodooInput.kext
+// Enable trackpad interrupt mode, work with VoodooI2C.kext and VoodooI2CHID.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
 {
@@ -104,17 +104,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
 
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                If (_OSI ("Darwin"))
-                {
-                    Return (ConcatenateResTemplate (SBFB, SBFG))
-                }
-
-                If ((SDM0 == Zero))
-                {
-                    Return (ConcatenateResTemplate (SBFB, SBFG))
-                }
-
-                Return (ConcatenateResTemplate (SBFB, SBFI))
+                Return (ConcatenateResTemplate (SBFB, SBFG))
             }
         }
     }
