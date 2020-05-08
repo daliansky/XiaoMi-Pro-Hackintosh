@@ -121,6 +121,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 你需要在每次更新系统后重建缓存。运行 `Kext Utility.app` 或者在 `终端.app` 输入 `sudo kextcache -i /`，然后重启。如果触控板还是失效，试试按下F9键。
 
+#### 我无法用触控板按下并拖拽文件。
+
+从 [VoodooI2C v2.4.1](https://github.com/alexandred/VoodooI2C/releases/tag/2.4.1) 开始，按下手势会被仿冒为用力点按，导致无法按下并拖拽文件。你可以在 `系统偏好设置 - 触控板` 里关闭 `用力点按` 或者在 `系统偏好设置 - 辅助功能 - 指针控制 - 触控板选项` 里开启 `三指拖移`。
+
 #### 在升级过程中显示器黑屏并且机子无反应
 
 如果显示器持续黑屏并且无反应超过五分钟，请强制重启电脑(长按电源键)并选择 `Boot macOS Install from ~` 启动项。
@@ -174,7 +178,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)，[EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
 - 感谢 [zxystd](https://github.com/zxystd) 提供 [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware)。
 
-- 请前往[参考](https://github.com/daliansky/XiaoMi-Pro/wiki/参考)来获取更多内容。
+### 请前往[参考](https://github.com/daliansky/XiaoMi-Pro/wiki/参考)来获取更多内容。
 
 
 ## 支持与讨论

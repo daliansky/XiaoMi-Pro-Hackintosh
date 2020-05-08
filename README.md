@@ -126,6 +126,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
+#### I can't click to drag files using the trackpad.
+
+Starts from [VoodooI2C v2.4.1](https://github.com/alexandred/VoodooI2C/releases/tag/2.4.1), the click down action is emulated to force touch, which causes the failure of click down and drag gestures. You can turn off `Force Click` in `SysPref - Trackpad` or choose `three finger drag` in `SysPref - Accessibility - Mouse & Trackpad - Trackpad Options`.
+
 #### My screen turns to black and has no response during the updating process.
 
 If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
@@ -135,7 +139,7 @@ If you have black screen for five minutes and get no response from the device, p
 - For Clover users, press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
 - For OC users, press `Esc` to enter the boot menu during startup. Then, press `Space` key and choose `Clean NVRAM`.
 
-#### [Clover] I opened the `FileVault` and I can't find macOS partition in Clover boot page, how can I solve it?
+#### [Clover] I opened the `FileVault`, and I can't find macOS partition in Clover boot page, how can I solve it?
 
 It is not recommended to open `FileVault`. You can press Fn + F3 in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
 
@@ -179,7 +183,7 @@ All the project is made for free, but you can reward me if you want.
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander), [EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
 - Thanks to [zxystd](https://github.com/zxystd) for providing [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware).
 
-- For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro/wiki/References).
+### For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro/wiki/References).
 
 
 ## Support and discussion
