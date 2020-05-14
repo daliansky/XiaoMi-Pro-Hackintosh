@@ -549,4 +549,5 @@
   * 使用 `VoodooI2C` 内置的 `VoodooInput`
 
 ### Clover
+  * Clover: 移除 `DropOEM_DSM` 因为 `Clover` r5117 移除了该键值
   * Clover: 回滚 `Xiaomi` 主题里的 font.png，因为 `Clover` r5116 修复了字体问题

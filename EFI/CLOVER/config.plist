@@ -10,8 +10,6 @@
 		<true/>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<false/>
 			<key>Patches</key>
 			<array>
 				<dict>

@@ -549,4 +549,5 @@ English | [中文](Changelog_CN.md)
   - Use `VoodooInput` bundled with `VoodooI2C`
 
 ### Clover
+  - Clover: Remove `DropOEM_DSM` as `Clover` r5117 dropped it
   - Clover: Reverse back font.png in `Xiaomi` theme since `Clover` r5116 fixed the font problem
