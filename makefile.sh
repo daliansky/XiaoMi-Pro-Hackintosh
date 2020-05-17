@@ -60,7 +60,7 @@ function networkErr() {
 
 # Clean Up
 function Cleanup() {
-  if [[ $NO_CLEAN_UP == False ]]; then
+  if [[ $CLEAN_UP == True ]]; then
     rm -rf $WSDir
   fi
 }
@@ -169,7 +169,9 @@ function DPB() {
 
 # Exclude Trash
 function CTrash() {
-  ls | grep -v "$OUTDir\|$OUTDir_OC" | xargs rm -rf
+  if [[ $CLEAN_UP == True ]]; then
+    ls | grep -v "$OUTDir\|$OUTDir_OC" | xargs rm -rf
+  fi
 }
 
 # Extract files for Clover
@@ -209,7 +211,7 @@ function ExtractOC() {
   cp -R OpenCore/EFI/BOOT "$OUTDir_OC/EFI/"
   cp -R OpenCore/EFI/OC/OpenCore.efi "$OUTDir_OC/EFI/OC/"
   cp -R OpenCore/EFI/OC/Bootstrap "$OUTDir_OC/EFI/OC/"
-  cp -R {OpenCore/EFI/OC/Drivers/OpenRuntime.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/Drivers/AudioDxe.efi} "$OUTDir_OC/EFI/OC/Drivers/"
+  cp -R {OpenCore/EFI/OC/Drivers/AudioDxe.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/EFI/OC/Drivers/OpenRuntime.efi} "$OUTDir_OC/EFI/OC/Drivers/"
   cp -R {OpenCore/EFI/OC/Tools/CleanNvram.efi,OpenCore/EFI/OC/Tools/OpenShell.efi} "$OUTDir_OC/EFI/OC/Tools/"
 }
 
@@ -327,7 +329,7 @@ function DL() {
   DGR $ACDT NVMeFix
   # DGR $ACDT VoodooInput
   DGR $ACDT VoodooPS2
-  DGR alexandred VoodooI2C
+  DGR VoodooI2C VoodooI2C
   DGR zxystd IntelBluetoothFirmware
 
   DBR Rehabman os-x-null-ethernet
@@ -336,7 +338,6 @@ function DL() {
   DGS RehabMan hack-tools
 
   # UEFI drivers
-  DGR $ACDT AppleSupportPkg NULL "OpenCore"
   DGR $ACDT AppleSupportPkg 19214108 "Clover"
 
   # Clover
