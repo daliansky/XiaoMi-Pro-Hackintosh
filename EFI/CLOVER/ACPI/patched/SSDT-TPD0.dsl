@@ -1,6 +1,6 @@
 // Necessary hotpatch
 // Maintained by: stevezhengshiqi
-// Enable trackpad APIC interrupt mode, work with VoodooI2C.kext and VoodooI2CHID.kext
+// Enable trackpad GPIO interrupt mode, work with VoodooI2C.kext and VoodooI2CHID.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
 {
