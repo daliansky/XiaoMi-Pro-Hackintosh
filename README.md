@@ -41,7 +41,8 @@ English | [中文](README_CN.md)
 
 ## Current Status in Clover
 
-- <b>Ethernet may not work in macOS 10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
+- <b>HDMI may not work on macOS 10.15.5+, view [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)</b>
+- <b>Ethernet may not work on macOS 10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - Discrete graphic card is not working, since macOS doesn't support Optimus technology

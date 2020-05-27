@@ -41,7 +41,8 @@
 
 ## Clover版本的目前情况
 
-- <b>有线网在macOS 10.15下可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
+- <b>HDMI 在macOS 10.15.5+上可能无法工作，见 [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)</b>
+- <b>有线网在macOS 10.15上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - 如果不是macOS 10.15，也推荐更新上述驱动
 - 独立显卡无法工作，因为macOS不支持Optimus技术
