@@ -12,11 +12,11 @@ English | [中文](README_CN.md)
 - [Configuration](#configuration)
 - [Current Status in Clover](#current-status-in-clover)
 - [Current Status in OpenCore](#current-status-in-opencore)
-- [Improvements](#improvements)
 - [Installation](#installation)
   - [First-time installation](#first-time-installation)
   - [Build](#build)
   - [Upgrade](#upgrade)
+- [Improvements](#improvements)
 - [FAQ](#faq)
 - [Changelog](#changelog)
 - [A reward](#a-reward)
@@ -70,16 +70,6 @@ English | [中文](README_CN.md)
 Need more testing...
 
 
-## Improvements
-
-- Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
-- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
-- Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
-  - Support 1440x810 HiDPI resolution
-  - On macOS > 10.13.6, to enable higher HiDPI resolution (<1600x900), you need to use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb first
-- Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management
-
-
 ## Installation
 
 ### First-time installation
@@ -120,6 +110,16 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 ```
 
 
+## Improvements
+
+- Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
+- Use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
+- Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
+  - Support 1440x810 HiDPI resolution
+  - On macOS > 10.13.6, to enable higher HiDPI resolution (<1600x900), you need to use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb first
+- Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management
+
+
 ## FAQ
 
 #### My touchpad isn't working after update.
@@ -136,8 +136,8 @@ If you have black screen for five minutes and get no response from the device, p
 
 #### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
-- For Clover users, press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.
-- For OC users, press `Esc` to enter the boot menu during startup. Then, press `Space` key and choose `Clean NVRAM`.
+For Clover users, press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.  
+For OC users, press `Esc` to enter the boot menu during startup. Then, press `Space` key and choose `Clean NVRAM`.
 
 #### [Clover] I opened the `FileVault`, and I can't find macOS partition in Clover boot page, how can I solve it?
 
@@ -151,9 +151,9 @@ Also make sure `Sandbox` and `Hyper-V` functions in Windows 10 are disabled.
 
 #### [OC] How to skip the boot menu and automatically boot into the system?
 
-- First, in macOS, open `SysPref - Startup Disk`. Choose the target system.
-- Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.
-- When you want to switch OS, press `Esc` during startup to call the boot menu.
+First, in macOS, open `SysPref - Startup Disk`. Choose the target system.  
+Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.  
+When you want to switch OS, press `Esc` during startup to call the boot menu.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro/wiki/FAQ).
 

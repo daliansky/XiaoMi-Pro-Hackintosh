@@ -12,11 +12,11 @@
 - [电脑配置](#电脑配置)
 - [Clover版本的目前情况](#clover版本的目前情况)
 - [OpenCore版本的目前情况](#opencore版本的目前情况)
-- [改善体验](#改善体验)
 - [安装](#安装)
   - [首次安装](#首次安装)
   - [构建](#构建)
   - [更新](#更新)
+- [改善体验](#改善体验)
 - [常见问题解答](#常见问题解答)
 - [更新日志](#更新日志)
 - [关于打赏](#关于打赏)
@@ -70,16 +70,6 @@
 需要更多测试。。。
 
 
-## 改善体验
-
-- 使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
-- 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁CFG
-- 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统UI质量
-  - 支持 1440x810 HiDPI 分辨率
-  - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1600x900)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb
-- 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能
-
-
 ## 安装
 
 ### 首次安装
@@ -115,6 +105,16 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 ```
 
 
+## 改善体验
+
+- 使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
+- 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁CFG
+- 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统UI质量
+  - 支持 1440x810 HiDPI 分辨率
+  - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1600x900)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb
+- 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能
+
+
 ## 常见问题解答
 
 #### 我的触控板升级系统后无法使用。
@@ -131,8 +131,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 #### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 
-- 如果是Clover用户，在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。
-- 如果是OC用户，开机时按 `Esc` 键来进入引导菜单。然后按下 `空格` 键并选择 `Clean NVRAM`。
+如果是Clover用户，在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。  
+如果是OC用户，开机时按 `Esc` 键来进入引导菜单。然后按下 `空格` 键并选择 `Clean NVRAM`。
 
 #### [Clover] 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
 
@@ -146,9 +146,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 #### [OC] 怎么跳过引导菜单并直接进入系统？
 
-- 首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。
-- 然后，打开 `/EFI/OC/config.plist`，关闭`ShowPicker`。
-- 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
+首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。  
+然后，打开 `/EFI/OC/config.plist`，关闭`ShowPicker`。  
+想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。  
 
 ### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro/wiki/常见问题解答)。
 
