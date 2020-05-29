@@ -1,7 +1,7 @@
-// Necessary hotpatch
+// Necessary hotpatch, pair with WhateverGreen.kext
 // Maintained by: Rehabman
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-PNLF.dsl by Rehabman
-// Adding PNLF device for brightness support
+// Adding PNLF device for brightness support, pair with WhateverGreen.kext
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
 {

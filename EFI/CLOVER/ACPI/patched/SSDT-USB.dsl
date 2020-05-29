@@ -1,7 +1,7 @@
-// Necessary hotpatch, pair with `Rename Method(_UPC,0,S) to XUPC` rename patch
+// Necessary hotpatch, pair with `Rename Method(_UPC,0,S) to XUPC` rename patch and SSDT-EC
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/daliansky/OC-little and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
-// USB power injection and patch USB ports
+// USB power injection (work with SSDT-EC) and patch USB ports (work with _UPC rename)
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
 {

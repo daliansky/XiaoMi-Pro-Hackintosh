@@ -1,4 +1,4 @@
-// NOT Necessary hotpatch
+// NOT Necessary hotpatch, pair with VoodooPS2Keyboard.kext
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/blob/master/SSDT-Swap-LeftControlCapsLock.dsl by Rehabman
 // Customize VoodooPS2Keyboard.kext
@@ -9,23 +9,25 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
 
     Scope (_SB.PCI0.LPCB.PS2K)
     {
-        Name (RMCF, Package (0x02)
+        If (_OSI ("Darwin"))
         {
-            "Keyboard", 
-            Package (0x04)
+            Name (RMCF, Package (0x02)
             {
-                "Custom PS2 Map", 
-                Package (0x02)
+                "Keyboard", 
+                Package (0x04)
                 {
-                    Package (0x00){}, 
-                    "e037=0" // prevent F11 from disabling the trackpad
-                }, 
-                
-                // command = win; otherwise, command = alt
-                "Swap command and option", 
-                ">n"
-            }
-        })
+                    "Custom PS2 Map", 
+                    Package (0x02)
+                    {
+                        Package (0x00){}, 
+                        "e037=0"
+                    }, 
+
+                    "Swap command and option", 
+                    ">n"
+                }
+            })
+        }
     }
 }
 

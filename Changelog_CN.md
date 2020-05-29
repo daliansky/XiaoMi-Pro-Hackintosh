@@ -2,11 +2,13 @@
 
 [English](Changelog.md) | 中文
 
-## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
+## [XiaoMi NoteBook Pro EFI v1.3.10](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.10)
 ## X-XX-2020
 
 ### 更新
   * 更新 `SSDT-TPD0`
+  * 更新 `SSDT-PS2K`
+  * 更新 `SSDT-XCPM`
 
 ### 变更
   * 使用 `VoodooI2C` 内置的 `VoodooInput`
@@ -14,6 +16,9 @@
 ### Clover
   * Clover: 移除 `DropOEM_DSM` 因为 `Clover` r5117 移除了该键值
   * Clover: 回滚 `Xiaomi` 主题里的 font.png，因为 `Clover` r5116 修复了字体问题
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.5.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)

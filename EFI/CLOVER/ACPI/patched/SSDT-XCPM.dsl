@@ -9,21 +9,24 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_XCPM", 0x00000000)
 
     Scope (\_PR.PR00)
     {
-        Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+        If (_OSI ("Darwin"))
         {
-            If (!Arg2)
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                Return (Buffer (One)
+                If (!Arg2)
                 {
-                     0x03                                             // .
+                    Return (Buffer (One)
+                    {
+                         0x03                                             // .
+                    })
+                }
+
+                Return (Package (0x02)
+                {
+                    "plugin-type", 
+                    One
                 })
             }
-
-            Return (Package (0x02)
-            {
-                "plugin-type", 
-                One
-            })
         }
     }
 }

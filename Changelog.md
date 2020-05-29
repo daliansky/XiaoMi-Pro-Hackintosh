@@ -2,11 +2,13 @@
 
 English | [中文](Changelog_CN.md)
 
-## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
+## [XiaoMi NoteBook Pro EFI v1.3.10](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.10)
 ## X-XX-2020
 
 ### Update
   - Update `SSDT-TPD0`
+  - Update `SSDT-PS2K`
+  - Update `SSDT-XCPM`
 
 ### Change
   - Use `VoodooInput` bundled with `VoodooI2C`
@@ -14,6 +16,9 @@ English | [中文](Changelog_CN.md)
 ### Clover
   - Clover: Remove `DropOEM_DSM` as `Clover` r5117 dropped it
   - Clover: Reverse back font.png in `Xiaomi` theme since `Clover` r5116 fixed the font problem
+
+### OC
+  - OC: Update config to support  `OpenCore` v0.5.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)

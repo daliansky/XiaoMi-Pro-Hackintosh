@@ -40,7 +40,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix instant wake</string>
+				<string>Fix instant wake, pair with GPRW rename</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -88,7 +88,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Add PMCR device</string>
+				<string>Add PMCR device for Intel 100-series</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -96,7 +96,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Add PNLF device</string>
+				<string>Add PNLF device for brightness support, pair with WhateverGreen.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -104,7 +104,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Customize VoodooPS2Keyboard</string>
+				<string>Customize VoodooPS2Keyboard.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -120,7 +120,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable trackpad interrupt mode</string>
+				<string>Enable trackpad interrupt mode, pair with VoodooI2C.kext and VoodooI2CHID.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -128,7 +128,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization(Native Bluetooth)</string>
+				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -136,7 +136,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization(Disable native Bluetooth)</string>
+				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Disable native Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -144,7 +144,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization(WLAN_LTE Bluetooth)</string>
+				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (WLAN_LTE Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -152,7 +152,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization(Fingerprint Bluetooth)</string>
+				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Fingerprint Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -167,7 +167,7 @@
 				<string>SSDT-XCPM.aml</string>
 			</dict>
 		</array>
-		<key>Block</key>
+		<key>Delete</key>
 		<array/>
 		<key>Patch</key>
 		<array>
@@ -490,7 +490,7 @@
 				<string>Intel Sunrise Point-LP SMBus</string>
 			</dict>
 		</dict>
-		<key>Block</key>
+		<key>Delete</key>
 		<dict/>
 	</dict>
 	<key>Kernel</key>
@@ -965,8 +965,6 @@
 			<string>Auto</string>
 			<key>HideAuxiliary</key>
 			<true/>
-			<key>HideSelf</key>
-			<false/>
 			<key>PickerAttributes</key>
 			<integer>0</integer>
 			<key>PickerAudioAssist</key>
@@ -986,6 +984,8 @@
 		<dict>
 			<key>AppleDebug</key>
 			<false/>
+			<key>ApplePanic</key>
+			<false/>
 			<key>DisableWatchDog</key>
 			<false/>
 			<key>DisplayDelay</key>
@@ -1004,6 +1004,8 @@
 			<key>AllowSetDefault</key>
 			<true/>
 			<key>AuthRestart</key>
+			<true/>
+			<key>BlacklistAppleUpdate</key>
 			<true/>
 			<key>BootProtect</key>
 			<string>Bootstrap</string>
@@ -1060,7 +1062,7 @@
 				<data>ZwAAAA==</data>
 			</dict>
 		</dict>
-		<key>Block</key>
+		<key>Delete</key>
 		<dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
@@ -1166,8 +1168,6 @@
 			<false/>
 			<key>ConsoleMode</key>
 			<string></string>
-			<key>DirectGopCacheMode</key>
-			<string></string>
 			<key>DirectGopRendering</key>
 			<false/>
 			<key>IgnoreTextInGraphics</key>
@@ -1220,13 +1220,13 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+			<key>DeduplicateBootOrder</key>
+			<true/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>IgnoreInvalidFlexRatio</key>
 			<false/>
 			<key>ReleaseUsbOwnership</key>
-			<true/>
-			<key>RequestBootVarFallback</key>
 			<true/>
 			<key>RequestBootVarRouting</key>
 			<true/>

@@ -1,4 +1,4 @@
-// Necessary hotpatch
+// Necessary hotpatch, work with VoodooI2C.kext and VoodooI2CHID.kext
 // Maintained by: stevezhengshiqi
 // Enable trackpad GPIO interrupt mode, work with VoodooI2C.kext and VoodooI2CHID.kext
 

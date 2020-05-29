@@ -17,6 +17,7 @@ OUTDir_OC="XiaoMi_Pro-OC-local"
 GH_API=True
 CLEAN_UP=True
 REMOTE=True
+OC_DPR=False
 
 # Args
 while [[ $# -gt 0 ]]; do
@@ -29,6 +30,10 @@ while [[ $# -gt 0 ]]; do
     ;;
     --NO_CLEAN_UP)
     CLEAN_UP=False
+    shift # past argument
+    ;;
+    --OC_PRE_RELEASE)
+    OC_DPR=True
     shift # past argument
     ;;
     *)
@@ -70,7 +75,7 @@ function H_or_G() {
   if [[ "$1" == "VoodooI2C" ]]; then
     HG="head -n 1"
   elif [[ "$1" == "CloverBootloader" ]]; then
-    HG="grep -m 1 CloverISO"
+    HG="grep -m 1 CloverV2"
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HG="grep -m 1 IntelBluetooth"
   elif [[ "$1" == "OpenCore-Factory" ]]; then
@@ -176,32 +181,13 @@ function CTrash() {
 
 # Extract files for Clover
 function ExtractClover() {
-  mkdir -p "$OUTDir/EFI/BOOT/"
-  mkdir -p "$OUTDir/EFI/Clover/tools/"
-  # From CloverISO
-  tar --lzma -xvf Clover/CloverISO*.tar.lzma >/dev/null 2>&1
-  hdiutil mount Clover-*.iso >/dev/null 2>&1
-  ImageMountDir="$(dirname /Volumes/Clover-*/EFI/CLOVER)/CLOVER"
-  cp -R "$ImageMountDir"/../BOOT/BOOTX64.efi "$OUTDir/EFI/BOOT/"
-  cp -R "$ImageMountDir"/CLOVERX64.efi "$OUTDir/EFI/Clover/"
-  cp -R "$ImageMountDir"/tools/*.efi "$OUTDir/EFI/Clover/tools/"
-
-  for CLOVERdotEFIdrv in ApfsDriverLoader AptioMemoryFix; do
-    cp -R "$ImageMountDir"/drivers/off/${CLOVERdotEFIdrv}.efi "$OUTDir/EFI/Clover/drivers/UEFI/"
-  done
-
-  for CLOVERdotEFIdrv in AudioDxe FSInject; do
-    cp -R "$ImageMountDir"/drivers/UEFI/${CLOVERdotEFIdrv}.efi "$OUTDir/EFI/Clover/drivers/UEFI/"
-  done
-
-  hdiutil unmount "$(dirname /Volumes/Clover-*/EFI)" >/dev/null 2>&1
-
-  # From AppleSupportPkg 2.0.9
+  # From CloverV2 and AppleSupportPkg v2.0.9
   unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
-
-  for CLOVERdotEFIdrvASPKG in AppleGenericInput AppleUiSupport; do
-    cp -R Clover/Drivers/${CLOVERdotEFIdrvASPKG}.efi "$OUTDir/EFI/Clover/drivers/UEFI"
-  done
+  cp -R "Clover/CloverV2/EFI/BOOT" "$OUTDir/EFI/"
+  cp -R "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "$OUTDir/EFI/CLOVER/"
+  cp -R "Clover/CloverV2/EFI/CLOVER/tools" "$OUTDir/EFI/CLOVER/"
+  cp -R {Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi,Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/AptioMemoryFix.efi,Clover/CloverV2/EFI/CLOVER/drivers/UEFI/AudioDxe.efi,Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi} "$OUTDir/EFI/Clover/drivers/UEFI/"
+  cp -R {Clover/Drivers/AppleGenericInput.efi,Clover/Drivers/AppleUiSupport.efi} "$OUTDir/EFI/Clover/drivers/UEFI/"
 }
 
 # Extract files from OpenCore
@@ -344,8 +330,11 @@ function DL() {
   DGR CloverHackyColor CloverBootloader NULL "Clover"
 
   # OpenCore
-  # DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
-  DGR $ACDT OpenCorePkg NULL "OpenCore"
+  if [[ $OC_DPR == True ]]; then
+    DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
+  else
+    DGR $ACDT OpenCorePkg NULL "OpenCore"
+  fi
 
   # UEFI
   # DPB $ACDT OcBinaryData Drivers/HfsPlus.efi
