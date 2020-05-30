@@ -9,7 +9,7 @@
 # https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh by @williambj1
 
 # WorkSpaceDir
-WSDir="$( cd "$(dirname "$0")" || exit; pwd -P )/build"
+WSDir="$( cd "$(dirname "$0")" || exit 1; pwd -P )/build"
 OUTDir="XiaoMi_Pro-local"
 OUTDir_OC="XiaoMi_Pro-OC-local"
 
