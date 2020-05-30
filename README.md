@@ -53,7 +53,8 @@ English | [中文](README_CN.md)
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
 - Intel Wi-Fi(Intel Wireless 8265) is not working
   - Buy a USB Wi-Fi dongle or supported wireless card
-  - View [#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330), some test drivers are provided there
+  - Use [itlwm](https://github.com/zxystd/itlwm) and [HeliPort](https://github.com/zxystd/HeliPort) to drive Intel Wi-Fi
+  - ~View [#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330), some test drivers are provided there~
 - Realtek USB SD Card Reader(RTS5129) is not working
   - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
 - Everything else works well

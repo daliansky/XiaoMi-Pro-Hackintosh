@@ -53,7 +53,8 @@
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
 - 英特尔无线网卡无法工作
   - 购买USB网卡或者支持的内置网卡
-  - 阅读[#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330)，里面提供了测试驱动
+  - 使用 [itlwm](https://github.com/zxystd/itlwm) 和 [HeliPort](https://github.com/zxystd/HeliPort) 来驱动英特尔无线网卡
+  - ~阅读[#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330)，里面提供了测试驱动~
 - 瑞昱USB SD读卡器无法工作
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - 其他都工作正常
