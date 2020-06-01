@@ -336,7 +336,6 @@ function Install() {
   if [[ ${REMOTE} == True ]]; then
     cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
     cp -R "XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
-    
     for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
       cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "${READMEdir}" || copyErr
     done
