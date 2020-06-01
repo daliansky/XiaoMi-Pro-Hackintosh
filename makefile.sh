@@ -205,75 +205,113 @@ function ExtractClover() {
   cp -R "Clover/CloverV2/EFI/BOOT" "${OUTDir}/EFI/" || copyErr
   cp -R "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${OUTDir}/EFI/CLOVER/" || copyErr
   cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
-  cp -R {Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi,Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/AptioMemoryFix.efi,Clover/CloverV2/EFI/CLOVER/drivers/UEFI/AudioDxe.efi,Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi} "${OUTDir}/EFI/Clover/drivers/UEFI/" || copyErr
-  cp -R {Clover/Drivers/AppleGenericInput.efi,Clover/Drivers/AppleUiSupport.efi} "${OUTDir}/EFI/Clover/drivers/UEFI/" || copyErr
+  local driverItems=(
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/AptioMemoryFix.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/AudioDxe.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
+    "Clover/Drivers/AppleGenericInput.efi"
+    "Clover/Drivers/AppleUiSupport.efi"
+  )
+  for driverItem in "${driverItems[@]}"; do
+    cp -R "${driverItem}" "${OUTDir}/EFI/Clover/drivers/UEFI/" || copyErr
+  done
 }
 
 # Extract files from OpenCore
 function ExtractOC() {
-  mkdir -p "${OUTDir_OC}/EFI/OC/Tools"
+  mkdir -p "${OUTDir_OC}/EFI/OC/Tools" || exit 1
   unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
   cp -R OpenCore/EFI/BOOT "${OUTDir_OC}/EFI/" || copyErr
   cp -R OpenCore/EFI/OC/OpenCore.efi "${OUTDir_OC}/EFI/OC/" || copyErr
   cp -R OpenCore/EFI/OC/Bootstrap "${OUTDir_OC}/EFI/OC/" || copyErr
-  cp -R {OpenCore/EFI/OC/Drivers/AudioDxe.efi,OpenCore/EFI/OC/Drivers/OpenCanopy.efi,OpenCore/EFI/OC/Drivers/OpenRuntime.efi} "${OUTDir_OC}/EFI/OC/Drivers/" || copyErr
-  cp -R {OpenCore/EFI/OC/Tools/CleanNvram.efi,OpenCore/EFI/OC/Tools/OpenShell.efi} "${OUTDir_OC}/EFI/OC/Tools/" || copyErr
+  local driverItems=(
+    "OpenCore/EFI/OC/Drivers/AudioDxe.efi"
+    "OpenCore/EFI/OC/Drivers/OpenCanopy.efi"
+    "OpenCore/EFI/OC/Drivers/OpenRuntime.efi"
+  )
+  local toolItems=(
+    "OpenCore/EFI/OC/Tools/CleanNvram.efi"
+    "OpenCore/EFI/OC/Tools/OpenShell.efi"
+  )
+  for driverItem in "${driverItems[@]}"; do
+    cp -R "${driverItem}" "${OUTDir_OC}/EFI/OC/Drivers/" || copyErr
+  done
+  for toolItem in "${toolItems[@]}"; do
+    cp -R "${toolItem}" "${OUTDir_OC}/EFI/OC/Tools/" || copyErr
+  done
 }
 
 # Unpack
 function Unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
-  echo ""
+  echo
   unzip -qq "*.zip" >/dev/null 2>&1
 }
 
 # Install
 function Install() {
   # Kexts
-  mkdir -p "${OUTDir}/EFI/CLOVER/kexts/Other/"
-  mkdir -p "${OUTDir_OC}/EFI/OC/Kexts/"
+  local kextItems=(
+    "AppleALC.kext"
+    "HibernationFixup.kext"
+    "IntelBluetoothFirmware.kext"
+    "IntelBluetoothInjector.kext"
+    "Lilu.kext"
+    "NVMeFix.kext"
+    "VoodooI2C.kext"
+    "VoodooI2CHID.kext"
+    "VoodooPS2Controller.kext"
+    "WhateverGreen.kext"
+    "hack-tools-master/kexts/EFICheckDisabler.kext"
+    "hack-tools-master/kexts/SATA-unsupported.kext"
+    "Kexts/SMCBatteryManager.kext"
+    "Kexts/SMCLightSensor.kext"
+    "Kexts/SMCProcessor.kext"
+    "Kexts/VirtualSMC.kext"
+    "Release/CodecCommander.kext"
+    "Release/NullEthernet.kext"
+  )
 
   for Kextdir in "${OUTDir}/EFI/CLOVER/kexts/Other/" "${OUTDir_OC}/EFI/OC/Kexts/"; do
-    cp -R {AppleALC.kext,HibernationFixup.kext,IntelBluetoothFirmware.kext,IntelBluetoothInjector.kext,Lilu.kext,NVMeFix.kext,VoodooI2C.kext,VoodooI2CHID.kext,VoodooPS2Controller.kext,WhateverGreen.kext,hack-tools-master/kexts/EFICheckDisabler.kext,hack-tools-master/kexts/SATA-unsupported.kext,Kexts/SMCBatteryManager.kext,Kexts/SMCLightSensor.kext,Kexts/SMCProcessor.kext,Kexts/VirtualSMC.kext,Release/CodecCommander.kext,Release/NullEthernet.kext} "${Kextdir}" || copyErr
+    mkdir -p "${Kextdir}" || exit 1
+    for kextItem in "${kextItems[@]}"; do
+      cp -R "${kextItem}" "${Kextdir}" || copyErr
+    done
   done
 
   # Drivers
-  mkdir -p "${OUTDir}/EFI/CLOVER/drivers/UEFI/"
-  mkdir -p "${OUTDir_OC}/EFI/OC/Drivers/"
-
   for Driverdir in "${OUTDir}/EFI/CLOVER/drivers/UEFI/" "${OUTDir_OC}/EFI/OC/Drivers/"; do
+    mkdir -p "${Driverdir}" || exit 1
     cp -R "OcBinaryData-master/Drivers/HfsPlus.efi" "${Driverdir}" || copyErr
   done
 
-  cp -R VirtualSmc.efi "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
+  cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   if [[ ${REMOTE} == True ]]; then
-    cp -R XiaoMi-Pro-Hackintosh-master/wiki/AptioMemoryFix.efi "${OUTDir}" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/wiki/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   else
-    cp -R ../wiki/AptioMemoryFix.efi "${OUTDir}" || copyErr
+    cp -R "../wiki/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   fi
 
   # ACPI
-  mkdir -p "${OUTDir}/EFI/CLOVER/ACPI/patched/"
-  mkdir -p "${OUTDir_OC}/EFI/OC/ACPI/"
-  mkdir "${OUTDir}/GTX_Users_Read_This/"
-  mkdir "${OUTDir_OC}/GTX_Users_Read_This/"
-
   for ACPIdir in "${OUTDir}/GTX_Users_Read_This/" "${OUTDir_OC}/GTX_Users_Read_This/"; do
+    mkdir -p "${ACPIdir}" || exit 1
     if [[ ${REMOTE} == True ]]; then
-      cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml "${ACPIdir}" || copyErr
+      cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml" "${ACPIdir}" || copyErr
     else
-      cp -R ../EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml "${ACPIdir}" || copyErr
+      cp -R "../EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml" "${ACPIdir}" || copyErr
     fi
   done
 
   for ACPIdir in "${OUTDir}/EFI/CLOVER/ACPI/patched/" "${OUTDir_OC}/EFI/OC/ACPI/"; do
+    mkdir -p "${ACPIdir}" || exit 1
     if [[ ${REMOTE} == True ]]; then
       cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/*.aml "${ACPIdir}" || copyErr
-      rm -rf "${ACPIdir}"SSDT-LGPAGTX.aml
+      rm -rf "${ACPIdir}SSDT-LGPAGTX.aml"
     else
       cp -R ../EFI/CLOVER/ACPI/patched/*.aml "${ACPIdir}" || copyErr
-      rm -rf "${ACPIdir}"SSDT-LGPAGTX.aml
+      rm -rf "${ACPIdir}SSDT-LGPAGTX.aml"
     fi
   done
 
@@ -287,30 +325,42 @@ function Install() {
 
   # Theme
   if [[ ${REMOTE} == True ]]; then
-    cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/themes "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   else
-    cp -R ../EFI/CLOVER/themes "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "../EFI/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   fi
 
-  cp -R OcBinaryData-master/Resources "${OUTDir_OC}/EFI/OC/" || copyErr
+  cp -R "OcBinaryData-master/Resources" "${OUTDir_OC}/EFI/OC/" || copyErr
 
   # config & README
   if [[ ${REMOTE} == True ]]; then
-    cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist "${OUTDir}/EFI/CLOVER/" || copyErr
-    cp -R XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist "${OUTDir_OC}/EFI/OC/" || copyErr
-    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "${OUTDir}" || copyErr
-    cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "${OUTDir_OC}" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
+    
+    for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
+      cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "${READMEdir}" || copyErr
+    done
   else
-    cp -R ../EFI/CLOVER/config.plist "${OUTDir}/EFI/CLOVER/" || copyErr
-    cp -R ../EFI/OC/config.plist "${OUTDir_OC}/EFI/OC/" || copyErr
-    cp -R {../README.md,../README_CN.md} "${OUTDir}" || copyErr
-    cp -R {../README.md,../README_CN.md} "${OUTDir_OC}" || copyErr
+    cp -R "../EFI/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "../EFI/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
+    for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
+      cp -R {../README.md,../README_CN.md} "${READMEdir}" || copyErr
+    done
   fi
 }
 
 # Patch
 function Patch() {
-  rm -rf "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature" "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext" "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+  local unusedItems=(
+    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
+    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+  )
+  for unusedItem in "${unusedItems[@]}"; do
+    rm -rf "${unusedItem}"
+  done
 
   cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete && cd "${WSDir}" || exit 1
 }
@@ -318,7 +368,7 @@ function Patch() {
 # Enjoy
 function Enjoy() {
   echo "${red}[${reset}${blue}${bold} Done! Enjoy! ${reset}${red}]${reset}"
-  echo ""
+  echo
   open ./
 }
 
@@ -336,17 +386,29 @@ function DL() {
   fi
 
   # Kexts
-  DBR Rehabman os-x-null-ethernet
-  DBR Rehabman os-x-eapd-codec-commander
+  local rmKexts=(
+    os-x-eapd-codec-commander
+    os-x-null-ethernet
+  )
 
-  DGR ${ACDT} Lilu
-  DGR ${ACDT} VirtualSMC
-  DGR ${ACDT} WhateverGreen
-  DGR ${ACDT} AppleALC
-  DGR ${ACDT} HibernationFixup
-  DGR ${ACDT} NVMeFix
-  # DGR ${ACDT} VoodooInput
-  DGR ${ACDT} VoodooPS2
+  local acdtKexts=(
+    Lilu
+    VirtualSMC
+    WhateverGreen
+    AppleALC
+    HibernationFixup
+    NVMeFix
+    VoodooPS2
+  )
+
+  for rmKext in "${rmKexts[@]}"; do
+    DBR Rehabman "${rmKext}"
+  done
+
+  for acdtKext in "${acdtKexts[@]}"; do
+    DGR ${ACDT} "${acdtKext}"
+  done
+
   DGR VoodooI2C VoodooI2C
   DGR zxystd IntelBluetoothFirmware
 
@@ -377,14 +439,19 @@ function Init() {
   if [[ -d ${WSDir} ]]; then
     rm -rf "${WSDir}"
   fi
-  mkdir "${WSDir}"
+  mkdir "${WSDir}" || exit 1
   cd "${WSDir}" || exit 1
 
-  mkdir "${OUTDir}"
-  mkdir "${OUTDir_OC}"
-  mkdir "XiaoMi-Pro-Hackintosh-master"
-  mkdir "Clover"
-  mkdir "OpenCore"
+  local dirs=(
+    "${OUTDir}"
+    "${OUTDir_OC}"
+    "XiaoMi-Pro-Hackintosh-master"
+    "Clover"
+    "OpenCore"
+  )
+  for dir in "${dirs[@]}"; do
+    mkdir -p "${dir}" || exit 1
+  done
 
   if [[ "$(dirname "$PWD")" =~ "XiaoMi-Pro-Hackintosh" ]]; then
     REMOTE=False;

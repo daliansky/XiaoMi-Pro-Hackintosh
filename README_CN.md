@@ -45,17 +45,17 @@
 - <b>有线网在macOS 10.15上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
 - 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
   - 如果不是macOS 10.15，也推荐更新上述驱动
-- 独立显卡无法工作，因为macOS不支持Optimus技术
+- <b>独立显卡</b>无法工作，因为macOS不支持Optimus技术
   - 使用了 [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) 来禁用它以节省电量
-- 指纹传感器无法工作
+- <b>指纹传感器</b>无法工作
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
-- 英特尔蓝牙可能会导致睡眠问题，并且不支持部分蓝牙设备
+- <b>英特尔蓝牙</b>可能会导致睡眠问题，并且不支持部分蓝牙设备
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
-- 英特尔无线网卡无法工作
+- <b>英特尔无线网卡 (英特尔 无线 8265)</b>需要额外操作来工作
   - 购买USB网卡或者支持的内置网卡
   - 使用 [itlwm](https://github.com/zxystd/itlwm) 和 [HeliPort](https://github.com/zxystd/HeliPort) 来驱动英特尔无线网卡
   - ~阅读[#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330)，里面提供了测试驱动~
-- 瑞昱USB SD读卡器无法工作
+- <b>瑞昱USB SD读卡器 (RTS5129)</b>无法工作
   - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
 - 其他都工作正常
 
@@ -66,10 +66,8 @@
 - 有限的主题
 - <b>Windows的软件会丢失激活，因为OpenCore注入了不同的硬件UUID</b>
   - 我不确定这么做有没有用。根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的  `PlatformInfo - Generic - SystemUUID`
-- 使用Clover后需要清理NVRAM
+- 使用Clover后需要清理 NVRAM
   - 在OpenCore启动界面按下 `空格`，选中进入 `Clean NVRAM`
-
-需要更多测试。。。
 
 
 ## 安装
@@ -157,7 +155,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 更新日志
 
-详细更新日志请看 Clover [更新日志中文版](Changelog_CN.md)。
+详细更新日志请看[更新日志中文版](Changelog_CN.md)。
 
 
 ## 关于打赏
@@ -172,12 +170,12 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 ## 鸣谢
 
 - 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC)，[AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg)，[HibernationFixup](https://github.com/acidanthera/HibernationFixup)，[Lilu](https://github.com/acidanthera/Lilu)，[NVMeFix](https://github.com/acidanthera/NVMeFix)，[OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)，[VirtualSMC](https://github.com/acidanthera/VirtualSMC)，[VoodooInput](https://github.com/acidanthera/VoodooInput)，[VoodooPS2](https://github.com/acidanthera/VoodooPS2) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen)。
-- 感谢 [alexandred](https://github.com/alexandred) 提供 [VoodooI2C](https://github.com/alexandred/VoodooI2C)。
 - 感谢 [apianti](https://sourceforge.net/u/apianti)，[blackosx](https://sourceforge.net/u/blackosx)，[blusseau](https://sourceforge.net/u/blusseau)，[dmazar](https://sourceforge.net/u/dmazar) 和 [slice2009](https://sourceforge.net/u/slice2009) 提供 [Clover](https://github.com/CloverHackyColor/CloverBootloader)。
 - 感谢 [daliansky](https://github.com/daliansky) 提供 [OC-little](https://github.com/daliansky/OC-little)。
 - 感谢 [FallenChromium](https://github.com/FallenChromium)，[jackxuechen](https://github.com/jackxuechen)，[Javmain](https://github.com/javmain)，[johnnync13](https://github.com/johnnync13)，[Menchen](https://github.com/Menchen)，[Pasi-Studio](https://github.com/Pasi-Studio)，[qeeqez](https://github.com/qeeqez) 和 [Bat.bat](https://github.com/williambj1) 的宝贵建议。
 - 感谢 [hieplpvip](https://github.com/hieplpvip) 和 [syscl](https://github.com/syscl) 提供 DSDT 补丁样本。
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)，[EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
+- 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
 - 感谢 [zxystd](https://github.com/zxystd) 提供 [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware)。
 
 ### 请前往[参考](https://github.com/daliansky/XiaoMi-Pro/wiki/参考)来获取更多内容。

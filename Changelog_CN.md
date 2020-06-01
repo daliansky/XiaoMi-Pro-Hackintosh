@@ -2,10 +2,17 @@
 
 [English](Changelog.md) | 中文
 
-## [XiaoMi NoteBook Pro EFI v1.3.10](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.10)
-## X-XX-2020
+## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
+## 6-1-2020
 
 ### 更新
+  * 更新 `Clover` r5118
+  * 更新 `OpenCore` v0.5.9
+  * 更新 `Lilu` v1.4.5
+  * 更新 `AppleALC` v1.5.0
+  * 更新 `VirtualSMC` v1.1.4
+  * 更新 `WhateverGreen` v1.4.0
+  * 更新 `VoodooPS2` v2.1.5
   * 更新 `SSDT-TPD0`
   * 更新 `SSDT-PS2K`
   * 更新 `SSDT-XCPM`
@@ -28,6 +35,7 @@
   * 更新 `Clover` r5115
   * 更新 `OpenCore` v0.5.8
   * 更新 `Lilu` v1.4.4
+  * 更新 `AppleALC` v1.4.9
   * 更新 `WhateverGreen` v1.3.9
   * 更新 `HibernationFixup` v1.3.3
   * 更新 `VoodooInput` v1.0.5
@@ -39,7 +47,7 @@
   * 更新 PCI 设备属性
 
 ### 新增
-  * 新增 `UPC -> XUPC` 重命名
+  * 新增 `_UPC -> XUPC` 重命名
 
 ### 移除
   * 移除 `SSDT-DRP08` 来解锁内置 Intel Wi-Fi

@@ -2,10 +2,17 @@
 
 English | [中文](Changelog_CN.md)
 
-## [XiaoMi NoteBook Pro EFI v1.3.10](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.10)
-## X-XX-2020
+## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
+## 6-1-2020
 
 ### Update
+  - Update `Clover` r5118
+  - Update `OpenCore` v0.5.9
+  - Update `Lilu` v1.4.5
+  - Update `AppleALC` v1.5.0
+  - Update `VirtualSMC` v1.1.4
+  - Update `WhateverGreen` v1.4.0
+  - Update `VoodooPS2` v2.1.5
   - Update `SSDT-TPD0`
   - Update `SSDT-PS2K`
   - Update `SSDT-XCPM`
@@ -28,6 +35,7 @@ English | [中文](Changelog_CN.md)
   - Update `Clover` r5115
   - Update `OpenCore` v0.5.8
   - Update `Lilu` v1.4.4
+  - Update `AppleALC` v1.4.9
   - Update `WhateverGreen` v1.3.9
   - Update `HibernationFixup` v1.3.3
   - Update `VoodooInput` v1.0.5
@@ -39,7 +47,7 @@ English | [中文](Changelog_CN.md)
   - Update PCI device properties
 
 ### Add
-  - Add `UPC -> XUPC` rename
+  - Add `_UPC -> XUPC` rename
 
 ### Remove
   - Remove `SSDT-DRP08` to unlock Intel Wi-Fi
