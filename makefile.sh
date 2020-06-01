@@ -29,12 +29,12 @@ while [[ $# -gt 0 ]]; do
     ERR_NO_EXIT=True
     shift # past argument
     ;;
-    --NO_GH_API)
-    GH_API=False
-    shift # past argument
-    ;;
     --NO_CLEAN_UP)
     CLEAN_UP=False
+    shift # past argument
+    ;;
+    --NO_GH_API)
+    GH_API=False
     shift # past argument
     ;;
     --OC_PRE_RELEASE)

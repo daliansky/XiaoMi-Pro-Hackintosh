@@ -43,7 +43,7 @@ English | [中文](README_CN.md)
 
 - <b>HDMI may not work on macOS 10.15.5+, view [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)</b>
 - <b>Ethernet may not work on macOS 10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
-- In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)
+- In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - <b>Discrete graphic card</b> is not working, since macOS doesn't support Optimus technology
   - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
