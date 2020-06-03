@@ -304,10 +304,10 @@ function Install() {
   # ACPI
   for ACPIdir in "${OUTDir}/GTX_Users_Read_This/" "${OUTDir_OC}/GTX_Users_Read_This/"; do
     mkdir -p "${ACPIdir}" || exit 1
-    
+
     # Create README for GTX
     touch "${ACPIdir}/README.txt"
-    
+
     if [[ ${REMOTE} == True ]]; then
       cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml" "${ACPIdir}" || copyErr
     else
@@ -316,7 +316,6 @@ function Install() {
   done
   printf "By Steve\n\nBecause Xiaomi-Pro GTX has a slightly different DSDT from Xiaomi-Pro's, SSDT-LGPA need to be modified to fit with Xiaomi-Pro GTX.\n\n1. If you are using Windows or other OS, please ignore all the files start with ._\n\n2. Go to XiaoMi_Pro-%s/EFI/CLOVER/ACPI/patched/ and delete SSDT-LGPA.aml\n\n3. Copy SSDT-LGPAGTX.aml and paste it to the folder in the second step\n\n4. Done and enjoy your EFI folder for GTX" "${VERSION}"> "${OUTDir}/GTX_Users_Read_This/README.txt"
   printf "By Steve\n\nBecause Xiaomi-Pro GTX has a slightly different DSDT from Xiaomi-Pro's, SSDT-LGPA need to be modified to fit with Xiaomi-Pro GTX.\n\n1. If you are using Windows or other OS, please ignore all the files start with ._\n\n2. Go to XiaoMi_Pro-OC-%s/EFI/OC/ACPI/ and delete SSDT-LGPA.aml\n\n3. Copy SSDT-LGPAGTX.aml and paste it to the folder in the second step\n\n4. Open XiaoMi_Pro-OC-%s/EFI/OC/config.plist and find the following code:\n\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<true/>\n\t<key>Path</key>\n\t<string>SSDT-LGPA.aml</string>\n</dict>\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key for GTX, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<false/>\n\t<key>Path</key>\n\t<string>SSDT-LGPAGTX.aml</string>\n</dict>\n\nchange to:\n\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<false/>\n\t<key>Path</key>\n\t<string>SSDT-LGPA.aml</string>\n</dict>\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key for GTX, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<true/>\n\t<key>Path</key>\n\t<string>SSDT-LGPAGTX.aml</string>\n</dict>\n\n5. Done and enjoy your EFI folder for GTX." "${VERSION}" "${VERSION}"> "${OUTDir_OC}/GTX_Users_Read_This/README.txt"
-  
 
   for ACPIdir in "${OUTDir}/EFI/CLOVER/ACPI/patched/" "${OUTDir_OC}/EFI/OC/ACPI/"; do
     mkdir -p "${ACPIdir}" || exit 1
