@@ -1,0 +1,4 @@
+# Treat asl & dsl files as Cpp for syntax highlighting
+
+*.asl linguist-language=cpp
+*.dsl linguist-language=cpp

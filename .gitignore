@@ -1,1 +1,9 @@
+# macOS
+._*
 .DS_Store
+
+# makefile
+build/*
+
+# Exclude
+!.gitkeep
