@@ -2,6 +2,17 @@
 
 [English](Changelog.md) | 中文
 
+## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
+## X-XX-2020
+
+### 更新
+  * 更新 `VoodooI2C` v2.4.3
+
+### Clover
+  * 更新 `setpowerstate_panic=0` 内核补丁
+  * 移除 `AudioDxe.efi`
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
 ## 6-1-2020
 

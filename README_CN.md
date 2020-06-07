@@ -1,6 +1,6 @@
-<img src="https://github.com/daliansky/XiaoMi-Pro/raw/master/img/XiaoMi_Hackintosh_with_text_Small_cn.png" width="703" height="48"/>
+<img src="Docs/img/XiaoMi_Hackintosh_with_text_Small_cn.png" width="703" height="48"/>
 
-[![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
+[![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
 让你的小米笔记本Pro 2017 & 2018 装上 macOS Catalina & Mojave & High Sierra 
@@ -46,17 +46,17 @@
 - 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - 如果不是macOS 10.15，也推荐更新上述驱动
 - <b>独立显卡</b>无法工作，因为macOS不支持Optimus技术
-  - 使用了 [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) 来禁用它以节省电量
+  - 使用了 [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) 来禁用它以节省电量
 - <b>指纹传感器</b>无法工作
-  - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
+  - 使用了[SSDT-USB](ACPI/SSDT-USB.dsl)来禁用它以节省电量
 - <b>英特尔蓝牙</b>可能会导致睡眠问题，并且不支持部分蓝牙设备
-  - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro/wiki/蓝牙解决方案)
+  - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - <b>英特尔无线网卡 (英特尔 无线 8265)</b>需要额外操作来工作
   - 购买USB网卡或者支持的内置网卡
   - 使用 [itlwm](https://github.com/zxystd/itlwm) 和 [HeliPort](https://github.com/zxystd/HeliPort) 来驱动英特尔无线网卡
   - ~阅读[#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330)，里面提供了测试驱动~
 - <b>瑞昱USB SD读卡器 (RTS5129)</b>无法工作
-  - 使用了[SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl)来禁用它以节省电量
+  - 使用了[SSDT-USB](ACPI/SSDT-USB.dsl)来禁用它以节省电量
 - 其他都工作正常
 
 
@@ -76,7 +76,7 @@
 
 - 请参考详细的安装教程[【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
 - 如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并运行 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
-- 完整的EFI附件请访问 [releases](https://github.com/daliansky/XiaoMi-Pro/releases) 页面。
+- 完整的EFI附件请访问 [releases](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 页面。
  - 如果是日常使用，请不要克隆或者下载master分支。
  
  <img src="img/donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
@@ -97,7 +97,7 @@
  
  ### 更新
  
-- 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro/releases)拷贝新的。
+- 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases)拷贝新的。
 - 你也可以在终端输入以下命令来更新Clover EFI：
 
 ```bash
@@ -140,7 +140,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 #### [Clover] 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
 
-很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro/issues/93)提供的旧版`AptioMemoryFix.efi`。
+很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93)提供的旧版`AptioMemoryFix.efi`。
 
 同时确保 `沙盒`(Sandbox) 和 `Hyper-V` 功能关闭。
 
@@ -150,7 +150,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 然后，打开 `/EFI/OC/config.plist`，关闭`ShowPicker`。  
 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。  
 
-### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro/wiki/常见问题解答)。
+### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/常见问题解答)。
 
 
 ## 更新日志
@@ -178,7 +178,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
 - 感谢 [zxystd](https://github.com/zxystd) 提供 [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware)。
 
-### 请前往[参考](https://github.com/daliansky/XiaoMi-Pro/wiki/参考)来获取更多内容。
+### 请前往[参考](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/参考)来获取更多内容。
 
 
 ## 支持与讨论

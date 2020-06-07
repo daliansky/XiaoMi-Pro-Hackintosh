@@ -1,6 +1,6 @@
-<img src="https://github.com/daliansky/XiaoMi-Pro/raw/master/img/XiaoMi_Hackintosh_with_text_Small.png" width="934" height="48"/>
+<img src="Docs/img/XiaoMi_Hackintosh_with_text_Small.png" width="934" height="48"/>
 
-[![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
+[![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 -----
 
 macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
@@ -46,17 +46,17 @@ English | [中文](README_CN.md)
 - In macOS 10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS 10.15, it's still recommended to update the driver above
 - <b>Discrete graphic card</b> is not working, since macOS doesn't support Optimus technology
-  - Have used [SSDT-DDGPU](EFI/CLOVER/ACPI/patched/SSDT-DDGPU.dsl) to disable it in order to save power
+  - Have used [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) to disable it in order to save power
 - <b>Fingerprint sensor</b> is not working
-  - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
+  - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
 - <b>Intel Bluetooth</b> may cause sleep problems and does not support some Bluetooth devices
-  - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro/wiki/Work-Around-with-Bluetooth)
+  - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
 - <b>Intel Wi-Fi (Intel Wireless 8265)</b> could work by additional configurations
   - Buy a USB Wi-Fi dongle or supported wireless card
   - Use [itlwm](https://github.com/zxystd/itlwm) and [HeliPort](https://github.com/zxystd/HeliPort) to drive Intel Wi-Fi
   - ~View [#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330), some test drivers are provided there~
 - <b>Realtek USB SD Card Reader (RTS5129)</b> is not working
-  - Have used [SSDT-USB](EFI/CLOVER/ACPI/patched/SSDT-USB.dsl) to disable it in order to save power
+  - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
 - Everything else works well
 
 
@@ -81,7 +81,7 @@ English | [中文](README_CN.md)
   - [Xiaomi NoteBook PRO HACKINTOSH INSTALLATION GUIDE !!!](https://www.youtube.com/watch?v=72sPmkpxCvc)
   - [GUIA HACKINTOSH ESPAÑOL 2020 || Instalación de macOS Catalina Xiaomi Mi Notebook Pro](https://www.youtube.com/watch?v=rfG4sGwhE2g)
 - If the trackpad doesn't work during the installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and run `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
-- Complete EFI packs are available in the [releases](https://github.com/daliansky/XiaoMi-Pro/releases) page.
+- Complete EFI packs are available in the [releases](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) page.
  - Please don't clone or download the master branch for daily use.
  
  <img src="img/donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
@@ -102,7 +102,7 @@ cd XiaoMi-Pro-Hackintosh
 
 ### Upgrade
 
-- A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro/releases).
+- A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases).
 - You can also update Clover EFI by running the following command in Terminal:
 
 ```bash
@@ -145,7 +145,7 @@ It is not recommended to open `FileVault`. You can press Fn + F3 in the Clover b
 
 #### [Clover] I can't boot in Windows/Linux by using Clover, but able to boot by press F12 and select OS.
 
-Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix.efi` in `/CLOVER/drivers/UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro/issues/93).
+Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix.efi` in `/CLOVER/drivers/UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93).
 
 Also make sure `Sandbox` and `Hyper-V` functions in Windows 10 are disabled.
 
@@ -155,7 +155,7 @@ First, in macOS, open `SysPref - Startup Disk`. Choose the target system.
 Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.  
 When you want to switch OS, press `Esc` during startup to call the boot menu.
 
-### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro/wiki/FAQ).
+### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/FAQ).
 
 
 ## Changelog
@@ -183,7 +183,7 @@ All the project is made for free, but you can reward me if you want.
 - Thanks to [VoodooI2C](https://github.com/VoodooI2C) for providing [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C).
 - Thanks to [zxystd](https://github.com/zxystd) for providing [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware).
 
-### For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro/wiki/References).
+### For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/References).
 
 
 ## Support and discussion

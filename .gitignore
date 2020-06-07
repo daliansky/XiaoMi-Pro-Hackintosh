@@ -2,8 +2,14 @@
 ._*
 .DS_Store
 
-# makefile
-build/*
-
 # Exclude
 !.gitkeep
+
+# build_acpi
+ACPI/iasl*
+
+# download_kexts
+Kexts/download/*
+
+# makefile
+build/*

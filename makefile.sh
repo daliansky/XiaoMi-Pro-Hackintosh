@@ -13,6 +13,7 @@
 CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
+LANGUAGE="EN"
 OC_DPR=False
 REMOTE=True
 VERSION="local"
@@ -24,6 +25,10 @@ while [[ $# -gt 0 ]]; do
   case "${key}" in
     --IGNORE_ERR)
     ERR_NO_EXIT=True
+    shift # past argument
+    ;;
+    --LANG=CN)
+    LANGUAGE="CN"
     shift # past argument
     ;;
     --NO_CLEAN_UP)
@@ -201,7 +206,7 @@ function DPB() {
 # Exclude Trash
 function CTrash() {
   if [[ ${CLEAN_UP} == True ]]; then
-    find . -maxdepth 1 ! -path "./${OUTDir}" ! -path "./${OUTDir_OC}" -exec rm -rf {} +
+    find . -maxdepth 1 ! -path "./${OUTDir}" ! -path "./${OUTDir_OC}" -exec rm -rf {} + >/dev/null 2>&1
   fi
 }
 
@@ -215,7 +220,6 @@ function ExtractClover() {
   local driverItems=(
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/AptioMemoryFix.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/AudioDxe.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
     "Clover/Drivers/AppleGenericInput.efi"
     "Clover/Drivers/AppleUiSupport.efi"
@@ -296,67 +300,123 @@ function Install() {
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/wiki/AptioMemoryFix.efi" "${OUTDir}" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   else
-    cp -R "../wiki/AptioMemoryFix.efi" "${OUTDir}" || copyErr
+    cp -R "../Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   fi
 
   # ACPI
-  for ACPIdir in "${OUTDir}/GTX_Users_Read_This/" "${OUTDir_OC}/GTX_Users_Read_This/"; do
-    mkdir -p "${ACPIdir}" || exit 1
-
-    # Create README for GTX
-    touch "${ACPIdir}/README.txt"
-
-    if [[ ${REMOTE} == True ]]; then
-      cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml" "${ACPIdir}" || copyErr
-    else
-      cp -R "../EFI/CLOVER/ACPI/patched/SSDT-LGPAGTX.aml" "${ACPIdir}" || copyErr
+  local acpiItems
+  if [[ ${REMOTE} == True ]]; then
+    acpiItems=(
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-LGPAGTX.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-ALL.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-FingerBT.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-USBBT.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+    )
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      acpiItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_GTX.txt" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      acpiItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_CN_GTX.txt" )
     fi
+  else
+    acpiItems=(
+      "../ACPI/SSDT-LGPAGTX.aml"
+      "../ACPI/SSDT-USB-ALL.aml"
+      "../ACPI/SSDT-USB-FingerBT.aml"
+      "../ACPI/SSDT-USB-USBBT.aml"
+      "../ACPI/SSDT-USB-WLAN_LTEBT.aml"
+    )
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      acpiItems+=( "../Docs/README_GTX.txt" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      acpiItems+=( "../Docs/README_CN_GTX.txt" )
+    fi
+  fi
+
+  for ACPIdir in "${OUTDir}" "${OUTDir_OC}"; do
+    for acpiItem in "${acpiItems[@]}"; do
+      cp -R "${acpiItem}" "${ACPIdir}" || copyErr
+    done
   done
-  printf "By Steve\n\nBecause Xiaomi-Pro GTX has a slightly different DSDT from Xiaomi-Pro's, SSDT-LGPA need to be modified to fit with Xiaomi-Pro GTX.\n\n1. If you are using Windows or other OS, please ignore all the files start with ._\n\n2. Go to XiaoMi_Pro-%s/EFI/CLOVER/ACPI/patched/ and delete SSDT-LGPA.aml\n\n3. Copy SSDT-LGPAGTX.aml and paste it to the folder in the second step\n\n4. Done and enjoy your EFI folder for GTX" "${VERSION}"> "${OUTDir}/GTX_Users_Read_This/README.txt"
-  printf "By Steve\n\nBecause Xiaomi-Pro GTX has a slightly different DSDT from Xiaomi-Pro's, SSDT-LGPA need to be modified to fit with Xiaomi-Pro GTX.\n\n1. If you are using Windows or other OS, please ignore all the files start with ._\n\n2. Go to XiaoMi_Pro-OC-%s/EFI/OC/ACPI/ and delete SSDT-LGPA.aml\n\n3. Copy SSDT-LGPAGTX.aml and paste it to the folder in the second step\n\n4. Open XiaoMi_Pro-OC-%s/EFI/OC/config.plist and find the following code:\n\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<true/>\n\t<key>Path</key>\n\t<string>SSDT-LGPA.aml</string>\n</dict>\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key for GTX, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<false/>\n\t<key>Path</key>\n\t<string>SSDT-LGPAGTX.aml</string>\n</dict>\n\nchange to:\n\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<false/>\n\t<key>Path</key>\n\t<string>SSDT-LGPA.aml</string>\n</dict>\n<dict>\n\t<key>Comment</key>\n\t<string>Brightness key for GTX, pair with LGPA rename</string>\n\t<key>Enabled</key>\n\t<true/>\n\t<key>Path</key>\n\t<string>SSDT-LGPAGTX.aml</string>\n</dict>\n\n5. Done and enjoy your EFI folder for GTX." "${VERSION}" "${VERSION}"> "${OUTDir_OC}/GTX_Users_Read_This/README.txt"
+
+  if [[ ${REMOTE} == True ]]; then
+    acpiItems=(
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-ALS0.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-DDGPU.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-DMAC.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-EC.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-GPRW.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-HPET.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-LGPA.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-MCHC.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-MEM2.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-PMC.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-PNLF.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-PS2K.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-RMNE.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-TPD0.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-XCPM.aml"
+    )
+  else
+    acpiItems=(
+      "../ACPI/SSDT-ALS0.aml"
+      "../ACPI/SSDT-DDGPU.aml"
+      "../ACPI/SSDT-DMAC.aml"
+      "../ACPI/SSDT-EC.aml"
+      "../ACPI/SSDT-GPRW.aml"
+      "../ACPI/SSDT-HPET.aml"
+      "../ACPI/SSDT-LGPA.aml"
+      "../ACPI/SSDT-MCHC.aml"
+      "../ACPI/SSDT-MEM2.aml"
+      "../ACPI/SSDT-PMC.aml"
+      "../ACPI/SSDT-PNLF.aml"
+      "../ACPI/SSDT-PS2K.aml"
+      "../ACPI/SSDT-RMNE.aml"
+      "../ACPI/SSDT-TPD0.aml"
+      "../ACPI/SSDT-USB.aml"
+      "../ACPI/SSDT-XCPM.aml"
+    )
+  fi
 
   for ACPIdir in "${OUTDir}/EFI/CLOVER/ACPI/patched/" "${OUTDir_OC}/EFI/OC/ACPI/"; do
     mkdir -p "${ACPIdir}" || exit 1
-    if [[ ${REMOTE} == True ]]; then
-      cp -R XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/ACPI/patched/*.aml "${ACPIdir}" || copyErr
-      rm -rf "${ACPIdir}SSDT-LGPAGTX.aml"
-    else
-      cp -R ../EFI/CLOVER/ACPI/patched/*.aml "${ACPIdir}" || copyErr
-      rm -rf "${ACPIdir}SSDT-LGPAGTX.aml"
-    fi
-  done
-
-  for ACPIdir in "${OUTDir}" "${OUTDir_OC}"; do
-    if [[ ${REMOTE} == True ]]; then
-      cp -R XiaoMi-Pro-Hackintosh-master/wiki/*.aml "${ACPIdir}" || copyErr
-    else
-      cp -R ../wiki/*.aml "${ACPIdir}" || copyErr
-    fi
+    for acpiItem in "${acpiItems[@]}"; do
+      cp -R "${acpiItem}" "${ACPIdir}" || copyErr
+    done
   done
 
   # Theme
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   else
-    cp -R "../EFI/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "../CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   fi
 
   cp -R "OcBinaryData-master/Resources" "${OUTDir_OC}/EFI/OC/" || copyErr
 
   # config & README
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/EFI/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
-    cp -R "XiaoMi-Pro-Hackintosh-master/EFI/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "XiaoMi-Pro-Hackintosh-master/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
     for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
-      cp -R {XiaoMi-Pro-Hackintosh-master/README.md,XiaoMi-Pro-Hackintosh-master/README_CN.md} "${READMEdir}" || copyErr
+      if [[ ${LANGUAGE} == "EN" ]]; then
+        cp -R "XiaoMi-Pro-Hackintosh-master/README.md" "${READMEdir}" || copyErr
+      elif [[ ${LANGUAGE} == "CN" ]]; then
+        cp -R "XiaoMi-Pro-Hackintosh-master/README_CN.md" "${READMEdir}" || copyErr
+      fi
     done
   else
-    cp -R "../EFI/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
-    cp -R "../EFI/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
+    cp -R "../CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "../OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
     for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
-      cp -R {../README.md,../README_CN.md} "${READMEdir}" || copyErr
+      if [[ ${LANGUAGE} == "EN" ]]; then
+        cp -R "../README.md" "${READMEdir}" || copyErr
+      elif [[ ${LANGUAGE} == "CN" ]]; then
+        cp -R "../README_CN.md" "${READMEdir}" || copyErr
+      fi
     done
   fi
 }

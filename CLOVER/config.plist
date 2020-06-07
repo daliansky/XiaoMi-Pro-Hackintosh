@@ -349,11 +349,11 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Disable setPowerState panic with setpowerstate_panic=0 boot-args on 10.15 (credit vit9696)</string>
+				<string>Disable kernel panic on setPowerState timeout with setpowerstate_panic=0 boot-args on 10.15 (credit vit9696)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>MatchOS</key>
-				<string>10.15</string>
+				<string>10.15.x</string>
 				<key>Find</key>
 				<data>Y29tLmFwcGxlAA==</data>
 				<key>Replace</key>
