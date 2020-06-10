@@ -82,19 +82,31 @@
  <img src="Docs/img/README_donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
  <img src="Docs/img/README_get_Release.jpg" width="300px" alt="get_release">
  
+ 
  ### 构建
  
- - 如果要构建最新测试版EFI，在终端输入以下命令：
- ```
- sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
- ```
- - 或者在终端输入以下命令：
- ```
- git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
- cd XiaoMi-Pro-Hackintosh
- ./makefile.sh
- ```
- 
+- 如果要构建最新测试版EFI，在终端输入以下命令：
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+```
+- 或者在终端输入以下命令：
+```
+git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
+cd XiaoMi-Pro-Hackintosh
+./makefile.sh
+```
+- 如果要构建包含最新 pre-release 驱动的测试版EFI，在终端输入以下命令：
+```
+git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
+cd XiaoMi-Pro-Hackintosh
+./makefile.sh --PRE_RELEASE=Kext
+```
+- 当构建包含最新 pre-release 驱动时，构建阶段可能会出现错误。在终端输入以下命令来忽略错误：
+```
+./makefile.sh --PRE_RELEASE=Kext --IGNORE_ERR
+```
+
+
  ### 更新
  
 - 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases)拷贝新的。

@@ -10,13 +10,21 @@
 
 
 # Vars
+ACDT="Acidanthera"
 CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
 LANGUAGE="EN"
-OC_DPR=False
+NO_XCODE=False
+PRE_RELEASE=""
 REMOTE=True
 VERSION="local"
+
+# Env
+if [ "$(which xcodebuild)" = "" ] || [ "$(which git)" = "" ]; then
+  echo "Missing Xcode tools, won't build kexts!"
+  NO_XCODE=True
+fi
 
 # Args
 while [[ $# -gt 0 ]]; do
@@ -39,13 +47,12 @@ while [[ $# -gt 0 ]]; do
     GH_API=False
     shift # past argument
     ;;
-    --OC_PRE_RELEASE)
-    OC_DPR=True
-    shift # past argument
-    ;;
     *)
     if [[ "${key}" =~ "--VERSION=" ]]; then
       VERSION="v${key##*=}"
+      shift
+    elif [[ "${key}" =~ "--PRE_RELEASE=" ]]; then
+      PRE_RELEASE+="${key##*=}"
       shift
     else
       shift
@@ -73,9 +80,26 @@ WSDir="$( cd "$(dirname "$0")" || exit 1; pwd -P )/build"
 OUTDir="XiaoMi_Pro-${VERSION}"
 OUTDir_OC="XiaoMi_Pro-OC-${VERSION}"
 
+# Kexts
+rmKexts=(
+  os-x-eapd-codec-commander
+  os-x-null-ethernet
+)
+
+acdtKexts=(
+  VirtualSMC
+  WhateverGreen
+  AppleALC
+  HibernationFixup
+  NVMeFix
+  VoodooPS2
+  Lilu
+)
+
 # Exit on Network Issue
 function networkErr() {
-  echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from ${1}, please check your connection!"
+  echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
+  echo
   if [[ ${ERR_NO_EXIT} == False ]]; then
     Cleanup
     exit 1
@@ -85,6 +109,17 @@ function networkErr() {
 # Exit on Copy Issue
 function copyErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to copy resources!"
+  echo
+  if [[ ${ERR_NO_EXIT} == False ]]; then
+    Cleanup
+    exit 1
+  fi
+}
+
+# Exit on Build Issue
+function buildErr() {
+  echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to build $1!"
+  echo
   if [[ ${ERR_NO_EXIT} == False ]]; then
     Cleanup
     exit 1
@@ -208,6 +243,55 @@ function CTrash() {
   if [[ ${CLEAN_UP} == True ]]; then
     find . -maxdepth 1 ! -path "./${OUTDir}" ! -path "./${OUTDir_OC}" -exec rm -rf {} + >/dev/null 2>&1
   fi
+}
+
+# Build Pre-release Kexts
+function BKextHelper() {
+  local PATH_TO_REL="build/Build/Products/Release/"
+  local PATH_TO_REL_PS2="build/Products/Release/"
+  echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
+  echo
+  git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
+  cd "$2" || exit 1
+  if [[ "$2" == "VoodooPS2" ]]; then
+    sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh)" >/dev/null 2>&1 || exit 1
+    xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
+  elif [ "$2" == "VirtualSMC" ]; then
+    cp -R "../Lilu.kext" "./" || copyErr
+    xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme SMCBatteryManager -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme SMCLightSensor -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme SMCProcessor -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    mkdir ../Kexts
+    cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
+  elif [ "$2" == "WhateverGreen" ] || [ "$2" == "AppleALC" ] || [ "$2" == "HibernationFixup" ] || [ "$2" == "NVMeFix" ]; then
+    cp -R "../Lilu.kext" "./" || copyErr
+    xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+  elif [[ "$2" == "VoodooI2C" ]]; then
+    sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh)" >/dev/null 2>&1 && mv VoodooInput Dependencies || exit 1
+    git submodule init >/dev/null 2>&1 && git submodule update >/dev/null 2>&1
+
+    # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
+    local lineNum
+    lineNum=$(grep -n "Linting" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
+    sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+    lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
+    sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+    
+    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+  elif [[ "$2" == "Lilu" ]]; then
+    rm -rf ../Lilu.kext
+    xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+  elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
+    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+  fi
+  cd ../ || exit 1
 }
 
 # Extract files for Clover
@@ -444,45 +528,48 @@ function Enjoy() {
   open ./
 }
 
-function DL() {
-  ACDT="Acidanthera"
+function BKext() {
+  if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
+    echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
+    curl -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 && tar -xjf MacOSX10.12.tar.bz2
+    sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
+  fi
+  sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh)" >/dev/null 2>&1
+  for acdtKext in "${acdtKexts[@]}"; do
+    BKextHelper ${ACDT} "${acdtKext}"
+  done
+  BKextHelper VoodooI2C VoodooI2C
+  BKextHelper zxystd IntelBluetoothFirmware
+  echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
+  echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
+  echo
+}
 
+function DL() {
   # Clover
   DGR CloverHackyColor CloverBootloader NULL "Clover"
 
   # OpenCore
-  if [[ ${OC_DPR} == True ]]; then
+  if [[ ${PRE_RELEASE} =~ "OC" ]]; then
     DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
   else
     DGR ${ACDT} OpenCorePkg NULL "OpenCore"
   fi
 
   # Kexts
-  local rmKexts=(
-    os-x-eapd-codec-commander
-    os-x-null-ethernet
-  )
-
-  local acdtKexts=(
-    Lilu
-    VirtualSMC
-    WhateverGreen
-    AppleALC
-    HibernationFixup
-    NVMeFix
-    VoodooPS2
-  )
-
   for rmKext in "${rmKexts[@]}"; do
     DBR Rehabman "${rmKext}"
   done
 
-  for acdtKext in "${acdtKexts[@]}"; do
-    DGR ${ACDT} "${acdtKext}"
-  done
-
-  DGR VoodooI2C VoodooI2C
-  DGR zxystd IntelBluetoothFirmware
+  if [[ ${PRE_RELEASE} =~ "Kext" ]] && [ ${NO_XCODE} == "False" ]; then
+    BKext
+  else
+    for acdtKext in "${acdtKexts[@]}"; do
+      DGR ${ACDT} "${acdtKext}"
+    done
+    DGR VoodooI2C VoodooI2C
+    DGR zxystd IntelBluetoothFirmware
+  fi
 
   DGS RehabMan hack-tools
 

@@ -87,18 +87,30 @@ English | [中文](README_CN.md)
  <img src="Docs/img/README_donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
  <img src="Docs/img/README_get_Release.jpg" width="300px" alt="get_release">
 
+
 ### Build
 
 - Build the latest beta EFI by running the following command in Terminal:
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
 ```
-- Or running the following command in Terminal:
+- Or run the following command in Terminal:
 ```
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
 ./makefile.sh
 ```
+- To build the latest beta EFI with pre-release kexts, run the following command in Terminal:
+```
+git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
+cd XiaoMi-Pro-Hackintosh
+./makefile.sh --PRE_RELEASE=Kext
+```
+- When build the latest beta EFI with pre-release kexts, some errors may occur in the building stage. Run the following command in Terminal to ignore errors:
+```
+./makefile.sh --PRE_RELEASE=Kext --IGNORE_ERR
+```
+
 
 ### Upgrade
 
