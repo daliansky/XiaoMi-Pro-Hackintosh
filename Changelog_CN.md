@@ -12,6 +12,9 @@
   * 更新 `setpowerstate_panic=0` 内核补丁
   * 移除 `AudioDxe.efi`
 
+### OC
+  * 更新 config
+
 
 ## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
 ## 6-1-2020

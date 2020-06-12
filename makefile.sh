@@ -173,7 +173,7 @@ function DGR() {
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${GH_API} == False ]]; then
     rawURL="https://github.com/$1/$2/releases$tag"
-    URL="https://github.com$(local one=${"$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" )"#*href=\"} && local two=${one%\"\ rel*} && echo ${two})"
+    URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     URL="$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')"
@@ -523,6 +523,9 @@ function Patch() {
 
 # Enjoy
 function Enjoy() {
+  for BUILDdir in "${OUTDir}" "${OUTDir_OC}"; do
+    zip -qr "${BUILDdir}.zip" "${BUILDdir}"
+  done
   echo "${red}[${reset}${blue}${bold} Done! Enjoy! ${reset}${red}]${reset}"
   echo
   open ./

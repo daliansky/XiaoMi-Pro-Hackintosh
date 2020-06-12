@@ -83,7 +83,7 @@
  <img src="Docs/img/README_get_Release.jpg" width="300px" alt="get_release">
  
  
- ### 构建
+### 构建
  
 - 如果要构建最新测试版EFI，在终端输入以下命令：
 ```
@@ -107,7 +107,7 @@ cd XiaoMi-Pro-Hackintosh
 ```
 
 
- ### 更新
+### 更新
  
 - 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从[release 包里](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases)拷贝新的。
 - 你也可以在终端输入以下命令来更新Clover EFI：
