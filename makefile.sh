@@ -249,6 +249,7 @@ function CTrash() {
 function BKextHelper() {
   local PATH_TO_REL="build/Build/Products/Release/"
   local PATH_TO_REL_PS2="build/Products/Release/"
+
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
   echo
   git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
@@ -259,10 +260,7 @@ function BKextHelper() {
     cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
   elif [ "$2" == "VirtualSMC" ]; then
     cp -R "../Lilu.kext" "./" || copyErr
-    xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme SMCBatteryManager -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme SMCLightSensor -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme SMCProcessor -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme Package -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     mkdir ../Kexts
     cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
   elif [ "$2" == "WhateverGreen" ] || [ "$2" == "AppleALC" ] || [ "$2" == "HibernationFixup" ] || [ "$2" == "NVMeFix" ]; then
@@ -279,7 +277,7 @@ function BKextHelper() {
     sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
     lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
     sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
-    
+
     xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "Lilu" ]]; then
@@ -505,6 +503,29 @@ function Install() {
   fi
 }
 
+# Generate Release Note
+function GenNote() {
+  local printVersion
+  local lineStart
+  local lineEnd
+
+  printVersion=$(echo "${VERSION}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
+  printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
+  echo "#### Known Issue: \`IntelBluetoothFirmware.kext\` and \`IntelBluetoothInjector.kext\` may cause frequent KPs, please remove those kexts if you suffer from sleep problems." >> ReleaseNotes.md
+
+  lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" XiaoMi-Pro-Hackintosh-master/Changelog.md) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
+  lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" XiaoMi-Pro-Hackintosh-master/Changelog.md | tail -n1)
+  lineEnd=${lineEnd%%:*} && lineEnd=$((lineEnd-3))
+  if [[ ${LANGUAGE} == "EN" ]]; then
+    sed -n "${lineStart},${lineEnd}p" XiaoMi-Pro-Hackintosh-master/Changelog.md >> ReleaseNotes.md
+  elif [[ ${LANGUAGE} == "CN" ]]; then
+    sed -n "${lineStart},${lineEnd}p" XiaoMi-Pro-Hackintosh-master/Changelog_CN.md >> ReleaseNotes.md
+  fi
+  for RNotedir in "${OUTDir}" "${OUTDir_OC}"; do
+    cp -R "ReleaseNotes.md" "${RNotedir}" || copyErr
+  done
+}
+
 # Patch
 function Patch() {
   local unusedItems=(
@@ -534,9 +555,12 @@ function Enjoy() {
 function BKext() {
   if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
     echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
-    curl -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 && tar -xjf MacOSX10.12.tar.bz2
+    echo "${cyan}"
+    curl -# -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 || networkErr "MacOSX10.12.sdk" && tar -xjf MacOSX10.12.tar.bz2
+    echo "${reset}"
     sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
   fi
+
   sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh)" >/dev/null 2>&1
   for acdtKext in "${acdtKexts[@]}"; do
     BKextHelper ${ACDT} "${acdtKext}"
@@ -628,6 +652,7 @@ function main() {
 
   # Installation
   Install
+  GenNote
   ExtractClover
   ExtractOC
 
