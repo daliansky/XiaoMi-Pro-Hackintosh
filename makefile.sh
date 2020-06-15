@@ -255,7 +255,8 @@ function BKextHelper() {
   git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   cd "$2" || exit 1
   if [[ "$2" == "VoodooPS2" ]]; then
-    sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh)" >/dev/null 2>&1 || exit 1
+    cp -R "../VoodooInput" "./" || copyErr
+    # FIXME: the following line cannot work on travis-ci if the commit is tagged, help wanted.
     xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
   elif [ "$2" == "VirtualSMC" ]; then
@@ -268,7 +269,7 @@ function BKextHelper() {
     xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "VoodooI2C" ]]; then
-    sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh)" >/dev/null 2>&1 && mv VoodooInput Dependencies || exit 1
+    cp -R "../VoodooInput" "./Dependencies/" || copyErr
     git submodule init >/dev/null 2>&1 && git submodule update >/dev/null 2>&1
 
     # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
@@ -508,19 +509,22 @@ function GenNote() {
   local printVersion
   local lineStart
   local lineEnd
+  local changelogPath
+
+  if [[ ${REMOTE} == True ]]; then
+    changelogPath="XiaoMi-Pro-Hackintosh-master/Changelog.md"
+  else
+    changelogPath="../Changelog.md"
+  fi
 
   printVersion=$(echo "${VERSION}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
   printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
   echo "#### Known Issue: \`IntelBluetoothFirmware.kext\` and \`IntelBluetoothInjector.kext\` may cause frequent KPs, please remove those kexts if you suffer from sleep problems." >> ReleaseNotes.md
 
-  lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" XiaoMi-Pro-Hackintosh-master/Changelog.md) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
-  lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" XiaoMi-Pro-Hackintosh-master/Changelog.md | tail -n1)
+  lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
+  lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
   lineEnd=${lineEnd%%:*} && lineEnd=$((lineEnd-3))
-  if [[ ${LANGUAGE} == "EN" ]]; then
-    sed -n "${lineStart},${lineEnd}p" XiaoMi-Pro-Hackintosh-master/Changelog.md >> ReleaseNotes.md
-  elif [[ ${LANGUAGE} == "CN" ]]; then
-    sed -n "${lineStart},${lineEnd}p" XiaoMi-Pro-Hackintosh-master/Changelog_CN.md >> ReleaseNotes.md
-  fi
+  sed -n "${lineStart},${lineEnd}p" ${changelogPath} >> ReleaseNotes.md
   for RNotedir in "${OUTDir}" "${OUTDir_OC}"; do
     cp -R "ReleaseNotes.md" "${RNotedir}" || copyErr
   done
@@ -561,7 +565,8 @@ function BKext() {
     sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
   fi
 
-  sh -c "$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh)" >/dev/null 2>&1
+  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
   for acdtKext in "${acdtKexts[@]}"; do
     BKextHelper ${ACDT} "${acdtKext}"
   done
