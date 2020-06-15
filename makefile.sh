@@ -558,6 +558,9 @@ function Enjoy() {
 function BKext() {
   local TRAVIS_TAG=""
 
+  if [[ ${NO_XCODE} == True ]]; then
+    exit 1
+  fi
   if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
     echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
     echo "${cyan}"

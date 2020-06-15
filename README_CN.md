@@ -107,6 +107,8 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --NO_GH_API
 # 构建包含最新 pre-release 驱动的测试版EFI
 ./makefile.sh --PRE_RELEASE=Kext
+# 构建包含最新 pre-release OpenCore 的测试版EFI
+./makefile.sh --PRE_RELEASE=OC
 ```
 
 

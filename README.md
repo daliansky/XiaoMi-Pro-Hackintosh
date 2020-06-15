@@ -112,6 +112,8 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --NO_GH_API
 # Build the latest beta EFI with pre-release kexts
 ./makefile.sh --PRE_RELEASE=Kext
+# Build the latest beta EFI with pre-release OpenCore
+./makefile.sh --PRE_RELEASE=OC
 ```
 
 
