@@ -68,9 +68,9 @@ function downloadKext() {
   getGitHubLatestRelease
 
   # new folder for work
-  WORK_DIR="/Users/`users`/Desktop/one-key-cpufriend"
+  WORK_DIR="$HOME/Desktop/one-key-cpufriend"
   [[ -d "${WORK_DIR}" ]] && sudo rm -rf "${WORK_DIR}"
-  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
+  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}" || exit 1
 
   echo
   echo '----------------------------------------------------------------------------------'
@@ -79,7 +79,7 @@ function downloadKext() {
 
   # download ResourceConverter.sh
   local rcURL='https://raw.githubusercontent.com/acidanthera/CPUFriend/master/Tools/ResourceConverter.sh'
-  curl --silent -O "${rcURL}" && chmod +x ./ResourceConverter.sh || networkWarn
+  curl --silent -O "${rcURL}" || networkWarn && chmod +x ./ResourceConverter.sh
 
   # download CPUFriend.kext
   local cfVER="${ver}"
@@ -116,7 +116,7 @@ function changeLFM(){
   echo "(2) 800mhz"
   echo "(3) Customize"
   echo -e "${BOLD}Which option you want to choose? (1/2/3)${OFF}"
-  read -p ":" lfm_selection
+  read -rp ":" lfm_selection
   case ${lfm_selection} in
     1)
     # Keep default
@@ -158,8 +158,8 @@ function customizeLFM
     echo -e "${BOLD}Enter the lowest frequency in mhz (e.g. 1300, 2700), 0 to quit${OFF}"
     echo "Valid value should between 800 and 3500,"
     echo "and ridiculous value may result in hardware failure!"
-    read -p ": " gLFM_RAW
-    if [ ${gLFM_RAW} == 0 ]; then
+    read -rp ": " gLFM_RAW
+    if [ "${gLFM_RAW}" == 0 ]; then
       # if user enters 0, back to main function
       return
 
@@ -167,42 +167,42 @@ function customizeLFM
     elif [[ ${gLFM_RAW} =~ ^[0-9]*$ ]]; then
 
       # acceptable LFM should in 400~4000
-      if [ ${gLFM_RAW} -ge 400 ] && [ ${gLFM_RAW} -le 4000 ]; then
+      if [ "${gLFM_RAW}" -ge 400 ] && [ "${gLFM_RAW}" -le 4000 ]; then
         # get 4 denary number from user input, eg. 800 -> 0800
-        gLFM_RAW=$(printf '%04d' ${gLFM_RAW})
+        gLFM_RAW=$(printf '%04d' "${gLFM_RAW}")
         # extract the first two digits
-        gLFM_RAW=$(echo ${gLFM_RAW} | cut -c -2)
+        gLFM_RAW=$(echo "${gLFM_RAW}" | cut -c -2)
         # remove zeros at the head, because like 08, bash will consider it as octonary number
-        gLFM_RAW=$(echo ${gLFM_RAW} | sed 's/0*//')
+        gLFM_RAW=$(echo "${gLFM_RAW}" | sed 's/0*//')
         # convert gLFM_RAW to hex and insert it in LFM field
-        gLFM_VAL=$(printf '02000000%02x000000' ${gLFM_RAW})
+        gLFM_VAL=$(printf '02000000%02x000000' "${gLFM_RAW}")
         # convert gLFM_VAL to base64
-        gLFM_ENCODE=$(printf ${gLFM_VAL} | xxd -r -p | base64)
+        gLFM_ENCODE=$(printf "${gLFM_VAL}" | xxd -r -p | base64)
         # extract the first 11 digits
-        gLFM_ENCODE=$(echo ${gLFM_ENCODE} | cut -c -11)
+        gLFM_ENCODE=$(echo "${gLFM_ENCODE}" | cut -c -11)
 
         # change 020000000d000000 to 02000000{Customized Value}000000
-        /usr/bin/sed -i "" "s:AgAAAA0AAAA:${gLFM_ENCODE}:g" $BOARD_ID.plist
+        /usr/bin/sed -i "" "s:AgAAAA0AAAA:${gLFM_ENCODE}:g" "$BOARD_ID.plist"
         # change 020000000c000000 to 02000000{Customized Value}000000
-        /usr/bin/sed -i "" "s:AgAAAAwAAAA:${gLFM_ENCODE}:g" $BOARD_ID.plist
+        /usr/bin/sed -i "" "s:AgAAAAwAAAA:${gLFM_ENCODE}:g" "$BOARD_ID.plist"
         return
 
       else
         # invalid value, give 3 chances to re-input
         echo
         echo -e "[ ${BOLD}WARNING${OFF} ]: Please enter valid value (400~4000)!"
-        Count=$(($Count+1))
+        Count=$((Count+1))
       fi
 
     else
       # invalid value, give 3 chances to re-input
       echo
       echo -e "[ ${BOLD}WARNING${OFF} ]: Please enter valid value (400~4000)!"
-      Count=$(($Count+1))
+      Count=$((Count+1))
     fi
   done
 
-  if [ ${Count} > 2 ]; then
+  if [ ${Count} -gt 2 ]; then
     # if 3 times is over and input value is still invalid, exit
     echo -e "[ ${RED}ERROR${OFF} ]: Invalid input, closing the script"
     clean
@@ -222,7 +222,7 @@ function changeEPP(){
   echo "(3) Balance performance"
   echo "(4) Performance"
   echo -e "${BOLD}Which mode is your favourite? (1/2/3/4)${OFF}"
-  read -p ":" epp_selection
+  read -rp ":" epp_selection
   case ${epp_selection} in
     1)
     # Change 80/90/92 to C0, max power saving
@@ -237,7 +237,7 @@ function changeEPP(){
     2)
     # Keep default 80/90/92, balance power
     # if also no changes for lfm, exit
-    if [ ${lfm_selection} == 1 ]; then
+    if [ "${lfm_selection}" == 1 ]; then
       echo "It's nice to keep the same, see you next time."
       clean
       exit 0
@@ -277,10 +277,10 @@ function generateKext(){
   echo
   echo "Generating CPUFriendDataProvider.kext"
   ./ResourceConverter.sh --kext $BOARD_ID.plist
-  cp -r CPUFriendDataProvider.kext /Users/`users`/Desktop/
+  cp -r "CPUFriendDataProvider.kext" "$HOME/Desktop/"
 
   # Copy CPUFriend.kext to Desktop
-  cp -r CPUFriend.kext /Users/`users`/Desktop/
+  cp -r "CPUFriend.kext" "$HOME/Desktop/"
 
   echo -e "[ ${GREEN}OK${OFF} ]Generate complete"
 }

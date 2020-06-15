@@ -21,7 +21,7 @@ function choice() {
     echo "(1) 开启 ALCPlugFix"
     echo "(2) 关闭 ALCPlugFix"
     echo "(3) 退出"
-    read -p "你想选择哪个选项? (1/2/3):" alc_option
+    read -rp "你想选择哪个选项? (1/2/3):" alc_option
     echo
 }
 
@@ -35,7 +35,7 @@ function networkWarn(){
 # 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix 和 https://github.com/Menchen/ALCPlugFix/tree/master/build/Release
 function download(){
     mkdir -p one-key-alcplugfix
-    cd one-key-alcplugfix
+    cd one-key-alcplugfix || exit 1
     echo "正在下载声卡修复文件..."
     curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix -O || networkWarn
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
@@ -50,7 +50,7 @@ function copy() {
 	if [ ! -d "/usr/local/bin" ]; then
 		echo "'/usr/local/bin' 不存在, 新建中..."
 		sudo mkdir -p -m 775 /usr/local/bin
-		sudo chown $USER:admin /usr/local/bin
+		sudo chown "$USER":admin /usr/local/bin
 	fi
     sudo cp "./ALCPlugFix" /usr/local/bin/
     sudo cp "./hda-verb" /usr/local/bin/
@@ -63,9 +63,9 @@ function copy() {
 function fixpermission() {
     echo "正在修复权限..."
     sudo chmod 755 /usr/local/bin/ALCPlugFix
-    sudo chown $USER:admin /usr/local/bin/ALCPlugFix
+    sudo chown "$USER":admin /usr/local/bin/ALCPlugFix
     sudo chmod 755 /usr/local/bin/hda-verb
-    sudo chown $USER:admin /usr/local/bin/hda-verb
+    sudo chown "$USER":admin /usr/local/bin/hda-verb
     sudo chmod 644 /Library/LaunchDaemons/good.win.ALCPlugFix.plist
     sudo chown root:wheel /Library/LaunchDaemons/good.win.ALCPlugFix.plist
     echo "修复完成"

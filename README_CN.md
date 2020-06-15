@@ -1,6 +1,6 @@
 <img src="Docs/img/XiaoMi_Hackintosh_with_text_Small_cn.png" width="703" height="48"/>
 
-[![Build Status](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh.svg?branch=master)](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh) [![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
+[![构建状态](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh.svg?branch=master)](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh) [![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
 让你的小米笔记本Pro 2017 & 2018 装上 macOS Catalina & Mojave & High Sierra 

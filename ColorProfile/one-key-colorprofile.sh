@@ -20,7 +20,7 @@ function choice() {
     echo "(1) Add Color Profile"
     echo "(2) Remove Color Profile"
     echo "(3) Exit"
-    read -p "Which option you want to choose? (1/2/3):" color_option
+    read -rp "Which option you want to choose? (1/2/3):" color_option
     echo
 }
 
@@ -34,7 +34,7 @@ function networkWarn(){
 # Download from https://github.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile
 function download(){
     mkdir -p one-key-colorprofile
-    cd one-key-colorprofile
+    cd one-key-colorprofile || exit 1
     echo "Downloading Color Profile..."
     curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/NV156FHM-N61.icm -O || networkWarn
     echo "Download complete"
