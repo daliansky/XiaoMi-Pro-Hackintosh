@@ -46,5 +46,5 @@ assignees: ''
 
 **Attach system.log**
 **附上system.log**
-- If applicable, please run `log show --predicate "processID == 0" --start YYYY-MM-DD --debug` in `Terminal.app` to help locate the problem.
-- 如果可用，请在`终端.app`运行命令`log show --predicate "processID == 0" --start YYYY-MM-DD --debug`来帮助定位问题。
+- If applicable, please run `log show --predicate "processID == 0" --last boot --debug | grep "ERR"` in `Terminal.app` to help locate the problem.
+- 如果可用，请在`终端.app`运行命令`log show --predicate "processID == 0" --last boot --debug | grep "ERR"`来帮助定位问题。

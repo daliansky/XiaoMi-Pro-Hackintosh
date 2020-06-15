@@ -36,7 +36,7 @@ function checkMainboard() {
   # 创建工程文件夹
   WORK_DIR="$HOME/Desktop/EFI_XIAOMI-PRO"
   [[ -d "${WORK_DIR}" ]] && rm -rf "${WORK_DIR}"
-  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
+  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}" || exit 1
 
   local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
   curl --silent -O "${repoURL}" || networkWarn
@@ -47,26 +47,31 @@ function checkMainboard() {
     echo "您的主板型号是 ${MAINBOARD}"
     echo -e "[ ${RED}ERROR${OFF} ]:不是小米笔记本Pro, 请检查您的型号!"
     echo "此脚本仅限Clover用户!"
-    clean
-    exit 1
+    # clean
+    # exit 1
   fi
 }
 
 # 检查未签名的扩展，通过重建缓存的方式
 function checkSystemIntegrity() {
+  local KEXT_LIST
+  local APPLE_KEXT
+  local FakeSMC
+  local VirtualSMC
+
   echo
   echo "正在重建缓存..."
   sudo kextcache -i / &> kextcache_log.txt
   echo -e "[ ${GREEN}OK${OFF} ]重建完成"
 
   # 检查kextcache_log.txt的总行数
-  local KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
+  KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
   # 检查苹果原生驱动是否被修改
-  local APPLE_KEXT=$(grep 'com.apple' kextcache_log.txt)
+  APPLE_KEXT=$(grep 'com.apple' kextcache_log.txt)
   # 检查S/L/E和L/E的FakeSMC
-  local FakeSMC=$(grep 'FakeSMC' kextcache_log.txt)
+  FakeSMC=$(grep 'FakeSMC' kextcache_log.txt)
   # 检查S/L/E和L/E的VirtualSMC
-  local VirtualSMC=$(grep 'VirtualSMC' kextcache_log.txt)
+  VirtualSMC=$(grep 'VirtualSMC' kextcache_log.txt)
 
   if [[ -n ${APPLE_KEXT} ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]:苹果原生驱动被修改, 请确保S/L/E和L/E目录里的驱动未被修改!"
@@ -79,7 +84,7 @@ function checkSystemIntegrity() {
   elif [[ -n ${VirtualSMC} ]]; then
     echo -e "[ ${BLUE}WARNING${OFF} ]:在系统分区里检测到VirtualSMC, CLOVER目录里的驱动可能不工作!"
     echo "升级EFI前请把EFI备份到外置磁盘"
-  elif [ ${KEXT_LIST} -lt 1 ]; then
+  elif [ "${KEXT_LIST}" -lt 1 ]; then
   # 如果总行数大于1, 说明原生驱动被修改, 或者未知的驱动装进了/L/E 或 /S/L/E
     echo -e "[ ${BLUE}WARNING${OFF} ]: 您的系统含有未签名的驱动扩展, 可能会导致严重的问题!"
     echo "升级EFI前请把EFI备份到外置磁盘"
@@ -155,13 +160,26 @@ function downloadEFI() {
 
 # 备份序列号, 主题, BOOT 和 CLOVER 文件夹
 function backupEFI() {
+  local DATE
+  local DefaultVolume
+  local Timeout
+  local SerialNumber
+  local BoardSerialNumber
+  local SmUUID
+  local ROM
+  local MLB
+  local CustomUUID
+  local InjectSystemID
+  local framebufferfbmem
+  local framebufferstolenmem
+
   mountEFI
 
   # 创建备份文件夹
   echo
   echo "正在备份..."
   # 生成时间戳
-  local DATE="$(date "+%Y-%m-%d_%H-%M-%S")"
+  DATE="$(date "+%Y-%m-%d_%H-%M-%S")"
   BACKUP_DIR="$HOME/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
@@ -171,17 +189,17 @@ function backupEFI() {
 
   echo
   echo "正在恢复旧版配置到新CLOVER文件夹..."
-  local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local ROM="$($pledit -c 'Print RtVariables:ROM' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' ${BACKUP_DIR}/CLOVER/config.plist)"
+  DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' "${BACKUP_DIR}/CLOVER/config.plist")"
+  Timeout="$($pledit -c 'Print Boot:Timeout' "${BACKUP_DIR}/CLOVER/config.plist")"
+  SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
+  BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
+  SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  ROM="$($pledit -c 'Print RtVariables:ROM' "${BACKUP_DIR}/CLOVER/config.plist")"
+  MLB="$($pledit -c 'Print RtVariables:MLB' "${BACKUP_DIR}/CLOVER/config.plist")"
+  CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' "${BACKUP_DIR}/CLOVER/config.plist")"
+  framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' "${BACKUP_DIR}/CLOVER/config.plist")"
 
   # 检查默认启动宗卷和倒计时是否存在，如果存在则拷贝
   if [[ -n "${DefaultVolume}" ]]; then

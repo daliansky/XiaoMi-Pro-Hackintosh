@@ -36,7 +36,7 @@ function checkMainboard() {
   # new folder for work
   WORK_DIR="$HOME/Desktop/EFI_XIAOMI-PRO"
   [[ -d "${WORK_DIR}" ]] && rm -rf "${WORK_DIR}"
-  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}"
+  mkdir -p "${WORK_DIR}" && cd "${WORK_DIR}" || exit 1
 
   local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
   curl --silent -O "${repoURL}" || networkWarn
@@ -47,26 +47,31 @@ function checkMainboard() {
     echo "Your mainboard is ${MAINBOARD}"
     echo -e "[ ${RED}ERROR${OFF} ]:Not a XiaoMi-Pro, please check your model!"
     echo "This script is only for Clover user!"
-    clean
-    exit 1
+    # clean
+    # exit 1
   fi
 }
 
 # Check kexts with invalid signature by rebuilding kextcache
 function checkSystemIntegrity() {
+  local KEXT_LIST
+  local APPLE_KEXT
+  local FakeSMC
+  local VirtualSMC
+
   echo
   echo "Rebuilding kextcache..."
   sudo kextcache -i / &> kextcache_log.txt
   echo -e "[ ${GREEN}OK${OFF} ]Rebuild complete"
 
   # check total line number of kextcache_log.txt
-  local KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
+  KEXT_LIST=$(cat "kextcache_log.txt" |wc -l)
   # check if apple kexts have been modified
-  local APPLE_KEXT=$(grep 'com.apple' kextcache_log.txt)
+  APPLE_KEXT=$(grep 'com.apple' kextcache_log.txt)
   # check FakeSMC in S/L/E and L/E
-  local FakeSMC=$(grep 'FakeSMC' kextcache_log.txt)
+  FakeSMC=$(grep 'FakeSMC' kextcache_log.txt)
   # check VirtualSMC in S/L/E and L/E
-  local VirtualSMC=$(grep 'VirtualSMC' kextcache_log.txt)
+  VirtualSMC=$(grep 'VirtualSMC' kextcache_log.txt)
 
   if [[ -n ${APPLE_KEXT} ]]; then
     echo -e "[ ${RED}ERROR${OFF} ]:Native apple kexts have been modified, please keep S/L/E and L/E untouched!"
@@ -79,7 +84,7 @@ function checkSystemIntegrity() {
   elif [[ -n ${VirtualSMC} ]]; then
     echo -e "[ ${BLUE}WARNING${OFF} ]:Detected VirtualSMC in system partition, kexts in CLOVER folder may not work!"
     echo "Please backup EFI folder to an external device before updating EFI"
-  elif [ ${KEXT_LIST} -lt 1 ]; then
+  elif [ "${KEXT_LIST}" -lt 1 ]; then
   # if larger than one, means that native kexts may be modified, or unknown kexts are installed in /L/E or /S/L/E
     echo -e "[ ${BLUE}WARNING${OFF} ]: Your system has kext(s) with invalid signature, which may cause serious trouble!"
     echo "Please backup EFI folder to an external device before updating EFI"
@@ -155,13 +160,26 @@ function downloadEFI() {
 
 # Backup DefaultVolume, Timeout, Serial Numbers, theme, BOOT and CLOVER folder
 function backupEFI() {
+  local DATE
+  local DefaultVolume
+  local Timeout
+  local SerialNumber
+  local BoardSerialNumber
+  local SmUUID
+  local ROM
+  local MLB
+  local CustomUUID
+  local InjectSystemID
+  local framebufferfbmem
+  local framebufferstolenmem
+
   mountEFI
 
   # new folder for backup
   echo
   echo "Creating backup..."
   # generate time stamp
-  local DATE="$(date "+%Y-%m-%d_%H-%M-%S")"
+  DATE="$(date "+%Y-%m-%d_%H-%M-%S")"
   BACKUP_DIR="$HOME/Desktop/backupEFI_${DATE}"
   [[ -d "${BACKUP_DIR}" ]] && rm -rf "${BACKUP_DIR}"
   mkdir -p "${BACKUP_DIR}"
@@ -171,17 +189,17 @@ function backupEFI() {
 
   echo
   echo "Copying previous settings to new CLOVER..."
-  local DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local Timeout="$($pledit -c 'Print Boot:Timeout' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local ROM="$($pledit -c 'Print RtVariables:ROM' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local MLB="$($pledit -c 'Print RtVariables:MLB' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' ${BACKUP_DIR}/CLOVER/config.plist)"
-  local framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' ${BACKUP_DIR}/CLOVER/config.plist)"
+  DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' "${BACKUP_DIR}/CLOVER/config.plist")"
+  Timeout="$($pledit -c 'Print Boot:Timeout' "${BACKUP_DIR}/CLOVER/config.plist")"
+  SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
+  BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
+  SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  ROM="$($pledit -c 'Print RtVariables:ROM' "${BACKUP_DIR}/CLOVER/config.plist")"
+  MLB="$($pledit -c 'Print RtVariables:MLB' "${BACKUP_DIR}/CLOVER/config.plist")"
+  CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' "${BACKUP_DIR}/CLOVER/config.plist")"
+  framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' "${BACKUP_DIR}/CLOVER/config.plist")"
 
   # check whether DefaultVolume and Timeout exist, copy if yes
   if [[ -n "${DefaultVolume}" ]]; then

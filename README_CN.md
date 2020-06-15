@@ -95,15 +95,18 @@ git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
 ./makefile.sh
 ```
-- 如果要构建包含最新 pre-release 驱动的测试版EFI，在终端输入以下命令：
+- 还有一些进阶用法：
 ```
-git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
-cd XiaoMi-Pro-Hackintosh
+# 忽略脚本运行时遇到的错误
+./makefile.sh --IGNORE_ERR
+# 使用中文版文档
+./makefile.sh --LANG=CN
+# 构建时保留工程文件
+./makefile.sh --NO_CLEAN_UP
+# 绕过 GitHub API
+./makefile.sh --NO_GH_API
+# 构建包含最新 pre-release 驱动的测试版EFI
 ./makefile.sh --PRE_RELEASE=Kext
-```
-- 当构建包含最新 pre-release 驱动时，构建阶段可能会出现错误。在终端输入以下命令来忽略错误：
-```
-./makefile.sh --PRE_RELEASE=Kext --IGNORE_ERR
 ```
 
 

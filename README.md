@@ -100,15 +100,18 @@ git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
 ./makefile.sh
 ```
-- To build the latest beta EFI with pre-release kexts, run the following command in Terminal:
+- Some advanced usages are:
 ```
-git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
-cd XiaoMi-Pro-Hackintosh
+# Ignore errors when the script is running
+./makefile.sh --IGNORE_ERR
+# Bundled with Chinese verison Docs
+./makefile.sh --LANG=CN
+# Preserve work files during the building stage
+./makefile.sh --NO_CLEAN_UP
+# Bypass GitHub API
+./makefile.sh --NO_GH_API
+# Build the latest beta EFI with pre-release kexts
 ./makefile.sh --PRE_RELEASE=Kext
-```
-- When build the latest beta EFI with pre-release kexts, some errors may occur in the building stage. Run the following command in Terminal to ignore errors:
-```
-./makefile.sh --PRE_RELEASE=Kext --IGNORE_ERR
 ```
 
 
