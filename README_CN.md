@@ -86,17 +86,17 @@
 ### 构建
  
 - 如果要构建最新测试版EFI，在终端输入以下命令：
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
 ```
 - 或者在终端输入以下命令：
-```
+```bash
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
 ./makefile.sh
 ```
 - 还有一些进阶用法：
-```
+```bash
 # 忽略脚本运行时遇到的错误
 ./makefile.sh --IGNORE_ERR
 # 使用中文版文档
