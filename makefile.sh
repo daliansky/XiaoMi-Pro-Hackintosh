@@ -256,7 +256,6 @@ function BKextHelper() {
   cd "$2" || exit 1
   if [[ "$2" == "VoodooPS2" ]]; then
     cp -R "../VoodooInput" "./" || copyErr
-    # FIXME: the following line cannot work on travis-ci if the commit is tagged, help wanted.
     xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
   elif [ "$2" == "VirtualSMC" ]; then
@@ -557,6 +556,8 @@ function Enjoy() {
 }
 
 function BKext() {
+  local TRAVIS_TAG=""
+
   if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
     echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
     echo "${cyan}"

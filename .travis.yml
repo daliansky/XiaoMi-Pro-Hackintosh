@@ -13,7 +13,7 @@ jobs:
     compiler: clang
 
     script:
-      - ./makefile.sh --NO_GH_API --VERSION=${VERSION}
+      - ./makefile.sh --NO_GH_API --VERSION=${VERSION} --PRE_RELEASE=Kext
 
     deploy:
       provider: releases
