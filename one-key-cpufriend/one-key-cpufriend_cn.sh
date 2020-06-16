@@ -176,7 +176,7 @@ function customizeLFM
         # 转换gLFM_RAW到十六进制, 并把它插入到LFM字段
         gLFM_VAL=$(printf '02000000%02x000000' "${gLFM_RAW}")
         # 转换gLFM_VAL到base64
-        gLFM_ENCODE=$(printf "${gLFM_VAL}" | xxd -r -p | base64)
+        gLFM_ENCODE=$(echo "${gLFM_VAL}" | xxd -r -p | base64)
         # 提取开头11位数字
         gLFM_ENCODE=$(echo "${gLFM_ENCODE}" | cut -c -11)
 

@@ -27,3 +27,10 @@ jobs:
         secure: UR0gzcRI8FYzY80eCq9Cw86MXXOQfC6bFwkLEvYD5IZVAHEqOCwCt1CUrnvz/95rA1cFfM4ZcG7RIOR6z5ABJYaWbeGPiJ4g+vyIsZztPyoNCSC6701k5wBWcae4V+Ght4gUXI49hR3MgIkaKKB6rWi25g+EJnB/aC9viSLZ94eKgEejYrVgYqPgdtJawEqTbGnfbERw6fYYH5wMy6JPVNjPur9i2WlJ3YR6OKYz1poj9jtgLl4f7jAprNl94g/5Gf0A47cV0kY++hseWjtuHXctX6uaDBAsS4h8XSq7kDimJHrB3hgsfNnaE2yCHmCqM7pf45fFHYA/JxM+w+nLawr0KoqDrE+ZCkVJQt+uZKaQQF+J9YHkuKFRPNEhcRJk5SuTDB/NIsl7M3m6Dyfx6kB5x0uc70R42jKMUuNhN3n9cInGiphIggA3TTrhyQinF44LRDfiHhRpPo6YswcaFsu+DhcSfUvRlgzy3E8nQqIGqwnAEDIaBGCwiXWjvx/sgVlKMB/HnA8v32Z9aZplnKas3ENb57AoylBZkfyG0dss3DKyXlbr/rhuQJuBoIvxqQId2RaqXLY62YMigRRUG9fswlCw/xOU3OxrutxXGafho58ynZZpVW9EpNunMZIoxLM4zs36hGLiDbn10acqf9MlfLL+MxjBskn4nsPBgJw=
       on:
         tags: true
+
+  - os: osx
+    name: "Analyze Scripts"
+
+    script:
+    - HOMEBREW_NO_INSTALL_CLEANUP=1 brew install shellcheck
+    - find . \( -name "*.tool" -o -name "*.command" -o -name "*.sh" \) -exec sh -c 'for TargetFile; do shellcheck --severity=info "${TargetFile}" || exit 1; done' sh {} +

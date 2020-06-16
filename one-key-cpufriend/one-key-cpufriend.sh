@@ -177,7 +177,7 @@ function customizeLFM
         # convert gLFM_RAW to hex and insert it in LFM field
         gLFM_VAL=$(printf '02000000%02x000000' "${gLFM_RAW}")
         # convert gLFM_VAL to base64
-        gLFM_ENCODE=$(printf "${gLFM_VAL}" | xxd -r -p | base64)
+        gLFM_ENCODE=$(echo "${gLFM_VAL}" | xxd -r -p | base64)
         # extract the first 11 digits
         gLFM_ENCODE=$(echo "${gLFM_ENCODE}" | cut -c -11)
 
