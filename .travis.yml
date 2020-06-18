@@ -2,7 +2,7 @@ language: cpp
 
 env:
   global:
-  - EFI_VERSION="$(echo "${TRAVIS_TAG}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')"
+  - EFI_VERSION=$(echo "${TRAVIS_TAG}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
 
 jobs:
   include:
