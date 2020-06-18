@@ -558,7 +558,7 @@ function BKext() {
   local TRAVIS_TAG=""
 
   if [[ ${NO_XCODE} == True ]]; then
-    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}:Missing Xcode tools, won't build kexts!"
+    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
     exit 1
   fi
   if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
