@@ -448,11 +448,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                     If (_OSI ("Darwin"))
                     {
                         Notify (PS2K, 0x025B) // Press Down Win
+                        // Notify (PS2K, 0x0238) // Press Down Alt
                         Notify (PS2K, 0x0225) // Press Down e025
                         Notify (PS2K, 0x0226) // Press Down e026
                         Notify (PS2K, 0x02A6) // Press Up e026
                         Notify (PS2K, 0x02A5) // Press Up e025
                         Notify (PS2K, 0x02DB) // Press Up Win
+                        // Notify (PS2K, 0x02B8) // Press Up Alt
                     }
                     
                     If ((^^WMIE.EVTB != Zero))

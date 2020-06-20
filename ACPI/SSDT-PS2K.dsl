@@ -20,10 +20,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
                     Package (0x04)
                     {
                         Package (0x00){}, 
-                        "e025=2A", // e025=Shift
+                        "e025=2a", // e025=Shift
                         "e026=4", // e026=3
-                        "e037=69" // PrtScn=F18
-                    }, 
+                        "e037=64" // PrtScn=F13
+                    },
 
                     "Swap command and option", 
                     ">n"

@@ -6,7 +6,7 @@
 ## X-XX-2020
 
 ### 更新
-  * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键并映射 PrtScn 键到 F18
+  * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键并映射 PrtScn 键到 F13
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)

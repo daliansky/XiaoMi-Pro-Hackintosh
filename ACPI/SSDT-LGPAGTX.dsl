@@ -1,7 +1,7 @@
 // Necessary hotpatch for GTX, pair with `Rename Method(LGPA,1,S) to XGPA` rename patch and SSDT-PS2K
 // Maintained by: stevezhengshiqi
 // Reference: https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659 by Rehabman
-// Let brightness key work with VoodooPS2Controller.kext(for XiaoMi-Pro GTX), pair with LGPA rename and SSDT-PS2K
+// Let brightness key and screenshot key work with VoodooPS2Controller.kext(for XiaoMi-Pro GTX), pair with LGPA rename and SSDT-PS2K
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
 {
@@ -450,11 +450,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                     If (_OSI ("Darwin"))
                     {
                         Notify (PS2K, 0x025B) // Press Down Win
+                        // Notify (PS2K, 0x0238) // Press Down Alt
                         Notify (PS2K, 0x0225) // Press Down e025
                         Notify (PS2K, 0x0226) // Press Down e026
                         Notify (PS2K, 0x02A6) // Press Up e026
                         Notify (PS2K, 0x02A5) // Press Up e025
                         Notify (PS2K, 0x02DB) // Press Up Win
+                        // Notify (PS2K, 0x02B8) // Press Up Alt
                     }
                     
                     If ((^^WMIE.EVTB != Zero))
