@@ -1,7 +1,7 @@
-// NOT Necessary hotpatch, pair with VoodooPS2Keyboard.kext
+// NOT Necessary hotpatch, pair with SSDT-LGPA and VoodooPS2Keyboard.kext
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/blob/master/SSDT-Swap-LeftControlCapsLock.dsl by Rehabman
-// Customize VoodooPS2Keyboard.kext
+// Customize VoodooPS2Keyboard.kext, pair with SSDT-LGPA
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
 {
@@ -17,10 +17,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
                 Package (0x04)
                 {
                     "Custom PS2 Map", 
-                    Package (0x02)
+                    Package (0x04)
                     {
                         Package (0x00){}, 
-                        "e037=0"
+                        "e025=2A", // e025=Shift
+                        "e026=4", // e026=3
+                        "e037=69" // PrtScn=F18
                     }, 
 
                     "Swap command and option", 

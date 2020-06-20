@@ -2,6 +2,13 @@
 
 English | [中文](Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.4.1 beta 2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta2)
+## X-XX-2020
+
+### Update
+  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key and map PrtScn key to F18
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
 ## 6-14-2020
 
