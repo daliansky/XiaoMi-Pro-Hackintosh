@@ -17,11 +17,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
                 Package (0x04)
                 {
                     "Custom PS2 Map", 
-                    Package (0x04)
+                    Package (0x05)
                     {
                         Package (0x00){}, 
                         "e025=2a", // e025=Shift
                         "e026=4", // e026=3
+                        "e028=67", // e028=F16
                         "e037=64" // PrtScn=F13
                     },
 
