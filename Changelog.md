@@ -6,7 +6,7 @@ English | [中文](Changelog_CN.md)
 ## X-XX-2020
 
 ### Update
-  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, map PrtScn key to F13, and map double-press Fn key to F16
+  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, map PrtScn key to F11, and map double-press Fn key to F13
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
