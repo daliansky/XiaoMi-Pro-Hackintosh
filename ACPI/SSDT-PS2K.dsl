@@ -14,14 +14,21 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
             Name (RMCF, Package (0x02)
             {
                 "Keyboard", 
-                Package (0x04)
+                Package (0x06)
                 {
+                    "Custom ADB Map", 
+                    Package (0x04)
+                    {
+                        Package (0x00){},
+                        "e023=38", // e023=Shift
+                        "e025=37", // e025=command
+                        "e026=14" // e026=3
+                    },
+                    
                     "Custom PS2 Map", 
-                    Package (0x05)
+                    Package (0x03)
                     {
                         Package (0x00){}, 
-                        "e025=2a", // e025=Shift
-                        "e026=4", // e026=3
                         "e028=64", // e028=F13
                         "e037=57" // PrtScn=F11
                     },
