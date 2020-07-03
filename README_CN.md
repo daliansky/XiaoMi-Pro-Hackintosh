@@ -161,7 +161,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 #### [Clover] 我无法通过 Clover 进入 Windows/Linux，但是可以通过按 `F12`，然后选择系统进入。
 
-很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入 Windows/Linux 系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93)提供的旧版 `AptioMemoryFix.efi`。
+很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入 Windows/Linux 系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`（或者 `OcQuirks.efi`，`OpenRuntime.efi` 和 `OcQuirks.plist`），然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93)提供的旧版 `AptioMemoryFix.efi`。
 
 同时确保 `沙盒`(Sandbox) 和 `Hyper-V` 功能关闭。
 
@@ -195,6 +195,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - 感谢 [daliansky](https://github.com/daliansky) 提供 [OC-little](https://github.com/daliansky/OC-little)。
 - 感谢 [FallenChromium](https://github.com/FallenChromium)，[jackxuechen](https://github.com/jackxuechen)，[Javmain](https://github.com/javmain)，[johnnync13](https://github.com/johnnync13)，[Menchen](https://github.com/Menchen)，[Pasi-Studio](https://github.com/Pasi-Studio)，[qeeqez](https://github.com/qeeqez) 和 [Bat.bat](https://github.com/williambj1) 的宝贵建议。
 - 感谢 [hieplpvip](https://github.com/hieplpvip) 和 [syscl](https://github.com/syscl) 提供 DSDT 补丁样本。
+- 感谢 [ReddestDream](https://github.com/ReddestDream) 提供 [OcQuirks](https://github.com/ReddestDream/OcQuirks)。
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)，[EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
 - 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
 - 感谢 [zxystd](https://github.com/zxystd) 提供 [IntelBluetoothFirmware](https://github.com/zxystd/IntelBluetoothFirmware)。

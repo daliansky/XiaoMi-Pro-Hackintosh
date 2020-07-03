@@ -140,6 +140,8 @@ function H_or_G() {
     HG="grep -m 1 CloverV2"
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HG="grep -m 1 IntelBluetooth"
+  elif [[ "$1" == "OcQuirks" ]]; then
+    HG="grep -m 1 OcQuirks"
   elif [[ "$1" == "OpenCore-Factory" ]]; then
     HG="grep -m 2 RELEASE | tail +2"
   else
@@ -300,10 +302,11 @@ function ExtractClover() {
   cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
   local driverItems=(
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/AptioMemoryFix.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
     "Clover/Drivers/AppleGenericInput.efi"
     "Clover/Drivers/AppleUiSupport.efi"
+    "Clover/OcQuirks/OcQuirks.efi"
+    "Clover/OcQuirks/OpenRuntime.efi"
   )
   for driverItem in "${driverItems[@]}"; do
     cp -R "${driverItem}" "${OUTDir}/EFI/Clover/drivers/UEFI/" || copyErr
@@ -380,8 +383,10 @@ function Install() {
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   if [[ ${REMOTE} == True ]]; then
+    cp -R "XiaoMi-Pro-Hackintosh-master/CLOVER/drivers/UEFI/OcQuirks.plist" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
     cp -R "XiaoMi-Pro-Hackintosh-master/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   else
+    cp -R "../CLOVER/drivers/UEFI/OcQuirks.plist" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
     cp -R "../Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   fi
 
@@ -610,6 +615,7 @@ function DL() {
 
   # UEFI drivers
   DGR ${ACDT} AppleSupportPkg 19214108 "Clover"
+  DGR ReddestDream OcQuirks NULL "Clover"
 
   # UEFI
   # DPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi

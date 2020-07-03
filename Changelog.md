@@ -18,7 +18,10 @@
   - Update `NVMeFix` v1.0.3 (up to )
   - Update `HibernationFixup` v1.3.4 (up to )
   - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, video mirror key, and mission control key; map PrtScn key to F11; and map double-press Fn key to F13
-    - Video mirror key and mission control key are only for MX150 BIOS version >= 0a07
+    - Video mirror key and mission control key are only for MX150 BIOS version >= 0A07
+
+### Clover
+  - Clover: Add `OcQuirks.efi`, `OpenRuntime.efi`, and `OcQuirks.plist` to replace `AptioMemoryFix.efi`
 
 ### OC
   - OC: Update config to support  `OpenCore` v0.6.0

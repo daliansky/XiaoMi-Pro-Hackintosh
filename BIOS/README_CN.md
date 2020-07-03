@@ -45,8 +45,6 @@
 **仅支持 MX150。**
 [FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大动态显存大小（从32mb扩大到64mb），解锁 MSR 0xE2 寄位器，和修改 EC 固件来减少风扇噪声。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
 
-动态显存扩容脚本和解锁 CFG 脚本被囊括在了最新 release 里。
-
 
 ## 鸣谢
 
