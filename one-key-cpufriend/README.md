@@ -1,12 +1,12 @@
 # Modify macOS CPU Performance
 
-English | [中文](README_CN.md)
+**English** | [中文](README_CN.md)
 
 ## Instruction
 
 [I](https://github.com/stevezhengshiqi) am a newcomer for bash language, and welcome pros to help improve the script.
 
-<b>The script is only for 8th generation CPU(KBL-R, CNL, CFL...).</b>
+**The script is only for 8th generation CPU(KBL-R, CNL, CFL...).**
 
 The script can modify low frequency mode and energy performance preference, and use [ResourceConverter.sh](https://github.com/acidanthera/CPUFriend/tree/master/ResourceConverter) to generate customized `CPUFriendDataProvider.kext`.
 
@@ -30,10 +30,10 @@ By using this script, no file under the System folder will be edited. If you are
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-cpufriend/one-key-cpufriend.sh)"
 ```
 
-- <b>For Clover users:</b>
+- **For Clover users:**
   - Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/CLOVER/kexts/Other/` and restart.
 
-- <b>For OC users:</b>
+- **For OC users:**
   - Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
   - Open `/OC/config.plist` and find the following code:
 ```
@@ -91,7 +91,7 @@ Change to:
 
 ## Recovery
 
-- <b>For Clover users:</b>
+- **For Clover users:**
   - If you are not happy with the modification, just remove `CPUFriend.kext` and `CPUFriendDataProvider.kext` from `/CLOVER/kexts/Other/` and restart.
 
   - If unfortunately, you can't boot into the system, and you are sure the issue is caused by `CPUFriend*.kext`,
@@ -99,9 +99,9 @@ Change to:
     - Press `Space` when you are in Clover page
     - Use keyboard to choose `Block Injected kexts` - `Other`
     - Check `CPUFriend.kext` and `CPUFriendDataProvider.kext`
-    - Return to the main menu and boot into the system, then delete `CPUFriend*.kext` from your CLOVER folder
+    - `Return` to the main menu and boot into the system, then delete `CPUFriend*.kext` from your CLOVER folder
     
-- <b>For OC users:</b>
+- **For OC users:**
   - Reverse the [How to install](#how-to-install) part and restart
 
 

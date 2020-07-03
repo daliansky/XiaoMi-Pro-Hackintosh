@@ -294,6 +294,8 @@
 			<false/>
 			<key>ProvideCustomSlide</key>
 			<false/>
+			<key>ProvideMaxSlide</key>
+			<integer>0</integer>
 			<key>RebuildAppleMemoryMap</key>
 			<false/>
 			<key>SetupVirtualMap</key>
@@ -413,7 +415,7 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>model</key>
-				<string>NVIDIA GeForce MX150</string>
+				<string>Intel Sunrise Point-LP PCI Express Root Port #1</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x4)</key>
 			<dict>
@@ -533,7 +535,7 @@
 				<key>BundlePath</key>
 				<string>SMCBatteryManager.kext</string>
 				<key>Comment</key>
-				<string>SMC Battery</string>
+				<string>SMC battery</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -549,7 +551,7 @@
 				<key>BundlePath</key>
 				<string>SMCLightSensor.kext</string>
 				<key>Comment</key>
-				<string>SMC Light Sensor</string>
+				<string>SMC light sensor</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -565,7 +567,7 @@
 				<key>BundlePath</key>
 				<string>SMCProcessor.kext</string>
 				<key>Comment</key>
-				<string>SMC Prosessor</string>
+				<string>SMC prosessor</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -613,7 +615,7 @@
 				<key>BundlePath</key>
 				<string>CodecCommander.kext</string>
 				<key>Comment</key>
-				<string>Headphone</string>
+				<string>Headphone patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -629,7 +631,7 @@
 				<key>BundlePath</key>
 				<string>CPUFriend.kext</string>
 				<key>Comment</key>
-				<string>Power Management</string>
+				<string>Power management data injector</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -645,7 +647,7 @@
 				<key>BundlePath</key>
 				<string>CPUFriendDataProvider.kext</string>
 				<key>Comment</key>
-				<string>Power Management</string>
+				<string>Power management data</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -661,7 +663,7 @@
 				<key>BundlePath</key>
 				<string>EFICheckDisabler.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Disable eficheck</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -677,7 +679,7 @@
 				<key>BundlePath</key>
 				<string>HibernationFixup.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Hibernation patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -693,7 +695,7 @@
 				<key>BundlePath</key>
 				<string>IntelBluetoothFirmware.kext</string>
 				<key>Comment</key>
-				<string>Bluetooth</string>
+				<string>Intel bluetooth driver</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -709,7 +711,7 @@
 				<key>BundlePath</key>
 				<string>IntelBluetoothInjector.kext</string>
 				<key>Comment</key>
-				<string>Bluetooth</string>
+				<string>Intel bluetooth driver</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -741,7 +743,7 @@
 				<key>BundlePath</key>
 				<string>NVMeFix.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>NVMe patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -757,7 +759,7 @@
 				<key>BundlePath</key>
 				<string>SATA-unsupported.kext</string>
 				<key>Comment</key>
-				<string>SATA</string>
+				<string>SATA patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -773,7 +775,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext</string>
 				<key>Comment</key>
-				<string>Trackpad</string>
+				<string>Multitouch engine</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -789,7 +791,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooGPIO.kext</string>
 				<key>Comment</key>
-				<string>Trackpad</string>
+				<string>I2C trackpad GPIO controller</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -805,7 +807,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooI2CServices.kext</string>
 				<key>Comment</key>
-				<string>Trackpad</string>
+				<string>I2C trackpad logging</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -821,7 +823,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext</string>
 				<key>Comment</key>
-				<string>Trackpad</string>
+				<string>I2C trackpad</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -837,7 +839,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2CHID.kext</string>
 				<key>Comment</key>
-				<string>Trackpad</string>
+				<string>I2C trackpad satellite</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -853,7 +855,7 @@
 				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext</string>
 				<key>Comment</key>
-				<string>Keyboard</string>
+				<string>PS2 controller</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -869,7 +871,7 @@
 				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext</string>
 				<key>Comment</key>
-				<string>Keyboard</string>
+				<string>PS2 keyboard</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -885,7 +887,7 @@
 				<key>BundlePath</key>
 				<string>itlwm.kext</string>
 				<key>Comment</key>
-				<string>Intel Wi-Fi</string>
+				<string>Intel Wi-Fi driver</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -912,7 +914,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data></data>
 				<key>Identifier</key>
@@ -980,7 +982,7 @@
 			<key>HideAuxiliary</key>
 			<true/>
 			<key>PickerAttributes</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
@@ -1021,8 +1023,6 @@
 			<true/>
 			<key>AuthRestart</key>
 			<true/>
-			<key>BlacklistAppleUpdate</key>
-			<false/>
 			<key>BootProtect</key>
 			<string>Bootstrap</string>
 			<key>ExposeSensitiveData</key>
@@ -1049,20 +1049,6 @@
 				<string>UEFI Shell</string>
 				<key>Path</key>
 				<string>OpenShell.efi</string>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Auxiliary</key>
-				<true/>
-				<key>Comment</key>
-				<string>Clean NVRAM to reduce conflicts with other bootloaders</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Name</key>
-				<string>Clean NVRAM</string>
-				<key>Path</key>
-				<string>CleanNvram.efi</string>
 			</dict>
 		</array>
 	</dict>
@@ -1124,6 +1110,8 @@
 		<dict>
 			<key>EnableJumpstart</key>
 			<true/>
+			<key>GlobalConnect</key>
+			<false/>
 			<key>HideVerbose</key>
 			<true/>
 			<key>JumpstartHotPlug</key>
@@ -1202,6 +1190,8 @@
 			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
+			<key>UgaPassThrough</key>
+			<false/>
 		</dict>
 		<key>ProtocolOverrides</key>
 		<dict>
@@ -1212,6 +1202,8 @@
 			<key>AppleDebugLog</key>
 			<false/>
 			<key>AppleEvent</key>
+			<false/>
+			<key>AppleFramebufferInfo</key>
 			<false/>
 			<key>AppleImageConversion</key>
 			<false/>

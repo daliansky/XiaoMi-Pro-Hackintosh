@@ -5,13 +5,14 @@
 
 让你的小米笔记本Pro 2017 & 2018 装上 macOS Catalina & Mojave & High Sierra 
 
-[English](README.md) | 中文
+[English](README.md) | **中文**
 
 ## 目录
 
 - [电脑配置](#电脑配置)
-- [Clover版本的目前情况](#clover版本的目前情况)
-- [OpenCore版本的目前情况](#opencore版本的目前情况)
+- [目前情况](#目前情况)
+  - [Clover](#clover)
+  - [OpenCore](#opencore)
 - [安装](#安装)
   - [首次安装](#首次安装)
   - [构建](#构建)
@@ -39,35 +40,38 @@
 | 读卡器   | 瑞昱 RTS5129/RTS5250S                      |
 
 
-## Clover版本的目前情况
+## 目前情况
 
-- <b>HDMI 在macOS 10.15.5+上可能无法工作，见 [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)</b>
-- <b>有线网在macOS 10.15上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)</b>
-- 如果升级到macOS 10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
-  - 如果不是macOS 10.15，也推荐更新上述驱动
-- <b>独立显卡</b>无法工作，因为macOS不支持Optimus技术
+- **HDMI 在 macOS10.15.5+ 上可能无法工作，见 [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)**
+- **有线网在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
+- 如果升级到 macOS10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
+  - 如果不是 macOS10.15，也推荐更新上述驱动
+- **独立显卡**无法工作，因为macOS不支持Optimus技术
   - 使用了 [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) 来禁用它以节省电量
-- <b>指纹传感器</b>无法工作
-  - 使用了[SSDT-USB](ACPI/SSDT-USB.dsl)来禁用它以节省电量
-- <b>英特尔蓝牙</b>可能会导致睡眠问题，并且不支持部分蓝牙设备
+- **指纹传感器**无法工作
+  - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
+- **英特尔蓝牙**可能会导致睡眠问题，并且不支持部分蓝牙设备
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
-- <b>英特尔无线网卡 (英特尔 无线 8265)</b>需要额外操作来工作
+- **英特尔无线网卡 (英特尔 无线 8265)** 需要额外操作来工作
   - 购买USB网卡或者支持的内置网卡
   - 使用 [itlwm](https://github.com/zxystd/itlwm) 和 [HeliPort](https://github.com/zxystd/HeliPort) 来驱动英特尔无线网卡
   - ~阅读[#330](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/330)，里面提供了测试驱动~
-- <b>瑞昱USB SD读卡器 (RTS5129)</b>无法工作
-  - 使用了[SSDT-USB](ACPI/SSDT-USB.dsl)来禁用它以节省电量
+- **瑞昱USB SD读卡器 (RTS5129)** 无法工作
+  - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
 - 其他都工作正常
 
+### Clover
+- 支持 macOS10.13 ~ macOS10.15.6，但**不支持 macOS11+**
+- 使用 OpenCore 后需要清理 NVRAM
+  - 在 Clover 启动界面按下 `Fn+F11`
 
-## OpenCore版本的目前情况
-
-- 和[Clover版本的目前情况](#clover版本的目前情况)小节基本一致
+### OpenCore
+- 支持 macOS10.13 ~ macOS10.15.6，但**不支持 macOS11+**
+- **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
+  - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
+- 使用 Clover 后需要清理 NVRAM
+  - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
 - 有限的主题
-- <b>Windows的软件会丢失激活，因为OpenCore注入了不同的硬件UUID</b>
-  - 我不确定这么做有没有用。根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的  `PlatformInfo - Generic - SystemUUID`
-- 使用Clover后需要清理 NVRAM
-  - 在OpenCore启动界面按下 `空格`，选中进入 `Clean NVRAM`
 
 
 ## 安装
@@ -148,23 +152,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 #### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 
-如果是Clover用户，在Clover开机界面按下 `Fn+F11`。然后Clover会刷新 `nvram.plist` 并移除锁定信息。  
-如果是OC用户，开机时按 `Esc` 键来进入引导菜单。然后按下 `空格` 键并选择 `Clean NVRAM`。
+如果是 Clover 用户，在 Clover 开机界面按下 `Fn+F11`。然后 Clover 会刷新 `nvram.plist` 并移除锁定信息。  
+如果是 OC 用户，开机时按 `Esc` 键来进入引导菜单。然后按下 `空格` 键并选择 `Reset NVRAM`。
 
-#### [Clover] 我开启了 `文件保险箱`，开机时找不到macOS启动项，怎么办？
+#### [Clover] 我开启了 `文件保险箱`，开机时找不到 macOS 启动项，怎么办？
 
-一般情况下不推荐开启 `文件保险箱`。你可以在Clover开机界面时按下Fn + F3，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
+一般情况下不推荐开启 `文件保险箱`。你可以在 Clover 开机界面时按下 `Fn+F3`，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
 
-#### [Clover] 我无法通过Clover进入Windows/Linux，但是可以通过按F12，然后选择系统进入。
+#### [Clover] 我无法通过 Clover 进入 Windows/Linux，但是可以通过按 `F12`，然后选择系统进入。
 
-很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入Windows/Linux系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93)提供的旧版`AptioMemoryFix.efi`。
+很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入 Windows/Linux 系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`，然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93)提供的旧版 `AptioMemoryFix.efi`。
 
 同时确保 `沙盒`(Sandbox) 和 `Hyper-V` 功能关闭。
 
 #### [OC] 怎么跳过引导菜单并直接进入系统？
 
 首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。  
-然后，打开 `/EFI/OC/config.plist`，关闭`ShowPicker`。  
+然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。  
 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。  
 
 ### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/常见问题解答)。

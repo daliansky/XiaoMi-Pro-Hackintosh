@@ -323,7 +323,6 @@ function ExtractOC() {
     "OpenCore/EFI/OC/Drivers/OpenRuntime.efi"
   )
   local toolItems=(
-    "OpenCore/EFI/OC/Tools/CleanNvram.efi"
     "OpenCore/EFI/OC/Tools/OpenShell.efi"
   )
   for driverItem in "${driverItems[@]}"; do

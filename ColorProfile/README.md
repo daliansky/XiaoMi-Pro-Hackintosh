@@ -1,6 +1,6 @@
 # Improved Color Profile
 
-English | [中文](README_CN.md)
+**English** | [中文](README_CN.md)
 
 ## Note: Only for BOE NV156FHM-N61 LCD Panel (Default Xiaomi Pro)
 

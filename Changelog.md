@@ -1,12 +1,27 @@
 # XiaoMi NoteBook Pro EFI Changelog
 
-English | [中文](Changelog_CN.md)
+**English** | [中文](Changelog_CN.md)
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta2)
 ## X-XX-2020
 
 ### Update
-  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, map PrtScn key to F11, and map double-press Fn key to F13
+  - Update `Clover` r51
+  - Update `OpenCore` v0.6.0 (up to )
+  - Update `Lilu` v1.4.6 (up to )
+  - Update `AppleALC` v1.5.1 (up to )
+  - Update `VirtualSMC` v1.1.5 (up to )
+  - Update `WhateverGreen` v1.4.1 (up to )
+  - Update `VoodooPS2` v2.1.6 (up to )
+  - Update `VoodooInput` v1.0.7 (up to )
+  - Update `VoodooI2C` v2.4.4 (up to  )
+  - Update `NVMeFix` v1.0.3 (up to )
+  - Update `HibernationFixup` v1.3.4 (up to )
+  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, video mirror key, and mission control key; map PrtScn key to F11; and map double-press Fn key to F13
+    - Video mirror key and mission control key are only for MX150 BIOS version >= 0a07
+
+### OC
+  - OC: Update config to support  `OpenCore` v0.6.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)

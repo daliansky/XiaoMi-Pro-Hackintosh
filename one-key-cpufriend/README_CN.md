@@ -1,14 +1,14 @@
-# 调整 macOS CPU性能
+# 调整 macOS CPU 性能
 
-[English](README.md) | 中文
+[English](README.md) | **中文**
 
 ## 简介
 
-[我](https://github.com/stevezhengshiqi)还是个bash语言新手，欢迎大佬们帮助我改善脚本。
+[我](https://github.com/stevezhengshiqi)还是个 bash 语言新手，欢迎大佬们帮助我改善脚本。
 
 <b>这个脚本只支持8代U (KBL-R, CNL, CFL...)</b>。
 
-这个脚本能修改低频率模式和性能模式，然后用[ResourceConverter.sh](https://github.com/acidanthera/CPUFriend/tree/master/ResourceConverter) 来生成定制的 `CPUFriendDataProvider.kext`。
+这个脚本能修改低频率模式和性能模式，然后用 [ResourceConverter.sh](https://github.com/acidanthera/CPUFriend/tree/master/ResourceConverter) 来生成定制的 `CPUFriendDataProvider.kext`。
 
 此脚本不会修改系统文件夹下的任何文件。如果你对调整不满意，可以删除 `/CLOVER/kexts/Other/` 里的 `CPUFriend*.kext`，再重启来恢复原样。
 
@@ -18,7 +18,7 @@
 - 阅读 [CPUFriend WARNING](https://github.com/acidanthera/CPUFriend/blob/master/Instructions.md#warning)
 - 网络环境良好
 - 确保 `IOPlatformPluginFamily.kext` 未经修改
-- 确保[Lilu](https://github.com/acidanthera/Lilu)在工作
+- 确保 [Lilu](https://github.com/acidanthera/Lilu) 在工作
 - `plugin-type=1`
 
 
@@ -30,10 +30,10 @@
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/one-key-cpufriend/one-key-cpufriend_cn.sh)"
 ```
 
-- <b>如果是Clover用户：</b>
+- **如果是 Clover 用户：**
   - 把桌面上的 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext` 复制进 `/CLOVER/kexts/Other/` 并重启。
   
-- <b>如果是OC用户：</b>
+- **如果是 OC 用户：**
   - 把桌面上的 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext` 复制进 `/OC/Kexts/`。
   - 打开 `/OC/config.plist` 并找到以下代码：
 ```
@@ -91,23 +91,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 恢复
 
-- <b>如果是Clover用户：</b>
+- **如果是 Clover 用户：**
   - 如果你对调整不满意，删除 `/CLOVER/kexts/Other/` 里的 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext`，再重启来恢复原样。
 
   - 如果很不幸，你无法进入系统，而且你确定是由 `CPUFriend*.kext` 导致的，
 
-    - 当你进入Clover界面时，按 `空格键` 
+    - 当你进入 Clover 界面时，按 `空格键` 
     - 用键盘来选择 `Block Injected kexts` - `Other` 
     - 勾选 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext`
-    - Return到主界面并启动系统，然后从你的CLOVER文件夹删除 `CPUFriend*.kext`
+    - `Return` 到主界面并启动系统，然后从你的 CLOVER 文件夹删除 `CPUFriend*.kext`
 
-- <b>如果是OC用户：</b>
+- **如果是 OC 用户：**
   - 逆向操作[使用方法](#使用方法)小节并重启
 
 
-## 修改macOS下的CPU电压
+## 修改 macOS 下的 CPU 电压
 
-[fladnaG86](https://github.com/fladnaG86)在[#150](https://github.com/daliansky/XiaoMi-Pro/issues/150)提供了macOS上降低CPU/GPU/缓存存储器电压的脚本，欢迎大家尝试！
+[fladnaG86](https://github.com/fladnaG86) 在[#150](https://github.com/daliansky/XiaoMi-Pro/issues/150)提供了 macOS 上降低 CPU/GPU/缓存存储器电压的脚本，欢迎大家尝试！
 
 
 ## 鸣谢

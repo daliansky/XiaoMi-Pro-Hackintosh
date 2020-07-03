@@ -188,7 +188,7 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>model</key>
-				<string>NVIDIA GeForce MX150</string>
+				<string>Intel Sunrise Point-LP PCI Express Root Port #1</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x4)</key>
 			<dict>
@@ -353,7 +353,7 @@
 				<key>Disabled</key>
 				<false/>
 				<key>MatchOS</key>
-				<string>10.15.x</string>
+				<string>10.15.x,10.16.x</string>
 				<key>Find</key>
 				<data>Y29tLmFwcGxlAA==</data>
 				<key>Replace</key>

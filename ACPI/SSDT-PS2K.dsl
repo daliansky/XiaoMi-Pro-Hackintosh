@@ -11,18 +11,21 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
     {
         If (_OSI ("Darwin"))
         {
-            Name (RMCF, Package (0x02)
+            Name (RMCF, Package (0x0A)
             {
                 "Keyboard", 
                 Package (0x06)
                 {
                     "Custom ADB Map", 
-                    Package (0x04)
+                    Package (0x07)
                     {
                         Package (0x00){},
                         "e023=38", // e023=Shift
-                        "e025=37", // e025=command
-                        "e026=14" // e026=3
+                        "e025=37", // e025=Command
+                        "e026=15", // e026=4
+                        "e029=7a", // e029=F1
+                        "e02b=3b", // e02b=Control
+                        "e02c=7e" // e02c=Up Arrow
                     },
                     
                     "Custom PS2 Map", 
@@ -35,6 +38,34 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
 
                     "Swap command and option", 
                     ">n"
+                },
+
+                "Mouse", 
+                Package (0x02)
+                {
+                    "DisableDevice", 
+                    ">y"
+                }, 
+
+                "ALPS GlidePoint", 
+                Package (0x02)
+                {
+                    "DisableDevice", 
+                    ">y"
+                }, 
+
+                "Sentelic FSP", 
+                Package (0x02)
+                {
+                    "DisableDevice", 
+                    ">y"
+                }, 
+
+                "Synaptics TouchPad", 
+                Package (0x02)
+                {
+                    "DisableDevice", 
+                    ">y"
                 }
             })
         }

@@ -1,12 +1,27 @@
 # XiaoMi NoteBook Pro EFI 更新日志
 
-[English](Changelog.md) | 中文
+[English](Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta2)
 ## X-XX-2020
 
 ### 更新
-  * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键，映射 PrtScn 键到 F11，并映射双击 FN 键到 F13
+  * 更新 `Clover` r5
+  * 更新 `OpenCore` v0.6.0（更新至 ）
+  * 更新 `Lilu` v1.4.6（更新至 ）
+  * 更新 `AppleALC` v1.5.1（更新至 ）
+  * 更新 `VirtualSMC` v1.1.5（更新至 ）
+  * 更新 `WhateverGreen` v1.4.1（更新至 ）
+  * 更新 `VoodooPS2` v2.1.6（更新至 ）
+  * 更新 `VoodooInput` v1.0.7（更新至 ）
+  * 更新 `VoodooI2C` v2.4.4（更新至 ）
+  * 更新 `NVMeFix` v1.0.3（更新至 ）
+  * 更新 `HibernationFixup` v1.3.4（更新至 ）
+  * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键，镜像键，和调度中心键；映射 PrtScn 键到 F11；并映射双击 FN 键到 F13
+    * 镜像键和调度中心键仅支持 MX150 BIOS 版本 >= 0a07
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)

@@ -1,15 +1,15 @@
 # DVMT and 0xE2 fix
 
-English | [中文](README_CN.md)
+**English** | [中文](README_CN.md)
 
 ## Instruction
 
-<b>MX150 Only!</b>
+**MX150 Only!**
 
-0. <b>SUPER IMPORTANT! Modifications only checked on BIOS 603. Neither @FallenChromium nor Cyb is responsible for any damage, all is working for us, but you're doing all on your risk.</b>
+0. **SUPER IMPORTANT! Modifications only checked on BIOS 603. Neither @FallenChromium nor Cyb is responsible for any damage, all is working for us, but you're doing all on your risk.**
     - After several tests, I found that the script is safe for 0906 BIOS.
 
-1. <b>IMPORTANT - Make a backup file using `backup.cmd`, save output file `mybackup.bin` somewhere in the cloud. This is a proof-of-concept and not stable revision.</b>
+1. **IMPORTANT - Make a backup file using `backup.cmd`, save output file `mybackup.bin` somewhere in the cloud. This is a proof-of-concept and not stable revision.**
 
 2. Before any other manipulations, make sure PowerShell scripts execution is allowed on your Windows machine. Further info [here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6). I set all of policies (CurrentUser and etc.) to Unrestricted and only after this executables worked for me.
 
@@ -23,7 +23,7 @@ English | [中文](README_CN.md)
 
 7. Delete DVMT patches
 
-- <b>For both Clover and OC users:</b>
+- **For both Clover and OC users:**
   - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
 ```
 <key>framebuffer-fbmem</key>
