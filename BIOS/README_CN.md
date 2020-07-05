@@ -4,7 +4,7 @@
 
 ## 简介
 
-[XMAKB5R0P0906](XMAKB5R0P0906) 里的 BIOS 包和 [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 来自小米官方，来源可靠。**这些包仅支持 MX150 版本。**
+[XMAKB5R0P0603](XMAKB5R0P0603) 和 [XMAKB5R0P0906](XMAKB5R0P0906) 里的 BIOS 包和 [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 都来自小米官方，来源可靠。**这些包仅支持 MX150 版本。**
 
 ~文件夹 [ME](ME) 的 ME 固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的 ME 固件有助于抵御潜在的恶意攻击。上述文件夹里的 ME 固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。~
 
@@ -26,7 +26,18 @@
 - 升级到这个 BIOS 版本十分简单，下载并打开 [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 即可。
 
 
-## 怎么升级0906 BIOS
+## 怎么升级/降级到 0603 BIOS
+
+1. 准备一个 FAT32 U盘，下载 [XMAKB5R0P0603](XMAKB5R0P0603) 文件夹里的所有文件并把它们放入U盘的根目录。
+
+2. 插上电源并重启电脑，按 `F12`，并选择U盘启动项。
+
+3. 在 shell 界面，输入 `unlockme.nsh`，然后电脑可能会自动重启。然后重复第 2 步并输入 `flash.nsh`。
+
+4. 等待安装过程结束。
+
+
+## 怎么升级 0906 BIOS
 
 有句老话说得好，“不打无准备之仗”。**备份重要资料永远不会错。** 有用户反映运行程序后会遇到蓝屏问题。
 
@@ -49,5 +60,5 @@
 ## 鸣谢
 
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
-- 感谢一个热心的朋友提供0A07 BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传0A07 BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
+- 感谢一个热心的朋友提供 0A07 BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传 0A07 BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
 - 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。

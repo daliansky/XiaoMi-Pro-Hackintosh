@@ -497,7 +497,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                     // Double Press Fn key
                     If (_OSI ("Darwin"))
                     {
-                        Notify (PS2K, 0x0428) // Press e028
+                        Notify (PS2K, 0x0429) // Press e029
                     }
 
                     If (CondRefOf (^^WMIX))
@@ -609,8 +609,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                         If (_OSI ("Darwin"))
                         {
                             Notify (PS2K, 0x0225) // Press Down e025
-                            Notify (PS2K, 0x0229) // Press Down e029
-                            Notify (PS2K, 0x02A9) // Press Up e029
+                            Notify (PS2K, 0x022B) // Press Down e02b
+                            Notify (PS2K, 0x02AB) // Press Up e02b
                             Notify (PS2K, 0x02A5) // Press Up e025
                         }
                         ElseIf ((^^WMIX.EV01 != Zero))
@@ -626,10 +626,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                         // Mission Control
                         If (_OSI ("Darwin"))
                         {
-                            Notify (PS2K, 0x022B) // Press Down e02b
                             Notify (PS2K, 0x022C) // Press Down e02c
+                            Notify (PS2K, 0x022D) // Press Down e02d
+                            Notify (PS2K, 0x02AD) // Press Up e02d
                             Notify (PS2K, 0x02AC) // Press Up e02c
-                            Notify (PS2K, 0x02AB) // Press Up e02b
                         }
                         ElseIf ((^^WMIX.EV03 != Zero))
                         {

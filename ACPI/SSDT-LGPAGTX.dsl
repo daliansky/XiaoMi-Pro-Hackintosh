@@ -435,7 +435,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                     // Double Press Fn key
                     If (_OSI ("Darwin"))
                     {
-                        Notify (PS2K, 0x0428) // Press e028
+                        Notify (PS2K, 0x0429) // Press e029
                     }
   
                     If ((^^WMIE.EVT9 != Zero))

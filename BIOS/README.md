@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The BIOS packet in [XMAKB5R0P0906](XMAKB5R0P0906) and [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) are from Xiaomi stuff, so they are reliable. **These packets are only compatible with MX150 version.**
+The BIOS packet in [XMAKB5R0P0603](XMAKB5R0P0603), [XMAKB5R0P0906](XMAKB5R0P0906) and [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) are from Xiaomi stuff, so they are reliable. **These packets are only compatible with MX150 version.**
 
 ~The ME firmware in [ME](ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps to avoid potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.~
 
@@ -24,6 +24,17 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 - I have no idea about this version. The packet provider doesn't give much information.
 - On my laptop, the `KB Backlight Mode` - `Standard` is not working.
 - It's very easy to upgrade to this version. Just download and open [XMAKB5R0P0A07](XMAKB5R0P0A07.exe).
+
+
+## How to upgrade/downgrade to 0603 BIOS
+
+1. Prepare a FAT32 U-disk, download all the files in [XMAKB5R0P0603](XMAKB5R0P0603) folder and put them into the root directory of the U-disk.
+
+2. Reboot the laptop with AC charge on, press `F12`, and choose the U-disk entry.
+
+3. In the shell interface, type `unlockme.nsh`, and then the device may reboot. After that, repeat the second step and type `flash.nsh`.
+
+4. Wait until the install process completes.
 
 
 ## How to update 0906 BIOS
@@ -48,6 +59,6 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 
 ## Credits
 
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing 0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing 0603 and 0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 - Thanks to a friendly guy for providing 0A07 BIOS packet. He doesn't want to be in trouble so please don't spread the 0A07 BIOS packet.
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.

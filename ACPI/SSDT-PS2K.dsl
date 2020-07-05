@@ -17,22 +17,23 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
                 Package (0x06)
                 {
                     "Custom ADB Map", 
-                    Package (0x07)
+                    Package (0x09)
                     {
                         Package (0x00){},
                         "e023=38", // e023=Shift
                         "e025=37", // e025=Command
                         "e026=15", // e026=4
-                        "e029=7a", // e029=F1
-                        "e02b=3b", // e02b=Control
-                        "e02c=7e" // e02c=Up Arrow
+                        "e029=69", // e029=F13
+                        "e02b=7a", // e02b=F1
+                        "e02c=3b", // e02c=Control
+                        "e02d=7e", // e02d=Up Arrow
+                        "e052=6f" // Insert=F12
                     },
                     
                     "Custom PS2 Map", 
-                    Package (0x03)
+                    Package (0x02)
                     {
                         Package (0x00){}, 
-                        "e028=64", // e028=F13
                         "e037=57" // PrtScn=F11
                     },
 

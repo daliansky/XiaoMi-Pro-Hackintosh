@@ -17,7 +17,8 @@
   - Update `VoodooI2C` v2.4.4 (up to  )
   - Update `NVMeFix` v1.0.3 (up to )
   - Update `HibernationFixup` v1.3.4 (up to )
-  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, video mirror key, and mission control key; map PrtScn key to F11; and map double-press Fn key to F13
+  - Update `IntelBluetoothFirmware` v1.1.0
+  - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, video mirror key, and mission control key; map PrtScn key to F11, Insert key to F12, and double-press Fn key to F13
     - Video mirror key and mission control key are only for MX150 BIOS version >= 0A07
 
 ### Clover

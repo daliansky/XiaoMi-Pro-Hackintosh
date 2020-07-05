@@ -521,7 +521,6 @@ function GenNote() {
 
   printVersion=$(echo "${VERSION}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
   printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
-  echo "#### Known Issue: \`IntelBluetoothFirmware.kext\` and \`IntelBluetoothInjector.kext\` may cause frequent KPs, please remove those kexts if you suffer from sleep problems." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)

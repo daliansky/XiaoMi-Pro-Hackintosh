@@ -17,7 +17,8 @@
   * 更新 `VoodooI2C` v2.4.4（更新至 ）
   * 更新 `NVMeFix` v1.0.3（更新至 ）
   * 更新 `HibernationFixup` v1.3.4（更新至 ）
-  * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键，镜像键，和调度中心键；映射 PrtScn 键到 F11；并映射双击 FN 键到 F13
+  * 更新 `IntelBluetoothFirmware` v1.1.0
+  * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键，镜像键，和调度中心键；映射 PrtScn 键到 F11，Insert 键到 F12，和双击 FN 键到 F13
     * 镜像键和调度中心键仅支持 MX150 BIOS 版本 >= 0A07
 
 ### Clover
