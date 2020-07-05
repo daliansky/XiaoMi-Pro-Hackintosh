@@ -21,6 +21,9 @@
   * 更新 `SSDT-LGPA` 和 `SSDT-PS2K` 来支持原生截图键，镜像键，和调度中心键；映射 PrtScn 键到 F11，Insert 键到 F12，和双击 FN 键到 F13
     * 镜像键和调度中心键仅支持 MX150 BIOS 版本 >= 0A07
 
+### 变更
+  * 关闭 `FBEnableDynamicCDCLK` 因为它会造成休眠后黑屏；想开启大于 1424x802 HiDPI 分辨率的话请把 `framebuffer-flag` 设置为 `CwfjAA==`
+
 ### Clover
   * Clover: 新增 `OcQuirks.efi`，`OpenRuntime.efi` 和 `OcQuirks.plist` 来替代 `AptioMemoryFix.efi`
 

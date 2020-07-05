@@ -21,6 +21,9 @@
   - Update `SSDT-LGPA` and `SSDT-PS2K` to support native screenshot key, video mirror key, and mission control key; map PrtScn key to F11, Insert key to F12, and double-press Fn key to F13
     - Video mirror key and mission control key are only for MX150 BIOS version >= 0A07
 
+### Change
+  - Disable `FBEnableDynamicCDCLK` since it will cause black screen wake from hibernation; for people who want to enable HiDPI resolution > 1424x802, please change the value for `framebuffer-flag` to `CwfjAA==`
+
 ### Clover
   - Clover: Add `OcQuirks.efi`, `OpenRuntime.efi`, and `OcQuirks.plist` to replace `AptioMemoryFix.efi`
 
@@ -418,7 +421,7 @@
 ## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
 ## 8-9-2018
 
-  - Mojave installation become easier
+  - Mojave installation becomes easier
 
 ### Update
   - Update `Clover` r4641
@@ -528,7 +531,7 @@
 ### Change
   - Fix the issue of percentage refreshes
   - Fix sound card sleep wake up soundless problem
-  - Fix screen brightness can not be saved problem
+  - Fix screen brightness can not be saved
 
 
 ## 11-7-2017
@@ -575,7 +578,7 @@
 
 ## 10-18-2017
 
-  - tested graphics driver is not as good as the first version, now the graphics driver is restored to fake 0x19160000
+  - Beta graphics driver is not as good as the first version; now the graphics driver is restored to fake 0x19160000
 
 ### Remove
   - Remove `USBInjectAll`, replace with `SSDT-UIAC.aml` to customize USB device
@@ -604,4 +607,4 @@
 
 ## 10-14-2017
 
-  - EFI update, trackpad is working
+  - EFI update, the trackpad is working

@@ -1,9 +1,5 @@
 language: cpp
 
-env:
-  global:
-  - EFI_VERSION=$(echo "${TRAVIS_TAG}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
-
 jobs:
   include:
   - os: osx
@@ -12,16 +8,17 @@ jobs:
     compiler: clang
 
     script:
+    - EFI_VERSION=$(echo "${TRAVIS_TAG}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
     - ./makefile.sh --NO_GH_API --VERSION="${TRAVIS_TAG}" --PRE_RELEASE=Kext --PRE_RELEASE=OC
 
     deploy:
       provider: releases
+      edge: true
+      prerelease: false
       file: "build/*.zip"
       file_glob: true
-      edge: true
       name: "XiaoMi NoteBook Pro EFI ${EFI_VERSION}"
       release_notes_file: "build/XiaoMi_Pro-${TRAVIS_TAG}/ReleaseNotes.md"
-      prerelease: true
       on:
         tags: true
       token:

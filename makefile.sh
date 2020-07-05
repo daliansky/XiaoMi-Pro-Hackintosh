@@ -578,7 +578,7 @@ function BKext() {
     BKextHelper ${ACDT} "${acdtKext}"
   done
   BKextHelper VoodooI2C VoodooI2C
-  BKextHelper zxystd IntelBluetoothFirmware
+  BKextHelper OpenIntelWireless IntelBluetoothFirmware
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
   echo
@@ -607,7 +607,7 @@ function DL() {
       DGR ${ACDT} "${acdtKext}"
     done
     DGR VoodooI2C VoodooI2C
-    DGR zxystd IntelBluetoothFirmware
+    DGR OpenIntelWireless IntelBluetoothFirmware
   fi
 
   DGS RehabMan hack-tools
