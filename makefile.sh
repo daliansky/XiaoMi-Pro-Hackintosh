@@ -15,6 +15,7 @@ CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
 LANGUAGE="EN"
+NO_WIKI=True
 NO_XCODE=False
 PRE_RELEASE=""
 REMOTE=True
@@ -203,11 +204,25 @@ function DGS() {
   echo "${reset}"
 }
 
+# Download GitHub Wiki
+function DGW() {
+  if [[ ${NO_XCODE} == True ]]; then
+    echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Missing Xcode tools, won't download wiki!"
+  else
+    local URL="https://github.com/$1/$2.wiki.git"
+    echo "${green}[${reset}${blue}${bold} Downloading $2.wiki ${reset}${green}]${reset}"
+    echo "${cyan}"
+    git clone "${URL}" >/dev/null 2>&1 || networkErr "$2.wiki"
+    echo "${reset}"
+  fi
+}
+
 # Download Bitbucket Release
 function DBR() {
   local Count=0
   local rawURL="https://api.bitbucket.org/2.0/repositories/$1/$2/downloads/"
   local URL
+
   while  [ ${Count} -lt 3 ];
   do
     URL="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
@@ -309,7 +324,7 @@ function ExtractClover() {
     "Clover/OcQuirks/OpenRuntime.efi"
   )
   for driverItem in "${driverItems[@]}"; do
-    cp -R "${driverItem}" "${OUTDir}/EFI/Clover/drivers/UEFI/" || copyErr
+    cp -R "${driverItem}" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
   done
 }
 
@@ -345,8 +360,14 @@ function Unpack() {
 
 # Install
 function Install() {
+  local acpiItems
+  local btItems
+  local gtxItems
+  local kextItems
+  local wikiItems
+
   # Kexts
-  local kextItems=(
+  kextItems=(
     "AppleALC.kext"
     "HibernationFixup.kext"
     "IntelBluetoothFirmware.kext"
@@ -391,41 +412,6 @@ function Install() {
   fi
 
   # ACPI
-  local acpiItems
-  if [[ ${REMOTE} == True ]]; then
-    acpiItems=(
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-LGPAGTX.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-ALL.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-FingerBT.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-USBBT.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
-    )
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      acpiItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_GTX.txt" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      acpiItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_CN_GTX.txt" )
-    fi
-  else
-    acpiItems=(
-      "../ACPI/SSDT-LGPAGTX.aml"
-      "../ACPI/SSDT-USB-ALL.aml"
-      "../ACPI/SSDT-USB-FingerBT.aml"
-      "../ACPI/SSDT-USB-USBBT.aml"
-      "../ACPI/SSDT-USB-WLAN_LTEBT.aml"
-    )
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      acpiItems+=( "../Docs/README_GTX.txt" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      acpiItems+=( "../Docs/README_CN_GTX.txt" )
-    fi
-  fi
-
-  for ACPIdir in "${OUTDir}" "${OUTDir_OC}"; do
-    for acpiItem in "${acpiItems[@]}"; do
-      cp -R "${acpiItem}" "${ACPIdir}" || copyErr
-    done
-  done
-
   if [[ ${REMOTE} == True ]]; then
     acpiItems=(
       "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-ALS0.aml"
@@ -504,6 +490,89 @@ function Install() {
       fi
     done
   fi
+
+  # Bluetooth & GTX & wiki
+  if [[ -d "XiaoMi-Pro-Hackintosh.wiki" ]]; then
+    NO_WIKI=False
+  fi
+
+  if [[ ${NO_WIKI} == False ]]; then
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      btItems=( "XiaoMi-Pro-Hackintosh.wiki/Work-Around-with-Bluetooth.md" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      btItems=( "XiaoMi-Pro-Hackintosh.wiki/蓝牙解决方案.md" )
+    fi
+  fi
+
+  if [[ ${REMOTE} == True ]]; then
+    btItems+=(
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-ALL.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-FingerBT.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-USBBT.aml"
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+    )
+  else
+    btItems+=(
+      "../ACPI/SSDT-USB-ALL.aml"
+      "../ACPI/SSDT-USB-FingerBT.aml"
+      "../ACPI/SSDT-USB-USBBT.aml"
+      "../ACPI/SSDT-USB-WLAN_LTEBT.aml"
+    )
+  fi
+
+  for BTdir in "${OUTDir}/Bluetooth" "${OUTDir_OC}/Bluetooth"; do
+    mkdir -p "${BTdir}" || exit 1
+    for btItem in "${btItems[@]}"; do
+      cp -R "${btItem}" "${BTdir}" || copyErr
+    done
+  done
+
+  if [[ ${REMOTE} == True ]]; then
+    gtxItems=(
+      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-LGPAGTX.aml"
+    )
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      gtxItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_GTX.txt" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      gtxItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_CN_GTX.txt" )
+    fi
+  else
+    gtxItems=(
+      "../ACPI/SSDT-LGPAGTX.aml"
+    )
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      gtxItems+=( "../Docs/README_GTX.txt" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      gtxItems+=( "../Docs/README_CN_GTX.txt" )
+    fi
+  fi
+
+  for GTXdir in "${OUTDir}/GTX" "${OUTDir_OC}/GTX"; do
+    mkdir -p "${GTXdir}" || exit 1
+    for gtxItem in "${gtxItems[@]}"; do
+      cp -R "${gtxItem}" "${GTXdir}" || copyErr
+    done
+  done
+
+  if [[ ${NO_WIKI} == False ]]; then
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      wikiItems=(
+        "XiaoMi-Pro-Hackintosh.wiki/FAQ.md"
+        "XiaoMi-Pro-Hackintosh.wiki/Set-DVMT-to-64mb.md"
+      )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      wikiItems=(
+        "XiaoMi-Pro-Hackintosh.wiki/常见问题解答.md"
+        "XiaoMi-Pro-Hackintosh.wiki/设置64mb动态显存.md"
+      )
+    fi
+
+    for WIKIdir in "${OUTDir}" "${OUTDir_OC}"; do
+      for wikiItem in "${wikiItems[@]}"; do
+        cp -R "${wikiItem}" "${WIKIdir}" || copyErr
+      done
+    done
+  fi
 }
 
 # Generate Release Note
@@ -534,6 +603,9 @@ function GenNote() {
 # Patch
 function Patch() {
   local unusedItems=(
+    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
+    "IntelBluetoothInjector.kext/Contents/MacOS"
+    "Release/CodecCommander.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -541,7 +613,7 @@ function Patch() {
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
   )
   for unusedItem in "${unusedItems[@]}"; do
-    rm -rf "${unusedItem}"
+    rm -rf "${unusedItem}" >/dev/null 2>&1
   done
 
   cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete && cd "${WSDir}" || exit 1
@@ -600,7 +672,7 @@ function DL() {
     DBR Rehabman "${rmKext}"
   done
 
-  if [[ ${PRE_RELEASE} =~ "Kext" ]] && [ ${NO_XCODE} == "False" ]; then
+  if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
     BKext
   else
     for acdtKext in "${acdtKexts[@]}"; do
@@ -627,6 +699,9 @@ function DL() {
   if [[ ${REMOTE} == True ]]; then
     DGS daliansky XiaoMi-Pro-Hackintosh
   fi
+
+  # wiki, require git installed
+  DGW daliansky XiaoMi-Pro-Hackintosh
 }
 
 function Init() {

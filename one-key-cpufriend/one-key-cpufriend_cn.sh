@@ -235,12 +235,6 @@ function changeEPP(){
 
     2)
     # 保持默认值 80/90/92, 平衡电量模式
-    # 如果LFM也没有改变, 退出脚本
-    if [ "${lfm_selection}" == 1 ]; then
-      echo "不忘初心，方得始终。下次再见。"
-      clean
-      exit 0
-    fi
     ;;
 
     3)

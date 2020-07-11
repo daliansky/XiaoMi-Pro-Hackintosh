@@ -374,6 +374,8 @@
 	<dict>
 		<key>ProductName</key>
 		<string>MacBookPro14,1</string>
+		<key>NoRomInfo</key>
+		<true/>
 		<key>Trust</key>
 		<true/>
 	</dict>

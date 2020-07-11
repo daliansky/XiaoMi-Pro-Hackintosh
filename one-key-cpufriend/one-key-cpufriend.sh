@@ -236,12 +236,6 @@ function changeEPP(){
 
     2)
     # Keep default 80/90/92, balance power
-    # if also no changes for lfm, exit
-    if [ "${lfm_selection}" == 1 ]; then
-      echo "It's nice to keep the same, see you next time."
-      clean
-      exit 0
-    fi
     ;;
 
     3)

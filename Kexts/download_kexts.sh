@@ -207,13 +207,13 @@ function DL() {
   )
 
   local acdtKexts=(
-    Lilu
     VirtualSMC
     WhateverGreen
     AppleALC
     HibernationFixup
     NVMeFix
     VoodooPS2
+    Lilu
   )
 
   for rmKext in "${rmKexts[@]}"; do
@@ -225,7 +225,7 @@ function DL() {
   done
 
   DGR VoodooI2C VoodooI2C
-  DGR zxystd IntelBluetoothFirmware
+  DGR OpenIntelWireless IntelBluetoothFirmware
 
   DGS RehabMan hack-tools
 }

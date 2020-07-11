@@ -36,15 +36,11 @@
 
 Open `/EFI/OC/config.plist`, find the following code:
 ```
-<key>AppleCpuPmCfgLock</key>
-<true/>
 <key>AppleXcpmCfgLock</key>
 <true/>
 ```
 Change to:
 ```
-<key>AppleCpuPmCfgLock</key>
-<false/>
 <key>AppleXcpmCfgLock</key>
 <false/>
 ```
