@@ -2,6 +2,13 @@
 
 [English](Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
+## 8-X-2020
+
+### Clover
+  - Clover: 移除 `NoRomInfo` 键值
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
 ## 7-12-2020
 
