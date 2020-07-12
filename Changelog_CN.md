@@ -3,17 +3,17 @@
 [English](Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
-## 7-XX-2020
+## 7-12-2020
 
 ### 更新
-  * 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@99651ed](https://github.com/acidanthera/OpenCorePkg/commit/99651ed3f0c3645f6c98c26a0ab7b5c3b84b6276)）来支持 macOS11
+  * 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@eee51ba](https://github.com/acidanthera/OpenCorePkg/commit/eee51bae932b5a366351e994ea2a1909c46c3ebf)）来支持 macOS11
   * 更新 `Lilu` v1.4.6（更新至 [acidanthera/Lilu@8a81e92](https://github.com/acidanthera/Lilu/commit/8a81e92f5641f9eee333d348d39add4ecaef0b37)）
   * 更新 `AppleALC` v1.5.1（更新至 [acidanthera/AppleALC@df23c40](https://github.com/acidanthera/AppleALC/commit/df23c409d832449867263d4a5eb32aaa570935f3)）
-  * 更新 `VirtualSMC` v1.1.5（更新至 ）
+  * 更新 `VirtualSMC` v1.1.5（更新至 [acidanthera/VirtualSMC@90b1f45](https://github.com/acidanthera/VirtualSMC/commit/90b1f45475c82566fe6533c03f4938594f17bb49)）
   * 更新 `WhateverGreen` v1.4.1（更新至 [acidanthera/WhateverGreen@39e3b55](https://github.com/acidanthera/WhateverGreen/commit/39e3b557fb55dcb0e38e6ecd05d217c780ba8a2c)）
-  * 更新 `VoodooPS2` v2.1.6（更新至 [acidanthera/VoodooPS2@c43a1c7](https://github.com/acidanthera/VoodooPS2/commit/c43a1c7826d15be1d69e9c9bd766b846bddb891e)）
+  * 更新 `VoodooPS2` v2.1.6（更新至 [acidanthera/VoodooPS2@071850a](https://github.com/acidanthera/VoodooPS2/commit/071850a089de027dad3b1d372b3a2a53f5813016)）
   * 更新 `VoodooInput` v1.0.7（更新至 [acidanthera/VoodooInput@46a01f9](https://github.com/acidanthera/VoodooInput/commit/46a01f90c4c81cc193b57d523156cc035321e8ea)）
-  * 更新 `VoodooI2C` v2.4.4（更新至 [VoodooI2C/VoodooI2C@84b9aa6](https://github.com/VoodooI2C/VoodooI2C/commit/84b9aa673ee93c7ece9267559d2cf45cfe80804b)）
+  * 更新 `VoodooI2C` v2.4.4（更新至 [VoodooI2C/VoodooI2C@451739c](https://github.com/VoodooI2C/VoodooI2C/commit/451739ce4a736fa8afb591f73ef45f7fec240960)）
   * 更新 `NVMeFix` v1.0.3（更新至 [acidanthera/NVMeFix@48a0fda](https://github.com/acidanthera/NVMeFix/commit/48a0fda97650fd6a7563d65e479421524685bcee)）
   * 更新 `HibernationFixup` v1.3.4（更新至 [acidanthera/HibernationFixup@bb49d28](https://github.com/acidanthera/HibernationFixup/commit/bb49d28c7dd5d379f8729121c92bd9ad98509245)）
   * 更新 `IntelBluetoothFirmware` v1.1.1

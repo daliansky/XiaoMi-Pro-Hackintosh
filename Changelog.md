@@ -3,17 +3,17 @@
 **English** | [中文](Changelog_CN.md)
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
-## 7-XX-2020
+## 7-12-2020
 
 ### Update
-  - Update `OpenCore` v0.6.0 (up to [acidanthera/OpenCorePkg@99651ed](https://github.com/acidanthera/OpenCorePkg/commit/99651ed3f0c3645f6c98c26a0ab7b5c3b84b6276)) to support macOS11
+  - Update `OpenCore` v0.6.0 (up to [acidanthera/OpenCorePkg@eee51ba](https://github.com/acidanthera/OpenCorePkg/commit/eee51bae932b5a366351e994ea2a1909c46c3ebf)) to support macOS11
   - Update `Lilu` v1.4.6 (up to [acidanthera/Lilu@8a81e92](https://github.com/acidanthera/Lilu/commit/8a81e92f5641f9eee333d348d39add4ecaef0b37))
   - Update `AppleALC` v1.5.1 (up to [acidanthera/AppleALC@df23c40](https://github.com/acidanthera/AppleALC/commit/df23c409d832449867263d4a5eb32aaa570935f3))
-  - Update `VirtualSMC` v1.1.5 (up to )
+  - Update `VirtualSMC` v1.1.5 (up to [acidanthera/VirtualSMC@90b1f45](https://github.com/acidanthera/VirtualSMC/commit/90b1f45475c82566fe6533c03f4938594f17bb49))
   - Update `WhateverGreen` v1.4.1 (up to [acidanthera/WhateverGreen@39e3b55](https://github.com/acidanthera/WhateverGreen/commit/39e3b557fb55dcb0e38e6ecd05d217c780ba8a2c))
-  - Update `VoodooPS2` v2.1.6 (up to [acidanthera/VoodooPS2@c43a1c7](https://github.com/acidanthera/VoodooPS2/commit/c43a1c7826d15be1d69e9c9bd766b846bddb891e))
+  - Update `VoodooPS2` v2.1.6 (up to [acidanthera/VoodooPS2@071850a](https://github.com/acidanthera/VoodooPS2/commit/071850a089de027dad3b1d372b3a2a53f5813016))
   - Update `VoodooInput` v1.0.7 (up to [acidanthera/VoodooInput@46a01f9](https://github.com/acidanthera/VoodooInput/commit/46a01f90c4c81cc193b57d523156cc035321e8ea))
-  - Update `VoodooI2C` v2.4.4 (up to [VoodooI2C/VoodooI2C@84b9aa6](https://github.com/VoodooI2C/VoodooI2C/commit/84b9aa673ee93c7ece9267559d2cf45cfe80804b))
+  - Update `VoodooI2C` v2.4.4 (up to [VoodooI2C/VoodooI2C@451739c](https://github.com/VoodooI2C/VoodooI2C/commit/451739ce4a736fa8afb591f73ef45f7fec240960))
   - Update `NVMeFix` v1.0.3 (up to [acidanthera/NVMeFix@48a0fda](https://github.com/acidanthera/NVMeFix/commit/48a0fda97650fd6a7563d65e479421524685bcee))
   - Update `HibernationFixup` v1.3.4 (up to [acidanthera/HibernationFixup@bb49d28](https://github.com/acidanthera/HibernationFixup/commit/bb49d28c7dd5d379f8729121c92bd9ad98509245))
   - Update `IntelBluetoothFirmware` v1.1.1

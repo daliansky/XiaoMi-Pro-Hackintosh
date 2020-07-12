@@ -42,7 +42,8 @@ macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
 
 ## Current Status
 
-- **HDMI may not work on macOS10.15.5+, view [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)**
+- **Battery percentage and trackpad panel not work on macOS11, view [acidanthera/bugtracker#1006](https://github.com/acidanthera/bugtracker/issues/1006)**
+  - Use [Rehabman's OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) to replace `SMCBatteryManager.kext`
 - **Ethernet may not work on macOS10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS10.15, it's still recommended to update the driver above

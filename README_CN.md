@@ -42,7 +42,8 @@
 
 ## 目前情况
 
-- **HDMI 在 macOS10.15.5+ 上可能无法工作，见 [acidanthera/bugtracker#938](https://github.com/acidanthera/bugtracker/issues/938)**
+- **电量百分比和触控板设置面板在 macOS11 上无法工作，见 [acidanthera/bugtracker#1006](https://github.com/acidanthera/bugtracker/issues/1006)**
+  - 使用 [Rehabman 的 OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) 来替代 `SMCBatteryManager.kext`
 - **有线网在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - 如果升级到 macOS10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - 如果不是 macOS10.15，也推荐更新上述驱动
