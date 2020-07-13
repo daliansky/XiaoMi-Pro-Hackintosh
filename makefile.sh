@@ -317,11 +317,11 @@ function ExtractClover() {
   cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
   local driverItems=(
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OcQuirks.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
     "Clover/Drivers/AppleGenericInput.efi"
     "Clover/Drivers/AppleUiSupport.efi"
-    "Clover/OcQuirks/OcQuirks.efi"
-    "Clover/OcQuirks/OpenRuntime.efi"
   )
   for driverItem in "${driverItems[@]}"; do
     cp -R "${driverItem}" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
@@ -686,7 +686,6 @@ function DL() {
 
   # UEFI drivers
   DGR ${ACDT} AppleSupportPkg 19214108 "Clover"
-  DGR ReddestDream OcQuirks NULL "Clover"
 
   # UEFI
   # DPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
