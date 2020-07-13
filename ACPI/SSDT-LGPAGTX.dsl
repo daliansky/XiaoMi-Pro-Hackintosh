@@ -529,4 +529,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
         }
     }
 }
-

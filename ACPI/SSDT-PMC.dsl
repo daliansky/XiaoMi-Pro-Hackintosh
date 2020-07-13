@@ -26,4 +26,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PMCR", 0x00000000)
         }
     }
 }
-

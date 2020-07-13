@@ -72,4 +72,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
         }
     }
 }
-

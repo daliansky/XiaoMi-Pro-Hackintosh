@@ -18,4 +18,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)
         }
     }
 }
-

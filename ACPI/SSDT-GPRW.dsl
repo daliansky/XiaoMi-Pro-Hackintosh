@@ -28,4 +28,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_GPRW", 0x00000000)
         }
     }
 }
-

@@ -26,4 +26,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_EC", 0x00000000)
         }
     }
 }
-

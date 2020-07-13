@@ -43,4 +43,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_MEM2", 0x00000000)
         }
     }
 }
-

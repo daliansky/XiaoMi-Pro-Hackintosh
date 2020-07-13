@@ -66,4 +66,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_RMNE", 0x00000000)
         }
     }
 }
-

@@ -513,4 +513,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
         }
     }
 }
-

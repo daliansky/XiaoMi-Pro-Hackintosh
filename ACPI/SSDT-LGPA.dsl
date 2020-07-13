@@ -738,4 +738,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
         }
     }
 }
-

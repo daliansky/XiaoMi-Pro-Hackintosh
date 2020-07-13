@@ -31,4 +31,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_DDGPU", 0x00000000)
         }
     }
 }
-

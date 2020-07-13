@@ -55,4 +55,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_DMAC", 0x00000000)
         }
     }
 }
-

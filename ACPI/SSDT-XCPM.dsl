@@ -30,4 +30,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_XCPM", 0x00000000)
         }
     }
 }
-

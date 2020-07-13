@@ -282,4 +282,3 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
         }
     }
 }
-
