@@ -361,29 +361,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>RtVariables</key>
-	<dict>
-		<key>CsrActiveConfig</key>
-		<string>0x67</string>
-		<key>BooterConfig</key>
-		<string>0x28</string>
-		<key>ROM</key>
-		<string>UseMacAddr0</string>
-	</dict>
-	<key>SMBIOS</key>
-	<dict>
-		<key>ProductName</key>
-		<string>MacBookPro14,1</string>
-		<key>Trust</key>
-		<true/>
-	</dict>
-	<key>SystemParameters</key>
-	<dict>
-		<key>InjectKexts</key>
-		<string>Yes</string>
-		<key>InjectSystemID</key>
-		<true/>
-	</dict>
 	<key>Quirks</key>
 	<dict>
 		<key>AvoidRuntimeDefrag</key>
@@ -423,6 +400,29 @@
 		<key>SignalAppleOS</key>
 		<false/>
 		<key>SyncRuntimePermissions</key>
+		<true/>
+	</dict>
+	<key>RtVariables</key>
+	<dict>
+		<key>CsrActiveConfig</key>
+		<string>0x67</string>
+		<key>BooterConfig</key>
+		<string>0x28</string>
+		<key>ROM</key>
+		<string>UseMacAddr0</string>
+	</dict>
+	<key>SMBIOS</key>
+	<dict>
+		<key>ProductName</key>
+		<string>MacBookPro14,1</string>
+		<key>Trust</key>
+		<true/>
+	</dict>
+	<key>SystemParameters</key>
+	<dict>
+		<key>InjectKexts</key>
+		<string>Yes</string>
+		<key>InjectSystemID</key>
 		<true/>
 	</dict>
 </dict>

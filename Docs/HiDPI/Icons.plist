@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>vendors</key>
+	<dict>
+		<key>9e5</key>
+		<dict>
+			<key>products</key>
+			<dict>
+				<key>747</key>
+				<dict>
+					<key>display-resolution-preview-icon</key>
+					<string>/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747.tiff</string>
+					<key>resolution-preview-x</key>
+					<integer>57</integer>
+					<key>resolution-preview-y</key>
+					<integer>120</integer>
+					<key>resolution-preview-width</key>
+					<integer>292</integer>
+					<key>resolution-preview-height</key>
+					<integer>171</integer>
+					<key>display-icon</key>
+					<string>/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/DisplayProductID-747.icns</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
