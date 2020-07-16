@@ -29,7 +29,7 @@
 	<key>ProvideConsoleGopEnable</key>
 	<true/>
 	<key>ProvideCustomSlide</key>
-	<false/>
+	<true/>
 	<key>ProvideMaxSlide</key>
 	<integer>0</integer>
 	<key>RebuildAppleMemoryMap</key>

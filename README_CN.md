@@ -3,7 +3,7 @@
 [![构建状态](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh.svg?branch=master)](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh) [![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
-让你的小米笔记本Pro 2017 & 2018 装上 macOS Catalina & Mojave & High Sierra 
+让你的小米笔记本Pro 2017 & 2018 装上 macOS Big Sur & Catalina & Mojave & High Sierra 
 
 [English](README.md) | **中文**
 
@@ -42,8 +42,6 @@
 
 ## 目前情况
 
-- **电量百分比和触控板设置面板在 macOS11 上无法工作，见 [acidanthera/bugtracker#1006](https://github.com/acidanthera/bugtracker/issues/1006)**
-  - 使用 [Rehabman 的 OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) 来替代 `SMCBatteryManager.kext`
 - **有线网在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - 如果升级到 macOS10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - 如果不是 macOS10.15，也推荐更新上述驱动
@@ -148,7 +146,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 从 [VoodooI2C v2.4.1](https://github.com/alexandred/VoodooI2C/releases/tag/2.4.1) 开始，按下手势会被仿冒为用力点按，导致无法按下并拖拽文件。你可以在 `系统偏好设置 - 触控板` 里关闭 `用力点按` 或者在 `系统偏好设置 - 辅助功能 - 指针控制 - 触控板选项` 里开启 `三指拖移`。
 
-#### 在升级过程中显示器黑屏并且机子无反应
+#### 在升级过程中显示器黑屏并且机子无反应。
 
 如果显示器持续黑屏并且无反应超过五分钟，请强制重启电脑(长按电源键)并选择 `Boot macOS Install from ~` 启动项。
 
@@ -169,9 +167,13 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 #### [OC] 怎么跳过引导菜单并直接进入系统？
 
-首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。  
-然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。  
-想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。  
+首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。
+然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。
+想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
+
+### [OC] 怎么开启启动音？
+
+打开 `/OC/config.plist - UEFI - Audio` 里的 `AudioSupport` 和 `PlayChime`。
 
 ### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/常见问题解答)。
 

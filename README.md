@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh.svg?branch=master)](https://travis-ci.com/daliansky/XiaoMi-Pro-Hackintosh) [![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 -----
 
-macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
+macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
 
 **English** | [中文](README_CN.md)
 
@@ -42,8 +42,6 @@ macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
 
 ## Current Status
 
-- **Battery percentage and trackpad panel not work on macOS11, view [acidanthera/bugtracker#1006](https://github.com/acidanthera/bugtracker/issues/1006)**
-  - Use [Rehabman's OS-X-ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) to replace `SMCBatteryManager.kext`
 - **Ethernet may not work on macOS10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS10.15, it's still recommended to update the driver above
@@ -177,6 +175,10 @@ Also make sure `Sandbox` and `Hyper-V` functions in Windows 10 are disabled.
 First, in macOS, open `SysPref - Startup Disk`. Choose the target system.  
 Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.  
 When you want to switch OS, press `Esc` during startup to call the boot menu.
+
+#### [OC] How to enable startup chime?
+
+Turn on `AudioSupport` and `PlayChime` in `/OC/config.plist - UEFI - Audio`.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/FAQ).
 

@@ -301,6 +301,9 @@ function BKextHelper() {
     xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
+    # Delete unrelated firmware and only keep ibt-12-16.sfi for Intel Wireless 8265
+    cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12-16.sfi" -delete && cd "../../" || exit 1
+
     xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
@@ -317,11 +320,11 @@ function ExtractClover() {
   cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
   local driverItems=(
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OcQuirks.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
     "Clover/Drivers/AppleGenericInput.efi"
     "Clover/Drivers/AppleUiSupport.efi"
+    "Clover/OcQuirks/OcQuirks.efi"
+    "Clover/OcQuirks/OpenRuntime.efi"
   )
   for driverItem in "${driverItems[@]}"; do
     cp -R "${driverItem}" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
@@ -690,6 +693,7 @@ function DL() {
   # UEFI
   # DPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
   DPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
+  DGR ReddestDream OcQuirks NULL "Clover"
 
   # HfsPlus.efi & OC Resources
   DGS ${ACDT} OcBinaryData

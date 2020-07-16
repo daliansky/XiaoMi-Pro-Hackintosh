@@ -3,10 +3,21 @@
 [English](Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
-## 8-X-2020
+## 7-16-2020
+
+### 更新
+  * 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@20e60b0](https://github.com/acidanthera/OpenCorePkg/commit/20e60b0cbb273ea91a567440f0b7e230ecae3ec8)）
+  * 更新 `Lilu` v1.4.6（更新至 [acidanthera/Lilu@28122d0](https://github.com/acidanthera/Lilu/commit/28122d0084dc5fe1b486bd52945160cf5be64d49)）
+  * 更新 `VirtualSMC` v1.1.5（更新至 [acidanthera/VirtualSMC@fab53dc](https://github.com/acidanthera/VirtualSMC/commit/fab53dc600eef3b559c9a99b6cfd598c5f24927e)）来在 macOS11 上显示电量百分比
+  * 更新 `AppleALC` v1.5.1（更新至 [acidanthera/AppleALC@f07c1f8](https://github.com/acidanthera/AppleALC/commit/f07c1f8c65270f58a50f96bac2588710d0ff7683)）
+  * 更新 `WhateverGreen` v1.4.1（更新至 [acidanthera/WhateverGreen@b97c692](https://github.com/acidanthera/WhateverGreen/commit/b97c692aee9672786a181423dd476a05782ba7e9)）
+  * 更新 `VoodooPS2` v2.1.6（更新至 [acidanthera/VoodooPS2@60a4566](https://github.com/acidanthera/VoodooPS2/commit/60a4566c237f9c39bf38122ec8c0910a388dbe9d)）
 
 ### Clover
-  - Clover: 移除 `NoRomInfo` 键值
+  * Clover: 移除 `NoRomInfo` 键值
+
+### OC
+  * OC: 更新 config
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
