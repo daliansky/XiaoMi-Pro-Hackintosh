@@ -523,7 +523,6 @@ function fixWindows() {
   elif [[ -f "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/OcQuirks.efi" ]]; then
     rm -rf "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/OcQuirks.efi"
     rm -rf "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/OpenRuntime.efi"
-    rm -rf "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/OcQuirks.plist"
     cp -rf "AptioMemoryFix.efi" "${EFI_DIR}/EFI/CLOVER/drivers/UEFI/"
   fi
   echo -e "[ ${GREEN}OK${OFF} ]Fix complete"
