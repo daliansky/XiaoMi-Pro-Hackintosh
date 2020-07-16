@@ -2,6 +2,13 @@
 
 [English](Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
+## 8-X-2020
+
+### Clover
+  * Clover: 更新 config 来支持 `Clover` r5120
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
 ## 7-16-2020
 
