@@ -141,8 +141,6 @@ function H_or_G() {
     HG="grep -m 1 CloverV2"
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HG="grep -m 1 IntelBluetooth"
-  elif [[ "$1" == "OcQuirks" ]]; then
-    HG="grep -m 1 OcQuirks"
   elif [[ "$1" == "OpenCore-Factory" ]]; then
     HG="grep -m 2 RELEASE | tail +2"
   else
@@ -407,10 +405,8 @@ function Install() {
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/CLOVER/drivers/UEFI/OcQuirks.plist" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
     cp -R "XiaoMi-Pro-Hackintosh-master/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   else
-    cp -R "../CLOVER/drivers/UEFI/OcQuirks.plist" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
     cp -R "../Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   fi
 
