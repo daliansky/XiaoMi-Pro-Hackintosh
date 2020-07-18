@@ -38,3 +38,17 @@ jobs:
     - cd "ACPI" || exit 1
     - curl -# -L -O https://raw.githubusercontent.com/Acidanthera/MaciASL/master/Dist/iasl-stable || exit 1
     - chmod +x iasl* && find . -type f -name "*.dsl" -print0 | xargs -0 -I{} ./iasl* -vs -va {} || exit 1
+
+  - os: osx
+    name: "Analyze OpenCore config"
+
+    script:
+    - rawURL="https://github.com/williambj1/OpenCore-Factory/releases"
+    - HG="grep -m 2 RELEASE | tail +2"
+    - URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
+    - echo "Downloading ${URL##*\/}"
+    - mkdir "OpenCore" && cd "OpenCore" || exit 1
+    - curl -# -L -O "${URL}" || exit 1
+    - unzip -qq "*.zip" >/dev/null 2>&1 || exit 1
+    - chmod +x Utilities/ocvalidate/ocvalidate || exit 1
+    - RESULT=$(Utilities/ocvalidate/ocvalidate ../OC/config.plist) && echo "${RESULT}" && if [ "$(echo "${RESULT}" | wc -l)" -gt "1" ]; then exit 1; fi

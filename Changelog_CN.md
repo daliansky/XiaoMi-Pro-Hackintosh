@@ -46,7 +46,7 @@
     * 镜像键和调度中心键仅支持 MX150 BIOS 版本 >= 0A07
 
 ### 变更
-  * 关闭 `FBEnableDynamicCDCLK` 因为它会造成休眠后黑屏；想开启大于 1424x802 HiDPI 分辨率的话请把 `framebuffer-flag` 设置为 `CwfjAA==`
+  * 关闭 `FBEnableDynamicCDCLK` 因为它会造成休眠后黑屏；想开启大于 1424x802 HiDPI 分辨率的话请把 `framebuffer-flags` 设置为 `CwfjAA==`
 
 ### Clover
   * Clover: 新增 `OcQuirks.efi`，`OpenRuntime.efi` 和 `OcQuirks.plist` 来替代 `AptioMemoryFix.efi`
