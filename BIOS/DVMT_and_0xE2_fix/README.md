@@ -21,7 +21,7 @@
 
 6. Execute `bios_lock.cmd` to lock BIOS settings for security.
 
-7. Delete DVMT patches
+7. Delete DVMT patches and change `framebuffer-flags`
 
 - **For both Clover and OC users:**
   - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
@@ -32,7 +32,23 @@
 <data>AAAwAQ==</data>
 ```
 
-8. Delete OC MSR 0xE2 patch
+- For **macOS10.15+** users, change `ig-platform-id` to `0x3E9B0009` can have better experience.
+  - Find the following code in `config.plist`:
+```
+<key>AAPL,ig-platform-id</key>
+<data>AAAWWQ==</data>
+<key>device-id</key>
+<data>FlkAAA==</data>
+```
+  - Change to:
+```
+<key>AAPL,ig-platform-id</key>
+<data>CQCbPg==</data>
+<key>device-id</key>
+<data>mz4AAA==</data>
+```
+
+8. Delete OC MSR 0xE2 patch.
 
 Open `/EFI/OC/config.plist`, find the following code:
 ```
