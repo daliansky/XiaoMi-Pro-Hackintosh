@@ -21,7 +21,7 @@
 
 6. 运行 `bios_lock.cmd` 来给 BIOS 重新上锁，让电脑更安全。
 
-7. 删除动态显存补丁并修改 `framebuffer-flags`
+7. 删除动态显存补丁并修改 `framebuffer-flags`。
 
 - **如果你是 Clover 或 OC 用户：**
   - 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：
@@ -30,22 +30,6 @@
 <data>AACQAA==</data>
 <key>framebuffer-stolenmem</key>
 <data>AAAwAQ==</data>
-```
-
-- 如果是 **macOS10.15+** 的用户，可以修改 `ig-platform-id` 的值为 `0x3E9B0009` 来获得更好的体验。
-  - 在 `config.plist` 里找到以下代码：
-```
-<key>AAPL,ig-platform-id</key>
-<data>AAAWWQ==</data>
-<key>device-id</key>
-<data>FlkAAA==</data>
-```
-  - 修改为：
-```
-<key>AAPL,ig-platform-id</key>
-<data>CQCbPg==</data>
-<key>device-id</key>
-<data>mz4AAA==</data>
 ```
 
 8. 删除 OC MSR 0xE2 补丁。
