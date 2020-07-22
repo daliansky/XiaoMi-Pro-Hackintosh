@@ -498,6 +498,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                     If (_OSI ("Darwin"))
                     {
                         Notify (PS2K, 0x0429) // Press e029
+                        OG00 = Zero
                     }
 
                     If (CondRefOf (^^WMIX))
@@ -539,6 +540,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                         Notify (PS2K, 0x02A6) // Press Up e026
                         Notify (PS2K, 0x02A5) // Press Up e025
                         Notify (PS2K, 0x02A3) // Press Up e023
+                        OG00 = Zero
                     }
                     
                     If (CondRefOf (^^WMIX))
@@ -612,6 +614,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                             Notify (PS2K, 0x022B) // Press Down e02b
                             Notify (PS2K, 0x02AB) // Press Up e02b
                             Notify (PS2K, 0x02A5) // Press Up e025
+                            OG00 = Zero
                         }
                         ElseIf ((^^WMIX.EV01 != Zero))
                         {
@@ -630,6 +633,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                             Notify (PS2K, 0x022D) // Press Down e02d
                             Notify (PS2K, 0x02AD) // Press Up e02d
                             Notify (PS2K, 0x02AC) // Press Up e02c
+                            OG00 = Zero
                         }
                         ElseIf ((^^WMIX.EV03 != Zero))
                         {

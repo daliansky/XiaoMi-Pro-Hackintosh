@@ -5,6 +5,10 @@
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
 ## 8-X-2020
 
+### Update
+  - Update `Clover` r512
+  - Update `SSDT-LGPA` to solve unexpected key press when wake up from sleep
+
 ### Clover
   - Clover: Update config to support `Clover` r5120
 

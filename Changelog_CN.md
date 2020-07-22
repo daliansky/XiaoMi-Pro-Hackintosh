@@ -5,6 +5,10 @@
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
 ## 8-X-2020
 
+### 更新
+  * 更新 `Clover` r512
+  * 更新 `SSDT-LGPA` 来修复睡眠唤醒后意外的键位触发
+
 ### Clover
   * Clover: 更新 config 来支持 `Clover` r5120
 

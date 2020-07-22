@@ -436,6 +436,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                     If (_OSI ("Darwin"))
                     {
                         Notify (PS2K, 0x0429) // Press e029
+                        OG00 = Zero
                     }
   
                     If ((^^WMIE.EVT9 != Zero))
@@ -461,6 +462,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                         Notify (PS2K, 0x02A6) // Press Up e026
                         Notify (PS2K, 0x02A5) // Press Up e025
                         Notify (PS2K, 0x02A3) // Press Up e023
+                        OG00 = Zero
                     }
                     
                     If ((^^WMIE.EVTB != Zero))
