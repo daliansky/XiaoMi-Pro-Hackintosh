@@ -478,26 +478,30 @@ function Install() {
   fi
 
   # Bluetooth & GTX & wiki
-  if [[ ${LANGUAGE} == "EN" ]]; then
-    btItems=( "${REPO_NAME}-master/Docs/Work-Around-with-Bluetooth.pdf" )
-  elif [[ ${LANGUAGE} == "CN" ]]; then
-    btItems=( "${REPO_NAME}-master/Docs/蓝牙解决方案.pdf" )
-  fi
-
   if [[ ${REMOTE} == True ]]; then
-    btItems+=(
+    btItems=(
       "${REPO_NAME}-master/ACPI/SSDT-USB-ALL.aml"
       "${REPO_NAME}-master/ACPI/SSDT-USB-FingerBT.aml"
       "${REPO_NAME}-master/ACPI/SSDT-USB-USBBT.aml"
       "${REPO_NAME}-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
     )
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      btItems+=( "${REPO_NAME}-master/Docs/Work-Around-with-Bluetooth.pdf" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      btItems+=( "${REPO_NAME}-master/Docs/蓝牙解决方案.pdf" )
+    fi
   else
-    btItems+=(
+    btItems=(
       "../ACPI/SSDT-USB-ALL.aml"
       "../ACPI/SSDT-USB-FingerBT.aml"
       "../ACPI/SSDT-USB-USBBT.aml"
       "../ACPI/SSDT-USB-WLAN_LTEBT.aml"
     )
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      btItems+=( "../Docs/Work-Around-with-Bluetooth.pdf" )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      btItems+=( "../Docs/蓝牙解决方案.pdf" )
+    fi
   fi
 
   for BTdir in "${OUTDir}/Bluetooth" "${OUTDir_OC}/Bluetooth"; do
@@ -534,16 +538,30 @@ function Install() {
     done
   done
 
-  if [[ ${LANGUAGE} == "EN" ]]; then
-    wikiItems=(
-      "${REPO_NAME}-master/Docs/FAQ.pdf"
-      "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
-    )
-  elif [[ ${LANGUAGE} == "CN" ]]; then
-    wikiItems=(
-      "${REPO_NAME}-master/Docs/常见问题解答.pdf"
-      "${REPO_NAME}-master/Docs/设置64mb动态显存.pdf"
-    )
+  if [[ ${REMOTE} == True ]]; then
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      wikiItems=(
+        "${REPO_NAME}-master/Docs/FAQ.pdf"
+        "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
+      )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      wikiItems=(
+        "${REPO_NAME}-master/Docs/常见问题解答.pdf"
+        "${REPO_NAME}-master/Docs/设置64mb动态显存.pdf"
+      )
+    fi
+  else
+    if [[ ${LANGUAGE} == "EN" ]]; then
+      wikiItems=(
+        "../Docs/FAQ.pdf"
+        "../Docs/Set-DVMT-to-64mb.pdf"
+      )
+    elif [[ ${LANGUAGE} == "CN" ]]; then
+      wikiItems=(
+        "../Docs/常见问题解答.pdf"
+        "../Docs/设置64mb动态显存.pdf"
+      )
+    fi
   fi
 
   for WIKIdir in "${OUTDir}" "${OUTDir_OC}"; do
@@ -676,9 +694,6 @@ function DL() {
   if [[ ${REMOTE} == True ]]; then
     DGS daliansky ${REPO_NAME}
   fi
-
-  # wiki, require git installed
-  DGW daliansky ${REPO_NAME}
 }
 
 function Init() {
