@@ -13,3 +13,6 @@ Kexts/download/*
 
 # makefile
 build/*
+
+# wiki
+Docs/XiaoMi-Pro-Hackintosh.wiki

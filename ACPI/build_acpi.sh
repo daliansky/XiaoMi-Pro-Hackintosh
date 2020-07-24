@@ -50,7 +50,7 @@ function init() {
 
   cd "$(dirname "$0")" || exit 1
 
-  if [[ -d "iasl-stable" ]]; then
+  if [[ -f "iasl-stable" ]]; then
     rm -rf "iasl-stable"
   fi
 }

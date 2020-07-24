@@ -15,10 +15,10 @@ CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
 LANGUAGE="EN"
-NO_WIKI=True
 NO_XCODE=False
 PRE_RELEASE=""
 REMOTE=True
+REPO_NAME="XiaoMi-Pro-Hackintosh"
 VERSION="local"
 
 # Env
@@ -200,19 +200,6 @@ function DGS() {
   curl -# -L -o "$2.zip" "${URL}"|| networkErr "$2"
   cd - >/dev/null 2>&1 || exit 1
   echo "${reset}"
-}
-
-# Download GitHub Wiki
-function DGW() {
-  if [[ ${NO_XCODE} == True ]]; then
-    echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Missing Xcode tools, won't download wiki!"
-  else
-    local URL="https://github.com/$1/$2.wiki.git"
-    echo "${green}[${reset}${blue}${bold} Downloading $2.wiki ${reset}${green}]${reset}"
-    echo "${cyan}"
-    git clone "${URL}" >/dev/null 2>&1 || networkErr "$2.wiki"
-    echo "${reset}"
-  fi
 }
 
 # Download Bitbucket Release
@@ -405,7 +392,7 @@ function Install() {
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
+    cp -R "${REPO_NAME}-master/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   else
     cp -R "../Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   fi
@@ -413,22 +400,22 @@ function Install() {
   # ACPI
   if [[ ${REMOTE} == True ]]; then
     acpiItems=(
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-ALS0.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-DDGPU.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-DMAC.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-EC.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-GPRW.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-HPET.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-LGPA.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-MCHC.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-MEM2.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-PMC.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-PNLF.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-PS2K.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-RMNE.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-TPD0.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-XCPM.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-ALS0.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-DDGPU.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-DMAC.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-EC.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-GPRW.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-HPET.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-LGPA.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-MCHC.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-MEM2.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-PMC.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-PNLF.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-PS2K.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-RMNE.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-TPD0.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-USB.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-XCPM.aml"
     )
   else
     acpiItems=(
@@ -460,7 +447,7 @@ function Install() {
 
   # Theme
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "${REPO_NAME}-master/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   else
     cp -R "../CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   fi
@@ -469,13 +456,13 @@ function Install() {
 
   # config & README
   if [[ ${REMOTE} == True ]]; then
-    cp -R "XiaoMi-Pro-Hackintosh-master/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
-    cp -R "XiaoMi-Pro-Hackintosh-master/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
+    cp -R "${REPO_NAME}-master/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "${REPO_NAME}-master/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
     for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
       if [[ ${LANGUAGE} == "EN" ]]; then
-        cp -R "XiaoMi-Pro-Hackintosh-master/README.md" "${READMEdir}" || copyErr
+        cp -R "${REPO_NAME}-master/README.md" "${READMEdir}" || copyErr
       elif [[ ${LANGUAGE} == "CN" ]]; then
-        cp -R "XiaoMi-Pro-Hackintosh-master/README_CN.md" "${READMEdir}" || copyErr
+        cp -R "${REPO_NAME}-master/README_CN.md" "${READMEdir}" || copyErr
       fi
     done
   else
@@ -491,24 +478,18 @@ function Install() {
   fi
 
   # Bluetooth & GTX & wiki
-  if [[ -d "XiaoMi-Pro-Hackintosh.wiki" ]]; then
-    NO_WIKI=False
-  fi
-
-  if [[ ${NO_WIKI} == False ]]; then
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      btItems=( "XiaoMi-Pro-Hackintosh.wiki/Work-Around-with-Bluetooth.md" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      btItems=( "XiaoMi-Pro-Hackintosh.wiki/蓝牙解决方案.md" )
-    fi
+  if [[ ${LANGUAGE} == "EN" ]]; then
+    btItems=( "${REPO_NAME}-master/Docs/Work-Around-with-Bluetooth.pdf" )
+  elif [[ ${LANGUAGE} == "CN" ]]; then
+    btItems=( "${REPO_NAME}-master/Docs/蓝牙解决方案.pdf" )
   fi
 
   if [[ ${REMOTE} == True ]]; then
     btItems+=(
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-ALL.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-FingerBT.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-USBBT.aml"
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-USB-ALL.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-USB-FingerBT.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-USB-USBBT.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
     )
   else
     btItems+=(
@@ -528,12 +509,12 @@ function Install() {
 
   if [[ ${REMOTE} == True ]]; then
     gtxItems=(
-      "XiaoMi-Pro-Hackintosh-master/ACPI/SSDT-LGPAGTX.aml"
+      "${REPO_NAME}-master/ACPI/SSDT-LGPAGTX.aml"
     )
     if [[ ${LANGUAGE} == "EN" ]]; then
-      gtxItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_GTX.txt" )
+      gtxItems+=( "${REPO_NAME}-master/Docs/README_GTX.txt" )
     elif [[ ${LANGUAGE} == "CN" ]]; then
-      gtxItems+=( "XiaoMi-Pro-Hackintosh-master/Docs/README_CN_GTX.txt" )
+      gtxItems+=( "${REPO_NAME}-master/Docs/README_CN_GTX.txt" )
     fi
   else
     gtxItems=(
@@ -553,25 +534,23 @@ function Install() {
     done
   done
 
-  if [[ ${NO_WIKI} == False ]]; then
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      wikiItems=(
-        "XiaoMi-Pro-Hackintosh.wiki/FAQ.md"
-        "XiaoMi-Pro-Hackintosh.wiki/Set-DVMT-to-64mb.md"
-      )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      wikiItems=(
-        "XiaoMi-Pro-Hackintosh.wiki/常见问题解答.md"
-        "XiaoMi-Pro-Hackintosh.wiki/设置64mb动态显存.md"
-      )
-    fi
-
-    for WIKIdir in "${OUTDir}" "${OUTDir_OC}"; do
-      for wikiItem in "${wikiItems[@]}"; do
-        cp -R "${wikiItem}" "${WIKIdir}" || copyErr
-      done
-    done
+  if [[ ${LANGUAGE} == "EN" ]]; then
+    wikiItems=(
+      "${REPO_NAME}-master/Docs/FAQ.pdf"
+      "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
+    )
+  elif [[ ${LANGUAGE} == "CN" ]]; then
+    wikiItems=(
+      "${REPO_NAME}-master/Docs/常见问题解答.pdf"
+      "${REPO_NAME}-master/Docs/设置64mb动态显存.pdf"
+    )
   fi
+
+  for WIKIdir in "${OUTDir}" "${OUTDir_OC}"; do
+    for wikiItem in "${wikiItems[@]}"; do
+      cp -R "${wikiItem}" "${WIKIdir}" || copyErr
+    done
+  done
 }
 
 # Generate Release Note
@@ -582,7 +561,7 @@ function GenNote() {
   local changelogPath
 
   if [[ ${REMOTE} == True ]]; then
-    changelogPath="XiaoMi-Pro-Hackintosh-master/Changelog.md"
+    changelogPath="${REPO_NAME}-master/Changelog.md"
   else
     changelogPath="../Changelog.md"
   fi
@@ -695,11 +674,11 @@ function DL() {
 
   # XiaoMi-Pro ACPI patch
   if [[ ${REMOTE} == True ]]; then
-    DGS daliansky XiaoMi-Pro-Hackintosh
+    DGS daliansky ${REPO_NAME}
   fi
 
   # wiki, require git installed
-  DGW daliansky XiaoMi-Pro-Hackintosh
+  DGW daliansky ${REPO_NAME}
 }
 
 function Init() {
@@ -717,7 +696,7 @@ function Init() {
   local dirs=(
     "${OUTDir}"
     "${OUTDir_OC}"
-    "XiaoMi-Pro-Hackintosh-master"
+    "${REPO_NAME}-master"
     "Clover"
     "OpenCore"
   )
@@ -725,7 +704,7 @@ function Init() {
     mkdir -p "${dir}" || exit 1
   done
 
-  if [[ "$(dirname "$PWD")" =~ "XiaoMi-Pro-Hackintosh" ]]; then
+  if [[ "$(dirname "$PWD")" =~ ${REPO_NAME} ]]; then
     REMOTE=False;
   fi
 }

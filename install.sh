@@ -339,7 +339,7 @@ function editEFI() {
   # if GTX, SSDT-LGPA need to be replaced with SSDT-LGPAGTX
   if [ "${MAINBOARD}" == "TM1707" ]; then
     rm -f "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/SSDT-LGPA.aml"
-    cp -rf "${WORK_DIR}/$RELEASE_Dir/GTX_Users_Read_This/SSDT-LGPAGTX.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/$RELEASE_Dir/GTX/SSDT-LGPAGTX.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
   fi
 
   echo
@@ -361,21 +361,21 @@ function editEFI() {
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
-    cp -rf "${WORK_DIR}/$RELEASE_Dir/SSDT-USB-USBBT.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/$RELEASE_Dir/Bluetooth/SSDT-USB-USBBT.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
     ;;
 
     3)
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
-    cp -rf "${WORK_DIR}/$RELEASE_Dir/SSDT-USB-WLAN_LTEBT.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/$RELEASE_Dir/Bluetooth/SSDT-USB-WLAN_LTEBT.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
     ;;
 
     4)
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/kexts/Other/IntelBluetoothFirmware.kext" >/dev/null 2>&1
     rm -rf "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/kexts/Other/IntelBluetoothInjector.kext" >/dev/null 2>&1
-    cp -rf "${WORK_DIR}/$RELEASE_Dir/SSDT-USB-FingerBT.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
+    cp -rf "${WORK_DIR}/$RELEASE_Dir/Bluetooth/SSDT-USB-FingerBT.aml" "${WORK_DIR}/$RELEASE_Dir/EFI/CLOVER/ACPI/patched/"
     ;;
 
     *)
@@ -460,7 +460,7 @@ function changeBT() {
   read -rp ":" bt_selection_new
   case ${bt_selection_new} in
     1)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/EFI/CLOVER/ACPI/patched/SSDT-USB.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -470,7 +470,7 @@ function changeBT() {
     ;;
 
     2)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-USBBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB-USBBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -483,7 +483,7 @@ function changeBT() {
     ;;
 
     3)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-WLAN_LTEBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -493,7 +493,7 @@ function changeBT() {
     ;;
 
     4)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/SSDT-USB-FingerBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB-FingerBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -549,7 +549,7 @@ function fixAppleService() {
   # generate random MAC address
   MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
 
-  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/EFI/CLOVER/ACPI/patched/SSDT-RMNE.dsl"
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-RMNE.dsl"
   curl --silent -O "${repoURL}" || networkWarn
 
   # change 11:22:33:44:55:66 to ${MAC_ADDRESS} in SSDT-RMNE.dsl
