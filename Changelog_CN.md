@@ -12,6 +12,9 @@
 ### Clover
   * Clover: 更新 config 来支持 `Clover` r5120
 
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.0
+
 
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
 ## 7-16-2020
@@ -35,7 +38,7 @@
 ## 7-12-2020
 
 ### 更新
-  * 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@eee51ba](https://github.com/acidanthera/OpenCorePkg/commit/eee51bae932b5a366351e994ea2a1909c46c3ebf)）来支持 macOS11
+  * 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@eee51ba](https://github.com/acidanthera/OpenCorePkg/commit/eee51bae932b5a366351e994ea2a1909c46c3ebf)）来支持 macOS11.0 beta 1 (20A4299v)
   * 更新 `Lilu` v1.4.6（更新至 [acidanthera/Lilu@8a81e92](https://github.com/acidanthera/Lilu/commit/8a81e92f5641f9eee333d348d39add4ecaef0b37)）
   * 更新 `AppleALC` v1.5.1（更新至 [acidanthera/AppleALC@df23c40](https://github.com/acidanthera/AppleALC/commit/df23c409d832449867263d4a5eb32aaa570935f3)）
   * 更新 `VirtualSMC` v1.1.5（更新至 [acidanthera/VirtualSMC@90b1f45](https://github.com/acidanthera/VirtualSMC/commit/90b1f45475c82566fe6533c03f4938594f17bb49)）
