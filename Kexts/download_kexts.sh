@@ -187,6 +187,8 @@ function Install() {
 # Patch
 function Patch() {
   local unusedItems=(
+    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
+    "Release/CodecCommander.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -194,7 +196,7 @@ function Patch() {
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
   )
   for unusedItem in "${unusedItems[@]}"; do
-    rm -rf "${unusedItem}"
+    rm -rf "${unusedItem}" >/dev/null 2>&1
   done
 }
 
