@@ -44,7 +44,7 @@ jobs:
 
     script:
     - rawURL="https://github.com/williambj1/OpenCore-Factory/releases"
-    - HG="grep -m 2 RELEASE | tail +2"
+    - HG="grep -m 1 RELEASE"
     - URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
     - echo "Downloading ${URL##*\/}"
     - mkdir "OpenCore" && cd "OpenCore" || exit 1

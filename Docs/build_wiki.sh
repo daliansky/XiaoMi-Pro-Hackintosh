@@ -64,11 +64,15 @@ function init() {
 function build() {
   local wikiItems=(
     "FAQ"
+    "Drive-Native-Intel-Wireless-Card"
     "Set-DVMT-to-64mb"
+    "Unlock-0xE2-MSR"
     "Work-Around-with-Bluetooth"
     "常见问题解答"
-    "蓝牙解决方案"
+    "驱动内置英特尔无线网卡"
     "设置64mb动态显存"
+    "解锁0xE2寄存器"
+    "蓝牙解决方案"
   )
   cd "${WIKI_NAME}" || exit 1
   echo "${green}[${reset}${magenta}${bold} Building PDF Docs ${reset}${green}]${reset}"

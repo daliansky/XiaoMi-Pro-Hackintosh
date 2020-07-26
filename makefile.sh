@@ -141,8 +141,6 @@ function H_or_G() {
     HG="grep -m 1 CloverV2"
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HG="grep -m 1 IntelBluetooth"
-  elif [[ "$1" == "OpenCore-Factory" ]]; then
-    HG="grep -m 2 RELEASE | tail +2"
   else
     HG="grep -m 1 RELEASE"
   fi
@@ -542,24 +540,32 @@ function Install() {
     if [[ ${LANGUAGE} == "EN" ]]; then
       wikiItems=(
         "${REPO_NAME}-master/Docs/FAQ.pdf"
+        "${REPO_NAME}-master/Docs/Drive-Native-Intel-Wireless-Card.pdf"
         "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
+        "${REPO_NAME}-master/Docs/Unlock-0xE2-MSR.pdf"
       )
     elif [[ ${LANGUAGE} == "CN" ]]; then
       wikiItems=(
         "${REPO_NAME}-master/Docs/常见问题解答.pdf"
+        "${REPO_NAME}-master/Docs/驱动内置英特尔无线网卡.pdf"
         "${REPO_NAME}-master/Docs/设置64mb动态显存.pdf"
+        "${REPO_NAME}-master/Docs/解锁0xE2寄存器.pdf"
       )
     fi
   else
     if [[ ${LANGUAGE} == "EN" ]]; then
       wikiItems=(
         "../Docs/FAQ.pdf"
+        "../Docs/Drive-Native-Intel-Wireless-Card.pdf"
         "../Docs/Set-DVMT-to-64mb.pdf"
+        "../Docs/Unlock-0xE2-MSR.pdf"
       )
     elif [[ ${LANGUAGE} == "CN" ]]; then
       wikiItems=(
         "../Docs/常见问题解答.pdf"
+        "../Docs/驱动内置英特尔无线网卡.pdf"
         "../Docs/设置64mb动态显存.pdf"
+        "../Docs/解锁0xE2寄存器.pdf"
       )
     fi
   fi
