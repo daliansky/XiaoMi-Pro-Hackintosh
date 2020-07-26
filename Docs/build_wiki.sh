@@ -33,15 +33,6 @@ function buildErr() {
   exit 1
 }
 
-# Download wiki from daliansky's XiaoMi-Pro-Hackintosh repository
-function download() {
-  local URL="https://github.com/$1/$2.wiki.git"
-  echo "${green}[${reset}${blue}${bold} Downloading $2.wiki ${reset}${green}]${reset}"
-  echo "${cyan}"
-  git clone "${URL}" >/dev/null 2>&1 || networkErr "$2.wiki"
-  echo "${reset}"
-}
-
 function init() {
   if [[ ${OSTYPE} != darwin* ]]; then
     echo "This script can only run in macOS, aborting"
@@ -59,6 +50,15 @@ function init() {
   if [[ -d "${WIKI_NAME}" ]]; then
     rm -rf "${WIKI_NAME}"
   fi
+}
+
+# Download wiki from daliansky's XiaoMi-Pro-Hackintosh repository
+function download() {
+  local URL="https://github.com/$1/$2.wiki.git"
+  echo "${green}[${reset}${blue}${bold} Downloading $2.wiki ${reset}${green}]${reset}"
+  echo "${cyan}"
+  git clone "${URL}" >/dev/null 2>&1 || networkErr "$2.wiki"
+  echo "${reset}"
 }
 
 function build() {

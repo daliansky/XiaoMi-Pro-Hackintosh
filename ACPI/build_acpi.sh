@@ -33,15 +33,6 @@ function compileErr() {
   exit 1
 }
 
-# Download iasl from Acidanthera's MaciASL repository
-function download() {
-  local URL="https://raw.githubusercontent.com/$1/$2/master/$3"
-  echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
-  echo "${cyan}"
-  curl -# -L -O "${URL}" || networkErr "${3##*\/}"
-  echo "${reset}"
-}
-
 function init() {
   if [[ ${OSTYPE} != darwin* ]]; then
     echo "This script can only run in macOS, aborting"
@@ -53,6 +44,15 @@ function init() {
   if [[ -f "iasl-stable" ]]; then
     rm -rf "iasl-stable"
   fi
+}
+
+# Download iasl from Acidanthera's MaciASL repository
+function download() {
+  local URL="https://raw.githubusercontent.com/$1/$2/master/$3"
+  echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
+  echo "${cyan}"
+  curl -# -L -O "${URL}" || networkErr "${3##*\/}"
+  echo "${reset}"
 }
 
 function compile() {

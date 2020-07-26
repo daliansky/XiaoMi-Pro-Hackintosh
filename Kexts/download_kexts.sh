@@ -8,6 +8,9 @@
 # Reference:
 # https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh by @williambj1
 
+# Vars
+ACDT="Acidanthera"
+
 # Colors
 black=$(tput setaf 0)
 red=$(tput setaf 1)
@@ -38,6 +41,19 @@ function copyErr() {
   exit 1
 }
 
+function init() {
+  if [[ ${OSTYPE} != darwin* ]]; then
+    echo "This script can only run in macOS, aborting"
+    exit 1
+  fi
+
+  if [[ -d ${WSDir} ]]; then
+    rm -rf "${WSDir}"
+  fi
+  mkdir "${WSDir}" || exit 1
+  cd "${WSDir}" || exit 1
+}
+
 # Workaround for Release Binaries that don't include "RELEASE" in their file names (head or grep)
 function H_or_G() {
   if [[ "$1" == "VoodooI2C" ]]; then
@@ -46,8 +62,6 @@ function H_or_G() {
     HG="grep -m 1 CloverV2"
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HG="grep -m 1 IntelBluetooth"
-  elif [[ "$1" == "OpenCore-Factory" ]]; then
-    HG="grep -m 2 RELEASE | tail +2"
   else
     HG="grep -m 1 RELEASE"
   fi
@@ -55,9 +69,10 @@ function H_or_G() {
 
 # Download GitHub Release
 function DGR() {
-  H_or_G "$2"
   local rawURL
   local URL
+
+  H_or_G "$2"
 
   if [[ -n ${3+x} ]]; then
     if [[ "$3" == "PreRelease" ]]; then
@@ -78,7 +93,7 @@ function DGR() {
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${GH_API} == False ]]; then
     rawURL="https://github.com/$1/$2/releases$tag"
-    URL="https://github.com$(local one=${"$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" )"#*href=\"} && local two=${one%\"\ rel*} && echo ${two})"
+    URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     URL="$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')"
@@ -112,6 +127,7 @@ function DBR() {
   local Count=0
   local rawURL="https://api.bitbucket.org/2.0/repositories/$1/$2/downloads/"
   local URL
+
   while  [ ${Count} -lt 3 ];
   do
     URL="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
@@ -134,17 +150,34 @@ function DBR() {
   fi
 }
 
-function init() {
-  if [[ ${OSTYPE} != darwin* ]]; then
-    echo "This script can only run in macOS, aborting"
-    exit 1
-  fi
+function DL() {
+  local rmKexts=(
+    os-x-eapd-codec-commander
+    os-x-null-ethernet
+  )
 
-  if [[ -d ${WSDir} ]]; then
-    rm -rf "${WSDir}"
-  fi
-  mkdir "${WSDir}" || exit 1
-  cd "${WSDir}" || exit 1
+  local acdtKexts=(
+    VirtualSMC
+    WhateverGreen
+    AppleALC
+    HibernationFixup
+    NVMeFix
+    VoodooPS2
+    Lilu
+  )
+
+  for rmKext in "${rmKexts[@]}"; do
+    DBR Rehabman "${rmKext}"
+  done
+
+  for acdtKext in "${acdtKexts[@]}"; do
+    DGR ${ACDT} "${acdtKext}"
+  done
+
+  DGR VoodooI2C VoodooI2C
+  DGR OpenIntelWireless IntelBluetoothFirmware
+
+  DGS RehabMan hack-tools
 }
 
 # Unpack
@@ -152,6 +185,22 @@ function Unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
   echo
   unzip -qq "*.zip" >/dev/null 2>&1
+}
+
+# Patch
+function Patch() {
+  local unusedItems=(
+    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
+    "Release/CodecCommander.kext/Contents/Resources"
+    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
+    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+  )
+  for unusedItem in "${unusedItems[@]}"; do
+    rm -rf "${unusedItem}" >/dev/null 2>&1
+  done
 }
 
 # Install
@@ -182,54 +231,6 @@ function Install() {
   for kextItem in "${kextItems[@]}"; do
     cp -R "${kextItem}" "../" || copyErr
   done
-}
-
-# Patch
-function Patch() {
-  local unusedItems=(
-    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
-    "Release/CodecCommander.kext/Contents/Resources"
-    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
-    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
-    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
-    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
-    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
-  )
-  for unusedItem in "${unusedItems[@]}"; do
-    rm -rf "${unusedItem}" >/dev/null 2>&1
-  done
-}
-
-function DL() {
-  ACDT="Acidanthera"
-
-  local rmKexts=(
-    os-x-eapd-codec-commander
-    os-x-null-ethernet
-  )
-
-  local acdtKexts=(
-    VirtualSMC
-    WhateverGreen
-    AppleALC
-    HibernationFixup
-    NVMeFix
-    VoodooPS2
-    Lilu
-  )
-
-  for rmKext in "${rmKexts[@]}"; do
-    DBR Rehabman "${rmKext}"
-  done
-
-  for acdtKext in "${acdtKexts[@]}"; do
-    DGR ${ACDT} "${acdtKext}"
-  done
-
-  DGR VoodooI2C VoodooI2C
-  DGR OpenIntelWireless IntelBluetoothFirmware
-
-  DGS RehabMan hack-tools
 }
 
 # Exclude Trash

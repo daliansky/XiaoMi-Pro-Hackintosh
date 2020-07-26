@@ -96,6 +96,13 @@ acdtKexts=(
   Lilu
 )
 
+# Clean Up
+function Cleanup() {
+  if [[ ${CLEAN_UP} == True ]]; then
+    rm -rf "${WSDir}"
+  fi
+}
+
 # Exit on Network Issue
 function networkErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
@@ -126,10 +133,31 @@ function buildErr() {
   fi
 }
 
-# Clean Up
-function Cleanup() {
-  if [[ ${CLEAN_UP} == True ]]; then
+function Init() {
+  if [[ ${OSTYPE} != darwin* ]]; then
+    echo "This script can only run in macOS, aborting"
+    exit 1
+  fi
+
+  if [[ -d ${WSDir} ]]; then
     rm -rf "${WSDir}"
+  fi
+  mkdir "${WSDir}" || exit 1
+  cd "${WSDir}" || exit 1
+
+  local dirs=(
+    "${OUTDir}"
+    "${OUTDir_OC}"
+    "${REPO_NAME}-master"
+    "Clover"
+    "OpenCore"
+  )
+  for dir in "${dirs[@]}"; do
+    mkdir -p "${dir}" || exit 1
+  done
+
+  if [[ "$(dirname "$PWD")" =~ ${REPO_NAME} ]]; then
+    REMOTE=False;
   fi
 }
 
@@ -148,9 +176,10 @@ function H_or_G() {
 
 # Download GitHub Release
 function DGR() {
-  H_or_G "$2"
   local rawURL
   local URL
+
+  H_or_G "$2"
 
   if [[ -n ${3+x} ]]; then
     if [[ "$3" == "PreRelease" ]]; then
@@ -237,48 +266,46 @@ function DPB() {
   echo "${reset}"
 }
 
-# Exclude Trash
-function CTrash() {
-  if [[ ${CLEAN_UP} == True ]]; then
-    find . -maxdepth 1 ! -path "./${OUTDir}" ! -path "./${OUTDir_OC}" -exec rm -rf {} + >/dev/null 2>&1
-  fi
-}
-
 # Build Pre-release Kexts
 function BKextHelper() {
+  local liluPlugins="AppleALC HibernationFixup NVMeFix WhateverGreen VirtualSMC"
+  local voodooinputPlugins="VoodooI2C VoodooPS2"
   local PATH_TO_REL="build/Build/Products/Release/"
   local PATH_TO_REL_PS2="build/Products/Release/"
+  local lineNum
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
   echo
   git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   cd "$2" || exit 1
-  if [[ "$2" == "VoodooPS2" ]]; then
-    cp -R "../VoodooInput" "./" || copyErr
-    xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
-  elif [ "$2" == "VirtualSMC" ]; then
+  if [[ ${liluPlugins} =~ $2 ]]; then
     cp -R "../Lilu.kext" "./" || copyErr
-    xcodebuild -scheme Package -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    mkdir ../Kexts
-    cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
-  elif [ "$2" == "WhateverGreen" ] || [ "$2" == "AppleALC" ] || [ "$2" == "HibernationFixup" ] || [ "$2" == "NVMeFix" ]; then
-    cp -R "../Lilu.kext" "./" || copyErr
-    xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
-  elif [[ "$2" == "VoodooI2C" ]]; then
-    cp -R "../VoodooInput" "./Dependencies/" || copyErr
-    git submodule init >/dev/null 2>&1 && git submodule update >/dev/null 2>&1
+    if [[ "$2" == "VirtualSMC" ]]; then
+      xcodebuild -scheme Package -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      mkdir ../Kexts
+      cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
+    else
+      xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+    fi
+  elif [[ ${voodooinputPlugins} =~ $2 ]]; then
+    if [[ "$2" == "VoodooI2C" ]]; then
+      cp -R "../VoodooInput" "./Dependencies/" || copyErr
+      git submodule init >/dev/null 2>&1 && git submodule update >/dev/null 2>&1
 
-    # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
-    local lineNum
-    lineNum=$(grep -n "Linting" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
-    sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
-    lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
-    sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+      # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
+      lineNum=$(grep -n "Linting" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
+      sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+      lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
+      sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
 
-    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+      xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+    else
+      cp -R "../VoodooInput" "./" || copyErr
+      xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
+    fi
   elif [[ "$2" == "Lilu" ]]; then
     rm -rf ../Lilu.kext
     xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
@@ -294,47 +321,75 @@ function BKextHelper() {
   cd ../ || exit 1
 }
 
-# Extract files for Clover
-function ExtractClover() {
-  # From CloverV2 and AppleSupportPkg v2.0.9
-  unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
-  cp -R "Clover/CloverV2/EFI/BOOT" "${OUTDir}/EFI/" || copyErr
-  cp -R "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${OUTDir}/EFI/CLOVER/" || copyErr
-  cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
-  local driverItems=(
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OcQuirks.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
-    "Clover/Drivers/AppleGenericInput.efi"
-    "Clover/Drivers/AppleUiSupport.efi"
-  )
-  for driverItem in "${driverItems[@]}"; do
-    cp -R "${driverItem}" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
+function BKext() {
+  local TRAVIS_TAG=""
+
+  if [[ ${NO_XCODE} == True ]]; then
+    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
+    exit 1
+  fi
+  if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
+    echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
+    echo "${cyan}"
+    curl -# -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 || networkErr "MacOSX10.12.sdk" && tar -xjf MacOSX10.12.tar.bz2
+    echo "${reset}"
+    sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
+  fi
+
+  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+  for acdtKext in "${acdtKexts[@]}"; do
+    BKextHelper ${ACDT} "${acdtKext}"
   done
+  BKextHelper VoodooI2C VoodooI2C
+  BKextHelper OpenIntelWireless IntelBluetoothFirmware
+  echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
+  echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
+  echo
 }
 
-# Extract files from OpenCore
-function ExtractOC() {
-  mkdir -p "${OUTDir_OC}/EFI/OC/Tools" || exit 1
-  unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
-  cp -R OpenCore/EFI/BOOT "${OUTDir_OC}/EFI/" || copyErr
-  cp -R OpenCore/EFI/OC/OpenCore.efi "${OUTDir_OC}/EFI/OC/" || copyErr
-  cp -R OpenCore/EFI/OC/Bootstrap "${OUTDir_OC}/EFI/OC/" || copyErr
-  local driverItems=(
-    "OpenCore/EFI/OC/Drivers/AudioDxe.efi"
-    "OpenCore/EFI/OC/Drivers/OpenCanopy.efi"
-    "OpenCore/EFI/OC/Drivers/OpenRuntime.efi"
-  )
-  local toolItems=(
-    "OpenCore/EFI/OC/Tools/OpenShell.efi"
-  )
-  for driverItem in "${driverItems[@]}"; do
-    cp -R "${driverItem}" "${OUTDir_OC}/EFI/OC/Drivers/" || copyErr
+function DL() {
+  # Clover
+  DGR CloverHackyColor CloverBootloader NULL "Clover"
+
+  # OpenCore
+  if [[ ${PRE_RELEASE} =~ "OC" ]]; then
+    DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
+  else
+    DGR ${ACDT} OpenCorePkg NULL "OpenCore"
+  fi
+
+  # Kexts
+  for rmKext in "${rmKexts[@]}"; do
+    DBR Rehabman "${rmKext}"
   done
-  for toolItem in "${toolItems[@]}"; do
-    cp -R "${toolItem}" "${OUTDir_OC}/EFI/OC/Tools/" || copyErr
-  done
+
+  if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+    BKext
+  else
+    for acdtKext in "${acdtKexts[@]}"; do
+      DGR ${ACDT} "${acdtKext}"
+    done
+    DGR VoodooI2C VoodooI2C
+    DGR OpenIntelWireless IntelBluetoothFirmware
+  fi
+
+  DGS RehabMan hack-tools
+
+  # UEFI drivers
+  DGR ${ACDT} AppleSupportPkg 19214108 "Clover"
+
+  # UEFI
+  # DPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
+  DPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
+
+  # HfsPlus.efi & OC Resources
+  DGS ${ACDT} OcBinaryData
+
+  # XiaoMi-Pro ACPI patch
+  if [[ ${REMOTE} == True ]]; then
+    DGS daliansky ${REPO_NAME}
+  fi
 }
 
 # Unpack
@@ -342,6 +397,25 @@ function Unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
   echo
   unzip -qq "*.zip" >/dev/null 2>&1
+}
+
+# Patch
+function Patch() {
+  local unusedItems=(
+    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
+    "IntelBluetoothInjector.kext/Contents/MacOS"
+    "Release/CodecCommander.kext/Contents/Resources"
+    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
+    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
+    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+  )
+  for unusedItem in "${unusedItems[@]}"; do
+    rm -rf "${unusedItem}" >/dev/null 2>&1
+  done
+
+  cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete && cd "${WSDir}" || exit 1
 }
 
 # Install
@@ -577,6 +651,49 @@ function Install() {
   done
 }
 
+# Extract files for Clover
+function ExtractClover() {
+  # From CloverV2 and AppleSupportPkg v2.0.9
+  unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
+  cp -R "Clover/CloverV2/EFI/BOOT" "${OUTDir}/EFI/" || copyErr
+  cp -R "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${OUTDir}/EFI/CLOVER/" || copyErr
+  cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
+  local driverItems=(
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OcQuirks.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
+    "Clover/Drivers/AppleGenericInput.efi"
+    "Clover/Drivers/AppleUiSupport.efi"
+  )
+  for driverItem in "${driverItems[@]}"; do
+    cp -R "${driverItem}" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
+  done
+}
+
+# Extract files from OpenCore
+function ExtractOC() {
+  mkdir -p "${OUTDir_OC}/EFI/OC/Tools" || exit 1
+  unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
+  cp -R OpenCore/EFI/BOOT "${OUTDir_OC}/EFI/" || copyErr
+  cp -R OpenCore/EFI/OC/OpenCore.efi "${OUTDir_OC}/EFI/OC/" || copyErr
+  cp -R OpenCore/EFI/OC/Bootstrap "${OUTDir_OC}/EFI/OC/" || copyErr
+  local driverItems=(
+    "OpenCore/EFI/OC/Drivers/AudioDxe.efi"
+    "OpenCore/EFI/OC/Drivers/OpenCanopy.efi"
+    "OpenCore/EFI/OC/Drivers/OpenRuntime.efi"
+  )
+  local toolItems=(
+    "OpenCore/EFI/OC/Tools/OpenShell.efi"
+  )
+  for driverItem in "${driverItems[@]}"; do
+    cp -R "${driverItem}" "${OUTDir_OC}/EFI/OC/Drivers/" || copyErr
+  done
+  for toolItem in "${toolItems[@]}"; do
+    cp -R "${toolItem}" "${OUTDir_OC}/EFI/OC/Tools/" || copyErr
+  done
+}
+
 # Generate Release Note
 function GenNote() {
   local printVersion
@@ -602,23 +719,11 @@ function GenNote() {
   done
 }
 
-# Patch
-function Patch() {
-  local unusedItems=(
-    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
-    "IntelBluetoothInjector.kext/Contents/MacOS"
-    "Release/CodecCommander.kext/Contents/Resources"
-    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
-    "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
-    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
-    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
-    "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
-  )
-  for unusedItem in "${unusedItems[@]}"; do
-    rm -rf "${unusedItem}" >/dev/null 2>&1
-  done
-
-  cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete && cd "${WSDir}" || exit 1
+# Exclude Trash
+function CTrash() {
+  if [[ ${CLEAN_UP} == True ]]; then
+    find . -maxdepth 1 ! -path "./${OUTDir}" ! -path "./${OUTDir_OC}" -exec rm -rf {} + >/dev/null 2>&1
+  fi
 }
 
 # Enjoy
@@ -631,105 +736,6 @@ function Enjoy() {
   open ./
 }
 
-function BKext() {
-  local TRAVIS_TAG=""
-
-  if [[ ${NO_XCODE} == True ]]; then
-    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
-    exit 1
-  fi
-  if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
-    echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
-    echo "${cyan}"
-    curl -# -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 || networkErr "MacOSX10.12.sdk" && tar -xjf MacOSX10.12.tar.bz2
-    echo "${reset}"
-    sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
-  fi
-
-  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
-  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
-  for acdtKext in "${acdtKexts[@]}"; do
-    BKextHelper ${ACDT} "${acdtKext}"
-  done
-  BKextHelper VoodooI2C VoodooI2C
-  BKextHelper OpenIntelWireless IntelBluetoothFirmware
-  echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
-  echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
-  echo
-}
-
-function DL() {
-  # Clover
-  DGR CloverHackyColor CloverBootloader NULL "Clover"
-
-  # OpenCore
-  if [[ ${PRE_RELEASE} =~ "OC" ]]; then
-    DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
-  else
-    DGR ${ACDT} OpenCorePkg NULL "OpenCore"
-  fi
-
-  # Kexts
-  for rmKext in "${rmKexts[@]}"; do
-    DBR Rehabman "${rmKext}"
-  done
-
-  if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
-    BKext
-  else
-    for acdtKext in "${acdtKexts[@]}"; do
-      DGR ${ACDT} "${acdtKext}"
-    done
-    DGR VoodooI2C VoodooI2C
-    DGR OpenIntelWireless IntelBluetoothFirmware
-  fi
-
-  DGS RehabMan hack-tools
-
-  # UEFI drivers
-  DGR ${ACDT} AppleSupportPkg 19214108 "Clover"
-
-  # UEFI
-  # DPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
-  DPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
-
-  # HfsPlus.efi & OC Resources
-  DGS ${ACDT} OcBinaryData
-
-  # XiaoMi-Pro ACPI patch
-  if [[ ${REMOTE} == True ]]; then
-    DGS daliansky ${REPO_NAME}
-  fi
-}
-
-function Init() {
-  if [[ ${OSTYPE} != darwin* ]]; then
-    echo "This script can only run in macOS, aborting"
-    exit 1
-  fi
-
-  if [[ -d ${WSDir} ]]; then
-    rm -rf "${WSDir}"
-  fi
-  mkdir "${WSDir}" || exit 1
-  cd "${WSDir}" || exit 1
-
-  local dirs=(
-    "${OUTDir}"
-    "${OUTDir_OC}"
-    "${REPO_NAME}-master"
-    "Clover"
-    "OpenCore"
-  )
-  for dir in "${dirs[@]}"; do
-    mkdir -p "${dir}" || exit 1
-  done
-
-  if [[ "$(dirname "$PWD")" =~ ${REPO_NAME} ]]; then
-    REMOTE=False;
-  fi
-}
-
 function main() {
   Init
   DL
@@ -738,9 +744,11 @@ function main() {
 
   # Installation
   Install
-  GenNote
   ExtractClover
   ExtractOC
+
+  # Generate Release Notes
+  GenNote
 
   # Clean up
   CTrash
