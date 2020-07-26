@@ -301,7 +301,7 @@ function BKextHelper() {
 
       xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
-    else
+    elif [[ "$2" == "VoodooPS2" ]]; then
       cp -R "../VoodooInput" "./" || copyErr
       xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
