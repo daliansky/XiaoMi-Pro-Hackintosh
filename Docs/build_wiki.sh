@@ -73,7 +73,7 @@ function build() {
   echo "${green}[${reset}${magenta}${bold} Building PDF Docs ${reset}${green}]${reset}"
   echo
   for wikiItem in "${wikiItems[@]}"; do
-    pandoc -V geometry:margin=1in "${wikiItem}.md" -o "${wikiItem}.pdf" || buildErr
+    pandoc -V geometry:margin=1in "${wikiItem}.md" -s --highlight-style zenburn -o "${wikiItem}.pdf" || buildErr
   done
   cp -R ./*.pdf "../" || exit 1
   cd "../" || exit 1

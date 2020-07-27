@@ -36,7 +36,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - **For OC users:**
   - Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
   - Open `/OC/config.plist` and find the following code:
-```
+```xml
 <dict>
     <key>BundlePath</key>
     <string>CPUFriend.kext</string>
@@ -62,7 +62,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
     <false/> 
 ```
 Change to:
-```
+```xml
 <dict>
     <key>BundlePath</key>
     <string>CPUFriend.kext</string>

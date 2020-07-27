@@ -15,7 +15,7 @@
 
 1. 在终端输入以下命令并回车：
 
-```bash
+```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile_cn.sh)"
 ```
 

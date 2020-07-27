@@ -36,7 +36,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - **如果是 OC 用户：**
   - 把桌面上的 `CPUFriend.kext` 和 `CPUFriendDataProvider.kext` 复制进 `/OC/Kexts/`。
   - 打开 `/OC/config.plist` 并找到以下代码：
-```
+```xml
 <dict>
     <key>BundlePath</key>
     <string>CPUFriend.kext</string>
@@ -62,7 +62,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
     <false/> 
 ```
 修改为：
-```
+```xml
 <dict>
     <key>BundlePath</key>
     <string>CPUFriend.kext</string>

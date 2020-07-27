@@ -94,17 +94,17 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
 ### Build
 
 - Build the latest beta EFI by running the following command in Terminal:
-```bash
+```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
 ```
 - Or run the following command in Terminal:
-```bash
+```shell
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
 ./makefile.sh
 ```
 - Some advanced usages are:
-```bash
+```shell
 # Ignore errors when the script is running
 ./makefile.sh --IGNORE_ERR
 # Bundled with Chinese verison Docs
