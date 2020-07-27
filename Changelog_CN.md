@@ -11,6 +11,7 @@
 
 ### Clover
   * Clover: 更新 config 来支持 `Clover` r5120
+  * Clover: 移除 `SetIntelBacklight` 和 `SetIntelMaxBacklight` 因为我们使用 `SSDT-PNLF`
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.0

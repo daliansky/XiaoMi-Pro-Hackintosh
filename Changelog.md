@@ -11,6 +11,7 @@
 
 ### Clover
   - Clover: Update config to support `Clover` r5120
+  - Clover: Remove `SetIntelBacklight` and `SetIntelMaxBacklight` becuase we use `SSDT-PNLF`
 
 ### OC
   - OC: Update config to support  `OpenCore` v0.6.0

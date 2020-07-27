@@ -265,10 +265,6 @@
 				<string>Intel Sunrise Point-LP SMBus</string>
 			</dict>
 		</dict>
-		<key>SetIntelBacklight</key>
-		<true/>
-		<key>SetIntelMaxBacklight</key>
-		<true/>
 		<key>USB</key>
 		<dict>
 			<key>FixOwnership</key>
