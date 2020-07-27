@@ -556,24 +556,16 @@ function Install() {
       "${REPO_NAME}-master/ACPI/SSDT-USB-FingerBT.aml"
       "${REPO_NAME}-master/ACPI/SSDT-USB-USBBT.aml"
       "${REPO_NAME}-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+      "${REPO_NAME}-master/Docs/Work-Around-with-Bluetooth.pdf"
     )
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      btItems+=( "${REPO_NAME}-master/Docs/Work-Around-with-Bluetooth.pdf" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      btItems+=( "${REPO_NAME}-master/Docs/蓝牙解决方案.pdf" )
-    fi
   else
     btItems=(
       "../ACPI/SSDT-USB-ALL.aml"
       "../ACPI/SSDT-USB-FingerBT.aml"
       "../ACPI/SSDT-USB-USBBT.aml"
       "../ACPI/SSDT-USB-WLAN_LTEBT.aml"
+      "../Docs/Work-Around-with-Bluetooth.pdf"
     )
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      btItems+=( "../Docs/Work-Around-with-Bluetooth.pdf" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      btItems+=( "../Docs/蓝牙解决方案.pdf" )
-    fi
   fi
 
   for BTdir in "${OUTDir}/Bluetooth" "${OUTDir_OC}/Bluetooth"; do
@@ -584,18 +576,14 @@ function Install() {
   done
 
   if [[ ${REMOTE} == True ]]; then
-    gtxItems=(
-      "${REPO_NAME}-master/ACPI/SSDT-LGPAGTX.aml"
-    )
+    gtxItems=( "${REPO_NAME}-master/ACPI/SSDT-LGPAGTX.aml" )
     if [[ ${LANGUAGE} == "EN" ]]; then
       gtxItems+=( "${REPO_NAME}-master/Docs/README_GTX.txt" )
     elif [[ ${LANGUAGE} == "CN" ]]; then
       gtxItems+=( "${REPO_NAME}-master/Docs/README_CN_GTX.txt" )
     fi
   else
-    gtxItems=(
-      "../ACPI/SSDT-LGPAGTX.aml"
-    )
+    gtxItems=( "../ACPI/SSDT-LGPAGTX.aml" )
     if [[ ${LANGUAGE} == "EN" ]]; then
       gtxItems+=( "../Docs/README_GTX.txt" )
     elif [[ ${LANGUAGE} == "CN" ]]; then
@@ -611,37 +599,19 @@ function Install() {
   done
 
   if [[ ${REMOTE} == True ]]; then
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      wikiItems=(
-        "${REPO_NAME}-master/Docs/FAQ.pdf"
-        "${REPO_NAME}-master/Docs/Drive-Native-Intel-Wireless-Card.pdf"
-        "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
-        "${REPO_NAME}-master/Docs/Unlock-0xE2-MSR.pdf"
-      )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      wikiItems=(
-        "${REPO_NAME}-master/Docs/常见问题解答.pdf"
-        "${REPO_NAME}-master/Docs/驱动内置英特尔无线网卡.pdf"
-        "${REPO_NAME}-master/Docs/设置64mb动态显存.pdf"
-        "${REPO_NAME}-master/Docs/解锁0xE2寄存器.pdf"
-      )
-    fi
+    wikiItems=(
+      "${REPO_NAME}-master/Docs/FAQ.pdf"
+      "${REPO_NAME}-master/Docs/Drive-Native-Intel-Wireless-Card.pdf"
+      "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
+      "${REPO_NAME}-master/Docs/Unlock-0xE2-MSR.pdf"
+    )
   else
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      wikiItems=(
-        "../Docs/FAQ.pdf"
-        "../Docs/Drive-Native-Intel-Wireless-Card.pdf"
-        "../Docs/Set-DVMT-to-64mb.pdf"
-        "../Docs/Unlock-0xE2-MSR.pdf"
-      )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      wikiItems=(
-        "../Docs/常见问题解答.pdf"
-        "../Docs/驱动内置英特尔无线网卡.pdf"
-        "../Docs/设置64mb动态显存.pdf"
-        "../Docs/解锁0xE2寄存器.pdf"
-      )
-    fi
+    wikiItems=(
+      "../Docs/FAQ.pdf"
+      "../Docs/Drive-Native-Intel-Wireless-Card.pdf"
+      "../Docs/Set-DVMT-to-64mb.pdf"
+      "../Docs/Unlock-0xE2-MSR.pdf"
+    )
   fi
 
   for WIKIdir in "${OUTDir}" "${OUTDir_OC}"; do
