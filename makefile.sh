@@ -19,6 +19,7 @@ NO_XCODE=False
 PRE_RELEASE=""
 REMOTE=True
 REPO_NAME="XiaoMi-Pro-Hackintosh"
+REPO_NAME_BRANCH="${REPO_NAME}-master"
 VERSION="local"
 
 # Env
@@ -148,7 +149,7 @@ function Init() {
   local dirs=(
     "${OUTDir}"
     "${OUTDir_OC}"
-    "${REPO_NAME}-master"
+    "${REPO_NAME_BRANCH}"
     "Clover"
     "OpenCore"
   )
@@ -464,7 +465,7 @@ function Install() {
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   if [[ ${REMOTE} == True ]]; then
-    cp -R "${REPO_NAME}-master/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
+    cp -R "${REPO_NAME_BRANCH}/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   else
     cp -R "../Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
   fi
@@ -472,22 +473,22 @@ function Install() {
   # ACPI
   if [[ ${REMOTE} == True ]]; then
     acpiItems=(
-      "${REPO_NAME}-master/ACPI/SSDT-ALS0.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-DDGPU.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-DMAC.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-EC.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-GPRW.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-HPET.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-LGPA.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-MCHC.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-MEM2.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-PMC.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-PNLF.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-PS2K.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-RMNE.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-TPD0.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-USB.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-XCPM.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-ALS0.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-DDGPU.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-DMAC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-EC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-GPRW.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-HPET.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-LGPA.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-MCHC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-MEM2.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-PMC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-PNLF.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-PS2K.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-RMNE.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-TPD0.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-XCPM.aml"
     )
   else
     acpiItems=(
@@ -519,23 +520,24 @@ function Install() {
 
   # Theme
   if [[ ${REMOTE} == True ]]; then
-    cp -R "${REPO_NAME}-master/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "${REPO_NAME_BRANCH}/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   else
     cp -R "../CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   fi
 
   cp -R "OcBinaryData-master/Resources" "${OUTDir_OC}/EFI/OC/" || copyErr
 
-  # config & README
+  # config & README & LICENSE
   if [[ ${REMOTE} == True ]]; then
-    cp -R "${REPO_NAME}-master/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
-    cp -R "${REPO_NAME}-master/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
+    cp -R "${REPO_NAME_BRANCH}/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
+    cp -R "${REPO_NAME_BRANCH}/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
     for READMEdir in "${OUTDir}" "${OUTDir_OC}"; do
       if [[ ${LANGUAGE} == "EN" ]]; then
-        cp -R "${REPO_NAME}-master/README.md" "${READMEdir}" || copyErr
+        cp -R "${REPO_NAME_BRANCH}/README.md" "${READMEdir}" || copyErr
       elif [[ ${LANGUAGE} == "CN" ]]; then
-        cp -R "${REPO_NAME}-master/README_CN.md" "${READMEdir}" || copyErr
+        cp -R "${REPO_NAME_BRANCH}/README_CN.md" "${READMEdir}" || copyErr
       fi
+      cp -R "${REPO_NAME_BRANCH}/LICENSE" "${READMEdir}" || copyErr
     done
   else
     cp -R "../CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
@@ -546,17 +548,18 @@ function Install() {
       elif [[ ${LANGUAGE} == "CN" ]]; then
         cp -R "../README_CN.md" "${READMEdir}" || copyErr
       fi
+      cp -R "../LICENSE" "${READMEdir}" || copyErr
     done
   fi
 
   # Bluetooth & GTX & wiki
   if [[ ${REMOTE} == True ]]; then
     btItems=(
-      "${REPO_NAME}-master/ACPI/SSDT-USB-ALL.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-USB-FingerBT.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-USB-USBBT.aml"
-      "${REPO_NAME}-master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
-      "${REPO_NAME}-master/Docs/Work-Around-with-Bluetooth.pdf"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-ALL.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-FingerBT.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-USBBT.aml"
+      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+      "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf"
     )
   else
     btItems=(
@@ -576,11 +579,11 @@ function Install() {
   done
 
   if [[ ${REMOTE} == True ]]; then
-    gtxItems=( "${REPO_NAME}-master/ACPI/SSDT-LGPAGTX.aml" )
+    gtxItems=( "${REPO_NAME_BRANCH}/ACPI/SSDT-LGPAGTX.aml" )
     if [[ ${LANGUAGE} == "EN" ]]; then
-      gtxItems+=( "${REPO_NAME}-master/Docs/README_GTX.txt" )
+      gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_GTX.txt" )
     elif [[ ${LANGUAGE} == "CN" ]]; then
-      gtxItems+=( "${REPO_NAME}-master/Docs/README_CN_GTX.txt" )
+      gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_CN_GTX.txt" )
     fi
   else
     gtxItems=( "../ACPI/SSDT-LGPAGTX.aml" )
@@ -600,10 +603,10 @@ function Install() {
 
   if [[ ${REMOTE} == True ]]; then
     wikiItems=(
-      "${REPO_NAME}-master/Docs/FAQ.pdf"
-      "${REPO_NAME}-master/Docs/Drive-Native-Intel-Wireless-Card.pdf"
-      "${REPO_NAME}-master/Docs/Set-DVMT-to-64mb.pdf"
-      "${REPO_NAME}-master/Docs/Unlock-0xE2-MSR.pdf"
+      "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
+      "${REPO_NAME_BRANCH}/Docs/Drive-Native-Intel-Wireless-Card.pdf"
+      "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
+      "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
     )
   else
     wikiItems=(
@@ -672,7 +675,7 @@ function GenNote() {
   local changelogPath
 
   if [[ ${REMOTE} == True ]]; then
-    changelogPath="${REPO_NAME}-master/Changelog.md"
+    changelogPath="${REPO_NAME_BRANCH}/Changelog.md"
   else
     changelogPath="../Changelog.md"
   fi
