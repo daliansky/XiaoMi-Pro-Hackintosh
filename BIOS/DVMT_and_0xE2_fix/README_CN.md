@@ -25,7 +25,7 @@
 
 - **如果你是 Clover 或 OC 用户：**
   - 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：
-```
+```xml
 <key>framebuffer-fbmem</key>
 <data>AACQAA==</data>
 <key>framebuffer-stolenmem</key>
@@ -35,12 +35,12 @@
 8. 删除 OC MSR 0xE2 补丁。
 
 打开 `/EFI/OC/config.plist`，并找到以下代码：
-```
+```xml
 <key>AppleXcpmCfgLock</key>
 <true/>
 ```
 修改为：
-```
+```xml
 <key>AppleXcpmCfgLock</key>
 <false/>
 ```

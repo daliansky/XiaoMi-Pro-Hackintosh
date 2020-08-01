@@ -25,7 +25,7 @@
 
 - **For both Clover and OC users:**
   - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
-```
+```xml
 <key>framebuffer-fbmem</key>
 <data>AACQAA==</data>
 <key>framebuffer-stolenmem</key>
@@ -35,12 +35,12 @@
 8. Delete OC MSR 0xE2 patch.
 
 Open `/EFI/OC/config.plist`, find the following code:
-```
+```xml
 <key>AppleXcpmCfgLock</key>
 <true/>
 ```
 Change to:
-```
+```xml
 <key>AppleXcpmCfgLock</key>
 <false/>
 ```

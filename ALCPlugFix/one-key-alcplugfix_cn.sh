@@ -38,8 +38,8 @@ function download(){
     cd one-key-alcplugfix || exit 1
     echo "正在下载声卡修复文件..."
     curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/good.win.ALCPlugFix.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/hda-verb -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/good.win.ALCPlugFix.plist -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/hda-verb -O || networkWarn
     echo "下载完成"
     echo
 }
