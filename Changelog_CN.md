@@ -3,10 +3,20 @@
 [English](Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
-## 8-X-2020
+## 8-3-2020
 
 ### 更新
-  * 更新 `Clover` r512
+  * 更新 `Clover` r5120
+  * 更新 `OpenCore` v0.6.0
+  * 更新 `Lilu` v1.4.6
+  * 更新 `VirtualSMC` v1.1.5
+  * 更新 `AppleALC` v1.5.1
+  * 更新 `WhateverGreen` v1.4.1
+  * 更新 `VoodooPS2` v2.1.6
+  * 更新 `VoodooInput` v1.0.7
+  * 更新 `NVMeFix` v1.0.3
+  * 更新 `HibernationFixup` v1.3.4
+  * 更新 `IntelBluetoothFirmware` v1.1.2
   * 更新 `SSDT-LGPA` 来修复睡眠唤醒后意外的键位触发
 
 ### Clover

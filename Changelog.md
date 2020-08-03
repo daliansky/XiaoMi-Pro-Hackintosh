@@ -3,10 +3,20 @@
 **English** | [中文](Changelog_CN.md)
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
-## 8-X-2020
+## 8-3-2020
 
 ### Update
-  - Update `Clover` r512
+  - Update `Clover` r5120
+  - Update `OpenCore` v0.6.0
+  - Update `Lilu` v1.4.6
+  - Update `VirtualSMC` v1.1.5
+  - Update `AppleALC` v1.5.1
+  - Update `WhateverGreen` v1.4.1
+  - Update `VoodooPS2` v2.1.6
+  - Update `VoodooInput` v1.0.7
+  - Update `NVMeFix` v1.0.3
+  - Update `HibernationFixup` v1.3.4
+  - Update `IntelBluetoothFirmware` v1.1.2
   - Update `SSDT-LGPA` to solve unexpected key press when wake up from sleep
 
 ### Clover

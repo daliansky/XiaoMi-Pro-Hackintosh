@@ -149,13 +149,15 @@ function Init() {
   local dirs=(
     "${OUTDir}"
     "${OUTDir_OC}"
-    "${REPO_NAME_BRANCH}"
     "Clover"
     "OpenCore"
   )
   for dir in "${dirs[@]}"; do
     mkdir -p "${dir}" || exit 1
   done
+  if [[ ${REMOTE} == True ]]; then
+    mkdir -p "${REPO_NAME_BRANCH}" || exit 1
+  fi
 
   if [[ "$(dirname "$PWD")" =~ ${REPO_NAME} ]]; then
     REMOTE=False;
@@ -422,6 +424,7 @@ function Patch() {
 # Install
 function Install() {
   local acpiItems
+  local alcfixItems
   local btItems
   local gtxItems
   local kextItems
@@ -464,51 +467,27 @@ function Install() {
 
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
-  if [[ ${REMOTE} == True ]]; then
-    cp -R "${REPO_NAME_BRANCH}/Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
-  else
-    cp -R "../Docs/Drivers/AptioMemoryFix.efi" "${OUTDir}" || copyErr
-  fi
-
   # ACPI
-  if [[ ${REMOTE} == True ]]; then
-    acpiItems=(
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-ALS0.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-DDGPU.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-DMAC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-EC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-GPRW.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-HPET.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-LGPA.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-MCHC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-MEM2.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-PMC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-PNLF.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-PS2K.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-RMNE.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-TPD0.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-XCPM.aml"
-    )
-  else
-    acpiItems=(
-      "../ACPI/SSDT-ALS0.aml"
-      "../ACPI/SSDT-DDGPU.aml"
-      "../ACPI/SSDT-DMAC.aml"
-      "../ACPI/SSDT-EC.aml"
-      "../ACPI/SSDT-GPRW.aml"
-      "../ACPI/SSDT-HPET.aml"
-      "../ACPI/SSDT-LGPA.aml"
-      "../ACPI/SSDT-MCHC.aml"
-      "../ACPI/SSDT-MEM2.aml"
-      "../ACPI/SSDT-PMC.aml"
-      "../ACPI/SSDT-PNLF.aml"
-      "../ACPI/SSDT-PS2K.aml"
-      "../ACPI/SSDT-RMNE.aml"
-      "../ACPI/SSDT-TPD0.aml"
-      "../ACPI/SSDT-USB.aml"
-      "../ACPI/SSDT-XCPM.aml"
-    )
+  acpiItems=(
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-ALS0.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-DDGPU.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-DMAC.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-EC.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-GPRW.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-HPET.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-LGPA.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-MCHC.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-MEM2.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-PMC.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-PNLF.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-PS2K.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-RMNE.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-TPD0.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-USB.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-XCPM.aml"
+  )
+  if [[ ${REMOTE} == False ]]; then
+    acpiItems=("${acpiItems[@]//${REPO_NAME_BRANCH}/..}")
   fi
 
   for ACPIdir in "${OUTDir}/EFI/CLOVER/ACPI/patched/" "${OUTDir_OC}/EFI/OC/ACPI/"; do
@@ -553,22 +532,15 @@ function Install() {
   fi
 
   # Bluetooth & GTX & wiki
-  if [[ ${REMOTE} == True ]]; then
-    btItems=(
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-ALL.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-FingerBT.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-USBBT.aml"
-      "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-WLAN_LTEBT.aml"
-      "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf"
-    )
-  else
-    btItems=(
-      "../ACPI/SSDT-USB-ALL.aml"
-      "../ACPI/SSDT-USB-FingerBT.aml"
-      "../ACPI/SSDT-USB-USBBT.aml"
-      "../ACPI/SSDT-USB-WLAN_LTEBT.aml"
-      "../Docs/Work-Around-with-Bluetooth.pdf"
-    )
+  btItems=(
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-ALL.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-FingerBT.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-USBBT.aml"
+    "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+    "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf"
+  )
+  if [[ ${REMOTE} == False ]]; then
+    btItems=("${btItems[@]//${REPO_NAME_BRANCH}/..}")
   fi
 
   for BTdir in "${OUTDir}/Bluetooth" "${OUTDir_OC}/Bluetooth"; do
@@ -578,20 +550,14 @@ function Install() {
     done
   done
 
-  if [[ ${REMOTE} == True ]]; then
-    gtxItems=( "${REPO_NAME_BRANCH}/ACPI/SSDT-LGPAGTX.aml" )
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_GTX.txt" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_CN_GTX.txt" )
-    fi
-  else
-    gtxItems=( "../ACPI/SSDT-LGPAGTX.aml" )
-    if [[ ${LANGUAGE} == "EN" ]]; then
-      gtxItems+=( "../Docs/README_GTX.txt" )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
-      gtxItems+=( "../Docs/README_CN_GTX.txt" )
-    fi
+  gtxItems=( "${REPO_NAME_BRANCH}/ACPI/SSDT-LGPAGTX.aml" )
+  if [[ ${LANGUAGE} == "EN" ]]; then
+    gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_GTX.txt" )
+  elif [[ ${LANGUAGE} == "CN" ]]; then
+    gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_CN_GTX.txt" )
+  fi
+  if [[ ${REMOTE} == False ]]; then
+    gtxItems=("${gtxItems[@]//${REPO_NAME_BRANCH}/..}")
   fi
 
   for GTXdir in "${OUTDir}/GTX" "${OUTDir_OC}/GTX"; do
@@ -601,25 +567,40 @@ function Install() {
     done
   done
 
-  if [[ ${REMOTE} == True ]]; then
-    wikiItems=(
-      "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
-      "${REPO_NAME_BRANCH}/Docs/Drive-Native-Intel-Wireless-Card.pdf"
-      "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
-      "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
-    )
-  else
-    wikiItems=(
-      "../Docs/FAQ.pdf"
-      "../Docs/Drive-Native-Intel-Wireless-Card.pdf"
-      "../Docs/Set-DVMT-to-64mb.pdf"
-      "../Docs/Unlock-0xE2-MSR.pdf"
-    )
+  wikiItems=(
+    "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
+    "${REPO_NAME_BRANCH}/Docs/Drive-Native-Intel-Wireless-Card.pdf"
+    "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
+    "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
+  )
+  if [[ ${REMOTE} == False ]]; then
+    wikiItems=("${wikiItems[@]//${REPO_NAME_BRANCH}/..}")
   fi
 
-  for WIKIdir in "${OUTDir}" "${OUTDir_OC}"; do
+  for WIKIdir in "${OUTDir}/Docs" "${OUTDir_OC}/Docs"; do
+    mkdir -p "${WIKIdir}" || exit 1
     for wikiItem in "${wikiItems[@]}"; do
       cp -R "${wikiItem}" "${WIKIdir}" || copyErr
+    done
+  done
+
+  # ALCPlugFix
+  alcfixItems=(
+    "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/alc_fix"
+    "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/build"
+    "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/README.MD"
+  )
+  if [[ ${REMOTE} == True ]]; then
+    cd "${REPO_NAME_BRANCH}" && git submodule init && git submodule update --remote && cd ../ || exit 1
+  else
+    alcfixItems=("${alcfixItems[@]//${REPO_NAME_BRANCH}/..}")
+    cd "../" && git submodule init && git submodule update --remote && cd "build" || exit 1
+  fi
+
+  for ALCPFdir in "${OUTDir}/ALCPlugFix" "${OUTDir_OC}/ALCPlugFix"; do
+    mkdir -p "${ALCPFdir}" || exit 1
+    for alcfixItem in "${alcfixItems[@]}"; do
+      cp -R "${alcfixItem}" "${ALCPFdir}" || copyErr
     done
   done
 }
