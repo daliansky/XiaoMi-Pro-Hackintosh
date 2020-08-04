@@ -20,6 +20,7 @@ PRE_RELEASE=""
 REMOTE=True
 REPO_NAME="XiaoMi-Pro-Hackintosh"
 REPO_NAME_BRANCH="${REPO_NAME}-master"
+RETRY_MAX=5
 VERSION="local"
 
 # Env
@@ -238,7 +239,7 @@ function DBR() {
   local rawURL="https://api.bitbucket.org/2.0/repositories/$1/$2/downloads/"
   local URL
 
-  while  [ ${Count} -lt 3 ];
+  while  [ ${Count} -lt ${RETRY_MAX} ];
   do
     URL="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
     if [ "${URL:(-4)}" == ".zip" ]; then
@@ -414,6 +415,8 @@ function Patch() {
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
   )
+  echo "${green}[${reset}${blue}${bold} Patching Resources ${reset}${green}]${reset}"
+  echo
   for unusedItem in "${unusedItems[@]}"; do
     rm -rf "${unusedItem}" >/dev/null 2>&1
   done
@@ -452,6 +455,8 @@ function Install() {
     "Release/NullEthernet.kext"
   )
 
+  echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
+  echo
   for Kextdir in "${OUTDir}/EFI/CLOVER/kexts/Other/" "${OUTDir_OC}/EFI/OC/Kexts/"; do
     mkdir -p "${Kextdir}" || exit 1
     for kextItem in "${kextItems[@]}"; do
@@ -460,6 +465,8 @@ function Install() {
   done
 
   # Drivers
+  echo "${green}[${reset}${blue}${bold} Installing Drivers ${reset}${green}]${reset}"
+  echo
   for Driverdir in "${OUTDir}/EFI/CLOVER/drivers/UEFI/" "${OUTDir_OC}/EFI/OC/Drivers/"; do
     mkdir -p "${Driverdir}" || exit 1
     cp -R "OcBinaryData-master/Drivers/HfsPlus.efi" "${Driverdir}" || copyErr
@@ -490,6 +497,8 @@ function Install() {
     acpiItems=("${acpiItems[@]//${REPO_NAME_BRANCH}/..}")
   fi
 
+  echo "${green}[${reset}${blue}${bold} Installing ACPIs ${reset}${green}]${reset}"
+  echo
   for ACPIdir in "${OUTDir}/EFI/CLOVER/ACPI/patched/" "${OUTDir_OC}/EFI/OC/ACPI/"; do
     mkdir -p "${ACPIdir}" || exit 1
     for acpiItem in "${acpiItems[@]}"; do
@@ -498,6 +507,8 @@ function Install() {
   done
 
   # Theme
+  echo "${green}[${reset}${blue}${bold} Installing themes ${reset}${green}]${reset}"
+  echo
   if [[ ${REMOTE} == True ]]; then
     cp -R "${REPO_NAME_BRANCH}/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
   else
@@ -507,6 +518,8 @@ function Install() {
   cp -R "OcBinaryData-master/Resources" "${OUTDir_OC}/EFI/OC/" || copyErr
 
   # config & README & LICENSE
+  echo "${green}[${reset}${blue}${bold} Installing config & README & LICENSE ${reset}${green}]${reset}"
+  echo
   if [[ ${REMOTE} == True ]]; then
     cp -R "${REPO_NAME_BRANCH}/CLOVER/config.plist" "${OUTDir}/EFI/CLOVER/" || copyErr
     cp -R "${REPO_NAME_BRANCH}/OC/config.plist" "${OUTDir_OC}/EFI/OC/" || copyErr
@@ -543,6 +556,8 @@ function Install() {
     btItems=("${btItems[@]//${REPO_NAME_BRANCH}/..}")
   fi
 
+  echo "${green}[${reset}${blue}${bold} Installing Docs About Bluetooth & GTX & wiki ${reset}${green}]${reset}"
+  echo
   for BTdir in "${OUTDir}/Bluetooth" "${OUTDir_OC}/Bluetooth"; do
     mkdir -p "${BTdir}" || exit 1
     for btItem in "${btItems[@]}"; do
@@ -591,12 +606,15 @@ function Install() {
     "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/README.MD"
   )
   if [[ ${REMOTE} == True ]]; then
-    cd "${REPO_NAME_BRANCH}" && git submodule init && git submodule update --remote && cd ../ || exit 1
+    cd "${REPO_NAME_BRANCH}" || exit 1
   else
     alcfixItems=("${alcfixItems[@]//${REPO_NAME_BRANCH}/..}")
-    cd "../" && git submodule init && git submodule update --remote && cd "build" || exit 1
+    cd "../" || exit 1
   fi
+  git submodule init && git submodule update --remote && cd "${WSDir}" || exit 1
 
+  echo "${green}[${reset}${blue}${bold} Installing ALCPlugFix ${reset}${green}]${reset}"
+  echo
   for ALCPFdir in "${OUTDir}/ALCPlugFix" "${OUTDir_OC}/ALCPlugFix"; do
     mkdir -p "${ALCPFdir}" || exit 1
     for alcfixItem in "${alcfixItems[@]}"; do
@@ -607,6 +625,8 @@ function Install() {
 
 # Extract files for Clover
 function ExtractClover() {
+  echo "${green}[${reset}${blue}${bold} Extracting Clover ${reset}${green}]${reset}"
+  echo
   # From CloverV2 and AppleSupportPkg v2.0.9
   unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
   cp -R "Clover/CloverV2/EFI/BOOT" "${OUTDir}/EFI/" || copyErr
@@ -627,6 +647,8 @@ function ExtractClover() {
 
 # Extract files from OpenCore
 function ExtractOC() {
+  echo "${green}[${reset}${blue}${bold} Extracting OpenCore ${reset}${green}]${reset}"
+  echo
   mkdir -p "${OUTDir_OC}/EFI/OC/Tools" || exit 1
   unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
   cp -R OpenCore/EFI/BOOT "${OUTDir_OC}/EFI/" || copyErr
@@ -661,6 +683,8 @@ function GenNote() {
     changelogPath="../Changelog.md"
   fi
 
+  echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
+  echo
   printVersion=$(echo "${VERSION}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
   printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
 
@@ -675,6 +699,8 @@ function GenNote() {
 
 # Exclude Trash
 function CTrash() {
+  echo "${green}[${reset}${blue}${bold} Cleaning Trash Files ${reset}${green}]${reset}"
+  echo
   if [[ ${CLEAN_UP} == True ]]; then
     find . -maxdepth 1 ! -path "./${OUTDir}" ! -path "./${OUTDir_OC}" -exec rm -rf {} + >/dev/null 2>&1
   fi
