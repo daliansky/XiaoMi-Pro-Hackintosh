@@ -507,7 +507,7 @@ function Install() {
   done
 
   # Theme
-  echo "${green}[${reset}${blue}${bold} Installing themes ${reset}${green}]${reset}"
+  echo "${green}[${reset}${blue}${bold} Installing Themes ${reset}${green}]${reset}"
   echo
   if [[ ${REMOTE} == True ]]; then
     cp -R "${REPO_NAME_BRANCH}/CLOVER/themes" "${OUTDir}/EFI/CLOVER/" || copyErr
