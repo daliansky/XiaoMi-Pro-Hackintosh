@@ -9,7 +9,7 @@
   * 更新 `Clover` r5120
   * 更新 `OpenCore` v0.6.0
   * 更新 `Lilu` v1.4.6
-  * 更新 `VirtualSMC` v1.1.5
+  * 更新 `VirtualSMC` v1.1.5 来支持 macOS11.0 beta 3 (20A5323l)
   * 更新 `AppleALC` v1.5.1
   * 更新 `WhateverGreen` v1.4.1
   * 更新 `VoodooPS2` v2.1.6

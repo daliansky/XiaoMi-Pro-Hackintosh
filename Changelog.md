@@ -9,7 +9,7 @@
   - Update `Clover` r5120
   - Update `OpenCore` v0.6.0
   - Update `Lilu` v1.4.6
-  - Update `VirtualSMC` v1.1.5
+  - Update `VirtualSMC` v1.1.5 to support macOS11.0 beta 3 (20A5323l)
   - Update `AppleALC` v1.5.1
   - Update `WhateverGreen` v1.4.1
   - Update `VoodooPS2` v2.1.6

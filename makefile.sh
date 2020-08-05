@@ -494,7 +494,7 @@ function Install() {
     "${REPO_NAME_BRANCH}/ACPI/SSDT-XCPM.aml"
   )
   if [[ ${REMOTE} == False ]]; then
-    acpiItems=("${acpiItems[@]//${REPO_NAME_BRANCH}/..}")
+    acpiItems=("${acpiItems[@]/${REPO_NAME_BRANCH}/..}")
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing ACPIs ${reset}${green}]${reset}"
@@ -553,7 +553,7 @@ function Install() {
     "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf"
   )
   if [[ ${REMOTE} == False ]]; then
-    btItems=("${btItems[@]//${REPO_NAME_BRANCH}/..}")
+    btItems=("${btItems[@]/${REPO_NAME_BRANCH}/..}")
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing Docs About Bluetooth & GTX & wiki ${reset}${green}]${reset}"
@@ -572,7 +572,7 @@ function Install() {
     gtxItems+=( "${REPO_NAME_BRANCH}/Docs/README_CN_GTX.txt" )
   fi
   if [[ ${REMOTE} == False ]]; then
-    gtxItems=("${gtxItems[@]//${REPO_NAME_BRANCH}/..}")
+    gtxItems=("${gtxItems[@]/${REPO_NAME_BRANCH}/..}")
   fi
 
   for GTXdir in "${OUTDir}/GTX" "${OUTDir_OC}/GTX"; do
@@ -589,7 +589,7 @@ function Install() {
     "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
   )
   if [[ ${REMOTE} == False ]]; then
-    wikiItems=("${wikiItems[@]//${REPO_NAME_BRANCH}/..}")
+    wikiItems=("${wikiItems[@]/${REPO_NAME_BRANCH}/..}")
   fi
 
   for WIKIdir in "${OUTDir}/Docs" "${OUTDir_OC}/Docs"; do
@@ -608,7 +608,7 @@ function Install() {
   if [[ ${REMOTE} == True ]]; then
     cd "${REPO_NAME_BRANCH}" || exit 1
   else
-    alcfixItems=("${alcfixItems[@]//${REPO_NAME_BRANCH}/..}")
+    alcfixItems=("${alcfixItems[@]/${REPO_NAME_BRANCH}/..}")
     cd "../" || exit 1
   fi
   git submodule init && git submodule update --remote && cd "${WSDir}" || exit 1
@@ -677,10 +677,9 @@ function GenNote() {
   local lineEnd
   local changelogPath
 
-  if [[ ${REMOTE} == True ]]; then
-    changelogPath="${REPO_NAME_BRANCH}/Changelog.md"
-  else
-    changelogPath="../Changelog.md"
+  changelogPath="${REPO_NAME_BRANCH}/Changelog.md"
+  if [[ ${REMOTE} == False ]]; then
+    changelogPath="${changelogPath/${REPO_NAME_BRANCH}/..}"
   fi
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"

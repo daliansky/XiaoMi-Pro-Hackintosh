@@ -65,7 +65,7 @@
   - 在 Clover 启动界面按下 `Fn+F11`
 
 ### OpenCore
-- 支持 macOS10.13 ~ macOS11.0 beta 2 (20A4300b)
+- 支持 macOS10.13 ~ macOS11.0 beta 4 (20A5343i)
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM
