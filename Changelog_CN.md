@@ -2,6 +2,13 @@
 
 [English](Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.4.4
+## X-X-2020
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.1
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
 ## 8-3-2020
 
