@@ -5,6 +5,9 @@
 ## XiaoMi NoteBook Pro EFI v1.4.4
 ## X-X-2020
 
+### 移除
+  * 移除 `NVMeFix` 因为它不兼容部分 NVMe SSD
+
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.1
 

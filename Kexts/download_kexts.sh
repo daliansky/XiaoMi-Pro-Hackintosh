@@ -161,7 +161,6 @@ function DL() {
     WhateverGreen
     AppleALC
     HibernationFixup
-    NVMeFix
     VoodooPS2
     Lilu
   )
@@ -213,7 +212,6 @@ function Install() {
     "IntelBluetoothFirmware.kext"
     "IntelBluetoothInjector.kext"
     "Lilu.kext"
-    "NVMeFix.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"

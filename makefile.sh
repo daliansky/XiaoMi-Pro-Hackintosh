@@ -93,7 +93,6 @@ acdtKexts=(
   WhateverGreen
   AppleALC
   HibernationFixup
-  NVMeFix
   VoodooPS2
   Lilu
 )
@@ -272,7 +271,7 @@ function DPB() {
 
 # Build Pre-release Kexts
 function BKextHelper() {
-  local liluPlugins="AppleALC HibernationFixup NVMeFix WhateverGreen VirtualSMC"
+  local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC"
   local voodooinputPlugins="VoodooI2C VoodooPS2"
   local PATH_TO_REL="build/Build/Products/Release/"
   local PATH_TO_REL_PS2="build/Products/Release/"
@@ -440,7 +439,6 @@ function Install() {
     "IntelBluetoothFirmware.kext"
     "IntelBluetoothInjector.kext"
     "Lilu.kext"
-    "NVMeFix.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"
