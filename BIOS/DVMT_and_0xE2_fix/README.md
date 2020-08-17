@@ -34,15 +34,11 @@
 
 8. Delete OC MSR 0xE2 patch.
 
-Open `/EFI/OC/config.plist`, find the following code:
-```xml
-<key>AppleXcpmCfgLock</key>
-<true/>
-```
-Change to:
-```xml
-<key>AppleXcpmCfgLock</key>
-<false/>
+Open `/EFI/OC/config.plist`, change the following code:
+```diff
+  <key>AppleXcpmCfgLock</key>
+- <true/>
++ <false/>
 ```
 
 
