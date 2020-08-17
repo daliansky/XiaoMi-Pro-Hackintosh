@@ -34,7 +34,7 @@
 
 8. 删除 OC MSR 0xE2 补丁。
 
-打开 `/EFI/OC/config.plist`，并找到以下代码：
+打开 `/EFI/OC/config.plist`，并更改以下代码：
 ```diff
   <key>AppleXcpmCfgLock</key>
 - <true/>
