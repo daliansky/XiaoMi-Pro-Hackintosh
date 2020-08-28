@@ -10,6 +10,8 @@
 
 ### OC
   - OC: Update config to support  `OpenCore` v0.6.1
+  - OC: Disable `Disable RTC wake scheduling` patch since it may cause Intel Wi-Fi unresponding after wake
+
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)

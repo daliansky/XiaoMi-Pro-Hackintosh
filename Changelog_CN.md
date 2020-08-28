@@ -10,6 +10,7 @@
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.1
+  * OC: 关闭 `Disable RTC wake scheduling` 补丁因为它可能导致 Intel Wi-Fi 唤醒后不工作
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
