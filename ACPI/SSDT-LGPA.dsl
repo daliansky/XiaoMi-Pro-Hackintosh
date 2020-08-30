@@ -542,7 +542,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPA", 0x00000000)
                         Notify (PS2K, 0x02A3) // Press Up e023
                         OG00 = Zero
                     }
-                    
+
                     If (CondRefOf (^^WMIX))
                     {
                         If ((^^WMIX.EV02 != Zero))
