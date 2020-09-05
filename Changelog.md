@@ -15,6 +15,9 @@
   - Update `HibernationFixup` v1.3.5
   - Update `SSDT-LGPAGTX`
 
+### Add
+  - Add `-shikioff` boot-args to disable `Shiki`
+
 ### Remove
   - Remove `NVMeFix` due to incompatibilities on some NVMe SSDs
 

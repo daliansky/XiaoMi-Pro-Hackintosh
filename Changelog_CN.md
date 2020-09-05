@@ -15,6 +15,9 @@
   * 更新 `HibernationFixup` v1.3.5
   * 更新 `SSDT-LGPAGTX`
 
+### 新增
+  * 新增 `-shikioff` 引导参数来禁用 `Shiki`
+
 ### 移除
   * 移除 `NVMeFix` 因为它不兼容部分 NVMe SSD
 
@@ -520,7 +523,7 @@
   * 新增 `VoodooPS2Controller` 来代替 `ApplePS2SmartTouchPad`
 
 ### 移除
-  * 移除多余启动参数 `igfxfw=1` 和 `-disablegfxfirmware`
+  * 移除多余引导参数 `igfxfw=1` 和 `-disablegfxfirmware`
 
 ### 变更
   * 修改 `SSDT-PCIList.aml`，让 `系统报告.app` 显示更多PCI设备
@@ -538,7 +541,7 @@
   * 新增 `SSDT-EC.aml` 和 `SSDT-SMBUS.aml` 来加载 AppleBusPowerController 和 AppleSMBusPCI
 
 ### 移除
-  * 移除 config 里的一些无用重命名和错误启动参数 `shikigva=1`
+  * 移除 config 里的一些无用重命名和错误引导参数 `shikigva=1`
   * 移除 `SSDT-ADBG.aml`，它是个无用的方法覆写
   * 移除 `SSDT-IMEI.aml` 来避免开机日志里出现的错误信息（显卡id能被`IntelGraphicsFixup`自动注入）
 
@@ -577,7 +580,7 @@
 ### 新增
   * 新增 `AppleBacklightInjector`，开启更多档位的亮度调节
   * 新增 `CPUFriend` 和`CPUFriendDataProvider`，开启原生 XCPM 和 HWP 电源管理方案
-  * 新增启动参数 `shikigva=1`，`igfxrst=1` 和 `igfxfw=1` 增强核显性能，并用新的方法修正启动第二阶段的八个苹果
+  * 新增引导参数 `shikigva=1`，`igfxrst=1` 和 `igfxfw=1` 增强核显性能，并用新的方法修正启动第二阶段的八个苹果
   * 新增 `SSDT-LGPA.aml`，支持原生亮度快捷键
 
 
