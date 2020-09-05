@@ -64,7 +64,7 @@
   - 在 Clover 启动界面按下 `Fn+F11`
 
 ### OpenCore
-- 支持 macOS10.13 ~ macOS11.0 beta 4 (20A5343i)
+- 支持 macOS10.13 ~ macOS11.0 beta 5 (20A5354i)
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM
@@ -134,7 +134,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
   - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb，然后把 `config.plist - Devices (DeviceProperties) - Properties (Add) - PciRoot(0x0)/Pci(0x2,0x0)` 里的 `framebuffer-flags` 设置为 `CwfjAA==`
-- 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能
+  - 可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
+- 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`
 
 
 ## 常见问题解答

@@ -6,6 +6,13 @@
 ## X-X-2020
 
 ### Update
+  - Update `Clover` r5123
+  - Update `OpenCore` v0.6.1
+  - Update `Lilu` v1.4.7
+  - Update `VirtualSMC` v1.1.6
+  - Update `AppleALC` v1.5.2
+  - Update `WhateverGreen` v1.4.2
+  - Update `HibernationFixup` v1.3.5
   - Update `SSDT-LGPAGTX`
 
 ### Remove

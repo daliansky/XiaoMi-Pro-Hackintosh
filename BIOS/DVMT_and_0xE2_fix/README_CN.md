@@ -26,19 +26,52 @@
 - **如果你是 Clover 或 OC 用户：**
   - 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：
 ```xml
-<key>framebuffer-fbmem</key>
-<data>AACQAA==</data>
-<key>framebuffer-stolenmem</key>
-<data>AAAwAQ==</data>
+    <key>framebuffer-fbmem</key>
+    <data>AACQAA==</data>
+    <key>framebuffer-stolenmem</key>
+    <data>AAAwAQ==</data>
+```
+
+- 可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
+```diff
+    <key>AAPL,ig-platform-id</key>
+-   <data>AAAWWQ==</data>
++   <data>BQAcWQ==</data>
+    <key>AAPL,slot-name</key>
+    <string>Internal</string>
+    <key>complete-modeset-framebuffers</key>
+    <data>AAAAAAAAAAE=</data>
+    <key>device-id</key>
+    <data>FlkAAA==</data>
+    <key>force-online</key>
+    <data>AQAAAA==</data>
+    <key>force-online-framebuffers</key>
+    <data>AAAAAAAAAAE=</data>
+-   <key>framebuffer-con0-enable</key>
+-   <data>AQAAAA==</data>
+-   <key>framebuffer-con0-flags</key>
+-   <data>mAQAAA==</data>
+    <key>framebuffer-con1-enable</key>
+    <data>AQAAAA==</data>
+-   <key>framebuffer-con1-flags</key>
+-   <data>xwMAAA==</data>
+    <key>framebuffer-con1-pipe</key>
+    <data>CgAAAA==</data>
+    <key>framebuffer-con1-type</key>
+    <data>AAgAAA==</data>
+    <key>framebuffer-con2-enable</key>
+    <data>AQAAAA==</data>
+-   <key>framebuffer-con2-flags</key>
+-   <data>xwMAAA==</data>
 ```
 
 8. 删除 OC MSR 0xE2 补丁。
 
 打开 `/EFI/OC/config.plist`，并更改以下代码：
 ```diff
-  <key>AppleXcpmCfgLock</key>
-- <true/>
-+ <false/>
+    <key>AppleXcpmCfgLock</key>
+-   <true/>
++   <false/>
 ```
 
 

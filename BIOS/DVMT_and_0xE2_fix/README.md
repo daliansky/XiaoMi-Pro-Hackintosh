@@ -26,19 +26,52 @@
 - **For both Clover and OC users:**
   - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
 ```xml
-<key>framebuffer-fbmem</key>
-<data>AACQAA==</data>
-<key>framebuffer-stolenmem</key>
-<data>AAAwAQ==</data>
+    <key>framebuffer-fbmem</key>
+    <data>AACQAA==</data>
+    <key>framebuffer-stolenmem</key>
+    <data>AAAwAQ==</data>
+```
+
+- Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
+```diff
+    <key>AAPL,ig-platform-id</key>
+-   <data>AAAWWQ==</data>
++   <data>BQAcWQ==</data>
+    <key>AAPL,slot-name</key>
+    <string>Internal</string>
+    <key>complete-modeset-framebuffers</key>
+    <data>AAAAAAAAAAE=</data>
+    <key>device-id</key>
+    <data>FlkAAA==</data>
+    <key>force-online</key>
+    <data>AQAAAA==</data>
+    <key>force-online-framebuffers</key>
+    <data>AAAAAAAAAAE=</data>
+-   <key>framebuffer-con0-enable</key>
+-   <data>AQAAAA==</data>
+-   <key>framebuffer-con0-flags</key>
+-   <data>mAQAAA==</data>
+    <key>framebuffer-con1-enable</key>
+    <data>AQAAAA==</data>
+-   <key>framebuffer-con1-flags</key>
+-   <data>xwMAAA==</data>
+    <key>framebuffer-con1-pipe</key>
+    <data>CgAAAA==</data>
+    <key>framebuffer-con1-type</key>
+    <data>AAgAAA==</data>
+    <key>framebuffer-con2-enable</key>
+    <data>AQAAAA==</data>
+-   <key>framebuffer-con2-flags</key>
+-   <data>xwMAAA==</data>
 ```
 
 8. Delete OC MSR 0xE2 patch.
 
 Open `/EFI/OC/config.plist`, change the following code:
 ```diff
-  <key>AppleXcpmCfgLock</key>
-- <true/>
-+ <false/>
+    <key>AppleXcpmCfgLock</key>
+-   <true/>
++   <false/>
 ```
 
 
