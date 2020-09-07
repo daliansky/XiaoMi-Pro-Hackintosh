@@ -9,7 +9,7 @@ jobs:
 
     script:
     - EFI_VERSION=$(echo "${TRAVIS_TAG}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
-    - ./makefile.sh --NO_GH_API --VERSION="${TRAVIS_TAG}" --PRE_RELEASE=Kext --PRE_RELEASE=OC
+    - ./makefile.sh --NO_GH_API --VERSION="${TRAVIS_TAG}" --PRE_RELEASE=Kext
 
     deploy:
       provider: releases
@@ -51,4 +51,4 @@ jobs:
     - curl -# -L -O "${URL}" || exit 1
     - unzip -qq "*.zip" >/dev/null 2>&1 || exit 1
     - chmod +x Utilities/ocvalidate/ocvalidate || exit 1
-    - RESULT=$(Utilities/ocvalidate/ocvalidate ../OC/config.plist) && echo "${RESULT}" && if [ "$(echo "${RESULT}" | wc -l)" -gt "1" ]; then exit 1; fi
+    - Utilities/ocvalidate/ocvalidate ../OC/config.plist || exit 1

@@ -136,6 +136,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
   - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb，然后把 `config.plist - Devices (DeviceProperties) - Properties (Add) - PciRoot(0x0)/Pci(0x2,0x0)` 里的 `framebuffer-flags` 设置为 `CwfjAA==`
   - 可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 - 使用 [one-key-cpufriend](one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`（macOS 版本高于 10.15）
+- 添加 `igfxrpsc=1` 引导参数或 `rps-control` 属性来启用 RPS 控制补丁并提升核显性能（macOS 版本 ≠ 10.15.6）
 
 
 ## 常见问题解答

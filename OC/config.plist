@@ -953,7 +953,12 @@
 		<key>Block</key>
 		<array/>
 		<key>Emulate</key>
-		<dict/>
+		<dict>
+			<key>Cpuid1Data</key>
+			<data></data>
+			<key>Cpuid1Mask</key>
+			<data></data>
+		</dict>
 		<key>Force</key>
 		<array/>
 		<key>Patch</key>
