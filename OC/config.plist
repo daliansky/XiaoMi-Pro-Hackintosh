@@ -1003,6 +1003,8 @@
 			<true/>
 			<key>DisableIoMapper</key>
 			<true/>
+			<key>DisableLinkeditJettison</key>
+			<true/>
 			<key>DisableRtcChecksum</key>
 			<true/>
 			<key>DummyPowerManagement</key>

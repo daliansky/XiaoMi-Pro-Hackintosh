@@ -3,16 +3,17 @@
 **English** | [中文](Changelog_CN.md)
 
 ## XiaoMi NoteBook Pro EFI v1.4.4
-## X-X-2020
+## 9-8-2020
 
 ### Update
-  - Update `Clover` r5123
+  - Update `Clover` r5122
   - Update `OpenCore` v0.6.1
   - Update `Lilu` v1.4.7
   - Update `VirtualSMC` v1.1.6
   - Update `AppleALC` v1.5.2
   - Update `WhateverGreen` v1.4.2
   - Update `HibernationFixup` v1.3.5
+  - Update `VoodooI2C` v2.4.4 (up to [VoodooI2C/VoodooI2C@3527ec3](https://github.com/VoodooI2C/VoodooI2C/commit/3527ec36d2f5860253544f39bec6f0998a7044e2))
   - Update `SSDT-LGPAGTX`
 
 ### Add

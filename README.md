@@ -140,7 +140,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
   - Support 1424x802 HiDPI resolution
   - On macOS > 10.13.6, to enable higher HiDPI resolution (<=1520x855), you need to use [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) to set DVMT to 64mb first and then change the value for `framebuffer-flags` to `CwfjAA==` in `config.plist - Devices (DeviceProperties) - Properties (Add) - PciRoot(0x0)/Pci(0x2,0x0)`
   - Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
-- Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management or change SMBIOS model to `MacBookPro15,4`
+- Use [one-key-cpufriend](one-key-cpufriend) to modify CPU power management or change SMBIOS model to `MacBookPro15,4` (macOS version > 10.15)
 
 
 ## FAQ
