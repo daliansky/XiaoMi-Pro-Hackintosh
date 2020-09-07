@@ -2,7 +2,7 @@
 
 **English** | [中文](Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.4.4
+## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
 ## 9-8-2020
 
 ### Update
