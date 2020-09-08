@@ -2,6 +2,13 @@
 
 **English** | [中文](Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.4.5
+## XX-X-2020
+
+### Clover
+  - Clover: Add back `RtcHibernateAware` to improve hibernation
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
 ## 9-8-2020
 

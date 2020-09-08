@@ -63,16 +63,18 @@
 		<string>darkwake=0 dart=0 gfxrst=1 -shikioff</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
+		<key>HibernationFixup</key>
+		<true/>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NoEarlyProgress</key>
+		<true/>
+		<key>RtcHibernateAware</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
-		<key>HibernationFixup</key>
-		<true/>
 	</dict>
 	<key>Devices</key>
 	<dict>
