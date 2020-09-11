@@ -1177,7 +1177,7 @@
 			<key>MLB</key>
 			<string></string>
 			<key>ROM</key>
-			<string></string>
+			<data></data>
 			<key>SpoofVendor</key>
 			<false/>
 			<key>SystemProductName</key>
