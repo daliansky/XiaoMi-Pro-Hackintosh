@@ -1174,10 +1174,18 @@
 		<dict>
 			<key>AdviseWindows</key>
 			<true/>
+			<key>MLB</key>
+			<string></string>
+			<key>ROM</key>
+			<string></string>
 			<key>SpoofVendor</key>
 			<false/>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
+			<key>SystemSerialNumber</key>
+			<string></string>
+			<key>SystemUUID</key>
+			<string></string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
