@@ -5,6 +5,10 @@
 ## XiaoMi NoteBook Pro EFI v1.4.5
 ## XX-X-2020
 
+### Update
+  - Update `VoodooPS2` v2.1.7 to natively support brightness key
+  - Update `SSDT-LGPA` and `SSDT-LGPAGTX` to remove brightness key definition
+
 ### Clover
   - Clover: Add back `RtcHibernateAware` to improve hibernation
 

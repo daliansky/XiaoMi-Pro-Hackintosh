@@ -5,6 +5,10 @@
 ## XiaoMi NoteBook Pro EFI v1.4.5
 ## XX-X-2020
 
+### 更新
+  * 更新 `VoodooPS2` v2.1.7 来原生支持亮度快捷键
+  * 更新 `SSDT-LGPA` 和 `SSDT-LGPAGTX` 来移除亮度快捷键定义
+
 ### Clover
   * Clover: 新增回 `RtcHibernateAware` 来提升休眠
 

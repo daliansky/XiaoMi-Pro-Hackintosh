@@ -271,7 +271,7 @@ function DPB() {
 
 # Build Pre-release Kexts
 function BKextHelper() {
-  local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC"
+  local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC VoodooPS2"
   local voodooinputPlugins="VoodooI2C VoodooPS2"
   local PATH_TO_REL="build/Build/Products/Release/"
   local PATH_TO_REL_PS2="build/Products/Release/"
@@ -281,7 +281,17 @@ function BKextHelper() {
   echo
   git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   cd "$2" || exit 1
-  if [[ ${liluPlugins} =~ $2 ]]; then
+  if [[ ${liluPlugins} =~ $2 ]] && [[ ${voodooinputPlugins} =~ $2 ]]; then
+    cp -R "../Lilu.kext" "./" || copyErr
+    cp -R "../VoodooInput" "./" || copyErr
+    if [[ "$2" == "VoodooPS2" ]]; then
+      xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
+    else
+      xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+    fi
+  elif [[ ${liluPlugins} =~ $2 ]]; then
     cp -R "../Lilu.kext" "./" || copyErr
     if [[ "$2" == "VirtualSMC" ]]; then
       xcodebuild -scheme Package -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
@@ -304,10 +314,10 @@ function BKextHelper() {
 
       xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
-    elif [[ "$2" == "VoodooPS2" ]]; then
+    else
       cp -R "../VoodooInput" "./" || copyErr
-      xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-      cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
+      xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ "$2" == "Lilu" ]]; then
     rm -rf ../Lilu.kext
@@ -649,16 +659,16 @@ function ExtractOC() {
   echo
   mkdir -p "${OUTDir_OC}/EFI/OC/Tools" || exit 1
   unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
-  cp -R OpenCore/EFI/BOOT "${OUTDir_OC}/EFI/" || copyErr
-  cp -R OpenCore/EFI/OC/OpenCore.efi "${OUTDir_OC}/EFI/OC/" || copyErr
-  cp -R OpenCore/EFI/OC/Bootstrap "${OUTDir_OC}/EFI/OC/" || copyErr
+  cp -R "OpenCore/X64/EFI/BOOT" "${OUTDir_OC}/EFI/" || copyErr
+  cp -R "OpenCore/X64/EFI/OC/OpenCore.efi" "${OUTDir_OC}/EFI/OC/" || copyErr
+  cp -R "OpenCore/X64/EFI/OC/Bootstrap" "${OUTDir_OC}/EFI/OC/" || copyErr
   local driverItems=(
-    "OpenCore/EFI/OC/Drivers/AudioDxe.efi"
-    "OpenCore/EFI/OC/Drivers/OpenCanopy.efi"
-    "OpenCore/EFI/OC/Drivers/OpenRuntime.efi"
+    "OpenCore/X64/EFI/OC/Drivers/AudioDxe.efi"
+    "OpenCore/X64/EFI/OC/Drivers/OpenCanopy.efi"
+    "OpenCore/X64/EFI/OC/Drivers/OpenRuntime.efi"
   )
   local toolItems=(
-    "OpenCore/EFI/OC/Tools/OpenShell.efi"
+    "OpenCore/X64/EFI/OC/Tools/OpenShell.efi"
   )
   for driverItem in "${driverItems[@]}"; do
     cp -R "${driverItem}" "${OUTDir_OC}/EFI/OC/Drivers/" || copyErr
