@@ -53,7 +53,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
 - **Intel Wi-Fi (Intel Wireless 8265)** could work by additional configurations
   - Buy a USB Wi-Fi dongle or supported wireless card
-  - Use [itlwm](https://github.com/OpenIntelWireless/itlwm) and [HeliPort](https://github.com/OpenIntelWireless/HeliPort) or [Black80211-Catalina](https://github.com/usr-sse2/Black80211-Catalina) to drive Intel Wi-Fi
+  - Use [itlwm](https://github.com/OpenIntelWireless/itlwm) and [HeliPort](https://github.com/OpenIntelWireless/HeliPort) or [AirportItlwm](https://github.com/OpenIntelWireless/AirportItlwm) to drive Intel Wi-Fi
 - **Realtek USB SD Card Reader (RTS5129)** is not working
   - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
 - Everything else works well
