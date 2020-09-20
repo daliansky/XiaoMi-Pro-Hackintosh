@@ -53,7 +53,7 @@
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡 (英特尔 无线 8265)** 需要额外操作来工作
   - 购买USB网卡或者支持的内置网卡
-  - 使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) 和 [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 或 [AirportItlwm](https://github.com/OpenIntelWireless/AirportItlwm) 来驱动英特尔无线网卡
+  - 使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) 和 [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 或 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 来驱动英特尔无线网卡
 - **瑞昱USB SD读卡器 (RTS5129)** 无法工作
   - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
 - 其他都工作正常
