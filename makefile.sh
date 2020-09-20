@@ -273,7 +273,7 @@ function DPB() {
 function BKextHelper() {
   local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC VoodooPS2"
   local voodooinputPlugins="VoodooI2C VoodooPS2"
-  local PATH_TO_REL="build/Build/Products/Release/"
+  local PATH_TO_REL="Build/Products/Release/"
   local PATH_TO_REL_PS2="build/Products/Release/"
   local lineNum
 
@@ -285,20 +285,20 @@ function BKextHelper() {
     cp -R "../Lilu.kext" "./" || copyErr
     cp -R "../VoodooInput" "./" || copyErr
     if [[ "$2" == "VoodooPS2" ]]; then
-      xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme VoodooPS2Controller -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_PS2}*.kext "../" || copyErr
     else
-      xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ ${liluPlugins} =~ $2 ]]; then
     cp -R "../Lilu.kext" "./" || copyErr
     if [[ "$2" == "VirtualSMC" ]]; then
-      xcodebuild -scheme Package -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme Package -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       mkdir ../Kexts
       cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
     else
-      xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ ${voodooinputPlugins} =~ $2 ]]; then
@@ -312,23 +312,26 @@ function BKextHelper() {
       lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
       sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
 
-      xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
-      xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ "$2" == "Lilu" ]]; then
     rm -rf ../Lilu.kext
-    xcodebuild -scheme "$2" -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
     # Delete unrelated firmware and only keep ibt-12-16.sfi for Intel Wireless 8265
     cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12-16.sfi" -delete && cd "../../" || exit 1
+    /usr/bin/sed -i "" "s:fwList:fwList_backup:g" "./IntelBluetoothFirmware/FwBinary.cpp"
+    /usr/bin/sed -i "" "s:fwNumber:fwNumber_backup:g" "./IntelBluetoothFirmware/FwBinary.cpp"
+    echo "const struct FwDesc fwList[] = { {IBT_FW(\"ibt-12-16.sfi\", ibt_12_16_sfi, ibt_12_16_sfi_size)} }; const int fwNumber = 1;" >> "./IntelBluetoothFirmware/FwBinary.cpp"
 
-    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   fi
   cd ../ || exit 1

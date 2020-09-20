@@ -12,6 +12,10 @@
 ### Clover
   - Clover: Add back `RtcHibernateAware` to improve hibernation
 
+### OC
+  - OC: Disable `IntelBluetoothInjector.kext` on macOS11.0+ to resume boot speed
+  - OC: Re-enable `Disable RTC wake scheduling` patch
+
 
 ## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
 ## 9-8-2020

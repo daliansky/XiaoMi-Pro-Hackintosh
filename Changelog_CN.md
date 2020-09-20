@@ -11,6 +11,10 @@
 
 ### Clover
   * Clover: 新增回 `RtcHibernateAware` 来提升休眠
+  
+### OC
+  * OC: 禁用 macOS11.0+ 的 `IntelBluetoothInjector.kext` 来恢复启动速度
+  * OC: 新增回 `Disable RTC wake scheduling` 补丁
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
