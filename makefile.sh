@@ -292,6 +292,7 @@ function BKextHelper() {
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ ${liluPlugins} =~ $2 ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
     cp -R "../Lilu.kext" "./" || copyErr
     if [[ "$2" == "VirtualSMC" ]]; then
       xcodebuild -scheme Package -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
@@ -321,6 +322,7 @@ function BKextHelper() {
     fi
   elif [[ "$2" == "Lilu" ]]; then
     rm -rf ../Lilu.kext
+    cp -R "../MacKernelSDK" "./" || copyErr
     xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
@@ -352,6 +354,7 @@ function BKext() {
     sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
   fi
 
+  git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
   src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
   src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
   for acdtKext in "${acdtKexts[@]}"; do
