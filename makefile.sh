@@ -282,6 +282,7 @@ function BKextHelper() {
   git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   cd "$2" || exit 1
   if [[ ${liluPlugins} =~ $2 ]] && [[ ${voodooinputPlugins} =~ $2 ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
     cp -R "../Lilu.kext" "./" || copyErr
     cp -R "../VoodooInput" "./" || copyErr
     if [[ "$2" == "VoodooPS2" ]]; then
@@ -313,7 +314,7 @@ function BKextHelper() {
       lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
       sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
 
-      xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
@@ -332,8 +333,8 @@ function BKextHelper() {
     /usr/bin/sed -i "" "s:fwNumber:fwNumber_backup:g" "./IntelBluetoothFirmware/FwBinary.cpp"
     echo "const struct FwDesc fwList[] = { {IBT_FW(\"ibt-12-16.sfi\", ibt_12_16_sfi, ibt_12_16_sfi_size)} }; const int fwNumber = 1;" >> "./IntelBluetoothFirmware/FwBinary.cpp"
 
-    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   fi
   cd ../ || exit 1
@@ -341,6 +342,7 @@ function BKextHelper() {
 
 function BKext() {
   local TRAVIS_TAG=""
+  local sdkVer=""
 
   if [[ ${NO_XCODE} == True ]]; then
     echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
@@ -352,6 +354,10 @@ function BKext() {
     curl -# -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 || networkErr "MacOSX10.12.sdk" && tar -xjf MacOSX10.12.tar.bz2
     echo "${reset}"
     sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
+  fi
+  sdkVer=$(/usr/libexec/PlistBuddy -c 'Print MinimumSDKVersion' "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist")
+  if [[ ${sdkVer//./} -gt 1012 ]]; then
+    sudo /usr/libexec/PlistBuddy -c "Set :MinimumSDKVersion 10.12" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist"
   fi
 
   git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
