@@ -4,7 +4,7 @@ jobs:
   include:
   - os: osx
     name: "Build"
-    osx_image: xcode10.2
+    osx_image: xcode11.6
     compiler: clang
 
     script:
