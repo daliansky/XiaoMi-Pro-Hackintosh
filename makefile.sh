@@ -328,13 +328,14 @@ function BKextHelper() {
     xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
+    xcodebuild -scheme FB -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "FB"
+
     # Delete unrelated firmware and only keep ibt-12-16.sfi for Intel Wireless 8265
     cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12-16.sfi" -delete && cd "../../" || exit 1
     /usr/bin/sed -i "" "s:fwList:fwList_backup:g" "./IntelBluetoothFirmware/FwBinary.cpp"
     /usr/bin/sed -i "" "s:fwNumber:fwNumber_backup:g" "./IntelBluetoothFirmware/FwBinary.cpp"
     echo "const struct FwDesc fwList[] = { {IBT_FW(\"ibt-12-16.sfi\", ibt_12_16_sfi, ibt_12_16_sfi_size)} }; const int fwNumber = 1;" >> "./IntelBluetoothFirmware/FwBinary.cpp"
 
-    xcodebuild -scheme FB -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "FB"
     xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
     xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "IntelBluetoothInjector"
     cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
