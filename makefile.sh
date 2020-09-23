@@ -334,9 +334,9 @@ function BKextHelper() {
     /usr/bin/sed -i "" "s:fwNumber:fwNumber_backup:g" "./IntelBluetoothFirmware/FwBinary.cpp"
     echo "const struct FwDesc fwList[] = { {IBT_FW(\"ibt-12-16.sfi\", ibt_12_16_sfi, ibt_12_16_sfi_size)} }; const int fwNumber = 1;" >> "./IntelBluetoothFirmware/FwBinary.cpp"
 
-    xcodebuild -scheme FB -configuration Release -sdk macosx10.12 -derivedDataPath . -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "FB"
-    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "IntelBluetoothInjector"
+    xcodebuild -scheme FB -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "FB"
+    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "IntelBluetoothInjector"
     cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
   fi
   cd ../ || exit 1
