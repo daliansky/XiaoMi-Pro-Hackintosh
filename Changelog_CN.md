@@ -9,6 +9,9 @@
   * 更新 `VoodooPS2` v2.1.7 来原生支持亮度快捷键
   * 更新 `SSDT-LGPA` 和 `SSDT-LGPAGTX` 来移除亮度快捷键定义
 
+### 移除
+  * 移除 `-shikioff` 因为需要 `Shiki` 来播放 DRM
+
 ### Clover
   * Clover: 新增回 `RtcHibernateAware` 来提升休眠
   

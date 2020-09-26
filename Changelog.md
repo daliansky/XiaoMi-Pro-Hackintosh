@@ -9,6 +9,9 @@
   - Update `VoodooPS2` v2.1.7 to natively support brightness key
   - Update `SSDT-LGPA` and `SSDT-LGPAGTX` to remove brightness key definition
 
+### Remove
+  - Remove `-shikioff` because `Shiki` is necessary to play DRM
+
 ### Clover
   - Clover: Add back `RtcHibernateAware` to improve hibernation
 
