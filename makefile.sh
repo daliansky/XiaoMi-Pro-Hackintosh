@@ -271,7 +271,7 @@ function DPB() {
 
 # Build Pre-release Kexts
 function BKextHelper() {
-  local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC VoodooPS2"
+  local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC"
   local voodooinputPlugins="VoodooI2C VoodooPS2"
   local PATH_TO_REL="build/Release/"
   local PATH_TO_REL_BIG="Build/Products/Release/"
@@ -318,8 +318,9 @@ function BKextHelper() {
       xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -sdk macosx10.12 -derivedDataPath . -arch x86_64 clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
     else
+      cp -R "../MacKernelSDK" "./" || copyErr
       cp -R "../VoodooInput" "./" || copyErr
-      xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
     fi
   elif [[ "$2" == "Lilu" ]]; then

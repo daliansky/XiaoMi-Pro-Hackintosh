@@ -146,12 +146,30 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LGPAGTX", 0x00000000)
                 }
                 Case (0x03)
                 {
-                    Notify (^^GFX0.DD1F, 0x87) // Device-Specific
+                    // Brightness Down
+                    If (_OSI ("Darwin"))
+                    {
+                        Notify (PS2K, 0x0405)
+                    }
+                    Else
+                    {
+                        Notify (^^GFX0.DD1F, 0x87) // Device-Specific
+                    }
+
                     OG00 = Zero
                 }
                 Case (0x04)
                 {
-                    Notify (^^GFX0.DD1F, 0x86) // Device-Specific
+                    // Brightness Up
+                    If (_OSI ("Darwin"))
+                    {
+                        Notify (PS2K, 0x0406)
+                    }
+                    Else
+                    {
+                        Notify (^^GFX0.DD1F, 0x86) // Device-Specific
+                    }
+
                     OG00 = Zero
                 }
                 Case (0x05)

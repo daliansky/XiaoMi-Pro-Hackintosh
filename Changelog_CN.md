@@ -3,11 +3,17 @@
 [English](Changelog.md) | **中文**
 
 ## XiaoMi NoteBook Pro EFI v1.4.5
-## XX-X-2020
+## 10-X-2020
 
 ### 更新
-  * 更新 `VoodooPS2` v2.1.7 来原生支持亮度快捷键
-  * 更新 `SSDT-LGPA` 和 `SSDT-LGPAGTX` 来移除亮度快捷键定义
+  * 更新 `OpenCore` v0.6.2
+  * 更新 `Lilu` v1.4.8
+  * 更新 `VirtualSMC` v1.1.7
+  * 更新 `AppleALC` v1.5.3
+  * 更新 `WhateverGreen` v1.4.3
+  * 更新 `HibernationFixup` v1.3.5
+  * 更新 `VoodooInput` v1.0.7
+  * 更新 `VoodooPS2` v2.1.7
 
 ### 移除
   * 移除 `-shikioff` 因为需要 `Shiki` 来播放 DRM

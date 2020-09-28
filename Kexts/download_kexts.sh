@@ -190,6 +190,7 @@ function Unpack() {
 function Patch() {
   local unusedItems=(
     "IntelBluetoothInjector.kext/Contents/_CodeSignature"
+    "IntelBluetoothInjector.kext/Contents/MacOS"
     "Release/CodecCommander.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
