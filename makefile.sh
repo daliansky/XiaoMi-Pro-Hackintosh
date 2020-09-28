@@ -282,18 +282,7 @@ function BKextHelper() {
   echo
   git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   cd "$2" || exit 1
-  if [[ ${liluPlugins} =~ $2 ]] && [[ ${voodooinputPlugins} =~ $2 ]]; then
-    cp -R "../MacKernelSDK" "./" || copyErr
-    cp -R "../Lilu.kext" "./" || copyErr
-    cp -R "../VoodooInput" "./" || copyErr
-    if [[ "$2" == "VoodooPS2" ]]; then
-      xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
-      cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
-    else
-      xcodebuild -scheme "$2" -configuration Release -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-      cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
-    fi
-  elif [[ ${liluPlugins} =~ $2 ]]; then
+  if [[ ${liluPlugins} =~ $2 ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
     cp -R "../Lilu.kext" "./" || copyErr
     if [[ "$2" == "VirtualSMC" ]]; then
