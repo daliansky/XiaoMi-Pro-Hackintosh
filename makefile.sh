@@ -318,13 +318,13 @@ function BKextHelper() {
     xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
+
     # Delete unrelated firmware and only keep ibt-12-16.sfi for Intel Wireless 8265
     cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12-16.sfi" -delete && cd "../../" || exit 1
 
-    xcodebuild -scheme fw_gen CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "fw_gen"
-    xcodebuild -scheme "$2" -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
-    xcodebuild -scheme IntelBluetoothInjector -configuration Release -sdk macosx10.12 -derivedDataPath . CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "IntelBluetoothInjector"
-    cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
+    xcodebuild -alltargets -configuration Release || buildErr "$2"
+    cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
   fi
   cd ../ || exit 1
 }

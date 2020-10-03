@@ -45,7 +45,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
 - **Ethernet may not work on macOS10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS10.15, it's still recommended to update the driver above
-- **Discrete graphic card**is not working, since macOS doesn't support Optimus technology
+- **Discrete graphic card** is not working, since macOS doesn't support Optimus technology
   - Have used [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) to disable it in order to save power
 - **Fingerprint sensor** is not working
   - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
