@@ -323,8 +323,8 @@ function BKextHelper() {
     # Delete unrelated firmware and only keep ibt-12-16.sfi for Intel Wireless 8265
     cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12-16.sfi" -delete && cd "../../" || exit 1
 
-    xcodebuild -alltargets -configuration Release || buildErr "$2"
-    cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
+    xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   fi
   cd ../ || exit 1
 }

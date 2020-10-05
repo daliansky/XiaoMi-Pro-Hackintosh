@@ -14,6 +14,7 @@
   - Update `HibernationFixup` v1.3.5
   - Update `VoodooInput` v1.0.7
   - Update `VoodooPS2` v2.1.7
+  - Update `VoodooI2C` v2.5
 
 ### Remove
   - Remove `-shikioff` because `Shiki` is necessary to play DRM
