@@ -2,8 +2,8 @@
 
 [English](Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.4.5
-## 10-X-2020
+## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)
+## 10-5-2020
 
 ### 更新
   * 更新 `OpenCore` v0.6.2
@@ -14,7 +14,7 @@
   * 更新 `HibernationFixup` v1.3.5
   * 更新 `VoodooInput` v1.0.7
   * 更新 `VoodooPS2` v2.1.7
-  * 更新 `VoodooI2C` v2.5
+  * 更新 `VoodooI2C` v2.5.1
 
 ### 移除
   * 移除 `-shikioff` 因为需要 `Shiki` 来播放 DRM
