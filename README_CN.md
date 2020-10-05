@@ -174,7 +174,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。
 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
 
-### [OC] 怎么开启启动音？
+#### [OC] 怎么开启启动音？
 
 打开 `/OC/config.plist - UEFI - Audio` 里的 `AudioSupport` 和 `PlayChime`。
 
