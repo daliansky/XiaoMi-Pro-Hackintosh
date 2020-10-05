@@ -11,8 +11,8 @@
   * 更新 `VirtualSMC` v1.1.7
   * 更新 `AppleALC` v1.5.3
   * 更新 `WhateverGreen` v1.4.3
-  * 更新 `HibernationFixup` v1.3.5
-  * 更新 `VoodooInput` v1.0.7
+  * 更新 `HibernationFixup` v1.3.6
+  * 更新 `VoodooInput` v1.0.8
   * 更新 `VoodooPS2` v2.1.7
   * 更新 `VoodooI2C` v2.5.1
 
