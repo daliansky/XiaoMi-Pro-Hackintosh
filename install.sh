@@ -617,7 +617,7 @@ function main() {
   echo "(5) General audio fix (credits Menchen)"
   echo "(6) Add color profile"
   echo "(7) Update power management"
-  echo "(8) Modify TDP and CPU voltage (credits Pasi-Studio)"
+  # echo "(8) Modify TDP and CPU voltage (credits Pasi-Studio)"
   echo "(9) Enable HiDPI"
   echo "(10) Fix Windows boot (Only support the latest release)"
   echo "(11) Fix Apple services"
@@ -661,10 +661,10 @@ function main() {
     returnMenu
     ;;
 
-    8)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
-    returnMenu
-    ;;
+    # 8)
+    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
+    # returnMenu
+    # ;;
 
     9)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"

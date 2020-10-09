@@ -617,7 +617,7 @@ function main() {
   echo "(5) 通用声卡修复 (credits Menchen)"
   echo "(6) 添加色彩文件"
   echo "(7) 更新变频管理"
-  echo "(8) 更改TDP和CPU电压 (credits Pasi-Studio)"
+  # echo "(8) 更改TDP和CPU电压 (credits Pasi-Studio)"
   echo "(9) 开启HiDPI"
   echo "(10) 修复Windows启动 (仅支持最新release)"
   echo "(11) 修复Apple服务"
@@ -661,10 +661,10 @@ function main() {
     returnMenu
     ;;
 
-    8)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
-    returnMenu
-    ;;
+    # 8)
+    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/Pasi-Studio/mpcpu/master/mpcpu.sh)"
+    # returnMenu
+    # ;;
 
     9)
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
