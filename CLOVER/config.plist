@@ -324,10 +324,14 @@
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
+		<key>AppleIntelCPUPM</key>
+		<false/>
 		<key>AppleRTC</key>
 		<true/>
 		<key>PanicNoKextDump</key>
 		<true/>
+		<key>ForceKextsToLoad</key>
+		<array/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
