@@ -129,7 +129,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 ## 改善体验
 
 - 使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
-- 使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) 和 [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 或 [Black80211-Catalina](https://github.com/usr-sse2/Black80211-Catalina) 来驱动英特尔无线网卡
+- 使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) 和 [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 或 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 来驱动英特尔无线网卡
 - 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
