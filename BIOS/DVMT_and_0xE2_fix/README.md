@@ -32,6 +32,13 @@
     <data>AAAwAQ==</data>
 ```
 
+- Then edit the `framebuffer-flags` to enable `FBEnableDynamicCDCLK`
+```diff
+    <key>framebuffer-flags</key>
+-   <data>CwfDAA==</data>
++   <data>CwfjAA==</data>
+```
+
 - Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
 ```diff
     <key>AAPL,ig-platform-id</key>

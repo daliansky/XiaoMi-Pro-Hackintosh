@@ -32,6 +32,13 @@
     <data>AAAwAQ==</data>
 ```
 
+- 然后修改 `framebuffer-flags` 来开启 `FBEnableDynamicCDCLK`
+```diff
+    <key>framebuffer-flags</key>
+-   <data>CwfDAA==</data>
++   <data>CwfjAA==</data>
+```
+
 - 可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 ```diff
     <key>AAPL,ig-platform-id</key>
