@@ -191,7 +191,11 @@ function DGR() {
       tag="/latest"
     else
       if [[ -n ${GITHUB_ACTIONS+x} || $GH_API == False ]]; then
-        tag="/tag/2.0.9"
+        if [[ "$2" == "AppleSupportPkg" ]]; then
+          tag="/tag/2.0.9"
+        elif [[ "$2" == "CloverBootloader" ]]; then
+          tag="/tag/5122"
+        fi
       else
         # only release_id is supported
         tag="/$3"
@@ -363,8 +367,8 @@ function BKext() {
 }
 
 function DL() {
-  # Clover
-  DGR CloverHackyColor CloverBootloader NULL "Clover"
+  # Clover r5122
+  DGR CloverHackyColor CloverBootloader 30865718 "Clover"
 
   # OpenCore
   if [[ ${PRE_RELEASE} =~ "OC" ]]; then
