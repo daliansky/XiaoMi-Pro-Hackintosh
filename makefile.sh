@@ -395,6 +395,7 @@ function DL() {
   DGS RehabMan hack-tools
 
   # UEFI drivers
+  # AppleSupportPkg v2.0.9
   DGR ${ACDT} AppleSupportPkg 19214108 "Clover"
 
   # UEFI
