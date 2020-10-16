@@ -8,6 +8,59 @@
 # Reference:
 # https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh by @williambj1
 
+# Expected repository structure
+# .{REPO_NAME}
+# |____ACPI
+# | |____SSDT-ALS0.aml
+# | |____SSDT-DDGPU.aml
+# | |____SSDT-DMAC.aml
+# | |____SSDT-EC.aml
+# | |____SSDT-GPRW.aml
+# | |____SSDT-HPET.aml
+# | |____SSDT-LGPA.aml
+# | |____SSDT-LGPAGTX.aml
+# | |____SSDT-MCHC.aml
+# | |____SSDT-MEM2.aml
+# | |____SSDT-PMC.aml
+# | |____SSDT-PNLF.aml
+# | |____SSDT-PS2K.aml
+# | |____SSDT-RMNE.aml
+# | |____SSDT-TPD0.aml
+# | |____SSDT-USB-ALL.aml
+# | |____SSDT-USB-FingerBT.aml
+# | |____SSDT-USB-USBBT.aml
+# | |____SSDT-USB-WLAN_LTEBT.aml
+# | |____SSDT-USB.aml
+# | |____SSDT-XCPM.aml
+# |____ALCPlugFix
+# | |____ALCPlugFix
+# | | |____alc_fix
+# | | | |____good.win.ALCPlugFix.plist
+# | | | |____hda-verb
+# | | | |____install.sh
+# | | |____build
+# | | | |____Release
+# | | | | |____ALCPlugFix
+# | | |____Info.plist
+# | | |____README.MD
+# |____CLOVER
+# | |____themes
+# | |____config.plist
+# |____Docs
+# | |____Drive-Native-Intel-Wireless-Card.pdf
+# | |____FAQ.pdf
+# | |____README_CN_GTX.txt
+# | |____README_GTX.txt
+# | |____Set-DVMT-to-64mb.pdf
+# | |____Unlock-0xE2-MSR.pdf
+# | |____Work-Around-with-Bluetooth.pdf
+# |____OC
+# | |____config.plist
+# |____Changelog.md
+# |____LICENSE
+# |____README.md
+# |____README_CN.md
+# |____makefile.sh
 
 # Vars
 ACDT="Acidanthera"
