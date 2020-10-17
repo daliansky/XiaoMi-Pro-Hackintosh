@@ -41,7 +41,6 @@
 # | | |____build
 # | | | |____Release
 # | | | | |____ALCPlugFix
-# | | |____Info.plist
 # | | |____README.MD
 # |____CLOVER
 # | |____themes
