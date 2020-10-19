@@ -19,6 +19,8 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile_cn.sh)"
 ```
 
+- 或者你也可以手动把色彩文件放入 `/Library/ColorSync/Profiles/`
+
 2. 打开 `系统偏好设置 -> 显示器 -> 颜色`
 
 3. 选择 `NV156FHM-N61` 描述文件

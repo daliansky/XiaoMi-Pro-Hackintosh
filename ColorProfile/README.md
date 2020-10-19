@@ -19,6 +19,8 @@ Calibrated on X-Rite Color Munki Photo
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile.sh)"
 ```
 
+- Or you can manually put the color profile into `/Library/ColorSync/Profiles/`
+
 2. Open `System Preferences -> Displays -> Color`
 
 3. Select `NV156FHM-N61` profile
