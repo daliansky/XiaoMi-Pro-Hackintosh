@@ -9,7 +9,7 @@ jobs:
 
     script:
     - EFI_VERSION=$(echo "${TRAVIS_TAG}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
-    - ./makefile.sh --NO_GH_API --VERSION="${TRAVIS_TAG}" --PRE_RELEASE=Kext
+    - ./makefile.sh --NO_GH_API --VERSION="${TRAVIS_TAG}" --PRE_RELEASE=Kext --PRE_RELEASE=OC
 
     deploy:
       provider: releases

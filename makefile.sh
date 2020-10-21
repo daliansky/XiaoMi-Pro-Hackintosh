@@ -59,7 +59,7 @@
 # |____LICENSE
 # |____README.md
 # |____README_CN.md
-# |____makefile.sh
+# |____makefile.sh *
 
 # Vars
 ACDT="Acidanthera"
