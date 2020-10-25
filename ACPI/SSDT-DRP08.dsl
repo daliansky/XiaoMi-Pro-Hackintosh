@@ -8,22 +8,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_DRP08", 0x00000000)
 {
     External (_SB_.PCI0.RP08, DeviceObj)
 
-    Scope (_SB.PCI0.RP08)
+    If (_OSI ("Darwin"))
     {
-        OperationRegion (DE01, PCI_Config, 0x50, One)
-        Field (DE01, AnyAcc, NoLock, Preserve)
+        Scope (_SB.PCI0.RP08)
         {
-                ,   1, 
-                ,   3, 
-            DDDD,   1
-        }
-    }
+            OperationRegion (DE01, PCI_Config, 0x50, One)
+            Field (DE01, AnyAcc, NoLock, Preserve)
+            {
+                    ,   4, 
+                DDDD,   1
+            }
 
-    Scope (\)
-    {
-        If (_OSI ("Darwin"))
-        {
-            \_SB.PCI0.RP08.DDDD = One
+            DDDD = One
         }
     }
 }

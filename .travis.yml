@@ -51,4 +51,4 @@ jobs:
     - curl -# -L -O "${URL}" || exit 1
     - unzip -qq "*.zip" >/dev/null 2>&1 || exit 1
     - chmod +x Utilities/ocvalidate/ocvalidate || exit 1
-    - Utilities/ocvalidate/ocvalidate ../OC/config.plist || exit 1
+    - RESULT=$(Utilities/ocvalidate/ocvalidate ../OC/config.plist) && echo "${RESULT}" && if [ "$(echo "${RESULT}" | wc -l)" -gt "1" ]; then exit 1; fi
