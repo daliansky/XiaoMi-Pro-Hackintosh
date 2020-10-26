@@ -19,11 +19,11 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 - Reduce fan noise when CPU is running in low load
 
 
-### What's new in 0A07 BIOS
+### What's new in 0A07 and 0E07 BIOS
 
-- I have no idea about this version. The packet provider doesn't give much information.
-- On my laptop, the `KB Backlight Mode` - `Standard` is not working.
-- It's very easy to upgrade to this version. Just download and open [XMAKB5R0P0A07](XMAKB5R0P0A07.exe).
+- I have no idea about these versions. The packet providers don't give much information.
+- On my laptop, the `KB Backlight Mode` - `Standard` is not working on version 0A07.
+- It's very easy to upgrade to these versions. Just download and open [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) or [XMAKB5R0P0E07](XMAKB5R0P0E07.exe).
 
 
 ## How to upgrade/downgrade to 0603 BIOS
@@ -59,6 +59,7 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 
 ## Credits
 
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15/)  for providing the 0E07 packet.
 - Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing 0603 and 0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 - Thanks to a friendly guy for providing 0A07 BIOS packet. He doesn't want to be in trouble so please don't spread the 0A07 BIOS packet.
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.

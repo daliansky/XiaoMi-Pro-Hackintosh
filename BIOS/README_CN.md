@@ -19,11 +19,11 @@
 - 减少低负载下的风扇噪声
 
 
-### 0A07 BIOS 更新了什么
+### 0A07 和 0E07 BIOS 更新了什么
 
-- 我对这个版本的新特性完全不知情。提供者没有给予很多的信息。
-- 在我的电脑上 `KB Backlight Mode` - `Standard` 不工作。
-- 升级到这个 BIOS 版本十分简单，下载并打开 [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 即可。
+- 我对这些版本的新特性完全不知情。提供者们没有给予很多的信息。
+- 在我的电脑上 0A07 版本的 `KB Backlight Mode` - `Standard` 不工作。
+- 升级到这些 BIOS 版本十分简单，下载并打开 [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 或 [XMAKB5R0P0E07](XMAKB5R0P0E07.exe) 即可。
 
 
 ## 怎么升级/降级到 0603 BIOS
@@ -59,6 +59,7 @@
 
 ## 鸣谢
 
+- 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15/) 提供 0E07 BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/) 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 - 感谢一个热心的朋友提供 0A07 BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传 0A07 BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
 - 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
