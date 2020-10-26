@@ -59,7 +59,7 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 
 ## Credits
 
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15/)  for providing the 0E07 packet.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15/) for providing the 0E07 packet.
 - Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing 0603 and 0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 - Thanks to a friendly guy for providing 0A07 BIOS packet. He doesn't want to be in trouble so please don't spread the 0A07 BIOS packet.
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.

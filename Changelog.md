@@ -2,6 +2,26 @@
 
 **English** | [中文](Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.4.6
+## 11-X-2020
+
+### Update
+  - Update `OpenCore` v0.6.3
+  - Update `Lilu` v1.4.9
+  - Update `VirtualSMC` v1.1.8
+  - Update `AppleALC` v1.5.4
+  - Update `WhateverGreen` v1.4.4
+  - Update `HibernationFixup` v1.3.7
+  - Update `VoodooPS2` v2.1.8
+  - Update `VoodooI2C` v2.5.2
+
+### Clover
+  - Clover: Disable `RtcHibernateAware`, turn it on manually to improve hibernation
+
+### OC
+  - OC: Update config to support `OpenCore` v0.6.3
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)
 ## 10-5-2020
 
@@ -23,6 +43,7 @@
   - Clover: Add back `RtcHibernateAware` to improve hibernation
 
 ### OC
+  - OC: Update config to support `OpenCore` v0.6.2
   - OC: Disable `IntelBluetoothInjector.kext` on macOS11.0+ to resume boot speed
   - OC: Re-enable `Disable RTC wake scheduling` patch
 
@@ -48,7 +69,7 @@
   - Remove `NVMeFix` due to incompatibilities on some NVMe SSDs
 
 ### OC
-  - OC: Update config to support  `OpenCore` v0.6.1
+  - OC: Update config to support `OpenCore` v0.6.1
   - OC: Disable `Disable RTC wake scheduling` patch since it may cause Intel Wi-Fi unresponding after wake
 
 
@@ -74,7 +95,7 @@
   - Clover: Remove `SetIntelBacklight` and `SetIntelMaxBacklight` becuase we use `SSDT-PNLF`
 
 ### OC
-  - OC: Update config to support  `OpenCore` v0.6.0
+  - OC: Update config to support `OpenCore` v0.6.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
@@ -121,7 +142,7 @@
   - Clover: Add `NoRomInfo` to hide Apple ROM information
 
 ### OC
-  - OC: Update config to support  `OpenCore` v0.6.0
+  - OC: Update config to support `OpenCore` v0.6.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
@@ -162,7 +183,7 @@
   - Clover: Reverse back font.png in `Xiaomi` theme since `Clover` r5116 fixed the font problem
 
 ### OC
-  - OC: Update config to support  `OpenCore` v0.5.9
+  - OC: Update config to support `OpenCore` v0.5.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
@@ -194,7 +215,7 @@
   - Clover: Update font.png in `Xiaomi` theme to support `Clover` r5115
 
 ### OC
-  - OC: Update config to support  `OpenCore` v0.5.8
+  - OC: Update config to support `OpenCore` v0.5.8
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)

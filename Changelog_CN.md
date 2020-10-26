@@ -2,6 +2,26 @@
 
 [English](Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.4.6
+## 11-X-2020
+
+### 更新
+  * 更新 `OpenCore` v0.6.3
+  * 更新 `Lilu` v1.4.9
+  * 更新 `VirtualSMC` v1.1.8
+  * 更新 `AppleALC` v1.5.4
+  * 更新 `WhateverGreen` v1.4.4
+  * 更新 `HibernationFixup` v1.3.7
+  * 更新 `VoodooPS2` v2.1.8
+  * 更新 `VoodooI2C` v2.5.2
+
+### Clover
+  * Clover: 禁用 `RtcHibernateAware`，如果想提升休眠请手动打开
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.3
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)
 ## 10-5-2020
 
@@ -23,6 +43,7 @@
   * Clover: 新增回 `RtcHibernateAware` 来提升休眠
   
 ### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.2
   * OC: 禁用 macOS11.0+ 的 `IntelBluetoothInjector.kext` 来恢复启动速度
   * OC: 新增回 `Disable RTC wake scheduling` 补丁
 
