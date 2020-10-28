@@ -60,7 +60,8 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
 - Everything else works well
 
 ### Clover
-- Support macOS10.13 ~ macOS10.15.7, but **not macOS11+**
+- Does not support r5123+, needs help
+- r5122 supports macOS10.13 ~ macOS10.15.7, but **not macOS11+**
 - Should Clean NVRAM after using OpenCore
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
   - Then reboot and use Clover

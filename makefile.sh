@@ -68,6 +68,7 @@ ERR_NO_EXIT=False
 GH_API=True
 LANGUAGE="EN"
 NO_XCODE=False
+OIW="OpenIntelWireless"
 PRE_RELEASE=""
 REMOTE=True
 REPO_NAME="XiaoMi-Pro-Hackintosh"
@@ -149,6 +150,14 @@ acdtKexts=(
   Lilu
 )
 
+oiwKexts=(
+  AirportItlwm_Big_Sur
+  AirportItlwm_Catalina
+  AirportItlwm_High_Sierra
+  AirportItlwm_Mojave
+  IntelBluetoothFirmware
+)
+
 # Clean Up
 function Cleanup() {
   if [[ ${CLEAN_UP} == True ]]; then
@@ -224,6 +233,14 @@ function H_or_G() {
     HG="grep -m 1 CloverV2"
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HG="grep -m 1 IntelBluetooth"
+  elif [[ "$1" == "AirportItlwm_Big_Sur" ]]; then
+    HG="grep -m 1 AirportItlwm-Big_Sur"
+  elif [[ "$1" == "AirportItlwm_Catalina" ]]; then
+    HG="grep -m 1 AirportItlwm-Catalina"
+  elif [[ "$1" == "AirportItlwm_High_Sierra" ]]; then
+    HG="grep -m 1 AirportItlwm-High_Sierra"
+  elif [[ "$1" == "AirportItlwm_Mojave" ]]; then
+    HG="grep -m 1 AirportItlwm-Mojave"
   else
     HG="grep -m 1 RELEASE"
   fi
@@ -329,6 +346,7 @@ function DPB() {
 function BKextHelper() {
   local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC"
   local voodooinputPlugins="VoodooI2C VoodooPS2"
+  local PATH_TO_DBG_BIG="Build/Products/Debug/"
   local PATH_TO_REL="build/Release/"
   local PATH_TO_REL_BIG="Build/Products/Release/"
   local PATH_TO_REL_SMA="build/Products/Release/"
@@ -376,11 +394,22 @@ function BKextHelper() {
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
 
-    # Delete unrelated firmware and only keep ibt-12-16.sfi for Intel Wireless 8265
-    cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12-16.sfi" -delete && cd "../../" || exit 1
+    # Delete unrelated firmware and only keep ibt-12*.sfi for Intel Wireless 8265
+    cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12*" -delete && cd "../../" || exit 1
 
     xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+  elif [[ "$2" == "itlwm" ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
+
+    # Delete unrelated firmware and only keep iwm-8265* for Intel Wireless 8265
+    cd "itlwm/firmware/" && find . -maxdepth 1 -not -name "iwm-8265*" -delete && cd "../../" || exit 1
+
+    # Pass print syntax to support Python3
+    /usr/bin/sed -i "" "s:print compress(\"test\"):pass:g" "scripts/zlib_compress_fw.py"
+
+    xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_DBG_BIG}* "../" || copyErr
   fi
   cd ../ || exit 1
 }
@@ -412,7 +441,8 @@ function BKext() {
     BKextHelper ${ACDT} "${acdtKext}"
   done
   BKextHelper VoodooI2C VoodooI2C
-  BKextHelper OpenIntelWireless IntelBluetoothFirmware
+  BKextHelper ${OIW} IntelBluetoothFirmware
+  BKextHelper ${OIW} itlwm
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
   echo
@@ -440,8 +470,10 @@ function DL() {
     for acdtKext in "${acdtKexts[@]}"; do
       DGR ${ACDT} "${acdtKext}"
     done
+    for oiwKext in "${oiwKexts[@]}"; do
+      DGR ${OIW} "${oiwKext}" # FIXME
+    done
     DGR VoodooI2C VoodooI2C
-    DGR OpenIntelWireless IntelBluetoothFirmware
   fi
 
   DGS RehabMan hack-tools
@@ -488,7 +520,14 @@ function Patch() {
     rm -rf "${unusedItem}" >/dev/null 2>&1
   done
 
+  # Only keep OCEFIAudio_VoiceOver_Boot.wav in OcBinaryData/Resources/Audio
   cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete && cd "${WSDir}" || exit 1
+
+  # Rename AirportItlwm.kexts to distinguish different versions
+  mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
+  mv "Catalina/AirportItlwm.kext" "Catalina/AirportItlwm_Catalina.kext" || exit 1
+  mv "High Sierra/AirportItlwm.kext" "High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
+  mv "Mojave/AirportItlwm.kext" "Mojave/AirportItlwm_Mojave.kext" || exit 1
 }
 
 # Install
@@ -521,6 +560,13 @@ function Install() {
     "Release/NullEthernet.kext"
   )
 
+  wifiKextItems=(
+    "Big Sur/AirportItlwm_Big_Sur.kext"
+    "Catalina/AirportItlwm_Catalina.kext"
+    "High Sierra/AirportItlwm_High_Sierra.kext"
+    "Mojave/AirportItlwm_Mojave.kext"
+  )
+
   echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
   echo
   for Kextdir in "${OUTDir}/EFI/CLOVER/kexts/Other/" "${OUTDir_OC}/EFI/OC/Kexts/"; do
@@ -528,6 +574,10 @@ function Install() {
     for kextItem in "${kextItems[@]}"; do
       cp -R "${kextItem}" "${Kextdir}" || copyErr
     done
+  done
+
+  for kextItem in "${wifiKextItems[@]}"; do
+    cp -R "${kextItem}" "${OUTDir_OC}/EFI/OC/Kexts/" || copyErr
   done
 
   # Drivers

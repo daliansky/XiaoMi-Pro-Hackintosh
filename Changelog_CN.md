@@ -20,6 +20,7 @@
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.3
+  * OC: 添加 `AirportItlwm` 来支持原生英特尔 Wi-Fi
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)

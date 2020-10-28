@@ -60,7 +60,8 @@
 - 其他都工作正常
 
 ### Clover
-- 支持 macOS10.13 ~ macOS10.15.7，但**不支持 macOS11+**
+- 不支持 r5123+，需要帮助
+- r5122 支持 macOS10.13 ~ macOS10.15.7，但**不支持 macOS11+**
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
   - 然后重启并使用 Clover
