@@ -151,11 +151,8 @@ acdtKexts=(
 )
 
 oiwKexts=(
-  AirportItlwm_Big_Sur
-  AirportItlwm_Catalina
-  AirportItlwm_High_Sierra
-  AirportItlwm_Mojave
   IntelBluetoothFirmware
+  itlwm
 )
 
 # Clean Up
@@ -228,28 +225,26 @@ function Init() {
 # Workaround for Release Binaries that don't include "RELEASE" in their file names (head or grep)
 function H_or_G() {
   if [[ "$1" == "VoodooI2C" ]]; then
-    HG="head -n 1"
+    HGs=( "head -n 1" )
   elif [[ "$1" == "CloverBootloader" ]]; then
-    HG="grep -m 1 CloverV2"
+    HGs=( "grep -m 1 CloverV2" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
-    HG="grep -m 1 IntelBluetooth"
-  elif [[ "$1" == "AirportItlwm_Big_Sur" ]]; then
-    HG="grep -m 1 AirportItlwm-Big_Sur"
-  elif [[ "$1" == "AirportItlwm_Catalina" ]]; then
-    HG="grep -m 1 AirportItlwm-Catalina"
-  elif [[ "$1" == "AirportItlwm_High_Sierra" ]]; then
-    HG="grep -m 1 AirportItlwm-High_Sierra"
-  elif [[ "$1" == "AirportItlwm_Mojave" ]]; then
-    HG="grep -m 1 AirportItlwm-Mojave"
+    HGs=( "grep -m 1 IntelBluetooth" )
+  elif [[ "$1" == "itlwm" ]]; then
+    HGs=( "grep -m 1 AirportItlwm-Big_Sur"
+          "grep -m 1 AirportItlwm-Catalina"
+          "grep -m 1 AirportItlwm-High_Sierra"
+          "grep -m 1 AirportItlwm-Mojave"
+        )
   else
-    HG="grep -m 1 RELEASE"
+    HGs=( "grep -m 1 RELEASE" )
   fi
 }
 
 # Download GitHub Release
 function DGR() {
   local rawURL
-  local URL
+  local URLs=()
 
   H_or_G "$2"
 
@@ -276,22 +271,27 @@ function DGR() {
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${GH_API} == False ]]; then
     rawURL="https://github.com/$1/$2/releases$tag"
-    URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
+    for HG in "${HGs[@]}"; do
+      URLs+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
+    done
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
-    URL="$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')"
+    for HG in "${HGs[@]}"; do
+      URLs+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
+    done
   fi
 
-  if [[ -z ${URL} || ${URL} == "https://github.com" ]]; then
-    networkErr "$2"
-  fi
-
-  echo "${green}[${reset}${blue}${bold} Downloading ${URL##*\/} ${reset}${green}]${reset}"
-  echo "${cyan}"
-  cd ./"$4" || exit 1
-  curl -# -L -O "${URL}" || networkErr "$2"
-  cd - >/dev/null 2>&1 || exit 1
-  echo "${reset}"
+  for URL in "${URLs[@]}"; do
+    if [[ -z ${URL} || ${URL} == "https://github.com" ]]; then
+      networkErr "$2"
+    fi
+    echo "${green}[${reset}${blue}${bold} Downloading ${URL##*\/} ${reset}${green}]${reset}"
+    echo "${cyan}"
+    cd ./"$4" || exit 1
+    curl -# -L -O "${URL}" || networkErr "$2"
+    cd - >/dev/null 2>&1 || exit 1
+    echo "${reset}"
+  done
 }
 
 # Download GitHub Source Code
@@ -311,7 +311,7 @@ function DBR() {
   local rawURL="https://api.bitbucket.org/2.0/repositories/$1/$2/downloads/"
   local URL
 
-  while  [ ${Count} -lt ${RETRY_MAX} ];
+  while [ ${Count} -lt ${RETRY_MAX} ];
   do
     URL="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
     if [ "${URL:(-4)}" == ".zip" ]; then
@@ -327,8 +327,8 @@ function DBR() {
     fi
   done
 
-  if [ ${Count} -gt 2 ]; then
-    # if 3 times is over and still fail to download, exit
+  if [ ${Count} -ge ${RETRY_MAX} ]; then
+    # if ${RETRY_MAX} times are over and still fail to download, exit
     networkErr "$2"
   fi
 }
@@ -440,9 +440,10 @@ function BKext() {
   for acdtKext in "${acdtKexts[@]}"; do
     BKextHelper ${ACDT} "${acdtKext}"
   done
+  for oiwKext in "${oiwKexts[@]}"; do
+    BKextHelper ${OIW} "${oiwKext}"
+  done
   BKextHelper VoodooI2C VoodooI2C
-  BKextHelper ${OIW} IntelBluetoothFirmware
-  BKextHelper ${OIW} itlwm
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
   echo
@@ -471,7 +472,7 @@ function DL() {
       DGR ${ACDT} "${acdtKext}"
     done
     for oiwKext in "${oiwKexts[@]}"; do
-      DGR ${OIW} "${oiwKext}" # FIXME
+      DGR ${OIW} "${oiwKext}" PreRelease
     done
     DGR VoodooI2C VoodooI2C
   fi
