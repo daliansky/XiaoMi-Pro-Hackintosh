@@ -452,8 +452,6 @@
 				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP PCI Express Root Port #9</string>
-				<key>use-msi</key>
-				<string>1</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
@@ -1057,7 +1055,7 @@
 				<key>MaxKernel</key>
 				<string>19.99.99</string>
 				<key>MinKernel</key>
-				<string></string>
+				<string>17.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>

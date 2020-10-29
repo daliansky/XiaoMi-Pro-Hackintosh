@@ -227,8 +227,6 @@
 				<string>Internal</string>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP PCI Express Root Port #9</string>
-				<key>use-msi</key>
-				<string>1</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
