@@ -588,7 +588,7 @@ function Install() {
     mkdir -p "${Driverdir}" || exit 1
     cp -R "OcBinaryData-master/Drivers/HfsPlus.efi" "${Driverdir}" || copyErr
   done
-
+  cp -R "OcBinaryData-master/Drivers/ExFatDxe.efi" "${OUTDir_OC}/EFI/OC/Drivers/" || copyErr
   cp -R "VirtualSmc.efi" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr
 
   # ACPI
