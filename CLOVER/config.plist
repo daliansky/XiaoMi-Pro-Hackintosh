@@ -14,6 +14,16 @@
 			<array>
 				<dict>
 					<key>Comment</key>
+					<string>Rename Method(_UPC,0,S) to XUPC, pair with SSDT-USB.aml (USB Port Customization)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1VQQwg=</data>
+					<key>Replace</key>
+					<data>WFVQQwg=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>Rename Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml (Instant Wake)</string>
 					<key>Disabled</key>
 					<false/>
@@ -31,16 +41,6 @@
 					<data>TEdQQQk=</data>
 					<key>Replace</key>
 					<data>WEdQQQk=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Rename Method(_UPC,0,S) to XUPC, pair with SSDT-USB.aml (USB Port Customization)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1VQQwg=</data>
-					<key>Replace</key>
-					<data>WFVQQwg=</data>
 				</dict>
 			</array>
 		</dict>
