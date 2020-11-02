@@ -494,6 +494,11 @@ function DL() {
   if [[ ${REMOTE} == True ]]; then
     DGS daliansky ${REPO_NAME}
   fi
+
+  # Menchen's ALCPlugFix
+  if [[ ${REMOTE} == True ]]; then
+    DGS Menchen ALCPlugFix
+  fi
 }
 
 # Unpack
@@ -723,12 +728,12 @@ function Install() {
     "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/README.MD"
   )
   if [[ ${REMOTE} == True ]]; then
-    cd "${REPO_NAME_BRANCH}" || exit 1
+    cp -R "ALCPlugFix-master/*" "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix" || copyErr
   else
     alcfixItems=("${alcfixItems[@]/${REPO_NAME_BRANCH}/..}")
     cd "../" || exit 1
+    git submodule init && git submodule update --remote && cd "${WSDir}" || exit 1
   fi
-  git submodule init && git submodule update --remote && cd "${WSDir}" || exit 1
 
   echo "${green}[${reset}${blue}${bold} Installing ALCPlugFix ${reset}${green}]${reset}"
   echo
