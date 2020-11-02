@@ -145,7 +145,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
   - Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
 - Use [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) to modify CPU power management or change SMBIOS model to `MacBookPro15,4` (macOS version > 10.15)
 - Add `igfxrpsc=1` boot-args or `rps-control` property to enable RPS control patch and improves IGPU performance (macOS version ≠ 10.15.6)
-- Add [this color profile](https://www.notebookcheck.net/uploads/tx_nbc2/NV156FHM_N61.icm) to /Users/<user>/Library/ColorSync/Profiles and select in in System Preferences > Displays > Colour
+- Add [this color profile](https://www.notebookcheck.net/uploads/tx_nbc2/NV156FHM_N61.icm) to `/Users/<user>/Library/ColorSync/Profiles` and select in in `System Preferences > Displays > Colour`
 
 
 ## FAQ
