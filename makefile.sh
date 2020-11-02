@@ -728,7 +728,7 @@ function Install() {
     "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/README.MD"
   )
   if [[ ${REMOTE} == True ]]; then
-    cp -R "ALCPlugFix-master/*" "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix" || copyErr
+    cp -R ALCPlugFix-master/* "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix/" || copyErr
   else
     alcfixItems=("${alcfixItems[@]/${REPO_NAME_BRANCH}/..}")
     cd "../" || exit 1
