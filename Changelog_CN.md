@@ -2,6 +2,16 @@
 
 [English](Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7)
+## 11-3-2020
+
+### 移除
+  * 移除 `AAPL,slot-name` 来支持 macOS11 上的 HEVC
+
+### Clover
+  * Clover: 新增 `AirportItlwm` 来支持原生英特尔 Wi-Fi
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.6)
 ## 11-2-2020
 
@@ -20,7 +30,7 @@
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.3
-  * OC: 添加 `AirportItlwm` 来支持原生英特尔 Wi-Fi
+  * OC: 新增 `AirportItlwm` 来支持原生英特尔 Wi-Fi
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)

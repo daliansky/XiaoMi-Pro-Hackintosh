@@ -573,6 +573,13 @@ function Install() {
     "Mojave/AirportItlwm_Mojave.kext"
   )
 
+  cloverKextFolders=(
+    "10.13"
+    "10.14"
+    "10.15"
+    "11.0"
+  )
+
   echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
   echo
   for Kextdir in "${OUTDir}/EFI/CLOVER/kexts/Other/" "${OUTDir_OC}/EFI/OC/Kexts/"; do
@@ -581,6 +588,15 @@ function Install() {
       cp -R "${kextItem}" "${Kextdir}" || copyErr
     done
   done
+
+  for cloverKextFolder in "${cloverKextFolders[@]}"; do
+    mkdir -p "${OUTDir}/EFI/CLOVER/kexts/${cloverKextFolder}" || exit 1
+  done
+
+  cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${OUTDir}/EFI/CLOVER/kexts/11.0" || copyErr
+  cp -R "Catalina/AirportItlwm_Catalina.kext" "${OUTDir}/EFI/CLOVER/kexts/10.15" || copyErr
+  cp -R "High Sierra/AirportItlwm_High_Sierra.kext" "${OUTDir}/EFI/CLOVER/kexts/10.13" || copyErr
+  cp -R "Mojave/AirportItlwm_Mojave.kext" "${OUTDir}/EFI/CLOVER/kexts/10.14" || copyErr
 
   for kextItem in "${wifiKextItems[@]}"; do
     cp -R "${kextItem}" "${OUTDir_OC}/EFI/OC/Kexts/" || copyErr

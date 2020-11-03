@@ -2,6 +2,16 @@
 
 **English** | [中文](Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7)
+## 11-3-2020
+
+### Remove
+  - Remove `AAPL,slot-name` to support HEVC on macOS11
+
+### Clover
+  - Clover: Add `AirportItlwm` to support native Intel Wi-Fi
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.6)
 ## 11-2-2020
 
