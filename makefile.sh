@@ -208,6 +208,8 @@ function Init() {
     "${OUTDir}"
     "${OUTDir_OC}"
     "Clover"
+    "Clover/AppleSupportPkg_209"
+    "Clover/AppleSupportPkg_216"
     "OpenCore"
   )
   for dir in "${dirs[@]}"; do
@@ -255,8 +257,10 @@ function DGR() {
       tag="/latest"
     else
       if [[ -n ${GITHUB_ACTIONS+x} || $GH_API == False ]]; then
-        if [[ "$2" == "AppleSupportPkg" ]]; then
+        if [[ "$2" == "AppleSupportPkg_209" ]]; then
           tag="/tag/2.0.9"
+        elif [[ "$2" == "AppleSupportPkg_216" ]]; then
+          tag="/tag/2.1.6"
         elif [[ "$2" == "CloverBootloader" ]]; then
           tag="/tag/5122"
         fi
@@ -270,12 +274,20 @@ function DGR() {
   fi
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${GH_API} == False ]]; then
-    rawURL="https://github.com/$1/$2/releases$tag"
+    if [[ "$2" == "AppleSupportPkg_209" || "$2" == "AppleSupportPkg_216" ]]; then
+      rawURL="https://github.com/$1/AppleSupportPkg/releases$tag"
+    else
+      rawURL="https://github.com/$1/$2/releases$tag"
+    fi
     for HG in "${HGs[@]}"; do
       URLs+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
-    rawURL="https://api.github.com/repos/$1/$2/releases$tag"
+    if [[ "$2" == "AppleSupportPkg_209" || "$2" == "AppleSupportPkg_216" ]]; then
+      rawURL="https://api.github.com/repos/$1/AppleSupportPkg/releases$tag"
+    else
+      rawURL="https://api.github.com/repos/$1/$2/releases$tag"
+    fi
     for HG in "${HGs[@]}"; do
       URLs+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
     done
@@ -450,8 +462,8 @@ function BKext() {
 }
 
 function DL() {
-  # Clover r5122
-  DGR CloverHackyColor CloverBootloader 30865718 "Clover"
+  # Clover
+  DGR CloverHackyColor CloverBootloader NULL "Clover"
 
   # OpenCore
   if [[ ${PRE_RELEASE} =~ "OC" ]]; then
@@ -481,7 +493,9 @@ function DL() {
 
   # UEFI drivers
   # AppleSupportPkg v2.0.9
-  DGR ${ACDT} AppleSupportPkg 19214108 "Clover"
+  DGR ${ACDT} AppleSupportPkg_209 19214108 "Clover/AppleSupportPkg_209"
+  # AppleSupportPkg v2.1.6
+  DGR ${ACDT} AppleSupportPkg_216 24123335 "Clover/AppleSupportPkg_216"
 
   # UEFI
   # DPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
@@ -765,18 +779,18 @@ function Install() {
 function ExtractClover() {
   echo "${green}[${reset}${blue}${bold} Extracting Clover ${reset}${green}]${reset}"
   echo
-  # From CloverV2 and AppleSupportPkg v2.0.9
+  # From CloverV2, AppleSupportPkg v2.0.9, and AppleSupportPkg v2.1.6
   unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
+  unzip -d "Clover/AppleSupportPkg_209" "Clover/AppleSupportPkg_209/*.zip" >/dev/null 2>&1
+  unzip -d "Clover/AppleSupportPkg_216" "Clover/AppleSupportPkg_216/*.zip" >/dev/null 2>&1
   cp -R "Clover/CloverV2/EFI/BOOT" "${OUTDir}/EFI/" || copyErr
   cp -R "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${OUTDir}/EFI/CLOVER/" || copyErr
   cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${OUTDir}/EFI/CLOVER/" || copyErr
   local driverItems=(
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OcQuirks.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/UEFI/FSInject.efi"
-    "Clover/Drivers/AppleGenericInput.efi"
-    "Clover/Drivers/AppleUiSupport.efi"
+    "Clover/AppleSupportPkg_209/Drivers/AppleGenericInput.efi"
+    "Clover/AppleSupportPkg_209/Drivers/AppleUiSupport.efi"
+    "Clover/AppleSupportPkg_216/Drivers/ApfsDriverLoader.efi"
   )
   for driverItem in "${driverItems[@]}"; do
     cp -R "${driverItem}" "${OUTDir}/EFI/CLOVER/drivers/UEFI/" || copyErr

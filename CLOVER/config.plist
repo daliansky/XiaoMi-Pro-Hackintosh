@@ -60,7 +60,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=0 dart=0 gfxrst=1</string>
+		<string>darkwake=0 gfxrst=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>HibernationFixup</key>
@@ -249,7 +249,6 @@
 	<dict>
 		<key>Hide</key>
 		<array>
-			<string>Preboot</string>
 			<string>Recovery</string>
 		</array>
 		<key>Mouse</key>
@@ -268,6 +267,8 @@
 			<key>Tool</key>
 			<true/>
 		</dict>
+		<key>ProvideConsoleGop</key>
+		<true/>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
@@ -296,6 +297,8 @@
 		<false/>
 		<key>AppleRTC</key>
 		<true/>
+		<key>KernelPm</key>
+		<true/>
 		<key>PanicNoKextDump</key>
 		<true/>
 		<key>ForceKextsToLoad</key>
@@ -304,35 +307,9 @@
 			<string>\System\Library\Extensions\IO80211Family.kext</string>
 		</array>
 		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.iokit.IOAHCIBlockStorage</string>
-				<key>Find</key>
-				<data>AEFQUExFIFNTRAA=</data>
-				<key>Replace</key>
-				<data>AAAAAAAAAAAAAAA=</data>
-			</dict>
-		</array>
+		<array/>
 		<key>KernelToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Disable kernel panic on setPowerState timeout with setpowerstate_panic=0 boot-args on 10.15 (credit vit9696)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.15.x,10.16.x</string>
-				<key>Find</key>
-				<data>Y29tLmFwcGxlAA==</data>
-				<key>Replace</key>
-				<data>bm90LmFwcGxlAA==</data>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
@@ -397,6 +374,32 @@
 		<false/>
 		<key>SyncRuntimePermissions</key>
 		<true/>
+		<key>FuzzyMatch</key>
+		<false/>
+		<key>KernelCache</key>
+		<string>Auto</string>
+		<key>AppleXcpmExtraMsrs</key>
+		<false/>
+		<key>AppleXcpmForceBoost</key>
+		<false/>
+		<key>DisableIoMapper</key>
+		<true/>
+		<key>DisableLinkeditJettison</key>
+		<true/>
+		<key>DisableRtcChecksum</key>
+		<true/>
+		<key>DummyPowerManagement</key>
+		<false/>
+		<key>ExternalDiskIcons</key>
+		<false/>
+		<key>IncreasePciBarSize</key>
+		<false/>
+		<key>PowerTimeoutKernelPanic</key>
+		<true/>
+		<key>ThirdPartyDrives</key>
+		<true/>
+		<key>XhciPortLimit</key>
+		<false/>
 	</dict>
 </dict>
 </plist>

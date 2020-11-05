@@ -2,6 +2,21 @@
 
 **English** | [中文](Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.4.8
+## 12-X-2020
+
+### Update
+  - Update `OpenCore` v0.6.4
+  - Update `Clover` r5127
+
+### Clover
+  - Clover: Update config to support `Clover` r5127
+
+### OC
+  - OC: Update config to support `OpenCore` v0.6.4
+  - OC: Re-enable `IntelBluetoothInjector.kext` on macOS11.0+
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7)
 ## 11-3-2020
 
