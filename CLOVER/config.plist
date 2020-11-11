@@ -314,7 +314,7 @@
 	<key>RtVariables</key>
 	<dict>
 		<key>CsrActiveConfig</key>
-		<string>0x67</string>
+		<string>0x30</string>
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>ROM</key>

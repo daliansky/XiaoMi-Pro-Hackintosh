@@ -141,6 +141,7 @@ rmKexts=(
   os-x-null-ethernet
 )
 
+# Require Lilu to be the last for BKext()
 acdtKexts=(
   VirtualSMC
   WhateverGreen

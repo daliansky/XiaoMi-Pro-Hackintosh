@@ -9,6 +9,9 @@
   * 更新 `OpenCore` v0.6.4
   * 更新 `Clover` r5127
 
+### 变更
+  * 修改 `csr-active-config` 为 `30000000`
+
 ### Clover
   * Clover: 更新 config 来支持 `Clover` r5127
 
