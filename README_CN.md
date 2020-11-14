@@ -60,7 +60,7 @@
 - 其他都工作正常
 
 ### Clover
-- 支持 macOS10.13 ~ macOS11.0
+- 支持 macOS10.13 ~ macOS11.0（仅 v1.4.8+ 支持 Big Sur）
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
   - 然后重启并使用 Clover

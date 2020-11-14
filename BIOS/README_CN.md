@@ -4,7 +4,7 @@
 
 ## 简介
 
-[XMAKB5R0P0603](XMAKB5R0P0603) 和 [XMAKB5R0P0906](XMAKB5R0P0906) 里的 BIOS 包和 [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 都来自小米官方，来源可靠。**这些包仅支持 MX150 版本。**
+[XMAKB5R0P0603](XMAKB5R0P0603) 和 [XMAKB5R0P0906](XMAKB5R0P0906) 里的 BIOS 包，[XMAKB5R0P0A07](XMAKB5R0P0A07.exe) 和 [XMAKB5R0P0E07](XMAKB5R0P0E07.exe) 都来自小米官方，来源可靠。**这些包仅支持 MX150 版本。**
 
 ~文件夹 [ME](ME) 的 ME 固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的 ME 固件有助于抵御潜在的恶意攻击。上述文件夹里的 ME 固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。~
 

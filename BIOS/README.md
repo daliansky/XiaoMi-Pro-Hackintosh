@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The BIOS packet in [XMAKB5R0P0603](XMAKB5R0P0603), [XMAKB5R0P0906](XMAKB5R0P0906) and [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) are from Xiaomi stuff, so they are reliable. **These packets are only compatible with MX150 version.**
+The BIOS packet in [XMAKB5R0P0603](XMAKB5R0P0603), [XMAKB5R0P0906](XMAKB5R0P0906), [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) and [XMAKB5R0P0E07](XMAKB5R0P0E07.exe) are from Xiaomi stuff, so they are reliable. **These packets are only compatible with MX150 version.**
 
 ~The ME firmware in [ME](ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps to avoid potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.~
 
