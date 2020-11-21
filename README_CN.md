@@ -60,13 +60,13 @@
 - 其他都工作正常
 
 ### Clover
-- 支持 macOS10.13 ~ macOS11.0（仅 v1.4.8+ 支持 Big Sur）
+- 支持 macOS10.13 ~ macOS11（仅 v1.4.8+ 支持 Big Sur）
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
   - 然后重启并使用 Clover
 
 ### OpenCore
-- 支持 macOS10.13 ~ macOS11.0
+- 支持 macOS10.13 ~ macOS11
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM

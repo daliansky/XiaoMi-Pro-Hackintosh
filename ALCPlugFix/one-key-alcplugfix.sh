@@ -12,7 +12,7 @@ function interface() {
     echo '|  __/  | | | |_| | | (_| | |  _|   | |  >  <  '
     echo '|_|     |_|  \__,_|  \__, | |_|     |_| /_/\_\ '
     echo '                      |___/                    '
-    echo 'Support XiaoMi-Pro(ALC298, layout-id 99)'
+    echo 'Support XiaoMi-Pro(ALC298, layout-id 30/99)'
     echo '==============================================='
 }
 

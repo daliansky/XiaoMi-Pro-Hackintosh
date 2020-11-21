@@ -592,7 +592,7 @@ function Install() {
     "10.13"
     "10.14"
     "10.15"
-    "11.0"
+    "11"
   )
 
   echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
@@ -608,7 +608,7 @@ function Install() {
     mkdir -p "${OUTDir}/EFI/CLOVER/kexts/${cloverKextFolder}" || exit 1
   done
 
-  cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${OUTDir}/EFI/CLOVER/kexts/11.0" || copyErr
+  cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${OUTDir}/EFI/CLOVER/kexts/11" || copyErr
   cp -R "Catalina/AirportItlwm_Catalina.kext" "${OUTDir}/EFI/CLOVER/kexts/10.15" || copyErr
   cp -R "High Sierra/AirportItlwm_High_Sierra.kext" "${OUTDir}/EFI/CLOVER/kexts/10.13" || copyErr
   cp -R "Mojave/AirportItlwm_Mojave.kext" "${OUTDir}/EFI/CLOVER/kexts/10.14" || copyErr
