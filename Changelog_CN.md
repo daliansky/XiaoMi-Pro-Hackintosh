@@ -8,6 +8,7 @@
 ### 更新
   * 更新 `OpenCore` v0.6.4
   * 更新 `Clover` r5127
+  * 更新 `SSDT-PNLF`
 
 ### 变更
   * 修改 `csr-active-config` 为 `30000000`

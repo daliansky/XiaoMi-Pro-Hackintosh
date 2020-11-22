@@ -8,6 +8,7 @@
 ### Update
   - Update `OpenCore` v0.6.4
   - Update `Clover` r5127
+  - Update `SSDT-PNLF`
 
 ### Change
   - Change `csr-active-config` to `30000000`
