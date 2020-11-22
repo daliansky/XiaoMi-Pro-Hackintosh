@@ -7,8 +7,9 @@
 
 ### 更新
   * 更新 `OpenCore` v0.6.4
-  * 更新 `Clover` r5127
+  * 更新 `Clover` r5127 来支持 macOS11.0.1
   * 更新 `SSDT-PNLF`
+  * 更新 `SSDT-RMNE`
 
 ### 变更
   * 修改 `csr-active-config` 为 `30000000`

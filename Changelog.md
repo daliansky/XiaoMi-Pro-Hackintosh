@@ -7,8 +7,9 @@
 
 ### Update
   - Update `OpenCore` v0.6.4
-  - Update `Clover` r5127
+  - Update `Clover` r5127 to support macOS11.0.1
   - Update `SSDT-PNLF`
+  - Update `SSDT-RMNE`
 
 ### Change
   - Change `csr-active-config` to `30000000`

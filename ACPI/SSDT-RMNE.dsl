@@ -7,7 +7,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_RMNE", 0x00000000)
 {
     Device (RMNE)
     {
-        Name (_ADR, Zero)  // _ADR: Address
         Name (_HID, "NULE0000")  // _HID: Hardware ID
         Name (MAC, Buffer (0x06)
         {
