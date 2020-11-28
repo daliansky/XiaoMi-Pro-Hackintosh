@@ -81,6 +81,10 @@ if [ "$(which xcodebuild)" = "" ] || [ "$(which git)" = "" ]; then
   NO_XCODE=True
 fi
 
+if [[ "${DEVELOPER_DIR}" = "" ]]; then
+  DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+fi
+
 # Args
 while [[ $# -gt 0 ]]; do
   key="$1"
@@ -428,23 +432,22 @@ function BKextHelper() {
 }
 
 function BKext() {
-  local TRAVIS_TAG=""
   local sdkVer=""
 
   if [[ ${NO_XCODE} == True ]]; then
     echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
     exit 1
   fi
-  if [[ ! -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
+  if [[ ! -d "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
     echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
     echo "${cyan}"
     curl -# -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 || networkErr "MacOSX10.12.sdk" && tar -xjf MacOSX10.12.tar.bz2
     echo "${reset}"
-    sudo cp -R "MacOSX10.12.sdk" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
+    sudo cp -R "MacOSX10.12.sdk" "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
   fi
-  sdkVer=$(/usr/libexec/PlistBuddy -c 'Print MinimumSDKVersion' "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist")
+  sdkVer=$(/usr/libexec/PlistBuddy -c 'Print MinimumSDKVersion' "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Info.plist")
   if [[ ${sdkVer//./} -gt 1012 ]]; then
-    sudo /usr/libexec/PlistBuddy -c "Set :MinimumSDKVersion 10.12" "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist"
+    sudo /usr/libexec/PlistBuddy -c "Set :MinimumSDKVersion 10.12" "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Info.plist"
   fi
 
   git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
