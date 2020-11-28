@@ -8,6 +8,11 @@
 ### 更新
   * 更新 `OpenCore` v0.6.4
   * 更新 `Clover` r5127 来支持 macOS11.0.1
+  * 更新 `Lilu` v1.5.0
+  * 更新 `VirtualSMC` v1.1.9
+  * 更新 `AppleALC` v1.5.5
+  * 更新 `VoodooI2C` v2.5.3
+  * 更新 `AirportItlwm` v1.2.0（up to []()）
   * 更新 `SSDT-PNLF`
   * 更新 `SSDT-RMNE`
 

@@ -8,6 +8,11 @@
 ### Update
   - Update `OpenCore` v0.6.4
   - Update `Clover` r5127 to support macOS11.0.1
+  - Update `Lilu` v1.5.0
+  - Update `VirtualSMC` v1.1.9
+  - Update `AppleALC` v1.5.5
+  - Update `VoodooI2C` v2.5.3
+  - Update `AirportItlwm` v1.2.0 (up to []())
   - Update `SSDT-PNLF`
   - Update `SSDT-RMNE`
 
