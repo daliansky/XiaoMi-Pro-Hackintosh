@@ -18,13 +18,24 @@ jobs:
 
       - name: Initialize Variables
         run: |
-          echo "CUR_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          echo "CUR_TAG=beta" >> $GITHUB_ENV
           echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> $GITHUB_ENV
           export DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer
+
+      - name: Initialize Tag
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        run: |
+          echo "CUR_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
       - name: Run makefile
         run: |
           ./makefile.sh --NO_GH_API --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC
+
+      - name: Upload to Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: XiaoMi NoteBook Pro EFI ${{ env.CUR_TAG }}
+          path: build/*.zip
 
       - name: Upload to Release
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
