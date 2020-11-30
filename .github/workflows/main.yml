@@ -15,12 +15,13 @@ jobs:
       XCODE_VERSION: 12.2
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '5'
 
       - name: Initialize Variables
         run: |
           GIT_SHA="$(git rev-parse --short HEAD)"
-          echo "SHORT_SHA=$GIT_SHA" >> $GITHUB_ENV
-          echo "CUR_TAG=beta-${SHORT_SHA}" >> $GITHUB_ENV
+          echo "CUR_TAG=beta-$GIT_SHA" >> $GITHUB_ENV
           echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> $GITHUB_ENV
           export DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer
 
