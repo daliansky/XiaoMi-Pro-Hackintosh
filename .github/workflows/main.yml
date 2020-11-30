@@ -18,7 +18,9 @@ jobs:
 
       - name: Initialize Variables
         run: |
-          echo "CUR_TAG=beta" >> $GITHUB_ENV
+          GIT_SHA="$(git rev-parse --short HEAD)"
+          echo "SHORT_SHA=$GIT_SHA" >> $GITHUB_ENV
+          echo "CUR_TAG=beta-${SHORT_SHA}" >> $GITHUB_ENV
           echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> $GITHUB_ENV
           export DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer
 
