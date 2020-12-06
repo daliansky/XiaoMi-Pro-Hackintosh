@@ -2,8 +2,8 @@
 
 [English](Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.4.8
-## 12-X-2020
+## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)
+## 12-7-2020
 
 ### 更新
   * 更新 `OpenCore` v0.6.4
@@ -14,9 +14,9 @@
   * 更新 `HibernationFixup` v1.3.8
   * 更新 `VoodooPS2` v2.1.9
   * 更新 `VoodooI2C` v2.5.3
-  * 更新 `AirportItlwm` v1.2.0（up to []()）
+  * 更新 `AirportItlwm` v1.2.0（up to [OpenIntelWireless/itlwm@c2f2c51](https://github.com/OpenIntelWireless/itlwm/commit/c2f2c51683b39d9327299238b3fa61343ee7177d)）
   * 更新 `SSDT-PNLF`
-  * 更新 `SSDT-PS2K` 因为 `VoodooPS2` 不再默认交换 Command 和 Option
+  * 更新 `SSDT-PS2K` 因为 `VoodooPS2` v2.1.9 不再默认交换 Command 和 Option
   * 更新 `SSDT-RMNE`
 
 ### 变更

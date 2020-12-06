@@ -1191,10 +1191,10 @@
 			<dict>
 				<key>StartupMute</key>
 				<data>AQ==</data>
-				<key>csr-active-config</key>
-				<data>MAAAAA==</data>
 				<key>boot-args</key>
 				<string>darkwake=0 gfxrst=1</string>
+				<key>csr-active-config</key>
+				<data>MAAAAA==</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
