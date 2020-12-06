@@ -51,9 +51,9 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
   - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
 - **Intel Bluetooth** may cause sleep problems and does not support some Bluetooth devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
-- **Intel Wi-Fi (Intel Wireless 8265)** could work by additional configurations
+- **Intel Wi-Fi (Intel Wireless 8265)** works with low performance
   - Buy a USB Wi-Fi dongle or supported wireless card
-  - Use [itlwm](https://github.com/OpenIntelWireless/itlwm) and [HeliPort](https://github.com/OpenIntelWireless/HeliPort) or [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) to drive Intel Wi-Fi
+  - Read [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) for more information
 - **Realtek USB SD Card Reader (RTS5129)** is not working
   - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
   - Or you can use VMware to let it work, see [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)

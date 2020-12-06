@@ -51,9 +51,9 @@
   - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
 - **英特尔蓝牙**可能会导致睡眠问题，并且不支持部分蓝牙设备
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
-- **英特尔无线网卡 (英特尔 无线 8265)** 需要额外操作来工作
+- **英特尔无线网卡 (英特尔 无线 8265)** 性能不佳
   - 购买USB网卡或者支持的内置网卡
-  - 使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) 和 [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 或 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 来驱动英特尔无线网卡
+  - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获得详细信息
 - **瑞昱USB SD读卡器 (RTS5129)** 无法工作
   - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
   - 你也可以使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
