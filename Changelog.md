@@ -11,9 +11,12 @@
   - Update `Lilu` v1.5.0
   - Update `VirtualSMC` v1.1.9
   - Update `AppleALC` v1.5.5
+  - Update `HibernationFixup` v1.3.8
+  - Update `VoodooPS2` v2.1.9
   - Update `VoodooI2C` v2.5.3
   - Update `AirportItlwm` v1.2.0 (up to []())
   - Update `SSDT-PNLF`
+  - Update `SSDT-PS2K` as `VoodooPS2` won't swap Command and Option in default
   - Update `SSDT-RMNE`
 
 ### Change
@@ -21,6 +24,7 @@
 
 ### Clover
   - Clover: Update config to support `Clover` r5127
+  - Clover: Add back Mouse properties to support mouse in BootPicker
 
 ### OC
   - OC: Update config to support `OpenCore` v0.6.4

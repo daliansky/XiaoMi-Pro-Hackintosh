@@ -123,7 +123,7 @@ cd XiaoMi-Pro-Hackintosh
 
 
 ### Upgrade
-- Download the latest EFI release from the [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) and beta EFI release from artifacts in the [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions).
+- Download the latest EFI release from the [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) or beta EFI release from artifacts in the [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions).
 - A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases).
 - You can also update Clover EFI by running the following command in Terminal:
 
@@ -183,7 +183,8 @@ When you want to switch OS, press `Esc` during startup to call the boot menu.
 
 #### [OC] How to enable startup chime?
 
-Turn on `AudioSupport` and `PlayChime` in `/OC/config.plist - UEFI - Audio`.
+If you are using macOS Big Sur, go to `SysPref - Sound` and turn on `Play sound on startup`.  
+For macOS version  < Big Sur, open `Terminal.app` and run `sudo nvram StartupMute=%00`.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/FAQ).
 

@@ -14,7 +14,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
             Name (RMCF, Package (0x0A)
             {
                 "Keyboard", 
-                Package (0x06)
+                Package (0x04)
                 {
                     "Custom ADB Map", 
                     Package (0x09)
@@ -35,10 +35,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PS2K", 0x00000000)
                     {
                         Package (0x00){}, 
                         "e037=57" // PrtScn=F11
-                    },
-
-                    "Swap command and option", 
-                    ">n"
+                    }
                 },
 
                 "Mouse", 

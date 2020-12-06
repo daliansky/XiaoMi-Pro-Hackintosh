@@ -11,9 +11,12 @@
   * 更新 `Lilu` v1.5.0
   * 更新 `VirtualSMC` v1.1.9
   * 更新 `AppleALC` v1.5.5
+  * 更新 `HibernationFixup` v1.3.8
+  * 更新 `VoodooPS2` v2.1.9
   * 更新 `VoodooI2C` v2.5.3
   * 更新 `AirportItlwm` v1.2.0（up to []()）
   * 更新 `SSDT-PNLF`
+  * 更新 `SSDT-PS2K` 因为 `VoodooPS2` 不再默认交换 Command 和 Option
   * 更新 `SSDT-RMNE`
 
 ### 变更
@@ -21,6 +24,7 @@
 
 ### Clover
   * Clover: 更新 config 来支持 `Clover` r5127
+  * Clover: 新增回 Mouse 属性来支持系统选择页中的鼠标使用
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.4
