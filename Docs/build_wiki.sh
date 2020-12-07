@@ -64,7 +64,6 @@ function download() {
 function build() {
   local wikiItems=(
     "FAQ"
-    "Drive-Native-Intel-Wireless-Card"
     "Set-DVMT-to-64mb"
     "Unlock-0xE2-MSR"
     "Work-Around-with-Bluetooth"

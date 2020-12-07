@@ -740,7 +740,6 @@ function Install() {
 
   wikiItems=(
     "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
-    "${REPO_NAME_BRANCH}/Docs/Drive-Native-Intel-Wireless-Card.pdf"
     "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
     "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
   )

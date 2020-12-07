@@ -49,7 +49,7 @@
   - 使用了 [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) 来禁用它以节省电量
 - **指纹传感器**无法工作
   - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
-- **英特尔蓝牙**可能会导致睡眠问题，并且不支持部分蓝牙设备
+- **英特尔蓝牙**不支持部分蓝牙设备
   - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡 (英特尔 无线 8265)** 性能不佳
   - 购买USB网卡或者支持的内置网卡
@@ -61,6 +61,7 @@
 
 ### Clover
 - 支持 macOS10.13 ~ macOS11（仅 v1.4.8+ 支持 Big Sur）
+  - 需要选择 `~ via Preboot` 来引导 Big Sur
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
   - 然后重启并使用 Clover
@@ -71,6 +72,8 @@
   - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
+- 启动音拖慢引导速度
+  - 关闭 `config.plist - UEFI - Audio` 中的 `AudioSupport`
 - 有限的主题
 - **推荐阅读：[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**，特别注意 **UEFISecureBoot** 章节
 
