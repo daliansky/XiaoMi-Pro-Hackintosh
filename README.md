@@ -61,7 +61,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
 
 ### Clover
 - Supports macOS10.13 ~ macOS11 (Only v1.4.8+ supports Big Sur)
-  - Has to choose `~ via Preboot` to boot Big Sur
+  - Have to choose `~ via Preboot` to boot Big Sur
 - Should Clean NVRAM after using OpenCore
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
   - Then reboot and use Clover
