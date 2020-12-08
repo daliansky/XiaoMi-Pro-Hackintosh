@@ -13,7 +13,7 @@
   * 更新 `AppleALC` v1.5.5
   * 更新 `HibernationFixup` v1.3.8
   * 更新 `VoodooPS2` v2.1.9
-  * 更新 `VoodooI2C` v2.5.3
+  * 更新 `VoodooI2C` v2.5.2（更新至 [VoodooI2C/VoodooI2C@b5a11ce](https://github.com/VoodooI2C/VoodooI2C/commit/b5a11ce59d8b0e7e072c9efdf289d877898cb0c0)）
   * 更新 `AirportItlwm` v1.2.0（更新至 [OpenIntelWireless/itlwm@c2f2c51](https://github.com/OpenIntelWireless/itlwm/commit/c2f2c51683b39d9327299238b3fa61343ee7177d)）
   * 更新 `SSDT-PNLF`
   * 更新 `SSDT-PS2K` 因为 `VoodooPS2` v2.1.9 不再默认交换 Command 和 Option

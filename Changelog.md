@@ -13,7 +13,7 @@
   - Update `AppleALC` v1.5.5
   - Update `HibernationFixup` v1.3.8
   - Update `VoodooPS2` v2.1.9
-  - Update `VoodooI2C` v2.5.3
+  - Update `VoodooI2C` v2.5.2 (up to [VoodooI2C/VoodooI2C@b5a11ce](https://github.com/VoodooI2C/VoodooI2C/commit/b5a11ce59d8b0e7e072c9efdf289d877898cb0c0))
   - Update `AirportItlwm` v1.2.0 (up to [OpenIntelWireless/itlwm@c2f2c51](https://github.com/OpenIntelWireless/itlwm/commit/c2f2c51683b39d9327299238b3fa61343ee7177d))
   - Update `SSDT-PNLF`
   - Update `SSDT-PS2K` as `VoodooPS2` v2.1.9 won't swap Command and Option in default
