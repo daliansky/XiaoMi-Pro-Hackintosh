@@ -65,7 +65,7 @@
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
   - 然后重启并使用 Clover
-- r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 v1.4.7 支持旧 macOS 版本的英特尔 Wi-Fi）
+- r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 v1.4.7 支持旧 macOS 版本的英特尔 Wi-Fi，或者添加 `IO80211Family.kext` 到 kext 文件夹）
 
 ### OpenCore
 - 支持 macOS10.13 ~ macOS11

@@ -65,7 +65,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
 - Should Clean NVRAM after using OpenCore
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
   - Then reboot and use Clover
-- r5127 do not support Intel Wi-Fi on macOS version < Big Sur due to incomplete ForceKextsToLoad functionality (Only v1.4.7 supports Intel Wi-Fi on old macOS versions)
+- r5127 do not support Intel Wi-Fi on macOS version < Big Sur due to incomplete ForceKextsToLoad functionality (Only v1.4.7 supports Intel Wi-Fi on old macOS versions, or you can add `IO80211Family.kext` to the kext folder)
 
 ### OpenCore
 - Supports macOS10.13 ~ macOS11
