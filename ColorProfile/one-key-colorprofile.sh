@@ -31,12 +31,12 @@ function networkWarn(){
     exit 1
 }
 
-# Download from https://github.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile
+# Download from https://github.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile
 function download(){
     mkdir -p one-key-colorprofile
     cd one-key-colorprofile || exit 1
     echo "Downloading Color Profile..."
-    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/NV156FHM-N61.icm -O || networkWarn
+    curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/NV156FHM-N61.icm -O || networkWarn
     echo "Download complete"
     echo
 }

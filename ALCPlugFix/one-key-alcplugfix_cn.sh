@@ -32,7 +32,7 @@ function networkWarn(){
     exit 1
 }
 
-# 下载资源来自 https://github.com/daliansky/XiaoMi-Pro/master/ALCPlugFix 和 https://github.com/Menchen/ALCPlugFix/tree/master/build/Release
+# 下载资源来自 https://github.com/Menchen/ALCPlugFix
 function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix || exit 1

@@ -16,7 +16,7 @@ Calibrated on X-Rite Color Munki Photo
 1. Run the following command in Terminal:
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/one-key-colorprofile.sh)"
 ```
 
 - Or you can manually put the color profile into `/Library/ColorSync/Profiles/`

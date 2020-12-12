@@ -14,7 +14,7 @@
 - Run the following command in Terminal:
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/one-key-alcplugfix.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ALCPlugFix/one-key-alcplugfix.sh)"
 ```
 
 - When it's done, restart your computer. The installation now completes.

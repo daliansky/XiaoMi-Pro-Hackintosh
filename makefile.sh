@@ -72,7 +72,8 @@ OIW="OpenIntelWireless"
 PRE_RELEASE=""
 REMOTE=True
 REPO_NAME="XiaoMi-Pro-Hackintosh"
-REPO_NAME_BRANCH="${REPO_NAME}-master"
+REPO_BRANCH="main"
+REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 VERSION="local"
 

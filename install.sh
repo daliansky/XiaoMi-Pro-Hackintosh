@@ -460,7 +460,7 @@ function changeBT() {
   read -rp ":" bt_selection_new
   case ${bt_selection_new} in
     1)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ACPI/SSDT-USB.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -470,7 +470,7 @@ function changeBT() {
     ;;
 
     2)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB-USBBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ACPI/SSDT-USB-USBBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -483,7 +483,7 @@ function changeBT() {
     ;;
 
     3)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB-WLAN_LTEBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ACPI/SSDT-USB-WLAN_LTEBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -493,7 +493,7 @@ function changeBT() {
     ;;
 
     4)
-    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-USB-FingerBT.aml"
+    local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ACPI/SSDT-USB-FingerBT.aml"
     curl --silent -O "${repoURL}" || networkWarn
 
     deleteBT
@@ -514,7 +514,7 @@ function fixWindows() {
   echo
   echo "Make sure you can boot Windows with F12"
   echo "Fixing Windows boot..."
-  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/wiki/AptioMemoryFix.efi"
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Docs/Drivers/AptioMemoryFix.efi"
   curl --silent -O "${repoURL}" || networkWarn
 
   mountEFI
@@ -549,7 +549,7 @@ function fixAppleService() {
   # generate random MAC address
   MAC_ADDRESS="0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1), 0x$(openssl rand -hex 1)"
 
-  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ACPI/SSDT-RMNE.dsl"
+  local repoURL="https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ACPI/SSDT-RMNE.dsl"
   curl --silent -O "${repoURL}" || networkWarn
 
   # change 11:22:33:44:55:66 to ${MAC_ADDRESS} in SSDT-RMNE.dsl
@@ -632,12 +632,12 @@ function main() {
     ;;
 
     2)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
     returnMenu
     ;;
 
     3)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)" && updateEFI "--LOCAL_RELEASE"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)" && updateEFI "--LOCAL_RELEASE"
     returnMenu
     ;;
 
@@ -647,17 +647,17 @@ function main() {
     ;;
 
     5)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ALCPlugFix/one-key-alcplugfix.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ALCPlugFix/one-key-alcplugfix.sh)"
     returnMenu
     ;;
 
     6)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/ColorProfile/one-key-colorprofile.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/one-key-colorprofile.sh)"
     returnMenu
     ;;
 
     7)
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/main/one-key-cpufriend.sh)"
     returnMenu
     ;;
 

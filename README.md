@@ -91,7 +91,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
   - [GUIA HACKINTOSH ESPAÑOL 2020 || Instalación de macOS Catalina Xiaomi Mi Notebook Pro](https://www.youtube.com/watch?v=rfG4sGwhE2g)
 - If the trackpad doesn't work during the installation, please plug a wired mouse or a wireless mouse projector before the installation. After the installation completes, open `Terminal.app` and run `sudo kextcache -i /`. Wait for the process ending and restart the device. Enjoy your trackpad!
 - Complete EFI packs are available in the [releases](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) page.
- - Please don't clone or download the master branch for daily use.
+ - Please don't clone or download the main branch for daily use.
  
  <img src="Docs/img/README_donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
  <img src="Docs/img/README_get_Release.jpg" width="300px" alt="get_release">
@@ -101,7 +101,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
 
 - Build the latest beta EFI by running the following command in Terminal:
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/makefile.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
 ```
 - Or run the following command in Terminal:
 ```shell
@@ -132,7 +132,7 @@ cd XiaoMi-Pro-Hackintosh
 - You can also update Clover EFI by running the following command in Terminal:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/install.sh)"
 ```
 
 
