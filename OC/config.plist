@@ -1284,7 +1284,7 @@
 			<key>PlayChime</key>
 			<string>Auto</string>
 			<key>VolumeAmplifier</key>
-			<integer>125</integer>
+			<integer>128</integer>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
