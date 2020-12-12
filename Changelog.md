@@ -2,6 +2,16 @@
 
 **English** | [中文](Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.4.9
+## 1-X-2021
+
+### Add
+  - Add `RestrictEvents` to replace `EFICheckDisabler`
+
+### Remove
+  - Remove `EFICheckDisabler`
+
+
 ## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)
 ## 12-7-2020
 

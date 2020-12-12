@@ -168,6 +168,7 @@ function DL() {
     WhateverGreen
     AppleALC
     HibernationFixup
+    RestrictEvents
     VoodooPS2
     Lilu
   )
@@ -238,7 +239,7 @@ function Install() {
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"
     "WhateverGreen.kext"
-    "hack-tools-master/kexts/EFICheckDisabler.kext"
+    "RestrictEvents.kext"
     "hack-tools-master/kexts/SATA-unsupported.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"

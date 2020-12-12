@@ -151,6 +151,7 @@ acdtKexts=(
   WhateverGreen
   AppleALC
   HibernationFixup
+  RestrictEvents
   VoodooPS2
   Lilu
 )
@@ -361,7 +362,7 @@ function DPB() {
 
 # Build Pre-release Kexts
 function BKextHelper() {
-  local liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC"
+  local liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC"
   local voodooinputPlugins="VoodooI2C VoodooPS2"
   local PATH_TO_DBG_BIG="Build/Products/Debug/"
   local PATH_TO_REL="build/Release/"
@@ -574,7 +575,7 @@ function Install() {
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"
     "WhateverGreen.kext"
-    "hack-tools-master/kexts/EFICheckDisabler.kext"
+    "RestrictEvents.kext"
     "hack-tools-master/kexts/SATA-unsupported.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
