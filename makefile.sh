@@ -267,8 +267,6 @@ function DGR() {
           tag="/tag/2.0.9"
         elif [[ "$2" == "AppleSupportPkg_216" ]]; then
           tag="/tag/2.1.6"
-        elif [[ "$2" == "CloverBootloader" ]]; then
-          tag="/tag/5122"
         fi
       else
         # only release_id is supported
@@ -530,14 +528,16 @@ function Unpack() {
 # Patch
 function Patch() {
   local unusedItems=(
-    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
-    "IntelBluetoothInjector.kext/Contents/MacOS"
+    "HibernationFixup.kext/Contents/_CodeSignature"
+    "Kexts/SMCBatteryManager.kext/Contents/Resources"
     "Release/CodecCommander.kext/Contents/Resources"
+    "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+    "WhateverGreen.kext/Contents/_CodeSignature"
   )
   echo "${green}[${reset}${blue}${bold} Patching Resources ${reset}${green}]${reset}"
   echo

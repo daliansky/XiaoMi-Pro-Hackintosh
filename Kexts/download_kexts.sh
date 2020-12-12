@@ -205,14 +205,16 @@ function Unpack() {
 # Patch
 function Patch() {
   local unusedItems=(
-    "IntelBluetoothInjector.kext/Contents/_CodeSignature"
-    "IntelBluetoothInjector.kext/Contents/MacOS"
+    "HibernationFixup.kext/Contents/_CodeSignature"
+    "Kexts/SMCBatteryManager.kext/Contents/Resources"
     "Release/CodecCommander.kext/Contents/Resources"
+    "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext"
+    "WhateverGreen.kext/Contents/_CodeSignature"
   )
   for unusedItem in "${unusedItems[@]}"; do
     rm -rf "${unusedItem}" >/dev/null 2>&1
