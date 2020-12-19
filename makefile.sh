@@ -496,6 +496,7 @@ function DL() {
 
   # HfsPlus.efi & OC Resources
   DGS ${ACDT} OcBinaryData
+  DGS khronokernel OpenCanopy-Big-Sur
 
   # XiaoMi-Pro ACPI patch
   if [[ ${REMOTE} == True ]]; then
@@ -663,6 +664,8 @@ function Install() {
   fi
 
   cp -R "OcBinaryData-master/Resources" "${OUTDir_OC}/EFI/OC/" || copyErr
+  rm -rf "${OUTDir_OC}/EFI/OC/Resources/Image" || exit 1
+  cp -R "OpenCanopy-Big-Sur-main/Image" "${OUTDir_OC}/EFI/OC/Resources/" || copyErr
 
   # config & README & LICENSE
   echo "${green}[${reset}${blue}${bold} Installing config & README & LICENSE ${reset}${green}]${reset}"

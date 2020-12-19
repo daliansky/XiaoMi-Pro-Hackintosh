@@ -5,11 +5,19 @@
 ## XiaoMi NoteBook Pro EFI v1.4.9
 ## 1-X-2021
 
+### 更新
+  * 更新 `OpenCore` v0.6.5
+  * 更新 `Clover` r51
+  * 更新 `WhateverGreen` v1.4.6
+
 ### 新增
   * 新增 `RestrictEvents` 来替代 `EFICheckDisabler`
 
 ### 移除
   * 移除 `EFICheckDisabler`
+
+### OC
+  * OC: 新增 `OpenCanopy-Big-Sur` 主题
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)
@@ -21,6 +29,7 @@
   * 更新 `Lilu` v1.5.0
   * 更新 `VirtualSMC` v1.1.9
   * 更新 `AppleALC` v1.5.5
+  * 更新 `WhateverGreen` v1.4.5
   * 更新 `HibernationFixup` v1.3.8
   * 更新 `VoodooPS2` v2.1.9
   * 更新 `VoodooI2C` v2.5.2（更新至 [VoodooI2C/VoodooI2C@b5a11ce](https://github.com/VoodooI2C/VoodooI2C/commit/b5a11ce59d8b0e7e072c9efdf289d877898cb0c0)）
