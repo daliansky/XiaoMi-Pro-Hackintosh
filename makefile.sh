@@ -313,10 +313,10 @@ function DGR() {
 
 # Download GitHub Source Code
 function DGS() {
-  local URL="https://github.com/$1/$2/archive/master.zip"
+  local URL="https://github.com/$1/$2/archive/$3.zip"
   echo "${green}[${reset}${blue}${bold} Downloading $2.zip ${reset}${green}]${reset}"
   echo "${cyan}"
-  cd ./"$3" || exit 1
+  cd ./"$4" || exit 1
   curl -# -L -o "$2.zip" "${URL}"|| networkErr "$2"
   cd - >/dev/null 2>&1 || exit 1
   echo "${reset}"
@@ -482,7 +482,7 @@ function DL() {
     DGR VoodooI2C VoodooI2C
   fi
 
-  DGS RehabMan hack-tools
+  DGS RehabMan hack-tools master
 
   # UEFI drivers
   # AppleSupportPkg v2.0.9
@@ -495,17 +495,17 @@ function DL() {
   DPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
 
   # HfsPlus.efi & OC Resources
-  DGS ${ACDT} OcBinaryData
-  DGS khronokernel OpenCanopy-Big-Sur
+  DGS ${ACDT} OcBinaryData master
+  DGS khronokernel OpenCanopy-Big-Sur main
 
   # XiaoMi-Pro ACPI patch
   if [[ ${REMOTE} == True ]]; then
-    DGS daliansky ${REPO_NAME}
+    DGS daliansky ${REPO_NAME} ${REPO_BRANCH}
   fi
 
   # Menchen's ALCPlugFix
   if [[ ${REMOTE} == True ]]; then
-    DGS Menchen ALCPlugFix
+    DGS Menchen ALCPlugFix master
   fi
 }
 

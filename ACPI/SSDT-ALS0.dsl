@@ -14,7 +14,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_ALS0", 0x00000000)
             Name (_HID, "ACPI0008" /* Ambient Light Sensor Device */)  // _HID: Hardware ID
             Name (_CID, "smc-als")  // _CID: Compatible ID
             Name (_ALI, 0x012C)  // _ALI: Ambient Light Illuminance
-            Name (_ALR, Package (0x01)  // _ALR: Ambient Light Response
+            Name (_ALR, Package (One)  // _ALR: Ambient Light Response
             {
                 Package (0x02)
                 {

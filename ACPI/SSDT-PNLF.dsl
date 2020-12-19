@@ -8,7 +8,7 @@
 // Licensed under GNU General Public License v2.0
 // https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/License.md
 
-#define FBTYPE_SANDYIVY 1
+#define FBTYPE_SANDYIVY One
 #define FBTYPE_HSWPLUS 2
 #define FBTYPE_CFL 3
 
@@ -30,7 +30,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
     External(_SB.PCI0.GFX0, DeviceObj)
     Scope(_SB.PCI0.GFX0)
     {
-        OperationRegion(RMP3, PCI_Config, 0, 0x14)
+        OperationRegion(RMP3, PCI_Config, Zero, 0x14)
     }
 
     // For backlight control
@@ -47,7 +47,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
         // 18: custom LMAX=0x1499
         // 19: CoffeeLake 0xffff
         // 99: Other (requires custom AppleBacklightInjector.kext/WhateverGreen.kext)
-        Name(_UID, 0)
+        Name(_UID, Zero)
         Method (_STA, 0, NotSerialized)  // _STA: Status
         {
             If (_OSI ("Darwin"))
@@ -108,7 +108,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
             //   4. Change duty cycle as needed in SBLC_PWM_CTL2 Backlight Duty Cycle.
             // This 0xC value comes from looking what OS X initializes this
             // register to after display sleep (using ACPIDebug/ACPIPoller)
-            If (0 == (2 & Arg0))
+            If (Zero == (2 & Arg0))
             {
                 Local5 = 0xC0000000
                 If (CondRefOf(\RMCF.LEVW)) { If (Ones != \RMCF.LEVW) { Local5 = \RMCF.LEVW } }
@@ -118,7 +118,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
             If (4 & Arg0)
             {
                 If (CondRefOf(\RMCF.GRAN)) { ^GRAN = \RMCF.GRAN }
-                Else { ^GRAN = 0 }
+                Else { ^GRAN = Zero }
             }
         }
 
@@ -126,16 +126,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
         {
             // IntelBacklight.kext takes care of this at load time...
             // If RMCF.BKLT does not exist, it is assumed you want to use AppleBacklight.kext...
-            Local4 = 1
+            Local4 = One
             If (CondRefOf(\RMCF.BKLT)) { Local4 = \RMCF.BKLT }
-            If (!(1 & Local4)) { Return }
+            If (!(One & Local4)) { Return }
 
             // Adjustment required when using AppleBacklight.kext
             Local0 = ^GDID
             Local2 = Ones
             If (CondRefOf(\RMCF.LMAX)) { Local2 = \RMCF.LMAX }
             // Determine framebuffer type (for PWM register layout)
-            Local3 = 0
+            Local3 = Zero
             If (CondRefOf(\RMCF.FBTP)) { Local3 = \RMCF.FBTP }
 
             // Now fixup the backlight PWM depending on the framebuffer type
@@ -157,7 +157,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
                 0x016a,
                 // Arrandale
                 0x0046, 0x0042,
-            }, MEQ, Local0, MTR, 0, 0))
+            }, MEQ, Local0, MTR, Zero, Zero))
             {
                 if (Ones == Local2) { Local2 = SANDYIVY_PWMMAX }
                 // change/scale only if different than current...
@@ -189,7 +189,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
             {
                 // CoffeeLake identifiers from AppleIntelCFLGraphicsFramebuffer.kext
                 0x3e9b, 0x3ea5, 0x3e92, 0x3e91,
-            }, MEQ, Local0, MTR, 0, 0))
+            }, MEQ, Local0, MTR, Zero, Zero))
             {
                 if (Ones == Local2) { Local2 = COFFEELAKE_PWMMAX }
                 INI1(Local4)
@@ -228,7 +228,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
                         0x0d26, 0x0a26, 0x0d22, 0x0412, 0x0416, 0x0a16, 0x0a1e, 0x0a1e, 0x0a2e, 0x041e, 0x041a,
                         // Broadwell
                         0x0bd1, 0x0bd2, 0x0BD3, 0x1606, 0x160e, 0x1616, 0x161e, 0x1626, 0x1622, 0x1612, 0x162b,
-                    }, MEQ, Local0, MTR, 0, 0))
+                    }, MEQ, Local0, MTR, Zero, Zero))
                     {
                         Local2 = HASWELL_PWMMAX
                     }
