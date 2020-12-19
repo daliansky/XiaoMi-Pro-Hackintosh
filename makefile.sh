@@ -385,6 +385,7 @@ function BKextHelper() {
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ ${voodooinputPlugins} =~ $2 ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
     if [[ "$2" == "VoodooI2C" ]]; then
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
       git submodule init >/dev/null 2>&1 && git submodule update >/dev/null 2>&1
@@ -395,10 +396,9 @@ function BKextHelper() {
       lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
       sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
 
-      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -sdk macosx10.12 -derivedDataPath . -arch x86_64 clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . -arch x86_64 clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
     else
-      cp -R "../MacKernelSDK" "./" || copyErr
       cp -R "../VoodooInput" "./" || copyErr
       xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
@@ -437,17 +437,6 @@ function BKext() {
   if [[ ${NO_XCODE} == True ]]; then
     echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
     exit 1
-  fi
-  if [[ ! -d "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk" ]]; then
-    echo "${green}[${reset}${blue}${bold} Downloading MacOSX10.12.sdk ${reset}${green}]${reset}"
-    echo "${cyan}"
-    curl -# -L -O https://github.com/alexey-lysiuk/macos-sdk/releases/download/10.12/MacOSX10.12.tar.bz2 || networkErr "MacOSX10.12.sdk" && tar -xjf MacOSX10.12.tar.bz2
-    echo "${reset}"
-    sudo cp -R "MacOSX10.12.sdk" "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Developer/SDKs/" || copyErr
-  fi
-  sdkVer=$(/usr/libexec/PlistBuddy -c 'Print MinimumSDKVersion' "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Info.plist")
-  if [[ ${sdkVer//./} -gt 1012 ]]; then
-    sudo /usr/libexec/PlistBuddy -c "Set :MinimumSDKVersion 10.12" "${DEVELOPER_DIR}/Platforms/MacOSX.platform/Info.plist"
   fi
 
   git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1

@@ -366,8 +366,6 @@
 		<false/>
 		<key>ProtectUefiServices</key>
 		<false/>
-		<key>ProvideConsoleGopEnable</key>
-		<true/>
 		<key>ProvideCustomSlide</key>
 		<true/>
 		<key>ProvideMaxSlide</key>
@@ -391,8 +389,6 @@
 		<key>DisableIoMapper</key>
 		<true/>
 		<key>DisableLinkeditJettison</key>
-		<true/>
-		<key>DisableRtcChecksum</key>
 		<true/>
 		<key>DummyPowerManagement</key>
 		<false/>
