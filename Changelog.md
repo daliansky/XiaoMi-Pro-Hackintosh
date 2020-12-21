@@ -9,6 +9,8 @@
   - Update `OpenCore` v0.6.5
   - Update `Clover` r51
   - Update `WhateverGreen` v1.4.6
+  - Update `VoodooI2C` v2.6
+  - Update `AirportItlwm` v2.0.0 to support 40mhz
 
 ### Add
   - Add `RestrictEvents` to replace `EFICheckDisabler`

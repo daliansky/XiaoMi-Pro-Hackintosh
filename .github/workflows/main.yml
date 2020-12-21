@@ -21,14 +21,13 @@ jobs:
       - name: Initialize Variables
         run: |
           GIT_SHA="$(git rev-parse --short HEAD)"
-          echo "CUR_TAG=beta-$GIT_SHA" >> $GITHUB_ENV
-          echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> $GITHUB_ENV
-          export DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer
+          echo "CUR_TAG=beta-$GIT_SHA" >> "$GITHUB_ENV"
+          echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> "$GITHUB_ENV"
 
       - name: Initialize Tag
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
         run: |
-          echo "CUR_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          echo "CUR_TAG=${GITHUB_REF##*/}" >> "$GITHUB_ENV"
 
       - name: Run makefile
         run: |
@@ -74,13 +73,12 @@ jobs:
 
       - name: Install Dependency
         run: |
-          cd "ACPI" || exit 1
           curl -# -L -O https://raw.githubusercontent.com/Acidanthera/MaciASL/master/Dist/iasl-stable || exit 1
           chmod +x iasl* || exit 1
 
       - name: Run iasl
         run: |
-          find . -type f -name "*.dsl" -print0 | xargs -0 -I{} ./ACPI/iasl* -vs -va {} || exit 1
+          find . -type f -name "*.dsl" -print0 | xargs -0 -I{} ./iasl* -vs -va {} || exit 1
 
   analyze-oc-config:
     name: Analyze OpenCore Config
@@ -90,11 +88,11 @@ jobs:
 
       - name: Install Dependency
         run: |
+          mkdir "OpenCore" && cd "OpenCore" || exit 1
           rawURL="https://github.com/williambj1/OpenCore-Factory/releases"
           HG="grep -m 1 RELEASE"
           URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
           echo "Downloading ${URL##*\/}"
-          mkdir "OpenCore" && cd "OpenCore" || exit 1
           curl -# -L -O "${URL}" || exit 1
           unzip -qq "*.zip" >/dev/null 2>&1 || exit 1
           chmod +x Utilities/ocvalidate/ocvalidate || exit 1

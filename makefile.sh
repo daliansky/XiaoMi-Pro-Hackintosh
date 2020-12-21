@@ -80,10 +80,11 @@ VERSION="local"
 # Env
 if [ "$(which xcodebuild)" = "" ] || [ "$(which git)" = "" ]; then
   NO_XCODE=True
-fi
-
-if [[ "${DEVELOPER_DIR}" = "" ]]; then
+elif [[ "${DEVELOPER_DIR}" = "" ]]; then
   DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+  xcodebuild -version
+else
+  xcodebuild -version
 fi
 
 # Args
@@ -396,7 +397,7 @@ function BKextHelper() {
       lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
       sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
 
-      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . -arch x86_64 clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
