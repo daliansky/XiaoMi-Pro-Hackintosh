@@ -67,12 +67,16 @@ function build() {
     "Set-DVMT-to-64mb"
     "Unlock-0xE2-MSR"
     "Work-Around-with-Bluetooth"
+    "常见问题解答"
+    "设置64mb动态显存"
+    "解锁0xE2寄存器"
+    "蓝牙解决方案"
   )
   cd "${WIKI_NAME}" || exit 1
   echo "${green}[${reset}${magenta}${bold} Building PDF Docs ${reset}${green}]${reset}"
   echo
   for wikiItem in "${wikiItems[@]}"; do
-    pandoc -V geometry:margin=1in "${wikiItem}.md" -s --highlight-style zenburn -o "${wikiItem}.pdf" || buildErr
+    pandoc -V geometry:margin=1in "${wikiItem}.md" -f markdown+smart -s -V CJKmainfont='STSong' --highlight-style zenburn --pdf-engine=xelatex -o "${wikiItem}.pdf" || buildErr
   done
   cp -R ./*.pdf "../" || exit 1
   cd "../" || exit 1

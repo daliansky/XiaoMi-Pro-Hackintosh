@@ -707,8 +707,12 @@ function Install() {
     "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-FingerBT.aml"
     "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-USBBT.aml"
     "${REPO_NAME_BRANCH}/ACPI/SSDT-USB-WLAN_LTEBT.aml"
-    "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf"
   )
+  if [[ ${LANGUAGE} == "EN" ]]; then
+    btItems+=( "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf" )
+  elif [[ ${LANGUAGE} == "CN" ]]; then
+    btItems+=( "${REPO_NAME_BRANCH}/Docs/蓝牙解决方案.pdf" )
+  fi
   if [[ ${REMOTE} == False ]]; then
     btItems=("${btItems[@]/${REPO_NAME_BRANCH}/..}")
   fi
@@ -739,11 +743,19 @@ function Install() {
     done
   done
 
-  wikiItems=(
-    "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
-    "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
-    "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
-  )
+  if [[ ${LANGUAGE} == "EN" ]]; then
+    wikiItems=(
+      "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
+      "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
+      "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
+    )
+  elif [[ ${LANGUAGE} == "CN" ]]; then
+    wikiItems=(
+      "${REPO_NAME_BRANCH}/Docs/常见问题解答.pdf"
+      "${REPO_NAME_BRANCH}/Docs/设置64mb动态显存.pdf"
+      "${REPO_NAME_BRANCH}/Docs/解锁0xE2寄存器.pdf"
+    )
+  fi
   if [[ ${REMOTE} == False ]]; then
     wikiItems=("${wikiItems[@]/${REPO_NAME_BRANCH}/..}")
   fi
