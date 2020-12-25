@@ -144,14 +144,14 @@ function downloadEFI() {
   echo '--------------------------------------------------------------------------------------'
 
   # download XiaoMi-Pro's EFI
-  local xmFileName="XiaoMi_Pro-${ver}.zip"
+  local xmFileName="XiaoMi_Pro-Clover-${ver}.zip"
   local repoURL="https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/download/${ver}/${xmFileName}"
   # GitHub's CDN is hosted on Amazon, so here we add -L for redirection support
   curl -# -L -O "${repoURL}" || networkWarn
   # decompress it
   unzip -qu "${xmFileName}"
 
-  RELEASE_Dir="XiaoMi_Pro-${ver}"
+  RELEASE_Dir="XiaoMi_Pro-Clover-${ver}"
 
   # remove stuffs we do not need
   rm -rf "${xmFileName}"
@@ -271,6 +271,7 @@ function backupEFI() {
   $pledit -c "Delete RtVariables" "${WORK_DIR}/GUI.plist"
   $pledit -c "Delete SMBIOS" "${WORK_DIR}/GUI.plist"
   $pledit -c "Delete SystemParameters" "${WORK_DIR}/GUI.plist"
+  $pledit -c "Delete Quirks" "${WORK_DIR}/GUI.plist"
 
   # merge GUI.plist to config.plist to save theme settings
   $pledit -c "Delete GUI" "$RELEASE_Dir/EFI/CLOVER/config.plist"
@@ -412,8 +413,8 @@ function replaceEFI() {
 function updateEFI() {
   if [[ $1 == "--LOCAL_RELEASE" ]]; then
     checkSystemIntegrity
-    mv "build/XiaoMi_Pro-local" "./"
-    RELEASE_Dir="XiaoMi_Pro-local"
+    RELEASE_Dir="XiaoMi_Pro-Clover-local"
+    mv "build/$RELEASE_Dir" "./"
     backupEFI
     confirmBackup
     compareEFI

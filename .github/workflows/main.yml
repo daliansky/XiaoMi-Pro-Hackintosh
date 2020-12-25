@@ -44,7 +44,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: build/*.zip
-          bodyFile: build/XiaoMi_Pro-${{ env.CUR_TAG }}/ReleaseNotes.md
+          bodyFile: build/XiaoMi_Pro-OC-${{ env.CUR_TAG }}/ReleaseNotes.md
           name: XiaoMi NoteBook Pro EFI ${{ env.CUR_TAG }}
           prerelease: false
           tag: ${{ env.CUR_TAG }}
@@ -99,4 +99,4 @@ jobs:
 
       - name: Run ocvalidate
         run: |
-          RESULT=$(./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config.plist) && echo "${RESULT}" && if [ "$(echo "${RESULT}" | wc -l)" -gt "1" ]; then exit 1; fi
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config.plist || exit 1

@@ -3,8 +3,6 @@
 [![构建状态](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
-让你的小米笔记本Pro 2017 & 2018 装上 macOS Big Sur & Catalina & Mojave & High Sierra 
-
 [English](README.md) | **中文**
 
 ## 目录
@@ -191,15 +189,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 ## 更新日志
 
 详细更新日志请看[更新日志中文版](Changelog_CN.md)。
-
-
-## 关于打赏
-
-如果您认可我的工作，请通过打赏支持我后续的更新
-
-| 微信                                                       | 支付宝                                               |
-| ---------------------------------------------------------- | ---------------------------------------------------- |
-| ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
 
 
 ## 鸣谢

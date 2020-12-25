@@ -138,7 +138,7 @@ fi
 
 # WorkSpaceDir
 WSDir="$( cd "$(dirname "$0")" || exit 1; pwd -P )/build"
-OUTDir="XiaoMi_Pro-${VERSION}"
+OUTDir="XiaoMi_Pro-Clover-${VERSION}"
 OUTDir_OC="XiaoMi_Pro-OC-${VERSION}"
 
 # Kexts
@@ -381,6 +381,12 @@ function BKextHelper() {
       xcodebuild -jobs 1 -target Package -configuration Release >/dev/null 2>&1 || buildErr "$2"
       mkdir ../Kexts
       cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
+    elif [[ "$2" == "AppleALC" ]]; then
+      # Delete unrelated layout resources in AppleALC
+      (cd "Resources" && find . -type d -maxdepth 1 ! -path "./ALC298" ! -path "./PinConfigs.kext" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
+
+      xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     else
       xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
@@ -413,7 +419,7 @@ function BKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
 
     # Delete unrelated firmware and only keep ibt-12*.sfi for Intel Wireless 8265
-    cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12*" -delete && cd "../../" || exit 1
+    (cd "IntelBluetoothFirmware/fw/" && find . -maxdepth 1 -not -name "ibt-12*" -delete || exit 1)
 
     xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
@@ -421,7 +427,7 @@ function BKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
 
     # Delete unrelated firmware and only keep iwm-8265* for Intel Wireless 8265
-    cd "itlwm/firmware/" && find . -maxdepth 1 -not -name "iwm-8265*" -delete && cd "../../" || exit 1
+    (cd "itlwm/firmware/" && find . -maxdepth 1 -not -name "iwm-8265*" -delete || exit 1)
 
     # Pass print syntax to support Python3
     /usr/bin/sed -i "" "s:print compress(\"test\"):pass:g" "scripts/zlib_compress_fw.py"
@@ -538,7 +544,7 @@ function Patch() {
   done
 
   # Only keep OCEFIAudio_VoiceOver_Boot.wav in OcBinaryData/Resources/Audio
-  cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete && cd "${WSDir}" || exit 1
+  (cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete || exit 1)
 
   # Rename AirportItlwm.kexts to distinguish different versions
   mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
@@ -760,7 +766,7 @@ function Install() {
   else
     alcfixItems=("${alcfixItems[@]/${REPO_NAME_BRANCH}/..}")
     cd "../" || exit 1
-    git submodule init && git submodule update --remote && cd "${WSDir}" || exit 1
+    git submodule init >/dev/null 2>&1 && git submodule update --remote >/dev/null 2>&1 && cd "${WSDir}" || exit 1
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing ALCPlugFix ${reset}${green}]${reset}"

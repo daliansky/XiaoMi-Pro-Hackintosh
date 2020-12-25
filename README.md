@@ -3,8 +3,6 @@
 [![Build Status](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![release](https://img.shields.io/badge/download-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/support-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki) [![Chat](https://img.shields.io/badge/chat-tonymacx86-red.svg)](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 -----
 
-macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018
-
 **English** | [中文](README_CN.md)
 
 ## Contents
@@ -19,8 +17,7 @@ macOS Big Sur & Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 20
   - [Upgrade](#upgrade)
 - [Improvements](#improvements)
 - [FAQ](#faq)
-- [Changelog](#changelog)
-- [A reward](#a-reward)
+- [Changelog](#changelog)]
 - [Credits](#credits)
 - [Support and discussion](#support-and-discussion)
 
@@ -196,15 +193,6 @@ For macOS version  < Big Sur, open `Terminal.app` and run `sudo nvram StartupMut
 ## Changelog
 
 You can view [Changelog](Changelog.md) for detailed information.
-
-
-## A reward
-
-All the project is made for free, but you can reward me if you want.
-
-| Wechat                                                     | Alipay                                               |
-| ---------------------------------------------------------- | ---------------------------------------------------- |
-| ![wechatpay_160](http://7.daliansky.net/wechatpay_160.jpg) | ![alipay_160](http://7.daliansky.net/alipay_160.jpg) |
 
 
 ## Credits
