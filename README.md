@@ -17,7 +17,7 @@
   - [Upgrade](#upgrade)
 - [Improvements](#improvements)
 - [FAQ](#faq)
-- [Changelog](#changelog)]
+- [Changelog](#changelog)
 - [Credits](#credits)
 - [Support and discussion](#support-and-discussion)
 
