@@ -13,6 +13,7 @@ jobs:
     runs-on: macos-latest
     env:
       XCODE_VERSION: 12.2
+      MODEL: KBLCML
     steps:
       - uses: actions/checkout@v2
         with:
@@ -31,7 +32,7 @@ jobs:
 
       - name: Run makefile
         run: |
-          ./makefile.sh --NO_GH_API --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC
+          ./makefile.sh --NO_GH_API --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC --MODEL=${MODEL}
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
@@ -44,7 +45,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: build/*.zip
-          bodyFile: build/XiaoMi_Pro-OC-${{ env.CUR_TAG }}/ReleaseNotes.md
+          bodyFile: build/XiaoMi_Pro-KBL-OC-${{ env.CUR_TAG }}/ReleaseNotes.md
           name: XiaoMi NoteBook Pro EFI ${{ env.CUR_TAG }}
           prerelease: false
           tag: ${{ env.CUR_TAG }}
@@ -89,7 +90,7 @@ jobs:
       - name: Install Dependency
         run: |
           mkdir "OpenCore" && cd "OpenCore" || exit 1
-          rawURL="https://github.com/williambj1/OpenCore-Factory/releases"
+          rawURL="https://github.com/acidanthera/OpenCorePkg/releases/latest"
           HG="grep -m 1 RELEASE"
           URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
           echo "Downloading ${URL##*\/}"
@@ -99,4 +100,5 @@ jobs:
 
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config.plist || exit 1
+          RESULT_KBL=$(./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config_kbl.plist) && echo "${RESULT_KBL}" && if [ "$(echo "${RESULT_KBL}" | wc -l)" -gt "1" ]; then exit 1; fi
+          RESULT_CML=$(./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config_cml.plist) && echo "${RESULT_CML}" && if [ "$(echo "${RESULT_CML}" | wc -l)" -gt "1" ]; then exit 1; fi

@@ -12,8 +12,8 @@ function interface() {
     echo '|  __/  | | | |_| | | (_| | |  _|   | |  >  <  '
     echo '|_|     |_|  \__,_|  \__, | |_|     |_| /_/\_\ '
     echo '                      |___/                    '
-    echo 'Support XiaoMi-Pro(ALC298, layout-id 30/99)'
-    echo '==============================================='
+    echo 'Support XiaoMi-Pro 8th Gen (ALC298, layout-id 30/99)'
+    echo '======================================================'
 }
 
 # Choose option

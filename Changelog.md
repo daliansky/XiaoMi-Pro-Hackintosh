@@ -7,16 +7,22 @@
 
 ### Update
   - Update `OpenCore` v0.6.5
-  - Update `Clover` r51
+  - Update `Clover` r5128
   - Update `WhateverGreen` v1.4.6
-  - Update `VoodooI2C` v2.6.1
-  - Update `AirportItlwm` v2.0.0 to support 40mhz
+  - Update `AppleALC` v1.5.6
+  - Update `HibernationFixup` v1.3.9
+  - Update `VoodooPS2` v2.2.0
+  - Update `VoodooI2C` v2.6.2
+  - Update `AirportItlwm` v1.2.0
 
 ### Add
   - Add `RestrictEvents` to replace `EFICheckDisabler`
 
 ### Remove
   - Remove `EFICheckDisabler`
+
+### Clover
+  - Clover: Update config to support `Clover` r5128
 
 ### OC
   - OC: Add `OpenCanopy-Big-Sur` theme

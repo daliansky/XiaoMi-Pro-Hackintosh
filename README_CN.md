@@ -24,17 +24,35 @@
 
 ## 电脑配置
 
+### TM1701 和 TM1707
+
 | 规格     | 详细信息                                     |
 | -------- | ---------------------------------------- |
-| 电脑型号 | 小米笔记本电脑Pro 15.6''(MX150/GTX)             |
-| 处理器   | 英特尔 酷睿 i5-8250U/i7-8550U 处理器             |
-| 内存     | 8GB/16GB 三星 DDR4 2400MHz                 |
-| 硬盘     | 三星 NVMe固态硬盘 PM961/PM981                  |
-| 集成显卡 | 英特尔 UHD 图形620                            |
-| 显示器   | 京东方 NV156FHM-N61 FHD 1920x1080 (15.6 英寸) |
-| 声卡     | 瑞昱 ALC298 (节点:30/99)                     |
-| 网卡     | 英特尔 无线 8265                              |
-| 读卡器   | 瑞昱 RTS5129/RTS5250S                      |
+| 电脑型号 | 小米笔记本电脑Pro 15.6'' (MX150/GTX) |
+| 处理器 | 英特尔 酷睿 i5-8250U / i7-8550U 处理器 |
+| 内存 | 8GB/16GB 三星 DDR4 2400MHz |
+| 硬盘 | 三星 NVMe固态硬盘 PM961 / ~~PM981~~ |
+| 集成显卡 | 英特尔 UHD 图形 620 |
+| 显示器 | 京东方 NV156FHM-N61 FHD 1920x1080 (15.6 英寸) |
+| 声卡 | 瑞昱 ALC298 (节点: 30/99) |
+| 无线网卡 | 英特尔 Wireless 8265 |
+| 触控板 | ETD2303 |
+| SD 读卡器 | 瑞昱 RTS5129 / RTS5250S |
+
+### TM1905 & TM1963
+
+| 规格     | 详细信息                                     |
+| -------- | ---------------------------------------- |
+| 电脑型号 | 小米笔记本电脑Pro 15.6'' (MX250/MX350) |
+| 处理器 | 英特尔 酷睿 i5-10210U / i7-10510U 处理器 |
+| 内存 | 8GB/16GB 三星 DDR4 2666MHz |
+| 硬盘 | 未知 |
+| 集成显卡 | 英特尔 UHD 图形 620 |
+| 显示器 | 未知 |
+| 声卡 | 瑞昱 ALC256 (节点: 69) |
+| 无线网卡 | 英特尔 Wireless-AC 9462 |
+| 触控板 | ELAN2303 |
+| SD 读卡器 | 瑞昱 RTS5129 |
 
 
 ## 目前情况
@@ -51,21 +69,25 @@
 - **英特尔无线网卡 (英特尔 无线 8265)** 性能不佳
   - 购买USB网卡或者支持的内置网卡
   - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
-- **瑞昱USB SD读卡器 (RTS5129)** 无法工作
+- **瑞昱USB SD读卡器** 无法工作
   - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
   - 你也可以使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - 其他都工作正常
 
 ### Clover
-- 支持 macOS10.13 ~ macOS11（仅 v1.4.8+ 支持 Big Sur）
-  - 需要选择 `~ via Preboot` 来引导 Big Sur
+- TM1701 和 TM1707：支持 macOS10.13 ~ macOS11（仅 v1.4.8+ 支持 Big Sur）
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS11
+-----
+- 需要选择 `~ via Preboot` 来引导 Big Sur
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
   - 然后重启并使用 Clover
 - r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 v1.4.7 支持旧 macOS 版本的英特尔 Wi-Fi，或者添加 `IO80211Family.kext` 到 kext 文件夹）
 
 ### OpenCore
-- 支持 macOS10.13 ~ macOS11
+- TM1701 和 TM1707：支持 macOS10.13 ~ macOS11
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS11
+-----
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM
@@ -107,6 +129,8 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --IGNORE_ERR
 # 使用中文版文档
 ./makefile.sh --LANG=CN
+# 生成 CometLake 机型的 EFI 包
+./makefile.sh --MODEL=CML
 # 构建时保留工程文件
 ./makefile.sh --NO_CLEAN_UP
 # 绕过 GitHub API
@@ -130,16 +154,15 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 改善体验
 
-- 使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
-- 使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) 和 [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 或 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 来驱动英特尔无线网卡
-- 使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
-  - 如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](BIOS/DVMT_and_0xE2_fix) 来把动态显存设为64mb
-  - 可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
+  - TM1701：如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb
+  - TM1701 和 TM1707：可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 - 使用 [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`（macOS 版本高于 10.15）
 - 添加 `igfxrpsc=1` 引导参数或 `rps-control` 属性来启用 RPS 控制补丁并提升核显性能（macOS 版本 ≠ 10.15.6）
+- TM1701 和 TM1707：使用 [ALCPlugFix](ALCPlugFix) 来修复耳机重新插拔后无声
+- TM1701：使用 [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
 
 
 ## 常见问题解答
@@ -193,9 +216,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 ## 鸣谢
 
 - 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC)，[HibernationFixup](https://github.com/acidanthera/HibernationFixup)，[Lilu](https://github.com/acidanthera/Lilu)，[NVMeFix](https://github.com/acidanthera/NVMeFix)，[OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)，[RestrictEvents](https://github.com/acidanthera/RestrictEvents)，[VirtualSMC](https://github.com/acidanthera/VirtualSMC)，[VoodooInput](https://github.com/acidanthera/VoodooInput)，[VoodooPS2](https://github.com/acidanthera/VoodooPS2) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen)。
+- 感谢 [agassecond](https://github.com/agassecond) 和 [htmambo](https://github.com/htmambo) 针对10代机型的宝贵建议。
 - 感谢 [apianti](https://sourceforge.net/u/apianti)，[blackosx](https://sourceforge.net/u/blackosx)，[blusseau](https://sourceforge.net/u/blusseau)，[dmazar](https://sourceforge.net/u/dmazar) 和 [slice2009](https://sourceforge.net/u/slice2009) 提供 [Clover](https://github.com/CloverHackyColor/CloverBootloader)。
 - 感谢 [daliansky](https://github.com/daliansky) 提供 [OC-little](https://github.com/daliansky/OC-little)。
-- 感谢 [FallenChromium](https://github.com/FallenChromium)，[jackxuechen](https://github.com/jackxuechen)，[Javmain](https://github.com/javmain)，[johnnync13](https://github.com/johnnync13)，[IlikemacOS](https://github.com/IlikemacOS)，[ManuGithubSteam](https://github.com/ManuGithubSteam)，[MarFre22](https://github.com/MarFre22)，[Menchen](https://github.com/Menchen)，[Pasi-Studio](https://github.com/Pasi-Studio)，[qeeqez](https://github.com/qeeqez) 和 [williambj1](https://github.com/williambj1) 的宝贵建议。
+- 感谢 [FallenChromium](https://github.com/FallenChromium)，[jackxuechen](https://github.com/jackxuechen)，[Javmain](https://github.com/javmain)，[johnnync13](https://github.com/johnnync13)，[IlikemacOS](https://github.com/IlikemacOS)，[ManuGithubSteam](https://github.com/ManuGithubSteam)，[MarFre22](https://github.com/MarFre22)，[Menchen](https://github.com/Menchen)，[Pasi-Studio](https://github.com/Pasi-Studio)，[qeeqez](https://github.com/qeeqez) 和 [williambj1](https://github.com/williambj1) 针对8代机型的宝贵建议。
 - 感谢 [hieplpvip](https://github.com/hieplpvip) 和 [syscl](https://github.com/syscl) 提供 DSDT 补丁样本。
 - 感谢 [khronokernel](https://github.com/khronokernel) 提供 [OpenCanopy-Big-Sur](https://github.com/khronokernel/OpenCanopy-Big-Sur)。
 - 感谢 [OpenIntelWireless](https://github.com/OpenIntelWireless) 提供 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 和 [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)。

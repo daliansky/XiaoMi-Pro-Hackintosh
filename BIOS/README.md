@@ -2,33 +2,60 @@
 
 **English** | [中文](README_CN.md)
 
+## Contents
+
+- [Introduction](#introduction)
+- [TM1701](#tm1701)
+  - [Update History](#update-history)
+  - [How to Update](#how-to-update)
+  - [How to Unlock Better Performance](#how-to-unlock-better-performance)
+- [TM1707](#tm1707)
+- [TM1905](#tm1905)
+- [TM1963](#tm1963)
+- [Credits](#credits)
+
+
 ## Introduction
 
-The BIOS packet in [XMAKB5R0P0603](XMAKB5R0P0603), [XMAKB5R0P0906](XMAKB5R0P0906), [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) and [XMAKB5R0P0E07](XMAKB5R0P0E07.exe) are from Xiaomi stuff, so they are reliable. **These packets are only compatible with MX150 version.**
+| Model | BIOS Packs Provided |
+| ------ | ---------- |
+| TM1701 | [XMAKB5R0P0603](TM1701/XMAKB5R0P0603), [XMAKB5R0P0906](TM1701/XMAKB5R0P0906), [XMAKB5R0P0A07](TM1701/XMAKB5R0P0A07.exe), [XMAKB5R0P0E07](TM1701/XMAKB5R0P0E07.exe) |
+| TM1707 | N/A |
+| TM1905 | N/A |
+| TM1963 | N/A |
+
+These BIOS packets are from Xiaomi official or after-sale service.
 
 ~The ME firmware in [ME](ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps to avoid potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.~
 
-Warning: Since the operations are related to BIOS, it's possible that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)), the whole system may unable to boot.
+**Warning: Since the operations are related to BIOS, it's possible that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)), the whole system may unable to boot.**
 
 If unfortunately, this situation happens on you, you need to find Xiaomi stuff to fix your device. If you use this program, you should agree that you are the person who takes the whole responsibility, instead of the author.
 
 
-### What's new in 0906 BIOS
+## TM1701
+
+### Update History
+
+#### XMAKB5R0P0906
 
 - a new setting `KB Backlight Mode` appears in BIOS panel. Users can choose `Power Saving` (default, KB backlight off when keyboard idle 15s) or `Standard` (KB backlight always on in S0 mode)
 - Reduce fan noise when CPU is running in low load
 
-
-### What's new in 0A07 and 0E07 BIOS
+#### XMAKB5R0P0A07 & XMAKB5R0P0E07
 
 - I have no idea about these versions. The packet providers don't give much information.
-- On my laptop, the `KB Backlight Mode` - `Standard` is not working on version 0A07.
-- It's very easy to upgrade to these versions. Just download and open [XMAKB5R0P0A07](XMAKB5R0P0A07.exe) or [XMAKB5R0P0E07](XMAKB5R0P0E07.exe).
+- On my laptop, the `KB Backlight Mode` - `Standard` is not working on XMAKB5R0P0A07.
+- It's very easy to upgrade to these versions. Just download and run the exe file.
 
 
-## How to upgrade/downgrade to 0603 BIOS
+### How to Update
 
-1. Prepare a FAT32 U-disk, download all the files in [XMAKB5R0P0603](XMAKB5R0P0603) folder and put them into the root directory of the U-disk.
+#### XMAKB5R0P0603
+
+**It's allowed to downgrade to this version**
+
+1. Prepare a FAT32 U-disk, download all the files in [XMAKB5R0P0603](TM1701/XMAKB5R0P0603) folder and put them into the root directory of the U-disk.
 
 2. Reboot the laptop with AC charge on, press `F12`, and choose the U-disk entry.
 
@@ -36,12 +63,11 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 
 4. Wait until the install process completes.
 
-
-## How to update 0906 BIOS
+#### XMAKB5R0P0906
 
  As the old proverb says "Fight no battle unprepared", **backing up important data is always a good choice.** Some users face with blue screen after running the updating program.
 
-1. Download all the files in [XMAKB5R0P0906](XMAKB5R0P0906) folder.
+1. Download all the files in [XMAKB5R0P0906](TM1701/XMAKB5R0P0906) folder.
 
 2. Run `H2OFFT-Wx64.exe` with administrator.
   - IMPORTANT: From this step, your computer should keep in charged by AC adapter until the whole update process finishes.
@@ -50,16 +76,28 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 
 4. The laptop will restart, wait until the update process ends.
 
+#### XMAKB5R0P0A07 and Above
 
-## How to unlock better performance
+Just run the exe file. Make sure AC power is connected during the update.
 
-**MX150 Only.**
+
+### How to Unlock Better Performance
+
 [FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32mb to 64mb, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
+
+
+## TM1707
+
+
+## TM1905
+
+
+## TM1963
 
 
 ## Credits
 
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15/) for providing the 0E07 packet.
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/) and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing 0603 and 0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
-- Thanks to a friendly guy for providing 0A07 BIOS packet. He doesn't want to be in trouble so please don't spread the 0A07 BIOS packet.
-- Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15/) for providing the XMAKB5R0P0E07 packet.
+- Thanks to Xiaomi after-sale service and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing XMAKB5R0P0603 and XMAKB5R0P0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
+- Thanks to a friendly guy for providing XMAKB5R0P0A07 BIOS packet. He doesn't want to be in trouble so please don't spread the XMAKB5R0P0A07 BIOS packet.
+- Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance on TM1701.

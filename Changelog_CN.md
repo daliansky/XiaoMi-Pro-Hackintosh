@@ -7,16 +7,22 @@
 
 ### 更新
   * 更新 `OpenCore` v0.6.5
-  * 更新 `Clover` r51
+  * 更新 `Clover` r5128
   * 更新 `WhateverGreen` v1.4.6
-  * 更新 `VoodooI2C` v2.6.1
-  * 更新 `AirportItlwm` v2.0.0 来支持40mhz
+  * 更新 `AppleALC` v1.5.6
+  * 更新 `HibernationFixup` v1.3.9
+  * 更新 `VoodooPS2` v2.2.0
+  * 更新 `VoodooI2C` v2.6.2
+  * 更新 `AirportItlwm` v1.2.0
 
 ### 新增
   * 新增 `RestrictEvents` 来替代 `EFICheckDisabler`
 
 ### 移除
   * 移除 `EFICheckDisabler`
+
+### Clover
+  * Clover: 更新 config 来支持 `Clover` r5128
 
 ### OC
   * OC: 新增 `OpenCanopy-Big-Sur` 主题

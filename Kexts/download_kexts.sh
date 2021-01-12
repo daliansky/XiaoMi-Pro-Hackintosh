@@ -26,7 +26,9 @@ reset=$(tput sgr0)
 bold=$(tput bold)
 
 # WorkSpaceDir
-WSDir="$( cd "$(dirname "$0")" || exit 1; pwd -P )/download"
+OUTDir="download"
+OUTDir_TMP="tmp"
+WSDir="$( cd "$(dirname "$0")" || exit 1; pwd -P )/${OUTDir}"
 
 # Exit on Network Issue
 function networkErr() {
@@ -37,9 +39,8 @@ function networkErr() {
 # Exit on Copy Issue
 function copyErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to copy resources!"
-  cd ../ || exit 1
-  find . -maxdepth 1 -name "*.kext" -exec rm -rf {} + >/dev/null 2>&1
-  rm -rf "download"
+  cd ../../ || exit 1
+  rm -rf "${OUTDir}"
   exit 1
 }
 
@@ -54,6 +55,11 @@ function init() {
   fi
   mkdir "${WSDir}" || exit 1
   cd "${WSDir}" || exit 1
+
+  if [[ -d ${OUTDir_TMP} ]]; then
+    rm -rf "${OUTDir_TMP}"
+  fi
+  mkdir "${OUTDir_TMP}" || exit 1
 }
 
 # Workaround for Release Binaries that don't include "RELEASE" in their file names (head or grep)
@@ -141,7 +147,9 @@ function DBR() {
     if [ "${URL:(-4)}" == ".zip" ]; then
       echo "${green}[${reset}${blue}${bold} Downloading ${URL##*\/} ${reset}${green}]${reset}"
       echo "${cyan}"
+      cd ./"$3" || exit 1
       curl -# -L -O "${URL}" || networkErr "$2"
+      cd - >/dev/null 2>&1 || exit 1
       echo "${reset}"
       return
     else
@@ -179,27 +187,29 @@ function DL() {
   )
 
   for rmKext in "${rmKexts[@]}"; do
-    DBR Rehabman "${rmKext}"
+    DBR Rehabman "${rmKext}" "${OUTDir_TMP}"
   done
 
   for acdtKext in "${acdtKexts[@]}"; do
-    DGR ${ACDT} "${acdtKext}"
+    DGR ${ACDT} "${acdtKext}" NULL "${OUTDir_TMP}"
   done
 
   for oiwKext in "${oiwKexts[@]}"; do
-    DGR ${OIW} "${oiwKext}" PreRelease
+    DGR ${OIW} "${oiwKext}" PreRelease "${OUTDir_TMP}"
   done
 
-  DGR VoodooI2C VoodooI2C
+  DGR VoodooI2C VoodooI2C NULL "${OUTDir_TMP}"
 
-  DGS RehabMan hack-tools
+  DGR al3xtjames NoTouchID NULL "${OUTDir_TMP}"
+
+  DGS RehabMan hack-tools "${OUTDir_TMP}"
 }
 
 # Unpack
 function Unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
   echo
-  unzip -qq "*.zip" >/dev/null 2>&1
+  eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" >/dev/null 2>&1 || exit 1)"
 }
 
 # Patch
@@ -221,16 +231,14 @@ function Patch() {
   done
 
   # Rename AirportItlwm.kexts to distinguish different versions
-  mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
-  mv "Catalina/AirportItlwm.kext" "Catalina/AirportItlwm_Catalina.kext" || exit 1
-  mv "High Sierra/AirportItlwm.kext" "High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
-  mv "Mojave/AirportItlwm.kext" "Mojave/AirportItlwm_Mojave.kext" || exit 1
+  mv "${OUTDir_TMP}/Big Sur/AirportItlwm.kext" "${OUTDir_TMP}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
+  mv "${OUTDir_TMP}/Catalina/AirportItlwm.kext" "${OUTDir_TMP}/Catalina/AirportItlwm_Catalina.kext" || exit 1
+  mv "${OUTDir_TMP}/High Sierra/AirportItlwm.kext" "${OUTDir_TMP}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
+  mv "${OUTDir_TMP}/Mojave/AirportItlwm.kext" "${OUTDir_TMP}/Mojave/AirportItlwm_Mojave.kext" || exit 1
 }
 
 # Install
 function Install() {
-  find ../ -maxdepth 1 -name "*.kext" -exec rm -rf {} + >/dev/null 2>&1
-
   local kextItems=(
     "AppleALC.kext"
     "HibernationFixup.kext"
@@ -242,6 +250,7 @@ function Install() {
     "VoodooPS2Controller.kext"
     "WhateverGreen.kext"
     "RestrictEvents.kext"
+    "NoTouchID.kext"
     "hack-tools-master/kexts/SATA-unsupported.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
@@ -256,14 +265,13 @@ function Install() {
   )
 
   for kextItem in "${kextItems[@]}"; do
-    cp -R "${kextItem}" "../" || copyErr
+    cp -R "${OUTDir_TMP}/${kextItem}" . || copyErr
   done
 }
 
 # Exclude Trash
 function CTrash() {
-  cd ../ || exit 1
-  rm -rf "download"
+  rm -rf "${OUTDir_TMP}"
 }
 
 function enjoy() {
