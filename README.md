@@ -50,7 +50,7 @@
 | Integrated Graphics | Intel UHD Graphics 620 |
 | Monitor | Unknown |
 | Sound Card | Realtek ALC256 (layout-id: 69) |
-| Wireless Card | Intel Wireless-AC 9462 |
+| Wireless Card | Intel Wireless-AC 9560 |
 | Trackpad | ELAN2303 |
 | SD Card Reader | Realtek RTS5129 |
 

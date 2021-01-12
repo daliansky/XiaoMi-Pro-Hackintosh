@@ -3,7 +3,7 @@
 [English](Changelog.md) | **中文**
 
 ## XiaoMi NoteBook Pro EFI v1.4.9
-## 1-X-2021
+## 1-12-2021
 
 ### 更新
   * 更新 `OpenCore` v0.6.5
@@ -12,7 +12,7 @@
   * 更新 `AppleALC` v1.5.6
   * 更新 `HibernationFixup` v1.3.9
   * 更新 `VoodooPS2` v2.2.0
-  * 更新 `VoodooI2C` v2.6.2
+  * 更新 `VoodooI2C` v2.6.3
   * 更新 `AirportItlwm` v1.2.0
 
 ### 新增
@@ -25,7 +25,7 @@
   * Clover: 更新 config 来支持 `Clover` r5128
 
 ### OC
-  * OC: 新增 `OpenCanopy-Big-Sur` 主题
+  * OC: 更新 config 来支持 `OpenCore` v0.6.5
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)

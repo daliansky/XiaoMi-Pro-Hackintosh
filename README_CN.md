@@ -50,7 +50,7 @@
 | 集成显卡 | 英特尔 UHD 图形 620 |
 | 显示器 | 未知 |
 | 声卡 | 瑞昱 ALC256 (节点: 69) |
-| 无线网卡 | 英特尔 Wireless-AC 9462 |
+| 无线网卡 | 英特尔 Wireless-AC 9560 |
 | 触控板 | ELAN2303 |
 | SD 读卡器 | 瑞昱 RTS5129 |
 
@@ -129,7 +129,7 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --IGNORE_ERR
 # 使用中文版文档
 ./makefile.sh --LANG=CN
-# 生成 CometLake 机型的 EFI 包
+# 生成 CometLake 机型的 EFI包
 ./makefile.sh --MODEL=CML
 # 构建时保留工程文件
 ./makefile.sh --NO_CLEAN_UP

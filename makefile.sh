@@ -416,7 +416,7 @@ function BKextHelper() {
     
 
     if [[ "${MODEL}" =~ "CML" ]]; then
-      # Delete unrelated firmware and only keep ibt-19-0*.sfi for Intel Wireless 9462
+      # Delete unrelated firmware and only keep ibt-19-0*.sfi for Intel Wireless 9560
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
       rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
       cp -R tmp/ibt-19-0* "IntelBluetoothFirmware/fw/" || copyErr
@@ -437,13 +437,13 @@ function BKextHelper() {
     /usr/bin/sed -i "" "s:print compress(\"test\"):pass:g" "scripts/zlib_compress_fw.py"
 
     mkdir -p "tmp" || exit 1
-    cp -R itlwm/firmware/iwm-9000* "tmp" || copyErr
+    cp -R itlwm/firmware/iwlwifi-QuZ* "tmp" || copyErr
     cp -R itlwm/firmware/iwm-8265* "tmp" || copyErr
     if [[ "${MODEL}" =~ "CML" ]]; then
-      # Delete unrelated firmware and only keep iwm-9000* for Intel Wireless 9462
+      # Delete unrelated firmware and only keep iwm-9000* for Intel Wireless 9560
       rm -rf "include/FwBinary.cpp" >/dev/null 2>&1
       rm -rf itlwm/firmware/* || exit 1
-      cp -R tmp/iwm-9000* "itlwm/firmware/" || copyErr
+      cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
 
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../CML" || copyErr
@@ -740,7 +740,6 @@ function Install() {
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-HPET.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-MCHC.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-RMNE.aml"
-    "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-XCPM.aml"
   )
   if [[ "${MODEL}" =~ "KBL" ]]; then
     local kblAcpiItems=( "${sharedAcpiItems[@]}"
@@ -752,6 +751,7 @@ function Install() {
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-USB.aml"
+      "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-XCPM.aml"
     )
     if [[ ${REMOTE} == False ]]; then
       kblAcpiItems=("${kblAcpiItems[@]/${REPO_NAME_BRANCH}/..}")
@@ -767,6 +767,7 @@ function Install() {
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-USB.aml"
+      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-XCPM.aml"
     )
     if [[ ${REMOTE} == False ]]; then
       cmlAcpiItems=("${cmlAcpiItems[@]/${REPO_NAME_BRANCH}/..}")
