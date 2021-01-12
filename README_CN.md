@@ -57,20 +57,20 @@
 
 ## 目前情况
 
-- **有线网在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
-- 如果升级到 macOS10.15，需要更新[USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
+- **有线网 在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
+- 如果升级到 macOS10.15，需要更新 [USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - 如果不是 macOS10.15，也推荐更新上述驱动
-- **独立显卡**无法工作，因为macOS不支持Optimus技术
-  - 使用了 [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) 来禁用它以节省电量
-- **指纹传感器**无法工作
-  - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
-- **英特尔蓝牙**不支持部分蓝牙设备
-  - 阅读[蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
-- **英特尔无线网卡 (英特尔 无线 8265)** 性能不佳
-  - 购买USB网卡或者支持的内置网卡
+- **独立显卡** 无法工作，因为 macOS 不支持 Optimus技术
+  - 使用了 `SSDT-DDGPU` 来禁用它以节省电量
+- **指纹传感器** 无法工作
+  - 使用了 `SSDT-USB` 来禁用它以节省电量
+- **英特尔蓝牙** 不支持部分蓝牙设备
+  - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
+- **英特尔无线网卡** 性能不佳
+  - 购买 USB网卡 或者支持的内置网卡
   - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
 - **瑞昱USB SD读卡器** 无法工作
-  - 使用了 [SSDT-USB](ACPI/SSDT-USB.dsl) 来禁用它以节省电量
+  - 使用了 `SSDT-USB` 来禁用它以节省电量
   - 你也可以使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - 其他都工作正常
 
@@ -89,10 +89,10 @@
 - TM1905 和 TM1963：支持 macOS10.15 ~ macOS11
 -----
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
-  - 根据[OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
+  - 根据 [OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
-- 启动音拖慢引导速度
+- 启动音 拖慢引导速度
   - 关闭 `config.plist - UEFI - Audio` 中的 `AudioSupport`
 - 有限的主题
 - **推荐阅读：[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**，特别注意 **UEFISecureBoot** 章节
@@ -102,7 +102,7 @@
 
 ### 首次安装
 
-- 请参考详细的安装教程[【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程[小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
+- 请参考详细的安装教程 [【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程 [小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
 - 如果安装过程中触控板失效，请在安装前插上有线鼠标或者无线鼠标发射器。安装完成后打开 `终端.app` 并运行 `sudo kextcache -i /`，等待进程结束重启即可使用触控板。
 - 完整的EFI附件请访问 [releases](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 页面。
  - 如果是日常使用，请不要克隆或者下载 main 分支。
@@ -205,12 +205,12 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 如果你在使用 macOS Big Sur，请前往 `系统偏好设置 - 声音` 并勾选 `启动时播放声音`。  
 如果在使用低于 Big Sur 的 macOS 版本，请打开 `终端.app` 并运行 `sudo nvram StartupMute=%00`。
 
-### 更多问题解答请前往[常见问题解答](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/常见问题解答)。
+### 更多问题解答请前往 [常见问题解答](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/常见问题解答)。
 
 
 ## 更新日志
 
-详细更新日志请看[更新日志中文版](Changelog_CN.md)。
+详细更新日志请看 [更新日志中文版](Changelog_CN.md)。
 
 
 ## 鸣谢
@@ -226,7 +226,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
 - 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
 
-### 请前往[参考](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/参考)来获取更多内容。
+### 请前往 [参考](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/参考) 来获取更多内容。
 
 
 ## 支持与讨论

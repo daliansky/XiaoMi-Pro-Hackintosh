@@ -61,16 +61,16 @@
 - In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS10.15, it's still recommended to update the driver above
 - **Discrete graphic card** is not working, since macOS doesn't support Optimus technology
-  - Have used [SSDT-DDGPU](ACPI/SSDT-DDGPU.dsl) to disable it in order to save power
+  - Have used `SSDT-DDGPU` to disable it in order to save power
 - **Fingerprint sensor** is not working
-  - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
+  - Have used `SSDT-USB` to disable it in order to save power
 - **Intel Bluetooth** does not support some Bluetooth devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
-- **Intel Wi-Fi (Intel Wireless 8265)** works with low performance
+- **Intel Wi-Fi** works with low performance
   - Buy a USB Wi-Fi dongle or supported wireless card
   - Read [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) for more information
 - **Realtek USB SD Card Reader** is not working
-  - Have used [SSDT-USB](ACPI/SSDT-USB.dsl) to disable it in order to save power
+  - Have used `SSDT-USB` to disable it in order to save power
   - Or you can use VMware to let it work, see [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - Everything else works well
 
