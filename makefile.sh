@@ -579,8 +579,8 @@ function Patch() {
     rm -rf "${unusedItem}" >/dev/null 2>&1
   done
 
-  # Only keep OCEFIAudio_VoiceOver_Boot.wav in OcBinaryData/Resources/Audio
-  (cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete || exit 1)
+  # Only keep OCEFIAudio_VoiceOver_Boot in OcBinaryData/Resources/Audio
+  (cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot*" -delete || exit 1)
 
   # Rename AirportItlwm.kexts to distinguish different versions
   if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
@@ -623,7 +623,7 @@ function Install() {
       "IntelBluetoothInjector.kext"
     )
     if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
-      cmlKextItems=("${cmlKextItems[@]/^/CML\/}")
+      cmlKextItems=("${cmlKextItems[@]/#/CML/}")
     fi
     cmlKextItems+=(
       "${sharedKextItems[@]}"
@@ -633,7 +633,7 @@ function Install() {
       "Catalina/AirportItlwm_Catalina.kext"
     )
     if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
-      cmlWifiKextItems=("${cmlWifiKextItems[@]/^/CML\/}")
+      cmlWifiKextItems=("${cmlWifiKextItems[@]/#/CML/}")
     fi
     local cmlCloverKextFolders=(
       "10.15"
@@ -647,7 +647,7 @@ function Install() {
       "IntelBluetoothInjector.kext"
     )
     if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
-      kblKextItems=("${kblKextItems[@]/^/KBL\/}")
+      kblKextItems=("${kblKextItems[@]/#/KBL/}")
     fi
     kblKextItems+=(
       "${sharedKextItems[@]}"
@@ -660,7 +660,7 @@ function Install() {
       "Mojave/AirportItlwm_Mojave.kext"
     )
     if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
-      kblWifiKextItems=("${kblWifiKextItems[@]/^/KBL\/}")
+      kblWifiKextItems=("${kblWifiKextItems[@]/#/KBL/}")
     fi
     local kblCloverKextFolders=(
       "10.13"
