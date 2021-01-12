@@ -462,6 +462,8 @@ function BKextHelper() {
 }
 
 function BKext() {
+  local GITHUB_REF=""
+
   if [[ ${NO_XCODE} == True ]]; then
     echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Missing Xcode tools, won't build kexts!"
     exit 1
