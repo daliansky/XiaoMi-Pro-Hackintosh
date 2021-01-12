@@ -583,22 +583,23 @@ function Patch() {
   (cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot.wav" -delete || exit 1)
 
   # Rename AirportItlwm.kexts to distinguish different versions
-  for model in "${MODEL_LIST[@]}"; do
-    mv "${model}/Big Sur/AirportItlwm.kext" "${model}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
-    mv "${model}/Catalina/AirportItlwm.kext" "${model}/Catalina/AirportItlwm_Catalina.kext" || exit 1
-    mv "${model}/High Sierra/AirportItlwm.kext" "${model}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
-    mv "${model}/Mojave/AirportItlwm.kext" "${model}/Mojave/AirportItlwm_Mojave.kext" || exit 1
-  done
+  if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+    for model in "${MODEL_LIST[@]}"; do
+      mv "${model}/Big Sur/AirportItlwm.kext" "${model}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
+      mv "${model}/Catalina/AirportItlwm.kext" "${model}/Catalina/AirportItlwm_Catalina.kext" || exit 1
+      mv "${model}/High Sierra/AirportItlwm.kext" "${model}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
+      mv "${model}/Mojave/AirportItlwm.kext" "${model}/Mojave/AirportItlwm_Mojave.kext" || exit 1
+    done
+  else
+    mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
+    mv "Catalina/AirportItlwm.kext" "Catalina/AirportItlwm_Catalina.kext" || exit 1
+    mv "High Sierra/AirportItlwm.kext" "High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
+    mv "Mojave/AirportItlwm.kext" "Mojave/AirportItlwm_Mojave.kext" || exit 1
+  fi
 }
 
 # Install
 function Install() {
-  declare acpiItems
-  declare btItems
-  declare cloverKextFolder
-  declare kextItems
-  declare lgpaItems
-
   # Kexts
   local sharedKextItems=(
     "HibernationFixup.kext"
@@ -616,34 +617,51 @@ function Install() {
     "Release/NullEthernet.kext"
   )
   if [[ "${MODEL}" =~ "CML" ]]; then
-    local cmlKextItems=( "${sharedKextItems[@]}"
-      "CML/AppleALC.kext"
-      "CML/IntelBluetoothFirmware.kext"
-      "CML/IntelBluetoothInjector.kext"
-      "CML/NoTouchID.kext"
+    local cmlKextItems=(
+      "AppleALC.kext"
+      "IntelBluetoothFirmware.kext"
+      "IntelBluetoothInjector.kext"
+    )
+    if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+      cmlKextItems=("${cmlKextItems[@]/^/CML\/}")
+    fi
+    cmlKextItems+=(
+      "${sharedKextItems[@]}"
     )
     local cmlWifiKextItems=(
-      "CML/Big Sur/AirportItlwm_Big_Sur.kext"
-      "CML/Catalina/AirportItlwm_Catalina.kext"
+      "Big Sur/AirportItlwm_Big_Sur.kext"
+      "Catalina/AirportItlwm_Catalina.kext"
     )
+    if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+      cmlWifiKextItems=("${cmlWifiKextItems[@]/^/CML\/}")
+    fi
     local cmlCloverKextFolders=(
       "10.15"
       "11"
     )
   fi
   if [[ "${MODEL}" =~ "KBL" ]]; then
-    local kblKextItems=( "${sharedKextItems[@]}"
-      "KBL/AppleALC.kext"
-      "KBL/IntelBluetoothFirmware.kext"
-      "KBL/IntelBluetoothInjector.kext"
+    local kblKextItems=(
+      "AppleALC.kext"
+      "IntelBluetoothFirmware.kext"
+      "IntelBluetoothInjector.kext"
+    )
+    if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+      kblKextItems=("${kblKextItems[@]/^/KBL\/}")
+    fi
+    kblKextItems+=(
+      "${sharedKextItems[@]}"
       "KBL/Release/CodecCommander.kext"
     )
     local kblWifiKextItems=(
-      "KBL/Big Sur/AirportItlwm_Big_Sur.kext"
-      "KBL/Catalina/AirportItlwm_Catalina.kext"
-      "KBL/High Sierra/AirportItlwm_High_Sierra.kext"
-      "KBL/Mojave/AirportItlwm_Mojave.kext"
+      "Big Sur/AirportItlwm_Big_Sur.kext"
+      "Catalina/AirportItlwm_Catalina.kext"
+      "High Sierra/AirportItlwm_High_Sierra.kext"
+      "Mojave/AirportItlwm_Mojave.kext"
     )
+    if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+      kblWifiKextItems=("${kblWifiKextItems[@]/^/KBL\/}")
+    fi
     local kblCloverKextFolders=(
       "10.13"
       "10.14"
@@ -661,31 +679,42 @@ function Install() {
     MODEL_KextItems="${model_Prefix}KextItems"
     MODEL_WifiKextItems="${model_Prefix}WifiKextItems"
     MODEL_CloverKextFolders="${model_Prefix}CloverKextFolders"
-    eval kextItems=\( "\${${MODEL_KextItems}[@]}" \)
+    kextItems="${MODEL_KextItems}[@]"
     for Kextdir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Other/" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/"; do
       mkdir -p "${Kextdir}" || exit 1
-      for kextItem in "${kextItems[@]}"; do
+      for kextItem in "${!kextItems}"; do
         cp -R "${kextItem}" "${Kextdir}" || copyErr
       done
     done
 
-    eval cloverKextFolder=\( "\${${MODEL_CloverKextFolders}[@]}" \)
-    for cloverKextFolder in "${cloverKextFolder[@]}"; do
+    cloverKextFolder="${MODEL_CloverKextFolders}[@]"
+    for cloverKextFolder in "${!cloverKextFolder}"; do
       mkdir -p "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${cloverKextFolder}" || exit 1
     done
 
-    cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
-    cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
-    if [[ ${model} == "KBL" ]]; then
-      cp -R "${model}/High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
-      cp -R "${model}/Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
+    if [[ ${model} == "CML" ]]; then
+      cp -R "CML/NoTouchID.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
+    fi
+    if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+      cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
+      cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
+      if [[ ${model} == "KBL" ]]; then
+        cp -R "${model}/High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
+        cp -R "${model}/Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
+      fi
+    else
+      cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
+      cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
+      if [[ ${model} == "KBL" ]]; then
+        cp -R "High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
+        cp -R "Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
+      fi
     fi
 
-    # TODO: Error: cp: KBL/Big: No such file or directory
-    # eval kextItems=\( "\${${MODEL_WifiKextItems}[@]}" \)
-    # for kextItem in "${kextItems[@]}"; do
-      # cp -R "${kextItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
-    # done
+    kextItems="${MODEL_WifiKextItems}[@]"
+    for kextItem in "${!kextItems}"; do
+      cp -R "${kextItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
+    done
   done
 
   # Drivers
@@ -751,10 +780,10 @@ function Install() {
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
     model_Prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     MODEL_AcpiItems="${model_Prefix}AcpiItems"
-    eval acpiItems=\( \${"${MODEL_AcpiItems}"[@]} \)
+    acpiItems="${MODEL_AcpiItems}[@]"
     for ACPIdir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/ACPI/patched/" "${!OUTDir_MODEL_OC}/EFI/OC/ACPI/"; do
       mkdir -p "${ACPIdir}" || exit 1
-      for acpiItem in "${acpiItems[@]}"; do
+      for acpiItem in "${!acpiItems}"; do
         cp -R "${acpiItem}" "${ACPIdir}" || copyErr
       done
     done
@@ -843,10 +872,10 @@ function Install() {
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
     model_Prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     MODEL_BtItems="${model_Prefix}BtItems"
-    eval btItems=\( \${"${MODEL_BtItems}"[@]} \)
+    btItems="${MODEL_BtItems}[@]"
     for BTdir in "${!OUTDir_MODEL_CLOVER}/Bluetooth" "${!OUTDir_MODEL_OC}/Bluetooth"; do
       mkdir -p "${BTdir}" || exit 1
-      for btItem in "${btItems[@]}"; do
+      for btItem in "${!btItems}"; do
         cp -R "${btItem}" "${BTdir}" || copyErr
       done
     done
@@ -901,10 +930,10 @@ function Install() {
     fi
 
     MODEL_LgpaItems="${model_Prefix}LgpaItems"
-    eval lgpaItems=\( \${"${MODEL_LgpaItems}"[@]} \)
+    lgpaItems="${MODEL_LgpaItems}[@]"
     for LGPAdir in "${!OUTDir_MODEL_CLOVER}/GTX" "${!OUTDir_MODEL_OC}/GTX"; do
       mkdir -p "${LGPAdir}" || exit 1
-      for lgpaItem in "${lgpaItems[@]}"; do
+      for lgpaItem in "${!lgpaItems}"; do
         cp -R "${lgpaItem}" "${LGPAdir}" || copyErr
       done
     done

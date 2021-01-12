@@ -1,5 +1,3 @@
-# Ignore { / } is literal
-disable=SC1083
 # Ignore sudo redirects
 disable=SC2024
 # Ignore unused variables

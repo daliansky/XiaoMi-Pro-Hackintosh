@@ -39,7 +39,7 @@ If unfortunately, this situation happens on you, you need to find Xiaomi stuff t
 
 #### XMAKB5R0P0906
 
-- a new setting `KB Backlight Mode` appears in BIOS panel. Users can choose `Power Saving` (default, KB backlight off when keyboard idle 15s) or `Standard` (KB backlight always on in S0 mode)
+- A new setting `KB Backlight Mode` appears in BIOS panel. Users can choose `Power Saving` (default, KB backlight off when keyboard idle 15s) or `Standard` (KB backlight always on in S0 mode)
 - Reduce fan noise when CPU is running in low load
 
 #### XMAKB5R0P0A07 & XMAKB5R0P0E07
