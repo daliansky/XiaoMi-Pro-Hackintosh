@@ -2,7 +2,7 @@
 
 [English](Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.4.9
+## XiaoMi NoteBook Pro EFI v1.5.0
 ## 1-12-2021
 
 ### 更新
