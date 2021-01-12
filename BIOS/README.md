@@ -6,11 +6,13 @@
 
 - [Introduction](#introduction)
 - [TM1701](#tm1701)
-  - [Update History](#update-history)
-  - [How to Update](#how-to-update)
-  - [How to Unlock Better Performance](#how-to-unlock-better-performance)
+  - Update History
+  - How to Update
+  - How to Unlock Better Performance
 - [TM1707](#tm1707)
 - [TM1905](#tm1905)
+  - Update History
+  - How to Update
 - [TM1963](#tm1963)
 - [Credits](#credits)
 
@@ -21,7 +23,7 @@
 | ------ | ---------- |
 | TM1701 | [XMAKB5R0P0603](TM1701/XMAKB5R0P0603), [XMAKB5R0P0906](TM1701/XMAKB5R0P0906), [XMAKB5R0P0A07](TM1701/XMAKB5R0P0A07.exe), [XMAKB5R0P0E07](TM1701/XMAKB5R0P0E07.exe) |
 | TM1707 | N/A |
-| TM1905 | N/A |
+| TM1905 | [XMACM500P0401](TM1905/XMACM500P0401.exe) |
 | TM1963 | N/A |
 
 These BIOS packets are from Xiaomi official or after-sale service.
@@ -91,13 +93,27 @@ Just run the exe file. Make sure AC power is connected during the update.
 
 ## TM1905
 
+### Update History
+
+#### XMACM500P0401
+
+- No information is provided by the BIOS pack vendor
+
+
+### How to Update
+
+#### XMACM500P0401
+
+Just run the exe file. Make sure AC power is connected during the update.
+
 
 ## TM1963
 
 
 ## Credits
 
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15/) for providing the XMAKB5R0P0E07 packet.
-- Thanks to Xiaomi after-sale service and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing XMAKB5R0P0603 and XMAKB5R0P0906 BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
-- Thanks to a friendly guy for providing XMAKB5R0P0A07 BIOS packet. He doesn't want to be in trouble so please don't spread the XMAKB5R0P0A07 BIOS packet.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15) for providing the `XMAKB5R0P0E07` packet.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/A10) for providing the `XMACM500P0401` packet.
+- Thanks to Xiaomi after-sale service and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing `XMAKB5R0P0603` and `XMAKB5R0P0906` BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
+- Thanks to a friendly guy for providing `XMAKB5R0P0A07` BIOS packet. He doesn't want to be in trouble so please don't spread the `XMAKB5R0P0A07` BIOS packet.
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance on TM1701.
