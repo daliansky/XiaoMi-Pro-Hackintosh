@@ -10,10 +10,14 @@
   - 怎么升级
   - 怎么提升性能
 - [TM1707](#tm1707)
+  - 更新历史
+  - 怎么升级
 - [TM1905](#tm1905)
   - 更新历史
   - 怎么升级
 - [TM1963](#tm1963)
+  - 更新历史
+  - 怎么升级
 - [鸣谢](#鸣谢)
 
 
@@ -22,9 +26,9 @@
 | 机型 | 提供的 BIOS 版本 |
 | ------ | ---------- |
 | TM1701 | [XMAKB5R0P0603](TM1701/XMAKB5R0P0603)，[XMAKB5R0P0906](TM1701/XMAKB5R0P0906)，[XMAKB5R0P0A07](TM1701/XMAKB5R0P0A07.exe)，[XMAKB5R0P0E07](TM1701/XMAKB5R0P0E07.exe) |
-| TM1707 | N/A |
+| TM1707 | [XMAKB5RRP0C05](TM1707/XMAKB5RRP0C05.exe) |
 | TM1905 | [XMACM500P0401](TM1905/XMACM500P0401.exe) |
-| TM1963 | N/A |
+| TM1963 | [XMACM5B1P0201](TM1963/XMACM5B1P0201.exe) |
 
 这些 BIOS 包来自小米官方或加盟售后。
 
@@ -90,6 +94,19 @@
 
 ## TM1707
 
+### 更新历史
+
+#### XMAKB5RRP0C05
+
+- BIOS 提供商没有提供更多信息
+
+
+### 怎么升级
+
+#### XMAKB5RRP0C05
+
+直接运行 exe 文件即可。保证电脑在升级时一直接上电源。
+
 
 ## TM1905
 
@@ -109,11 +126,26 @@
 
 ## TM1963
 
+### 更新历史
+
+#### XMACM5B1P0201
+
+- BIOS 提供商没有提供更多信息
+
+
+### 怎么升级
+
+#### XMACM5B1P0201
+
+直接运行 exe 文件即可。保证电脑在升级时一直接上电源。
+
 
 ## 鸣谢
 
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15) 提供 `XMAKB5R0P0E07` BIOS 包。
+- 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15-game-gtx) 提供 `XMAKB5R0P0E07` BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/A10) 提供 `XMACM500P0401` BIOS 包。
+- 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/A10G5) 提供 `XMACM5B1P0201` BIOS 包。
 - 感谢 小米加盟售后 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 `XMAKB5R0P0603` 和 `XMAKB5R0P0906` BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 - 感谢一个热心的朋友提供 `XMAKB5R0P0A07` BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传 `XMAKB5R0P0A07` BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
 - 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
