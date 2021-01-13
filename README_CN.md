@@ -12,6 +12,7 @@
   - [Clover](#clover)
   - [OpenCore](#opencore)
 - [安装](#安装)
+  - [识别机型](#识别机型)
   - [首次安装](#首次安装)
   - [构建](#构建)
   - [更新](#更新)
@@ -100,6 +101,13 @@
 
 ## 安装
 
+### 识别机型
+
+如果你的机子是 小米笔记本Pro 8代 CPU，记为 KBL（Kaby Lake）机器。（实际为 Kaby Lake Refresh）  
+如果你的机子是 小米笔记本Pro 10代 CPU，记为 CML（Comet Lake）机器。  
+下载 [EFI release](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 的时候需要用到这个信息。
+
+
 ### 首次安装
 
 - 请参考详细的安装教程 [【老司机引路】小米笔记本pro Win10+黑苹果macOS 10.13.6双系统](http://www.miui.com/thread-11363672-1-1.html)，视频教程 [小米笔记本Pro(win10+Mojave10.14.3)双系统过程以及一些问题解答](http://www.bilibili.com/video/av42261432?share_medium=android&share_source=copy_link&bbid=bVk_DmoLaV48Wj4Pcw9zinfoc&ts=1555066114848)。
@@ -143,6 +151,9 @@ cd XiaoMi-Pro-Hackintosh
 
 
 ### 更新
+- 如果你的机子是 小米笔记本Pro 8代 CPU，记为 KBL（Kaby Lake）机器。（实际为 Kaby Lake Refresh）
+- 如果你的机子是 小米笔记本Pro 10代 CPU，记为 CML（Comet Lake）机器。
+-----
 - 在 [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 里下载最新 EFI release，或从 [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) 的 Artifacts 里下载最新测试版 EFI release。
 - 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从 [release 包里](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases)拷贝新的。
 - 你也可以在终端输入以下命令来更新 Clover EFI：

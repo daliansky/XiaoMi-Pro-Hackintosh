@@ -25,7 +25,7 @@ By Steve
   </dict>
   <dict>
 	<key>Comment</key>
-	<string>Brightness key for GTX, pair with LGPA rename</string>
+	<string>Brightness key for ${MODEL}, pair with LGPA rename</string>
 	<key>Enabled</key>
 	<false/>
 	<key>Path</key>
@@ -48,8 +48,8 @@ By Steve
 	<key>Enabled</key>
 	<true/>
 	<key>Path</key>
-	<string>SSDT-LGPAGTX.aml</string>
+	<string>SSDT-LGPA${MODEL_PREFIX}.aml</string>
   </dict>
 
 
-完成, 请使用您的 ${MODEL} 版 EFI 包吧!
+完成, 请使用您的 ${MODEL}版 EFI 包吧!

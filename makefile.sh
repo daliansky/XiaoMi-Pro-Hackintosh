@@ -841,6 +841,8 @@ function Install() {
   done
 
   # Bluetooth & GTX/MX350 & wiki
+  local lgpaDir
+
   if [[ ${LANGUAGE} == "EN" ]]; then
     local sharedBtItems=( "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf" )
   elif [[ ${LANGUAGE} == "CN" ]]; then
@@ -934,7 +936,12 @@ function Install() {
 
     MODEL_LgpaItems="${model_Prefix}LgpaItems"
     lgpaItems="${MODEL_LgpaItems}[@]"
-    for LGPAdir in "${!OUTDir_MODEL_CLOVER}/GTX" "${!OUTDir_MODEL_OC}/GTX"; do
+    if [[ ${model} == "KBL" ]]; then
+      lgpaDir="GTX"
+    elif [[ ${model} == "CML" ]]; then
+      lgpaDir="MX350"
+    fi
+    for LGPAdir in "${!OUTDir_MODEL_CLOVER}/${lgpaDir}" "${!OUTDir_MODEL_OC}/${lgpaDir}"; do
       mkdir -p "${LGPAdir}" || exit 1
       for lgpaItem in "${!lgpaItems}"; do
         cp -R "${lgpaItem}" "${LGPAdir}" || copyErr
