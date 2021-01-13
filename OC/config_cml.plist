@@ -314,10 +314,14 @@
 				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
+				<key>enable-max-pixel-clock-override</key>
+				<data>AQAAAA==</data>
 				<key>force-online</key>
 				<data>AQAAAA==</data>
 				<key>force-online-framebuffers</key>
 				<data>AAAAAAAAAAE=</data>
+				<key>framebuffer-con1-busid</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-pipe</key>
@@ -1223,7 +1227,7 @@
 			<key>AudioOut</key>
 			<integer>0</integer>
 			<key>AudioSupport</key>
-			<true/>
+			<false/>
 			<key>MinimumVolume</key>
 			<integer>20</integer>
 			<key>PlayChime</key>
@@ -1240,8 +1244,8 @@
 			<string>HfsPlus.efi</string>
 			<string>OpenRuntime.efi</string>
 			<string>OpenCanopy.efi</string>
-			<string>AudioDxe.efi</string>
-			<string>ExFatDxe.efi</string>
+			<string>#AudioDxe.efi</string>
+			<string>#ExFatDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>

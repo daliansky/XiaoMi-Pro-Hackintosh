@@ -413,7 +413,6 @@ function BKextHelper() {
     mkdir -p "tmp" || exit 1
     cp -R IntelBluetoothFirmware/fw/ibt-12* "tmp" || copyErr
     cp -R IntelBluetoothFirmware/fw/ibt-19-0* "tmp" || copyErr
-    
 
     if [[ "${MODEL}" =~ "CML" ]]; then
       # Delete unrelated firmware and only keep ibt-19-0*.sfi for Intel Wireless 9560
