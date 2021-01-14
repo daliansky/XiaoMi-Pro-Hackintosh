@@ -310,16 +310,10 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>CQCbPg==</data>
-				<key>complete-modeset-framebuffers</key>
-				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>AQAAAA==</data>
-				<key>force-online</key>
-				<data>AQAAAA==</data>
-				<key>force-online-framebuffers</key>
-				<data>AAAAAAAAAAE=</data>
 				<key>framebuffer-con1-busid</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>

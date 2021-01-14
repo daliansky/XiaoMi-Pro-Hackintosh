@@ -58,6 +58,8 @@
 
 ## Current Status
 
+- **HDMI** can not be plugged before startup (v1.5.1+)
+  - You have to re-plug it if you plugged it before startup
 - **Ethernet may not work on macOS10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS10.15, it's still recommended to update the driver above
@@ -93,8 +95,6 @@
   - According to [OpenCore Official Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf), you can try to inject the original firmware UUID to `PlatformInfo - Generic - SystemUUID` in `/OC/config.plist`
 - Should Clean NVRAM after using Clover
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
-- Startup Sound slows down boot speed
-  - Disable `AudioSupport` in `config.plist - UEFI - Audio`
 - Limited theme
 - **Recommend Reading: [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**, especially the **UEFISecureBoot** section
 
@@ -170,6 +170,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## Improvements
 
+- Use [Hackintool](https://github.com/headkaze/Hackintool) to inject EDID (AAPL00,override-no-connect)
 - Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1424x802 HiDPI resolution
@@ -216,8 +217,10 @@ First, in macOS, open `SysPref - Startup Disk`. Choose the target system.
 Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.  
 When you want to switch OS, press `Esc` during startup to call the boot menu.
 
-#### [OC] How to enable startup chime?
+#### [OC] How to enable startup chime? (TM1701 & TM1707)
 
+Change `#AudioDxe.efi` to `AudioDxe.efi` in `config.plist - UEFI - Drivers`.  
+Enable `AudioSupport` in `config.plist - UEFI - Audio`.  
 If you are using macOS Big Sur, go to `SysPref - Sound` and turn on `Play sound on startup`.  
 For macOS version  < Big Sur, open `Terminal.app` and run `sudo nvram StartupMute=%00`.
 

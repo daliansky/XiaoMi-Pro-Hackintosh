@@ -2,6 +2,16 @@
 
 [English](Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.1
+## 1-13-2021
+
+### 移除
+  - 移除 `force-online*` 属性来修复 HDMI
+
+### OC
+  - OC: 禁用 `AudioDxe.efi` 和 `ExFatDxe.efi` 因为它们显著拖慢引导速度
+
+
 ## XiaoMi NoteBook Pro EFI v1.5.0
 ## 1-12-2021
 

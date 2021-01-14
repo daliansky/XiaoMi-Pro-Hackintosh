@@ -58,6 +58,8 @@
 
 ## 目前情况
 
+- **HDMI** 不能在系统启动之前连接（v1.5.1+）
+  - 你需要重新插拔如果你在系统启动之前连接了 HDMI
 - **有线网 在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - 如果升级到 macOS10.15，需要更新 [USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - 如果不是 macOS10.15，也推荐更新上述驱动
@@ -93,8 +95,6 @@
   - 根据 [OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
 - 使用 Clover 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
-- 启动音 拖慢引导速度
-  - 关闭 `config.plist - UEFI - Audio` 中的 `AudioSupport`
 - 有限的主题
 - **推荐阅读：[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**，特别注意 **UEFISecureBoot** 章节
 
@@ -165,6 +165,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 
 ## 改善体验
 
+- 使用 [Hackintool](https://github.com/headkaze/Hackintool) 来注入 EDID（AAPL00,override-no-connect）
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
@@ -211,8 +212,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。
 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
 
-#### [OC] 怎么开启启动音？
+#### [OC] 怎么开启启动音？（TM1701 & TM1707）
 
+修改 `config.plist - UEFI - Drivers` 中的 `#AudioDxe.efi` 为 `AudioDxe.efi`。  
+开启 `config.plist - UEFI - Audio` 中的 `AudioSupport`。  
 如果你在使用 macOS Big Sur，请前往 `系统偏好设置 - 声音` 并勾选 `启动时播放声音`。  
 如果在使用低于 Big Sur 的 macOS 版本，请打开 `终端.app` 并运行 `sudo nvram StartupMute=%00`。
 
