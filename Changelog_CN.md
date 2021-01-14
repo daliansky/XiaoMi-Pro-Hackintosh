@@ -2,6 +2,13 @@
 
 [English](Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.2
+## 2-X-2021
+
+### 新增
+  - CML: 新增 `AAPL00,override-no-connect` 属性来注入 EDID
+
+
 ## XiaoMi NoteBook Pro EFI v1.5.1
 ## 1-13-2021
 
