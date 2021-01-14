@@ -316,7 +316,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro16,2</string>
+		<string>MacBookPro16,3</string>
 		<key>Trust</key>
 		<true/>
 	</dict>
