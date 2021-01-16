@@ -208,6 +208,8 @@ function H_or_G() {
     HGs=( "head -n 1" )
   elif [[ "$1" == "CloverBootloader" ]]; then
     HGs=( "grep -m 1 CloverV2" )
+  elif [[ "$1" == "build-repo" ]]; then
+    HGs=( "grep -m 1 OpenCorePkg" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HGs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
@@ -252,6 +254,9 @@ function DGR() {
   if [[ -n ${GITHUB_ACTIONS+x} || ${GH_API} == False ]]; then
     if [[ "$2" == "AppleSupportPkg_209" || "$2" == "AppleSupportPkg_216" ]]; then
       rawURL="https://github.com/$1/AppleSupportPkg/releases$tag"
+    elif [[ "$2" == "build-repo" ]]; then
+      rawURL="https://github.com/$1/$2/tags"
+      rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
     else
       rawURL="https://github.com/$1/$2/releases$tag"
     fi
@@ -261,11 +266,17 @@ function DGR() {
   else
     if [[ "$2" == "AppleSupportPkg_209" || "$2" == "AppleSupportPkg_216" ]]; then
       rawURL="https://api.github.com/repos/$1/AppleSupportPkg/releases$tag"
+    elif [[ "$2" == "build-repo" ]]; then
+      rawURL="https://api.github.com/repos/$1/$2/releases"
     else
       rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     fi
     for HG in "${HGs[@]}"; do
-      URLs+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
+      if [[ "$2" == "build-repo" ]]; then
+        URLs+=( "$(curl --silent "${rawURL}" | grep -A 100 'OpenCorePkg' | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
+      else
+        URLs+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
+      fi
     done
   fi
 
@@ -492,9 +503,9 @@ function DL() {
 
   # OpenCore
   if [[ ${PRE_RELEASE} =~ "OC" ]]; then
-    # OpenCore-Factory Repository has been archived
+    # williambj1's OpenCore-Factory repository has been archived
     # DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
-    echo "OC PreRelease is no longer supported" && exit 1
+    DGR dortania build-repo NULL "OpenCore"
   else
     DGR ${ACDT} OpenCorePkg NULL "OpenCore"
   fi

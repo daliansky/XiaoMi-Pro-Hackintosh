@@ -13,7 +13,6 @@ jobs:
     runs-on: macos-latest
     env:
       XCODE_VERSION: 12.2
-      MODEL: KBLCML
     steps:
       - uses: actions/checkout@v2
         with:
@@ -32,7 +31,7 @@ jobs:
 
       - name: Run makefile
         run: |
-          ./makefile.sh --NO_GH_API --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --MODEL=${MODEL}
+          ./makefile.sh --NO_GH_API --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC --MODEL=KBLCML
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
