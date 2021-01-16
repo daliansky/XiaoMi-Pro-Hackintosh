@@ -209,7 +209,7 @@ function H_or_G() {
   elif [[ "$1" == "CloverBootloader" ]]; then
     HGs=( "grep -m 1 CloverV2" )
   elif [[ "$1" == "build-repo" ]]; then
-    HGs=( "grep -m 1 OpenCorePkg" )
+    HGs=( "grep -A 2 OpenCorePkg | grep -m 1 RELEASE" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     HGs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then

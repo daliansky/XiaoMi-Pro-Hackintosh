@@ -89,8 +89,9 @@ jobs:
       - name: Install Dependency
         run: |
           mkdir "OpenCore" && cd "OpenCore" || exit 1
-          rawURL="https://github.com/acidanthera/OpenCorePkg/releases/latest"
-          HG="grep -m 1 RELEASE"
+          HG="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
+          rawURL="https://github.com/dortania/build-repo/tags"
+          rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
           URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
           echo "Downloading ${URL##*\/}"
           curl -# -L -O "${URL}" || exit 1
