@@ -14,6 +14,7 @@ ACDT="Acidanthera"
 CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
+GH_ATF=False
 LANGUAGE="EN"
 MODEL=""
 MODEL_LIST=( )
@@ -42,6 +43,10 @@ while [[ $# -gt 0 ]]; do
   key="$1"
 
   case "${key}" in
+    --DL_GH_ATF)
+    GH_ATF=True
+    shift # past argument
+    ;;
     --IGNORE_ERR)
     ERR_NO_EXIT=True
     shift # past argument
@@ -74,6 +79,11 @@ while [[ $# -gt 0 ]]; do
     ;;
   esac
 done
+
+# --DL_GH_ATF only works when --PRE_RELEASE argument(s) exist(s)
+if [[ "${GH_ATF}" == "True" ]] && [[ "${PRE_RELEASE}" == "" ]]; then
+  echo "ERROR: Invalid argument --DL_GH_ATF, should coexist with --PRE_RELEASE!"
+fi
 
 if [[ "${MODEL}" =~ "KBL" ]]; then
   MODEL_LIST+=( "KBL" )
@@ -124,6 +134,15 @@ acdtKexts=(
 oiwKexts=(
   IntelBluetoothFirmware
   itlwm
+)
+
+ghartKexts=(
+  VirtualSMC
+  WhateverGreen
+  HibernationFixup
+  RestrictEvents
+  VoodooPS2
+  Lilu
 )
 
 # Clean Up
@@ -280,6 +299,25 @@ function DGR() {
     cd - >/dev/null 2>&1 || exit 1
     echo "${reset}"
   done
+}
+
+# Download GitHub Action Artifacts
+function DGA() {
+  local rawURL="https://api.github.com/repos/$1/$2/actions/artifacts"
+  local URL
+
+  if [[ $2 == "OpenCorePkg" ]]; then
+    URL="$(curl --silent -H "Accept: application/vnd.github.v3+json" "${rawURL}" | grep -A 5 'macOS XCODE5 Artifacts' | grep -m 1 'archive_download_url' | tr -d '"' | tr -d ' ' | tr -d ',' | sed -e 's/archive_download_url://')"
+  else
+    URL="$(curl --silent -H "Accept: application/vnd.github.v3+json" "${rawURL}" | grep -m 1 'archive_download_url' | tr -d '"' | tr -d ' ' | tr -d ',' | sed -e 's/archive_download_url://')"
+  fi
+
+  echo "${green}[${reset}${blue}${bold} Downloading ${URL##*\/} ${reset}${green}]${reset}"
+  echo "${cyan}"
+  cd ./"$3" || exit 1
+  curl -# -O -H "Accept: application/vnd.github.v3+json" "${URL}" || networkErr "$2"
+  cd - >/dev/null 2>&1 || exit 1
+  echo "${reset}"
 }
 
 # Download GitHub Source Code
@@ -474,9 +512,13 @@ function BKext() {
   if [[ ${MODEL} =~ "CML" ]]; then
     BKextHelper al3xtjames NoTouchID
   fi
-  for acdtKext in "${acdtKexts[@]}"; do
-    BKextHelper ${ACDT} "${acdtKext}"
-  done
+  if [[ "${GH_ATF}" == "True" ]]; then
+    BKextHelper ${ACDT} "AppleALC"
+  else
+    for acdtKext in "${acdtKexts[@]}"; do
+      BKextHelper ${ACDT} "${acdtKext}"
+    done
+  fi
   for oiwKext in "${oiwKexts[@]}"; do
     BKextHelper ${OIW} "${oiwKext}"
   done
@@ -492,9 +534,13 @@ function DL() {
 
   # OpenCore
   if [[ ${PRE_RELEASE} =~ "OC" ]]; then
-    # OpenCore-Factory Repository has been archived
-    # DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
-    echo "OC PreRelease is no longer supported" && exit 1
+    if [[ "${GH_ATF}" == "True" ]]; then
+      DGA ${ACDT} OpenCorePkg "OpenCore"
+    else
+      # OpenCore-Factory Repository has been archived
+      # DGR williambj1 OpenCore-Factory PreRelease "OpenCore"
+      echo "OC PreRelease is no longer supported" && exit 1
+    fi
   else
     DGR ${ACDT} OpenCorePkg NULL "OpenCore"
   fi
@@ -507,6 +553,11 @@ function DL() {
   fi
 
   if [[ ${PRE_RELEASE} =~ "Kext" ]]; then
+    if [[ "${GH_ATF}" == "True" ]]; then
+      for ghartKext in "${ghartKexts[@]}"; do
+        DGA ${ACDT} "${ghartKext}"
+      done
+    fi
     BKext
   else
     for acdtKext in "${acdtKexts[@]}"; do
