@@ -322,7 +322,7 @@
 				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
-				<key>enable-max-pixel-clock-override</key>
+				<key>force-online</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-enable</key>
 				<data>AQAAAA==</data>

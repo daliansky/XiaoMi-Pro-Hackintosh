@@ -6,6 +6,7 @@
 ## 2-X-2021
 
 ### 新增
+  - 新增回 `force-online` 属性来修复 Big Sur 的 HDMI
   - CML: 新增 `AAPL00,override-no-connect` 属性来注入 EDID
 
 

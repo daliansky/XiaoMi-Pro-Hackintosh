@@ -6,6 +6,7 @@
 ## 2-X-2021
 
 ### Add
+  - Add back `force-online` property to fix HDMI on Big Sur
   - CML: Add `AAPL00,override-no-connect` property to inject EDID
 
 

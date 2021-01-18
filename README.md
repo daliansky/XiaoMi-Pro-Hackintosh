@@ -58,8 +58,8 @@
 
 ## Current Status
 
-- **HDMI** can not be plugged before startup (v1.5.1+)
-  - You have to re-plug it if you plugged it before startup
+- **HDMI** may not work when you first-time plug it in
+  - You have to re-plug it, or close the lid for about five seconds and reopen the lid
 - **Ethernet may not work on macOS10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - If you are not using macOS10.15, it's still recommended to update the driver above
@@ -240,7 +240,6 @@ You can view [Changelog](Changelog.md) for detailed information.
 - Thanks to [daliansky](https://github.com/daliansky) for providing [OC-little](https://github.com/daliansky/OC-little).
 - Thanks to [FallenChromium](https://github.com/FallenChromium), [jackxuechen](https://github.com/jackxuechen), [Javmain](https://github.com/javmain), [johnnync13](https://github.com/johnnync13), [IlikemacOS](https://github.com/IlikemacOS), [ManuGithubSteam](https://github.com/ManuGithubSteam), [MarFre22](https://github.com/MarFre22), [Menchen](https://github.com/Menchen), [Pasi-Studio](https://github.com/Pasi-Studio), [qeeqez](https://github.com/qeeqez), and [williambj1](https://github.com/williambj1) for valuable suggestions on 8th Gen model.
 - Thanks to [hieplpvip](https://github.com/hieplpvip) and [syscl](https://github.com/syscl) for providing sample of DSDT patches.
-- Thanks to [khronokernel](https://github.com/khronokernel) for providing [OpenCanopy-Big-Sur](https://github.com/khronokernel/OpenCanopy-Big-Sur).
 - Thanks to [OpenIntelWireless](https://github.com/OpenIntelWireless) for providing [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) and [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware).
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
 - Thanks to [VoodooI2C](https://github.com/VoodooI2C) for providing [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C).

@@ -58,8 +58,8 @@
 
 ## 目前情况
 
-- **HDMI** 不能在系统启动之前连接（v1.5.1+）
-  - 你需要重新插拔如果你在系统启动之前连接了 HDMI
+- **HDMI** 开机后第一次接上时可能无法工作
+  - 你需要重新插拔或者关上盖子等五秒后打开盖子
 - **有线网 在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
 - 如果升级到 macOS10.15，需要更新 [USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
   - 如果不是 macOS10.15，也推荐更新上述驱动
@@ -235,7 +235,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hac
 - 感谢 [daliansky](https://github.com/daliansky) 提供 [OC-little](https://github.com/daliansky/OC-little)。
 - 感谢 [FallenChromium](https://github.com/FallenChromium)，[jackxuechen](https://github.com/jackxuechen)，[Javmain](https://github.com/javmain)，[johnnync13](https://github.com/johnnync13)，[IlikemacOS](https://github.com/IlikemacOS)，[ManuGithubSteam](https://github.com/ManuGithubSteam)，[MarFre22](https://github.com/MarFre22)，[Menchen](https://github.com/Menchen)，[Pasi-Studio](https://github.com/Pasi-Studio)，[qeeqez](https://github.com/qeeqez) 和 [williambj1](https://github.com/williambj1) 针对8代机型的宝贵建议。
 - 感谢 [hieplpvip](https://github.com/hieplpvip) 和 [syscl](https://github.com/syscl) 提供 DSDT 补丁样本。
-- 感谢 [khronokernel](https://github.com/khronokernel) 提供 [OpenCanopy-Big-Sur](https://github.com/khronokernel/OpenCanopy-Big-Sur)。
 - 感谢 [OpenIntelWireless](https://github.com/OpenIntelWireless) 提供 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 和 [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)。
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
 - 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
