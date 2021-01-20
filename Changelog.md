@@ -2,15 +2,26 @@
 
 **English** | [中文](Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.5.2
+## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2-X-2021
+
+### Update
+  - Update `OpenCore` v0.6.6
+  - Update `Lilu` v1.5.0
+  - Update `WhateverGreen` v1.4.7
+  - Update `VirtualSMC` v1.2.0
+  - Update `VoodooPS2` v2.1.9
+  - Update `AirportItlwm` v1.3.0 (up to []())
 
 ### Add
   - Add back `force-online` property to fix HDMI on Big Sur
   - CML: Add `AAPL00,override-no-connect` property to inject EDID
 
+### OC
+  - OC: Update config to support `OpenCore` v0.6.6
 
-## XiaoMi NoteBook Pro EFI v1.5.1
+
+## [XiaoMi NoteBook Pro EFI v1.5.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.1)
 ## 1-13-2021
 
 ### Remove
@@ -20,7 +31,7 @@
   - OC: Disable loading `AudioDxe.efi` and `ExFatDxe.efi` because they slow down the boot speed dramatically
 
 
-## XiaoMi NoteBook Pro EFI v1.5.0
+## [XiaoMi NoteBook Pro EFI v1.5.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.0)
 ## 1-12-2021
 
 ### Update

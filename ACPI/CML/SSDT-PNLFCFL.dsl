@@ -1,6 +1,6 @@
 // Necessary hotpatch, pair with WhateverGreen.kext
 // Maintained by: Acidanthera
-// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PNLFCFL.dsl by Acidanthera
+// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-PNLFCFL.dsl by Acidanthera
 // Adding PNLF device for WhateverGreen.kext and others.
 // This one is specific to CFL+
 // Rename GFX0 to anything else if your IGPU name is different.

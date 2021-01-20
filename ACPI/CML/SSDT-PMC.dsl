@@ -1,6 +1,6 @@
 // Necessary hotpatch
 // Maintained by: Acidanthera
-// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl by Acidanthera
+// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-PMC.dsl by Acidanthera
 
 /*
  * Intel 300-series PMC support for macOS

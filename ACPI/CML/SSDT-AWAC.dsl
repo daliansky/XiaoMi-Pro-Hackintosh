@@ -1,6 +1,6 @@
 // Necessary hotpatch
 // Maintained by: Acidanthera
-// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-AWAC.dsl by Acidanthera
+// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-AWAC.dsl by Acidanthera
 
 /*
  * For 300-series only. If you can't force enable Legacy RTC in BIOS GUI.

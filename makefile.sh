@@ -373,7 +373,9 @@ function BKextHelper() {
     elif [[ "$2" == "AppleALC" ]]; then
       mkdir -p "tmp" || exit 1
       cp -R "Resources/ALC256" "tmp" || copyErr
+      (cd "tmp/ALC256" && find . -maxdepth 1 ! -path "./Info.plist" ! -path "./layout69.xml" ! -path "./Platforms69.xml" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
       cp -R "Resources/ALC298" "tmp" || copyErr
+      (cd "tmp/ALC298" && find . -maxdepth 1 ! -path "./Info.plist" ! -path "./layout30.xml" ! -path "./Platforms30.xml" ! -path "./layout99.xml" ! -path "./Platforms99.xml" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
       if [[ "${MODEL}" =~ "CML" ]]; then
         # Delete unrelated layout resources in AppleALC
         (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)

@@ -1,6 +1,6 @@
 // Necessary hotpatch, pair with WhateverGreen.kext
 // Maintained by: Acidanthera
-// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PNLF.dsl by Acidanthera
+// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-PNLF.dsl by Acidanthera
 // Adding PNLF device for WhateverGreen.kext and others.
 // This is a modified PNLF version originally taken from RehabMan/OS-X-Clover-Laptop-Config repository:
 // https://raw.githubusercontent.com/RehabMan/OS-X-Clover-Laptop-Config/master/hotpatch/SSDT-PNLF.dsl
