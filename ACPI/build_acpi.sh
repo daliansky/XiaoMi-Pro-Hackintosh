@@ -60,7 +60,7 @@ function compile() {
   echo "${green}[${reset}${magenta}${bold} Compiling ACPI Files ${reset}${green}]${reset}"
   echo
   find . -name '*.dsl' -exec sh -c '
-    ./iasl* -vs -p "${1%/*}/../${1##*/}" "${1%}" >/dev/null 2>&1 || compileErr
+    ./iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" >/dev/null 2>&1 || compileErr
   ' sh {} \;
 }
 
