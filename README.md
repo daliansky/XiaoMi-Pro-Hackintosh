@@ -103,8 +103,8 @@
 
 ### Identify Your Model
 
-If you are using XiaoMi-Pro with 8th Gen CPU, then it's a KBL (Kaby Lake) machine. (Actually Kaby Lake Refresh)  
-If you are using XiaoMi-Pro with 10th Gen CPU, then it's a CML (Comet Lake) machine.  
+If you are using XiaoMi-Pro with **8th Gen** CPU, then it's a **KBL** (Kaby Lake) machine. (Actually Kaby Lake Refresh)  
+If you are using XiaoMi-Pro with **10th Gen** CPU, then it's a **CML** (Comet Lake) machine.  
 You will need this information when you download the [EFI release](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases).
 
 
@@ -156,8 +156,8 @@ cd XiaoMi-Pro-Hackintosh
 
 
 ### Upgrade
-- If you are using XiaoMi-Pro with 8th Gen CPU, then it's a KBL (Kaby Lake) machine. (Actually Kaby Lake Refresh)
-- If you are using XiaoMi-Pro with 10th Gen CPU, then it's a CML (Comet Lake) machine.
+- If you are using XiaoMi-Pro with **8th Gen** CPU, then it's a **KBL** (Kaby Lake) machine. (Actually Kaby Lake Refresh)
+- If you are using XiaoMi-Pro with **10th Gen** CPU, then it's a **CML** (Comet Lake) machine.
 -----
 - Download the latest EFI release from the [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) or beta EFI release from artifacts in the [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions).
 - A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases).

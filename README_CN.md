@@ -103,8 +103,8 @@
 
 ### 识别机型
 
-如果你的机子是 小米笔记本Pro 8代 CPU，记为 KBL（Kaby Lake）机器。（实际为 Kaby Lake Refresh）  
-如果你的机子是 小米笔记本Pro 10代 CPU，记为 CML（Comet Lake）机器。  
+如果你的机子是 小米笔记本Pro **8代** CPU，记为 **KBL**（Kaby Lake）机器。（实际为 Kaby Lake Refresh）  
+如果你的机子是 小米笔记本Pro **10代** CPU，记为 **CML**（Comet Lake）机器。  
 下载 [EFI release](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 的时候需要用到这个信息。
 
 
@@ -151,8 +151,8 @@ cd XiaoMi-Pro-Hackintosh
 
 
 ### 更新
-- 如果你的机子是 小米笔记本Pro 8代 CPU，记为 KBL（Kaby Lake）机器。（实际为 Kaby Lake Refresh）
-- 如果你的机子是 小米笔记本Pro 10代 CPU，记为 CML（Comet Lake）机器。
+- 如果你的机子是 小米笔记本Pro **8代** CPU，记为 **KBL**（Kaby Lake）机器。（实际为 Kaby Lake Refresh）
+- 如果你的机子是 小米笔记本Pro **10代** CPU，记为 **CML**（Comet Lake）机器。
 -----
 - 在 [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 里下载最新 EFI release，或从 [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) 的 Artifacts 里下载最新测试版 EFI release。
 - 完整替换 `BOOT` 和 `CLOVER`(或 `OC`)文件夹。首先删除他们，然后从 [release 包里](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases)拷贝新的。

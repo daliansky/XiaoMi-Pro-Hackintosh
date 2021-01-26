@@ -78,7 +78,7 @@ jobs:
 
       - name: Run iasl
         run: |
-          find . -type f -name "*.dsl" -print0 | xargs -0 -I{} ./iasl* -vs -va {} || exit 1
+          find . -name '*.dsl' -exec sh -c './iasl* -vs -p "${1%/*}/../${1##*/}" "${1%}" || exit 1' sh {} \;
 
   analyze-oc-config:
     name: Analyze OpenCore Config

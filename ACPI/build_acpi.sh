@@ -59,7 +59,9 @@ function compile() {
   chmod +x iasl*
   echo "${green}[${reset}${magenta}${bold} Compiling ACPI Files ${reset}${green}]${reset}"
   echo
-  find . -type f -name "*.dsl" -print0 | xargs -0 -I{} ./iasl* -vs -va {} >/dev/null 2>&1 || compileErr
+  find . -name '*.dsl' -exec sh -c '
+    ./iasl* -vs -p "${1%/*}/../${1##*/}" "${1%}" >/dev/null 2>&1 || compileErr
+  ' sh {} \;
 }
 
 function enjoy() {
