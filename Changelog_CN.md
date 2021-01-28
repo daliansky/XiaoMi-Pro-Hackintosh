@@ -7,6 +7,7 @@
 
 ### 更新
   * 更新 `OpenCore` v0.6.6
+  * 更新 `Clover` r5129
   * 更新 `Lilu` v1.5.0
   * 更新 `WhateverGreen` v1.4.7
   * 更新 `VirtualSMC` v1.2.0

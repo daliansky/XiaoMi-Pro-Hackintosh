@@ -15,6 +15,7 @@
 - [TM1905](#tm1905)
   - Update History
   - How to Update
+  - How to Unlock Better Performance
 - [TM1963](#tm1963)
   - Update History
   - How to Update
@@ -124,6 +125,20 @@ Just run the exe file. Make sure AC power is connected during the update.
 Just run the exe file. Make sure AC power is connected during the update.
 
 
+### How to Unlock Better Performance
+
+The following table is about some advanced BIOS configurations, thanks to [htmambo](https://github.com/htmambo).
+
+| Item | Address | Configuration | Options | Default | Recommend |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| RTC | 0x54A | SETUP | 0x0:ACPI Time and Alarm Device; 0x1:Legacy RTC | 0x0 | 0x1 |
+| DVMT | 0x107 | SaSETUP | 0x0:0M, 0x1:32M, 0x2:64M | 0x1 | 0x2 |
+| DVMT Total Gfx Mem | 0x108 | SaSETUP | 0x1:128M, 0x2:256M, 0x3:Max | 0x3 | 0x3 |
+| CFG LOCK | 0x3E | CpuSetup | 0x0:Disabled, 0x1:Enabled | 0x1 | 0x0 |
+| MSR LOCK | 0x2B | SETUP | 0x0:Disabled, 0x1:Enabled | 0x0 | 0x0 |
+| BIOS Lock | 0x17 | SETUP | 0x0:Disabled, 0x1:Enabled | 0x1| 0x0 |
+
+
 ## TM1963
 
 ### Update History
@@ -142,10 +157,11 @@ Just run the exe file. Make sure AC power is connected during the update.
 
 ## Credits
 
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15) for providing the `XMAKB5R0P0E07` packet.
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15-game-gtx) for providing the `XMAKB5R0P0E07` packet.
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/A10) for providing the `XMACM500P0401` packet.
-- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/A10G5) for providing the `XMACM5B1P0201` packet.
-- Thanks to Xiaomi after-sale service and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing `XMAKB5R0P0603` and `XMAKB5R0P0906` BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 - Thanks to a friendly guy for providing `XMAKB5R0P0A07` BIOS packet. He doesn't want to be in trouble so please don't spread the `XMAKB5R0P0A07` BIOS packet.
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance on TM1701.
+- Thanks to [htmambo](https://github.com/htmambo) for providing information about TM1905 BIOS advanced configuration.
+- Thanks to Xiaomi after-sale service and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing `XMAKB5R0P0603` and `XMAKB5R0P0906` BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15) for providing the `XMAKB5R0P0E07` packet.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15-game-gtx) for providing the `XMAKB5RRP0C05` packet.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/A10) for providing the `XMACM500P0401` packet.
+- Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/A10G5) for providing the `XMACM5B1P0201` packet.

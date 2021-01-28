@@ -78,7 +78,7 @@ jobs:
 
       - name: Run iasl
         run: |
-          find . -name '*.dsl' -exec sh -c './iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" || exit 1' sh {} \;
+          find . -name '*.dsl' -exec sh -c './iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" && echo || exit 1' sh {} \;
 
   analyze-oc-config:
     name: Analyze OpenCore Config

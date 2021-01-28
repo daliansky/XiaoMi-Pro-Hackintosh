@@ -15,6 +15,7 @@
 - [TM1905](#tm1905)
   - 更新历史
   - 怎么升级
+  - 怎么提升性能
 - [TM1963](#tm1963)
   - 更新历史
   - 怎么升级
@@ -124,6 +125,20 @@
 直接运行 exe 文件即可。保证电脑在升级时一直接上电源。
 
 
+### 怎么提升性能
+
+下面这张表是关于 BIOS 的一些高级配置，感谢 [htmambo](https://github.com/htmambo)。
+
+| 项目 | 位置 | 配置项 | 选项 | 默认 | 推荐 |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| RTC | 0x54A | SETUP | 0x0:ACPI Time and Alarm Device; 0x1:Legacy RTC | 0x0 | 0x1 |
+| DVMT | 0x107 | SaSETUP | 0x0:0M, 0x1:32M, 0x2:64M | 0x1 | 0x2 |
+| DVMT Total Gfx Mem | 0x108 | SaSETUP | 0x1:128M, 0x2:256M, 0x3:Max | 0x3 | 0x3 |
+| CFG LOCK | 0x3E | CpuSetup | 0x0:Disabled, 0x1:Enabled | 0x1 | 0x0 |
+| MSR LOCK | 0x2B | SETUP | 0x0:Disabled, 0x1:Enabled | 0x0 | 0x0 |
+| BIOS Lock | 0x17 | SETUP | 0x0:Disabled, 0x1:Enabled | 0x1| 0x0 |
+
+
 ## TM1963
 
 ### 更新历史
@@ -142,10 +157,11 @@
 
 ## 鸣谢
 
+- 感谢一个热心的朋友提供 `XMAKB5R0P0A07` BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传 `XMAKB5R0P0A07` BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
+- 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
+- 感谢 [htmambo](https://github.com/htmambo) 提供 TM1905 BIOS 高级配置。
+- 感谢 小米加盟售后 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 `XMAKB5R0P0603` 和 `XMAKB5R0P0906` BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15) 提供 `XMAKB5R0P0E07` BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15-game-gtx) 提供 `XMAKB5R0P0E07` BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/A10) 提供 `XMACM500P0401` BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/A10G5) 提供 `XMACM5B1P0201` BIOS 包。
-- 感谢 小米加盟售后 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 `XMAKB5R0P0603` 和 `XMAKB5R0P0906` BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
-- 感谢一个热心的朋友提供 `XMAKB5R0P0A07` BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传 `XMAKB5R0P0A07` BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
-- 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。

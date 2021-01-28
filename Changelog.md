@@ -7,6 +7,7 @@
 
 ### Update
   - Update `OpenCore` v0.6.6
+  - Update `Clover` r5129
   - Update `Lilu` v1.5.0
   - Update `WhateverGreen` v1.4.7
   - Update `VirtualSMC` v1.2.0
