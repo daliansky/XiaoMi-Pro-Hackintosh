@@ -15,6 +15,6 @@ exit
 $offset = $text.IndexOf($offset_text) + 0x45
 #$bytes[$offset] = 0x30 # 0mb
 #$bytes[$offset] = 0x31 # 32mb
-#$bytes[$offset] = 0x32 # 64mb
-$bytes[$offset] = 0x33 # 96mb (???)
+$bytes[$offset] = 0x32 # 64mb
+#$bytes[$offset] = 0x33 # 96mb (???)
 [System.IO.File]::WriteAllBytes("$location\sasetup_patched.txt", $bytes)
