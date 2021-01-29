@@ -434,7 +434,7 @@ function BKextHelper() {
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
       rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
       cp -R tmp/ibt-19-0* "IntelBluetoothFirmware/fw/" || copyErr
-      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -alltargets clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
     fi
@@ -443,7 +443,7 @@ function BKextHelper() {
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
       rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
       cp -R tmp/ibt-12* "IntelBluetoothFirmware/fw/" || copyErr
-      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -alltargets clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../KBL" || copyErr
     fi
@@ -461,7 +461,7 @@ function BKextHelper() {
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
 
-      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "AirportItlwm (all)" clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../CML" || copyErr
     fi
@@ -471,7 +471,7 @@ function BKextHelper() {
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwm-8265* "itlwm/firmware/" || copyErr
 
-      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "AirportItlwm (all)" clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../KBL" || copyErr
     fi

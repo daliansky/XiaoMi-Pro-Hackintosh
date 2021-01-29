@@ -129,7 +129,7 @@
 
 下面这张表是关于 BIOS 的一些高级配置，感谢 [htmambo](https://github.com/htmambo)。
 
-| 项目 | 偏移量 | 配置项 | 选项 | 默认 | 推荐 |
+| 项目 | 地址 | 配置项 | 选项 | 默认 | 推荐 |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | RTC | 0x54A | SETUP | 0x0:ACPI Time and Alarm Device; 0x1:Legacy RTC | 0x0 | 0x1 |
 | DVMT | 0x107 | SaSETUP | 0x0:0M, 0x1:32M, 0x2:64M | 0x1 | 0x2 |

@@ -129,7 +129,7 @@ Just run the exe file. Make sure AC power is connected during the update.
 
 The following table is about some advanced BIOS configurations, thanks to [htmambo](https://github.com/htmambo).
 
-| Item | Offset | Configuration | Options | Default | Recommend |
+| Item | Address | Configuration | Options | Default | Recommend |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | RTC | 0x54A | SETUP | 0x0:ACPI Time and Alarm Device; 0x1:Legacy RTC | 0x0 | 0x1 |
 | DVMT | 0x107 | SaSETUP | 0x0:0M, 0x1:32M, 0x2:64M | 0x1 | 0x2 |
