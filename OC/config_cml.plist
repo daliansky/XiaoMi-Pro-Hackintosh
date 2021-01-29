@@ -370,7 +370,7 @@
 				<key>device_type</key>
 				<string>Serial Bus Controller</string>
 				<key>model</key>
-				<string>Intel Comet Lake Serial IO I2C Host Controller #0</string>
+				<string>Intel Comet Lake Serial IO I2C Host Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
 			<dict>
@@ -384,7 +384,7 @@
 				<key>device_type</key>
 				<string>Serial Bus Controller</string>
 				<key>model</key>
-				<string>Intel Comet Lake Serial IO I2C Host Controller #4</string>
+				<string>Intel Comet Lake PCH-LP LPSS: I2C Controller #4</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
 			<dict>

@@ -90,7 +90,7 @@
 
 ### 怎么提升性能
 
-[FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大动态显存大小（从32mb扩大到64mb），解锁 MSR 0xE2 寄位器，和修改 EC 固件来减少风扇噪声。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
+[FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大动态显存大小（从32mb扩大到64mb），解锁 MSR 0xE2 寄位器，和修改 EC 固件来减少风扇噪声。脚本位于 [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix)。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
 
 
 ## TM1707
@@ -129,7 +129,7 @@
 
 下面这张表是关于 BIOS 的一些高级配置，感谢 [htmambo](https://github.com/htmambo)。
 
-| 项目 | 位置 | 配置项 | 选项 | 默认 | 推荐 |
+| 项目 | 偏移量 | 配置项 | 选项 | 默认 | 推荐 |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | RTC | 0x54A | SETUP | 0x0:ACPI Time and Alarm Device; 0x1:Legacy RTC | 0x0 | 0x1 |
 | DVMT | 0x107 | SaSETUP | 0x0:0M, 0x1:32M, 0x2:64M | 0x1 | 0x2 |
@@ -162,6 +162,6 @@
 - 感谢 [htmambo](https://github.com/htmambo) 提供 TM1905 BIOS 高级配置。
 - 感谢 小米加盟售后 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 `XMAKB5R0P0603` 和 `XMAKB5R0P0906` BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15) 提供 `XMAKB5R0P0E07` BIOS 包。
-- 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15-game-gtx) 提供 `XMAKB5R0P0E07` BIOS 包。
+- 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15-game-gtx) 提供 `XMAKB5RRP0C05` BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/A10) 提供 `XMACM500P0401` BIOS 包。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/A10G5) 提供 `XMACM5B1P0201` BIOS 包。

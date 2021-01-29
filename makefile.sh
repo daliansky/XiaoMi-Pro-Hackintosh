@@ -380,6 +380,7 @@ function BKextHelper() {
         # Delete unrelated layout resources in AppleALC
         (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
         cp -R "tmp/ALC256" "Resources" || copyErr
+        xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
         xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
         cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
       fi
@@ -387,6 +388,7 @@ function BKextHelper() {
         # Delete unrelated layout resources in AppleALC
         (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
         cp -R "tmp/ALC298" "Resources" || copyErr
+        xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
         xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
         cp -R ${PATH_TO_REL}*.kext "../KBL" || copyErr
       fi
@@ -432,6 +434,7 @@ function BKextHelper() {
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
       rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
       cp -R tmp/ibt-19-0* "IntelBluetoothFirmware/fw/" || copyErr
+      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
     fi
@@ -440,6 +443,7 @@ function BKextHelper() {
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
       rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
       cp -R tmp/ibt-12* "IntelBluetoothFirmware/fw/" || copyErr
+      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../KBL" || copyErr
     fi
@@ -457,6 +461,7 @@ function BKextHelper() {
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
 
+      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../CML" || copyErr
     fi
@@ -466,6 +471,7 @@ function BKextHelper() {
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwm-8265* "itlwm/firmware/" || copyErr
 
+      xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../KBL" || copyErr
     fi
