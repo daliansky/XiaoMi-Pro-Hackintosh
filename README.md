@@ -36,7 +36,7 @@
 | Integrated Graphics | Intel UHD Graphics 620 |
 | Monitor | BOE NV156FHM-N61 FHD 1920x1080 (15.6 inch) |
 | Sound Card | Realtek ALC298 (layout-id: 30/99) |
-| Wireless Card | Intel Wireless 8265 |
+| Wireless Card | Intel Wireless-AC 8265 |
 | Trackpad | ETD2303 |
 | SD Card Reader | Realtek RTS5129 / RTS5250S |
 
@@ -47,7 +47,7 @@
 | Computer model | Xiaomi NoteBook Pro 15.6'' (MX250/MX350) |
 | Processor | Intel Core i5-10210U / i7-10510U Processor |
 | Memory | 8GB/16GB Samsung DDR4 2666MHz |
-| Hard Disk | Unknown |
+| Hard Disk | Intel SSD 660P Series |
 | Integrated Graphics | Intel UHD Graphics 620 |
 | Monitor | Unknown |
 | Sound Card | Realtek ALC256 (layout-id: 69) |

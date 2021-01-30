@@ -8,10 +8,11 @@
 ### Update
   - Update `OpenCore` v0.6.6
   - Update `Clover` r5129
-  - Update `Lilu` v1.5.0
+  - Update `Lilu` v1.5.1
+  - Update `AppleALC` v1.5.7
   - Update `WhateverGreen` v1.4.7
   - Update `VirtualSMC` v1.2.0
-  - Update `VoodooPS2` v2.1.9
+  - Update `VoodooPS2` v2.2.1
   - Update `AirportItlwm` v1.3.0 (up to []())
 
 ### Add

@@ -8,10 +8,11 @@
 ### 更新
   * 更新 `OpenCore` v0.6.6
   * 更新 `Clover` r5129
-  * 更新 `Lilu` v1.5.0
+  * 更新 `Lilu` v1.5.1
+  * 更新 `AppleALC` v1.5.7
   * 更新 `WhateverGreen` v1.4.7
   * 更新 `VirtualSMC` v1.2.0
-  * 更新 `VoodooPS2` v2.1.9
+  * 更新 `VoodooPS2` v2.2.1
   * 更新 `AirportItlwm` v1.3.0 (up to []())
 
 ### 新增

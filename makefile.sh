@@ -1067,7 +1067,6 @@ function ExtractOC() {
     mkdir -p "${!OUTDir_MODEL_OC}/EFI/OC/Tools" || exit 1
     cp -R "OpenCore/X64/EFI/BOOT" "${!OUTDir_MODEL_OC}/EFI/" || copyErr
     cp -R "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
-    cp -R "OpenCore/X64/EFI/OC/Bootstrap" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
     for driverItem in "${driverItems[@]}"; do
       cp -R "${driverItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/" || copyErr
     done
