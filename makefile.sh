@@ -11,6 +11,7 @@
 
 # Vars
 ACDT="Acidanthera"
+CFURL="https://hackintosh.stevezheng.workers.dev"
 CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
@@ -1105,8 +1106,10 @@ function GenNote() {
     echo "-----" >> ReleaseNotes.md
     printf "国内加速下载链接：\nDownload link for China:\n" >> ReleaseNotes.md
     for model in "${MODEL_LIST[@]}"; do
-      echo "- [XiaoMi_Pro-${model}-Clover-${CUR_TAG}.zip](https://hackintosh.stevezheng.workers.dev/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/XiaoMi_Pro-${model}-Clover-${CUR_TAG}.zip)" >> ReleaseNotes.md
-      echo "- [XiaoMi_Pro-${model}-OC-${CUR_TAG}.zip](https://hackintosh.stevezheng.workers.dev/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/XiaoMi_Pro-${model}-OC-${CUR_TAG}.zip)" >> ReleaseNotes.md
+      OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
+      OUTDir_MODEL_OC="OUTDir_${model}_OC"
+      echo "- [${!OUTDir_MODEL_CLOVER}.zip](${CFURL}/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/${!OUTDir_MODEL_CLOVER}.zip)" >> ReleaseNotes.md
+      echo "- [${!OUTDir_MODEL_OC}.zip](${CFURL}/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/${!OUTDir_MODEL_OC}.zip)" >> ReleaseNotes.md
     done
   fi
 
