@@ -1092,11 +1092,24 @@ function GenNote() {
   echo
   printVersion=$(echo "${VERSION}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
   printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
+  # Release warning
+  echo "#### OC Recommendation: A NVRAM reset is highly suggested when upgrading from OpenCore v0.6.3 if \`BootProtect\` was set. Visit [acidanthera/bugtracker#1222 (comment)](https://github.com/acidanthera/bugtracker/issues/1222#issuecomment-739241310) for more information." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
   lineEnd=${lineEnd%%:*} && lineEnd=$((lineEnd-3))
   sed -n "${lineStart},${lineEnd}p" ${changelogPath} >> ReleaseNotes.md
+
+  # Generate Cloudflare links
+  if [[ ${CUR_TAG} != "" ]]; then
+    echo "-----" >> ReleaseNotes.md
+    printf "国内加速下载链接：\nDownload link for China:\n" >> ReleaseNotes.md
+    for model in "${MODEL_LIST[@]}"; do
+      echo "- [XiaoMi_Pro-${model}-Clover-${CUR_TAG}.zip](https://hackintosh.stevezheng.workers.dev/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/XiaoMi_Pro-${model}-Clover-${CUR_TAG}.zip)" >> ReleaseNotes.md
+      echo "- [XiaoMi_Pro-${model}-OC-${CUR_TAG}.zip](https://hackintosh.stevezheng.workers.dev/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/XiaoMi_Pro-${model}-OC-${CUR_TAG}.zip)" >> ReleaseNotes.md
+    done
+  fi
+
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
