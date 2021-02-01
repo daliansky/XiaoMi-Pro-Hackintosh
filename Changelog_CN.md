@@ -3,7 +3,7 @@
 [English](Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
-## 2-X-2021
+## 2-2-2021
 
 ### 更新
   * 更新 `OpenCore` v0.6.6
@@ -13,7 +13,7 @@
   * 更新 `WhateverGreen` v1.4.7
   * 更新 `VirtualSMC` v1.2.0
   * 更新 `VoodooPS2` v2.2.1
-  * 更新 `AirportItlwm` v1.3.0 (up to []())
+  * 更新 `AirportItlwm` v1.3.0（更新至 [OpenIntelWireless/itlwm@5d41d5b](https://github.com/OpenIntelWireless/itlwm/commit/5d41d5b13317061242db4f9c5fc2b7e63e5e4c60)）
 
 ### 新增
   - 新增回 `force-online` 属性来修复 Big Sur 的 HDMI

@@ -648,6 +648,7 @@ function Install() {
     fi
     cmlKextItems+=(
       "${sharedKextItems[@]}"
+      "CML/NoTouchID.kext"
     )
     local cmlWifiKextItems=(
       "Big Sur/AirportItlwm_Big_Sur.kext"

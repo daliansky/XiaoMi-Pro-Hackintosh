@@ -49,7 +49,7 @@
 | Memory | 8GB/16GB Samsung DDR4 2666MHz |
 | Hard Disk | Intel SSD 660P Series |
 | Integrated Graphics | Intel UHD Graphics 620 |
-| Monitor | Unknown |
+| Monitor | LQ156M1JW01 SHP14C3 1920x1080 344x194mm 15.5-inch |
 | Sound Card | Realtek ALC256 (layout-id: 69) |
 | Wireless Card | Intel Wireless-AC 9560 |
 | Trackpad | ELAN2303 |
