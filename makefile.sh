@@ -1104,7 +1104,7 @@ function GenNote() {
   # Generate Cloudflare links
   if [[ ${CUR_TAG} != "" ]]; then
     echo "-----" >> ReleaseNotes.md
-    printf "国内加速下载链接：\nDownload link for China:\n" >> ReleaseNotes.md
+    printf "#### 国内加速下载链接：\nDownload link for China:\n" >> ReleaseNotes.md
     for model in "${MODEL_LIST[@]}"; do
       OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
       OUTDir_MODEL_OC="OUTDir_${model}_OC"
