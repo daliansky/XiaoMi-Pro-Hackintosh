@@ -100,5 +100,5 @@ jobs:
 
       - name: Run ocvalidate
         run: |
-          RESULT_KBL=$(./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config_kbl.plist) && echo "${RESULT_KBL}" && if [ "$(echo "${RESULT_KBL}" | wc -l)" -gt "1" ]; then exit 1; fi
-          RESULT_CML=$(./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config_cml.plist) && echo "${RESULT_CML}" && if [ "$(echo "${RESULT_CML}" | wc -l)" -gt "1" ]; then exit 1; fi
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config_kbl.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./OC/config_cml.plist || exit 1
