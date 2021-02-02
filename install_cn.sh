@@ -33,7 +33,7 @@ function checkMainboard() {
   local MODEL_MX150="TM1701"
   local MODEL_GTX="TM1707"
   
-  echo "This script is currently under maintenance!"
+  echo "此脚本正在维护!"
   exit 1
 
   # 创建工程文件夹
