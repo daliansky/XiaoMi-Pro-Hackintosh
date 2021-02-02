@@ -1,6 +1,6 @@
 <img src="Docs/img/XiaoMi_Hackintosh_with_text_Small_cn.png" width="439" height="48"/>
 
-[![构建状态](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![release](https://img.shields.io/badge/下载-release-blue.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) [![wiki](https://img.shields.io/badge/支持-wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-red.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
+[![构建状态](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![Release](https://img.shields.io/github/v/release/daliansky/XiaoMi-Pro-Hackintosh?label=下载)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/latest) [![Wiki](https://img.shields.io/badge/支持-Wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-orange.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
 [English](README.md) | **中文**

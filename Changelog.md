@@ -13,7 +13,7 @@
   - Update `WhateverGreen` v1.4.7
   - Update `VirtualSMC` v1.2.0
   - Update `VoodooPS2` v2.2.1
-  - Update `AirportItlwm` v1.3.0 (up to [OpenIntelWireless/itlwm@9bf4636](https://github.com/OpenIntelWireless/itlwm/commit/9bf46364e559ade31cb1f4c30d92cbd6c67174c8))
+  - Update `AirportItlwm` v1.3.0 (up to [OpenIntelWireless/itlwm@ecf78fc](https://github.com/OpenIntelWireless/itlwm/commit/ecf78fcf28b985df1a7d669a3f2e558ff7ada3af))
 
 ### Add
   - Add back `force-online` property to fix HDMI on Big Sur

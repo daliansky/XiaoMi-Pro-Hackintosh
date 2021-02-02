@@ -13,7 +13,7 @@
   * 更新 `WhateverGreen` v1.4.7
   * 更新 `VirtualSMC` v1.2.0
   * 更新 `VoodooPS2` v2.2.1
-  * 更新 `AirportItlwm` v1.3.0（更新至 [OpenIntelWireless/itlwm@9bf4636](https://github.com/OpenIntelWireless/itlwm/commit/9bf46364e559ade31cb1f4c30d92cbd6c67174c8)）
+  * 更新 `AirportItlwm` v1.3.0（更新至 [OpenIntelWireless/itlwm@ecf78fc](https://github.com/OpenIntelWireless/itlwm/commit/ecf78fcf28b985df1a7d669a3f2e558ff7ada3af)）
 
 ### 新增
   - 新增回 `force-online` 属性来修复 Big Sur 的 HDMI
