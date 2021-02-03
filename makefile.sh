@@ -262,6 +262,9 @@ function DGR() {
       rawURL="https://github.com/$1/$2/releases$tag"
     fi
     for HG in "${HGs[@]}"; do
+      if [[ ${LANGUAGE} == "CN" ]]; then
+        rawURL=${rawURL/#/${CFURL}/}
+      fi
       URLs+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
@@ -281,6 +284,10 @@ function DGR() {
     done
   fi
 
+  if [[ ${LANGUAGE} == "CN" ]]; then
+    URLs=("${URLs[@]/#/${CFURL}/}")
+  fi
+
   for URL in "${URLs[@]}"; do
     if [[ -z ${URL} || ${URL} == "https://github.com" ]]; then
       networkErr "$2"
@@ -297,6 +304,9 @@ function DGR() {
 # Download GitHub Source Code
 function DGS() {
   local URL="https://github.com/$1/$2/archive/$3.zip"
+  if [[ ${LANGUAGE} == "CN" ]]; then
+    URL=${URL/#/${CFURL}/}
+  fi
   echo "${green}[${reset}${blue}${bold} Downloading $2.zip ${reset}${green}]${reset}"
   echo "${cyan}"
   cd ./"$4" || exit 1
@@ -338,6 +348,9 @@ function DBR() {
 # Download Pre-Built Binaries
 function DPB() {
   local URL="https://raw.githubusercontent.com/$1/$2/master/$3"
+  if [[ ${LANGUAGE} == "CN" ]]; then
+    URL=${URL/#/${CFURL}/}
+  fi
   echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
   echo "${cyan}"
   curl -# -L -O "${URL}" || networkErr "${3##*\/}"
@@ -362,7 +375,11 @@ function BKextHelper() {
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
   echo
-  git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
+  if [[ ${LANGUAGE} != "CN" ]]; then
+    git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
+  else
+    git clone --depth=1 ${CFURL}/https://github.com/"$1"/"$2".git >/dev/null 2>&1
+  fi
   cd "$2" || exit 1
   if [[ ${liluPlugins} =~ $2 ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
@@ -488,9 +505,15 @@ function BKext() {
     exit 1
   fi
 
-  git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
-  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
-  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+  if [[ ${LANGUAGE} != "CN" ]]; then
+    git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
+    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+  else
+    git clone ${CFURL}/https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
+    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+  fi
   if [[ ${MODEL} =~ "CML" ]]; then
     BKextHelper al3xtjames NoTouchID
   fi

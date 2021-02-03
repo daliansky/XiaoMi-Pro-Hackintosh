@@ -37,9 +37,9 @@ function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix || exit 1
     echo "Downloading audio fix patch..."
-    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/good.win.ALCPlugFix.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/hda-verb -O || networkWarn
+    curl -L -O https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix || networkWarn
+    curl -L -O https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/good.win.ALCPlugFix.plist || networkWarn
+    curl -L -O https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/hda-verb || networkWarn
     echo "Download complete"
     echo
 }

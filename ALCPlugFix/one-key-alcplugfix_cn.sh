@@ -4,6 +4,9 @@
 # stevezhengshiqi重写于2019.02.27, 特别感谢@Menchen
 # 支持小米笔记本Pro (ALC298,节点99)
 
+# 参数
+CFURL="https://hackintosh.stevezheng.workers.dev"
+
 # 界面 (参考:http://patorjk.com/software/taag/#p=display&f=Ivrit&t=P%20l%20u%20g%20F%20i%20x)
 function interface() {
     echo ' ____    _                   _____   _         '
@@ -37,9 +40,9 @@ function download(){
     mkdir -p one-key-alcplugfix
     cd one-key-alcplugfix || exit 1
     echo "正在下载声卡修复文件..."
-    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/good.win.ALCPlugFix.plist -O || networkWarn
-    curl -fsSL https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/hda-verb -O || networkWarn
+    curl -L -O ${CFURL}/https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/build/Release/ALCPlugFix || networkWarn
+    curl -L -O ${CFURL}/https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/good.win.ALCPlugFix.plist || networkWarn
+    curl -L -O ${CFURL}/https://raw.githubusercontent.com/Menchen/ALCPlugFix/master/alc_fix/hda-verb || networkWarn
     echo "下载完成"
     echo
 }

@@ -123,13 +123,13 @@
  
 - 如果要构建最新测试版EFI，在终端输入以下命令：
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
+sh -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
 ```
 - 或者在终端输入以下命令：
 ```shell
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
-./makefile.sh
+./makefile.sh --LANG=CN
 ```
 - 还有一些进阶用法：
 ```shell
@@ -137,7 +137,7 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --IGNORE_ERR
 # 使用中文版文档
 ./makefile.sh --LANG=CN
-# 生成 CometLake 机型的 EFI包
+# 生成 Comet Lake 机型的 EFI包
 ./makefile.sh --MODEL=CML
 # 构建时保留工程文件
 ./makefile.sh --NO_CLEAN_UP
@@ -159,7 +159,7 @@ cd XiaoMi-Pro-Hackintosh
 - 你也可以在终端输入以下命令来更新 Clover EFI：
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/install_cn.sh)"
+bash -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/install_cn.sh)"
 ```
 
 
