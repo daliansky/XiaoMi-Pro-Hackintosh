@@ -9,7 +9,7 @@ IF YOU ARE A CLOVER USER:
 
   3a. Copy SSDT-LGPA${MODEL_PREFIX}.aml and paste it to the folder in the second step
 
-IF YOU ARE A OC USER:
+IF YOU ARE AN OC USER:
   2b. Open the EFI release pack, go to EFI/OC/ACPI/ and delete SSDT-LGPA.aml
 
   3b. Copy SSDT-LGPA${MODEL_PREFIX}.aml and paste it to the folder in the second step
