@@ -52,12 +52,12 @@ function copy() {
     echo "正在拷贝声卡修复文件..."
 	if [ ! -d "/usr/local/bin" ]; then
 		echo "'/usr/local/bin' 不存在, 新建中..."
-		sudo mkdir -p -m 775 /usr/local/bin
-		sudo chown "$USER":admin /usr/local/bin
+		sudo mkdir -p -m 775 /usr/local/bin || exit 1
+		sudo chown "$USER":admin /usr/local/bin || exit 1
 	fi
-    sudo cp "./ALCPlugFix" /usr/local/bin/
-    sudo cp "./hda-verb" /usr/local/bin/
-    sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchDaemons/
+    sudo cp "./ALCPlugFix" /usr/local/bin/ || exit 1
+    sudo cp "./hda-verb" /usr/local/bin/ || exit 1
+    sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchDaemons/ || exit 1
     echo "拷贝完成"
     echo
 }
@@ -65,12 +65,12 @@ function copy() {
 # 修复权限
 function fixpermission() {
     echo "正在修复权限..."
-    sudo chmod 755 /usr/local/bin/ALCPlugFix
-    sudo chown "$USER":admin /usr/local/bin/ALCPlugFix
-    sudo chmod 755 /usr/local/bin/hda-verb
-    sudo chown "$USER":admin /usr/local/bin/hda-verb
-    sudo chmod 644 /Library/LaunchDaemons/good.win.ALCPlugFix.plist
-    sudo chown root:wheel /Library/LaunchDaemons/good.win.ALCPlugFix.plist
+    sudo chmod 755 /usr/local/bin/ALCPlugFix || exit 1
+    sudo chown "$USER":admin /usr/local/bin/ALCPlugFix || exit 1
+    sudo chmod 755 /usr/local/bin/hda-verb || exit 1
+    sudo chown "$USER":admin /usr/local/bin/hda-verb || exit 1
+    sudo chmod 644 /Library/LaunchDaemons/good.win.ALCPlugFix.plist || exit 1
+    sudo chown root:wheel /Library/LaunchDaemons/good.win.ALCPlugFix.plist || exit 1
     echo "修复完成"
     echo
 }

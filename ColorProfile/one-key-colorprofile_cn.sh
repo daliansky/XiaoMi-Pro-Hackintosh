@@ -47,7 +47,7 @@ function download(){
 # 拷贝色彩描述文件
 function copy() {
     echo "正在拷贝色彩描述文件..."
-    sudo cp "./NV156FHM-N61.icm" /Library/ColorSync/Profiles/
+    sudo cp "./NV156FHM-N61.icm" /Library/ColorSync/Profiles/ || exit 1
     echo "拷贝完成"
     echo
 }
@@ -55,7 +55,7 @@ function copy() {
 # 修复权限
 function fixpermission() {
     echo "正在修复权限..."
-    sudo chown root:wheel /Library/ColorSync/Profiles/NV156FHM-N61.icm
+    sudo chown root:wheel /Library/ColorSync/Profiles/NV156FHM-N61.icm || exit 1
     echo "修复完成"
     echo
 }

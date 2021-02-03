@@ -44,7 +44,7 @@ function download(){
 # Copy the color profile
 function copy() {
     echo "Copying Color Profile..."
-    sudo cp "./NV156FHM-N61.icm" /Library/ColorSync/Profiles/
+    sudo cp "./NV156FHM-N61.icm" /Library/ColorSync/Profiles/ || exit 1
     echo "Copy complete"
     echo
 }
@@ -52,7 +52,7 @@ function copy() {
 # Fix permission
 function fixpermission() {
     echo "Fixing permission..."
-    sudo chown root:wheel /Library/ColorSync/Profiles/NV156FHM-N61.icm
+    sudo chown root:wheel /Library/ColorSync/Profiles/NV156FHM-N61.icm || exit 1
     echo "Fix complete"
     echo
 }

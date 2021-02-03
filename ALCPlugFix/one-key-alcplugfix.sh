@@ -49,12 +49,12 @@ function copy() {
     echo "Copying audio fix patch..."
 	if [ ! -d "/usr/local/bin" ]; then
 		echo "'/usr/local/bin' not found, creating one instead..."
-		sudo mkdir -p -m 775 /usr/local/bin
-		sudo chown "$USER":admin /usr/local/bin
+		sudo mkdir -p -m 775 /usr/local/bin || exit 1
+		sudo chown "$USER":admin /usr/local/bin || exit 1
 	fi
-    sudo cp "./ALCPlugFix" /usr/local/bin/
-    sudo cp "./hda-verb" /usr/local/bin/
-    sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchDaemons/
+    sudo cp "./ALCPlugFix" /usr/local/bin/ || exit 1
+    sudo cp "./hda-verb" /usr/local/bin/ || exit 1
+    sudo cp "./good.win.ALCPlugFix.plist" /Library/LaunchDaemons/ || exit 1
     echo "Copy complete"
     echo
 }
@@ -62,12 +62,12 @@ function copy() {
 # Fix permission
 function fixpermission() {
     echo "Fixing permission..."
-    sudo chmod 755 /usr/local/bin/ALCPlugFix
-    sudo chown "$USER":admin /usr/local/bin/ALCPlugFix
-    sudo chmod 755 /usr/local/bin/hda-verb
-    sudo chown "$USER":admin /usr/local/bin/hda-verb
-    sudo chmod 644 /Library/LaunchDaemons/good.win.ALCPlugFix.plist
-    sudo chown root:wheel /Library/LaunchDaemons/good.win.ALCPlugFix.plist
+    sudo chmod 755 /usr/local/bin/ALCPlugFix || exit 1
+    sudo chown "$USER":admin /usr/local/bin/ALCPlugFix || exit 1
+    sudo chmod 755 /usr/local/bin/hda-verb || exit 1
+    sudo chown "$USER":admin /usr/local/bin/hda-verb || exit 1
+    sudo chmod 644 /Library/LaunchDaemons/good.win.ALCPlugFix.plist || exit 1
+    sudo chown root:wheel /Library/LaunchDaemons/good.win.ALCPlugFix.plist || exit 1
     echo "Fix complete"
     echo
 }
