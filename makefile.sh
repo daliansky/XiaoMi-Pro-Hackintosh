@@ -1132,8 +1132,8 @@ function GenNote() {
   lineEnd=${lineEnd%%:*} && lineEnd=$((lineEnd-3))
   sed -n "${lineStart},${lineEnd}p" ${changelogPath} >> ReleaseNotes.md
 
-  # Generate Cloudflare links
-  if [[ ${CUR_TAG} != "" ]]; then
+  # Generate Cloudflare links when publish EFI release
+  if [[ "${GITHUB_REF}" = refs/tags/* ]]; then
     echo "-----" >> ReleaseNotes.md
     printf "#### 国内加速下载链接：\nDownload link for China:\n" >> ReleaseNotes.md
     for model in "${MODEL_LIST[@]}"; do
