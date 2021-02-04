@@ -245,6 +245,10 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>DisableDrivers</key>
+	<array>
+		<string>ExFatDxe</string>
+	</array>
 	<key>GUI</key>
 	<dict>
 		<key>Hide</key>

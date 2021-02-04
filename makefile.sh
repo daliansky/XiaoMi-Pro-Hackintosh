@@ -763,6 +763,11 @@ function Install() {
   done
 
   # Drivers
+  local driverItems=(
+    "OcBinaryData-master/Drivers/ExFatDxe.efi"
+    "OcBinaryData-master/Drivers/HfsPlus.efi"
+  )
+
   echo "${green}[${reset}${blue}${bold} Installing Drivers ${reset}${green}]${reset}"
   echo
   for model in "${MODEL_LIST[@]}"; do
@@ -770,10 +775,11 @@ function Install() {
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
     for Driverdir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/"; do
       mkdir -p "${Driverdir}" || exit 1
-      cp -R "OcBinaryData-master/Drivers/HfsPlus.efi" "${Driverdir}" || copyErr
-      cp -R "OcBinaryData-master/Drivers/ExFatDxe.efi" "${Driverdir}" || copyErr
+      for driverItem in "${driverItems[@]}"; do
+        cp "${driverItem}" "${Driverdir}" || copyErr
+      done
     done
-    cp -R "VirtualSmc.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
+    cp "VirtualSmc.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
   done
 
   # ACPI
@@ -830,7 +836,7 @@ function Install() {
     for ACPIdir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/ACPI/patched/" "${!OUTDir_MODEL_OC}/EFI/OC/ACPI/"; do
       mkdir -p "${ACPIdir}" || exit 1
       for acpiItem in "${!acpiItems}"; do
-        cp -R "${acpiItem}" "${ACPIdir}" || copyErr
+        cp "${acpiItem}" "${ACPIdir}" || copyErr
       done
     done
   done
@@ -859,26 +865,26 @@ function Install() {
     model_Prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     MODEL_Config="config_${model_Prefix}.plist"
     if [[ ${REMOTE} == True ]]; then
-      cp -R "${REPO_NAME_BRANCH}/CLOVER/${MODEL_Config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
-      cp -R "${REPO_NAME_BRANCH}/OC/${MODEL_Config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
+      cp "${REPO_NAME_BRANCH}/CLOVER/${MODEL_Config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
+      cp "${REPO_NAME_BRANCH}/OC/${MODEL_Config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for READMEdir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${LANGUAGE} == "EN" ]]; then
-          cp -R "${REPO_NAME_BRANCH}/README.md" "${READMEdir}" || copyErr
+          cp "${REPO_NAME_BRANCH}/README.md" "${READMEdir}" || copyErr
         elif [[ ${LANGUAGE} == "CN" ]]; then
-          cp -R "${REPO_NAME_BRANCH}/README_CN.md" "${READMEdir}" || copyErr
+          cp "${REPO_NAME_BRANCH}/README_CN.md" "${READMEdir}" || copyErr
         fi
-        cp -R "${REPO_NAME_BRANCH}/LICENSE" "${READMEdir}" || copyErr
+        cp "${REPO_NAME_BRANCH}/LICENSE" "${READMEdir}" || copyErr
       done
     else
-      cp -R "../CLOVER/${MODEL_Config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
-      cp -R "../OC/${MODEL_Config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
+      cp "../CLOVER/${MODEL_Config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
+      cp "../OC/${MODEL_Config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for READMEdir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${LANGUAGE} == "EN" ]]; then
-          cp -R "../README.md" "${READMEdir}" || copyErr
+          cp "../README.md" "${READMEdir}" || copyErr
         elif [[ ${LANGUAGE} == "CN" ]]; then
-          cp -R "../README_CN.md" "${READMEdir}" || copyErr
+          cp "../README_CN.md" "${READMEdir}" || copyErr
         fi
-        cp -R "../LICENSE" "${READMEdir}" || copyErr
+        cp "../LICENSE" "${READMEdir}" || copyErr
       done
     fi
   done
@@ -924,7 +930,7 @@ function Install() {
     for BTdir in "${!OUTDir_MODEL_CLOVER}/Bluetooth" "${!OUTDir_MODEL_OC}/Bluetooth"; do
       mkdir -p "${BTdir}" || exit 1
       for btItem in "${!btItems}"; do
-        cp -R "${btItem}" "${BTdir}" || copyErr
+        cp "${btItem}" "${BTdir}" || copyErr
       done
     done
 
@@ -932,20 +938,20 @@ function Install() {
       local kblLgpaItems=( "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-LGPAGTX.aml" )
       if [[ ${LANGUAGE} == "EN" ]]; then
         if [[ ${REMOTE} == False ]]; then
-          cp -R "../Docs/README_\${MODEL}.txt" "README_GTX.txt"
+          cp "../Docs/README_\${MODEL}.txt" "README_GTX.txt"
           kblLgpaItems=("${kblLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
         else
-          cp -R "${REPO_NAME_BRANCH}/Docs/README_\${MODEL}.txt" "README_GTX.txt"
+          cp "${REPO_NAME_BRANCH}/Docs/README_\${MODEL}.txt" "README_GTX.txt"
         fi
         /usr/bin/sed -i "" "s:\${MODEL}:GTX:g" "README_GTX.txt"
         /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:GTX:g" "README_GTX.txt"
         kblLgpaItems+=( "README_GTX.txt" )
       elif [[ ${LANGUAGE} == "CN" ]]; then
         if [[ ${REMOTE} == False ]]; then
-          cp -R "../Docs/README_CN_\${MODEL}.txt" "README_CN_GTX.txt"
+          cp "../Docs/README_CN_\${MODEL}.txt" "README_CN_GTX.txt"
           kblLgpaItems=("${kblLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
         else
-          cp -R "${REPO_NAME_BRANCH}/Docs/README_CN_\${MODEL}.txt" "README_CN_GTX.txt"
+          cp "${REPO_NAME_BRANCH}/Docs/README_CN_\${MODEL}.txt" "README_CN_GTX.txt"
         fi
         /usr/bin/sed -i "" "s:\${MODEL}:GTX:g" "README_CN_GTX.txt"
         /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:GTX:g" "README_GTX.txt"
@@ -956,20 +962,20 @@ function Install() {
       local cmlLgpaItems=( "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA350.aml" )
       if [[ ${LANGUAGE} == "EN" ]]; then
         if [[ ${REMOTE} == False ]]; then
-          cp -R "../Docs/README_\${MODEL}.txt" "README_MX350.txt"
+          cp "../Docs/README_\${MODEL}.txt" "README_MX350.txt"
           cmlLgpaItems=("${cmlLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
         else
-          cp -R "${REPO_NAME_BRANCH}/Docs/README_\${MODEL}.txt" "README_MX350.txt"
+          cp "${REPO_NAME_BRANCH}/Docs/README_\${MODEL}.txt" "README_MX350.txt"
         fi
         /usr/bin/sed -i "" "s:\${MODEL}:MX350:g" "README_MX350.txt"
         /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:350:g" "README_MX350.txt"
         cmlLgpaItems+=( "README_MX350.txt" )
       elif [[ ${LANGUAGE} == "CN" ]]; then
         if [[ ${REMOTE} == False ]]; then
-          cp -R "../Docs/README_CN_\${MODEL}.txt" "README_CN_MX350.txt"
+          cp "../Docs/README_CN_\${MODEL}.txt" "README_CN_MX350.txt"
           cmlLgpaItems=("${cmlLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
         else
-          cp -R "${REPO_NAME_BRANCH}/Docs/README_CN_\${MODEL}.txt" "README_CN_MX350.txt"
+          cp "${REPO_NAME_BRANCH}/Docs/README_CN_\${MODEL}.txt" "README_CN_MX350.txt"
         fi
         /usr/bin/sed -i "" "s:\${MODEL}:MX350:g" "README_CN_MX350.txt"
         /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:350:g" "README_CN_MX350.txt"
@@ -987,7 +993,7 @@ function Install() {
     for LGPAdir in "${!OUTDir_MODEL_CLOVER}/${lgpaDir}" "${!OUTDir_MODEL_OC}/${lgpaDir}"; do
       mkdir -p "${LGPAdir}" || exit 1
       for lgpaItem in "${!lgpaItems}"; do
-        cp -R "${lgpaItem}" "${LGPAdir}" || copyErr
+        cp "${lgpaItem}" "${LGPAdir}" || copyErr
       done
     done
 
@@ -1011,7 +1017,7 @@ function Install() {
     for WIKIdir in "${!OUTDir_MODEL_CLOVER}/Docs" "${!OUTDir_MODEL_OC}/Docs"; do
       mkdir -p "${WIKIdir}" || exit 1
       for wikiItem in "${wikiItems[@]}"; do
-        cp -R "${wikiItem}" "${WIKIdir}" || copyErr
+        cp "${wikiItem}" "${WIKIdir}" || copyErr
       done
     done
   done
@@ -1041,7 +1047,7 @@ function Install() {
     for ALCPFdir in "${!OUTDir_MODEL_CLOVER}/ALCPlugFix" "${!OUTDir_MODEL_OC}/ALCPlugFix"; do
       mkdir -p "${ALCPFdir}" || exit 1
       for alcfixItem in "${kblAlcfixItems[@]}"; do
-        cp -R "${alcfixItem}" "${ALCPFdir}" || copyErr
+        cp "${alcfixItem}" "${ALCPFdir}" || copyErr
       done
     done
   fi
@@ -1065,10 +1071,10 @@ function ExtractClover() {
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     cp -R "Clover/CloverV2/EFI/BOOT" "${!OUTDir_MODEL_CLOVER}/EFI/" || copyErr
-    cp -R "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
+    cp "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
     cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
     for driverItem in "${driverItems[@]}"; do
-      cp -R "${driverItem}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
+      cp "${driverItem}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
     done
   done
 }
@@ -1091,13 +1097,14 @@ function ExtractOC() {
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
     mkdir -p "${!OUTDir_MODEL_OC}/EFI/OC/Tools" || exit 1
     cp -R "OpenCore/X64/EFI/BOOT" "${!OUTDir_MODEL_OC}/EFI/" || copyErr
-    cp -R "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
+    cp "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
     for driverItem in "${driverItems[@]}"; do
-      cp -R "${driverItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/" || copyErr
+      cp "${driverItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/" || copyErr
     done
     for toolItem in "${toolItems[@]}"; do
-      cp -R "${toolItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Tools/" || copyErr
+      cp "${toolItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Tools/" || copyErr
     done
+    cp "OpenCore/Docs/Configuration.pdf" "${!OUTDir_MODEL_OC}/Docs/OC Configuration.pdf" || copyErr
   done
 }
 
@@ -1141,7 +1148,7 @@ function GenNote() {
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
     for RNotedir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
-      cp -R "ReleaseNotes.md" "${RNotedir}" || copyErr
+      cp "ReleaseNotes.md" "${RNotedir}" || copyErr
     done
   done
 }
