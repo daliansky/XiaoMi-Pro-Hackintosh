@@ -1047,7 +1047,7 @@ function Install() {
     for ALCPFdir in "${!OUTDir_MODEL_CLOVER}/ALCPlugFix" "${!OUTDir_MODEL_OC}/ALCPlugFix"; do
       mkdir -p "${ALCPFdir}" || exit 1
       for alcfixItem in "${kblAlcfixItems[@]}"; do
-        cp "${alcfixItem}" "${ALCPFdir}" || copyErr
+        cp -R "${alcfixItem}" "${ALCPFdir}" || copyErr
       done
     done
   fi
