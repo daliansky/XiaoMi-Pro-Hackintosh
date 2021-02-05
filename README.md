@@ -141,7 +141,7 @@ cd XiaoMi-Pro-Hackintosh
 # Ignore errors when the script is running
 ./makefile.sh --IGNORE_ERR
 # Bundled with Chinese verison Docs
-./makefile.sh --LANG=CN
+./makefile.sh --LANG=zh_CN
 # Generate EFI release for Comet Lake model
 ./makefile.sh --MODEL=CML
 # Preserve work files during the building stage

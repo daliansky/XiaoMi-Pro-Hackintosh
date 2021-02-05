@@ -15,7 +15,7 @@ CFURL="https://hackintosh.stevezheng.workers.dev"
 CLEAN_UP=True
 ERR_NO_EXIT=False
 GH_API=True
-LANGUAGE="EN"
+LANGUAGE="en_US"
 MODEL=""
 MODEL_LIST=( )
 NO_XCODE=False
@@ -38,6 +38,12 @@ else
   xcodebuild -version
 fi
 
+# Language detect
+LANGUAGE=$(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1)
+if [[ ${LANGUAGE} != "zh_CN" ]]; then
+  LANGUAGE="en_US"
+fi
+
 # Args
 while [[ $# -gt 0 ]]; do
   key="$1"
@@ -47,8 +53,8 @@ while [[ $# -gt 0 ]]; do
     ERR_NO_EXIT=True
     shift # past argument
     ;;
-    --LANG=CN)
-    LANGUAGE="CN"
+    --LANG=zh_CN)
+    LANGUAGE="zh_CN"
     shift # past argument
     ;;
     --NO_CLEAN_UP)
@@ -262,7 +268,7 @@ function DGR() {
       rawURL="https://github.com/$1/$2/releases$tag"
     fi
     for HG in "${HGs[@]}"; do
-      if [[ ${LANGUAGE} == "CN" ]]; then
+      if [[ ${LANGUAGE} == "zh_CN" ]]; then
         rawURL=${rawURL/#/${CFURL}/}
       fi
       URLs+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
@@ -284,7 +290,7 @@ function DGR() {
     done
   fi
 
-  if [[ ${LANGUAGE} == "CN" ]]; then
+  if [[ ${LANGUAGE} == "zh_CN" ]]; then
     URLs=("${URLs[@]/#/${CFURL}/}")
   fi
 
@@ -304,7 +310,7 @@ function DGR() {
 # Download GitHub Source Code
 function DGS() {
   local URL="https://github.com/$1/$2/archive/$3.zip"
-  if [[ ${LANGUAGE} == "CN" ]]; then
+  if [[ ${LANGUAGE} == "zh_CN" ]]; then
     URL=${URL/#/${CFURL}/}
   fi
   echo "${green}[${reset}${blue}${bold} Downloading $2.zip ${reset}${green}]${reset}"
@@ -348,7 +354,7 @@ function DBR() {
 # Download Pre-Built Binaries
 function DPB() {
   local URL="https://raw.githubusercontent.com/$1/$2/master/$3"
-  if [[ ${LANGUAGE} == "CN" ]]; then
+  if [[ ${LANGUAGE} == "zh_CN" ]]; then
     URL=${URL/#/${CFURL}/}
   fi
   echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
@@ -375,7 +381,7 @@ function BKextHelper() {
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
   echo
-  if [[ ${LANGUAGE} != "CN" ]]; then
+  if [[ ${LANGUAGE} != "zh_CN" ]]; then
     git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   else
     git clone --depth=1 ${CFURL}/https://github.com/"$1"/"$2".git >/dev/null 2>&1
@@ -505,7 +511,7 @@ function BKext() {
     exit 1
   fi
 
-  if [[ ${LANGUAGE} != "CN" ]]; then
+  if [[ ${LANGUAGE} != "zh_CN" ]]; then
     git clone https://github.com/acidanthera/MacKernelSDK >/dev/null 2>&1
     src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
     src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
@@ -868,9 +874,9 @@ function Install() {
       cp "${REPO_NAME_BRANCH}/CLOVER/${MODEL_Config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
       cp "${REPO_NAME_BRANCH}/OC/${MODEL_Config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for READMEdir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
-        if [[ ${LANGUAGE} == "EN" ]]; then
+        if [[ ${LANGUAGE} == "en_US" ]]; then
           cp "${REPO_NAME_BRANCH}/README.md" "${READMEdir}" || copyErr
-        elif [[ ${LANGUAGE} == "CN" ]]; then
+        elif [[ ${LANGUAGE} == "zh_CN" ]]; then
           cp "${REPO_NAME_BRANCH}/README_CN.md" "${READMEdir}" || copyErr
         fi
         cp "${REPO_NAME_BRANCH}/LICENSE" "${READMEdir}" || copyErr
@@ -879,9 +885,9 @@ function Install() {
       cp "../CLOVER/${MODEL_Config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
       cp "../OC/${MODEL_Config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for READMEdir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
-        if [[ ${LANGUAGE} == "EN" ]]; then
+        if [[ ${LANGUAGE} == "en_US" ]]; then
           cp "../README.md" "${READMEdir}" || copyErr
-        elif [[ ${LANGUAGE} == "CN" ]]; then
+        elif [[ ${LANGUAGE} == "zh_CN" ]]; then
           cp "../README_CN.md" "${READMEdir}" || copyErr
         fi
         cp "../LICENSE" "${READMEdir}" || copyErr
@@ -892,9 +898,9 @@ function Install() {
   # Bluetooth & GTX/MX350 & wiki
   local lgpaDir
 
-  if [[ ${LANGUAGE} == "EN" ]]; then
+  if [[ ${LANGUAGE} == "en_US" ]]; then
     local sharedBtItems=( "${REPO_NAME_BRANCH}/Docs/Work-Around-with-Bluetooth.pdf" )
-  elif [[ ${LANGUAGE} == "CN" ]]; then
+  elif [[ ${LANGUAGE} == "zh_CN" ]]; then
     local sharedBtItems=( "${REPO_NAME_BRANCH}/Docs/蓝牙解决方案.pdf" )
   fi
   if [[ "${MODEL}" =~ "CML" ]]; then
@@ -936,7 +942,7 @@ function Install() {
 
     if [[ "${MODEL}" =~ "KBL" ]]; then
       local kblLgpaItems=( "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-LGPAGTX.aml" )
-      if [[ ${LANGUAGE} == "EN" ]]; then
+      if [[ ${LANGUAGE} == "en_US" ]]; then
         if [[ ${REMOTE} == False ]]; then
           cp "../Docs/README_\${MODEL}.txt" "README_GTX.txt"
           kblLgpaItems=("${kblLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
@@ -946,7 +952,7 @@ function Install() {
         /usr/bin/sed -i "" "s:\${MODEL}:GTX:g" "README_GTX.txt"
         /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:GTX:g" "README_GTX.txt"
         kblLgpaItems+=( "README_GTX.txt" )
-      elif [[ ${LANGUAGE} == "CN" ]]; then
+      elif [[ ${LANGUAGE} == "zh_CN" ]]; then
         if [[ ${REMOTE} == False ]]; then
           cp "../Docs/README_CN_\${MODEL}.txt" "README_CN_GTX.txt"
           kblLgpaItems=("${kblLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
@@ -960,7 +966,7 @@ function Install() {
     fi
     if [[ "${MODEL}" =~ "CML" ]]; then
       local cmlLgpaItems=( "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA350.aml" )
-      if [[ ${LANGUAGE} == "EN" ]]; then
+      if [[ ${LANGUAGE} == "en_US" ]]; then
         if [[ ${REMOTE} == False ]]; then
           cp "../Docs/README_\${MODEL}.txt" "README_MX350.txt"
           cmlLgpaItems=("${cmlLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
@@ -970,7 +976,7 @@ function Install() {
         /usr/bin/sed -i "" "s:\${MODEL}:MX350:g" "README_MX350.txt"
         /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:350:g" "README_MX350.txt"
         cmlLgpaItems+=( "README_MX350.txt" )
-      elif [[ ${LANGUAGE} == "CN" ]]; then
+      elif [[ ${LANGUAGE} == "zh_CN" ]]; then
         if [[ ${REMOTE} == False ]]; then
           cp "../Docs/README_CN_\${MODEL}.txt" "README_CN_MX350.txt"
           cmlLgpaItems=("${cmlLgpaItems[@]/${REPO_NAME_BRANCH}/..}")
@@ -997,13 +1003,13 @@ function Install() {
       done
     done
 
-    if [[ ${LANGUAGE} == "EN" ]]; then
+    if [[ ${LANGUAGE} == "en_US" ]]; then
       local wikiItems=(
         "${REPO_NAME_BRANCH}/Docs/FAQ.pdf"
         "${REPO_NAME_BRANCH}/Docs/Set-DVMT-to-64mb.pdf"
         "${REPO_NAME_BRANCH}/Docs/Unlock-0xE2-MSR.pdf"
       )
-    elif [[ ${LANGUAGE} == "CN" ]]; then
+    elif [[ ${LANGUAGE} == "zh_CN" ]]; then
       local wikiItems=(
         "${REPO_NAME_BRANCH}/Docs/常见问题解答.pdf"
         "${REPO_NAME_BRANCH}/Docs/设置64mb动态显存.pdf"

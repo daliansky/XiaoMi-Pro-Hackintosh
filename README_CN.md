@@ -129,14 +129,14 @@ sh -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.github
 ```shell
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
-./makefile.sh --LANG=CN
+./makefile.sh --LANG=zh_CN
 ```
 - 还有一些进阶用法：
 ```shell
 # 忽略脚本运行时遇到的错误
 ./makefile.sh --IGNORE_ERR
 # 使用中文版文档
-./makefile.sh --LANG=CN
+./makefile.sh --LANG=zh_CN
 # 生成 Comet Lake 机型的 EFI包
 ./makefile.sh --MODEL=CML
 # 构建时保留工程文件
