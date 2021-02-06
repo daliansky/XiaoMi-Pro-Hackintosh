@@ -876,7 +876,7 @@ function Install() {
         if [[ ${LANGUAGE} == "en_US" ]]; then
           cp "${REPO_NAME_BRANCH}/README.md" "${READMEdir}" || copyErr
         elif [[ ${LANGUAGE} == "zh_CN" ]]; then
-          cp "${REPO_NAME_BRANCH}/README_CN.md" "${READMEdir}" || copyErr
+          cp "${REPO_NAME_BRANCH}/Docs/README_CN.md" "${READMEdir}" || copyErr
         fi
         cp "${REPO_NAME_BRANCH}/LICENSE" "${READMEdir}" || copyErr
       done
@@ -887,7 +887,7 @@ function Install() {
         if [[ ${LANGUAGE} == "en_US" ]]; then
           cp "../README.md" "${READMEdir}" || copyErr
         elif [[ ${LANGUAGE} == "zh_CN" ]]; then
-          cp "../README_CN.md" "${READMEdir}" || copyErr
+          cp "../Docs/README_CN.md" "${READMEdir}" || copyErr
         fi
         cp "../LICENSE" "${READMEdir}" || copyErr
       done
@@ -1121,7 +1121,11 @@ function GenNote() {
   local lineEnd
   local changelogPath
 
-  changelogPath="${REPO_NAME_BRANCH}/Changelog.md"
+  if [[ ${LANGUAGE} == "zh_CN" ]]; then
+    changelogPath="${REPO_NAME_BRANCH}/Docs/Changelog_CN.md"
+  else
+    changelogPath="${REPO_NAME_BRANCH}/Changelog.md"
+  fi
   if [[ ${REMOTE} == False ]]; then
     changelogPath="${changelogPath/${REPO_NAME_BRANCH}/..}"
   fi

@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![Release](https://img.shields.io/github/v/release/daliansky/XiaoMi-Pro-Hackintosh?label=download)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/latest) [![Wiki](https://img.shields.io/badge/support-Wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki) [![Chat](https://img.shields.io/badge/chat-Discussions-orange.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/discussions)
 -----
 
-**English** | [中文](README_CN.md)
+**English** | [中文](Docs/README_CN.md)
 
 ## Contents
 
@@ -164,7 +164,7 @@ cd XiaoMi-Pro-Hackintosh
 - You can also update Clover EFI by running the following command in Terminal:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Scripts/install.sh)"
 ```
 
 
@@ -204,12 +204,6 @@ For OC users, press `Esc` to enter the boot menu during startup. Then, press `Sp
 #### [Clover] I opened the `FileVault`, and I can't find macOS partition in Clover boot page, how can I solve it?
 
 It is not recommended to open `FileVault`. You can press `Fn+F3` in the Clover boot page and choose the icon with `FileVault`. Then you can boot in the system and close `FileVault`.
-
-#### [Clover] I can't boot in Windows/Linux by using Clover, but able to boot by press `F12` and select OS.
-
-Many people met this problem by using the new version of `AptioMemoryFix.efi`. A workaround is to delete `AptioMemoryFix.efi` (or `OcQuirks.efi`, `OpenRuntime.efi`, and `OcQuirks.plist`) in `/CLOVER/drivers/UEFI/` and replace it with the old version provided in [#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93).
-
-Also make sure `Sandbox` and `Hyper-V` functions in Windows 10 are disabled.
 
 #### [OC] How to skip the boot menu and automatically boot into the system?
 

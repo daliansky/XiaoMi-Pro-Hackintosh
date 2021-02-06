@@ -1,6 +1,6 @@
 # XiaoMi NoteBook Pro EFI 更新日志
 
-[English](Changelog.md) | **中文**
+[English](/Changelog.md) | **中文**
 
 ## XiaoMi NoteBook Pro EFI v1.5.3
 ## 3-1-2021

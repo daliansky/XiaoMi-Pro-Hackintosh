@@ -3,7 +3,7 @@
 [![构建状态](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![Release](https://img.shields.io/github/v/release/daliansky/XiaoMi-Pro-Hackintosh?label=下载)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/latest) [![Wiki](https://img.shields.io/badge/支持-Wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-orange.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
-[English](README.md) | **中文**
+[English](/README.md) | **中文**
 
 ## 目录
 
@@ -159,7 +159,7 @@ cd XiaoMi-Pro-Hackintosh
 - 你也可以在终端输入以下命令来更新 Clover EFI：
 
 ```bash
-bash -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/install_cn.sh)"
+bash -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Scripts/install_cn.sh)"
 ```
 
 
@@ -199,12 +199,6 @@ bash -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.gith
 #### [Clover] 我开启了 `文件保险箱`，开机时找不到 macOS 启动项，怎么办？
 
 一般情况下不推荐开启 `文件保险箱`。你可以在 Clover 开机界面时按下 `Fn+F3`，然后选择下方小字含有 `FileVault` 的苹果图标。进入系统后关闭 `文件保险箱`。
-
-#### [Clover] 我无法通过 Clover 进入 Windows/Linux，但是可以通过按 `F12`，然后选择系统进入。
-
-很多人使用了新版 `AptioMemoryFix.efi` 后无法正常进入 Windows/Linux 系统。一个解决方案是先删除 `/CLOVER/drivers/UEFI/` 里的 `AptioMemoryFix.efi`（或者 `OcQuirks.efi`，`OpenRuntime.efi` 和 `OcQuirks.plist`），然后替换进[#93](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/93)提供的旧版 `AptioMemoryFix.efi`。
-
-同时确保 `沙盒`(Sandbox) 和 `Hyper-V` 功能关闭。
 
 #### [OC] 怎么跳过引导菜单并直接进入系统？
 
