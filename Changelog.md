@@ -2,6 +2,18 @@
 
 **English** | [中文](Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.5.3
+## 3-1-2021
+
+### Update
+  - Update `OpenCore` v0.6.7
+  - Update `AppleALC` v1.5.8
+  - Update `AirportItlwm` v1.3.0 (up to )
+
+### Add
+  - Add `enable-backlight-registers-fix` property to fix backlight registers
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2-2-2021
 
