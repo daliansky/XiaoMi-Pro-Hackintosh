@@ -33,9 +33,9 @@ if [ "$(which xcodebuild)" = "" ] || [ "$(which git)" = "" ]; then
   NO_XCODE=True
 elif [[ "${DEVELOPER_DIR}" = "" ]]; then
   DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
-  xcodebuild -version
+  xcodebuild -version && echo
 else
-  xcodebuild -version
+  xcodebuild -version && echo
 fi
 
 # Language detect
@@ -143,31 +143,31 @@ function Cleanup() {
 # Exit on Network Issue
 function networkErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
-  echo
   if [[ ${ERR_NO_EXIT} == False ]]; then
     Cleanup
     exit 1
   fi
+  echo
 }
 
 # Exit on Copy Issue
 function copyErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to copy resources!"
-  echo
   if [[ ${ERR_NO_EXIT} == False ]]; then
     Cleanup
     exit 1
   fi
+  echo
 }
 
 # Exit on Build Issue
 function buildErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to build $1!"
-  echo
   if [[ ${ERR_NO_EXIT} == False ]]; then
     Cleanup
     exit 1
   fi
+  echo
 }
 
 function Init() {
@@ -380,7 +380,6 @@ function BKextHelper() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
-  echo
   if [[ ${LANGUAGE} != "zh_CN" ]]; then
     git clone --depth=1 https://github.com/"$1"/"$2".git >/dev/null 2>&1
   else
@@ -480,7 +479,7 @@ function BKextHelper() {
     cp -R itlwm/firmware/iwlwifi-QuZ* "tmp" || copyErr
     cp -R itlwm/firmware/iwm-8265* "tmp" || copyErr
     if [[ "${MODEL}" =~ "CML" ]]; then
-      # Delete unrelated firmware and only keep iwm-9000* for Intel Wireless 9560
+      # Delete unrelated firmware and only keep iwlwifi-QuZ* for Intel Wireless 9560
       rm -rf "include/FwBinary.cpp" >/dev/null 2>&1
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
@@ -501,6 +500,7 @@ function BKextHelper() {
     fi
   fi
   cd ../ || exit 1
+  echo
 }
 
 function BKext() {
@@ -599,14 +599,14 @@ function DL() {
 # Unpack
 function Unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
-  echo
-  unzip -qq "*.zip" >/dev/null 2>&1
-  if [[ "${MODEL}" =~ "CML" ]]; then
-    (cd "CML" && unzip -qq ./*.zip >/dev/null 2>&1 || exit 1)
+  unzip -qq "*.zip" || exit 1
+  if [[ "${MODEL}" =~ "CML" ]] && [[ ${PRE_RELEASE} != *Kext* ]]; then
+    (cd "CML" && unzip -qq ./*.zip || exit 1)
   fi
   if [[ "${MODEL}" =~ "KBL" ]]; then
-    (cd "KBL" && unzip -qq ./*.zip >/dev/null 2>&1 || exit 1)
+    (cd "KBL" && unzip -qq ./*.zip || exit 1)
   fi
+  echo
 }
 
 # Patch
@@ -624,7 +624,6 @@ function Patch() {
     "WhateverGreen.kext/Contents/_CodeSignature"
   )
   echo "${green}[${reset}${blue}${bold} Patching Resources ${reset}${green}]${reset}"
-  echo
   for unusedItem in "${unusedItems[@]}"; do
     rm -rf "${unusedItem}" >/dev/null 2>&1
   done
@@ -646,6 +645,7 @@ function Patch() {
     mv "High Sierra/AirportItlwm.kext" "High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
     mv "Mojave/AirportItlwm.kext" "Mojave/AirportItlwm_Mojave.kext" || exit 1
   fi
+  echo
 }
 
 # Install
@@ -722,7 +722,6 @@ function Install() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
-  echo
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
@@ -767,6 +766,7 @@ function Install() {
       cp -R "${kextItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
     done
   done
+  echo
 
   # Drivers
   local driverItems=(
@@ -775,7 +775,6 @@ function Install() {
   )
 
   echo "${green}[${reset}${blue}${bold} Installing Drivers ${reset}${green}]${reset}"
-  echo
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
@@ -787,6 +786,7 @@ function Install() {
     done
     cp "VirtualSmc.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
   done
+  echo
 
   # ACPI
   local sharedAcpiItems=(
@@ -832,7 +832,6 @@ function Install() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing ACPIs ${reset}${green}]${reset}"
-  echo
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
@@ -846,10 +845,10 @@ function Install() {
       done
     done
   done
+  echo
 
   # Theme
   echo "${green}[${reset}${blue}${bold} Installing Themes ${reset}${green}]${reset}"
-  echo
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
@@ -861,10 +860,10 @@ function Install() {
 
     cp -R "OcBinaryData-master/Resources" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
   done
+  echo
 
   # config & README & LICENSE
   echo "${green}[${reset}${blue}${bold} Installing config & README & LICENSE ${reset}${green}]${reset}"
-  echo
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
@@ -894,6 +893,7 @@ function Install() {
       done
     fi
   done
+  echo
 
   # Bluetooth & GTX/MX350 & wiki
   local lgpaDir
@@ -926,7 +926,6 @@ function Install() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing Docs About Bluetooth & GTX/MX350 & wiki ${reset}${green}]${reset}"
-  echo
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
@@ -1027,6 +1026,7 @@ function Install() {
       done
     done
   done
+  echo
 
   # ALCPlugFix
   if [[ "${MODEL}" =~ "KBL" ]]; then
@@ -1049,13 +1049,13 @@ function Install() {
     fi
 
     echo "${green}[${reset}${blue}${bold} Installing ALCPlugFix ${reset}${green}]${reset}"
-    echo
     for ALCPFdir in "${!OUTDir_MODEL_CLOVER}/ALCPlugFix" "${!OUTDir_MODEL_OC}/ALCPlugFix"; do
       mkdir -p "${ALCPFdir}" || exit 1
       for alcfixItem in "${kblAlcfixItems[@]}"; do
         cp -R "${alcfixItem}" "${ALCPFdir}" || copyErr
       done
     done
+    echo
   fi
 }
 
@@ -1069,11 +1069,10 @@ function ExtractClover() {
   )
 
   echo "${green}[${reset}${blue}${bold} Extracting Clover ${reset}${green}]${reset}"
-  echo
   # From CloverV2, AppleSupportPkg v2.0.9, and AppleSupportPkg v2.1.6
-  unzip -d "Clover" "Clover/*.zip" >/dev/null 2>&1
-  unzip -d "Clover/AppleSupportPkg_209" "Clover/AppleSupportPkg_209/*.zip" >/dev/null 2>&1
-  unzip -d "Clover/AppleSupportPkg_216" "Clover/AppleSupportPkg_216/*.zip" >/dev/null 2>&1
+  unzip -qq -d "Clover" "Clover/*.zip" || exit 1
+  unzip -qq -d "Clover/AppleSupportPkg_209" "Clover/AppleSupportPkg_209/*.zip" || exit 1
+  unzip -qq -d "Clover/AppleSupportPkg_216" "Clover/AppleSupportPkg_216/*.zip" || exit 1
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     cp -R "Clover/CloverV2/EFI/BOOT" "${!OUTDir_MODEL_CLOVER}/EFI/" || copyErr
@@ -1083,6 +1082,7 @@ function ExtractClover() {
       cp "${driverItem}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
     done
   done
+  echo
 }
 
 # Extract files from OpenCore
@@ -1097,8 +1097,7 @@ function ExtractOC() {
   )
 
   echo "${green}[${reset}${blue}${bold} Extracting OpenCore ${reset}${green}]${reset}"
-  echo
-  unzip -d "OpenCore" "OpenCore/*.zip" >/dev/null 2>&1
+  unzip -qq -d "OpenCore" "OpenCore/*.zip" || exit 1
   for model in "${MODEL_LIST[@]}"; do
     OUTDir_MODEL_OC="OUTDir_${model}_OC"
     mkdir -p "${!OUTDir_MODEL_OC}/EFI/OC/Tools" || exit 1
@@ -1112,6 +1111,7 @@ function ExtractOC() {
     done
     cp "OpenCore/Docs/Configuration.pdf" "${!OUTDir_MODEL_OC}/Docs/OC Configuration.pdf" || copyErr
   done
+  echo
 }
 
 # Generate Release Note
@@ -1127,7 +1127,6 @@ function GenNote() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
-  echo
   printVersion=$(echo "${VERSION}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
   printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
   # Release warning
@@ -1157,15 +1156,16 @@ function GenNote() {
       cp "ReleaseNotes.md" "${RNotedir}" || copyErr
     done
   done
+  echo
 }
 
 # Exclude Trash
 function CTrash() {
   echo "${green}[${reset}${blue}${bold} Cleaning Trash Files ${reset}${green}]${reset}"
-  echo
   if [[ ${CLEAN_UP} == True ]]; then
     find . -maxdepth 1 ! -path "./${OUTDir_KBL_CLOVER}" ! -path "./${OUTDir_KBL_OC}" ! -path "./${OUTDir_CML_CLOVER}" ! -path "./${OUTDir_CML_OC}" -exec rm -rf {} + >/dev/null 2>&1
   fi
+  echo
 }
 
 # Enjoy
@@ -1177,7 +1177,7 @@ function Enjoy() {
       zip -qr "${BUILDdir}.zip" "${BUILDdir}"
     done
   done
-  echo "${red}[${reset}${blue}${bold} Done! Enjoy! ${reset}${red}]${reset}"
+  echo "${green}[${reset}${blue}${bold} Done! Enjoy! ${reset}${green}]${reset}"
   echo
   open ./
 }

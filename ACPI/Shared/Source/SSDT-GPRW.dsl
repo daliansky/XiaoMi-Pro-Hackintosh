@@ -5,7 +5,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_GPRW", 0x00000000)
 {
-    External (XPRW, MethodObj)    // 2 Arguments
+    External (XPRW, MethodObj)
 
     Method (GPRW, 2, NotSerialized)
     {
