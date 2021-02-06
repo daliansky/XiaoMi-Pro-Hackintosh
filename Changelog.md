@@ -8,6 +8,7 @@
 ### Update
   - Update `OpenCore` v0.6.7
   - Update `AppleALC` v1.5.8
+  - Update `VoodooI2C` v2.6.4
   - Update `AirportItlwm` v1.3.0 (up to )
 
 ### Add
@@ -539,7 +540,7 @@
   - Add `SSDT-RTC` to remove IRQFlags safely, `FixRTC` will shorten the IO length
 
 ### Remove
-  - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](/one-key-cpufriend/README.md) to customize kext is recommended
+  - Remove `CPUFriend*` because different macOS version have different plists in `/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources/`. Use [one-key-cpufriend](one-key-cpufriend/README.md) to customize kext is recommended
   - Remove `HibernationFixup` because it's not stable, `RtcHibernateAware` is may enough for device to hibernate
   - Remove `dart=0`
   - Remove `AddClockID`, because it doesn't make a difference in new macOS version

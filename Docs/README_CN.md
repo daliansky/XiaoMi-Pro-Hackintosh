@@ -1,9 +1,9 @@
-<img src="/Docs/img/XiaoMi_Hackintosh_with_text_Small_cn.png" width="439" height="48"/>
+<img src="img/XiaoMi_Hackintosh_with_text_Small_cn.png" width="439" height="48"/>
 
 [![构建状态](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/workflows/CI/badge.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) [![Release](https://img.shields.io/github/v/release/daliansky/XiaoMi-Pro-Hackintosh?label=下载)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/latest) [![Wiki](https://img.shields.io/badge/支持-Wiki-green.svg)](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/主页) [![讨论](https://img.shields.io/badge/讨论-QQ-orange.svg)](https://shang.qq.com/wpa/qunwpa?idkey=d7b67735bb8c24ed2085a7ebfe0f53ce197bcc84b6397e41a3aaaaf9664966a8)
 -----
 
-[English](/README.md) | **中文**
+[English](../README.md) | **中文**
 
 ## 目录
 
@@ -115,8 +115,8 @@
 - 完整的EFI附件请访问 [releases](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 页面。
  - 如果是日常使用，请不要克隆或者下载 main 分支。
  
- <img src="Docs/img/README_donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
- <img src="Docs/img/README_get_Release.jpg" width="300px" alt="get_release">
+ <img src="img/README_donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
+ <img src="img/README_get_Release.jpg" width="300px" alt="get_release">
  
  
 ### 构建
@@ -169,12 +169,12 @@ bash -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.gith
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
-  - TM1701：如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](/BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb
+  - TM1701：如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb
   - TM1701 和 TM1707：可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 - 使用 [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`（macOS 版本高于 10.15）
 - 添加 `igfxrpsc=1` 引导参数或 `rps-control` 属性来启用 RPS 控制补丁并提升核显性能（macOS 版本 ≠ 10.15.6）
-- TM1701 和 TM1707：使用 [ALCPlugFix](/ALCPlugFix) 来修复耳机重新插拔后无声
-- TM1701：使用 [DVMT_and_0xE2_fix](/BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
+- TM1701 和 TM1707：使用 [ALCPlugFix](../ALCPlugFix) 来修复耳机重新插拔后无声
+- TM1701：使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
 
 
 ## 常见问题解答
