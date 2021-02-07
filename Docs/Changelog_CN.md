@@ -11,9 +11,6 @@
   * 更新 `VoodooI2C` v2.6.4
   * 更新 `AirportItlwm` v1.3.0（更新至 ）
 
-### 新增
-  * 新增 `enable-backlight-registers-fix` 属性来修复背光寄存器
-
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2-2-2021

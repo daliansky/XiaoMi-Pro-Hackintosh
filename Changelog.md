@@ -11,9 +11,6 @@
   - Update `VoodooI2C` v2.6.4
   - Update `AirportItlwm` v1.3.0 (up to )
 
-### Add
-  - Add `enable-backlight-registers-fix` property to fix backlight registers
-
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2-2-2021

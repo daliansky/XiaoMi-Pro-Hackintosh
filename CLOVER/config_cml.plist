@@ -93,8 +93,6 @@
 				<data>AP///////wBNEMMUAAAAAAkdAQSQIhN45t5Qo1RMmSYPUFQAAAABAQEBAQEBAQEBAQEBAQEBGjaAoHA4HkAwIDUAWMIQAAAYVCuAoHA4H0AwIDUAWMIQAAAYAAAAEAAAAAAAAAAAAAAAAAAAAAAA/ABMUTE1Nk0xSlcwMQogANg=</data>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
-				<key>enable-backlight-registers-fix</key>
-				<data>AQAAAA==</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>AQAAAA==</data>
 				<key>force-online</key>
