@@ -11,6 +11,9 @@
   * 更新 `VoodooI2C` v2.6.4
   * 更新 `AirportItlwm` v1.3.0（更新至 ）
 
+### 更改
+  * 修改 `csr-active-config` 的值为 `0x00000000` 来完全开启系统完整性保护
+
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2-2-2021

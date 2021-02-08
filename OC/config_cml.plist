@@ -1040,7 +1040,7 @@
 			<key>HideAuxiliary</key>
 			<true/>
 			<key>LauncherOption</key>
-			<string>Disabled</string>
+			<string>Full</string>
 			<key>LauncherPath</key>
 			<string>Default</string>
 			<key>PickerAttributes</key>
@@ -1145,7 +1145,7 @@
 				<key>boot-args</key>
 				<string>darkwake=0 gfxrst=1</string>
 				<key>csr-active-config</key>
-				<data>MAAAAA==</data>
+				<data>AAAAAA==</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>

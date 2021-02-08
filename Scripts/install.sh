@@ -10,6 +10,17 @@
 
 # Only support Xiaomi NoteBook Pro.
 
+# Vars
+ACDT="Acidanthera"
+BLD=""                              # Bootloader
+CML_MX250="TM1905"
+CML_MX350="TM1963"
+KBL_MX150="TM1701"
+KBL_GTX="TM1707"
+MAINBOARD=""
+pledit=/usr/libexec/PlistBuddy
+RELEASE_Dir=""
+
 # Display style setting
 BOLD="\033[1m"
 RED="\033[1;31m"
@@ -17,21 +28,15 @@ GREEN="\033[1;32m"
 BLUE="\033[1;34m"
 OFF="\033[m"
 
-pledit=/usr/libexec/PlistBuddy
-
-RELEASE_Dir=""
-
 # Exit in case of network failure
 function networkWarn() {
-  echo -e "[ ${RED}ERROR${OFF} ]: Fail to download resources from ${repoURL}, please check your connection!"
+  echo -e "[ ${RED}ERROR${OFF} ]: Failed to download resources from ${repoURL}, please check your connection!"
   clean
   exit 1
 }
 
 # Check Mainboard
 function checkMainboard() {
-  local MODEL_MX150="TM1701"
-  local MODEL_GTX="TM1707"
   
   echo "This script is currently under maintenance!"
   exit 1
