@@ -7,6 +7,13 @@
 # 参数
 CFURL="https://hackintosh.stevezheng.workers.dev"
 
+function init() {
+    if [[ ${OSTYPE} != darwin* ]]; then
+        echo "此脚本只能在 macOS 上运行，正在退出"
+        exit 1
+    fi
+}
+
 # 界面 (参考:http://patorjk.com/software/taag/#p=display&f=Ivrit&t=P%20l%20u%20g%20F%20i%20x)
 function interface() {
     echo ' ____    _                   _____   _         '
@@ -124,6 +131,7 @@ function install(){
 
 # 主程序
 function main() {
+    init
     interface
     choice
     case $alc_option in

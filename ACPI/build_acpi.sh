@@ -33,7 +33,7 @@ function networkErr() {
 # Exit on Compile Issue
 function compileErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to compile dsl!"
-  find . -maxdepth 1 -name "*.aml" -exec rm -rf {} + >/dev/null 2>&1
+  find . -maxdepth 1 -name "*.aml" -exec rm -rf {} + > /dev/null 2>&1
   exit 1
 }
 
@@ -52,13 +52,13 @@ function init() {
 
 # Download iasl from Acidanthera's MaciASL repository
 function download() {
-  local URL="https://raw.githubusercontent.com/$1/$2/master/$3"
+  local url="https://raw.githubusercontent.com/$1/$2/master/$3"
   if [[ ${systemLanguage} == "zh_CN" ]]; then
-    URL=${URL/#/${CFURL}/}
+    url=${url/#/${CFURL}/}
   fi
   echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
   echo "${cyan}"
-  curl -# -L -O "${URL}" || networkErr "${3##*\/}"
+  curl -# -L -O "${url}" || networkErr "${3##*\/}"
   echo "${reset}"
 }
 
@@ -67,7 +67,7 @@ function compile() {
   echo "${green}[${reset}${magenta}${bold} Compiling ACPI Files ${reset}${green}]${reset}"
   echo
   find . -name '*.dsl' -exec sh -c '
-    ./iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" >/dev/null 2>&1 || compileErr
+    ./iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" > /dev/null 2>&1 || compileErr
   ' sh {} \;
 }
 

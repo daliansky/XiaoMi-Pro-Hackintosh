@@ -303,7 +303,7 @@ function dGR() {
     echo "${cyan}"
     cd ./"$4" || exit 1
     curl -# -L -O "${url}" || networkErr "$2"
-    cd - >/dev/null 2>&1 || exit 1
+    cd - > /dev/null 2>&1 || exit 1
     echo "${reset}"
   done
 }
@@ -318,7 +318,7 @@ function dGS() {
   echo "${cyan}"
   cd ./"$4" || exit 1
   curl -# -L -o "$2.zip" "${url}"|| networkErr "$2"
-  cd - >/dev/null 2>&1 || exit 1
+  cd - > /dev/null 2>&1 || exit 1
   echo "${reset}"
 }
 
@@ -336,7 +336,7 @@ function dBR() {
       echo "${cyan}"
       cd ./"$3" || exit 1
       curl -# -L -O "${url}" || networkErr "$2"
-      cd - >/dev/null 2>&1 || exit 1
+      cd - > /dev/null 2>&1 || exit 1
       echo "${reset}"
       return
     else
@@ -391,36 +391,35 @@ function bKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
     cp -R "../Lilu.kext" "./" || copyErr
     if [[ "$2" == "VirtualSMC" ]]; then
-      xcodebuild -jobs 1 -target Package -configuration Release >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -jobs 1 -target Package -configuration Release > /dev/null 2>&1 || buildErr "$2"
       mkdir ../Kexts
       cp -R ${PATH_TO_REL}*.kext "../Kexts/" || copyErr
     elif [[ "$2" == "AppleALC" ]]; then
       mkdir -p "tmp" || exit 1
       cp -R "Resources/ALC256" "tmp" || copyErr
-      (cd "tmp/ALC256" && find . -maxdepth 1 ! -path "./Info.plist" ! -path "./layout69.xml" ! -path "./Platforms69.xml" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
+      (cd "tmp/ALC256" && find . -maxdepth 1 ! -path "./Info.plist" ! -path "./layout69.xml" ! -path "./Platforms69.xml" -exec rm -rf {} + > /dev/null 2>&1 || exit 1)
       cp -R "Resources/ALC298" "tmp" || copyErr
-      (cd "tmp/ALC298" && find . -maxdepth 1 ! -path "./Info.plist" ! -path "./layout30.xml" ! -path "./Platforms30.xml" ! -path "./layout99.xml" ! -path "./Platforms99.xml" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
+      (cd "tmp/ALC298" && find . -maxdepth 1 ! -path "./Info.plist" ! -path "./layout30.xml" ! -path "./Platforms30.xml" ! -path "./layout99.xml" ! -path "./Platforms99.xml" -exec rm -rf {} + > /dev/null 2>&1 || exit 1)
       if [[ "${model_input}" =~ "CML" ]]; then
         # Delete unrelated layout resources in AppleALC
-        (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
+        (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + > /dev/null 2>&1 || exit 1)
         cp -R "tmp/ALC256" "Resources" || copyErr
-        xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
-        xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
+        xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
         cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
+        xcodebuild clean > /dev/null 2>&1 || buildErr "$2"
       fi
       if [[ "${model_input}" =~ "KBL" ]]; then
         # Delete unrelated layout resources in AppleALC
-        (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + >/dev/null 2>&1 || exit 1)
+        (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + > /dev/null 2>&1 || exit 1)
         cp -R "tmp/ALC298" "Resources" || copyErr
-        xcodebuild clean >/dev/null 2>&1 || buildErr "$2"
-        xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
+        xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
         cp -R ${PATH_TO_REL}*.kext "../KBL" || copyErr
       fi
     elif [[ "$2" == "NoTouchID" ]]; then
-      xcodebuild -jobs 1 -configuration Release -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -jobs 1 -configuration Release -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
     else
-      xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     fi
   elif [[ ${voodooinputPlugins} =~ $2 ]]; then
@@ -435,17 +434,17 @@ function bKextHelper() {
       lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
       sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
 
-      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_BIG}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
-      xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
     fi
   elif [[ "$2" == "Lilu" ]]; then
     rm -rf ../Lilu.kext
     cp -R "../MacKernelSDK" "./" || copyErr
-    xcodebuild -jobs 1 -configuration Release >/dev/null 2>&1 || buildErr "$2"
+    xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
@@ -456,19 +455,18 @@ function bKextHelper() {
     if [[ "${model_input}" =~ "CML" ]]; then
       # Delete unrelated firmware and only keep ibt-19-0*.sfi for Intel Wireless 9462
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
-      rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
+      rm -rf IntelBluetoothFirmware/fw/* || exit 1
       cp -R tmp/ibt-19-0* "IntelBluetoothFirmware/fw/" || copyErr
-      xcodebuild -alltargets clean >/dev/null 2>&1 || buildErr "$2"
-      xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -alltargets -configuration Release > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
+      xcodebuild -alltargets clean > /dev/null 2>&1 || buildErr "$2"
     fi
     if [[ "${model_input}" =~ "KBL" ]]; then
       # Delete unrelated firmware and only keep ibt-12*.sfi for Intel Wireless 8265
       rm -rf "IntelBluetoothFirmware/FwBinary.cpp" || exit 1
-      rm -rf IntelBluetoothFirmware/fw/* >/dev/null 2>&1
+      rm -rf IntelBluetoothFirmware/fw/* || exit 1
       cp -R tmp/ibt-12* "IntelBluetoothFirmware/fw/" || copyErr
-      xcodebuild -alltargets clean >/dev/null 2>&1 || buildErr "$2"
-      xcodebuild -alltargets -configuration Release >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -alltargets -configuration Release > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../KBL" || copyErr
     fi
   elif [[ "$2" == "itlwm" ]]; then
@@ -481,22 +479,21 @@ function bKextHelper() {
     cp -R itlwm/firmware/iwm-8265* "tmp" || copyErr
     if [[ "${model_input}" =~ "CML" ]]; then
       # Delete unrelated firmware and only keep iwlwifi-QuZ* for Intel Wireless 9462
-      rm -rf "include/FwBinary.cpp" >/dev/null 2>&1
+      rm -rf "include/FwBinary.cpp" || exit 1
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
 
-      xcodebuild -scheme "AirportItlwm (all)" clean >/dev/null 2>&1 || buildErr "$2"
-      xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../CML" || copyErr
+      xcodebuild -scheme "AirportItlwm (all)" clean > /dev/null 2>&1 || buildErr "$2"
     fi
     if [[ "${model_input}" =~ "KBL" ]]; then
       # Delete unrelated firmware and only keep iwm-8265* for Intel Wireless 8265
-      rm -rf "include/FwBinary.cpp" >/dev/null 2>&1
+      rm -rf "include/FwBinary.cpp" || exit 1
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwm-8265* "itlwm/firmware/" || copyErr
 
-      xcodebuild -scheme "AirportItlwm (all)" clean >/dev/null 2>&1 || buildErr "$2"
-      xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . >/dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_DBG_BIG}* "../KBL" || copyErr
     fi
   fi
@@ -505,7 +502,7 @@ function bKextHelper() {
 }
 
 function bKext() {
-  # Trigger install_compiled_sdk in Lilu's bootstrap.sh
+  # Call install_compiled_sdk in Lilu's bootstrap.sh
   local GITHUB_REF=""
 
   if [[ ${no_xcode} == True ]]; then
@@ -515,12 +512,12 @@ function bKext() {
 
   if [[ ${language} != "zh_CN" ]]; then
     git clone -q https://github.com/acidanthera/MacKernelSDK
-    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
-    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
+    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
   else
     git clone -q ${CFURL}/https://github.com/acidanthera/MacKernelSDK
-    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
-    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" >/dev/null 2>&1 || exit 1
+    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
+    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
   fi
   if [[ ${model_input} =~ "CML" ]]; then
     bKextHelper al3xtjames NoTouchID
@@ -627,7 +624,7 @@ function patch() {
   )
   echo "${green}[${reset}${blue}${bold} Patching Resources ${reset}${green}]${reset}"
   for unusedItem in "${unusedItems[@]}"; do
-    rm -rf "${unusedItem}" >/dev/null 2>&1
+    rm -rf "${unusedItem}" > /dev/null 2>&1
   done
 
   # Only keep OCEFIAudio_VoiceOver_Boot in OcBinaryData/Resources/Audio
@@ -1150,7 +1147,7 @@ function genNote() {
 function cTrash() {
   echo "${green}[${reset}${blue}${bold} Cleaning Trash Files ${reset}${green}]${reset}"
   if [[ ${clean_up} == True ]]; then
-    find . -maxdepth 1 ! -path "./${OUTDir_KBL_CLOVER}" ! -path "./${OUTDir_KBL_OC}" ! -path "./${OUTDir_CML_CLOVER}" ! -path "./${OUTDir_CML_OC}" -exec rm -rf {} + >/dev/null 2>&1
+    find . -maxdepth 1 ! -path "./${OUTDir_KBL_CLOVER}" ! -path "./${OUTDir_KBL_OC}" ! -path "./${OUTDir_CML_CLOVER}" ! -path "./${OUTDir_CML_OC}" -exec rm -rf {} + > /dev/null 2>&1
   fi
   echo
 }

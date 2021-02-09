@@ -128,7 +128,7 @@ function DGR() {
     echo "${cyan}"
     cd ./"$4" || exit 1
     curl -# -L -O "${URL}" || networkErr "$2"
-    cd - >/dev/null 2>&1 || exit 1
+    cd - > /dev/null 2>&1 || exit 1
     echo "${reset}"
   done
 }
@@ -143,7 +143,7 @@ function DGS() {
   echo "${cyan}"
   cd ./"$3" || exit 1
   curl -# -L -o "$2.zip" "${URL}"|| networkErr "$2"
-  cd - >/dev/null 2>&1 || exit 1
+  cd - > /dev/null 2>&1 || exit 1
   echo "${reset}"
 }
 
@@ -161,7 +161,7 @@ function DBR() {
       echo "${cyan}"
       cd ./"$3" || exit 1
       curl -# -L -O "${URL}" || networkErr "$2"
-      cd - >/dev/null 2>&1 || exit 1
+      cd - > /dev/null 2>&1 || exit 1
       echo "${reset}"
       return
     else
@@ -221,7 +221,7 @@ function DL() {
 function Unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
   echo
-  eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" >/dev/null 2>&1 || exit 1)"
+  eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" > /dev/null 2>&1 || exit 1)"
 }
 
 # Patch
@@ -239,7 +239,7 @@ function Patch() {
     "WhateverGreen.kext/Contents/_CodeSignature"
   )
   for unusedItem in "${unusedItems[@]}"; do
-    rm -rf "${unusedItem}" >/dev/null 2>&1
+    rm -rf "${unusedItem}" > /dev/null 2>&1
   done
 
   # Rename AirportItlwm.kexts to distinguish different versions

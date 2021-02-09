@@ -4,6 +4,13 @@
 # Create on Feb 27, 2019 by stevezhengshiqi
 # Only support Xiaomi-Pro (NV156FHM-N61)
 
+function init() {
+    if [[ ${OSTYPE} != darwin* ]]; then
+        echo "This script can only run in macOS, aborting"
+        exit 1
+    fi
+}
+
 # Interface (Ref:http://patorjk.com/software/taag/#p=display&f=Ivrit&t=Color%20Profile)
 function interface() {
     echo '  ____      _              ____             __ _ _       '
@@ -84,6 +91,7 @@ function install() {
 
 # Main function
 function main() {
+    init
     interface
     choice
     case $color_option in

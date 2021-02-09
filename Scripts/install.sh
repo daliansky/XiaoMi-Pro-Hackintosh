@@ -18,7 +18,7 @@ CML_MX350="TM1963"
 KBL_MX150="TM1701"
 KBL_GTX="TM1707"
 MAINBOARD=""
-pledit=/usr/libexec/PlistBuddy
+PLEDIT=/usr/libexec/PlistBuddy
 RELEASE_Dir=""
 
 # Display style setting
@@ -197,64 +197,64 @@ function backupEFI() {
 
   echo
   echo "Copying previous settings to new CLOVER..."
-  DefaultVolume="$($pledit -c 'Print Boot:DefaultVolume' "${BACKUP_DIR}/CLOVER/config.plist")"
-  Timeout="$($pledit -c 'Print Boot:Timeout' "${BACKUP_DIR}/CLOVER/config.plist")"
-  SerialNumber="$($pledit -c 'Print SMBIOS:SerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
-  BoardSerialNumber="$($pledit -c 'Print SMBIOS:BoardSerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
-  SmUUID="$($pledit -c 'Print SMBIOS:SmUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
-  ROM="$($pledit -c 'Print RtVariables:ROM' "${BACKUP_DIR}/CLOVER/config.plist")"
-  MLB="$($pledit -c 'Print RtVariables:MLB' "${BACKUP_DIR}/CLOVER/config.plist")"
-  CustomUUID="$($pledit -c 'Print SystemParameters:CustomUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
-  InjectSystemID="$($pledit -c 'Print SystemParameters:InjectSystemID' "${BACKUP_DIR}/CLOVER/config.plist")"
-  framebufferfbmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' "${BACKUP_DIR}/CLOVER/config.plist")"
-  framebufferstolenmem="$($pledit -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' "${BACKUP_DIR}/CLOVER/config.plist")"
+  DefaultVolume="$($PLEDIT -c 'Print Boot:DefaultVolume' "${BACKUP_DIR}/CLOVER/config.plist")"
+  Timeout="$($PLEDIT -c 'Print Boot:Timeout' "${BACKUP_DIR}/CLOVER/config.plist")"
+  SerialNumber="$($PLEDIT -c 'Print SMBIOS:SerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
+  BoardSerialNumber="$($PLEDIT -c 'Print SMBIOS:BoardSerialNumber' "${BACKUP_DIR}/CLOVER/config.plist")"
+  SmUUID="$($PLEDIT -c 'Print SMBIOS:SmUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  ROM="$($PLEDIT -c 'Print RtVariables:ROM' "${BACKUP_DIR}/CLOVER/config.plist")"
+  MLB="$($PLEDIT -c 'Print RtVariables:MLB' "${BACKUP_DIR}/CLOVER/config.plist")"
+  CustomUUID="$($PLEDIT -c 'Print SystemParameters:CustomUUID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  InjectSystemID="$($PLEDIT -c 'Print SystemParameters:InjectSystemID' "${BACKUP_DIR}/CLOVER/config.plist")"
+  framebufferfbmem="$($PLEDIT -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem' "${BACKUP_DIR}/CLOVER/config.plist")"
+  framebufferstolenmem="$($PLEDIT -c 'Print Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem' "${BACKUP_DIR}/CLOVER/config.plist")"
 
   # check whether DefaultVolume and Timeout exist, copy if yes
   if [[ -n "${DefaultVolume}" ]]; then
-    $pledit -c "Set Boot:DefaultVolume ${DefaultVolume}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Set Boot:DefaultVolume ${DefaultVolume}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${Timeout}" ]]; then
-    $pledit -c "Set Boot:Timeout ${Timeout}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Set Boot:Timeout ${Timeout}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   # check whether serial numbers exist, copy if yes
   if [[ -n "${SerialNumber}" ]]; then
-    $pledit -c "Add SMBIOS:SerialNumber string ${SerialNumber}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Add SMBIOS:SerialNumber string ${SerialNumber}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${BoardSerialNumber}" ]]; then
-    $pledit -c "Add SMBIOS:BoardSerialNumber string ${BoardSerialNumber}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Add SMBIOS:BoardSerialNumber string ${BoardSerialNumber}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${SmUUID}" ]]; then
-    $pledit -c "Add SMBIOS:SmUUID string ${SmUUID}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Add SMBIOS:SmUUID string ${SmUUID}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${ROM}" ]]; then
-    $pledit -c "Set RtVariables:ROM ${ROM}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Set RtVariables:ROM ${ROM}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${MLB}" ]]; then
-    $pledit -c "Add RtVariables:MLB string ${MLB}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Add RtVariables:MLB string ${MLB}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${CustomUUID}" ]]; then
-    $pledit -c "Add SystemParameters:CustomUUID string ${CustomUUID}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Add SystemParameters:CustomUUID string ${CustomUUID}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -n "${InjectSystemID}" ]]; then
-    $pledit -c "Set SystemParameters:InjectSystemID ${InjectSystemID}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Set SystemParameters:InjectSystemID ${InjectSystemID}" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   else
-    $pledit -c "Set SystemParameters:InjectSystemID false" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "Set SystemParameters:InjectSystemID false" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -z "${framebufferfbmem}" ]]; then
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-fbmem" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   if [[ -z "${framebufferstolenmem}" ]]; then
-    $pledit -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+    $PLEDIT -c "delete Devices:Properties:PciRoot(0x0)/Pci(0x2,0x0):framebuffer-stolenmem" "$RELEASE_Dir/EFI/CLOVER/config.plist"
   fi
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
@@ -270,20 +270,20 @@ function backupEFI() {
   # create a config.plist with only GUI directory inside
   # TODO: use a more efficient way to copy GUI directory
   cp -rf "${BACKUP_DIR}/CLOVER/config.plist" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete ACPI" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete Boot" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete CPU" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete Devices" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete Graphics" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete KernelAndKextPatches" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete RtVariables" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete SMBIOS" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete SystemParameters" "${WORK_DIR}/GUI.plist"
-  $pledit -c "Delete Quirks" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete ACPI" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete Boot" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete CPU" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete Devices" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete Graphics" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete KernelAndKextPatches" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete RtVariables" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete SMBIOS" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete SystemParameters" "${WORK_DIR}/GUI.plist"
+  $PLEDIT -c "Delete Quirks" "${WORK_DIR}/GUI.plist"
 
   # merge GUI.plist to config.plist to save theme settings
-  $pledit -c "Delete GUI" "$RELEASE_Dir/EFI/CLOVER/config.plist"
-  $pledit -c "Merge GUI.plist" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+  $PLEDIT -c "Delete GUI" "$RELEASE_Dir/EFI/CLOVER/config.plist"
+  $PLEDIT -c "Merge GUI.plist" "$RELEASE_Dir/EFI/CLOVER/config.plist"
 
   echo -e "[ ${GREEN}OK${OFF} ]Copy complete"
 }

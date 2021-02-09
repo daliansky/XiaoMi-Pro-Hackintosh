@@ -4,6 +4,13 @@
 # Rewrite on Feb 27, 2019 by stevezhengshiqi, special thanks to @Menchen
 # Support Xiaomi-Pro (ALC298,layout-id99)
 
+function init() {
+    if [[ ${OSTYPE} != darwin* ]]; then
+        echo "This script can only run in macOS, aborting"
+        exit 1
+    fi
+}
+
 # Interface (Ref:http://patorjk.com/software/taag/#p=display&f=Ivrit&t=P%20l%20u%20g%20F%20i%20x)
 function interface() {
     echo ' ____    _                   _____   _         '
@@ -121,6 +128,7 @@ function install() {
 
 # Main function
 function main() {
+    init
     interface
     choice
     case $alc_option in
