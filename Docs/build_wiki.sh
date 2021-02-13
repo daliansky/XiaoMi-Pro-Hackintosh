@@ -54,10 +54,10 @@ function init() {
 
 # Download wiki from daliansky's XiaoMi-Pro-Hackintosh repository
 function download() {
-  local URL="https://github.com/$1/$2.wiki.git"
+  local url="https://github.com/$1/$2.wiki.git"
   echo "${green}[${reset}${blue}${bold} Downloading $2.wiki ${reset}${green}]${reset}"
   echo "${cyan}"
-  git clone "${URL}" > /dev/null 2>&1 || networkErr "$2.wiki"
+  git clone "${url}" > /dev/null 2>&1 || networkErr "$2.wiki"
   echo "${reset}"
 }
 

@@ -21,25 +21,68 @@ MAINBOARD=""
 PLEDIT=/usr/libexec/PlistBuddy
 RELEASE_Dir=""
 
-# Display style setting
-BOLD="\033[1m"
-RED="\033[1;31m"
-GREEN="\033[1;32m"
-BLUE="\033[1;34m"
-OFF="\033[m"
+clean_up=True
+err_no_exit=False
 
-# Exit in case of network failure
+# Display style setting
+black=$(tput setaf 0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+white=$(tput setaf 7)
+reset=$(tput sgr0)
+bold=$(tput bold)
+
+# Args
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case "${key}" in
+    --IGNORE_ERR)
+    err_no_exit=True
+    shift # past argument
+    ;;
+    --NO_CLEAN_UP)
+    clean_up=False
+    shift # past argument
+    ;;
+    *)
+    shift # past argument
+    ;;
+  esac
+done
+
+# Exit on Network Failure
 function networkWarn() {
-  echo -e "[ ${RED}ERROR${OFF} ]: Failed to download resources from ${repoURL}, please check your connection!"
-  clean
-  exit 1
+  echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from ${repoURL}, please check your connection!"
+  if [[ ${err_no_exit} == False ]]; then
+    clean
+    exit 1
+  fi
+}
+
+# Exit on Copy Issue
+function copyErr() {
+  echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to copy resources!"
+  if [[ ${err_no_exit} == False ]]; then
+    clean
+    exit 1
+  fi
+  echo
+}
+
+function init() {
+  if [[ ${OSTYPE} != darwin* ]]; then
+    echo "This script can only run in macOS, aborting"
+    exit 1
+  fi
 }
 
 # Check Mainboard
 function checkMainboard() {
-  
-  echo "This script is currently under maintenance!"
-  exit 1
 
   # new folder for work
   WORK_DIR="$HOME/Desktop/EFI_XIAOMI-PRO"
@@ -48,12 +91,18 @@ function checkMainboard() {
 
   local repoURL="https://raw.githubusercontent.com/daliansky/Hackintosh/master/Tools/bdmesg"
   curl --silent -O "${repoURL}" || networkWarn
-  sudo chmod +x bdmesg
+  sudo chmod +x bdmesg || exit 1
+  local bdmesgOutput="$( "${WORK_DIR}/bdmesg" )"
+  if [ "${MAINBOARD}" =~ "not found" ]; then
+    BLD="OC"        # OpenCore
+  else
+    BLD="Clover"    # Clover
+  fi
 
   MAINBOARD="$( "${WORK_DIR}/bdmesg" | grep Running | awk '{print $5}' | sed "s/\'//g" | tr -d "''")"
   if [ "${MAINBOARD}" != "${MODEL_MX150}" ] && [ "${MAINBOARD}" != "${MODEL_GTX}" ]; then
     echo "Your mainboard is ${MAINBOARD}"
-    echo -e "[ ${RED}ERROR${OFF} ]:Not a XiaoMi-Pro, please check your model!"
+    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}:Not a XiaoMi-Pro, please check your model!"
     echo "This script is only for Clover user!"
     # clean
     # exit 1
@@ -602,11 +651,9 @@ function clean() {
 }
 
 function main() {
-
+  init
   printf '\e[8;40;90t'
-
   checkMainboard
-
   clear
 
   # Interface (ref: http://patorjk.com/software/taag/#p=display&f=Ivrit&t=X%20i%20a%20o%20M%20i%20-%20P%20r%20o)

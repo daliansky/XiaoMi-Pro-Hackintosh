@@ -201,12 +201,11 @@ function init() {
   for dir in "${dirs[@]}"; do
     mkdir -p "${dir}" || exit 1
   done
-  if [[ ${remote} == True ]]; then
-    mkdir -p "${REPO_NAME_BRANCH}" || exit 1
-  fi
 
   if [[ "$(dirname "$PWD")" =~ ${REPO_NAME} ]]; then
-    remote=False;
+    remote=False
+  else
+    mkdir -p "${REPO_NAME_BRANCH}" || exit 1
   fi
 }
 
@@ -598,7 +597,7 @@ function download() {
 # Unpack
 function unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
-  unzip -qq "*.zip" || exit 1
+  ditto -x -k ./*.zip . || exit 1
   if [[ "${model_input}" =~ "CML" ]] && [[ ${pre_release} != *Kext* ]]; then
     (cd "CML" && unzip -qq ./*.zip || exit 1)
   fi
