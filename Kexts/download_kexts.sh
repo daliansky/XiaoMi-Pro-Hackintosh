@@ -13,6 +13,8 @@ ACDT="Acidanthera"
 CFURL="https://hackintosh.stevezheng.workers.dev"
 OIW="OpenIntelWireless"
 RETRY_MAX=5
+
+gh_api=False
 systemLanguage=$(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1)
 
 # Colors
@@ -65,28 +67,28 @@ function init() {
 }
 
 # Workaround for Release Binaries that don't include "RELEASE" in their file names (head or grep)
-function H_or_G() {
+function h_or_g() {
   if [[ "$1" == "VoodooI2C" ]]; then
-    HGs=( "head -n 1" )
+    hgs=( "head -n 1" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
-    HGs=( "grep -m 1 IntelBluetooth" )
+    hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
-    HGs=( "grep -m 1 AirportItlwm-Big_Sur"
+    hgs=( "grep -m 1 AirportItlwm-Big_Sur"
           "grep -m 1 AirportItlwm-Catalina"
           "grep -m 1 AirportItlwm-High_Sierra"
           "grep -m 1 AirportItlwm-Mojave"
         )
   else
-    HGs=( "grep -m 1 RELEASE" )
+    hgs=( "grep -m 1 RELEASE" )
   fi
 }
 
 # Download GitHub Release
-function DGR() {
+function dGR() {
   local rawURL
-  local URLs=()
+  local urls=()
 
-  H_or_G "$2"
+  h_or_g "$2"
 
   if [[ -n ${3+x} ]]; then
     if [[ "$3" == "PreRelease" ]]; then
@@ -101,83 +103,83 @@ function DGR() {
     tag="/latest"
   fi
 
-  if [[ -n ${GITHUB_ACTIONS+x} || ${GH_API} == False ]]; then
+  if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == False ]]; then
     rawURL="https://github.com/$1/$2/releases$tag"
-    for HG in "${HGs[@]}"; do
+    for hg in "${hgs[@]}"; do
       if [[ ${systemLanguage} == "zh_CN" ]]; then
         rawURL=${rawURL/#/${CFURL}/}
       fi
-      URLs+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
+      urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
-    for HG in "${HGs[@]}"; do
-      URLs+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${HG}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
+    for hg in "${hgs[@]}"; do
+      urls+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${hg}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
     done
   fi
 
   if [[ ${systemLanguage} == "zh_CN" ]]; then
-    URLs=("${URLs[@]/#/${CFURL}/}")
+    urls=("${urls[@]/#/${CFURL}/}")
   fi
 
-  for URL in "${URLs[@]}"; do
-    if [[ -z ${URL} || ${URL} == "https://github.com" ]]; then
+  for url in "${urls[@]}"; do
+    if [[ -z ${url} || ${url} == "https://github.com" ]]; then
       networkErr "$2"
     fi
-    echo "${green}[${reset}${blue}${bold} Downloading ${URL##*\/} ${reset}${green}]${reset}"
+    echo "${green}[${reset}${blue}${bold} Downloading ${url##*\/} ${reset}${green}]${reset}"
     echo "${cyan}"
     cd ./"$4" || exit 1
-    curl -# -L -O "${URL}" || networkErr "$2"
+    curl -# -L -O "${url}" || networkErr "$2"
     cd - > /dev/null 2>&1 || exit 1
     echo "${reset}"
   done
 }
 
 # Download GitHub Source Code
-function DGS() {
-  local URL="https://github.com/$1/$2/archive/master.zip"
+function dGS() {
+  local url="https://github.com/$1/$2/archive/master.zip"
   if [[ ${systemLanguage} == "zh_CN" ]]; then
-    URL=${URL/#/${CFURL}/}
+    url=${url/#/${CFURL}/}
   fi
   echo "${green}[${reset}${blue}${bold} Downloading $2.zip ${reset}${green}]${reset}"
   echo "${cyan}"
   cd ./"$3" || exit 1
-  curl -# -L -o "$2.zip" "${URL}"|| networkErr "$2"
+  curl -# -L -o "$2.zip" "${url}"|| networkErr "$2"
   cd - > /dev/null 2>&1 || exit 1
   echo "${reset}"
 }
 
 # Download Bitbucket Release
-function DBR() {
-  local Count=0
+function dBR() {
+  local count=0
   local rawURL="https://api.bitbucket.org/2.0/repositories/$1/$2/downloads/"
-  local URL
+  local url
 
-  while [ ${Count} -lt ${RETRY_MAX} ];
+  while [ ${count} -lt ${RETRY_MAX} ];
   do
-    URL="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
-    if [ "${URL:(-4)}" == ".zip" ]; then
-      echo "${green}[${reset}${blue}${bold} Downloading ${URL##*\/} ${reset}${green}]${reset}"
+    url="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
+    if [ "${url:(-4)}" == ".zip" ]; then
+      echo "${green}[${reset}${blue}${bold} Downloading ${url##*\/} ${reset}${green}]${reset}"
       echo "${cyan}"
       cd ./"$3" || exit 1
-      curl -# -L -O "${URL}" || networkErr "$2"
+      curl -# -L -O "${url}" || networkErr "$2"
       cd - > /dev/null 2>&1 || exit 1
       echo "${reset}"
       return
     else
-      Count=$((Count+1))
-      echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Failed to download $2, ${Count} Attempt!"
+      count=$((count+1))
+      echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Failed to download $2, ${count} Attempt!"
       echo
     fi
   done
 
-  if [ ${Count} -ge ${RETRY_MAX} ]; then
+  if [ ${count} -ge ${RETRY_MAX} ]; then
     # if ${RETRY_MAX} times are over and still fail to download, exit
     networkErr "$2"
   fi
 }
 
-function DL() {
+function download() {
   local rmKexts=(
     os-x-eapd-codec-commander
     os-x-null-ethernet
@@ -199,33 +201,33 @@ function DL() {
   )
 
   for rmKext in "${rmKexts[@]}"; do
-    DBR Rehabman "${rmKext}" "${OUTDir_TMP}"
+    dBR Rehabman "${rmKext}" "${OUTDir_TMP}"
   done
 
   for acdtKext in "${acdtKexts[@]}"; do
-    DGR ${ACDT} "${acdtKext}" NULL "${OUTDir_TMP}"
+    dGR ${ACDT} "${acdtKext}" NULL "${OUTDir_TMP}"
   done
 
   for oiwKext in "${oiwKexts[@]}"; do
-    DGR ${OIW} "${oiwKext}" PreRelease "${OUTDir_TMP}"
+    dGR ${OIW} "${oiwKext}" PreRelease "${OUTDir_TMP}"
   done
 
-  DGR VoodooI2C VoodooI2C NULL "${OUTDir_TMP}"
+  dGR VoodooI2C VoodooI2C NULL "${OUTDir_TMP}"
 
-  DGR al3xtjames NoTouchID NULL "${OUTDir_TMP}"
+  dGR al3xtjames NoTouchID NULL "${OUTDir_TMP}"
 
-  DGS RehabMan hack-tools "${OUTDir_TMP}"
+  dGS RehabMan hack-tools "${OUTDir_TMP}"
 }
 
 # Unpack
-function Unpack() {
+function unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
+  eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" || exit 1)"
   echo
-  eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" > /dev/null 2>&1 || exit 1)"
 }
 
 # Patch
-function Patch() {
+function patch() {
   local unusedItems=(
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
@@ -250,7 +252,7 @@ function Patch() {
 }
 
 # Install
-function Install() {
+function install() {
   local kextItems=(
     "AppleALC.kext"
     "HibernationFixup.kext"
@@ -282,7 +284,7 @@ function Install() {
 }
 
 # Exclude Trash
-function CTrash() {
+function cTrash() {
   rm -rf "${OUTDir_TMP}"
 }
 
@@ -294,11 +296,11 @@ function enjoy() {
 
 function main() {
   init
-  DL
-  Unpack
-  Patch
-  Install
-  CTrash
+  download
+  unpack
+  patch
+  install
+  cTrash
   enjoy
 }
 
