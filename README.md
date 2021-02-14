@@ -161,11 +161,6 @@ cd XiaoMi-Pro-Hackintosh
 -----
 - Download the latest EFI release from the [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) or beta EFI release from artifacts in the [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions).
 - A complete replacement of `BOOT` and `CLOVER`(or `OC`) folders is required. Delete these two folders and copy them from the [release pack](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases).
-- You can also update Clover EFI by running the following command in Terminal:
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Scripts/install.sh)"
-```
 
 
 ## Improvements

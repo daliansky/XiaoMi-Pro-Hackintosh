@@ -81,7 +81,7 @@ jobs:
           find . -name '*.dsl' -exec sh -c './iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" && echo || exit 1' sh {} \;
 
   analyze-oc-config:
-    name: Analyze OpenCore Config
+    name: Analyze OpenCore Configs
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -89,13 +89,13 @@ jobs:
       - name: Install Dependency
         run: |
           mkdir "OpenCore" && cd "OpenCore" || exit 1
-          HG="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
+          hg="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
           rawURL="https://github.com/dortania/build-repo/tags"
           rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
-          URL="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${HG}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
-          echo "Downloading ${URL##*\/}"
-          curl -# -L -O "${URL}" || exit 1
-          unzip -qq "*.zip" >/dev/null 2>&1 || exit 1
+          url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
+          echo "Downloading ${url##*\/}"
+          curl -# -L -O "${url}" || exit 1
+          unzip -qq "*.zip" || exit 1
           chmod +x Utilities/ocvalidate/ocvalidate || exit 1
 
       - name: Run ocvalidate
