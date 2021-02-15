@@ -1192,9 +1192,9 @@
 			<key>SystemProductName</key>
 			<string>MacBookPro16,3</string>
 			<key>SystemSerialNumber</key>
-			<string></string>
+			<string>OEM</string>
 			<key>SystemUUID</key>
-			<string></string>
+			<string>OEM</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>

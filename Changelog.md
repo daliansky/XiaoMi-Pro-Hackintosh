@@ -7,12 +7,16 @@
 
 ### Update
   - Update `OpenCore` v0.6.7
+  - Update `Clover` r5130
   - Update `AppleALC` v1.5.8
   - Update `VoodooI2C` v2.6.4
   - Update `AirportItlwm` v1.3.0 (up to )
 
 ### Change
   - Change the value of `csr-active-config` to `0x00000000` to fully enable SIP
+
+### OC
+  - OC: Update config to support `OpenCore` v0.6.7
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
