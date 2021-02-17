@@ -6,19 +6,19 @@
 
 - [Introduction](#introduction)
 - [TM1701](#tm1701)
-  - Update History
-  - How to Update
-  - How to Unlock Better Performance
+  - [Update History](#update-history)
+  - [How to Update](#how-to-update)
+  - [How to Unlock Better Performance](#how-to-unlock-better-performance)
 - [TM1707](#tm1707)
-  - Update History
-  - How to Update
+  - [Update History](#update-history-1)
+  - [How to Update](#how-to-update-1)
 - [TM1905](#tm1905)
-  - Update History
-  - How to Update
-  - How to Unlock Better Performance
+  - [Update History](#update-history-2)
+  - [How to Update](#how-to-update-2)
+  - [How to Unlock Better Performance](#how-to-unlock-better-performance-1)
 - [TM1963](#tm1963)
-  - Update History
-  - How to Update
+  - [Update History](#update-history-3)
+  - [How to Update](#how-to-update-3)
 - [Credits](#credits)
 
 
@@ -92,6 +92,33 @@ Just run the exe file. Make sure AC power is connected during the update.
 
 [FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32mb to 64mb, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. Scripts are in [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix). For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
 
+After running those scripts, you need to delete `framebuffer-fbmem` and `framebuffer-stolenmem`, edit `framebuffer-flags`, and disable MSR 0xE2 patch in `config.plist`.
+- Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
+```xml
+  <key>framebuffer-fbmem</key>
+  <data>AACQAA==</data>
+  <key>framebuffer-stolenmem</key>
+  <data>AAAwAQ==</data>
+```
+- Then edit the `framebuffer-flags` to enable `FBEnableDynamicCDCLK`
+```diff
+  <key>framebuffer-flags</key>
+-   <data>CwfDAA==</data>
++   <data>CwfjAA==</data>
+```
+-  For Clover users, change the following code to disable MSR 0xE2 patch:
+```diff
+    <key>KernelPm</key>
+-   <true/>
++   <false/>
+```
+-  For OC users, change the following code to disable MSR 0xE2 patch:
+```diff
+    <key>AppleXcpmCfgLock</key>
+-   <true/>
++   <false/>
+```
+
 
 ## TM1707
 
@@ -137,6 +164,25 @@ The following table is about some advanced BIOS configurations, thanks to [htmam
 | CFG LOCK | 0x3E | CpuSetup | 0x0:Disabled, 0x1:Enabled | 0x1 | 0x0 |
 | MSR LOCK | 0x2B | SETUP | 0x0:Disabled, 0x1:Enabled | 0x0 | 0x0 |
 | BIOS Lock | 0x17 | SETUP | 0x0:Disabled, 0x1:Enabled | 0x1| 0x0 |
+
+After modifying these configurations, you need to delete `framebuffer-stolenmem` and disable MSR 0xE2 patch in `config.plist`.
+- Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:
+```xml
+  <key>framebuffer-stolenmem</key>
+  <data>AADgAQ==</data>
+```
+-  For Clover users, change the following code to disable MSR 0xE2 patch:
+```diff
+    <key>KernelPm</key>
+-   <true/>
++   <false/>
+```
+-  For OC users, change the following code to disable MSR 0xE2 patch:
+```diff
+    <key>AppleXcpmCfgLock</key>
+-   <true/>
++   <false/>
+```
 
 
 ## TM1963

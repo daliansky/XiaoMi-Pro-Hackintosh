@@ -31,14 +31,12 @@
     <key>framebuffer-stolenmem</key>
     <data>AAAwAQ==</data>
 ```
-
 - Then edit the `framebuffer-flags` to enable `FBEnableDynamicCDCLK`
 ```diff
     <key>framebuffer-flags</key>
 -   <data>CwfDAA==</data>
 +   <data>CwfjAA==</data>
 ```
-
 - Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
 ```diff
     <key>AAPL,ig-platform-id</key>
@@ -72,9 +70,15 @@
 -   <data>xwMAAA==</data>
 ```
 
-8. Delete OC MSR 0xE2 patch.
+8. Disable MSR 0xE2 patch.
 
-Open `/EFI/OC/config.plist`, change the following code:
+-  For Clover users, change the following code to disable MSR 0xE2 patch:
+```diff
+    <key>KernelPm</key>
+-   <true/>
++   <false/>
+```
+-  For OC users, change the following code to disable MSR 0xE2 patch:
 ```diff
     <key>AppleXcpmCfgLock</key>
 -   <true/>

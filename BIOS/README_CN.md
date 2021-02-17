@@ -6,19 +6,19 @@
 
 - [简介](#简介)
 - [TM1701](#tm1701)
-  - 更新历史
-  - 怎么升级
-  - 怎么提升性能
+  - [更新历史](#更新历史)
+  - [怎么升级](#怎么升级)
+  - [怎么提升性能](#怎么提升性能)
 - [TM1707](#tm1707)
-  - 更新历史
-  - 怎么升级
+  - [更新历史](#更新历史-1)
+  - [怎么升级](#怎么升级-1)
 - [TM1905](#tm1905)
-  - 更新历史
-  - 怎么升级
-  - 怎么提升性能
+  - [更新历史](#更新历史-2)
+  - [怎么升级](#怎么升级-2)
+  - [怎么提升性能](#怎么提升性能-1)
 - [TM1963](#tm1963)
-  - 更新历史
-  - 怎么升级
+  - [更新历史](#更新历史-3)
+  - [怎么升级](#怎么升级-3)
 - [鸣谢](#鸣谢)
 
 
@@ -92,6 +92,33 @@
 
 [FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大动态显存大小（从32mb扩大到64mb），解锁 MSR 0xE2 寄位器，和修改 EC 固件来减少风扇噪声。脚本位于 [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix)。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
 
+运行完脚本后，你需要在 `config.plist` 里删除 `framebuffer-fbmem` 和 `framebuffer-stolenmem`，修改 `framebuffer-flags` 并禁用 MSR 0xE2 补丁。
+- 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：
+```xml
+  <key>framebuffer-fbmem</key>
+  <data>AACQAA==</data>
+  <key>framebuffer-stolenmem</key>
+  <data>AAAwAQ==</data>
+```
+- 然后修改 `framebuffer-flags` 来开启 `FBEnableDynamicCDCLK`
+```diff
+  <key>framebuffer-flags</key>
+-   <data>CwfDAA==</data>
++   <data>CwfjAA==</data>
+```
+- 如果是 Clover 用户，更改以下代码来禁用 MSR 0xE2 补丁：
+```diff
+    <key>KernelPm</key>
+-   <true/>
++   <false/>
+```
+- 如果是 OC 用户，更改以下代码来禁用 MSR 0xE2 补丁：
+```diff
+    <key>AppleXcpmCfgLock</key>
+-   <true/>
++   <false/>
+```
+
 
 ## TM1707
 
@@ -137,6 +164,25 @@
 | CFG LOCK | 0x3E | CpuSetup | 0x0:Disabled, 0x1:Enabled | 0x1 | 0x0 |
 | MSR LOCK | 0x2B | SETUP | 0x0:Disabled, 0x1:Enabled | 0x0 | 0x0 |
 | BIOS Lock | 0x17 | SETUP | 0x0:Disabled, 0x1:Enabled | 0x1| 0x0 |
+
+修改完配置后，你需要在 `config.plist` 里删除 `framebuffer-stolenmem` 并禁用 MSR 0xE2 补丁。
+- 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：
+```xml
+  <key>framebuffer-stolenmem</key>
+  <data>AADgAQ==</data>
+```
+- 如果是 Clover 用户，更改以下代码来禁用 MSR 0xE2 补丁：
+```diff
+    <key>KernelPm</key>
+-   <true/>
++   <false/>
+```
+- 如果是 OC 用户，更改以下代码来禁用 MSR 0xE2 补丁：
+```diff
+    <key>AppleXcpmCfgLock</key>
+-   <true/>
++   <false/>
+```
 
 
 ## TM1963

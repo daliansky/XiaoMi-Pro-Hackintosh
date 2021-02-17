@@ -31,14 +31,12 @@
     <key>framebuffer-stolenmem</key>
     <data>AAAwAQ==</data>
 ```
-
 - 然后修改 `framebuffer-flags` 来开启 `FBEnableDynamicCDCLK`
 ```diff
     <key>framebuffer-flags</key>
 -   <data>CwfDAA==</data>
 +   <data>CwfjAA==</data>
 ```
-
 - 可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 ```diff
     <key>AAPL,ig-platform-id</key>
@@ -72,9 +70,15 @@
 -   <data>xwMAAA==</data>
 ```
 
-8. 删除 OC MSR 0xE2 补丁。
+8. 禁用 MSR 0xE2 补丁。
 
-打开 `/EFI/OC/config.plist`，并更改以下代码：
+- 如果是 Clover 用户，更改以下代码来禁用 MSR 0xE2 补丁：
+```diff
+    <key>KernelPm</key>
+-   <true/>
++   <false/>
+```
+- 如果是 OC 用户，更改以下代码来禁用 MSR 0xE2 补丁：
 ```diff
     <key>AppleXcpmCfgLock</key>
 -   <true/>
