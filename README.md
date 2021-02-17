@@ -172,7 +172,6 @@ cd XiaoMi-Pro-Hackintosh
   - TM1701: On macOS > 10.13.6, to enable higher HiDPI resolution (<=1520x855), you need to use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb
   - TM1701 & TM1707: Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
 - Use [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) to modify CPU power management or change SMBIOS model to `MacBookPro15,4` (macOS version > 10.15)
-- Add `igfxrpsc=1` boot-args or `rps-control` property to enable RPS control patch and improves IGPU performance (macOS version ≠ 10.15.6)
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
 

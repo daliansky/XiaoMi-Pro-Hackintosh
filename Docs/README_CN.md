@@ -167,7 +167,6 @@ cd XiaoMi-Pro-Hackintosh
   - TM1701：如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb
   - TM1701 和 TM1707：可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 - 使用 [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`（macOS 版本高于 10.15）
-- 添加 `igfxrpsc=1` 引导参数或 `rps-control` 属性来启用 RPS 控制补丁并提升核显性能（macOS 版本 ≠ 10.15.6）
 - TM1701 和 TM1707：使用 [ALCPlugFix](../ALCPlugFix) 来修复耳机重新插拔后无声
 - TM1701：使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
 

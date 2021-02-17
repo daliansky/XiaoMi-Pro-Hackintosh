@@ -12,6 +12,12 @@
   * 更新 `VoodooI2C` v2.6.4
   * 更新 `AirportItlwm` v1.3.0（更新至 ）
 
+### 新增
+  * 新增 `rps-control` 属性来启用 RPS 控制补丁并提升核显性能
+
+### 移除
+  * 移除 `gfxrst=1` 引导参数
+
 ### 更改
   * 修改 `csr-active-config` 的值为 `0x00000000` 来完全开启系统完整性保护
 

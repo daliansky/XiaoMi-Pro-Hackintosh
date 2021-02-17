@@ -12,6 +12,12 @@
   - Update `VoodooI2C` v2.6.4
   - Update `AirportItlwm` v1.3.0 (up to )
 
+### Add
+  - Add `rps-control` property to enable RPS control patch and improves IGPU performance
+
+### Remove
+  - Remove `gfxrst=1` boot-args
+
 ### Change
   - Change the value of `csr-active-config` to `0x00000000` to fully enable SIP
 
