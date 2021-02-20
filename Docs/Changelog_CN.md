@@ -20,6 +20,7 @@
 
 ### 更改
   * 修改 `csr-active-config` 的值为 `0x00000000` 来完全开启系统完整性保护
+  * CML: 修改 SMBIOS 机型回 `MacBookPro16,2` 来解锁更多变频
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.6.7

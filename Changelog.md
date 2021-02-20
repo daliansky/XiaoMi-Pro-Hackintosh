@@ -20,6 +20,7 @@
 
 ### Change
   - Change the value of `csr-active-config` to `0x00000000` to fully enable SIP
+  - CML: Change SMBIOS model back to `MacBookPro16,2` to unlock more frequency
 
 ### OC
   - OC: Update config to support `OpenCore` v0.6.7

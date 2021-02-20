@@ -14,7 +14,7 @@ CFURL="https://hackintosh.stevezheng.workers.dev"
 OIW="OpenIntelWireless"
 RETRY_MAX=5
 
-gh_api=False
+gh_api=false
 systemLanguage=$(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1)
 
 # Colors
@@ -103,7 +103,7 @@ function dGR() {
     tag="/latest"
   fi
 
-  if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == False ]]; then
+  if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
     rawURL="https://github.com/$1/$2/releases$tag"
     for hg in "${hgs[@]}"; do
       if [[ ${systemLanguage} == "zh_CN" ]]; then
