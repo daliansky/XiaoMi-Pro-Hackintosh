@@ -986,20 +986,20 @@ function install() {
     fi
     if [[ ${language} == "en_US" ]]; then
       if [[ ${remote} == false ]]; then
-        cp "../Docs/README_\${MODEL}.txt" "README_${altModel}.txt"
+        cp "../Docs/README_\${MODEL}.txt" "README_${altModel}.txt" || copyErr
       else
-        cp "${REPO_NAME_BRANCH}/Docs/README_\${MODEL}.txt" "README_${altModel}.txt"
+        cp "${REPO_NAME_BRANCH}/Docs/README_\${MODEL}.txt" "README_${altModel}.txt" || copyErr
       fi
       /usr/bin/sed -i "" "s:\${MODEL}:${altModel}:g" "README_${altModel}.txt"
       /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:${altModelPrefix}:g" "README_${altModel}.txt"
     elif [[ ${language} == "zh_CN" ]]; then
       if [[ ${remote} == false ]]; then
-        cp "../Docs/README_CN_\${MODEL}.txt" "README_CN_${altModel}.txt"
+        cp "../Docs/README_CN_\${MODEL}.txt" "README_CN_${altModel}.txt" || copyErr
       else
-        cp "${REPO_NAME_BRANCH}/Docs/README_CN_\${MODEL}.txt" "README_CN_${altModel}.txt"
+        cp "${REPO_NAME_BRANCH}/Docs/README_CN_\${MODEL}.txt" "README_CN_${altModel}.txt" || copyErr
       fi
       /usr/bin/sed -i "" "s:\${MODEL}:${altModel}:g" "README_CN_${altModel}.txt"
-      /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:${altModelPrefix}:g" "README_${altModel}.txt"
+      /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:${altModelPrefix}:g" "README_CN_${altModel}.txt"
     fi
 
     for lgpaDir in "${!OUTDir_MODEL_CLOVER}/${altModel}" "${!OUTDir_MODEL_OC}/${altModel}"; do
