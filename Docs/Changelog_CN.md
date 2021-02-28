@@ -7,10 +7,12 @@
 
 ### 更新
   * 更新 `OpenCore` v0.6.7
-  * 更新 `Clover` r5130
+  * 更新 `Clover` r5131
   * 更新 `AppleALC` v1.5.8
-  * 更新 `VoodooI2C` v2.6.4
-  * 更新 `AirportItlwm` v1.3.0（更新至 ）
+  * 更新 `VirtualSMC` v1.2.1
+  * 更新 `VoodooPS2` v2.2.2
+  * 更新 `VoodooI2C` v2.6.5
+  * 更新 `AirportItlwm` v1.3.0（更新至 [OpenIntelWireless/itlwm@b5c4e52](https://github.com/OpenIntelWireless/itlwm/commit/b5c4e52f65cacf0b98849ad2cfb6ceb1644879b6)）
 
 ### 新增
   * 新增 `rps-control` 属性来启用 RPS 控制补丁并提升核显性能

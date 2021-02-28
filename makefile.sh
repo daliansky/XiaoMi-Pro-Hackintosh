@@ -20,7 +20,7 @@ RETRY_MAX=5
 
 clean_up=true
 err_no_exit=false
-gh_api=true
+gh_api=false
 language="en_US"
 model_input=""
 model_list=( )
@@ -68,8 +68,8 @@ while [[ $# -gt 0 ]]; do
     clean_up=false
     shift # past argument
     ;;
-    --NO_GH_API)
-    gh_api=false
+    --GH_API)
+    gh_api=true
     shift # past argument
     ;;
     *)

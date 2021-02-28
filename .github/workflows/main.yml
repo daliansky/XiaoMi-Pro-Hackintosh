@@ -31,7 +31,7 @@ jobs:
 
       - name: Run makefile
         run: |
-          ./makefile.sh --NO_GH_API --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC --MODEL=KBLCML
+          ./makefile.sh --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC --MODEL=KBLCML
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2

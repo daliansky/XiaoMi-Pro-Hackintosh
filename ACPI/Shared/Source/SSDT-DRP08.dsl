@@ -5,10 +5,15 @@
 // Users can change RP08 to whatever father PCI device that they want to disable
 //
 // For XiaoMi-Pro (TM1701)
-// RP01 -> MX150 Graphics Card
+// RP01 -> NVIDIA MX150 Graphics Card
 // RP05 -> Secondary SSD Slot
 // RP08 -> Intel Wi-Fi
 // RP09 -> Primary SSD Slot
+//
+// For XiaoMi-Pro (TM1905)
+// RP05 -> NVIDIA MX250 Graphics Card
+// RP09 -> Secondary SSD Slot
+// RP13 -> Primary SSD Slot
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_DRP08", 0x00000000)
 {

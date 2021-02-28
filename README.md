@@ -146,8 +146,8 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --MODEL=CML
 # Preserve work files during the building stage
 ./makefile.sh --NO_CLEAN_UP
-# Bypass GitHub API
-./makefile.sh --NO_GH_API
+# Use GitHub API
+./makefile.sh --GH_API
 # Build the latest beta EFI with pre-release kexts
 ./makefile.sh --PRE_RELEASE=Kext
 # Build the latest beta EFI with pre-release OpenCore

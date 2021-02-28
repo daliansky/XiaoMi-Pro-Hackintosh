@@ -141,8 +141,8 @@ cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --MODEL=CML
 # 构建时保留工程文件
 ./makefile.sh --NO_CLEAN_UP
-# 绕过 GitHub API
-./makefile.sh --NO_GH_API
+# 使用 GitHub API
+./makefile.sh --GH_API
 # 构建包含最新 pre-release 驱动的测试版EFI
 ./makefile.sh --PRE_RELEASE=Kext
 # 构建包含最新 pre-release OpenCore 的测试版EFI

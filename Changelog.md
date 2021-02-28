@@ -7,10 +7,12 @@
 
 ### Update
   - Update `OpenCore` v0.6.7
-  - Update `Clover` r5130
+  - Update `Clover` r5131
   - Update `AppleALC` v1.5.8
-  - Update `VoodooI2C` v2.6.4
-  - Update `AirportItlwm` v1.3.0 (up to )
+  - Update `VirtualSMC` v1.2.1
+  - Update `VoodooPS2` v2.2.2
+  - Update `VoodooI2C` v2.6.5
+  - Update `AirportItlwm` v1.3.0 (up to [OpenIntelWireless/itlwm@b5c4e52](https://github.com/OpenIntelWireless/itlwm/commit/b5c4e52f65cacf0b98849ad2cfb6ceb1644879b6))
 
 ### Add
   - Add `rps-control` property to enable RPS control patch and improves IGPU performance
