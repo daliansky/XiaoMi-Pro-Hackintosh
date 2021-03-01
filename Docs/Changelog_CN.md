@@ -2,7 +2,7 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.5.3
+## [XiaoMi NoteBook Pro EFI v1.5.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.3)
 ## 3-1-2021
 
 ### 更新
@@ -10,6 +10,7 @@
   * 更新 `Clover` r5131
   * 更新 `AppleALC` v1.5.8
   * 更新 `VirtualSMC` v1.2.1
+  * 更新 `WhateverGreen` v1.4.8
   * 更新 `VoodooPS2` v2.2.2
   * 更新 `VoodooI2C` v2.6.5
   * 更新 `AirportItlwm` v1.3.0（更新至 [OpenIntelWireless/itlwm@b5c4e52](https://github.com/OpenIntelWireless/itlwm/commit/b5c4e52f65cacf0b98849ad2cfb6ceb1644879b6)）
