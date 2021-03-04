@@ -2,6 +2,14 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.4
+## 4-5-2021
+
+### 更新
+  * 更新 `OpenCore` v0.6.8
+  * 更新 `AppleALC` v1.5.9
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.3)
 ## 3-1-2021
 
