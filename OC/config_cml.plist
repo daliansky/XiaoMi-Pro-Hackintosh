@@ -280,6 +280,8 @@
 			<false/>
 			<key>EnableWriteUnprotector</key>
 			<false/>
+			<key>ForceBooterSignature</key>
+			<false/>
 			<key>ForceExitBootServices</key>
 			<false/>
 			<key>ProtectMemoryRegions</key>

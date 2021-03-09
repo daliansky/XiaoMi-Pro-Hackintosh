@@ -7,7 +7,11 @@
 
 ### 更新
   * 更新 `OpenCore` v0.6.8
+  * 更新 `Lilu` v1.5.2
   * 更新 `AppleALC` v1.5.9
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.8
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.3)
