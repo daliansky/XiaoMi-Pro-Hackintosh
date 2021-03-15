@@ -9,6 +9,9 @@
   - Update `OpenCore` v0.6.8
   - Update `Lilu` v1.5.2
   - Update `AppleALC` v1.5.9
+  - Update `WhateverGreen` v1.4.9
+  - Update `HibernationFixup` v1.4.0
+  - Update `AirportItlwm` v1.3.0 (up to )
 
 ### OC
   - OC: Update config to support `OpenCore` v0.6.8
