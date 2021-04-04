@@ -2,16 +2,19 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.5.4
+## [XiaoMi NoteBook Pro EFI v1.5.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.4)
 ## 4-5-2021
 
 ### Update
   - Update `OpenCore` v0.6.8
+  - Update `Clover` r5132
   - Update `Lilu` v1.5.2
+  - Update `VirtualSMC` v1.2.2
   - Update `AppleALC` v1.5.9
+  - Update `CodecCommander` v2.7.3
   - Update `WhateverGreen` v1.4.9
   - Update `HibernationFixup` v1.4.0
-  - Update `AirportItlwm` v1.3.0 (up to )
+  - Update `AirportItlwm` v1.3.0 (up to [OpenIntelWireless/itlwm@68bc77c](https://github.com/OpenIntelWireless/itlwm/commit/68bc77c99a135819cbb3f660355336d1f6710caa))
 
 ### OC
   - OC: Update config to support `OpenCore` v0.6.8

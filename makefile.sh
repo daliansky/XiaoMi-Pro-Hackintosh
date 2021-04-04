@@ -142,7 +142,7 @@ oiwKexts=(
 
 # Clean Up
 function cleanUp() {
-  if [[ ${clean_up} == True ]]; then
+  if [[ ${clean_up} == true ]]; then
     rm -rf "${WSDir}"
   fi
 }
@@ -150,7 +150,7 @@ function cleanUp() {
 # Exit on Network Issue
 function networkErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
-  if [[ ${err_no_exit} == False ]]; then
+  if [[ ${err_no_exit} == false ]]; then
     cleanUp
     exit 1
   fi
@@ -160,7 +160,7 @@ function networkErr() {
 # Exit on Copy Issue
 function copyErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to copy resources!"
-  if [[ ${err_no_exit} == False ]]; then
+  if [[ ${err_no_exit} == false ]]; then
     cleanUp
     exit 1
   fi
@@ -170,7 +170,7 @@ function copyErr() {
 # Exit on Build Issue
 function buildErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to build $1!"
-  if [[ ${err_no_exit} == False ]]; then
+  if [[ ${err_no_exit} == false ]]; then
     cleanUp
     exit 1
   fi
@@ -223,6 +223,8 @@ function h_or_g() {
     hgs=( "grep -m 1 CloverV2" )
   elif [[ "$1" == "build-repo" ]]; then
     hgs=( "grep -A 2 OpenCorePkg | grep -m 1 RELEASE" )
+  elif [[ "$1" == "EAPD-Codec-Commander" ]]; then
+    hgs=( "grep -m 1 CodecCommander | grep -m 1 RELEASE" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
@@ -457,6 +459,10 @@ function bKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
     xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
     cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+  elif [[ "$2" == "EAPD-Codec-Commander" ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
+    xcodebuild -scheme CodecCommander -derivedDataPath . -configuration Release > /dev/null 2>&1 || buildErr "$2"
+    cp -R ${PATH_TO_REL_BIG}*.kext "../KBL" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
     mkdir -p "tmp" || exit 1
@@ -535,6 +541,9 @@ function bKext() {
   if [[ ${model_input} =~ "CML" ]]; then
     bKextHelper al3xtjames NoTouchID
   fi
+  if [[ ${model_input} =~ "KBL" ]]; then
+    bKextHelper Sniki EAPD-Codec-Commander
+  fi
   for acdtKext in "${acdtKexts[@]}"; do
     bKextHelper ${ACDT} "${acdtKext}"
   done
@@ -563,10 +572,6 @@ function download() {
   # Kexts
   dBR Rehabman os-x-null-ethernet
 
-  if [[ "${model_input}" =~ "KBL" ]]; then
-    dBR Rehabman os-x-eapd-codec-commander "KBL"
-  fi
-
   if [[ "${pre_release}" =~ "Kext" ]]; then
     bKext
   else
@@ -578,6 +583,9 @@ function download() {
     done
     if [[ "${model_input}" =~ "CML" ]]; then
       dGR al3xtjames NoTouchID NULL "CML"
+    fi
+    if [[ "${model_input}" =~ "KBL" ]]; then
+      dGR Sniki EAPD-Codec-Commander NULL "KBL"
     fi
     dGR VoodooI2C VoodooI2C
   fi
@@ -615,7 +623,7 @@ function unpack() {
   if [[ "${model_input}" =~ "CML" ]] && [[ "${pre_release}" != *Kext* ]]; then
     (cd "CML" && unzip -qq ./*.zip || exit 1)
   fi
-  if [[ "${model_input}" =~ "KBL" ]]; then
+  if [[ "${model_input}" =~ "KBL" ]] && [[ "${pre_release}" != *Kext* ]]; then
     (cd "KBL" && unzip -qq ./*.zip || exit 1)
   fi
   echo
@@ -626,7 +634,7 @@ function patch() {
   local unusedItems=(
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
-    "KBL/Release/CodecCommander.kext/Contents/Resources"
+    "KBL/CodecCommander.kext/Contents/Resources"
     "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
@@ -713,7 +721,7 @@ function install() {
     fi
     kblKextItems+=(
       "${sharedKextItems[@]}"
-      "KBL/Release/CodecCommander.kext"
+      "KBL/CodecCommander.kext"
     )
     local kblWifiKextItems=(
       "Big Sur/AirportItlwm_Big_Sur.kext"
@@ -829,7 +837,7 @@ function install() {
   fi
   if [[ "${model_input}" =~ "CML" ]]; then
     local cmlAcpiItems=( "${sharedAcpiItems[@]}"
-      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-AWAC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-AWAC-DISABLE.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-DDGPU.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PMC.aml"
