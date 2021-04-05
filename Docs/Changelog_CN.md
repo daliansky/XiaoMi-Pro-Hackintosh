@@ -11,7 +11,7 @@
   * 更新 `Lilu` v1.5.2
   * 更新 `VirtualSMC` v1.2.2
   * 更新 `AppleALC` v1.5.9
-  * 更新 `CodecCommander` v2.7.3
+  * 更新 `CodecCommander` v2.7.2
   * 更新 `WhateverGreen` v1.4.9
   * 更新 `HibernationFixup` v1.4.0
   * 更新 `AirportItlwm` v1.3.0（更新至 [OpenIntelWireless/itlwm@68bc77c](https://github.com/OpenIntelWireless/itlwm/commit/68bc77c99a135819cbb3f660355336d1f6710caa)）
