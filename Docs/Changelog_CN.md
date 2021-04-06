@@ -2,6 +2,15 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.5
+## 5-3-2021
+
+### 更新
+  * 更新 `OpenCore` v0.6.9
+  * 更新 `AppleALC` v1.6.0
+  * 更新 `AirportItlwm` v1.3.0（更新至 ）
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.4)
 ## 4-5-2021
 
