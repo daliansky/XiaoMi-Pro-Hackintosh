@@ -7,8 +7,13 @@
 
 ### 更新
   * 更新 `OpenCore` v0.6.9
+  * 更新 `Clover` r5133
+  * 更新 `VirtualSMC` v1.2.3
   * 更新 `AppleALC` v1.6.0
   * 更新 `AirportItlwm` v1.3.0（更新至 ）
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.6.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.4)

@@ -224,7 +224,7 @@ function h_or_g() {
   elif [[ "$1" == "build-repo" ]]; then
     hgs=( "grep -A 2 OpenCorePkg | grep -m 1 RELEASE" )
   elif [[ "$1" == "EAPD-Codec-Commander" ]]; then
-    hgs=( "grep -m 1 CodecCommander | grep -m 1 RELEASE" )
+    hgs=( "grep -m 2 CodecCommander | grep -m 1 RELEASE" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
@@ -1117,7 +1117,6 @@ function extractOC() {
 
 # Generate Release Note
 function genNote() {
-  local printVersion
   local lineStart
   local lineEnd
   local changelogPath
@@ -1132,10 +1131,8 @@ function genNote() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
-  printVersion=$(echo "${version}" | sed 's/-/\ /g' | sed 's/beta/beta\ /g')
-  printf "## XiaoMi NoteBook Pro EFI %s\n" "${printVersion}" >> ReleaseNotes.md
   # Release warning
-  echo "#### OC Recommendation: A NVRAM reset with LauncherOption=Disabled is highly suggested when upgrading from OpenCore v0.6.3 if \`BootProtect\` was set. Visit [acidanthera/bugtracker#1222 (comment)](https://github.com/acidanthera/bugtracker/issues/1222#issuecomment-739241310) for more information." >> ReleaseNotes.md
+  # echo "#### OC Recommendation: A NVRAM reset with LauncherOption=Disabled is highly suggested when upgrading from OpenCore v0.6.3 if \`BootProtect\` was set. Visit [acidanthera/bugtracker#1222 (comment)](https://github.com/acidanthera/bugtracker/issues/1222#issuecomment-739241310) for more information." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
