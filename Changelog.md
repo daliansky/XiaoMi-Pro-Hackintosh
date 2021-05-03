@@ -7,10 +7,14 @@
 
 ### Update
   - Update `OpenCore` v0.6.9
-  - Update `Clover` r5133
+  - Update `Clover` r5134
+  - Update `Lilu` v1.5.3
   - Update `VirtualSMC` v1.2.3
   - Update `AppleALC` v1.6.0
-  - Update `AirportItlwm` v1.3.0 (up to )
+  - Update `CodecCommander` v2.7.3
+  - Update `VoodooPS2` v2.2.3
+  - Update `AirportItlwm` v2.0.0 (up to [OpenIntelWireless/itlwm@c448fbd](https://github.com/OpenIntelWireless/itlwm/commit/c448fbdefa681f2f59394dbb800aca2a3a50e12e))
+  - Update `RestrictEvents` v1.0.1
 
 ### OC
   - OC: Update config to support `OpenCore` v0.6.9
