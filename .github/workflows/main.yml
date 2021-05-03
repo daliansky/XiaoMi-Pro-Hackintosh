@@ -97,7 +97,7 @@ jobs:
           unzip -qq "*.zip" || exit 1
           chmod +x CloverConfigPlistValidator || exit 1
 
-      - name: Run ocvalidate
+      - name: Run CloverConfigPlistValidator
         run: |
           ./CloverConfigPlistValidator/CloverConfigPlistValidator ./CLOVER/config_kbl.plist || exit 1
           ./CloverConfigPlistValidator/CloverConfigPlistValidator ./CLOVER/config_cml.plist || exit 1
