@@ -2,6 +2,25 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.5.6
+## 6-7-2021
+
+### Update
+  - Update `OpenCore` v0.7.0
+  - Update `Clover` r5135
+  - Update `AppleALC` v1.6.1
+  - Update `VirtualSMC` v1.2.4
+  - Update `RestrictEvents` v1.0.2
+  - Update `ExFatDxe.efi` (up to [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235))
+  - Update `HfsPlus.efi` (up to [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235))
+
+### Clover
+  - Clover: Update config to support `Clover` r5135
+
+### OC
+  - OC: Update config to support `OpenCore` v0.7.0
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.5)
 ## 5-3-2021
 

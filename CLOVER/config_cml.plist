@@ -248,6 +248,8 @@
 		</array>
 		<key>Mouse</key>
 		<dict>
+			<key>DoubleClickTime</key>
+			<integer>500</integer>
 			<key>Enabled</key>
 			<true/>
 			<key>Mirror</key>
