@@ -10,6 +10,8 @@
   - Update `Clover` r5135
   - Update `AppleALC` v1.6.1
   - Update `VirtualSMC` v1.2.4
+  - Update `AirportItlwm` v2.0.0 (up to )
+  - Update `IntelBluetoothFirmware` v1.1.3 (up to )
   - Update `RestrictEvents` v1.0.2
   - Update `ExFatDxe.efi` (up to [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235))
   - Update `HfsPlus.efi` (up to [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235))

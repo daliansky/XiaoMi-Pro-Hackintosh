@@ -80,28 +80,6 @@ jobs:
         run: |
           find . -name '*.dsl' -exec sh -c './iasl* -vw 2095 -vw 2173 -vs -p "${1%/*}/../${1##*/}" "${1%}" && echo || exit 1' sh {} \;
 
-  analyze-clover-config:
-    name: Analyze Clover Configs
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependency
-        run: |
-          mkdir "CloverConfigPlistValidator" && cd "CloverConfigPlistValidator" || exit 1
-          hg="grep -m 1 CloverConfigPlistValidator"
-          rawURL="https://github.com/CloverHackyColor/CloverBootloader/releases/latest"
-          url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
-          echo "Downloading ${url##*\/}"
-          curl -# -L -O "${url}" || exit 1
-          unzip -qq "*.zip" || exit 1
-          chmod +x CloverConfigPlistValidator || exit 1
-
-      - name: Run CloverConfigPlistValidator
-        run: |
-          ./CloverConfigPlistValidator/CloverConfigPlistValidator ./CLOVER/config_kbl.plist || exit 1
-          ./CloverConfigPlistValidator/CloverConfigPlistValidator ./CLOVER/config_cml.plist || exit 1
-
   analyze-oc-config:
     name: Analyze OpenCore Configs
     runs-on: macos-latest

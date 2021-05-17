@@ -70,6 +70,8 @@ function init() {
 function h_or_g() {
   if [[ "$1" == "VoodooI2C" ]]; then
     hgs=( "head -n 1" )
+  elif [[ "$1" == "EAPD-Codec-Commander" ]]; then
+    hgs=( "grep -m 2 CodecCommander | grep -m 1 RELEASE" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
@@ -180,11 +182,6 @@ function dBR() {
 }
 
 function download() {
-  local rmKexts=(
-    os-x-eapd-codec-commander
-    os-x-null-ethernet
-  )
-
   local acdtKexts=(
     VirtualSMC
     WhateverGreen
@@ -200,9 +197,7 @@ function download() {
     itlwm
   )
 
-  for rmKext in "${rmKexts[@]}"; do
-    dBR Rehabman "${rmKext}" "${OUTDir_TMP}"
-  done
+  dBR Rehabman os-x-null-ethernet "${OUTDir_TMP}"
 
   for acdtKext in "${acdtKexts[@]}"; do
     dGR ${ACDT} "${acdtKext}" NULL "${OUTDir_TMP}"
@@ -211,6 +206,8 @@ function download() {
   for oiwKext in "${oiwKexts[@]}"; do
     dGR ${OIW} "${oiwKext}" PreRelease "${OUTDir_TMP}"
   done
+
+  dGR Sniki EAPD-Codec-Commander NULL "${OUTDir_TMP}"
 
   dGR VoodooI2C VoodooI2C NULL "${OUTDir_TMP}"
 
@@ -231,7 +228,7 @@ function patch() {
   local unusedItems=(
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
-    "Release/CodecCommander.kext/Contents/Resources"
+    "CodecCommander.kext/Contents/Resources"
     "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"

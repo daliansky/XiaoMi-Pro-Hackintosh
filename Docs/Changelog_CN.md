@@ -10,6 +10,8 @@
   * 更新 `Clover` r5135
   * 更新 `AppleALC` v1.6.1
   * 更新 `VirtualSMC` v1.2.4
+  * 更新 `AirportItlwm` v2.0.0（更新至）
+  * 更新 `IntelBluetoothFirmware` v1.1.3（更新至）
   * 更新 `RestrictEvents` v1.0.2
   * 更新 `ExFatDxe.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）
   * 更新 `HfsPlus.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）
