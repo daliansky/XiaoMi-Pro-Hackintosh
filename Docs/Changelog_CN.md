@@ -2,16 +2,17 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.5.6
+## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
 ## 6-7-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.0
-  * 更新 `Clover` r5135
+  * 更新 `Clover` r5136
   * 更新 `AppleALC` v1.6.1
   * 更新 `VirtualSMC` v1.2.4
-  * 更新 `AirportItlwm` v2.0.0（更新至）
-  * 更新 `IntelBluetoothFirmware` v1.1.3（更新至）
+  * 更新 `WhateverGreen` v1.5.0
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@306eb17](https://github.com/OpenIntelWireless/itlwm/commit/306eb17dea0786b1e9286c67cc1f6bd62725d288)）
+  * 更新 `IntelBluetoothFirmware` v1.1.3（更新至 [OpenIntelWireless/IntelBluetoothFirmware@ed27c85](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/ed27c858ce74ce3d49bbfc356f7e1ce35156a974)）
   * 更新 `RestrictEvents` v1.0.2
   * 更新 `ExFatDxe.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）
   * 更新 `HfsPlus.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）

@@ -12,7 +12,7 @@ jobs:
     name: Build EFI Release
     runs-on: macos-latest
     env:
-      XCODE_VERSION: 12.4
+      XCODE_VERSION: 12.5
     steps:
       - uses: actions/checkout@v2
         with:
@@ -24,7 +24,7 @@ jobs:
           echo "CUR_TAG=beta-$GIT_SHA" >> "$GITHUB_ENV"
           echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> "$GITHUB_ENV"
 
-      - name: Initialize Tag
+      - name: Manage Release Version
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
         run: |
           echo "CUR_TAG=${GITHUB_REF##*/}" >> "$GITHUB_ENV"
