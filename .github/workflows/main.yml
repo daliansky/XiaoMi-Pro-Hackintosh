@@ -12,7 +12,7 @@ jobs:
     name: Build EFI Release
     runs-on: macos-latest
     env:
-      XCODE_VERSION: 12.5
+      XCODE_VERSION: 12.4
     steps:
       - uses: actions/checkout@v2
         with:
