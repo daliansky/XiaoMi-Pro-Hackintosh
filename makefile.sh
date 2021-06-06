@@ -12,6 +12,7 @@
 # Vars
 ACDT="Acidanthera"
 CFURL="https://hackintosh.stevezheng.workers.dev"
+CFURL_1="https\://hackintosh.stevezheng.workers.dev"
 OIW="OpenIntelWireless"
 REPO_NAME="XiaoMi-Pro-Hackintosh"
 REPO_BRANCH="main"
@@ -89,11 +90,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "${model_input}" =~ "KBL" ]]; then
-  model_list+=( "KBL" )
-fi
 if [[ "${model_input}" =~ "CML" ]]; then
   model_list+=( "CML" )
+fi
+if [[ "${model_input}" =~ "KBL" ]]; then
+  model_list+=( "KBL" )
 fi
 
 # Assign KBL when no MODEL is entered
@@ -433,14 +434,19 @@ function bKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
     if [[ "$2" == "VoodooI2C" ]]; then
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
+
+      # Add Cloudflare redirect to gitmodules for Chinese users
+      if [[ ${language} == "zh_CN" ]]; then
+        /usr/bin/sed -i "" "s:https:${CFURL_1}/https:g" ".gitmodules"
+      fi
       git submodule init -q && git submodule update -q || exit 1
 
       if [[ -z ${GITHUB_ACTIONS+x} ]]; then
         # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
         lineNum=$(grep -n "Linting" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
-        sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+        /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
         lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
-        sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+        /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
       else
         # Install cpplint & cldoc when using GitHub Action
         pip3 install -q cpplint || exit 1
@@ -1046,7 +1052,22 @@ function install() {
     else
       kblAlcfixItems=("${kblAlcfixItems[@]/${REPO_NAME_BRANCH}/..}")
       cd "../" || exit 1
-      git submodule init -q && git submodule update --remote -q && cd "${WSDir}" || exit 1
+
+      # Add Cloudflare redirect to gitmodules for Chinese users
+      if [[ ${language} == "zh_CN" ]]; then
+        cp -f ".gitmodules" ".gitmodules_bak" || copyErr
+        /usr/bin/sed -i "" "s:https:${CFURL_1}/https:g" ".gitmodules"
+      fi
+
+      git submodule init -q && git submodule update --remote -q
+
+      # Restore .gitmodules
+      if [[ ${language} == "zh_CN" ]]; then
+        rm -f ".gitmodules"
+        mv -f ".gitmodules_bak" ".gitmodules"
+      fi
+
+      cd "${WSDir}" || exit 1
     fi
 
     echo "${green}[${reset}${blue}${bold} Installing ALCPlugFix ${reset}${green}]${reset}"
