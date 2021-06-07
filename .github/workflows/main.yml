@@ -89,12 +89,15 @@ jobs:
       - name: Install Dependency
         run: |
           mkdir "OpenCore" && cd "OpenCore" || exit 1
-          hg="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
-          rawURL="https://github.com/dortania/build-repo/tags"
-          rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
+          hg="grep -m 1 RELEASE"
+          hg_pre="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
+          rawURL="https://github.com/acidanthera/OpenCorePkg/latest"
+          rawURL_pre="https://github.com/dortania/build-repo/tags"
+          rawURL_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
           url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
-          echo "Downloading ${url##*\/}"
-          curl -# -L -O "${url}" || exit 1
+          url_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep '/download/' | eval "${hg_pre}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
+          echo "Downloading OpenCorePkg"
+          curl -# -L -O "${url_pre}" || curl -# -L -O "${url}" || exit 1
           unzip -qq "*.zip" || exit 1
           chmod +x Utilities/ocvalidate/ocvalidate || exit 1
 

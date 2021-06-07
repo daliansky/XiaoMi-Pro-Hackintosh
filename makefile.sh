@@ -570,7 +570,7 @@ function download() {
   if [[ "${pre_release}" =~ "OC" ]]; then
     # williambj1's OpenCore-Factory repository has been archived
     # dGR williambj1 OpenCore-Factory PreRelease "OpenCore"
-    dGR dortania build-repo NULL "OpenCore"
+    dGR dortania build-repo NULL "OpenCore" || dGR ${ACDT} OpenCorePkg NULL "OpenCore"
   else
     dGR ${ACDT} OpenCorePkg NULL "OpenCore"
   fi
