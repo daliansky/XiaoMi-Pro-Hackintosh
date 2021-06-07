@@ -11,7 +11,7 @@
   * 更新 `AppleALC` v1.6.1
   * 更新 `VirtualSMC` v1.2.4
   * 更新 `WhateverGreen` v1.5.0
-  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@306eb17](https://github.com/OpenIntelWireless/itlwm/commit/306eb17dea0786b1e9286c67cc1f6bd62725d288)）
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@d97c0d2](https://github.com/OpenIntelWireless/itlwm/commit/d97c0d23f5f52840282da4858de6e0800c1fdb7c)）
   * 更新 `IntelBluetoothFirmware` v1.1.3（更新至 [OpenIntelWireless/IntelBluetoothFirmware@ed27c85](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/ed27c858ce74ce3d49bbfc356f7e1ce35156a974)）
   * 更新 `RestrictEvents` v1.0.2
   * 更新 `ExFatDxe.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）

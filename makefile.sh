@@ -1063,8 +1063,8 @@ function install() {
 
       # Restore .gitmodules
       if [[ ${language} == "zh_CN" ]]; then
-        rm -f ".gitmodules"
-        mv -f ".gitmodules_bak" ".gitmodules"
+        rm -f ".gitmodules" || exit 1
+        mv -f ".gitmodules_bak" ".gitmodules" || exit 1
       fi
 
       cd "${WSDir}" || exit 1
@@ -1153,7 +1153,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  # echo "#### OC Recommendation: A NVRAM reset with LauncherOption=Disabled is highly suggested when upgrading from OpenCore v0.6.3 if \`BootProtect\` was set. Visit [acidanthera/bugtracker#1222 (comment)](https://github.com/acidanthera/bugtracker/issues/1222#issuecomment-739241310) for more information." >> ReleaseNotes.md
+  echo "#### This version does not support macOS12." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
