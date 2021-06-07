@@ -390,9 +390,9 @@ function bKextHelper() {
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
   if [[ ${language} != "zh_CN" ]]; then
-    git clone --depth=1 -q https://github.com/"$1"/"$2".git
+    git clone --depth=1 -q https://github.com/"$1"/"$2".git || networkErr "$2"
   else
-    git clone --depth=1 -q ${CFURL}/https://github.com/"$1"/"$2".git
+    git clone --depth=1 -q ${CFURL}/https://github.com/"$1"/"$2".git || networkErr "$2"
   fi
   cd "$2" || exit 1
   if [[ ${liluPlugins} =~ $2 ]]; then
@@ -439,7 +439,7 @@ function bKextHelper() {
       if [[ ${language} == "zh_CN" ]]; then
         /usr/bin/sed -i "" "s:https:${CFURL_1}/https:g" ".gitmodules"
       fi
-      git submodule init -q && git submodule update -q || exit 1
+      git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
 
       if [[ -z ${GITHUB_ACTIONS+x} ]]; then
         # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
@@ -536,13 +536,13 @@ function bKext() {
   fi
 
   if [[ ${language} != "zh_CN" ]]; then
-    git clone -q https://github.com/acidanthera/MacKernelSDK
-    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
-    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
+    git clone -q https://github.com/acidanthera/MacKernelSDK || networkErr "MacKernelSDK"
+    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "Lilu"
+    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "VoodooInput"
   else
-    git clone -q ${CFURL}/https://github.com/acidanthera/MacKernelSDK
-    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
-    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || exit 1
+    git clone -q ${CFURL}/https://github.com/acidanthera/MacKernelSDK || networkErr "MacKernelSDK"
+    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "Lilu"
+    src=$(/usr/bin/curl -Lfs ${CFURL}/https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "VoodooInput"
   fi
   if [[ ${model_input} =~ "CML" ]]; then
     bKextHelper al3xtjames NoTouchID
