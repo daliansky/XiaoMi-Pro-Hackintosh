@@ -153,6 +153,7 @@ function networkErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
   if [[ "$2" == "skip" ]]; then
     echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Skip $1!"
+    return 1
   elif [[ ${err_no_exit} == false ]]; then
     cleanUp
     exit 1
@@ -307,7 +308,7 @@ function dGR() {
 
   for url in "${urls[@]}"; do
     if [[ -z ${url} || ${url} == "https://github.com" ]]; then
-      networkErr "$2"
+      networkErr "$2" "$5"
     fi
     echo "${green}[${reset}${blue}${bold} Downloading ${url##*\/} ${reset}${green}]${reset}"
     echo "${cyan}"
