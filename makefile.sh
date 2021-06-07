@@ -21,6 +21,7 @@ RETRY_MAX=5
 
 clean_up=true
 err_no_exit=false
+fail_flag=false
 gh_api=false
 language="en_US"
 model_input=""
@@ -153,7 +154,7 @@ function networkErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
   if [[ "$2" == "skip" ]]; then
     echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Skip $1!"
-    return 1
+    fail_flag=true
   elif [[ ${err_no_exit} == false ]]; then
     cleanUp
     exit 1
@@ -316,6 +317,10 @@ function dGR() {
     curl -# -L -O "${url}" || networkErr "$2" "$5"
     cd - > /dev/null 2>&1 || exit 1
     echo "${reset}"
+    if [[ ${fail_flag} == true ]]; then
+      fail_flag=false
+      return 1
+    fi
   done
 }
 
