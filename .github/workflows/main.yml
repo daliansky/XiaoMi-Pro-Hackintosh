@@ -91,7 +91,7 @@ jobs:
           mkdir "OpenCore" && cd "OpenCore" || exit 1
           hg="grep -m 1 RELEASE"
           hg_pre="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
-          rawURL="https://github.com/acidanthera/OpenCorePkg/latest"
+          rawURL="https://github.com/acidanthera/OpenCorePkg/releases/latest"
           rawURL_pre="https://github.com/dortania/build-repo/tags"
           rawURL_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
           url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"

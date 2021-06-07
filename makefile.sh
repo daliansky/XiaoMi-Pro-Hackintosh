@@ -151,7 +151,9 @@ function cleanUp() {
 # Exit on Network Issue
 function networkErr() {
   echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: Failed to download resources from $1, please check your connection!"
-  if [[ ${err_no_exit} == false ]]; then
+  if [[ "$2" == "skip" ]]; then
+    echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Skip $1!"
+  elif [[ ${err_no_exit} == false ]]; then
     cleanUp
     exit 1
   fi
@@ -310,7 +312,7 @@ function dGR() {
     echo "${green}[${reset}${blue}${bold} Downloading ${url##*\/} ${reset}${green}]${reset}"
     echo "${cyan}"
     cd ./"$4" || exit 1
-    curl -# -L -O "${url}" || networkErr "$2"
+    curl -# -L -O "${url}" || networkErr "$2" "$5"
     cd - > /dev/null 2>&1 || exit 1
     echo "${reset}"
   done
@@ -570,7 +572,7 @@ function download() {
   if [[ "${pre_release}" =~ "OC" ]]; then
     # williambj1's OpenCore-Factory repository has been archived
     # dGR williambj1 OpenCore-Factory PreRelease "OpenCore"
-    dGR dortania build-repo NULL "OpenCore" || dGR ${ACDT} OpenCorePkg NULL "OpenCore"
+    dGR dortania build-repo NULL "OpenCore" "skip" || dGR ${ACDT} OpenCorePkg NULL "OpenCore"
   else
     dGR ${ACDT} OpenCorePkg NULL "OpenCore"
   fi
