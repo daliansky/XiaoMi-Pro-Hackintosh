@@ -3,7 +3,7 @@
 [English](../Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
-## 6-7-2021
+## 6-X-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.0

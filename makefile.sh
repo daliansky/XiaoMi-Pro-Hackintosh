@@ -1153,7 +1153,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  echo "#### This version does not support macOS12." >> ReleaseNotes.md
+  echo "#### Support for macOS12 is unknown." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
