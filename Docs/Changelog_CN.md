@@ -3,19 +3,21 @@
 [English](../Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
-## 6-X-2021
+## 6-8-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.0
   * 更新 `Clover` r5136
-  * 更新 `AppleALC` v1.6.1
-  * 更新 `VirtualSMC` v1.2.4
-  * 更新 `WhateverGreen` v1.5.0
-  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@d97c0d2](https://github.com/OpenIntelWireless/itlwm/commit/d97c0d23f5f52840282da4858de6e0800c1fdb7c)）
+  * 更新 `Lilu` v1.5.4（更新至 [acidanthera/Lilu@e22b892](https://github.com/acidanthera/Lilu/commit/e22b89297c15b8ad2074a87dffcb7c4b7bcec4c8)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `AppleALC` v1.6.2（更新至 [acidanthera/AppleALC@12bf428](https://github.com/acidanthera/AppleALC/commit/12bf428d03aceb43bbdc0a843fd4b2d4b2143e02)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `VirtualSMC` v1.2.5（更新至 [acidanthera/VirtualSMC@34676be](https://github.com/acidanthera/VirtualSMC/commit/34676be551fd0bbe1f543966d18d25bdf2bb44fa)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `WhateverGreen` v1.5.1（更新至 [acidanthera/WhateverGreen@714ad1a](https://github.com/acidanthera/WhateverGreen/commit/714ad1aaeaaedfc3f9ad7ae4f7f1d3ae2e68dd11)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `HibernationFixup` v1.4.1（更新至 [acidanthera/HibernationFixup@7d47165](https://github.com/acidanthera/HibernationFixup/commit/7d471652f1ca4f98b0cf353259841d808a438eb0)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@ef139ef](https://github.com/OpenIntelWireless/itlwm/commit/ef139eff859cfad5aa403a1fe0d6fa911ea71600)）来支持 macOS12.0 beta1 (21A5248p)
   * 更新 `IntelBluetoothFirmware` v1.1.3（更新至 [OpenIntelWireless/IntelBluetoothFirmware@ed27c85](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/ed27c858ce74ce3d49bbfc356f7e1ce35156a974)）
-  * 更新 `RestrictEvents` v1.0.2
-  * 更新 `ExFatDxe.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）
-  * 更新 `HfsPlus.efi`（更新至 [acidanthera/OcBinaryData@95b7d4c](https://github.com/acidanthera/OcBinaryData/commit/95b7d4ccb9fea6af48641fc1f5bd4b57f747b235)）
+  * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@3271f18](https://github.com/acidanthera/RestrictEvents/commit/3271f188dd4fd37ca7e10d01862e490071a18a1c)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `ExFatDxe.efi`（更新至 [acidanthera/OcBinaryData@6dd2d92](https://github.com/acidanthera/OcBinaryData/commit/6dd2d92383edee522052ebbe2c634c92894b37e6)）
+  * 更新 `HfsPlus.efi`（更新至 [acidanthera/OcBinaryData@6dd2d92](https://github.com/acidanthera/OcBinaryData/commit/6dd2d92383edee522052ebbe2c634c92894b37e6)）
 
 ### Clover
   - Clover: 更新 config 来支持 `Clover` r5135

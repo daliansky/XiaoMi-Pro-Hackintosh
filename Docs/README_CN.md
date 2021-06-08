@@ -88,8 +88,8 @@
 - r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 v1.4.7 支持旧 macOS 版本的英特尔 Wi-Fi，或者添加 `IO80211Family.kext` 到 kext 文件夹）
 
 ### OpenCore
-- TM1701 和 TM1707：支持 macOS10.13 ~ macOS11
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS11
+- TM1701 和 TM1707：支持 macOS10.13 ~ macOS12.0 beta1 (21A5248p)
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12.0 beta1 (21A5248p)
 -----
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据 [OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`

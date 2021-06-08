@@ -237,6 +237,7 @@ function h_or_g() {
           "grep -m 1 AirportItlwm-Catalina"
           "grep -m 1 AirportItlwm-High_Sierra"
           "grep -m 1 AirportItlwm-Mojave"
+          "grep -m 1 AirportItlwm-Monterey"
         )
   else
     hgs=( "grep -m 1 RELEASE" )
@@ -672,12 +673,14 @@ function patch() {
       mv "${model}/Catalina/AirportItlwm.kext" "${model}/Catalina/AirportItlwm_Catalina.kext" || exit 1
       mv "${model}/High Sierra/AirportItlwm.kext" "${model}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
       mv "${model}/Mojave/AirportItlwm.kext" "${model}/Mojave/AirportItlwm_Mojave.kext" || exit 1
+      mv "${model}/Monterey/AirportItlwm.kext" "${model}/Monterey/AirportItlwm_Monterey.kext" || exit 1
     done
   else
     mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
     mv "Catalina/AirportItlwm.kext" "Catalina/AirportItlwm_Catalina.kext" || exit 1
     mv "High Sierra/AirportItlwm.kext" "High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
     mv "Mojave/AirportItlwm.kext" "Mojave/AirportItlwm_Mojave.kext" || exit 1
+    mv "Monterey/AirportItlwm.kext" "Monterey/AirportItlwm_Monterey.kext" || exit 1
   fi
   echo
 }
@@ -715,6 +718,7 @@ function install() {
     local cmlWifiKextItems=(
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
+      "Monterey/AirportItlwm_Monterey.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cmlWifiKextItems=("${cmlWifiKextItems[@]/#/CML/}")
@@ -722,6 +726,7 @@ function install() {
     local cmlCloverKextFolders=(
       "10.15"
       "11"
+      "12"
     )
   fi
   if [[ "${model_input}" =~ "KBL" ]]; then
@@ -742,6 +747,7 @@ function install() {
       "Catalina/AirportItlwm_Catalina.kext"
       "High Sierra/AirportItlwm_High_Sierra.kext"
       "Mojave/AirportItlwm_Mojave.kext"
+      "Monterey/AirportItlwm_Monterey.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       kblWifiKextItems=("${kblWifiKextItems[@]/#/KBL/}")
@@ -751,6 +757,7 @@ function install() {
       "10.14"
       "10.15"
       "11"
+      "12"
     )
   fi
 
@@ -783,6 +790,7 @@ function install() {
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
       cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
+      cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
       if [[ "${model}" == "KBL" ]]; then
         cp -R "${model}/High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
         cp -R "${model}/Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
@@ -790,6 +798,7 @@ function install() {
     else
       cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
       cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
+      cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
       if [[ "${model}" == "KBL" ]]; then
         cp -R "High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
         cp -R "Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
@@ -1161,7 +1170,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  echo "#### Support for macOS12 is unknown." >> ReleaseNotes.md
+  echo "#### Support for macOS12 is untested." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)

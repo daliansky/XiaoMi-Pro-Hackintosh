@@ -79,6 +79,7 @@ function h_or_g() {
           "grep -m 1 AirportItlwm-Catalina"
           "grep -m 1 AirportItlwm-High_Sierra"
           "grep -m 1 AirportItlwm-Mojave"
+          "grep -m 1 AirportItlwm-Monterey"
         )
   else
     hgs=( "grep -m 1 RELEASE" )
@@ -241,11 +242,12 @@ function patch() {
     rm -rf "${unusedItem}" > /dev/null 2>&1
   done
 
-  # Rename AirportItlwm.kexts to distinguish different versions
+  # Rename AirportItlwm.kexts based on different versions
   mv "${OUTDir_TMP}/Big Sur/AirportItlwm.kext" "${OUTDir_TMP}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
   mv "${OUTDir_TMP}/Catalina/AirportItlwm.kext" "${OUTDir_TMP}/Catalina/AirportItlwm_Catalina.kext" || exit 1
   mv "${OUTDir_TMP}/High Sierra/AirportItlwm.kext" "${OUTDir_TMP}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
   mv "${OUTDir_TMP}/Mojave/AirportItlwm.kext" "${OUTDir_TMP}/Mojave/AirportItlwm_Mojave.kext" || exit 1
+  mv "${OUTDir_TMP}/Monterey/AirportItlwm.kext" "${OUTDir_TMP}/Monterey/AirportItlwm_Monterey.kext" || exit 1
 }
 
 # Install
@@ -273,6 +275,7 @@ function install() {
     "Catalina/AirportItlwm_Catalina.kext"
     "High Sierra/AirportItlwm_High_Sierra.kext"
     "Mojave/AirportItlwm_Mojave.kext"
+    "Monterey/AirportItlwm_Monterey.kext"
   )
 
   for kextItem in "${kextItems[@]}"; do
