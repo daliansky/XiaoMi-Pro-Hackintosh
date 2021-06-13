@@ -787,6 +787,8 @@ function install() {
         cp -R "CML/NoTouchID.kext" "${noTouchIDDir}" || copyErr
       done
     fi
+
+    # Move AirportItlwm to corresponding Clover and OC Kext folders
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
       cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr

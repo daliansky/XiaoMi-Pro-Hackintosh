@@ -2,6 +2,27 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.7
+## 6-XX-2021
+
+### 更新
+  * 更新 `OpenCore` v0.7.1（更新至 [acidanthera/OpenCorePkg@26d75dd](https://github.com/acidanthera/OpenCorePkg/commit/26d75dd6fcf7646e24277f66a5cbf41e745a7d60)）
+  * 更新 `Clover` r5137
+  * 更新 `Lilu` v1.5.4（更新至 [acidanthera/Lilu@c371985](https://github.com/acidanthera/Lilu/commit/c3719856ee6deb195b596d7eb529befc8734931e)）
+  * 更新 `AppleALC` v1.6.2（更新至 [acidanthera/AppleALC@93be275](https://github.com/acidanthera/AppleALC/commit/93be275a4495a1bdb7ff2c3238053f66b9c5195d)）
+  * 更新 `VirtualSMC` v1.2.5（更新至 [acidanthera/VirtualSMC@30a3fa2](https://github.com/acidanthera/VirtualSMC/commit/30a3fa2bd920a15e41ef1439585bcc19885b89e3)）
+  * 更新 `WhateverGreen` v1.5.1（更新至 [acidanthera/WhateverGreen@79efd98](https://github.com/acidanthera/WhateverGreen/commit/79efd986ac5f4f17e09b880f25ea45be64863b2f)）
+  * 更新 `HibernationFixup` v1.4.1（更新至 [acidanthera/HibernationFixup@ea11e11](https://github.com/acidanthera/HibernationFixup/commit/ea11e11ea22183c5489f150e9d763d4a474848dd)）
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@7214459](https://github.com/OpenIntelWireless/itlwm/commit/7214459c1a35abb343171ae990227ccf352b69cd)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@9227dc5](https://github.com/acidanthera/RestrictEvents/commit/9227dc55abb66e20750c2768fa6f590ffab3b78a)）
+
+### 变更
+  * 禁用 `IntelBluetoothFirmware` 在 macOS12 上加载
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.7.1
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
 ## 6-8-2021
 
@@ -13,17 +34,17 @@
   * 更新 `VirtualSMC` v1.2.5（更新至 [acidanthera/VirtualSMC@34676be](https://github.com/acidanthera/VirtualSMC/commit/34676be551fd0bbe1f543966d18d25bdf2bb44fa)）来支持 macOS12.0 beta1 (21A5248p)
   * 更新 `WhateverGreen` v1.5.1（更新至 [acidanthera/WhateverGreen@714ad1a](https://github.com/acidanthera/WhateverGreen/commit/714ad1aaeaaedfc3f9ad7ae4f7f1d3ae2e68dd11)）来支持 macOS12.0 beta1 (21A5248p)
   * 更新 `HibernationFixup` v1.4.1（更新至 [acidanthera/HibernationFixup@7d47165](https://github.com/acidanthera/HibernationFixup/commit/7d471652f1ca4f98b0cf353259841d808a438eb0)）来支持 macOS12.0 beta1 (21A5248p)
-  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@ef139ef](https://github.com/OpenIntelWireless/itlwm/commit/ef139eff859cfad5aa403a1fe0d6fa911ea71600)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@ef139ef](https://github.com/OpenIntelWireless/itlwm/commit/ef139eff859cfad5aa403a1fe0d6fa911ea71600)）
   * 更新 `IntelBluetoothFirmware` v1.1.3（更新至 [OpenIntelWireless/IntelBluetoothFirmware@ed27c85](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/ed27c858ce74ce3d49bbfc356f7e1ce35156a974)）
   * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@3271f18](https://github.com/acidanthera/RestrictEvents/commit/3271f188dd4fd37ca7e10d01862e490071a18a1c)）来支持 macOS12.0 beta1 (21A5248p)
   * 更新 `ExFatDxe.efi`（更新至 [acidanthera/OcBinaryData@6dd2d92](https://github.com/acidanthera/OcBinaryData/commit/6dd2d92383edee522052ebbe2c634c92894b37e6)）
   * 更新 `HfsPlus.efi`（更新至 [acidanthera/OcBinaryData@6dd2d92](https://github.com/acidanthera/OcBinaryData/commit/6dd2d92383edee522052ebbe2c634c92894b37e6)）
 
 ### Clover
-  - Clover: 更新 config 来支持 `Clover` r5135
+  * Clover: 更新 config 来支持 `Clover` r5136
 
 ### OC
-  - OC: 更新 config 来支持 `OpenCore` v0.7.0
+  * OC: 更新 config 来支持 `OpenCore` v0.7.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.5)
