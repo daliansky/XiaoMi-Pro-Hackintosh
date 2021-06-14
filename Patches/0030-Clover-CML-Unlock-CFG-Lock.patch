@@ -1,0 +1,25 @@
+From 1899fd9ef8e9ee56209a1389ce920f1ea9e4f7e4 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:30:06 +0800
+Subject: [PATCH] Clover: CML: Unlock CFG Lock
+
+---
+ CLOVER/config_cml.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CLOVER/config_cml.plist b/CLOVER/config_cml.plist
+index 029c6b2..ff717a3 100644
+--- a/CLOVER/config_cml.plist
++++ b/CLOVER/config_cml.plist
+@@ -299,7 +299,7 @@
+ 		<key>AppleRTC</key>
+ 		<true/>
+ 		<key>KernelPm</key>
+-		<true/>
++		<false/>
+ 		<key>PanicNoKextDump</key>
+ 		<true/>
+ 		<key>ForceKextsToLoad</key>
+-- 
+2.32.0
+

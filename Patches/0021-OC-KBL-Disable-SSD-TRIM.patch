@@ -1,0 +1,25 @@
+From d4003cb4ffe6d6bcdc9dc962a07c75cdc6f41ac9 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:13:42 +0800
+Subject: [PATCH] OC: KBL: Disable SSD TRIM
+
+---
+ OC/config_kbl.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..7ab090c 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -1104,7 +1104,7 @@
+ 			<key>ProvideCurrentCpuInfo</key>
+ 			<false/>
+ 			<key>SetApfsTrimTimeout</key>
+-			<integer>-1</integer>
++			<integer>999</integer>
+ 			<key>ThirdPartyDrives</key>
+ 			<true/>
+ 			<key>XhciPortLimit</key>
+-- 
+2.32.0
+

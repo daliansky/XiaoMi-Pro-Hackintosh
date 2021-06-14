@@ -1,0 +1,34 @@
+From cbac613ce64ad80e471931219828c0d5303ebc25 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:08:16 +0800
+Subject: [PATCH] OC: KBL: Enable Startup Chime
+
+---
+ OC/config_kbl.plist | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..9d8e0f8 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -1344,7 +1344,7 @@
+ 			<key>AudioOut</key>
+ 			<integer>0</integer>
+ 			<key>AudioSupport</key>
+-			<false/>
++			<true/>
+ 			<key>MinimumVolume</key>
+ 			<integer>20</integer>
+ 			<key>PlayChime</key>
+@@ -1363,7 +1363,7 @@
+ 			<string>HfsPlus.efi</string>
+ 			<string>OpenRuntime.efi</string>
+ 			<string>OpenCanopy.efi</string>
+-			<string>#AudioDxe.efi</string>
++			<string>AudioDxe.efi</string>
+ 			<string>#ExFatDxe.efi</string>
+ 		</array>
+ 		<key>Input</key>
+-- 
+2.32.0
+

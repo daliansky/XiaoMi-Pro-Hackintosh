@@ -1,0 +1,131 @@
+From 943672c86c75460cef1fb6c9ef2b50e11ec50c3b Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:18:19 +0800
+Subject: [PATCH] OC: CML: Use Brcm USB BT Doggle
+
+---
+ OC/config_cml.plist | 80 ++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 76 insertions(+), 4 deletions(-)
+
+diff --git a/OC/config_cml.plist b/OC/config_cml.plist
+index 63a535f..5c38965 100644
+--- a/OC/config_cml.plist
++++ b/OC/config_cml.plist
+@@ -130,7 +130,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB.aml</string>
+ 			</dict>
+@@ -138,7 +138,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Disable native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<false/>
++				<true/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB-USBBT.aml</string>
+ 			</dict>
+@@ -884,6 +884,78 @@
+ 				<key>PlistPath</key>
+ 				<string>Contents/Info.plist</string>
+ 			</dict>
++			<dict>
++				<key>Arch</key>
++				<string>x86_64</string>
++				<key>BundlePath</key>
++				<string>BlueToolFixup.kext</string>
++				<key>Comment</key>
++				<string></string>
++				<key>Enabled</key>
++				<true/>
++				<key>ExecutablePath</key>
++				<string>Contents/MacOS/BlueToolFixup</string>
++				<key>MaxKernel</key>
++				<string></string>
++				<key>MinKernel</key>
++				<string>21.0.0</string>
++				<key>PlistPath</key>
++				<string>Contents/Info.plist</string>
++			</dict>
++			<dict>
++				<key>Arch</key>
++				<string>x86_64</string>
++				<key>BundlePath</key>
++				<string>BrcmBluetoothInjector.kext</string>
++				<key>Comment</key>
++				<string></string>
++				<key>Enabled</key>
++				<true/>
++				<key>ExecutablePath</key>
++				<string></string>
++				<key>MaxKernel</key>
++				<string>20.99.99</string>
++				<key>MinKernel</key>
++				<string>14.0.0</string>
++				<key>PlistPath</key>
++				<string>Contents/Info.plist</string>
++			</dict>
++			<dict>
++				<key>Arch</key>
++				<string>x86_64</string>
++				<key>BundlePath</key>
++				<string>BrcmFirmwareData.kext</string>
++				<key>Comment</key>
++				<string></string>
++				<key>Enabled</key>
++				<true/>
++				<key>ExecutablePath</key>
++				<string>Contents/MacOS/BrcmFirmwareData</string>
++				<key>MaxKernel</key>
++				<string></string>
++				<key>MinKernel</key>
++				<string>14.0.0</string>
++				<key>PlistPath</key>
++				<string>Contents/Info.plist</string>
++			</dict>
++			<dict>
++				<key>Arch</key>
++				<string>x86_64</string>
++				<key>BundlePath</key>
++				<string>BrcmPatchRAM3.kext</string>
++				<key>Comment</key>
++				<string></string>
++				<key>Enabled</key>
++				<true/>
++				<key>ExecutablePath</key>
++				<string>Contents/MacOS/BrcmPatchRAM3</string>
++				<key>MaxKernel</key>
++				<string></string>
++				<key>MinKernel</key>
++				<string>19.0.0</string>
++				<key>PlistPath</key>
++				<string>Contents/Info.plist</string>
++			</dict>
+ 			<dict>
+ 				<key>Arch</key>
+ 				<string>x86_64</string>
+@@ -892,7 +964,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+ 				<key>MaxKernel</key>
+@@ -910,7 +982,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string></string>
+ 				<key>MaxKernel</key>
+-- 
+2.32.0
+

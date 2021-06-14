@@ -1,0 +1,79 @@
+From 7ce48997fccd61e337811f8c67cc686d9a08c0a9 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:41:10 +0800
+Subject: [PATCH] OC: CML: Block Intel Wi-Fi and BT
+
+---
+ OC/config_cml.plist | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/OC/config_cml.plist b/OC/config_cml.plist
+index 63a535f..85d1364 100644
+--- a/OC/config_cml.plist
++++ b/OC/config_cml.plist
+@@ -130,7 +130,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB.aml</string>
+ 			</dict>
+@@ -138,7 +138,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Disable native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<false/>
++				<true/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB-USBBT.aml</string>
+ 			</dict>
+@@ -838,7 +838,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Big Sur</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -856,7 +856,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Catalina</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -874,7 +874,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Monterey</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -892,7 +892,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+ 				<key>MaxKernel</key>
+@@ -910,7 +910,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string></string>
+ 				<key>MaxKernel</key>
+-- 
+2.32.0
+

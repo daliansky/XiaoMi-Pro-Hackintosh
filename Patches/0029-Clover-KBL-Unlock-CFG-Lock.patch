@@ -1,0 +1,25 @@
+From b25859a5a649348ecf7ed28100be2c26a549aa1d Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:29:06 +0800
+Subject: [PATCH] Clover: KBL: Unlock CFG Lock
+
+---
+ CLOVER/config_kbl.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CLOVER/config_kbl.plist b/CLOVER/config_kbl.plist
+index ba58e76..7596202 100644
+--- a/CLOVER/config_kbl.plist
++++ b/CLOVER/config_kbl.plist
+@@ -310,7 +310,7 @@
+ 		<key>AppleRTC</key>
+ 		<true/>
+ 		<key>KernelPm</key>
+-		<true/>
++		<false/>
+ 		<key>PanicNoKextDump</key>
+ 		<true/>
+ 		<key>ForceKextsToLoad</key>
+-- 
+2.32.0
+

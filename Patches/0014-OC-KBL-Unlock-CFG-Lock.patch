@@ -1,0 +1,25 @@
+From 0cdaa151d9220d3063b881c76bbb22692cdadfda Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:57:06 +0800
+Subject: [PATCH] OC: KBL: Unlock CFG Lock
+
+---
+ OC/config_kbl.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..2ed56f9 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -1072,7 +1072,7 @@
+ 			<key>AppleCpuPmCfgLock</key>
+ 			<false/>
+ 			<key>AppleXcpmCfgLock</key>
+-			<true/>
++			<false/>
+ 			<key>AppleXcpmExtraMsrs</key>
+ 			<false/>
+ 			<key>AppleXcpmForceBoost</key>
+-- 
+2.32.0
+

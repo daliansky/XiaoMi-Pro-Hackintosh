@@ -1,0 +1,25 @@
+From bdb94313d1de4758d4901d4411142856f3146ae5 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:10:23 +0800
+Subject: [PATCH] OC: KBL: Disable Bootpicker
+
+---
+ OC/config_kbl.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..bebf9ef 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -1147,7 +1147,7 @@
+ 			<key>PollAppleHotKeys</key>
+ 			<true/>
+ 			<key>ShowPicker</key>
+-			<true/>
++			<false/>
+ 			<key>TakeoffDelay</key>
+ 			<integer>0</integer>
+ 			<key>Timeout</key>
+-- 
+2.32.0
+

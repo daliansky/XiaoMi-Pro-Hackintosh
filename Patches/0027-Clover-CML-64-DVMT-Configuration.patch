@@ -1,0 +1,25 @@
+From 2e781fc4e20dc6afd4d18fad8002078619b1b21e Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:26:28 +0800
+Subject: [PATCH] Clover: CML: 64 DVMT Configuration
+
+---
+ CLOVER/config_cml.plist | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/CLOVER/config_cml.plist b/CLOVER/config_cml.plist
+index 029c6b2..8f4cbb2 100644
+--- a/CLOVER/config_cml.plist
++++ b/CLOVER/config_cml.plist
+@@ -113,8 +113,6 @@
+ 				<data>DxvzAA==</data>
+ 				<key>framebuffer-patch-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-stolenmem</key>
+-				<data>AADgAQ==</data>
+ 				<key>hda-gfx</key>
+ 				<string>onboard-1</string>
+ 				<key>rps-control</key>
+-- 
+2.32.0
+

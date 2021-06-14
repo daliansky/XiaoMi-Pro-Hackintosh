@@ -1,0 +1,52 @@
+From 6d3ef5dbc0be930b7e697b73cb9b61ff0dcc58cd Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:29:15 +0800
+Subject: [PATCH] OC: KBL: Solder BT to WLAN_LTE slot
+
+---
+ OC/config_kbl.plist | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..b70a2ce 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -130,7 +130,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB.aml</string>
+ 			</dict>
+@@ -146,7 +146,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (WLAN_LTE Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<false/>
++				<true/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB-WLAN_LTEBT.aml</string>
+ 			</dict>
+@@ -947,7 +947,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+ 				<key>MaxKernel</key>
+@@ -965,7 +965,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string></string>
+ 				<key>MaxKernel</key>
+-- 
+2.32.0
+

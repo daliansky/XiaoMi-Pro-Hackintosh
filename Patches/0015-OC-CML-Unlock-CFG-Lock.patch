@@ -1,0 +1,25 @@
+From a08bac7422b636769572e40a4c68b82d5062cf5e Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:58:06 +0800
+Subject: [PATCH] OC: CML: Unlock CFG Lock
+
+---
+ OC/config_cml.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/OC/config_cml.plist b/OC/config_cml.plist
+index 63a535f..82e5b0b 100644
+--- a/OC/config_cml.plist
++++ b/OC/config_cml.plist
+@@ -1017,7 +1017,7 @@
+ 			<key>AppleCpuPmCfgLock</key>
+ 			<false/>
+ 			<key>AppleXcpmCfgLock</key>
+-			<true/>
++			<false/>
+ 			<key>AppleXcpmExtraMsrs</key>
+ 			<false/>
+ 			<key>AppleXcpmForceBoost</key>
+-- 
+2.32.0
+

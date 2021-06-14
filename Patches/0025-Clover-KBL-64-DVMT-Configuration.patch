@@ -1,0 +1,56 @@
+From 0516952386a1c4aa2216ec1adf080e4deef5e5a9 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:22:21 +0800
+Subject: [PATCH] Clover: KBL: 64 DVMT Configuration
+
+---
+ CLOVER/config_kbl.plist | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
+
+diff --git a/CLOVER/config_kbl.plist b/CLOVER/config_kbl.plist
+index ba58e76..ad2de45 100644
+--- a/CLOVER/config_kbl.plist
++++ b/CLOVER/config_kbl.plist
+@@ -88,7 +88,7 @@
+ 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+ 			<dict>
+ 				<key>AAPL,ig-platform-id</key>
+-				<data>AAAWWQ==</data>
++				<data>BQAcWQ==</data>
+ 				<key>complete-modeset-framebuffers</key>
+ 				<data>AAAAAAAAAAE=</data>
+ 				<key>device-id</key>
+@@ -97,30 +97,18 @@
+ 				<data>AQAAAA==</data>
+ 				<key>force-online</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-con0-enable</key>
+-				<data>AQAAAA==</data>
+-				<key>framebuffer-con0-flags</key>
+-				<data>mAQAAA==</data>
+ 				<key>framebuffer-con1-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-con1-flags</key>
+-				<data>xwMAAA==</data>
+ 				<key>framebuffer-con1-pipe</key>
+ 				<data>CgAAAA==</data>
+ 				<key>framebuffer-con1-type</key>
+ 				<data>AAgAAA==</data>
+ 				<key>framebuffer-con2-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-con2-flags</key>
+-				<data>xwMAAA==</data>
+-				<key>framebuffer-fbmem</key>
+-				<data>AACQAA==</data>
+ 				<key>framebuffer-flags</key>
+ 				<data>CwfDAA==</data>
+ 				<key>framebuffer-patch-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-stolenmem</key>
+-				<data>AAAwAQ==</data>
+ 				<key>hda-gfx</key>
+ 				<string>onboard-1</string>
+ 				<key>rps-control</key>
+-- 
+2.32.0
+

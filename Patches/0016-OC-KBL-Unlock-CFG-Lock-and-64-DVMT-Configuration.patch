@@ -1,0 +1,65 @@
+From 104953950107816ca4682460928b36792a40a59d Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:04:26 +0800
+Subject: [PATCH] OC: KBL: Unlock CFG Lock and 64 DVMT Configuration
+
+---
+ OC/config_kbl.plist | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..e80b6e0 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -333,7 +333,7 @@
+ 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+ 			<dict>
+ 				<key>AAPL,ig-platform-id</key>
+-				<data>AAAWWQ==</data>
++				<data>BQAcWQ==</data>
+ 				<key>complete-modeset-framebuffers</key>
+ 				<data>AAAAAAAAAAE=</data>
+ 				<key>device-id</key>
+@@ -342,30 +342,18 @@
+ 				<data>AQAAAA==</data>
+ 				<key>force-online</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-con0-enable</key>
+-				<data>AQAAAA==</data>
+-				<key>framebuffer-con0-flags</key>
+-				<data>mAQAAA==</data>
+ 				<key>framebuffer-con1-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-con1-flags</key>
+-				<data>xwMAAA==</data>
+ 				<key>framebuffer-con1-pipe</key>
+ 				<data>CgAAAA==</data>
+ 				<key>framebuffer-con1-type</key>
+ 				<data>AAgAAA==</data>
+ 				<key>framebuffer-con2-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-con2-flags</key>
+-				<data>xwMAAA==</data>
+-				<key>framebuffer-fbmem</key>
+-				<data>AACQAA==</data>
+ 				<key>framebuffer-flags</key>
+ 				<data>CwfDAA==</data>
+ 				<key>framebuffer-patch-enable</key>
+ 				<data>AQAAAA==</data>
+-				<key>framebuffer-stolenmem</key>
+-				<data>AAAwAQ==</data>
+ 				<key>hda-gfx</key>
+ 				<string>onboard-1</string>
+ 				<key>rps-control</key>
+@@ -1072,7 +1060,7 @@
+ 			<key>AppleCpuPmCfgLock</key>
+ 			<false/>
+ 			<key>AppleXcpmCfgLock</key>
+-			<true/>
++			<false/>
+ 			<key>AppleXcpmExtraMsrs</key>
+ 			<false/>
+ 			<key>AppleXcpmForceBoost</key>
+-- 
+2.32.0
+

@@ -1,0 +1,25 @@
+From 95131d65788ceae0408356420ce24711a4aed390 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:36:14 +0800
+Subject: [PATCH] Clover: KBL: Skip GUI
+
+---
+ CLOVER/config_kbl.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CLOVER/config_kbl.plist b/CLOVER/config_kbl.plist
+index ba58e76..fdfbaac 100644
+--- a/CLOVER/config_kbl.plist
++++ b/CLOVER/config_kbl.plist
+@@ -74,7 +74,7 @@
+ 		<key>Secure</key>
+ 		<false/>
+ 		<key>Timeout</key>
+-		<integer>4</integer>
++		<integer>0</integer>
+ 	</dict>
+ 	<key>Devices</key>
+ 	<dict>
+-- 
+2.32.0
+

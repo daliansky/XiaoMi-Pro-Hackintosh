@@ -1,0 +1,52 @@
+From 982bf4c84340ba84bd83c8cdea1e86644969698b Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:22:42 +0800
+Subject: [PATCH] OC: KBL: Block Intel BT
+
+---
+ OC/config_kbl.plist | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..00b2d27 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -130,7 +130,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB.aml</string>
+ 			</dict>
+@@ -138,7 +138,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Disable native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<false/>
++				<true/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB-USBBT.aml</string>
+ 			</dict>
+@@ -947,7 +947,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+ 				<key>MaxKernel</key>
+@@ -965,7 +965,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string></string>
+ 				<key>MaxKernel</key>
+-- 
+2.32.0
+

@@ -1,0 +1,76 @@
+From fca2377c8913cf8c8fc50cf707f5cd487da1e05a Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:45:57 +0800
+Subject: [PATCH] OC: KBL: Block Intel Wi-Fi
+
+---
+ OC/config_kbl.plist | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
+
+diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
+index 513eb21..923d7a3 100644
+--- a/OC/config_kbl.plist
++++ b/OC/config_kbl.plist
+@@ -30,6 +30,14 @@
+ 				<key>Path</key>
+ 				<string>SSDT-DMAC.aml</string>
+ 			</dict>
++			<dict>
++				<key>Comment</key>
++				<string>Block Intel Wi-Fi</string>
++				<key>Enabled</key>
++				<true/>
++				<key>Path</key>
++				<string>SSDT-DRP08.aml</string>
++			</dict>
+ 			<dict>
+ 				<key>Comment</key>
+ 				<string>Add EC device</string>
+@@ -857,7 +865,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Big Sur</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -875,7 +883,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Catalina</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -893,7 +901,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on High Sierra</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -911,7 +919,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Mojave</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+@@ -929,7 +937,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel Wi-Fi driver on Monterey</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/AirportItlwm</string>
+ 				<key>MaxKernel</key>
+-- 
+2.32.0
+

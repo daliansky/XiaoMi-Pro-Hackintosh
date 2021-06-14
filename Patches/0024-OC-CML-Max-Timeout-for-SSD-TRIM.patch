@@ -1,0 +1,25 @@
+From bc1fe8c64cfddf605d8a51fc5418d0910ec28f65 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:17:05 +0800
+Subject: [PATCH] OC: CML: Max Timeout for SSD TRIM
+
+---
+ OC/config_cml.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/OC/config_cml.plist b/OC/config_cml.plist
+index 63a535f..faf1bd0 100644
+--- a/OC/config_cml.plist
++++ b/OC/config_cml.plist
+@@ -1049,7 +1049,7 @@
+ 			<key>ProvideCurrentCpuInfo</key>
+ 			<false/>
+ 			<key>SetApfsTrimTimeout</key>
+-			<integer>-1</integer>
++			<integer>4294967295</integer>
+ 			<key>ThirdPartyDrives</key>
+ 			<true/>
+ 			<key>XhciPortLimit</key>
+-- 
+2.32.0
+

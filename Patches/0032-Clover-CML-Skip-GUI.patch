@@ -1,0 +1,25 @@
+From a20fe241ebf65e8c5a66038b60143ed32bebf795 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:37:17 +0800
+Subject: [PATCH] Clover: CML: Skip GUI
+
+---
+ CLOVER/config_cml.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CLOVER/config_cml.plist b/CLOVER/config_cml.plist
+index 029c6b2..1741d1b 100644
+--- a/CLOVER/config_cml.plist
++++ b/CLOVER/config_cml.plist
+@@ -74,7 +74,7 @@
+ 		<key>Secure</key>
+ 		<false/>
+ 		<key>Timeout</key>
+-		<integer>4</integer>
++		<integer>0</integer>
+ 	</dict>
+ 	<key>Devices</key>
+ 	<dict>
+-- 
+2.32.0
+

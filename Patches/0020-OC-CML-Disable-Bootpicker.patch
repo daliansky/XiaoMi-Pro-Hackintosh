@@ -1,0 +1,25 @@
+From 54e4f211bcf678182e9ad58aba7b4ae31c3fc8d8 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Tue, 15 Jun 2021 00:11:14 +0800
+Subject: [PATCH] OC: CML: Disable Bootpicker
+
+---
+ OC/config_cml.plist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/OC/config_cml.plist b/OC/config_cml.plist
+index 63a535f..d84d099 100644
+--- a/OC/config_cml.plist
++++ b/OC/config_cml.plist
+@@ -1092,7 +1092,7 @@
+ 			<key>PollAppleHotKeys</key>
+ 			<true/>
+ 			<key>ShowPicker</key>
+-			<true/>
++			<false/>
+ 			<key>TakeoffDelay</key>
+ 			<integer>0</integer>
+ 			<key>Timeout</key>
+-- 
+2.32.0
+

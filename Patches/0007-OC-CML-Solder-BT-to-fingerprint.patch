@@ -1,0 +1,52 @@
+From 1fd5596bf3f6597dc7c116c826fb5d1b3b995c85 Mon Sep 17 00:00:00 2001
+From: stevezhengshiqi
+Date: Mon, 14 Jun 2021 23:32:55 +0800
+Subject: [PATCH] OC: CML: Solder BT to fingerprint
+
+---
+ OC/config_cml.plist | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/OC/config_cml.plist b/OC/config_cml.plist
+index 63a535f..8d50845 100644
+--- a/OC/config_cml.plist
++++ b/OC/config_cml.plist
+@@ -130,7 +130,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB.aml</string>
+ 			</dict>
+@@ -146,7 +146,7 @@
+ 				<key>Comment</key>
+ 				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Fingerprint Bluetooth)</string>
+ 				<key>Enabled</key>
+-				<false/>
++				<true/>
+ 				<key>Path</key>
+ 				<string>SSDT-USB-FingerBT.aml</string>
+ 			</dict>
+@@ -892,7 +892,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+ 				<key>MaxKernel</key>
+@@ -910,7 +910,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string></string>
+ 				<key>MaxKernel</key>
+-- 
+2.32.0
+
