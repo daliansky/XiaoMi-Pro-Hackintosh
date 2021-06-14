@@ -16,9 +16,6 @@
   * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@7214459](https://github.com/OpenIntelWireless/itlwm/commit/7214459c1a35abb343171ae990227ccf352b69cd)）来支持 macOS12.0 beta1 (21A5248p)
   * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@9227dc5](https://github.com/acidanthera/RestrictEvents/commit/9227dc55abb66e20750c2768fa6f590ffab3b78a)）
 
-### 变更
-  * 禁用 `IntelBluetoothFirmware` 在 macOS12 上加载
-
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.7.1
 

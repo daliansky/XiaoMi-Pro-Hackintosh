@@ -1172,7 +1172,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  echo "#### Support for macOS12 is untested." >> ReleaseNotes.md
+  echo "#### For macOS12: Clover users have to manually delete \`IntelBluetoothFirmware.kext\` and \`IntelBluetoothInjector.kext\` in \`EFI/CLOVER/kexts/Other/\`." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
