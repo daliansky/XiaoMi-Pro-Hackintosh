@@ -134,6 +134,7 @@ acdtKexts=(
   HibernationFixup
   RestrictEvents
   VoodooPS2
+  BrcmPatchRAM
   Lilu
 )
 
@@ -392,9 +393,9 @@ function bKextHelper() {
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
-    liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC NoTouchID"
+    liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC NoTouchID BrcmPatchRAM"
   elif [[ "${model_input}" =~ "KBL" ]]; then
-    liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC"
+    liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC BrcmPatchRAM"
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
@@ -435,6 +436,9 @@ function bKextHelper() {
     elif [[ "$2" == "NoTouchID" ]]; then
       xcodebuild -jobs 1 -configuration Release -arch x86_64 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
+    elif [[ "$2" == "BrcmPatchRAM" ]]; then
+      xcodebuild -jobs 1 -target Package -configuration Release > /dev/null 2>&1 || buildErr "$2"
+      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
     else
       xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
@@ -647,6 +651,7 @@ function unpack() {
 # Patch
 function patch() {
   local unusedItems=(
+    "BlueToolFixup.kext/Contents/_CodeSignature"
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
     "KBL/CodecCommander.kext/Contents/Resources"
@@ -707,7 +712,6 @@ function install() {
     local cmlKextItems=(
       "AppleALC.kext"
       "IntelBluetoothFirmware.kext"
-      "IntelBluetoothInjector.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cmlKextItems=("${cmlKextItems[@]/#/CML/}")
@@ -728,12 +732,15 @@ function install() {
       "11"
       "12"
     )
+    local cmlCloverIbtInjctrDirs=(
+      "10.15"
+      "11"
+    )
   fi
   if [[ "${model_input}" =~ "KBL" ]]; then
     local kblKextItems=(
       "AppleALC.kext"
       "IntelBluetoothFirmware.kext"
-      "IntelBluetoothInjector.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       kblKextItems=("${kblKextItems[@]/#/KBL/}")
@@ -759,6 +766,12 @@ function install() {
       "11"
       "12"
     )
+    local kblCloverIbtInjctrDirs=(
+      "10.13"
+      "10.14"
+      "10.15"
+      "11"
+    )
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
@@ -769,6 +782,7 @@ function install() {
     model_kextItems="${model_prefix}KextItems"
     model_wifiKextItems="${model_prefix}WifiKextItems"
     model_cloverKextFolders="${model_prefix}CloverKextFolders"
+    model_cloverIbtInjctrDirs="${model_prefix}CloverIbtInjctrDirs"
     kextItems="${model_kextItems}[@]"
     for kextDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Other/" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/"; do
       mkdir -p "${kextDir}" || exit 1
@@ -811,6 +825,19 @@ function install() {
     for kextItem in "${!kextItems}"; do
       cp -R "${kextItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
     done
+
+    # Move IntelBluetoothInjector and BlueToolFixup to corresponding Clover and OC Kext folders
+    kextDirs="${model_cloverIbtInjctrDirs}[@]"
+    for kextDir in "${!kextDirs}"; do
+      if [[ "${pre_release}" =~ "Kext" ]]; then
+        cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+      else
+        cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+    done
+    cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
+
+    cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
+    cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
   done
   echo
 
@@ -1172,7 +1199,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  echo "#### For macOS12: Clover users have to manually delete \`IntelBluetoothFirmware.kext\` and \`IntelBluetoothInjector.kext\` in \`EFI/CLOVER/kexts/Other/\`." >> ReleaseNotes.md
+  echo "#### A cold restart is required." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)

@@ -190,6 +190,7 @@ function download() {
     HibernationFixup
     RestrictEvents
     VoodooPS2
+    BrcmPatchRAM
     Lilu
   )
 
@@ -227,9 +228,10 @@ function unpack() {
 # Patch
 function patch() {
   local unusedItems=(
+    "BlueToolFixup.kext/Contents/_CodeSignature"
+    "CodecCommander.kext/Contents/Resources"
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
-    "CodecCommander.kext/Contents/Resources"
     "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
@@ -255,6 +257,7 @@ function install() {
   local kextItems=(
     "AppleALC.kext"
     "HibernationFixup.kext"
+    "BlueToolFixup.kext"
     "IntelBluetoothFirmware.kext"
     "IntelBluetoothInjector.kext"
     "Lilu.kext"

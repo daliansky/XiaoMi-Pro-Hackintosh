@@ -2,19 +2,22 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.5.7
-## 6-XX-2021
+## [XiaoMi NoteBook Pro EFI v1.5.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.7)
+## 6-16-2021
 
 ### 更新
-  * 更新 `OpenCore` v0.7.1（更新至 [acidanthera/OpenCorePkg@26d75dd](https://github.com/acidanthera/OpenCorePkg/commit/26d75dd6fcf7646e24277f66a5cbf41e745a7d60)）
-  * 更新 `Clover` r5137
-  * 更新 `Lilu` v1.5.4（更新至 [acidanthera/Lilu@c371985](https://github.com/acidanthera/Lilu/commit/c3719856ee6deb195b596d7eb529befc8734931e)）
-  * 更新 `AppleALC` v1.6.2（更新至 [acidanthera/AppleALC@93be275](https://github.com/acidanthera/AppleALC/commit/93be275a4495a1bdb7ff2c3238053f66b9c5195d)）
+  * 更新 `OpenCore` v0.7.1（更新至 [acidanthera/OpenCorePkg@ee0fb99](https://github.com/acidanthera/OpenCorePkg/commit/ee0fb99105a191c16926b8d6cd58ce2151eb7894)）
+  * 更新 `Lilu` v1.5.4（更新至 [acidanthera/Lilu@0fd1b29](https://github.com/acidanthera/Lilu/commit/0fd1b2985f6a2a934c928b4594ba5179e202b31f)）
+  * 更新 `AppleALC` v1.6.2（更新至 [acidanthera/AppleALC@42f74fb](https://github.com/acidanthera/AppleALC/commit/42f74fb430071995db96fd2a1b519dd135d592f4)）
   * 更新 `VirtualSMC` v1.2.5（更新至 [acidanthera/VirtualSMC@30a3fa2](https://github.com/acidanthera/VirtualSMC/commit/30a3fa2bd920a15e41ef1439585bcc19885b89e3)）
-  * 更新 `WhateverGreen` v1.5.1（更新至 [acidanthera/WhateverGreen@79efd98](https://github.com/acidanthera/WhateverGreen/commit/79efd986ac5f4f17e09b880f25ea45be64863b2f)）
+  * 更新 `WhateverGreen` v1.5.1（更新至 [acidanthera/WhateverGreen@a2b35e2](https://github.com/acidanthera/WhateverGreen/commit/a2b35e22c79fac3e03cb97903d16a4da6e74814a)）
   * 更新 `HibernationFixup` v1.4.1（更新至 [acidanthera/HibernationFixup@ea11e11](https://github.com/acidanthera/HibernationFixup/commit/ea11e11ea22183c5489f150e9d763d4a474848dd)）
-  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@7214459](https://github.com/OpenIntelWireless/itlwm/commit/7214459c1a35abb343171ae990227ccf352b69cd)）来支持 macOS12.0 beta1 (21A5248p)
-  * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@9227dc5](https://github.com/acidanthera/RestrictEvents/commit/9227dc55abb66e20750c2768fa6f590ffab3b78a)）
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@5eb3a17](https://github.com/OpenIntelWireless/itlwm/commit/5eb3a17d34d2de27b31b57ccadbb4e630fd9a09d)）来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `IntelBluetoothFirmware` v1.1.3 来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@36f6c5c](https://github.com/acidanthera/RestrictEvents/commit/36f6c5caff6d871ba7f2ccfaca59e1cc58b84d19)）
+
+### 新增
+  * 新增 `BlueToolFixup` 来帮助驱动英特尔蓝牙在 macOS12.0 beta1 (21A5248p)
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.7.1
