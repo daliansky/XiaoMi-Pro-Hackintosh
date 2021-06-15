@@ -438,7 +438,7 @@ function bKextHelper() {
       cp -R ${PATH_TO_REL}*.kext "../CML" || copyErr
     elif [[ "$2" == "BrcmPatchRAM" ]]; then
       xcodebuild -jobs 1 -target Package -configuration Release > /dev/null 2>&1 || buildErr "$2"
-      cp -R ${PATH_TO_REL}*.kext "../" || copyErr
+      cp -R ${PATH_TO_REL_SMA}*.kext "../" || copyErr
     else
       xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_TO_REL}*.kext "../" || copyErr
