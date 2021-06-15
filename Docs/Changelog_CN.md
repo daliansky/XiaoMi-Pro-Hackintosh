@@ -14,6 +14,7 @@
   * 更新 `HibernationFixup` v1.4.1（更新至 [acidanthera/HibernationFixup@ea11e11](https://github.com/acidanthera/HibernationFixup/commit/ea11e11ea22183c5489f150e9d763d4a474848dd)）
   * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@5eb3a17](https://github.com/OpenIntelWireless/itlwm/commit/5eb3a17d34d2de27b31b57ccadbb4e630fd9a09d)）来支持 macOS12.0 beta1 (21A5248p)
   * 更新 `IntelBluetoothFirmware` v1.1.3 来支持 macOS12.0 beta1 (21A5248p)
+  * 更新 `VoodooPS2` v2.2.4（更新至 [acidanthera/VoodooPS2@f0c7fda](https://github.com/acidanthera/VoodooPS2/commit/f0c7fda3fec51150f77f3cbd9a1e452118a8e8d9)）
   * 更新 `RestrictEvents` v1.0.3（更新至 [acidanthera/RestrictEvents@36f6c5c](https://github.com/acidanthera/RestrictEvents/commit/36f6c5caff6d871ba7f2ccfaca59e1cc58b84d19)）
 
 ### 新增

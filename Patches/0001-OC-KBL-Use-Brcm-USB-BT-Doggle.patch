@@ -1,14 +1,14 @@
-From fc7cf3c95f07ed88378cc623681498e763e9a7d9 Mon Sep 17 00:00:00 2001
+From 747e5f6b6f77362a0ae11244bc2ebcb296bdfdca Mon Sep 17 00:00:00 2001
 From: stevezhengshiqi
-Date: Mon, 14 Jun 2021 23:06:44 +0800
+Date: Wed, 16 Jun 2021 01:27:04 +0800
 Subject: [PATCH] OC: KBL: Use Brcm USB BT Doggle
 
 ---
- OC/config_kbl.plist | 80 ++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 76 insertions(+), 4 deletions(-)
+ OC/config_kbl.plist | 62 ++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 58 insertions(+), 4 deletions(-)
 
 diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
-index 513eb21..48f7be2 100644
+index cf1d71e..637c640 100644
 --- a/OC/config_kbl.plist
 +++ b/OC/config_kbl.plist
 @@ -130,7 +130,7 @@
@@ -29,28 +29,28 @@ index 513eb21..48f7be2 100644
  				<key>Path</key>
  				<string>SSDT-USB-USBBT.aml</string>
  			</dict>
-@@ -939,6 +939,78 @@
+@@ -965,7 +965,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+ 				<key>MaxKernel</key>
+@@ -983,7 +983,7 @@
+ 				<key>Comment</key>
+ 				<string>Intel bluetooth driver</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string></string>
+ 				<key>MaxKernel</key>
+@@ -993,6 +993,60 @@
  				<key>PlistPath</key>
  				<string>Contents/Info.plist</string>
  			</dict>
-+			<dict>
-+				<key>Arch</key>
-+				<string>x86_64</string>
-+				<key>BundlePath</key>
-+				<string>BlueToolFixup.kext</string>
-+				<key>Comment</key>
-+				<string></string>
-+				<key>Enabled</key>
-+				<true/>
-+				<key>ExecutablePath</key>
-+				<string>Contents/MacOS/BlueToolFixup</string>
-+				<key>MaxKernel</key>
-+				<string></string>
-+				<key>MinKernel</key>
-+				<string>21.0.0</string>
-+				<key>PlistPath</key>
-+				<string>Contents/Info.plist</string>
-+			</dict>
 +			<dict>
 +				<key>Arch</key>
 +				<string>x86_64</string>
@@ -105,27 +105,9 @@ index 513eb21..48f7be2 100644
 +				<key>PlistPath</key>
 +				<string>Contents/Info.plist</string>
 +			</dict>
- 			<dict>
- 				<key>Arch</key>
- 				<string>x86_64</string>
-@@ -947,7 +1019,7 @@
- 				<key>Comment</key>
- 				<string>Intel bluetooth driver</string>
- 				<key>Enabled</key>
--				<true/>
-+				<false/>
- 				<key>ExecutablePath</key>
- 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
- 				<key>MaxKernel</key>
-@@ -965,7 +1037,7 @@
- 				<key>Comment</key>
- 				<string>Intel bluetooth driver</string>
- 				<key>Enabled</key>
--				<true/>
-+				<false/>
- 				<key>ExecutablePath</key>
- 				<string></string>
- 				<key>MaxKernel</key>
+ 		</array>
+ 		<key>Block</key>
+ 		<array/>
 -- 
 2.32.0
 

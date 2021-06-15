@@ -1,14 +1,14 @@
-From 982bf4c84340ba84bd83c8cdea1e86644969698b Mon Sep 17 00:00:00 2001
+From 32116157a8402aa7a61f669fff8afbf9e26c0190 Mon Sep 17 00:00:00 2001
 From: stevezhengshiqi
-Date: Mon, 14 Jun 2021 23:22:42 +0800
+Date: Wed, 16 Jun 2021 01:54:35 +0800
 Subject: [PATCH] OC: KBL: Block Intel BT
 
 ---
- OC/config_kbl.plist | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ OC/config_kbl.plist | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
-index 513eb21..00b2d27 100644
+index cf1d71e..a80a44f 100644
 --- a/OC/config_kbl.plist
 +++ b/OC/config_kbl.plist
 @@ -130,7 +130,7 @@
@@ -31,6 +31,15 @@ index 513eb21..00b2d27 100644
  			</dict>
 @@ -947,7 +947,7 @@
  				<key>Comment</key>
+ 				<string>Force BlueTool to skip firmware update on Monterey</string>
+ 				<key>Enabled</key>
+-				<true/>
++				<false/>
+ 				<key>ExecutablePath</key>
+ 				<string>Contents/MacOS/BlueToolFixup</string>
+ 				<key>MaxKernel</key>
+@@ -965,7 +965,7 @@
+ 				<key>Comment</key>
  				<string>Intel bluetooth driver</string>
  				<key>Enabled</key>
 -				<true/>
@@ -38,7 +47,7 @@ index 513eb21..00b2d27 100644
  				<key>ExecutablePath</key>
  				<string>Contents/MacOS/IntelBluetoothFirmware</string>
  				<key>MaxKernel</key>
-@@ -965,7 +965,7 @@
+@@ -983,7 +983,7 @@
  				<key>Comment</key>
  				<string>Intel bluetooth driver</string>
  				<key>Enabled</key>
