@@ -12,10 +12,11 @@
 - [TM1707](#tm1707)
   - [更新历史](#更新历史-1)
   - [怎么升级](#怎么升级-1)
+  - [怎么提升性能](#怎么提升性能-1)
 - [TM1905](#tm1905)
   - [更新历史](#更新历史-2)
   - [怎么升级](#怎么升级-2)
-  - [怎么提升性能](#怎么提升性能-1)
+  - [怎么提升性能](#怎么提升性能-2)
 - [TM1963](#tm1963)
   - [更新历史](#更新历史-3)
   - [怎么升级](#怎么升级-3)
@@ -136,6 +137,18 @@
 直接运行 exe 文件即可。保证电脑在升级时一直接上电源。
 
 
+### 怎么提升性能
+
+下面这张表是关于 BIOS 的一些高级配置，感谢 [goodyttoor](https://github.com/goodyttoor)。
+
+| 项目 | 地址 | 选项 |
+| ----- | ----- | ----- |
+| DVMT Pre-Allocated | 0xDF | 0x1: 32M (默认), 0x2: 64M (推荐) |
+| DVMT Total Gfx Mem | 0xE0 | 0x1: 128M, 0x2: 256M (默认), 0x3: MAX (推荐) |
+| CFG Lock | 0x3C | 0x0: Disabled (推荐), 0x1: Enabled (默认) |
+| BIOS Lock | 0x17 | 0x0: Disabled (推荐), 0x1: Enabled (默认) |
+
+
 ## TM1905
 
 ### 更新历史
@@ -205,6 +218,7 @@
 
 - 感谢一个热心的朋友提供 `XMAKB5R0P0A07` BIOS 包。他不想惹上麻烦，所以还请大家不要随意流传 `XMAKB5R0P0A07` BIOS 包。**不建议QQ群友讨论并上传此包，会给上传者带来很大的麻烦。**
 - 感谢 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 和 [FallenChromium](https://github.com/FallenChromium) 提供优秀的脚本来增强性能。
+- 感谢 [goodyttoor](https://github.com/goodyttoor) 提供 TM1707 BIOS 高级配置。
 - 感谢 [htmambo](https://github.com/htmambo) 提供 TM1905 BIOS 高级配置。
 - 感谢 小米加盟售后 和 [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) 提供 `XMAKB5R0P0603` 和 `XMAKB5R0P0906` BIOS 包。原出处在[这里](http://bbs.xiaomi.cn/t-36660609-1)。
 - 感谢 [小米官方](https://www.mi.com/service/bijiben/drivers/15) 提供 `XMAKB5R0P0E07` BIOS 包。

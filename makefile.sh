@@ -132,7 +132,6 @@ acdtKexts=(
   WhateverGreen
   AppleALC
   HibernationFixup
-  RestrictEvents
   VoodooPS2
   BrcmPatchRAM
   Lilu
@@ -393,9 +392,9 @@ function bKextHelper() {
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
-    liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC NoTouchID BrcmPatchRAM"
+    liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC NoTouchID BrcmPatchRAM"
   elif [[ "${model_input}" =~ "KBL" ]]; then
-    liluPlugins="AppleALC HibernationFixup WhateverGreen RestrictEvents VirtualSMC BrcmPatchRAM"
+    liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC BrcmPatchRAM"
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
@@ -695,18 +694,18 @@ function install() {
   # Kexts
   local sharedKextItems=(
     "HibernationFixup.kext"
-    "Lilu.kext"
-    "VoodooI2C.kext"
-    "VoodooI2CHID.kext"
-    "VoodooPS2Controller.kext"
-    "WhateverGreen.kext"
-    "RestrictEvents.kext"
-    "hack-tools-master/kexts/SATA-unsupported.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
+    "Lilu.kext"
     "Release/NullEthernet.kext"
+    "VoodooI2C.kext"
+    "VoodooI2CHID.kext"
+    "VoodooPS2Controller.kext"
+    "WhateverGreen.kext"
+    "hack-tools-master/kexts/EFICheckDisabler.kext"
+    "hack-tools-master/kexts/SATA-unsupported.kext"
   )
   if [[ "${model_input}" =~ "CML" ]]; then
     local cmlKextItems=(

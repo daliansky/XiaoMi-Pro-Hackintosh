@@ -188,7 +188,6 @@ function download() {
     WhateverGreen
     AppleALC
     HibernationFixup
-    RestrictEvents
     VoodooPS2
     BrcmPatchRAM
     Lilu
@@ -256,29 +255,29 @@ function patch() {
 function install() {
   local kextItems=(
     "AppleALC.kext"
-    "HibernationFixup.kext"
     "BlueToolFixup.kext"
+    "CodecCommander.kext"
+    "HibernationFixup.kext"
     "IntelBluetoothFirmware.kext"
     "IntelBluetoothInjector.kext"
-    "Lilu.kext"
-    "VoodooI2C.kext"
-    "VoodooI2CHID.kext"
-    "VoodooPS2Controller.kext"
-    "WhateverGreen.kext"
-    "RestrictEvents.kext"
-    "NoTouchID.kext"
-    "hack-tools-master/kexts/SATA-unsupported.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
-    "Release/CodecCommander.kext"
+    "Lilu.kext"
+    "NoTouchID.kext"
     "Release/NullEthernet.kext"
+    "VoodooI2C.kext"
+    "VoodooI2CHID.kext"
+    "VoodooPS2Controller.kext"
+    "WhateverGreen.kext"
     "Big Sur/AirportItlwm_Big_Sur.kext"
     "Catalina/AirportItlwm_Catalina.kext"
     "High Sierra/AirportItlwm_High_Sierra.kext"
     "Mojave/AirportItlwm_Mojave.kext"
     "Monterey/AirportItlwm_Monterey.kext"
+    "hack-tools-master/kexts/EFICheckDisabler.kext"
+    "hack-tools-master/kexts/SATA-unsupported.kext"
   )
 
   for kextItem in "${kextItems[@]}"; do

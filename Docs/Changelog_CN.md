@@ -2,6 +2,31 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.8
+## 7-5-2021
+
+### 更新
+  * 更新 `OpenCore` v0.7.1
+  * 更新 `Clover` r5137
+  * 更新 `Lilu` v1.5.4
+  * 更新 `AppleALC` v1.6.2
+  * 更新 `VirtualSMC` v1.2.5
+  * 更新 `WhateverGreen` v1.5.1
+  * 更新 `HibernationFixup` v1.4.1
+  * 更新 `AirportItlwm` v2.0.0
+  * 更新 `IntelBluetoothFirmware`
+  * 更新 `VoodooPS2` v2.2.4
+
+### 新增
+  * 新增回 `EFICheckDisabler` 来替代 `RestrictEvents`
+
+### 移除
+  * 移除 `RestrictEvents`
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.7.1
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.7)
 ## 6-16-2021
 

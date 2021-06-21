@@ -12,10 +12,11 @@
 - [TM1707](#tm1707)
   - [Update History](#update-history-1)
   - [How to Update](#how-to-update-1)
+  - [How to Unlock Better Performance](#how-to-unlock-better-performance-1)
 - [TM1905](#tm1905)
   - [Update History](#update-history-2)
   - [How to Update](#how-to-update-2)
-  - [How to Unlock Better Performance](#how-to-unlock-better-performance-1)
+  - [How to Unlock Better Performance](#how-to-unlock-better-performance-2)
 - [TM1963](#tm1963)
   - [Update History](#update-history-3)
   - [How to Update](#how-to-update-3)
@@ -136,6 +137,18 @@ After running those scripts, you need to delete `framebuffer-fbmem` and `framebu
 Just run the exe file. Make sure AC power is connected during the update.
 
 
+### How to Unlock Better Performance
+
+The following table is about some advanced BIOS configurations, thanks to [goodyttoor](https://github.com/goodyttoor).
+
+| Item | Address | Options |
+| ----- | ----- | ----- |
+| DVMT Pre-Allocated | 0xDF | 0x1: 32M (default), 0x2: 64M (recommend) |
+| DVMT Total Gfx Mem | 0xE0 | 0x1: 128M, 0x2: 256M (default), 0x3: MAX (recommend) |
+| CFG Lock | 0x3C | 0x0: Disabled (recommend), 0x1: Enabled (default) |
+| BIOS Lock | 0x17 | 0x0: Disabled (recommend), 0x1: Enabled (default) |
+
+
 ## TM1905
 
 ### Update History
@@ -205,6 +218,7 @@ Just run the exe file. Make sure AC power is connected during the update.
 
 - Thanks to a friendly guy for providing `XMAKB5R0P0A07` BIOS packet. He doesn't want to be in trouble so please don't spread the `XMAKB5R0P0A07` BIOS packet.
 - Thanks to [Cyb](http://4pda.ru/forum/index.php?showuser=914121) and [FallenChromium](https://github.com/FallenChromium) for writing incredible scripts to unlock better performance on TM1701.
+- Thanks to [goodyttoor](https://github.com/goodyttoor) for providing information about TM1707 BIOS advanced configuration.
 - Thanks to [htmambo](https://github.com/htmambo) for providing information about TM1905 BIOS advanced configuration.
 - Thanks to Xiaomi after-sale service and [一土木水先生](http://bbs.xiaomi.cn/u-detail-1242799508) for providing `XMAKB5R0P0603` and `XMAKB5R0P0906` BIOS packet. The original source is at [here](http://bbs.xiaomi.cn/t-36660609-1).
 - Thanks to [Xiaomi Official](https://www.mi.com/service/bijiben/drivers/15) for providing the `XMAKB5R0P0E07` packet.
