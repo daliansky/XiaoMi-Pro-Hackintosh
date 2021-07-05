@@ -2,7 +2,7 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.5.8
+## [XiaoMi NoteBook Pro EFI v1.5.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.8)
 ## 7-5-2021
 
 ### 更新
@@ -13,8 +13,8 @@
   * 更新 `VirtualSMC` v1.2.5
   * 更新 `WhateverGreen` v1.5.1
   * 更新 `HibernationFixup` v1.4.1
-  * 更新 `AirportItlwm` v2.0.0
-  * 更新 `IntelBluetoothFirmware`
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@22a83ab](https://github.com/OpenIntelWireless/itlwm/commit/22a83ab5e319d8e5a834697accf5069b8981bec7)）
+  * 更新 `IntelBluetoothFirmware` v2.0.0（更新至 [OpenIntelWireless/IntelBluetoothFirmware@b864680](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/b8646803e7e113a2e9ab26f59ead3d7582794094)）
   * 更新 `VoodooPS2` v2.2.4
 
 ### 新增
