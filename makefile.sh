@@ -568,11 +568,11 @@ function bKext() {
   if [[ ${model_input} =~ "KBL" ]]; then
     bKextHelper Sniki EAPD-Codec-Commander
   fi
-  for acdtKext in "${acdtKexts[@]}"; do
-    bKextHelper ${ACDT} "${acdtKext}"
-  done
   for frwfKext in "${frwfKexts[@]}"; do
     bKextHelper ${FRWF} "${frwfKext}"
+  done
+  for acdtKext in "${acdtKexts[@]}"; do
+    bKextHelper ${ACDT} "${acdtKext}"
   done
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}"
