@@ -2,6 +2,20 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.5.9
+## 8-2-2021
+
+### 更新
+  * 更新 `OpenCore` v0.7.2
+  * 更新 `SSDT-USB*` 来开启 SD 卡端口
+
+### 新增
+  * 新增 `RealtekCardReader` 和 `RealtekCardReaderFriend` 来支持瑞昱 SD 读卡器
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.7.2
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.8)
 ## 7-5-2021
 

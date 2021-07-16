@@ -72,9 +72,9 @@
 - **英特尔无线网卡** 性能不佳
   - 购买 USB网卡 或者支持的内置网卡
   - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
-- **瑞昱USB SD读卡器** 无法工作
-  - 使用了 `SSDT-USB` 来禁用它以节省电量
-  - 你也可以使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
+- **瑞昱USB SD读卡器** 可能存在未知问题
+  - 阅读 [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) 来获取详细信息
+  - 你也可以转成使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - 其他都工作正常
 
 ### Clover
@@ -88,8 +88,8 @@
 - r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 v1.4.7 支持旧 macOS 版本的英特尔 Wi-Fi，或者添加 `IO80211Family.kext` 到 kext 文件夹）
 
 ### OpenCore
-- TM1701 和 TM1707：支持 macOS10.13 ~ macOS12.0 beta1 (21A5248p)
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12.0 beta1 (21A5248p)
+- TM1701 和 TM1707：支持 macOS10.13 ~ macOS12.0 beta3 (21A5284e)
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12.0 beta3 (21A5284e)
 -----
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据 [OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
@@ -217,6 +217,7 @@ cd XiaoMi-Pro-Hackintosh
 
 ## 鸣谢
 
+- 感谢 [0xFireWolf](https://github.com/0xFireWolf) 提供 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) 和 [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)。
 - 感谢 [Acidanthera](https://github.com/acidanthera) 提供 [AppleALC](https://github.com/acidanthera/AppleALC)，[BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM)，[HibernationFixup](https://github.com/acidanthera/HibernationFixup)，[Lilu](https://github.com/acidanthera/Lilu)，[NVMeFix](https://github.com/acidanthera/NVMeFix)，[OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)，[VirtualSMC](https://github.com/acidanthera/VirtualSMC)，[VoodooInput](https://github.com/acidanthera/VoodooInput)，[VoodooPS2](https://github.com/acidanthera/VoodooPS2) 和 [WhateverGreen](https://github.com/acidanthera/WhateverGreen)。
 - 感谢 [agassecond](https://github.com/agassecond) 和 [htmambo](https://github.com/htmambo) 针对10代机型的宝贵建议。
 - 感谢 [apianti](https://sourceforge.net/u/apianti)，[blackosx](https://sourceforge.net/u/blackosx)，[blusseau](https://sourceforge.net/u/blusseau)，[dmazar](https://sourceforge.net/u/dmazar) 和 [slice2009](https://sourceforge.net/u/slice2009) 提供 [Clover](https://github.com/CloverHackyColor/CloverBootloader)。

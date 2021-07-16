@@ -13,6 +13,7 @@
 ACDT="Acidanthera"
 CFURL="https://hackintosh.stevezheng.workers.dev"
 CFURL_1="https\://hackintosh.stevezheng.workers.dev"
+FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 REPO_NAME="XiaoMi-Pro-Hackintosh"
 REPO_BRANCH="main"
@@ -135,6 +136,11 @@ acdtKexts=(
   VoodooPS2
   BrcmPatchRAM
   Lilu
+)
+
+frwfKexts=(
+  RealtekCardReader
+  RealtekCardReaderFriend
 )
 
 oiwKexts=(
@@ -392,9 +398,9 @@ function bKextHelper() {
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
-    liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC NoTouchID BrcmPatchRAM"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen NoTouchID"
   elif [[ "${model_input}" =~ "KBL" ]]; then
-    liluPlugins="AppleALC HibernationFixup WhateverGreen VirtualSMC BrcmPatchRAM"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen"
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
@@ -565,6 +571,9 @@ function bKext() {
   for acdtKext in "${acdtKexts[@]}"; do
     bKextHelper ${ACDT} "${acdtKext}"
   done
+  for frwfKext in "${frwfKexts[@]}"; do
+    bKextHelper ${FRWF} "${frwfKext}"
+  done
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}"
   done
@@ -595,6 +604,9 @@ function download() {
   else
     for acdtKext in "${acdtKexts[@]}"; do
       dGR ${ACDT} "${acdtKext}"
+    done
+    for frwfKext in "${frwfKexts[@]}"; do
+      dGR ${FRWF} "${frwfKext}"
     done
     for oiwKext in "${oiwKexts[@]}"; do
       dGR ${OIW} "${oiwKext}" PreRelease
@@ -654,7 +666,10 @@ function patch() {
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
     "KBL/CodecCommander.kext/Contents/Resources"
-    "RestrictEvents.kext/Contents/_CodeSignature"
+    "RealtekCardReader.kext/Contents/_CodeSignature"
+    "RealtekCardReader.kext/Contents/Resources"
+    "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
+    "RealtekCardReaderFriend.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -699,6 +714,8 @@ function install() {
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
+    "RealtekCardReader.kext"
+    "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"

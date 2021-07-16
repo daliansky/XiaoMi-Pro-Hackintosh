@@ -9,7 +9,7 @@
 // HS04 -> HS USB3 far right
 // HS05 -> bluetooth (Disabled)
 // HS06 -> camera
-// HS07 -> SD card reader (Disabled)
+// HS07 -> SD card reader
 // HS08 -> fingerprint
 // HS09 -> HS USB3 far left
 // SS01 -> SS USB3 near right
@@ -230,7 +230,20 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (\_SB.PCI0.XHC.RHUB.UUNS) /* External reference */
+            If (_OSI ("Darwin"))
+            {
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF, 
+                    Zero, 
+                    Zero
+                })
+            }
+            Else
+            {
+                Return (\_SB.PCI0.XHC.RHUB.UUNS) /* External reference */
+            }
         }
     }
 

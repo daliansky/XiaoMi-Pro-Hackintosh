@@ -11,6 +11,7 @@
 # Vars
 ACDT="Acidanthera"
 CFURL="https://hackintosh.stevezheng.workers.dev"
+FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 RETRY_MAX=5
 
@@ -193,6 +194,11 @@ function download() {
     Lilu
   )
 
+  local frwfKexts=(
+    RealtekCardReader
+    RealtekCardReaderFriend
+  )
+
   local oiwKexts=(
     IntelBluetoothFirmware
     itlwm
@@ -202,6 +208,10 @@ function download() {
 
   for acdtKext in "${acdtKexts[@]}"; do
     dGR ${ACDT} "${acdtKext}" NULL "${OUTDir_TMP}"
+  done
+
+  for frwfKext in "${frwfKexts[@]}"; do
+    dGR ${FRWF} "${frwfKext}" NULL "${OUTDir_TMP}"
   done
 
   for oiwKext in "${oiwKexts[@]}"; do
@@ -231,7 +241,10 @@ function patch() {
     "CodecCommander.kext/Contents/Resources"
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
-    "RestrictEvents.kext/Contents/_CodeSignature"
+    "RealtekCardReader.kext/Contents/_CodeSignature"
+    "RealtekCardReader.kext/Contents/Resources"
+    "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
+    "RealtekCardReaderFriend.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -266,6 +279,8 @@ function install() {
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
     "NoTouchID.kext"
+    "RealtekCardReader.kext"
+    "RealtekCardReaderFriend.kext.kext"
     "Release/NullEthernet.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
