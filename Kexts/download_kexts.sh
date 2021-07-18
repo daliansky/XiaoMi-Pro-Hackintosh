@@ -280,7 +280,7 @@ function install() {
     "Lilu.kext"
     "NoTouchID.kext"
     "RealtekCardReader.kext"
-    "RealtekCardReaderFriend.kext.kext"
+    "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
