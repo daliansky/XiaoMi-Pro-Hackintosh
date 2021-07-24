@@ -7,10 +7,7 @@
 
 ### Upgrade
   - Update `OpenCore` v0.7.2
-  - Update `SSDT-USB*` to unblock SD Card port
-
-### Add
-  - Add `RealtekCardReader` and `RealtekCardReaderFriend` to support Realtek SD Card Reader
+  - Update `SSDT-USB*` to unblock SD Card port, users can add add [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend) manually to drive Realtek SD Card Reader
 
 ### OC
   - OC: Update config to support `OpenCore` v0.7.2

@@ -838,7 +838,7 @@
 				<key>Comment</key>
 				<string>Realtek card reader driver</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RealtekCardReaderFriend</string>
 				<key>MaxKernel</key>
@@ -856,7 +856,7 @@
 				<key>Comment</key>
 				<string>Realtek card reader driver</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RealtekCardReader</string>
 				<key>MaxKernel</key>

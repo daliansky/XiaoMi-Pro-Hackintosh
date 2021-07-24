@@ -60,9 +60,9 @@
 
 - **HDMI** 开机后第一次接上时可能无法工作
   - 你需要重新插拔或者关上盖子等五秒后打开盖子
-- **有线网 在 macOS10.15 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
-- 如果升级到 macOS10.15，需要更新 [USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
-  - 如果不是 macOS10.15，也推荐更新上述驱动
+- **有线网 在 macOS10.15+ 上可能无法工作，见 [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
+- 如果升级到 macOS10.15+，需要更新 [USB无线网卡驱动](https://github.com/chris1111/Wireless-USB-Adapter/releases)
+  - 如果不是 macOS10.15+，也推荐更新上述驱动
 - **独立显卡** 无法工作，因为 macOS 不支持 Optimus技术
   - 使用了 `SSDT-DDGPU` 来禁用它以节省电量
 - **指纹传感器** 无法工作
@@ -72,8 +72,8 @@
 - **英特尔无线网卡** 性能不佳
   - 购买 USB网卡 或者支持的内置网卡
   - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
-- **瑞昱USB SD读卡器** 可能存在未知问题
-  - 阅读 [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) 来获取详细信息
+- **瑞昱USB SD读卡器** 需要额外操作来工作
+  - 阅读 [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) 来获取详细信息并添加 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)
   - 你也可以转成使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - 其他都工作正常
 

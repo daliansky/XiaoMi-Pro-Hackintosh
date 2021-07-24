@@ -13,7 +13,7 @@
 ACDT="Acidanthera"
 CFURL="https://hackintosh.stevezheng.workers.dev"
 CFURL_1="https\://hackintosh.stevezheng.workers.dev"
-FRWF="0xFireWolf"
+# FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 REPO_NAME="XiaoMi-Pro-Hackintosh"
 REPO_BRANCH="main"
@@ -585,9 +585,9 @@ function bKext() {
   if [[ ${model_input} =~ "KBL" ]]; then
     bKextHelper Sniki EAPD-Codec-Commander "${build_mode}"
   fi
-  for frwfKext in "${frwfKexts[@]}"; do
-    bKextHelper ${FRWF} "${frwfKext}" "${build_mode}"
-  done
+  # for frwfKext in "${frwfKexts[@]}"; do
+  #   bKextHelper ${FRWF} "${frwfKext}" "${build_mode}"
+  # done
   for acdtKext in "${acdtKexts[@]}"; do
     bKextHelper ${ACDT} "${acdtKext}" "${build_mode}"
   done
@@ -622,9 +622,9 @@ function download() {
     for acdtKext in "${acdtKexts[@]}"; do
       dGR ${ACDT} "${acdtKext}"
     done
-    for frwfKext in "${frwfKexts[@]}"; do
-      dGR ${FRWF} "${frwfKext}"
-    done
+    # for frwfKext in "${frwfKexts[@]}"; do
+    #   dGR ${FRWF} "${frwfKext}"
+    # done
     for oiwKext in "${oiwKexts[@]}"; do
       dGR ${OIW} "${oiwKext}" PreRelease
     done
@@ -683,10 +683,10 @@ function patch() {
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
     "KBL/CodecCommander.kext/Contents/Resources"
-    "RealtekCardReader.kext/Contents/_CodeSignature"
-    "RealtekCardReader.kext/Contents/Resources"
-    "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
-    "RealtekCardReaderFriend.kext/Contents/Resources"
+    # "RealtekCardReader.kext/Contents/_CodeSignature"
+    # "RealtekCardReader.kext/Contents/Resources"
+    # "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
+    # "RealtekCardReaderFriend.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -731,8 +731,8 @@ function install() {
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
-    "RealtekCardReader.kext"
-    "RealtekCardReaderFriend.kext"
+    # "RealtekCardReader.kext"
+    # "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"

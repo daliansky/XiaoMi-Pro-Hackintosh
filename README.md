@@ -60,9 +60,9 @@
 
 - **HDMI** may not work when you first-time plug it in
   - You have to re-plug it, or close the lid for about five seconds and reopen the lid
-- **Ethernet may not work on macOS10.15, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
-- In macOS10.15, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
-  - If you are not using macOS10.15, it's still recommended to update the driver above
+- **Ethernet may not work on macOS10.15+, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
+- On macOS10.15+, you need to update [Wireless-USB-Adapter Driver](https://github.com/chris1111/Wireless-USB-Adapter/releases)
+  - If you are not using macOS10.15+, it's still recommended to update the driver above
 - **Discrete graphic card** is not working, since macOS doesn't support Optimus technology
   - Have used `SSDT-DDGPU` to disable it in order to save power
 - **Fingerprint sensor** is not working
@@ -72,8 +72,8 @@
 - **Intel Wi-Fi** works with low performance
   - Buy a USB Wi-Fi dongle or supported wireless card
   - Read [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) for more information
-- **Realtek USB SD Card Reader** works with unknown problem
-  - Read [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) for more information
+- **Realtek USB SD Card Reader** works with some setups
+  - Read [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) for more information and add [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)
   - Or you can instead use VMware to let it work, see [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - Everything else works well
 
