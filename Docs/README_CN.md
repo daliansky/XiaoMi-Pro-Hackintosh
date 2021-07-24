@@ -133,6 +133,8 @@ cd XiaoMi-Pro-Hackintosh
 ```
 - 还有一些进阶用法：
 ```shell
+# 构建EFI时使用 Debug 版 kexts 和 OpenCore
+./makefile.sh --DEBUG_KEXTOC
 # 忽略脚本运行时遇到的错误
 ./makefile.sh --IGNORE_ERR
 # 使用中文版文档

@@ -138,6 +138,8 @@ cd XiaoMi-Pro-Hackintosh
 ```
 - Some advanced usages are:
 ```shell
+# Build EFI with kexts and OpenCore in Debug version
+./makefile.sh --DEBUG_KEXTOC
 # Ignore errors when the script is running
 ./makefile.sh --IGNORE_ERR
 # Bundled with Chinese verison Docs

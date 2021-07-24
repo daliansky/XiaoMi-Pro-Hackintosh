@@ -15,6 +15,7 @@ FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 RETRY_MAX=5
 
+download_mode="RELEASE"
 gh_api=false
 systemLanguage=$(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1)
 
@@ -72,7 +73,7 @@ function h_or_g() {
   if [[ "$1" == "VoodooI2C" ]]; then
     hgs=( "head -n 1" )
   elif [[ "$1" == "EAPD-Codec-Commander" ]]; then
-    hgs=( "grep -m 2 CodecCommander | grep -m 1 RELEASE" )
+    hgs=( "grep -m 2 CodecCommander | grep -m 1 ${download_mode}" )
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
@@ -82,8 +83,10 @@ function h_or_g() {
           "grep -m 1 AirportItlwm-Mojave"
           "grep -m 1 AirportItlwm-Monterey"
         )
-  else
+  elif [[ "$1" == "NoTouchID" ]]; then
     hgs=( "grep -m 1 RELEASE" )
+  else
+    hgs=( "grep -m 1 ${download_mode}" )
   fi
 }
 
