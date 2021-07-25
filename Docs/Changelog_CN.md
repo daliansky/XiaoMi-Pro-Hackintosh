@@ -7,6 +7,7 @@
 
 ### 更新
   * 更新 `OpenCore` v0.7.2
+  * 更新 `SSDT-PNLF`
   * 更新 `SSDT-USB*` 来开启 SD 卡端口，可以手动添加 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend) 来驱动瑞昱 SD 读卡器
 
 ### OC
