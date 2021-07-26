@@ -907,7 +907,6 @@ function install() {
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-GPRW.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-HPET.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-MCHC.aml"
-    "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-PNLF.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-RMNE.aml"
   )
   if [[ "${model_input}" =~ "KBL" ]]; then
@@ -916,6 +915,7 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-MEM2.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PMC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PNLF.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-USB.aml"
@@ -931,6 +931,7 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-DDGPU.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PMC.aml"
+      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PNLFCFL.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-USB.aml"
@@ -1236,7 +1237,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  echo "#### A cold restart is required." >> ReleaseNotes.md
+  echo "#### 10 Gen NoteBook users may have to reboot two times to let brightness work." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
