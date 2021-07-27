@@ -96,7 +96,7 @@
 - Should Clean NVRAM after using Clover
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
 - Limited theme
-- **Recommend Reading: [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**, especially the **UEFISecureBoot** section
+- **Recommend Reading: [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**, especially the **UEFI Secure Boot** section
 
 
 ## Installation

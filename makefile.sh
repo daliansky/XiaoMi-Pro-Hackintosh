@@ -973,7 +973,7 @@ function install() {
   done
   echo
 
-  # config & README & LICENSE
+  # config & README & LICENSE & SECURITY
   echo "${green}[${reset}${blue}${bold} Installing config & README & LICENSE ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
@@ -990,6 +990,7 @@ function install() {
           cp "${REPO_NAME_BRANCH}/Docs/README_CN.md" "${readmeDir}" || copyErr
         fi
         cp "${REPO_NAME_BRANCH}/LICENSE" "${readmeDir}" || copyErr
+        cp "${REPO_NAME_BRANCH}/SECURITY.md" "${readmeDir}" || copyErr
       done
     else
       cp "../CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
@@ -1001,6 +1002,7 @@ function install() {
           cp "../Docs/README_CN.md" "${readmeDir}" || copyErr
         fi
         cp "../LICENSE" "${readmeDir}" || copyErr
+        cp "../SECURITY.md" "${readmeDir}" || copyErr
       done
     fi
   done
@@ -1237,7 +1239,7 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Release warning
-  echo "#### 10 Gen NoteBook users may have to reboot two times to let brightness work." >> ReleaseNotes.md
+# echo "#### 10 Gen NoteBook users may have to reboot two times to let brightness work." >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)

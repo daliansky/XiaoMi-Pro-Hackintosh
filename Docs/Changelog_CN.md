@@ -2,13 +2,19 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.5.9
+## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-2-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.2
+  * 更新 `Clover` r5138
+  * 更新 `Lilu` v1.5.5
+  * 更新 `AppleALC` v1.6.3
+  * 更新 `WhateverGreen` v1.5.2
   * 更新 `SSDT-PNLF`
+  * 更新 `SSDT-RMNE` 来使用带有真实 Apple, Inc. 接口 OUI 的 MAC 地址
   * 更新 `SSDT-USB*` 来开启 SD 卡端口，可以手动添加 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend) 来驱动瑞昱 SD 读卡器
+  * 更新 config 中的 `ROM` 信息
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.7.2

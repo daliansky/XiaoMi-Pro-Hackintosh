@@ -319,7 +319,7 @@
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>ROM</key>
-		<string>UseMacAddr0</string>
+		<data>ABbLESIz</data>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
