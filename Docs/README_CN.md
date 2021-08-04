@@ -88,8 +88,8 @@
 - r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 v1.4.7 支持旧 macOS 版本的英特尔 Wi-Fi，或者添加 `IO80211Family.kext` 到 kext 文件夹）
 
 ### OpenCore
-- TM1701 和 TM1707：支持 macOS10.13 ~ macOS12.0 beta3 (21A5284e)
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12.0 beta3 (21A5284e)
+- TM1701 和 TM1707：支持 macOS10.13 ~ macOS12
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12
 -----
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
   - 根据 [OpenCore官方文档](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)，你可以尝试把原生固件UUID注入进 `/OC/config.plist` 的 `PlatformInfo - Generic - SystemUUID`
@@ -121,17 +121,17 @@
  
 ### 构建
  
-- 如果要构建最新测试版EFI，在终端输入以下命令：
+如果要构建最新测试版EFI，在终端输入以下命令：
 ```shell
 sh -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
 ```
-- 或者在终端输入以下命令：
+或者在终端输入以下命令：
 ```shell
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
 ./makefile.sh --LANG=zh_CN
 ```
-- 还有一些进阶用法：
+还有一些进阶用法：
 ```shell
 # 构建EFI时使用 Debug 版 kexts 和 OpenCore
 ./makefile.sh --DEBUG_KEXTOC
@@ -236,17 +236,17 @@ cd XiaoMi-Pro-Hackintosh
 
 ## 支持与讨论
 
-* 其他项目维护的小米笔记本系列：
+其他项目维护的小米笔记本系列：
   * [小米游戏笔记本](https://github.com/johnnync13/XiaomiGaming) by [johnnync13](https://github.com/johnnync13)
   * [小米笔记本Air-12.5-6y30](https://github.com/johnnync13/EFI-Xiaomi-Notebook-air-12-5) by [johnnync13](https://github.com/johnnync13)
   * [小米笔记本Air-12.5-7y30](https://github.com/influenist/Mi-NB-Gaming-Laptop-MacOS) by [influenist](https://github.com/influenist)
   * [小米笔记本Air-13.3-第一代](https://github.com/johnnync13/Xiaomi-Notebook-Air-1Gen) by [johnnync13](https://github.com/johnnync13)
   * [小米笔记本Air-13.3-2018](https://github.com/johnnync13/Xiaomi-Mi-Air) by [johnnync13](https://github.com/johnnync13)
 
-* tonymacx86.com:
+tonymacx86.com:
   * [[Guide] Xiaomi Mi Notebook Pro High Sierra 10.13.6](https://www.tonymacx86.com/threads/guide-xiaomi-mi-notebook-pro-high-sierra-10-13-6.242724)
 
-* QQ群:
+QQ群:
   * 247451054 [小米PRO黑苹果高级群](http://shang.qq.com/wpa/qunwpa?idkey=6223ea12a7f7efe58d5972d241000dd59cbd0260db2fdede52836ca220f7f20e)
   * 137188006 [小米PRO黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=c17e190b9466a73cf12e8caec36e87124fce9e231a895353ee817e9921fdd74e)
   * 689011732 [小米笔记本Pro黑苹果](http://shang.qq.com/wpa/qunwpa?idkey=dde06295030ea1692d6655564e392d86ad874bd0608afd7d408c347d1767981b)

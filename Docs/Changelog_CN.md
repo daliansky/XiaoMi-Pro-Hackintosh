@@ -3,7 +3,7 @@
 [English](../Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
-## 8-2-2021
+## 8-4-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.2
@@ -11,6 +11,9 @@
   * 更新 `Lilu` v1.5.5
   * 更新 `AppleALC` v1.6.3
   * 更新 `WhateverGreen` v1.5.2
+  * 更新 `HibernationFixup` v1.4.2
+  * 更新 `AirportItlwm` v2.0.0（更新至 [OpenIntelWireless/itlwm@df328b2](https://github.com/OpenIntelWireless/itlwm/commit/df328b2b4c34cee52f7c087e58283539c6fce496)）
+  * 更新 `IntelBluetoothFirmware` v2.0.0（更新至 [OpenIntelWireless/IntelBluetoothFirmware@dbe8fcc](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/dbe8fcc6e9de7c1d7f790bf8e9f83309096fcd90)）
   * 更新 `SSDT-PNLF`
   * 更新 `SSDT-RMNE` 来使用带有真实 Apple, Inc. 接口 OUI 的 MAC 地址
   * 更新 `SSDT-USB*` 来开启 SD 卡端口，可以手动添加 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend) 来驱动瑞昱 SD 读卡器

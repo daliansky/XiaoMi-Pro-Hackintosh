@@ -3,7 +3,7 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
-## 8-2-2021
+## 8-4-2021
 
 ### Upgrade
   - Update `OpenCore` v0.7.2
@@ -11,6 +11,9 @@
   - Update `Lilu` v1.5.5
   - Update `AppleALC` v1.6.3
   - Update `WhateverGreen` v1.5.2
+  - Update `HibernationFixup` v1.4.2
+  - Update `AirportItlwm` v2.0.0 (up to [OpenIntelWireless/itlwm@df328b2](https://github.com/OpenIntelWireless/itlwm/commit/df328b2b4c34cee52f7c087e58283539c6fce496))
+  - Update `IntelBluetoothFirmware` v2.0.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@dbe8fcc](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/dbe8fcc6e9de7c1d7f790bf8e9f83309096fcd90))
   - Update `SSDT-PNLF`
   - Update `SSDT-RMNE` to use MAC Address with an OUI that corresponds to a real Apple, Inc. interface
   - Update `SSDT-USB*` to unblock SD Card port, users can add add [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend) manually to drive Realtek SD Card Reader

@@ -1145,7 +1145,7 @@ function install() {
         /usr/bin/sed -i "" "s:https:${CFURL_1}/https:g" ".gitmodules"
       fi
 
-      git submodule init -q && git submodule update --remote -q
+      git submodule init -q "ALCPlugFix/ALCPlugFix_kbl" && git submodule update --remote -q "ALCPlugFix/ALCPlugFix_kbl"
 
       # Restore .gitmodules
       if [[ ${language} == "zh_CN" ]]; then
@@ -1211,6 +1211,7 @@ function extractOC() {
     mkdir -p "${!OUTDir_MODEL_OC}/EFI/OC/Tools" || exit 1
     cp -R "OpenCore/X64/EFI/BOOT" "${!OUTDir_MODEL_OC}/EFI/" || copyErr
     cp "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
+    cp "OpenCore/X64/EFI/OC/.contentFlavour" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
     for driverItem in "${driverItems[@]}"; do
       cp "${driverItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/" || copyErr
     done

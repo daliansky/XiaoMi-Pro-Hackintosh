@@ -31,4 +31,4 @@ We will respond to security vulnerabilities as soon as possible. A gentle remind
 
 ## Reference
 
-Thanks to [dortania](https://github.com/dortania) for providing [Fixing iMessage and other services with OpenCore](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#using-gensmbios).
+Thanks to [dortania](https://github.com/dortania) for providing [Fixing iMessage and other services with OpenCore](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html).
