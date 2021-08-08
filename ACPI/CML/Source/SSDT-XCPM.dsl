@@ -17,7 +17,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_XCPM", 0x00000000)
                 {
                     Return (Buffer (One)
                     {
-                         0x03                                             // .
+                         0x03
                     })
                 }
 

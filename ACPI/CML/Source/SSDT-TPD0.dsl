@@ -91,7 +91,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
 
                 Return (Buffer (One)
                 {
-                     0x00                                             // .
+                     0x00
                 })
             }
 

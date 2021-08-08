@@ -1293,8 +1293,6 @@
 		<dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
-				<key>StartupMute</key>
-				<data>AQ==</data>
 				<key>boot-args</key>
 				<string>darkwake=0</string>
 				<key>csr-active-config</key>

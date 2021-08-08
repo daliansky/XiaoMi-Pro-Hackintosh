@@ -423,7 +423,7 @@ function bKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
     cp -R "../Lilu.kext" "./" || copyErr
     if [[ "$2" == "VirtualSMC" ]]; then
-      xcodebuild -jobs 1 -target Package -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
+      xcodebuild -jobs 1 -target Package -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
       mkdir ../Kexts
       cp -R "${PATH_SHORT_SMA}"*.kext "../Kexts/" || copyErr
     elif [[ "$2" == "AppleALC" ]]; then
@@ -436,7 +436,7 @@ function bKextHelper() {
         # Delete unrelated layout resources in AppleALC
         (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + > /dev/null 2>&1 || exit 1)
         cp -R "tmp/ALC256" "Resources" || copyErr
-        xcodebuild -jobs 1 -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
+        xcodebuild -jobs 1 -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
         cp -R "${PATH_SHORT_SMA}"*.kext "../CML" || copyErr
         xcodebuild clean > /dev/null 2>&1 || buildErr "$2"
       fi
@@ -444,7 +444,7 @@ function bKextHelper() {
         # Delete unrelated layout resources in AppleALC
         (cd "Resources" && find . -type d -maxdepth 1 ! -path "./PinConfigs.kext" -exec rm -rf {} + > /dev/null 2>&1 || exit 1)
         cp -R "tmp/ALC298" "Resources" || copyErr
-        xcodebuild -jobs 1 -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
+        xcodebuild -jobs 1 -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
         cp -R "${PATH_SHORT_SMA}"*.kext "../KBL" || copyErr
       fi
     elif [[ "$2" == "NoTouchID" ]]; then
@@ -907,6 +907,7 @@ function install() {
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-GPRW.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-HPET.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-MCHC.aml"
+    "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-PNLF.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-RMNE.aml"
   )
   if [[ "${model_input}" =~ "KBL" ]]; then
@@ -915,7 +916,6 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-MEM2.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PMC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PNLF.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-USB.aml"
@@ -931,7 +931,6 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-DDGPU.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PMC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PNLFCFL.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-USB.aml"

@@ -2,6 +2,18 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.6.0
+## 9-7-2021
+
+### 更新
+  * 更新 `OpenCore` v0.7.3
+  * 更新 `VirtualSMC` v1.2.7
+  * 更新 `AppleALC` v1.6.4
+  * 更新 `WhateverGreen` v1.5.3
+  * 更新 `AirportItlwm` v2.1.0（更新至 ）
+  * 更新 `SSDT-PNLF`
+
+
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-4-2021
 
@@ -9,6 +21,7 @@
   * 更新 `OpenCore` v0.7.2
   * 更新 `Clover` r5138
   * 更新 `Lilu` v1.5.5
+  * 更新 `VirtualSMC` v1.2.6
   * 更新 `AppleALC` v1.6.3
   * 更新 `WhateverGreen` v1.5.2
   * 更新 `HibernationFixup` v1.4.2
