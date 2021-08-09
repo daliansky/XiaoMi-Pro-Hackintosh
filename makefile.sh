@@ -1218,6 +1218,10 @@ function extractOC() {
       cp "${toolItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Tools/" || copyErr
     done
     cp "OpenCore/Docs/Configuration.pdf" "${!OUTDir_MODEL_OC}/Docs/OC Configuration.pdf" || copyErr
+
+    # Copy ocvalidate for update script
+    mkdir -p "${!OUTDir_MODEL_OC}/Utilities/" || exit 1
+    cp "OpenCore/Utilities/ocvalidate/ocvalidate" "${!OUTDir_MODEL_OC}/Utilities/" || copyErr
   done
   echo
 }
