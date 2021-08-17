@@ -13,6 +13,10 @@
   * 更新 `AirportItlwm` v2.1.0（更新至 ）
   * 更新 `SSDT-PNLF`
 
+### 新增
+  * 新增 `enable-backlight-smoother` 属性来亮度调节变得更丝滑，可删掉它如果延迟难以忍受
+  * CML: 新增 `enable-backlight-registers-fix` 来修复背光寄存器
+
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-4-2021

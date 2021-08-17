@@ -70,6 +70,7 @@
 - **Intel Bluetooth** does not support some Bluetooth devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
 - **Intel Wi-Fi** works with low performance
+  - macOS Big Sur or higher is recommended; macOS version < 11 needs to rebuild kextcache and restart if Intel Wi-Fi does not work
   - Buy a USB Wi-Fi dongle or supported wireless card
   - Read [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) for more information
 - **Realtek USB SD Card Reader** works with some setups
@@ -78,8 +79,8 @@
 - Everything else works well
 
 ### Clover
-- TM1701 & TM1707: Supports macOS10.13 ~ macOS11 (Only v1.4.8+ supports Big Sur)
-- TM1905 & TM1963: Supports macOS10.15 ~ macOS11
+- TM1701 & TM1707: Supports macOS10.13 ~ macOS12
+- TM1905 & TM1963: Supports macOS10.15 ~ macOS12
 -----
 - Have to choose `~ via Preboot` to boot Big Sur
 - Should Clean NVRAM after using OpenCore

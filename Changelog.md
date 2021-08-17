@@ -13,6 +13,10 @@
   - Update `AirportItlwm` v2.1.0 (up to )
   - Update `SSDT-PNLF`
 
+### Add
+  - Add `enable-backlight-smoother` property to adjust the panel brightness smoothly, feel free to delete this if the delay is unbearable
+  - CML: Add `enable-backlight-registers-fix` to fix backlight registers
+
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-4-2021

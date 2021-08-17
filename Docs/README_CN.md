@@ -70,6 +70,7 @@
 - **英特尔蓝牙** 不支持部分蓝牙设备
   - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡** 性能不佳
+  - 推荐使用 macOS Big Sur 或更高版本；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作
   - 购买 USB网卡 或者支持的内置网卡
   - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
 - **瑞昱USB SD读卡器** 需要额外操作来工作
@@ -78,8 +79,8 @@
 - 其他都工作正常
 
 ### Clover
-- TM1701 和 TM1707：支持 macOS10.13 ~ macOS11（仅 v1.4.8+ 支持 Big Sur）
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS11
+- TM1701 和 TM1707：支持 macOS10.13 ~ macOS12
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12
 -----
 - 需要选择 `~ via Preboot` 来引导 Big Sur
 - 使用 OpenCore 后需要清理 NVRAM

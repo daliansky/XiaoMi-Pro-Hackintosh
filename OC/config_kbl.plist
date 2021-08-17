@@ -338,6 +338,8 @@
 				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
+				<key>enable-backlight-smoother</key>
+				<data>AQAAAA==</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>AQAAAA==</data>
 				<key>force-online</key>
