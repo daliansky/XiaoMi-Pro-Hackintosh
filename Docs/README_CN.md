@@ -80,6 +80,7 @@
 
 ### Clover
 - TM1701 和 TM1707：支持 macOS10.13 ~ macOS12
+  - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) 是最后一个支持 macOS High Sierra & Mojave 的 EFI 版本**
 - TM1905 和 TM1963：支持 macOS10.15 ~ macOS12
 -----
 - 需要选择 `~ via Preboot` 来引导 Big Sur
@@ -90,6 +91,7 @@
 
 ### OpenCore
 - TM1701 和 TM1707：支持 macOS10.13 ~ macOS12
+  - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) 是最后一个支持 macOS High Sierra & Mojave 的 EFI 版本**
 - TM1905 和 TM1963：支持 macOS10.15 ~ macOS12
 -----
 - **Windows 的软件会丢失激活，因为 OpenCore 注入了不同的硬件 UUID**
@@ -168,7 +170,6 @@ cd XiaoMi-Pro-Hackintosh
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
   - TM1701：如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb
-  - TM1701 和 TM1707：可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - 使用 [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`（macOS 版本高于 10.15）
 - TM1701 和 TM1707：使用 [ALCPlugFix](../ALCPlugFix) 来修复耳机重新插拔后无声

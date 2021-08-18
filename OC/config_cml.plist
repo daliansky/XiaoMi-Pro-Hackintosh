@@ -1000,26 +1000,6 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>System/Library/Extensions/corecapture.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/corecapture</string>
-				<key>Identifier</key>
-				<string>com.apple.driver.corecapture</string>
-				<key>MaxKernel</key>
-				<string>19.99.99</string>
-				<key>MinKernel</key>
-				<string>19.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
 				<string>System/Library/Extensions/IO80211Family.kext</string>
 				<key>Comment</key>
 				<string></string>

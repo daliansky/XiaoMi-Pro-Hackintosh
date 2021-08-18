@@ -17,6 +17,13 @@
   * 新增无效 `#enable-backlight-smoother` 属性可使亮度调节变得更丝滑，可启用它如果可以忍受延迟
   * CML: 新增 `enable-backlight-registers-fix` 来修复背光寄存器
 
+### 移除
+  * KBL: 移除 `AirportItlwm` High Sierra & Mojave 版本
+
+### 变更
+  * KBL: 修改 SMBIOS 机型为 `MacBookPro15,4` 以获得更好的电源管理，不支持 macOS High Sierra & Mojave
+  * KBL: 修改 `ig-platform-id` 为 `0x05001C59` 以获得更好的核显性能，不支持 macOS High Sierra & Mojave
+
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-4-2021

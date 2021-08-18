@@ -308,7 +308,6 @@
 		<true/>
 		<key>ForceKextsToLoad</key>
 		<array>
-			<string>\System\Library\Extensions\corecapture.kext</string>
 			<string>\System\Library\Extensions\IO80211Family.kext</string>
 		</array>
 		<key>KextsToPatch</key>

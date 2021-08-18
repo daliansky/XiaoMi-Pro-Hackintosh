@@ -333,7 +333,7 @@
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>AAAWWQ==</data>
+				<data>BQAcWQ==</data>
 				<key>complete-modeset-framebuffers</key>
 				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
@@ -344,22 +344,16 @@
 				<data>AQAAAA==</data>
 				<key>force-online</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con0-enable</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-con0-flags</key>
-				<data>mAQAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con1-flags</key>
-				<data>xwMAAA==</data>
 				<key>framebuffer-con1-pipe</key>
 				<data>CgAAAA==</data>
 				<key>framebuffer-con1-type</key>
 				<data>AAgAAA==</data>
 				<key>framebuffer-con2-enable</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con2-flags</key>
-				<data>xwMAAA==</data>
+				<key>framebuffer-con2-type</key>
+				<data>AAQAAA==</data>
 				<key>framebuffer-fbmem</key>
 				<data>AACQAA==</data>
 				<key>framebuffer-flags</key>
@@ -927,42 +921,6 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>BundlePath</key>
-				<string>AirportItlwm_High_Sierra.kext</string>
-				<key>Comment</key>
-				<string>Intel Wi-Fi driver on High Sierra</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/AirportItlwm</string>
-				<key>MaxKernel</key>
-				<string>17.99.99</string>
-				<key>MinKernel</key>
-				<string>17.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
-				<string>AirportItlwm_Mojave.kext</string>
-				<key>Comment</key>
-				<string>Intel Wi-Fi driver on Mojave</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/AirportItlwm</string>
-				<key>MaxKernel</key>
-				<string>18.99.99</string>
-				<key>MinKernel</key>
-				<string>18.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
 				<string>AirportItlwm_Monterey.kext</string>
 				<key>Comment</key>
 				<string>Intel Wi-Fi driver on Monterey</string>
@@ -1049,26 +1007,6 @@
 		</dict>
 		<key>Force</key>
 		<array>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>System/Library/Extensions/corecapture.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/corecapture</string>
-				<key>Identifier</key>
-				<string>com.apple.driver.corecapture</string>
-				<key>MaxKernel</key>
-				<string>19.99.99</string>
-				<key>MinKernel</key>
-				<string>17.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
 			<dict>
 				<key>Arch</key>
 				<string>Any</string>
@@ -1342,7 +1280,7 @@
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>MacBookPro14,1</string>
+			<string>MacBookPro15,4</string>
 			<key>SystemSerialNumber</key>
 			<string>W00000000001</string>
 			<key>SystemUUID</key>

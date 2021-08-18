@@ -13,12 +13,15 @@
 ACDT="Acidanthera"
 CFURL="https://hackintosh.stevezheng.workers.dev"
 CFURL_1="https\://hackintosh.stevezheng.workers.dev"
-# FRWF="0xFireWolf"
+FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 REPO_NAME="XiaoMi-Pro-Hackintosh"
 REPO_BRANCH="main"
 REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
+
+# Release Message
+RLMSG="#### KBL EFI Release will NOT support macOS High Sierra or Mojave anymore to reduce size, sorry for inconvenience."
 
 build_mode="Release"
 clean_up=true
@@ -248,8 +251,6 @@ function h_or_g() {
   elif [[ "$1" == "itlwm" ]]; then
     hgs=( "grep -m 1 AirportItlwm-Big_Sur"
           "grep -m 1 AirportItlwm-Catalina"
-          "grep -m 1 AirportItlwm-High_Sierra"
-          "grep -m 1 AirportItlwm-Mojave"
           "grep -m 1 AirportItlwm-Monterey"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
@@ -707,15 +708,11 @@ function patch() {
     for model in "${model_list[@]}"; do
       mv "${model}/Big Sur/AirportItlwm.kext" "${model}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
       mv "${model}/Catalina/AirportItlwm.kext" "${model}/Catalina/AirportItlwm_Catalina.kext" || exit 1
-      mv "${model}/High Sierra/AirportItlwm.kext" "${model}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
-      mv "${model}/Mojave/AirportItlwm.kext" "${model}/Mojave/AirportItlwm_Mojave.kext" || exit 1
       mv "${model}/Monterey/AirportItlwm.kext" "${model}/Monterey/AirportItlwm_Monterey.kext" || exit 1
     done
   else
     mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
     mv "Catalina/AirportItlwm.kext" "Catalina/AirportItlwm_Catalina.kext" || exit 1
-    mv "High Sierra/AirportItlwm.kext" "High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
-    mv "Mojave/AirportItlwm.kext" "Mojave/AirportItlwm_Mojave.kext" || exit 1
     mv "Monterey/AirportItlwm.kext" "Monterey/AirportItlwm_Monterey.kext" || exit 1
   fi
   echo
@@ -785,23 +782,17 @@ function install() {
     local kblWifiKextItems=(
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
-      "High Sierra/AirportItlwm_High_Sierra.kext"
-      "Mojave/AirportItlwm_Mojave.kext"
       "Monterey/AirportItlwm_Monterey.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       kblWifiKextItems=("${kblWifiKextItems[@]/#/KBL/}")
     fi
     local kblCloverKextFolders=(
-      "10.13"
-      "10.14"
       "10.15"
       "11"
       "12"
     )
     local kblCloverIbtInjctrDirs=(
-      "10.13"
-      "10.14"
       "10.15"
       "11"
     )
@@ -840,18 +831,10 @@ function install() {
       cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
       cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
       cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
-      if [[ "${model}" == "KBL" ]]; then
-        cp -R "${model}/High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
-        cp -R "${model}/Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
-      fi
     else
       cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
       cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
       cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
-      if [[ "${model}" == "KBL" ]]; then
-        cp -R "High Sierra/AirportItlwm_High_Sierra.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.13" || copyErr
-        cp -R "Mojave/AirportItlwm_Mojave.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.14" || copyErr
-      fi
     fi
 
     kextItems="${model_wifiKextItems}[@]"
@@ -1242,8 +1225,8 @@ function genNote() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
-  # Release warning
-# echo "#### 10 Gen NoteBook users may have to reboot two times to let brightness work." >> ReleaseNotes.md
+  # Write Release Message
+  echo "${RLMSG}" >> ReleaseNotes.md
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)

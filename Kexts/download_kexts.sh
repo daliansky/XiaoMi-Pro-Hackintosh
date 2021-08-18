@@ -79,8 +79,6 @@ function h_or_g() {
   elif [[ "$1" == "itlwm" ]]; then
     hgs=( "grep -m 1 AirportItlwm-Big_Sur"
           "grep -m 1 AirportItlwm-Catalina"
-          "grep -m 1 AirportItlwm-High_Sierra"
-          "grep -m 1 AirportItlwm-Mojave"
           "grep -m 1 AirportItlwm-Monterey"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
@@ -213,9 +211,9 @@ function download() {
     dGR ${ACDT} "${acdtKext}" NULL "${OUTDir_TMP}"
   done
 
-  for frwfKext in "${frwfKexts[@]}"; do
-    dGR ${FRWF} "${frwfKext}" NULL "${OUTDir_TMP}"
-  done
+# for frwfKext in "${frwfKexts[@]}"; do
+#   dGR ${FRWF} "${frwfKext}" NULL "${OUTDir_TMP}"
+# done
 
   for oiwKext in "${oiwKexts[@]}"; do
     dGR ${OIW} "${oiwKext}" PreRelease "${OUTDir_TMP}"
@@ -244,10 +242,10 @@ function patch() {
     "CodecCommander.kext/Contents/Resources"
     "HibernationFixup.kext/Contents/_CodeSignature"
     "Kexts/SMCBatteryManager.kext/Contents/Resources"
-    "RealtekCardReader.kext/Contents/_CodeSignature"
-    "RealtekCardReader.kext/Contents/Resources"
-    "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
-    "RealtekCardReaderFriend.kext/Contents/Resources"
+  # "RealtekCardReader.kext/Contents/_CodeSignature"
+  # "RealtekCardReader.kext/Contents/Resources"
+  # "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
+  # "RealtekCardReaderFriend.kext/Contents/Resources"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -262,8 +260,6 @@ function patch() {
   # Rename AirportItlwm.kexts based on different versions
   mv "${OUTDir_TMP}/Big Sur/AirportItlwm.kext" "${OUTDir_TMP}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
   mv "${OUTDir_TMP}/Catalina/AirportItlwm.kext" "${OUTDir_TMP}/Catalina/AirportItlwm_Catalina.kext" || exit 1
-  mv "${OUTDir_TMP}/High Sierra/AirportItlwm.kext" "${OUTDir_TMP}/High Sierra/AirportItlwm_High_Sierra.kext" || exit 1
-  mv "${OUTDir_TMP}/Mojave/AirportItlwm.kext" "${OUTDir_TMP}/Mojave/AirportItlwm_Mojave.kext" || exit 1
   mv "${OUTDir_TMP}/Monterey/AirportItlwm.kext" "${OUTDir_TMP}/Monterey/AirportItlwm_Monterey.kext" || exit 1
 }
 
@@ -282,8 +278,8 @@ function install() {
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
     "NoTouchID.kext"
-    "RealtekCardReader.kext"
-    "RealtekCardReaderFriend.kext"
+  # "RealtekCardReader.kext"
+  # "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
@@ -291,8 +287,6 @@ function install() {
     "WhateverGreen.kext"
     "Big Sur/AirportItlwm_Big_Sur.kext"
     "Catalina/AirportItlwm_Catalina.kext"
-    "High Sierra/AirportItlwm_High_Sierra.kext"
-    "Mojave/AirportItlwm_Mojave.kext"
     "Monterey/AirportItlwm_Monterey.kext"
     "hack-tools-master/kexts/EFICheckDisabler.kext"
     "hack-tools-master/kexts/SATA-unsupported.kext"
