@@ -14,7 +14,7 @@
   * 更新 `SSDT-PNLF`
 
 ### 新增
-  * 新增 `enable-backlight-smoother` 属性来亮度调节变得更丝滑，可删掉它如果延迟难以忍受
+  * 新增无效 `#enable-backlight-smoother` 属性可使亮度调节变得更丝滑，可启用它如果可以忍受延迟
   * CML: 新增 `enable-backlight-registers-fix` 来修复背光寄存器
 
 

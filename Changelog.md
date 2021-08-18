@@ -14,7 +14,7 @@
   - Update `SSDT-PNLF`
 
 ### Add
-  - Add `enable-backlight-smoother` property to adjust the panel brightness smoothly, feel free to delete this if the delay is unbearable
+  - Add dummy `#enable-backlight-smoother` property that can adjust the panel brightness smoothly, feel free to enable this if delay is bearable
   - CML: Add `enable-backlight-registers-fix` to fix backlight registers
 
 

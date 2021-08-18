@@ -332,7 +332,7 @@
 				<data>mz4AAA==</data>
 				<key>enable-backlight-registers-fix</key>
 				<data>AQAAAA==</data>
-				<key>enable-backlight-smoother</key>
+				<key>#enable-backlight-smoother</key>
 				<data>AQAAAA==</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>AQAAAA==</data>

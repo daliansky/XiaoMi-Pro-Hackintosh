@@ -169,11 +169,12 @@ Some advanced usages are:
 ## Improvements
 
 - Use [Hackintool](https://github.com/headkaze/Hackintool) to inject EDID (AAPL00,override-no-connect)
-- Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
+- Change `#enable-backlight-smoother` to `enable-backlight-smoother` in `config.plist` to adjust the panel brightness smoothly
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1424x802 HiDPI resolution
   - TM1701: On macOS > 10.13.6, to enable higher HiDPI resolution (<=1520x855), you need to use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb
   - TM1701 & TM1707: Optional, change `ig-platform-id` to `0x05001c59` (macOS version > 10.14) to enhance graphic performance
+- Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
 - Use [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) to modify CPU power management or change SMBIOS model to `MacBookPro15,4` (macOS version > 10.15)
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG

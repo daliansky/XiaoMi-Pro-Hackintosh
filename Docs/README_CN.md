@@ -164,11 +164,12 @@ cd XiaoMi-Pro-Hackintosh
 ## 改善体验
 
 - 使用 [Hackintool](https://github.com/headkaze/Hackintool) 来注入 EDID（AAPL00,override-no-connect）
-- 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
+- 更改 `config.plist` 中的 `#enable-backlight-smoother` 为 `enable-backlight-smoother` 使亮度调节变得更丝滑
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
   - TM1701：如果 macOS 版本高于 10.13.6，要开启更高 HiDPI 分辨率 (<1520x855)，请先使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb
   - TM1701 和 TM1707：可选，更改 `ig-platform-id` 为 `0x05001c59`（macOS 版本高于 10.14）来提升显卡表现
+- 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - 使用 [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) 来提升CPU性能或者修改 SMBIOS 机型为 `MacBookPro15,4`（macOS 版本高于 10.15）
 - TM1701 和 TM1707：使用 [ALCPlugFix](../ALCPlugFix) 来修复耳机重新插拔后无声
 - TM1701：使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
