@@ -21,7 +21,7 @@
   - KBL: Remove `AirportItlwm` High Sierra & Mojave version
 
 ### Change
-  - KBL: Change SMBIOS model to `MacBookPro15,4` for better power management, no support for macOS High Sierra & Mojave
+  - KBL: Change SMBIOS model to `MacBookPro15,2` for better power management, no support for macOS High Sierra & Mojave
   - KBL: Change `ig-platform-id` to `0x05001C59` for better graphics performance, no support for macOS High Sierra & Mojave
 
 
