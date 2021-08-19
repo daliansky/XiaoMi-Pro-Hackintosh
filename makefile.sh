@@ -1226,7 +1226,9 @@ function genNote() {
 
   echo "${green}[${reset}${blue}${bold} Generating Release Notes ${reset}${green}]${reset}"
   # Write Release Message
-  echo "${RLMSG}" >> ReleaseNotes.md
+  if [[ "${RLMSG}" != "" ]]; then
+    echo "${RLMSG}" >> ReleaseNotes.md
+  fi
 
   lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
