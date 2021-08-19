@@ -21,7 +21,7 @@
   * KBL: 移除 `AirportItlwm` High Sierra & Mojave 版本
 
 ### 变更
-  * KBL: 修改 SMBIOS 机型为 `MacBookPro15,2` 以获得更好的电源管理，不支持 macOS High Sierra & Mojave
+  * KBL: 修改 SMBIOS 机型为 `MacBookPro15,4` 以获得更好的电源管理，不支持 macOS High Sierra & Mojave
   * KBL: 修改 `ig-platform-id` 为 `0x05001C59` 以获得更好的核显性能，不支持 macOS High Sierra & Mojave
 
 
