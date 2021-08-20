@@ -24,6 +24,9 @@
   * KBL: 修改 SMBIOS 机型为 `MacBookPro15,4` 以获得更好的电源管理，不支持 macOS High Sierra & Mojave
   * KBL: 修改 `ig-platform-id` 为 `0x05001C59` 以获得更好的核显性能，不支持 macOS High Sierra & Mojave
 
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.7.3
+
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-4-2021

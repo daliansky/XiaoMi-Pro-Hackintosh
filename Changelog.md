@@ -24,6 +24,9 @@
   - KBL: Change SMBIOS model to `MacBookPro15,4` for better power management, no support for macOS High Sierra & Mojave
   - KBL: Change `ig-platform-id` to `0x05001C59` for better graphics performance, no support for macOS High Sierra & Mojave
 
+### OC
+  - OC: Update config to support `OpenCore` v0.7.3
+
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 8-4-2021
