@@ -16,6 +16,7 @@
 ### Add
   - Add dummy `#enable-backlight-smoother` property that can adjust the panel brightness smoothly, feel free to enable this if delay is bearable
   - CML: Add `enable-backlight-registers-fix` to fix backlight registers
+  - KBL: Add `forceRenderStandby=0` boot-args to disable RC6 Render Standby and fix [IGP causes NVMe Kernel Panic CSTS=0xffffffff](https://github.com/acidanthera/bugtracker/issues/1193) after sleep
 
 ### Remove
   - KBL: Remove `AirportItlwm` High Sierra & Mojave version

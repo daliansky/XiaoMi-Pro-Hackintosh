@@ -16,6 +16,7 @@
 ### 新增
   * 新增无效 `#enable-backlight-smoother` 属性可使亮度调节变得更丝滑，可启用它如果可以忍受延迟
   * CML: 新增 `enable-backlight-registers-fix` 来修复背光寄存器
+  * KBL: 新增 `forceRenderStandby=0` 引导参数来禁用 RC6 Render Standby 并修复睡眠后 [IGP causes NVMe Kernel Panic CSTS=0xffffffff](https://github.com/acidanthera/bugtracker/issues/1193)
 
 ### 移除
   * KBL: 移除 `AirportItlwm` High Sierra & Mojave 版本
