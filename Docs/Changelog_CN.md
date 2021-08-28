@@ -7,10 +7,14 @@
 
 ### 更新
   * 更新 `OpenCore` v0.7.3
+  * 更新 `Lilu` v1.5.6
   * 更新 `VirtualSMC` v1.2.7
   * 更新 `AppleALC` v1.6.4
   * 更新 `WhateverGreen` v1.5.3
   * 更新 `AirportItlwm` v2.1.0（更新至 ）
+  * 更新 `IntelBluetoothFirmware` v2.0.0（更新至 ）
+  * 更新 `VoodooPS2` v2.2.5
+  * 更新 `VoodooI2C` v2.6.6
   * 更新 `SSDT-PNLF`
 
 ### 新增

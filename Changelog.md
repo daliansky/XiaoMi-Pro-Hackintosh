@@ -7,10 +7,14 @@
 
 ### Upgrade
   - Update `OpenCore` v0.7.3
+  - Update `Lilu` v1.5.6
   - Update `VirtualSMC` v1.2.7
   - Update `AppleALC` v1.6.4
   - Update `WhateverGreen` v1.5.3
   - Update `AirportItlwm` v2.1.0 (up to )
+  - Update `IntelBluetoothFirmware` v2.0.0 (up to )
+  - Update `VoodooPS2` v2.2.5
+  - Update `VoodooI2C` v2.6.6
   - Update `SSDT-PNLF`
 
 ### Add
