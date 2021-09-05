@@ -99,7 +99,7 @@
 - Should Clean NVRAM after using Clover
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
 - Limited theme
-- **Recommend Reading: [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**, especially the **UEFI Secure Boot** section
+- **Recommend Reading: [Security and FileVault | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/security.html) and [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**, especially the **UEFI Secure Boot** section
 
 
 ## Installation
@@ -236,7 +236,7 @@ You can view [Changelog](Changelog.md) for detailed information.
 - Thanks to [hieplpvip](https://github.com/hieplpvip) and [syscl](https://github.com/syscl) for providing samples of DSDT patches.
 - Thanks to [OpenIntelWireless](https://github.com/OpenIntelWireless) for providing [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) and [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware).
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext), [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config), [OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet), and [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext).
-- Thanks to [Sniki](https://github.com/Sniki) for providing [EAPD-Codec-Commander](https://github.com/Sniki/EAPD-Codec-Commander).
+- Thanks to [RehabMan](https://github.com/RehabMan) and [Sniki](https://github.com/Sniki) for providing [EAPD-Codec-Commander](https://github.com/Sniki/EAPD-Codec-Commander).
 - Thanks to [VoodooI2C](https://github.com/VoodooI2C) for providing [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C).
 
 ### For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/References).

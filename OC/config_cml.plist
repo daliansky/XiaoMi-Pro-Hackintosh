@@ -1346,43 +1346,43 @@
 		<key>Drivers</key>
 		<array>
 			<dict>
-				<key>Driver</key>
+				<key>Path</key>
 				<string>HfsPlus.efi</string>
 				<key>Enabled</key>
 				<true/>
-				<key>Params</key>
+				<key>Arguments</key>
 				<string></string>
 			</dict>
 			<dict>
-				<key>Driver</key>
+				<key>Path</key>
 				<string>OpenRuntime.efi</string>
 				<key>Enabled</key>
 				<true/>
-				<key>Params</key>
+				<key>Arguments</key>
 				<string></string>
 			</dict>
 			<dict>
-				<key>Driver</key>
+				<key>Path</key>
 				<string>OpenCanopy.efi</string>
 				<key>Enabled</key>
 				<true/>
-				<key>Params</key>
+				<key>Arguments</key>
 				<string></string>
 			</dict>
 			<dict>
-				<key>Driver</key>
+				<key>Path</key>
 				<string>AudioDxe.efi</string>
 				<key>Enabled</key>
 				<false/>
-				<key>Params</key>
+				<key>Arguments</key>
 				<string></string>
 			</dict>
 			<dict>
-				<key>Driver</key>
+				<key>Path</key>
 				<string>ExFatDxe.efi</string>
 				<key>Enabled</key>
 				<false/>
-				<key>Params</key>
+				<key>Arguments</key>
 				<string></string>
 			</dict>
 		</array>

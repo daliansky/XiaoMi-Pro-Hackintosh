@@ -99,7 +99,7 @@
 - 使用 Clover 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
 - 有限的主题
-- **推荐阅读：[OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**，特别注意 **UEFI Secure Boot** 章节
+- **推荐阅读：[Security and FileVault | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/security.html) 和 [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**，特别注意 **UEFI Secure Boot** 章节
 
 
 ## 安装
@@ -231,7 +231,7 @@ cd XiaoMi-Pro-Hackintosh
 - 感谢 [hieplpvip](https://github.com/hieplpvip) 和 [syscl](https://github.com/syscl) 提供 DSDT 补丁样本。
 - 感谢 [OpenIntelWireless](https://github.com/OpenIntelWireless) 提供 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 和 [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)。
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [EFICheckDisabler](https://github.com/RehabMan/hack-tools/tree/master/kexts/EFICheckDisabler.kext)，[OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)，[OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 和 [SATA-unsupported](https://github.com/RehabMan/hack-tools/tree/master/kexts/SATA-unsupported.kext)。
-- 感谢 [Sniki](https://github.com/Sniki) 提供 [EAPD-Codec-Commander](https://github.com/Sniki/EAPD-Codec-Commander)。
+- 感谢 [RehabMan](https://github.com/RehabMan) 和 [Sniki](https://github.com/Sniki) 提供 [EAPD-Codec-Commander](https://github.com/Sniki/EAPD-Codec-Commander)。
 - 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
 
 ### 请前往 [参考](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/参考) 来获取更多内容。
