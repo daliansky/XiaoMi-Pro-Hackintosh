@@ -12,10 +12,10 @@
   - Update `VirtualSMC` v1.2.7
   - Update `AppleALC` v1.6.4
   - Update `WhateverGreen` v1.5.3
-  - Update `AirportItlwm` v2.1.0 (up to [OpenIntelWireless/itlwm@6dbf9d3](https://github.com/OpenIntelWireless/itlwm/commit/6dbf9d3a17ea91a1c4039ccfa16d7e1c8b71cd43))
+  - Update `HibernationFixup` v1.4.3
+  - Update `AirportItlwm` v2.1.0 (up to [OpenIntelWireless/itlwm@1e857b9](https://github.com/OpenIntelWireless/itlwm/commit/1e857b9a3b2a90d072324edd1819f6f0713b809e))
   - Update `IntelBluetoothFirmware` v2.0.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@06f9d25](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/06f9d255b28f6d16b471387b53fedcb410d412f4))
   - Update `VoodooPS2` v2.2.5
-  - Update `VoodooI2C` v2.6.6
   - Update `SSDT-PNLF`
 
 ### Add

@@ -12,10 +12,10 @@
   * 更新 `VirtualSMC` v1.2.7
   * 更新 `AppleALC` v1.6.4
   * 更新 `WhateverGreen` v1.5.3
-  * 更新 `AirportItlwm` v2.1.0（更新至 [OpenIntelWireless/itlwm@6dbf9d3](https://github.com/OpenIntelWireless/itlwm/commit/6dbf9d3a17ea91a1c4039ccfa16d7e1c8b71cd43)）
+  * 更新 `HibernationFixup` v1.4.3
+  * 更新 `AirportItlwm` v2.1.0（更新至 [OpenIntelWireless/itlwm@1e857b9](https://github.com/OpenIntelWireless/itlwm/commit/1e857b9a3b2a90d072324edd1819f6f0713b809e)）
   * 更新 `IntelBluetoothFirmware` v2.0.0（更新至 [OpenIntelWireless/IntelBluetoothFirmware@06f9d25](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/06f9d255b28f6d16b471387b53fedcb410d412f4)）
   * 更新 `VoodooPS2` v2.2.5
-  * 更新 `VoodooI2C` v2.6.6
   * 更新 `SSDT-PNLF`
 
 ### 新增

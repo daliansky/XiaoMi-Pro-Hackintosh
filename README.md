@@ -68,6 +68,7 @@
 - **Fingerprint sensor** is not working
   - Have used `SSDT-USB` to disable it in order to save power
 - **Intel Bluetooth** does not support some Bluetooth devices
+  - On macOS12+, you can not `Turn Bluetooth Off` and turn it back on; a restart is required to turn it on
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
 - **Intel Wi-Fi** works with low performance
   - macOS Big Sur or higher is recommended; macOS version < 11 needs to rebuild kextcache and restart if Intel Wi-Fi does not work
@@ -142,21 +143,21 @@ cd XiaoMi-Pro-Hackintosh
 Some advanced usages are:
 ```shell
 # Build EFI with kexts and OpenCore in Debug version
-./makefile.sh --DEBUG_KEXTOC
+./makefile.sh --debug_KextOC
 # Ignore errors when the script is running
-./makefile.sh --IGNORE_ERR
+./makefile.sh --ignore_err
 # Bundled with Chinese verison Docs
-./makefile.sh --LANG=zh_CN
+./makefile.sh --lang=zh_CN
 # Generate EFI release for Comet Lake model
-./makefile.sh --MODEL=CML
+./makefile.sh --model=CML
 # Preserve work files during the building stage
-./makefile.sh --NO_CLEAN_UP
+./makefile.sh --no_clean_up
 # Use GitHub API
-./makefile.sh --GH_API
+./makefile.sh --gh_api
 # Build the latest beta EFI with pre-release kexts
-./makefile.sh --PRE_RELEASE=Kext
+./makefile.sh --pre_release=Kext
 # Build the latest beta EFI with pre-release OpenCore
-./makefile.sh --PRE_RELEASE=OC
+./makefile.sh --pre_release=OC
 ```
 
 
@@ -182,10 +183,6 @@ Some advanced usages are:
 
 
 ## FAQ
-
-#### My touchpad isn't working after update.
-
-You need to rebuild the kext cache after every system update. Use `Kext Utility.app` or type `sudo kextcache -i /` in `Terminal.app`. Then restart. If this still doesn't work, try to press F9.
 
 #### I can't click to drag files using the trackpad.
 

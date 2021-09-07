@@ -21,7 +21,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="#### KBL EFI Release will NOT support macOS High Sierra or Mojave anymore to reduce size, sorry for inconvenience.\nThere might be no OTA updates to macOS 12.0 beta 6+, please visit [dortania/OpenCore-Legacy-Patcher#471](dortania/OpenCore-Legacy-Patcher#471) for more information."
+RLMSG="**KBL EFI Release will NOT support macOS High Sierra or Mojave anymore to reduce size, sorry for inconvenience.  There might be no OTA updates to macOS 12.0 beta 6+, please visit [dortania/OpenCore-Legacy-Patcher#471](dortania/OpenCore-Legacy-Patcher#471) for more information.**"
 
 build_mode="Release"
 clean_up=true
@@ -64,35 +64,35 @@ while [[ $# -gt 0 ]]; do
   key="$1"
 
   case "${key}" in
-    --DEBUG_KEXTOC)
+    --debug_KextOC)
     build_mode="Debug"
     download_mode="DEBUG"
     shift # past argument
     ;;
-    --IGNORE_ERR)
+    --ignore_err)
     err_no_exit=true
     shift # past argument
     ;;
-    --LANG=zh_CN)
+    --lang=zh_CN)
     language="zh_CN"
     shift # past argument
     ;;
-    --NO_CLEAN_UP)
+    --no_clean_up)
     clean_up=false
     shift # past argument
     ;;
-    --GH_API)
+    --gh_api)
     gh_api=true
     shift # past argument
     ;;
     *)
-    if [[ "${key}" =~ "--VERSION=" ]]; then
+    if [[ "${key}" =~ "--version=" ]]; then
       version="${key##*=}"
       shift
-    elif [[ "${key}" =~ "--PRE_RELEASE=" ]]; then
+    elif [[ "${key}" =~ "--pre_release=" ]]; then
       pre_release+="${key##*=}"
       shift
-    elif [[ "${key}" =~ "--MODEL=" ]]; then
+    elif [[ "${key}" =~ "--model=" ]]; then
       model_input+="${key##*=}"
       shift
     else

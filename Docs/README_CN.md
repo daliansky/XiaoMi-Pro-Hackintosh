@@ -68,6 +68,7 @@
 - **指纹传感器** 无法工作
   - 使用了 `SSDT-USB` 来禁用它以节省电量
 - **英特尔蓝牙** 不支持部分蓝牙设备
+  - 如果使用macOS12+，你不能 `关闭蓝牙` 再重新打开，需要重新启动才能打开
   - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡** 性能不佳
   - 推荐使用 macOS Big Sur 或更高版本；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作
@@ -137,21 +138,21 @@ cd XiaoMi-Pro-Hackintosh
 还有一些进阶用法：
 ```shell
 # 构建EFI时使用 Debug 版 kexts 和 OpenCore
-./makefile.sh --DEBUG_KEXTOC
+./makefile.sh --debug_KextOC
 # 忽略脚本运行时遇到的错误
-./makefile.sh --IGNORE_ERR
+./makefile.sh --ignore_err
 # 使用中文版文档
-./makefile.sh --LANG=zh_CN
+./makefile.sh --lang=zh_CN
 # 生成 Comet Lake 机型的 EFI包
-./makefile.sh --MODEL=CML
+./makefile.sh --model=CML
 # 构建时保留工程文件
-./makefile.sh --NO_CLEAN_UP
+./makefile.sh --no_clean_up
 # 使用 GitHub API
-./makefile.sh --GH_API
+./makefile.sh --gh_api
 # 构建包含最新 pre-release 驱动的测试版EFI
-./makefile.sh --PRE_RELEASE=Kext
+./makefile.sh --pre_release=Kext
 # 构建包含最新 pre-release OpenCore 的测试版EFI
-./makefile.sh --PRE_RELEASE=OC
+./makefile.sh --pre_release=OC
 ```
 
 
@@ -177,10 +178,6 @@ cd XiaoMi-Pro-Hackintosh
 
 
 ## 常见问题解答
-
-#### 我的触控板升级系统后无法使用。
-
-你需要在每次更新系统后重建缓存。运行 `Kext Utility.app` 或者在 `终端.app` 输入 `sudo kextcache -i /`，然后重启。如果触控板还是失效，试试按下F9键。
 
 #### 我无法用触控板按下并拖拽文件。
 
