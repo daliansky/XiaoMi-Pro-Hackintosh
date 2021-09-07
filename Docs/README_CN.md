@@ -68,7 +68,7 @@
 - **指纹传感器** 无法工作
   - 使用了 `SSDT-USB` 来禁用它以节省电量
 - **英特尔蓝牙** 不支持部分蓝牙设备
-  - 如果使用macOS12+，你不能 `关闭蓝牙` 再重新打开，需要重新启动才能打开
+  - 如果使用 macOS12+，你不能 `关闭蓝牙` 再重新打开，需要重新启动才能打开
   - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡** 性能不佳
   - 推荐使用 macOS Big Sur 或更高版本；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作
@@ -133,7 +133,7 @@ sh -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.github
 ```shell
 git clone --depth=1 https://github.com/daliansky/XiaoMi-Pro-Hackintosh.git
 cd XiaoMi-Pro-Hackintosh
-./makefile.sh --LANG=zh_CN
+./makefile.sh --lang=zh_CN
 ```
 还有一些进阶用法：
 ```shell
