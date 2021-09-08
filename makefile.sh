@@ -470,17 +470,17 @@ function bKextHelper() {
       fi
       git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
 
-    # if [[ -z ${GITHUB_ACTIONS+x} ]]; then
+      if [[ -z ${GITHUB_ACTIONS+x} ]]; then
         # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
         lineNum=$(grep -n "Linting" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
         /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
         lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
         /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
-    # else
+      else
         # Install cpplint & cldoc when using GitHub Action
-      # pip3 install -q cpplint || exit 1
-      # pip3 install -q git+https://github.com/VoodooI2C/cldoc.git || exit 1
-    # fi
+        pip3 install -q cpplint || exit 1
+        pip3 install -q git+https://github.com/VoodooI2C/cldoc.git || exit 1
+      fi
 
       xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_VI2C}*.kext "../" || copyErr
