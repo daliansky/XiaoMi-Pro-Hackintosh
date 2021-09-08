@@ -2,6 +2,16 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.6.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.1)
+## 9-8-2021
+
+### Upgrade
+  - Update `VoodooI2C` v2.6.5 (up to [VoodooI2C/VoodooI2C@385c068](https://github.com/VoodooI2C/VoodooI2C/commit/385c0688e72817a58e22be35e4996cc1e88996c3))
+
+### Remove
+  - KBL: Remove `forceRenderStandby=0` boot-args because it slows down performance, enable it if necessary
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.0)
 ## 9-7-2021
 
