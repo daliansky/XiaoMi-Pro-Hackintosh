@@ -21,7 +21,8 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**KBL EFI Release will NOT support macOS High Sierra or Mojave anymore to reduce size, sorry for inconvenience.  There might be no OTA updates to macOS 12.0 beta 6+, please visit [dortania/OpenCore-Legacy-Patcher#471](dortania/OpenCore-Legacy-Patcher#471) for more information.**"
+RLMSG="**KBL EFI Release will NOT support macOS High Sierra or Mojave anymore to reduce size, sorry for inconvenience.
+There might be no OTA updates to macOS 12.0 beta 6+, please visit [dortania/OpenCore-Legacy-Patcher#471](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/471) for more information.**"
 
 build_mode="Release"
 clean_up=true
