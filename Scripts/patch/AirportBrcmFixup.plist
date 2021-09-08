@@ -3,6 +3,8 @@
 <plist version="1.0">
 	<array>
 		<dict>
+      <key>Arch</key>
+      <string>x86_64</string>
 			<key>BundlePath</key>
 			<string>AirportBrcmFixup.kext</string>
 			<key>Comment</key>
@@ -18,6 +20,5 @@
 			<key>PlistPath</key>
 			<string>Contents/Info.plist</string>
 		</dict>
-
 	</array>
 </plist>

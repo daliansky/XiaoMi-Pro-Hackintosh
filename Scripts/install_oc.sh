@@ -264,7 +264,8 @@ function backupEFI() {
 	_spaceUsed=$(/bin/df | awk '/'"${_escaped_EFI_DIR}"'/ {print $5}' | perl -ne '/([0-9]+)/ and print $1')
 	if [[ "$_spaceUsed" -ge 80 ]]; then
 		echo -e "${RED}More than ${UNDERLINE}${BOLD}${_spaceUsed}%${OFF}${RED} of EFi partition space is used${OFF}"
-		echo -e "${RED}Please run this script again after removing/moving the outdated backups${OFF}"
+		echo -e "${RED}Please rerun this script after removing/moving the outdated backups${OFF}"
+		echo -e "${YELLOW}Note: you need to delete the file in trash bin to actually free the space!${OFF}"
 		open "${EFI_DIR}/Backups/"
 		exit 1
 	elif [[ "$_spaceUsed" -ge 50 ]]; then
@@ -505,7 +506,7 @@ function getPlist() {
 }
 
 function restorePlist() {
-	# Set Old efi file value to new efi file
+	# Set Old efi file value to new efi file, if the old value is missing nothing is changed
 	# $! Old PList file
 	# $2 New PList file
 	# $3+ Plist path or array regex
@@ -689,6 +690,7 @@ function restoreBluetooth() {
 	local _old_config="${EFI_DIR}/EFI/OC/config.plist"
 	local _new_config="${efi_work_dir}/OC/config.plist"
 	cp "${efi_work_dir}"/../Bluetooth/*.aml "${efi_work_dir}/OC/ACPI/"
+
 	# SSDT
 	restorePlist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB.aml" ":Enabled"
 	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB.aml"
@@ -709,6 +711,7 @@ function restoreBluetooth() {
 	restorePlist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = IntelBluetoothInjector.kext" ":Enabled"
 	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = IntelBluetoothInjector.kext"
 
+	restorePlist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = BlueToolFixup.kext" ":Enabled"
 }
 
 function restoreDVMT() {
@@ -818,7 +821,7 @@ function restoreBrcmPatchRAM() {
 		curl -f -# -L -o "./patch/BrcmFirmwareData.plist" "https://raw.githubusercontent.com/${REPO_NAME}/${REPO_BRANCH}/Scripts/patch/BrcmFirmwareData.plist" || return 1
 		curl -f -# -L -o "./patch/BrcmPatchRAM3.plist" "https://raw.githubusercontent.com/${REPO_NAME}/${REPO_BRANCH}/Scripts/patch/BrcmPatchRAM3.plist" || return 1
 
-		echo "${GREEN}Adding BrcmPatchRAM Kext's entry to config.efi...${OFF}"
+		echo "${GREEN}Adding BrcmPatchRAM Kext's entry to config.plist${OFF}"
 		[[ "$_brcmInjector" == "true" ]] && cp -r "${_patchRAMDir}/BrcmBluetoothInjector.kext" "${efi_work_dir}/OC/Kexts/" && ${PLEDIT} -x -c "Merge ./patch/BrcmBluetoothInjector.plist :Kernel:Add" "${_new_config}" && echo -e "${GREEN}Restored BrcmBluetoothInjector${OFF}"
 		[[ "$_brcmFirmwareData" == "true" ]] && cp -r "${_patchRAMDir}/BrcmFirmwareData.kext" "${efi_work_dir}/OC/Kexts/" && ${PLEDIT} -x -c "Merge ./patch/BrcmFirmwareData.plist :Kernel:Add" "${_new_config}" && echo -e "${GREEN}Restored BrcmFirmwareData${OFF}"
 		[[ "$_brcmRAM3" == "true" ]] && cp -r "${_patchRAMDir}/BrcmPatchRAM3.kext" "${efi_work_dir}/OC/Kexts/" && ${PLEDIT} -x -c "Merge ./patch/BrcmPatchRAM3.plist :Kernel:Add" "${_new_config}" && echo -e "${GREEN}Restored BrcmPatchRAM3${OFF}"
@@ -858,7 +861,7 @@ function restoreAirportFixup() {
 		mkdir -p "./patch"
 		curl -# -f -L -o "./patch/AirportBrcmFixup.plist" "https://raw.githubusercontent.com/${REPO_NAME}/${REPO_BRANCH}/Scripts/patch/AirportBrcmFixup.plist" || return 1
 
-		echo "${GREEN}Adding AirportBrcmFixup Kext entry to config.efi...${OFF}"
+		echo "${GREEN}Adding AirportBrcmFixup Kext entry to config.plist${OFF}"
 		cp -r "./AirportBrcmFixup.kext" "${efi_work_dir}/OC/Kexts/" && ${PLEDIT} -x -c "Merge ./patch/AirportBrcmFixup.plist :Kernel:Add" "${_new_config}" && echo -e "${GREEN}Restored AirportBrcmFixup${OFF}"
 
 	else
@@ -896,6 +899,9 @@ function restoreOptionalKext() {
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Mojave.kext' ':Enabled'
 	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Mojave.kext'
+
+	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Monterey.kext' ':Enabled'
+	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Monterey.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = NullEthernet.kext' ':Enabled'
 	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = NullEthernet.kext'
