@@ -1,24 +1,24 @@
 # OC Update script
 
-This script is for OpenCore only, it need an existing and sane configuration of OpenCore, the main aim of this script to make updating EFI less of a chore.
+This script is for OpenCore only, it needs an existing and sane configuration of OpenCore, the main aim of this script is to make updating EFI less of a chore.
 
 # How to use
 ```bash
 bash <(curl -sL --proto-redir -all,https https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Scripts/install_oc.sh)
 ```
 
-If for some reason, you want to use a custom EFI(that follow the main repos formats) or GitHub , you can force it with:
+If for some reason, you want to use a custom EFI(that follow the upstream formats) or GitHub, you can force it with:
 ```bash
-# Force url prompt 
+# Force URL prompt 
 CUSTOM_EFI_URL=1 bash <(curl -sL --proto-redir -all,https https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Scripts/install_oc.sh)
-# Fetch patch's in custom repo
+# Fetch patch's and EFI release from custom repo
 REPO_NAME='daliansky' REPO_BRANCH='main' bash <(curl -sL --proto-redir -all,https https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/Scripts/install_oc.sh)
 ```
 
 # Feature
 - Automatically detect and download EFI for CML/KBL model.
 - Interactive and colorful log.
-- Smart backup that check content with diff.
+- Smart backup that checks the content with diff.
 - 0xE2 and DVMT/FrameBuffer detection.
 - Bluetooth detection.
 - PlatformInfo/Serial detection.
