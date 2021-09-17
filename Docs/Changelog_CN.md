@@ -2,14 +2,26 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.6.2
+## 10-6-2021
+
+### 更新
+  * 更新 `OpenCore` v0.7.4
+  * 更新 `AppleALC` v1.6.5
+  * 更新 `HibernationFixup` v1.4.4
+
+### Clover
+  * 新增 `config-oc` 以支持 `Clover` r5140
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.1)
 ## 9-8-2021
 
 ### 更新
-  - 更新 `VoodooI2C` v2.6.5（更新至 [VoodooI2C/VoodooI2C@385c068](https://github.com/VoodooI2C/VoodooI2C/commit/385c0688e72817a58e22be35e4996cc1e88996c3)）
+  * 更新 `VoodooI2C` v2.6.5（更新至 [VoodooI2C/VoodooI2C@385c068](https://github.com/VoodooI2C/VoodooI2C/commit/385c0688e72817a58e22be35e4996cc1e88996c3)）
 
 ### 移除
-  - KBL: 移除 `forceRenderStandby=0` 引导参数因为它拖慢性能，如果必要再开启它
+  * KBL: 移除 `forceRenderStandby=0` 引导参数因为它拖慢性能，如果必要再开启它
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.0)

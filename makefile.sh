@@ -21,8 +21,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**KBL EFI Release will NOT support macOS High Sierra or Mojave anymore to reduce size, sorry for inconvenience.
-There might be no OTA updates to macOS 12.0 beta 6+, please visit [dortania/OpenCore-Legacy-Patcher#471](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/471) for more information.**"
+RLMSG="**There might be no OTA updates to macOS 12.0 beta 6+, please visit [acidanthera/bugtracker#1769](https://github.com/acidanthera/bugtracker/issues/1769) for more information.**"
 
 build_mode="Release"
 clean_up=true
@@ -965,6 +964,7 @@ function install() {
     model_config="config_${model_prefix}.plist"
     if [[ ${remote} == true ]]; then
       cp "${REPO_NAME_BRANCH}/CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
+      cp "${REPO_NAME_BRANCH}/CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
       cp "${REPO_NAME_BRANCH}/OC/${model_config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for readmeDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${language} == "en_US" ]]; then
@@ -977,6 +977,7 @@ function install() {
       done
     else
       cp "../CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
+      cp "../CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
       cp "../OC/${model_config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for readmeDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${language} == "en_US" ]]; then
