@@ -89,8 +89,6 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>BQAcWQ==</data>
-				<key>complete-modeset-framebuffers</key>
-				<data>AAAAAAAAAAE=</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
 				<key>#enable-backlight-smoother</key>
