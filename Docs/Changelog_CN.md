@@ -9,9 +9,13 @@
   * 更新 `OpenCore` v0.7.4
   * 更新 `AppleALC` v1.6.5
   * 更新 `HibernationFixup` v1.4.4
+  * 更新 `IntelBluetoothFirmware` v2.0.1（更新至）
 
 ### Clover
   * 新增 `config-oc` 以支持 `Clover` r5140
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.7.4
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.1)
