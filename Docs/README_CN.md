@@ -188,6 +188,11 @@ cd XiaoMi-Pro-Hackintosh
 
 如果显示器持续黑屏并且无反应超过五分钟，请强制重启电脑(长按电源键)并选择 `Boot macOS Install from ~` 启动项。
 
+#### 卡在白苹果图标。
+
+建议重置 NVRAM。如果是 Clover 用户，在 Clover 开机界面按下 `Fn+F11`。  
+如果是 OC 用户，在 OpenCore 开机界面按下 `空格` 键并选择 `Reset NVRAM`。
+
 #### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 
 如果是 Clover 用户，在 Clover 开机界面按下 `Fn+F11`。然后 Clover 会刷新 `nvram.plist` 并移除锁定信息。  

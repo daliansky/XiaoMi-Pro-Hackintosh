@@ -11,6 +11,9 @@
   * 更新 `HibernationFixup` v1.4.4
   * 更新 `IntelBluetoothFirmware` v2.0.1（更新至）
 
+### 移除
+  * 移除 `rps-control` 属性来降低 GFX Request
+
 ### Clover
   * 新增 `config-oc` 以支持 `Clover` r5140
 

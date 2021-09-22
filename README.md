@@ -193,6 +193,11 @@ Starts from [VoodooI2C v2.4.1](https://github.com/alexandred/VoodooI2C/releases/
 
 If you have black screen for five minutes and get no response from the device, please force restart your laptop(Long press power button) and choose `Boot macOS Install from ~` entry.
 
+#### Stuck on Apple logo.
+
+A reset of NVRAM is recommended. For Clover users, press `Fn+F11` when you are in Clover boot page.  
+For OC users, press `Space` key when you are in OpenCore boot page and choose `Reset NVRAM`.
+
 #### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
 For Clover users, press `Fn+F11` when you are in Clover boot page. Then Clover will refresh `nvram.plist`, and lock message should be removed.  
