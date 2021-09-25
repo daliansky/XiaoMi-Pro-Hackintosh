@@ -977,7 +977,7 @@ function install() {
       done
     else
       cp "../CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
-      cp "../CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
+    # cp "../CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
       cp "../OC/${model_config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for readmeDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${language} == "en_US" ]]; then
