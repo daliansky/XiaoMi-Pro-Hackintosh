@@ -15,7 +15,7 @@
   * 移除 `rps-control` 属性来降低 GFX Request
 
 ### Clover
-  * 新增 `config-oc` 以支持 `Clover` r5140
+  * Clover: 更新 config 来支持 `Clover` r5140
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.7.4

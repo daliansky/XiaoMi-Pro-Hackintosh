@@ -69,6 +69,7 @@
   - 使用了 `SSDT-USB` 来禁用它以节省电量
 - **英特尔蓝牙** 不支持部分蓝牙设备
   - 如果使用 macOS12+，你不能 `关闭蓝牙` 再重新打开，需要重新启动才能打开
+  - 如果使用 macOS12+，你可能需要使用 `MacBookPro14,1` 或 `MacBookPro15,2` SMBIOS 机型来驱动英特尔蓝牙
   - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡** 性能不佳
   - 推荐使用 macOS Big Sur 或更高版本；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作

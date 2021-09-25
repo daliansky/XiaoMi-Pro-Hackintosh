@@ -15,7 +15,7 @@
   - Remove `rps-control` property to lower down GFX Request
 
 ### Clover
-  - Add `config-oc` to support `Clover` r5140
+  - Clover: Update config to support `Clover` r5140
 
 ### OC
   - OC: Update config to support `OpenCore` v0.7.4

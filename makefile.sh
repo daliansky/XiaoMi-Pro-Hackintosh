@@ -964,7 +964,7 @@ function install() {
     model_config="config_${model_prefix}.plist"
     if [[ ${remote} == true ]]; then
       cp "${REPO_NAME_BRANCH}/CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
-      cp "${REPO_NAME_BRANCH}/CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
+    # cp "${REPO_NAME_BRANCH}/CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
       cp "${REPO_NAME_BRANCH}/OC/${model_config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
       for readmeDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${language} == "en_US" ]]; then
