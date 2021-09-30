@@ -7,9 +7,14 @@
 
 ### Upgrade
   - Update `OpenCore` v0.7.4
+  - Update `Clover` r5140
   - Update `AppleALC` v1.6.5
   - Update `HibernationFixup` v1.4.4
+  - Update `AirportItlwm` v2.1.0 (up to )
   - Update `IntelBluetoothFirmware` v2.0.1 (up to )
+
+### Add
+  - Add back `RestrictEvents` to replace `EFICheckDisabler` and support more models to update to macOS12
 
 ### Remove
   - Remove `rps-control` property to lower down GFX Request

@@ -7,9 +7,14 @@
 
 ### 更新
   * 更新 `OpenCore` v0.7.4
+  * 更新 `Clover` r5140
   * 更新 `AppleALC` v1.6.5
   * 更新 `HibernationFixup` v1.4.4
+  * 更新 `AirportItlwm` v2.1.0（更新至）
   * 更新 `IntelBluetoothFirmware` v2.0.1（更新至）
+
+### 新增
+  * 新增回 `RestrictEvents` 来替代 `EFICheckDisabler` 并支持更多机型升级 macOS12
 
 ### 移除
   * 移除 `rps-control` 属性来降低 GFX Request

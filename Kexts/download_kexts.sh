@@ -190,6 +190,7 @@ function download() {
     WhateverGreen
     AppleALC
     HibernationFixup
+    RestrictEvents.kext
     VoodooPS2
     BrcmPatchRAM
     Lilu
@@ -246,6 +247,7 @@ function patch() {
   # "RealtekCardReader.kext/Contents/Resources"
   # "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
   # "RealtekCardReaderFriend.kext/Contents/Resources"
+    "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -281,6 +283,7 @@ function install() {
   # "RealtekCardReader.kext"
   # "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
+    "RestrictEvents.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"
@@ -288,7 +291,6 @@ function install() {
     "Big Sur/AirportItlwm_Big_Sur.kext"
     "Catalina/AirportItlwm_Catalina.kext"
     "Monterey/AirportItlwm_Monterey.kext"
-    "hack-tools-master/kexts/EFICheckDisabler.kext"
     "hack-tools-master/kexts/SATA-unsupported.kext"
   )
 

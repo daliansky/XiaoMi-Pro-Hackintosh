@@ -143,6 +143,7 @@ acdtKexts=(
   WhateverGreen
   AppleALC
   HibernationFixup
+  RestrictEvents
   VoodooPS2
   BrcmPatchRAM
   Lilu
@@ -408,9 +409,9 @@ function bKextHelper() {
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
-    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen NoTouchID"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents NoTouchID"
   elif [[ "${model_input}" =~ "KBL" ]]; then
-    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents"
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
@@ -688,6 +689,7 @@ function patch() {
     # "RealtekCardReader.kext/Contents/Resources"
     # "RealtekCardReaderFriend.kext/Contents/_CodeSignature"
     # "RealtekCardReaderFriend.kext/Contents/Resources"
+    "RestrictEvents.kext/Contents/_CodeSignature"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext.dSYM"
     "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext/Contents/_CodeSignature"
     "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
@@ -731,11 +733,11 @@ function install() {
     # "RealtekCardReader.kext"
     # "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
+    "RestrictEvents.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"
     "WhateverGreen.kext"
-    "hack-tools-master/kexts/EFICheckDisabler.kext"
     "hack-tools-master/kexts/SATA-unsupported.kext"
   )
   if [[ "${model_input}" =~ "CML" ]]; then
