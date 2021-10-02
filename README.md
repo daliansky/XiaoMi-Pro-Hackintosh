@@ -186,9 +186,9 @@ Some advanced usages are:
 
 ## FAQ
 
-#### I can't click to drag files using the trackpad.
+#### I can't click to drag or right click using the trackpad.
 
-Starts from [VoodooI2C v2.4.1](https://github.com/alexandred/VoodooI2C/releases/tag/2.4.1), the click down action is emulated to force touch, which causes the failure of click down and drag gestures. You can turn off `Force Click` in `SysPref - Trackpad` or choose `three finger drag` in `SysPref - Accessibility - Mouse & Trackpad - Trackpad Options`.
+Starts from [VoodooI2C v2.4.1](https://github.com/alexandred/VoodooI2C/releases/tag/2.4.1), the click down action is emulated to force touch, which causes the failure of click down and drag and right click gestures. You can turn off `Force Click` in `SysPref - Trackpad`, and I recommend enabling `three finger drag` in `SysPref - Accessibility - Mouse & Trackpad - Trackpad Options`.
 
 #### My screen turns to black and has no response during the updating process.
 
