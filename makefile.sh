@@ -21,7 +21,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**There might be no OTA updates to macOS 12.0 beta 6+, please visit [acidanthera/bugtracker#1769](https://github.com/acidanthera/bugtracker/issues/1769) for more information.**"
+RLMSG="**For people have trouble booting the system, try to set SecureBootModel=Disabled.**"
 
 build_mode="Release"
 clean_up=true
