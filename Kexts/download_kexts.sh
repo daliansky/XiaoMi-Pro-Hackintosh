@@ -190,7 +190,7 @@ function download() {
     WhateverGreen
     AppleALC
     HibernationFixup
-    RestrictEvents.kext
+    RestrictEvents
     VoodooPS2
     BrcmPatchRAM
     Lilu
