@@ -1,7 +1,3 @@
 [submodule "ALCPlugFix/ALCPlugFix_kbl"]
 	path = ALCPlugFix/ALCPlugFix_kbl
 	url = https://github.com/Menchen/ALCPlugFix.git
-
-[submodule "one-key-cpufriend"]
-	path = one-key-cpufriend
-	url = https://github.com/stevezhengshiqi/one-key-cpufriend.git

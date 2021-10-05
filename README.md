@@ -179,7 +179,6 @@ Some advanced usages are:
   - TM1701: On macOS > 10.13.6, to enable higher HiDPI resolution (<=1520x855), you need to use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb
 - Add `forceRenderStandby=0` in `config - NVRAM - Add - 7CXXX - boot-args` (OpenCore) or `config - Boot - Arguments` (Clover) if NVMe Kernel Panic CSTS=0xffffffff occurs
 - Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
-- Use [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend) to modify CPU power management or change SMBIOS model to `MacBookPro15,4` (macOS version > 10.15)
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
 
