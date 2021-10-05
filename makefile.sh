@@ -596,7 +596,7 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-  bKextHelper VoodooI2C VoodooI2C
+# bKextHelper VoodooI2C VoodooI2C
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
   echo
@@ -620,6 +620,8 @@ function download() {
 
   if [[ "${pre_release}" =~ "Kext" ]]; then
     bKext
+    # VoodooI2C v2.6.5
+    dGR VoodooI2C VoodooI2C 39003701
   else
     for acdtKext in "${acdtKexts[@]}"; do
       dGR ${ACDT} "${acdtKext}"
@@ -636,7 +638,8 @@ function download() {
     if [[ "${model_input}" =~ "KBL" ]]; then
       dGR Sniki EAPD-Codec-Commander NULL "KBL"
     fi
-    dGR VoodooI2C VoodooI2C
+    # VoodooI2C v2.6.5
+    dGR VoodooI2C VoodooI2C 39003701
   fi
 
   dGS RehabMan hack-tools master
