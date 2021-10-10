@@ -678,8 +678,11 @@ function unpack() {
   if [[ "${model_input}" =~ "KBL" ]] && [[ "${pre_release}" != *Kext* ]]; then
     (cd "KBL" && unzip -qq ./*.zip || exit 1)
   fi
-  cp -R IntelBluetoothFirmware*/IntelBluetoothFirmware.kext "./" || copyErr
-  cp -R IntelBluetoothFirmware*/IntelBluetoothInjector.kext "./" || copyErr
+  # Move IntelBluetooth*.kext to parent folder when download from GitHub Release
+  if [[ "${pre_release}" != *"Kext"* ]]; then
+    cp -R IntelBluetoothFirmware*/IntelBluetoothFirmware.kext "./" || copyErr
+    cp -R IntelBluetoothFirmware*/IntelBluetoothInjector.kext "./" || copyErr
+  fi
   echo
 }
 
