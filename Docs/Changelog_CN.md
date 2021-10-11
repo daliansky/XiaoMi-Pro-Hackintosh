@@ -2,6 +2,21 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.6.3
+## 11-3-2021
+
+### 更新
+  * 更新 `OpenCore` v0.7.5
+  * 更新 `AppleALC` v1.6.6
+  * 更新 `VoodooPS2` v2.2.6
+
+### 新增
+  * 新增回 `complete-modeset-framebuffers` 来修复 HDMI
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.7.5
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.2)
 ## 10-6-2021
 
@@ -20,6 +35,7 @@
 
 ### 移除
   * 移除 `rps-control` 属性来降低 GFX Request
+  * 移除 `complete-modeset-framebuffers` 属性因为一些人测试后发现不再需要
 
 ### Clover
   * Clover: 更新 config 来支持 `Clover` r5140
