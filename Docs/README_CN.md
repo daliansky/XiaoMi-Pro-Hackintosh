@@ -191,7 +191,8 @@ cd XiaoMi-Pro-Hackintosh
 #### 卡在白苹果图标或者无法启动。
 
 建议重置 NVRAM。如果是 Clover 用户，在 Clover 开机界面按下 `Fn+F11`。  
-如果是 OC 用户，在 OpenCore 开机界面按下 `空格` 键并选择 `Reset NVRAM`。如果仍不奏效，可以尝试打开 `config.plist`，并把 `SecureBootModel` 设置为 `Disabled`。
+如果是 OC 用户，在 OpenCore 开机界面按下 `空格` 键并选择 `Reset NVRAM`。如果仍不奏效，可以尝试打开 `config.plist`，并把 `SecureBootModel` 设置为 `Disabled`。  
+如果是 Clover 用户，尝试删除 `config.plist` 里的 `HWTarget`。
 
 #### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 

@@ -21,7 +21,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**For people have trouble booting the system, try to set SecureBootModel=Disabled.**"
+RLMSG="**For people have trouble booting the system, try to set SecureBootModel=Disabled (OC) or delete HWTarget (Clover).**"
 
 build_mode="Release"
 clean_up=true

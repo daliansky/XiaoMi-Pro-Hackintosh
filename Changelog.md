@@ -7,7 +7,9 @@
 
 ### Upgrade
   - Update `OpenCore` v0.7.6
+  - Update `Clover` r5141
   - Update `AppleALC` v1.6.6
+  - Update `WhateverGreen` v1.5.5
   - Update `VoodooPS2` v2.2.7
 
 ### Add
@@ -15,6 +17,9 @@
 
 ### OC
   - OC: Update config to support `OpenCore` v0.7.5
+
+### Clover
+  - Clover: Update config to support `Clover` r5141
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.2)

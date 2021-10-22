@@ -196,7 +196,8 @@ If you have black screen for five minutes and get no response from the device, p
 #### Stuck on Apple logo or fail to boot.
 
 A reset of NVRAM is recommended. For Clover users, press `Fn+F11` when you are in Clover boot page.  
-For OC users, press `Space` key when you are in OpenCore boot page and choose `Reset NVRAM`. If this does not work, you can try to set `SecureBootModel` to `Disabled` in `config.plist`.
+For OC users, press `Space` key when you are in OpenCore boot page and choose `Reset NVRAM`. If this does not work, you can try to set `SecureBootModel` to `Disabled` in `config.plist`.  
+For Clover users, try to delete `HWTarget` in `config.plist`.
 
 #### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
