@@ -8,9 +8,11 @@
 ### Upgrade
   - Update `OpenCore` v0.7.6
   - Update `Clover` r5141
+  - Update `Lilu` v1.5.7
   - Update `AppleALC` v1.6.6
   - Update `WhateverGreen` v1.5.5
   - Update `VoodooPS2` v2.2.7
+  - Update `BlueToolFixup` v2.6.1
 
 ### Add
   - Add back `complete-modeset-framebuffers` property to fix HDMI

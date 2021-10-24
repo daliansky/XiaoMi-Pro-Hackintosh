@@ -68,7 +68,7 @@
 - **指纹传感器** 无法工作
   - 使用了 `SSDT-USB` 来禁用它以节省电量
 - **英特尔蓝牙** 不支持部分蓝牙设备
-  - 如果使用 macOS12+，你不能 `关闭蓝牙` 再重新打开，需要重新启动才能打开
+  - 如果使用 macOS12+，你不能 `关闭蓝牙` 再重新启用，需要 重新启动/`sudo pkill bluetoothd` 才能启用
   - 如果使用 macOS12+，你可能需要使用 `MacBookPro14,1` 或 `MacBookPro15,2` SMBIOS 机型来驱动英特尔蓝牙
   - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
 - **英特尔无线网卡** 性能不佳

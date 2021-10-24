@@ -8,9 +8,11 @@
 ### 更新
   * 更新 `OpenCore` v0.7.5
   * 更新 `Clover` r5141
+  * 更新 `Lilu` v1.5.7
   * 更新 `AppleALC` v1.6.6
   * 更新 `WhateverGreen` v1.5.5
   * 更新 `VoodooPS2` v2.2.7
+  * 更新 `BlueToolFixup` v2.6.1
 
 ### 新增
   * 新增回 `complete-modeset-framebuffers` 来修复 HDMI
