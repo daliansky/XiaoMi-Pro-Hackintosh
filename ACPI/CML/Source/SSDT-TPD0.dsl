@@ -109,7 +109,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_TPD0", 0x00000000)
             {
                 If (_OSI ("Darwin"))
                 {
-                    Return (ConcatenateResTemplate (SBFB, SBFG))
+                    Return (ConcatenateResTemplate (I2CM (I2CX, BADR, SPED), SBFG))
                 }
                 
                 If ((OSYS < 0x07DC))

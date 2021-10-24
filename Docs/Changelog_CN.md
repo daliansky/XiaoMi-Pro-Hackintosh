@@ -14,6 +14,8 @@
   * 更新 `VoodooPS2` v2.2.7
   * 更新 `VoodooI2C` v2.6.5（更新至）
   * 更新 `BlueToolFixup` v2.6.1
+  * 更新 `AirportItlwm` v2.1.0（更新至）
+  * CML: 更新 `SSDT-TPD0`
 
 ### 新增
   * 新增回 `complete-modeset-framebuffers` 来修复 HDMI

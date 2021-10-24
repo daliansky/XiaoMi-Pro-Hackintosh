@@ -14,6 +14,8 @@
   - Update `VoodooPS2` v2.2.7
   - Update `VoodooI2C` v2.6.5 (up to)
   - Update `BlueToolFixup` v2.6.1
+  - Update `AirportItlwm` v2.1.0 (up to)
+  - CML: Update `SSDT-TPD0`
 
 ### Add
   - Add back `complete-modeset-framebuffers` property to fix HDMI
