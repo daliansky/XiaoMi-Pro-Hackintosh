@@ -12,6 +12,7 @@
   * 更新 `AppleALC` v1.6.6
   * 更新 `WhateverGreen` v1.5.5
   * 更新 `VoodooPS2` v2.2.7
+  * 更新 `VoodooI2C` v2.6.5（更新至）
   * 更新 `BlueToolFixup` v2.6.1
 
 ### 新增

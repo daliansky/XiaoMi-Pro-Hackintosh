@@ -12,6 +12,7 @@
   - Update `AppleALC` v1.6.6
   - Update `WhateverGreen` v1.5.5
   - Update `VoodooPS2` v2.2.7
+  - Update `VoodooI2C` v2.6.5 (up to)
   - Update `BlueToolFixup` v2.6.1
 
 ### Add
