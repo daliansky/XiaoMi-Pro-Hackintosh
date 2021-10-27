@@ -11,6 +11,7 @@
   - Update `Lilu` v1.5.7
   - Update `AppleALC` v1.6.6
   - Update `WhateverGreen` v1.5.5
+  - Update `HibernationFixup` v1.4.5
   - Update `VoodooPS2` v2.2.7
   - Update `VoodooI2C` v2.6.5 (up to)
   - Update `BlueToolFixup` v2.6.1
@@ -19,6 +20,9 @@
 
 ### Add
   - Add back `complete-modeset-framebuffers` property to fix HDMI
+
+### Change
+  - KBL: Change SMBIOS model to `MacBookPro15,2` to support Intel Bluetooth on macOS12
 
 ### OC
   - OC: Update config to support `OpenCore` v0.7.5
