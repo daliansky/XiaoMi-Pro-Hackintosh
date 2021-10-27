@@ -19,7 +19,8 @@ XiaoMi NoteBook Pro EFI is for general hackintosh usage. However, it could be ha
 
 ## UEFI Security (OC Only)
 
-Please read [Security and FileVault | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/security.html) and [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) **UEFI Secure Boot** section. It includes security instructions about Apple Secure Boot, secure DMG loading, apfs drivers, sign all the third-party drivers, enable BIOS Secure Boot function, and so on.
+- Please read [Security and FileVault | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/security.html) and [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) **UEFI Secure Boot** section. It includes security instructions about Apple Secure Boot, secure DMG loading, apfs drivers, sign all the third-party drivers, enable BIOS Secure Boot function, and so on.
+- In this repository, we use `ExposeSensitiveData = 3` to support `Kext Updater.app`. `ExposeSensitiveData = 2 or 6` is more secure to protect booter path.
 
 
 ## Reporting a Vulnerability
