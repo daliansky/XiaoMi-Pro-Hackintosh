@@ -68,8 +68,7 @@
 - **Fingerprint sensor** is not working
   - Have used `SSDT-USB` to disable it in order to save power
 - **Intel Bluetooth** does not support some Bluetooth devices
-  - On macOS12+, you can not `Turn Bluetooth Off` and turn it back on; a restart/`sudo pkill bluetoothd` is required to turn it on
-  - On macOS12+, you may have to use `MacBookPro15,2` SMBIOS model to drive Intel Bluetooth
+  - On macOS12+, Intel Bluetooth supports more Bluetooth 4.x devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
 - **Intel Wi-Fi** works with low performance
   - macOS Big Sur or higher is recommended; macOS version < 11 needs to rebuild kextcache and restart if Intel Wi-Fi does not work

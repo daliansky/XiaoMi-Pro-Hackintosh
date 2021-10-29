@@ -325,12 +325,12 @@
 		<key>ROM</key>
 		<data>ABbLESIz</data>
 		<key>HWTarget</key>
-		<string>j132</string>
+		<string>j213</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro15,2</string>
+		<string>MacBookPro15,4</string>
 		<key>Trust</key>
 		<true/>
 	</dict>
