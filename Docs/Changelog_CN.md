@@ -13,16 +13,13 @@
   * 更新 `WhateverGreen` v1.5.5
   * 更新 `HibernationFixup` v1.4.5
   * 更新 `VoodooPS2` v2.2.7
-  * 更新 `VoodooI2C` v2.6.5（更新至）
+  * 更新 `VoodooI2C` v2.6.5（更新至 [VoodooI2C/VoodooI2C@4d9670f](https://github.com/VoodooI2C/VoodooI2C/commit/4d9670f144c1cf5854d3e6894de1b52a32e21203)）
   * 更新 `BlueToolFixup` v2.6.1
-  * 更新 `AirportItlwm` v2.1.0（更新至）
+  * 更新 `AirportItlwm` v2.1.0（更新至 [OpenIntelWireless/itlwm@8f0a396](https://github.com/OpenIntelWireless/itlwm/commit/8f0a396d576ca473c679ba7396824b1b2770e5e3)）
   * CML: 更新 `SSDT-TPD0`
 
 ### 新增
   * 新增回 `complete-modeset-framebuffers` 来修复 HDMI
-
-### 变更
-  * KBL: 修改 SMBIOS 机型为 `MacBookPro15,2` 来支持 macOS12 上的英特尔蓝牙
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.7.5

@@ -13,16 +13,13 @@
   - Update `WhateverGreen` v1.5.5
   - Update `HibernationFixup` v1.4.5
   - Update `VoodooPS2` v2.2.7
-  - Update `VoodooI2C` v2.6.5 (up to)
+  - Update `VoodooI2C` v2.6.5 (up to [VoodooI2C/VoodooI2C@4d9670f](https://github.com/VoodooI2C/VoodooI2C/commit/4d9670f144c1cf5854d3e6894de1b52a32e21203))
   - Update `BlueToolFixup` v2.6.1
-  - Update `AirportItlwm` v2.1.0 (up to)
+  - Update `AirportItlwm` v2.1.0 (up to [OpenIntelWireless/itlwm@8f0a396](https://github.com/OpenIntelWireless/itlwm/commit/8f0a396d576ca473c679ba7396824b1b2770e5e3))
   - CML: Update `SSDT-TPD0`
 
 ### Add
   - Add back `complete-modeset-framebuffers` property to fix HDMI
-
-### Change
-  - KBL: Change SMBIOS model to `MacBookPro15,2` to support Intel Bluetooth on macOS12
 
 ### OC
   - OC: Update config to support `OpenCore` v0.7.5
