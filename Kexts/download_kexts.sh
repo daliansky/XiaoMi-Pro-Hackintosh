@@ -225,8 +225,6 @@ function download() {
   dGR VoodooI2C VoodooI2C NULL "${OUTDir_TMP}"
 
   dGR al3xtjames NoTouchID NULL "${OUTDir_TMP}"
-
-  dGS RehabMan hack-tools "${OUTDir_TMP}"
 }
 
 # Unpack
@@ -291,7 +289,6 @@ function install() {
     "Big Sur/AirportItlwm_Big_Sur.kext"
     "Catalina/AirportItlwm_Catalina.kext"
     "Monterey/AirportItlwm_Monterey.kext"
-    "hack-tools-master/kexts/SATA-unsupported.kext"
   )
 
   for kextItem in "${kextItems[@]}"; do

@@ -639,8 +639,6 @@ function download() {
     dGR VoodooI2C VoodooI2C
   fi
 
-  dGS RehabMan hack-tools master
-
   # UEFI drivers
   # AppleSupportPkg v2.0.9
   dGR ${ACDT} AppleSupportPkg_209 19214108 "Clover/AppleSupportPkg_209"
@@ -743,7 +741,6 @@ function install() {
     "VoodooI2CHID.kext"
     "VoodooPS2Controller.kext"
     "WhateverGreen.kext"
-    "hack-tools-master/kexts/SATA-unsupported.kext"
   )
   if [[ "${model_input}" =~ "CML" ]]; then
     local cmlKextItems=(

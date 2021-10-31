@@ -21,6 +21,9 @@
 ### Add
   - Add back `complete-modeset-framebuffers` property to fix HDMI
 
+### Remove
+  - Remove `SATA-unsupported` because it does not suppost macOS11+; manually add `CtlnaAHCIPort` for SATA SSDs if necessary
+
 ### OC
   - OC: Update config to support `OpenCore` v0.7.5
 
