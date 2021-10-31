@@ -370,6 +370,8 @@
 		<integer>0</integer>
 		<key>RebuildAppleMemoryMap</key>
 		<true/>
+		<key>ResizeAppleGpuBars</key>
+		<integer>-1</integer>
 		<key>SetupVirtualMap</key>
 		<true/>
 		<key>SignalAppleOS</key>
