@@ -3,7 +3,7 @@
 [English](../Changelog.md) | **中文**
 
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
-## 11-3-2021
+## 11-2-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.5
@@ -15,7 +15,8 @@
   * 更新 `VoodooPS2` v2.2.7
   * 更新 `VoodooI2C` v2.6.5（更新至 [VoodooI2C/VoodooI2C@4d9670f](https://github.com/VoodooI2C/VoodooI2C/commit/4d9670f144c1cf5854d3e6894de1b52a32e21203)）
   * 更新 `BlueToolFixup` v2.6.1 来修复 macOS12.0 上的英特尔蓝牙
-  * 更新 `AirportItlwm` v2.1.0（更新至 [OpenIntelWireless/itlwm@3aab4a6](https://github.com/OpenIntelWireless/itlwm/commit/3aab4a6952982db08922c42fca145e0bec82d2e2)）
+  * 更新 `AirportItlwm` v2.1.0（更新至 [OpenIntelWireless/itlwm@bf320b3](https://github.com/OpenIntelWireless/itlwm/commit/bf320b3583df443491efa57a67dd6aa403b109d8)）
+  * 更新 `HfsPlus.efu`（更新至 [acidanthera/OcBinaryData@29b2391](https://github.com/acidanthera/OcBinaryData/commit/29b23910e5ebb6347fd287776fe79508cbbc1bfe)）
   * CML: 更新 `SSDT-TPD0`
 
 ### 新增

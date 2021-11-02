@@ -3,7 +3,7 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
-## 11-3-2021
+## 11-2-2021
 
 ### Upgrade
   - Update `OpenCore` v0.7.6
@@ -15,7 +15,8 @@
   - Update `VoodooPS2` v2.2.7
   - Update `VoodooI2C` v2.6.5 (up to [VoodooI2C/VoodooI2C@4d9670f](https://github.com/VoodooI2C/VoodooI2C/commit/4d9670f144c1cf5854d3e6894de1b52a32e21203))
   - Update `BlueToolFixup` v2.6.1 to fix Intel Bluetooth on macOS12.0
-  - Update `AirportItlwm` v2.1.0 (up to [OpenIntelWireless/itlwm@3aab4a6](https://github.com/OpenIntelWireless/itlwm/commit/3aab4a6952982db08922c42fca145e0bec82d2e2))
+  - Update `AirportItlwm` v2.1.0 (up to [OpenIntelWireless/itlwm@bf320b3](https://github.com/OpenIntelWireless/itlwm/commit/bf320b3583df443491efa57a67dd6aa403b109d8))
+  - Update `HfsPlus.efi` (up to [acidanthera/OcBinaryData@29b2391](https://github.com/acidanthera/OcBinaryData/commit/29b23910e5ebb6347fd287776fe79508cbbc1bfe))
   - CML: Update `SSDT-TPD0`
 
 ### Add
