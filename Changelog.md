@@ -6,7 +6,7 @@
 ## 11-2-2021
 
 ### Upgrade
-  - Update `OpenCore` v0.7.6
+  - Update `OpenCore` v0.7.5
   - Update `Clover` r5141
   - Update `Lilu` v1.5.7
   - Update `AppleALC` v1.6.6
