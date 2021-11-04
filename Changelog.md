@@ -2,6 +2,18 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.6.4
+## 12-8-2021
+
+### Upgrade
+  - Update `OpenCore` v0.7.6
+  - Update `Clover` r5142
+  - Update `AppleALC` v1.6.7
+
+### OC
+  - OC: Update config to support `OpenCore` v0.7.6
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
 ## 11-2-2021
 
