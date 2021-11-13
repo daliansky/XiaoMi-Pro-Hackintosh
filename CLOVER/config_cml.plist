@@ -356,6 +356,8 @@
 		<false/>
 		<key>ForceExitBootServices</key>
 		<false/>
+		<key>ForceOcWriteFlash</key>
+		<false/>
 		<key>MmioWhitelist</key>
 		<array/>
 		<key>ProtectMemoryRegions</key>

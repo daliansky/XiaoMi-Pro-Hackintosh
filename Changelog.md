@@ -8,10 +8,16 @@
 ### Upgrade
   - Update `OpenCore` v0.7.6
   - Update `Clover` r5142
+  - Update `Lilu` v1.5.8
   - Update `AppleALC` v1.6.7
+  - Update `AirportItlwm` v2.1.0 (up to )
+  - Update `IntelBluetoothFirmware` v2.1.0 (up to )
 
 ### OC
   - OC: Update config to support `OpenCore` v0.7.6
+
+### Clover
+  - Clover: Update config to support `Clover` r5143
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
