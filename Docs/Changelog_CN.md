@@ -2,16 +2,17 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.6.4
-## 12-8-2021
+## [XiaoMi NoteBook Pro EFI v1.6.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.4)
+## 12-6-2021
 
 ### 更新
   * 更新 `OpenCore` v0.7.6
   * 更新 `Clover` r5142
   * 更新 `Lilu` v1.5.8
+  * 更新 `VirtualSMC` v1.2.8
   * 更新 `AppleALC` v1.6.7
-  * 更新 `AirportItlwm` v2.1.0（更新至）
-  * 更新 `IntelBluetoothFirmware` v2.1.0（更新至）
+  * 更新 `AirportItlwm` v2.1.0（更新至 [OpenIntelWireless/itlwm@307f2c7](https://github.com/OpenIntelWireless/itlwm/commit/307f2c78609d498b4f9e3d5b6fce546cd1d29c6a)）
+  * 更新 `IntelBluetoothFirmware` v2.1.0（更新至 [OpenIntelWireless/IntelBluetoothFirmware@a9217e8](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a9217e8883107c91011983857ac8ea2b09f0a19f)）
 
 ### OC
   * OC: 更新 config 来支持 `OpenCore` v0.7.6
