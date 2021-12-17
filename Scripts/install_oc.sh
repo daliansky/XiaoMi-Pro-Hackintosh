@@ -80,7 +80,7 @@ function setupEnviroment() {
 	tempFolder=$(mktemp -d)
 	#tempFolder=debug
 	echo -e "${BLACK}Using tmporary fodler: $tempFolder${OFF}"
-	echo -e "${BLACK}Using ${REPO_NAME}/${REPO_BRANCH}${OFF}"
+	echo -e "${BLACK}Using ${REPO_NAME}:${REPO_BRANCH}${OFF}"
 	cd "$tempFolder" || exit 2
 	if ! [[ -x "$(command -v jq)" ]]; then
 		echo Downloading jq for json parsing
@@ -368,6 +368,7 @@ function searchPlistArray() {
 	# Fix / to \/, escape for perl.
 	local _regex
 	_regex=$(echo -n -E "${1}" | perl -pe 's/\//\\\//g')
+  # Another way to escape / is to use parameter expansion like ${1//\//\\/}
 	#perl -n -e 'BEGIN{$n=0}' -e 'if(/^( *)Array \{$/){if($n==0){$a=$1}else{exit 1}}' -e 'if(/^$a    \}$/){$n++}' -e 'if(/^$a\}$/){exit 0}' -e '{if(/'"${_regex}"'/){print $n;exit 0}}' -
 	local _result
 	_result="$(perl -n -e 'BEGIN{$n=0}' -e 'if(/^( *)([^ \n][^=\n]*= )?Array \{$/){if(!defined($a)){$a=$1}}' -e 'if(defined($a)&&/^$a    \}$/){$n++}' -e 'if(/^$a\}$/){exit 0}' -e 'if(/^$a\}$/){exit 0}' -e '{if(/^$a        '"${_regex}"'/){print "$n\n"}}' -)"
@@ -471,7 +472,7 @@ function deletePlistIfNotExist() {
 		_oldVarXml=$("$PLEDIT" "$1" -x -c "Print $_path" 2>/dev/null)
 		#echo "oldVar=$_oldVarXml"
 		# echo $_missingInNew $_newPath
-		if [[ "$_missingInNew" -eq 0 ]] && ([[ "$_missingInOld" -eq 1 ]] || [[ -z "$_oldVarXml" ]]); then
+		if [[ "$_missingInNew" -eq 0 ]] && { [[ "$_missingInOld" -eq 1 ]] || [[ -z "$_oldVarXml" ]]; }; then
 			# Path missing in old config
 			"$PLEDIT" "$2" -c "Delete ${_newPath}" || break
 			echo -e "${GREEN}Deleted obsolete entry: ${BLUE}${*:3}${GREEN}!${OFF}"
@@ -481,6 +482,36 @@ function deletePlistIfNotExist() {
 		return 0
 	done
 	errMsg "Error deleting ${*:3}!"
+	return 1
+
+}
+
+function setPlistIfNotExist() {
+	# Check if a path exist in old efi file
+	# And set `Value` in new file if not exist
+	# $1 Old EFI file
+	# $2 New EFI file
+  # $3 Value to set
+	# $4+ Plist path or array regex
+	while :; do
+		local _path
+		local _newPath
+		local _missingInOld=0
+		local _missingInNew=0
+		_path=$(getPlistHelper "$1" "${@:4}") || _missingInOld=1
+		_newPath=$(getPlistHelper "$2" "${@:4}") || _missingInNew=1
+		local _oldVarXml
+		_oldVarXml=$("$PLEDIT" "$1" -x -c "Print $_path" 2>/dev/null)
+		if [[ "$_missingInNew" -eq 0 ]] && { [[ "$_missingInOld" -eq 1 ]] || [[ -z "$_oldVarXml" ]]; }; then
+
+      "$PLEDIT" "$2" -c "Set ${_newPath} ${3}"
+			echo -e "${GREEN}Set entry: ${BLUE}${*:4}${GREEN}!${OFF} default value to $3"
+		else
+			echo -e "${WHITE}Skip setting default value to entry: ${*:4}!${OFF}"
+		fi
+		return 0
+	done
+	errMsg "Error deleting ${*:4}!"
 	return 1
 
 }
@@ -693,23 +724,21 @@ function restoreBluetooth() {
 
 	# SSDT
 	restorePlist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB.aml" ":Enabled"
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB.aml"
+  setPlistIfNotExist "${_old_config}" "${_new_config}" "false" ":ACPI:Add" "Path = SSDT-USB.aml"
 
 	restorePlist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB-USBBT.aml" ":Enabled"
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB-USBBT.aml"
+  setPlistIfNotExist "${_old_config}" "${_new_config}" "false" ":ACPI:Add" "Path = SSDT-USB-USBBT.aml"
 
 	restorePlist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB-WLAN-LTEBT.aml" ":Enabled"
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB-WLAN-LTEBT.aml"
+  setPlistIfNotExist "${_old_config}" "${_new_config}" "false" ":ACPI:Add" "Path = SSDT-USB-WLAN-LTEBT.aml"
 
 	restorePlist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB-FingerBT.aml" ":Enabled"
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":ACPI:Add" "Path = SSDT-USB-FingerBT.aml"
+  setPlistIfNotExist "${_old_config}" "${_new_config}" "false" ":ACPI:Add" "Path = SSDT-USB-FingerBT.aml" 
 
 	# Kext
 	restorePlist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = IntelBluetoothFirmware.kext" ":Enabled"
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = IntelBluetoothFirmware.kext"
 
 	restorePlist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = IntelBluetoothInjector.kext" ":Enabled"
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = IntelBluetoothInjector.kext"
 
 	restorePlist "${_old_config}" "${_new_config}" ":Kernel:Add" "BundlePath = BlueToolFixup.kext" ":Enabled"
 }
@@ -871,6 +900,42 @@ function restoreAirportFixup() {
 
 }
 
+function restoreNVMeFix() {
+	echo -e "${GREEN}Restoring NVMeFix...${OFF}"
+	[[ -z "$efi_work_dir" ]] && errMsg "No work directory found. Try to download firts?" && exit 1
+	[[ -z "$EFI_DIR" ]] && mount_efi
+	local _kextName="NVMeFix"
+	local _old_config="${EFI_DIR}/EFI/OC/config.plist"
+	local _new_config="${efi_work_dir}/OC/config.plist"
+	_oldEnabled=$(getPlist "${_old_config}" ':Kernel:Add' "BundlePath = ${_kextName}.kext" ':Enabled')
+	if [[ "$_oldEnabled" == "true" ]]; then
+		echo -e "${GREEN}Downloading ${_kextName}...${OFF}"
+		local _link
+		_link=$(getGitHubLatestRelease "acidanthera/${_kextName}" 'RELEASE')
+
+		curl -L -f -o "${_kextName}.zip" "${_link}" || networkWarn
+		ditto -x -k "./${_kextName}.zip" .
+
+		if ! [[ -d "./${_kextName}.kext" ]]; then
+			errMsg "Downloading ${_kextName} failed! Open a issue for a script update."
+			return 1
+		fi
+
+		# Download patch
+		echo -e "${GREEN}Downloading patch from github${OFF}"
+		mkdir -p "./patch"
+		curl -f -L -o "./patch/${_kextName}.plist" "https://raw.githubusercontent.com/${REPO_NAME}/${REPO_BRANCH}/Scripts/patch/${_kextName}.plist" || return 1
+
+		echo "${GREEN}Adding ${_kextName} Kext entry to config.plist${OFF}"
+		cp -r "./${_kextName}.kext" "${efi_work_dir}/OC/Kexts/" && ${PLEDIT} -x -c "Merge ./patch/${_kextName}.plist :Kernel:Add" "${_new_config}" && echo -e "${GREEN}Restored ${_kextName}${OFF}"
+
+	else
+		echo -e "${WHITE}Nothing needed! Skipping..${OFF}"
+	fi
+	echo -e "${CYAN}Done!${OFF}\n"
+
+}
+
 function restoreOptionalKext() {
 	echo -e "${GREEN}Restoring Optional Kext's...${OFF}"
 	[[ -z "$efi_work_dir" ]] && errMsg "No work directory found. Try to download firts?" && exit 1
@@ -882,38 +947,27 @@ function restoreOptionalKext() {
 
 	# Intel Wifi Force load kext
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Force' 'BundlePath = System/Library/Extensions/corecapture.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Force' 'BundlePath = System/Library/Extensions/corecapture.kext' ':Enabled'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Force' 'BundlePath = System/Library/Extensions/IO80211Family.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Force' 'BundlePath = System/Library/Extensions/IO80211Family.kext' ':Enabled'
 
 	# Detele those entry if not exist in old EFI
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Big_Sur.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Big_Sur.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Catalina.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Catalina.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_High_Sierra.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_High_Sierra.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Mojave.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Mojave.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Monterey.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = AirportItlwm_Monterey.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = NullEthernet.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = NullEthernet.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':ACPI:Add' 'Path = SSDT-RMNE.aml' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':ACPI:Add' 'Path = SSDT-RMNE.aml'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = NVMeFix.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = NVMeFix.kext'
 
 	restorePlist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = HibernationFixup.kext' ':Enabled'
-	deletePlistIfNotExist "${_old_config}" "${_new_config}" ':Kernel:Add' 'BundlePath = HibernationFixup.kext'
 	echo -e "${CYAN}Done!${OFF}\n"
 
 }
@@ -1063,7 +1117,7 @@ function checkIntegrity() {
 		fi
 	done
 
-	# Check Kext
+  # Check Kext file
 	local _newEnabledKext
 	read -r -a _newEnabledKext <<<"$(getPlistArrayIndexHelper "${_new_config}" ":Kernel:Add" "Enabled = true")"
 	for i in "${_newEnabledKext[@]}"; do
@@ -1087,6 +1141,25 @@ function checkIntegrity() {
 			((_integrity++))
 		fi
 	done
+
+	# Check new Kext
+	local _newEnabledKext
+	read -r -a _newEnabledKext <<<"$(getPlistArrayIndexHelper "${_new_config}" ":Kernel:Add" "Enabled = true")"
+	for i in "${_newEnabledKext[@]}"; do
+		local _kextBundlePath
+		_kextBundlePath=$(getPlist "${_new_config}" ":Kernel:Add:${i}:BundlePath")
+    if ! getPlistHelper "${_old_config}" ":Kernel:Add" "BundlePath = ${_kextBundlePath}" &>/dev/null ; then
+      local _kextComment
+      _kextComment=$(getPlist "${_new_config}" ":Kernel:Add:${i}:Comment")
+      echo
+      echo -e "${CYAN}${UNDERLINE}${_kextBundlePath}${OFF}${WHITE}(${_kextComment})${GREEN} is an ${RED}${BOLD}UNKNOWN KEXT  missing from OLD EFI${OFF}${GREEN} but present in ${UNDERLINE}NEW EFI${OFF}${GREEN}!"
+
+      if readYesNo "${YELLOW}Do you wish to DISABLE ${CYAN}${UNDERLINE}${_kextBundlePath}${OFF}${YELLOW} in the new EFI?${OFF}"; then
+        "$PLEDIT" "${_new_config}" -c "Set :Kernel:Add:${i}:Enabled false" || ((_integrity++))
+        continue
+      fi
+    fi
+  done
 
 	# Check with ocvalidate
 	local _ocvalidate="${efi_work_dir}/../Utilities/ocvalidate"
@@ -1129,10 +1202,13 @@ function main() {
 
 	# Disabled due to patch not uploaded to main repo
 	if ! restoreBrcmPatchRAM; then
-		echo -e "${RED}Failed to download patchfor BrcmPatchRAM${OFF}"
+		echo -e "${RED}Failed to download patch for BrcmPatchRAM${OFF}"
 	fi
 	if ! restoreAirportFixup; then
-		echo -e "${RED}Failed to download patchfor AirportFixup${OFF}"
+		echo -e "${RED}Failed to download patch for AirportFixup${OFF}"
+	fi
+  if ! restoreNVMeFix; then
+		echo -e "${RED}Failed to download patch for NVMeFix${OFF}"
 	fi
 	echo
 
