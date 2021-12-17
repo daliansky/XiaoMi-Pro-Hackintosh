@@ -28,6 +28,7 @@ REPO_NAME='daliansky' REPO_BRANCH='main' bash <(curl -sL --proto-redir -all,http
 - Validation with `ocvalidate` and custom check for missing SSDT/Kext file.
 - Automatic installation.
 - Custom patch support.
+- Ask for user interaction when new/unknown kexts is found.
 
 # Credits
 - Thanks to [Acidanthera](https://github.com/acidanthera) for providing [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) and many useful Kext's.
