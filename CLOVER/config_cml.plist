@@ -321,8 +321,6 @@
 		<string>0x28</string>
 		<key>ROM</key>
 		<data>ABbLESIz</data>
-		<key>HWTarget</key>
-		<string>j214k</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>

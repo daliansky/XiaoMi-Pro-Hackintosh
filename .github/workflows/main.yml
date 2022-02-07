@@ -41,7 +41,7 @@ jobs:
 
       - name: Upload to Release
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        uses: ncipollo/release-action@v1.8.10
+        uses: ncipollo/release-action@v1.9.0
         with:
           artifacts: build/*.zip
           bodyFile: build/XiaoMi_Pro-KBL-OC-${{ env.CUR_TAG }}/ReleaseNotes.md
