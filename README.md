@@ -70,6 +70,7 @@
 - **Intel Bluetooth** does not support some Bluetooth devices
   - On macOS12+, Intel Bluetooth supports more Bluetooth 4.x devices
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
+  - You can also try [IOBluetoothFixup](https://github.com/AppleBluetooth/IOBluetoothFixup), [IntelBluetoothFamily](https://github.com/AppleBluetooth/IntelBluetoothFamily), and [OpenFirmwareManager](https://github.com/AppleBluetooth/OpenFirmwareManager) from [AppleBluetooth](https://github.com/AppleBluetooth); read [IntelBluetoothFamily Usage](https://github.com/AppleBluetooth/IntelBluetoothFamily#usage)
 - **Intel Wi-Fi** works with low performance
   - macOS Big Sur or higher is recommended; macOS version < 11 needs to rebuild kextcache and restart if Intel Wi-Fi does not work
   - Buy a USB Wi-Fi dongle or supported wireless card
