@@ -6,7 +6,7 @@
 # Build XiaoMi-Pro EFI release
 #
 # Reference:
-# https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh by @williambj1
+# https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh (Archived) by @williambj1
 
 
 # Vars
@@ -895,6 +895,7 @@ function install() {
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-HPET.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-MCHC.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-PNLF.aml"
+    "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-PS2K.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-RMNE.aml"
   )
   if [[ "${model_input}" =~ "KBL" ]]; then
@@ -903,7 +904,6 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-MEM2.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PMC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-USB.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-XCPM.aml"
@@ -918,7 +918,6 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-DDGPU.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PMC.aml"
-      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PS2K.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-USB.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-XCPM.aml"
