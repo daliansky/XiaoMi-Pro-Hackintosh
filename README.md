@@ -196,8 +196,11 @@ If you have black screen for five minutes and get no response from the device, p
 #### Stuck on Apple logo or fail to boot.
 
 A reset of NVRAM is recommended. For Clover users, press `Fn+F11` when you are in Clover boot page.  
-For OC users, press `Space` key when you are in OpenCore boot page and choose `Reset NVRAM`. If this does not work, you can try to set `SecureBootModel` to `Disabled` in `config.plist`.  
-For Clover users, try to delete `HWTarget` in `config.plist`.
+For OC users, press `Space` key when you are in OpenCore boot page and choose `Reset NVRAM`. If this does not work, you can try to set `SecureBootModel` to `Disabled` in `config.plist`.
+
+#### No OEM update from SysPref.
+
+For OC users, on macOS11+, `SecureBootModel` has to be `Default` to get OEM update from SysPref. However, some machines can not boot when `SecureBootModel=Default`. In this case, go to `App Store` and search `Monterey (or newer macOS)`.
 
 #### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
@@ -219,7 +222,7 @@ When you want to switch OS, press `Esc` during startup to call the boot menu.
 Change `#AudioDxe.efi` to `AudioDxe.efi` in `config.plist - UEFI - Drivers`.  
 Enable `AudioSupport` in `config.plist - UEFI - Audio`.  
 If you are using macOS Big Sur, go to `SysPref - Sound` and turn on `Play sound on startup`.  
-For macOS version  < Big Sur, open `Terminal.app` and run `sudo nvram StartupMute=%00`.
+For macOS version < Big Sur, open `Terminal.app` and run `sudo nvram StartupMute=%00`.
 
 ### Please refer to detailed FAQ in [wiki FAQ](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/FAQ).
 

@@ -2,6 +2,28 @@
 
 [English](../Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)
+## 4-18-2022
+
+### 更新
+  * 更新 `OpenCore` v0.8.0
+  * 更新 `Clover` r5146
+  * 更新 `Lilu` v1.6.0
+  * 更新 `VirtualSMC` v1.2.9
+  * 更新 `AppleALC` v1.7.1
+  * 更新 `WhateverGreen` v1.5.8
+  * 更新 `RestrictEvents` v1.0.7
+  * 更新 `VoodooPS2` v2.2.8
+  * 更新 `VoodooI2C` v2.7
+  * 更新 `AirportItlwm` v2.2.0（更新至 [OpenIntelWireless/itlwm@f9de654](https://github.com/OpenIntelWireless/itlwm/commit/f9de654a4468774a76006de8a05da0df6a71c9cd)）
+  * 更新 `IntelBluetoothFirmware` v2.1.0（更新至 [OpenIntelWireless/IntelBluetoothFirmware@aaf4247](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/aaf42472824865f553eeb7e17c7fa1c024da1305)）
+
+### OC
+  * OC: 更新 config 来支持 `OpenCore` v0.8.0
+  * OC: 修改 `SecureBootModel` 回 `Disabled` 来支持更多机器，但不能收到 OEM 更新
+    * 前往 `App Store` 并搜索 `Monterey（或更新系统）` 来获取更新
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.4)
 ## 12-6-2021
 

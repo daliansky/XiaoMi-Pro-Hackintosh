@@ -1005,7 +1005,7 @@
 				<key>MaxKernel</key>
 				<string>19.99.99</string>
 				<key>MinKernel</key>
-				<string>17.0.0</string>
+				<string>19.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -1185,7 +1185,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>

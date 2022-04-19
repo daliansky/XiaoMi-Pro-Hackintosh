@@ -21,7 +21,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**For people have trouble booting the system, reset NVRAM first and then try to set SecureBootModel = Disabled (OC).**"
+RLMSG="**To receive OEM updates, set SecureBootModel = Default (OC, risky) or go to App Store and search `Monterey (or newer macOS)`.**"
 
 build_mode="Release"
 clean_up=true
