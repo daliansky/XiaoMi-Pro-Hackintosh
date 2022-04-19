@@ -195,7 +195,7 @@ cd XiaoMi-Pro-Hackintosh
 
 #### 收不到 OEM 系统更新。
 
-如果是 OC 用户，在 macOS11+，`SecureBootModel` 需要设置为 `Default` 来获取系统偏好设置中的 OEM 系统更新。然而，当 `SecureBootModel=Default` 时，一些机器无法启动。这种情况下，前往 `App Store` 并搜索 `Monterey（或者更新系统）`。
+如果是 OC 用户，在 macOS11+，`SecureBootModel` 需要设置为 `Default` 来获取系统偏好设置中的 OEM 系统更新。然而，当 `SecureBootModel = Default` 时，一些机器无法启动。这种情况下，前往 `App Store` 并搜索 `Monterey（或者更新系统）`。
 
 #### 我的设备被 `查找我的Mac` 锁住了，无法开机，怎么办？
 

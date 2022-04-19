@@ -200,7 +200,7 @@ For OC users, press `Space` key when you are in OpenCore boot page and choose `R
 
 #### No OEM update from SysPref.
 
-For OC users, on macOS11+, `SecureBootModel` has to be `Default` to get OEM update from SysPref. However, some machines can not boot when `SecureBootModel=Default`. In this case, go to `App Store` and search `Monterey (or newer macOS)`.
+For OC users, on macOS11+, `SecureBootModel` has to be `Default` to get OEM update from SysPref. However, some machines can not boot when `SecureBootModel = Default`. In this case, go to `App Store` and search `Monterey (or newer macOS)`.
 
 #### My device is locked by `Find My Mac` and can't be booted, what should I do now?
 
