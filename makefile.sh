@@ -529,12 +529,10 @@ function bKextHelper() {
     fi
   elif [[ "$2" == "itlwm" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
-    # Pass print syntax to support Python3
-    /usr/bin/sed -i "" "s:print compress(\"test\"):pass:g" "scripts/zlib_compress_fw.py"
-
     mkdir -p "tmp" || exit 1
     cp -R itlwm/firmware/iwlwifi-QuZ* "tmp" || copyErr
     cp -R itlwm/firmware/iwm-8265* "tmp" || copyErr
+
     if [[ "${model_input}" =~ "CML" ]]; then
       # Delete unrelated firmware and only keep iwlwifi-QuZ* for Intel Wireless 9462
       rm -rf "include/FwBinary.cpp" || exit 1
