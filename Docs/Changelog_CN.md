@@ -2,6 +2,19 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.6.6
+## 6-6-2022
+
+### 更新
+  * 更新 `OpenCore` v0.8.1
+  * 更新 `AppleALC` v1.7.2
+
+### OC
+  * 禁用 `ProvideCustomSlide` 基于 OC 调试日志
+  * KBL: 启用 MAT 支持通过启用 `DevirtualiseMmio`, `ProtectUefiServices` 和 `RebuildAppleMemoryMap`; 新增 `MmioWhitelist` 补丁; 和禁用 `EnableWriteUnprotector`
+  * CML: 启用 `ProtectUefiServices` 因为它是 MAT 支持的一部分
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)
 ## 4-18-2022
 
