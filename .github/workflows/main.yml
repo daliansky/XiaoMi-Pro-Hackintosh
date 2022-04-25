@@ -14,7 +14,7 @@ jobs:
     env:
       XCODE_VERSION: 13.2.1
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '5'
 
@@ -34,7 +34,7 @@ jobs:
           ./makefile.sh --version=${CUR_TAG} --pre_release=Kext --pre_release=OC --model=CMLKBL
 
       - name: Upload to Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: XiaoMi NoteBook Pro EFI ${{ env.CUR_TAG }}
           path: build/*.zip
@@ -54,7 +54,7 @@ jobs:
     name: Analyze Scripts
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Dependency
         run: |
@@ -69,7 +69,7 @@ jobs:
     name: Analyze DSLs
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Dependency
         run: |
@@ -84,7 +84,7 @@ jobs:
     name: Analyze OpenCore Configs
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Dependency
         run: |
