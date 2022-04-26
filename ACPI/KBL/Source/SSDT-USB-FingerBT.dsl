@@ -84,9 +84,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
             Return (Package (0x04)
             {
                 "kUSBSleepPortCurrentLimit", 
-                0x0BB8, 
+                0x0834, 
                 "kUSBWakePortCurrentLimit", 
-                0x0BB8
+                0x0834
             })
         }
     }

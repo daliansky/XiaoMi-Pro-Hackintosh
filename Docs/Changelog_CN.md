@@ -14,6 +14,9 @@
   - KBL: 启用 MAT 支持通过启用 `DevirtualiseMmio`, `ProtectUefiServices` 和 `RebuildAppleMemoryMap`; 新增 `MmioWhitelist` 补丁; 和禁用 `EnableWriteUnprotector`
   - CML: 启用 `ProtectUefiServices` 因为它是 MAT 支持的一部分
 
+### 变更
+  - 修改 `SSDT-USB*` 里的 `kUSBSleepPortCurrentLimit` 和 `kUSBWakePortCurrentLimit` 为 2100，基于 [ACDT 的 SSDT-EC-USBX](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
+
 
 ## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)
 ## 2022-04-18
