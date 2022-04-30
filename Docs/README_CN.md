@@ -175,7 +175,7 @@ cd XiaoMi-Pro-Hackintosh
 - 添加 `forceRenderStandby=0` 到 `config - NVRAM - Add - 7CXXX - boot-args` (OpenCore) 或 `config - Boot - Arguments` (Clover) 如果出现 NVMe Kernel Panic CSTS=0xffffffff
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - TM1701 和 TM1707：使用 [ALCPlugFix](../ALCPlugFix) 来修复耳机重新插拔后无声
-- TM1701：使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来把动态显存设为64mb并解锁 CFG
+- TM1701：使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来开启 4K 外接显示屏并获得更加“原生”的电源管理
 
 
 ## 常见问题解答

@@ -180,7 +180,7 @@ Some advanced usages are:
 - Add `forceRenderStandby=0` in `config - NVRAM - Add - 7CXXX - boot-args` (OpenCore) or `config - Boot - Arguments` (Clover) if NVMe Kernel Panic CSTS=0xffffffff occurs
 - Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
-- TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb and unlock CFG
+- TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to enable 4K external monitor and more "native" power management
 
 
 ## FAQ
