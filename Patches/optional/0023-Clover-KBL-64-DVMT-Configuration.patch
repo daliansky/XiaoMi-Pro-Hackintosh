@@ -1,17 +1,17 @@
-From 074380633cc7d7bbeeffbd8c206d267b3a73e395 Mon Sep 17 00:00:00 2001
+From a1c989b45d465c6004e24c3660ca3cdbc6277cc9 Mon Sep 17 00:00:00 2001
 From: stevezhengshiqi
-Date: Sun, 1 May 2022 02:36:57 -0400
-Subject: [PATCH] OC: KBL: 64 DVMT Configuration
+Date: Sun, 1 May 2022 03:52:42 -0400
+Subject: [PATCH] Clover: KBL: 64 DVMT Configuration
 
 ---
- OC/config_kbl.plist | 6 +-----
+ CLOVER/config_kbl.plist | 6 +-----
  1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/OC/config_kbl.plist b/OC/config_kbl.plist
-index 84b7ac9..fc06cfe 100755
---- a/OC/config_kbl.plist
-+++ b/OC/config_kbl.plist
-@@ -365,14 +365,10 @@
+diff --git a/CLOVER/config_kbl.plist b/CLOVER/config_kbl.plist
+index 87695b3..321aedf 100644
+--- a/CLOVER/config_kbl.plist
++++ b/CLOVER/config_kbl.plist
+@@ -109,14 +109,10 @@
  				<data>AQAAAA==</data>
  				<key>framebuffer-con2-type</key>
  				<data>AAQAAA==</data>
