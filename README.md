@@ -50,7 +50,7 @@
 | Hard Disk | Intel SSD 660P Series |
 | Integrated Graphics | Intel UHD Graphics 620 |
 | Monitor | LQ156M1JW01 SHP14C3 1920x1080 344x194mm 15.5-inch |
-| Sound Card | Realtek ALC256 (layout-id: 69/99) |
+| Sound Card | Realtek ALC256 (layout-id: 69/~~99~~) |
 | Wireless Card | Intel Wireless-AC 9462 |
 | Trackpad | ELAN2303 |
 | SD Card Reader | Realtek RTS5129 |
