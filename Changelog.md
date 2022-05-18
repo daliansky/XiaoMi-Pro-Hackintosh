@@ -10,12 +10,13 @@
   - Update `AppleALC` v1.7.2
 
 ### OC
+  - OC: Update config to support `OpenCore` v0.8.1
+
+### Change
+  - ACPI: Modify `kUSBSleepPortCurrentLimit` and `kUSBWakePortCurrentLimit` in `SSDT-USB*` to 2100 based on [ACDT's SSDT-EC-USBX](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
   - Disable `ProvideCustomSlide` based on OC debug log
   - KBL: Enable MAT support by enabling `DevirtualiseMmio`, `ProtectUefiServices` & `RebuildAppleMemoryMap`; adding `MmioWhitelist` patch; and disabling `EnableWriteUnprotector`
   - CML: Enable `ProtectUefiServices` as part of MAT support
-
-### Change
-  - Modify `kUSBSleepPortCurrentLimit` and `kUSBWakePortCurrentLimit` in `SSDT-USB*` to 2100 based on [ACDT's SSDT-EC-USBX](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)

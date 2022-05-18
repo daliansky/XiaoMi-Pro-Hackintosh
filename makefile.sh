@@ -1179,6 +1179,8 @@ function extractOC() {
     "OpenCore/X64/EFI/OC/Drivers/AudioDxe.efi"
     "OpenCore/X64/EFI/OC/Drivers/OpenCanopy.efi"
     "OpenCore/X64/EFI/OC/Drivers/OpenRuntime.efi"
+    "OpenCore/X64/EFI/OC/Drivers/ResetNvramEntry.efi"
+    "OpenCore/X64/EFI/OC/Drivers/ToggleSipEntry.efi"
   )
   local toolItems=(
     "OpenCore/X64/EFI/OC/Tools/OpenShell.efi"
