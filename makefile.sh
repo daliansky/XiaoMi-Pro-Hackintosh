@@ -137,7 +137,7 @@ OUTDir_CML_CLOVER="XiaoMi_Pro-CML-Clover-${version}"
 OUTDir_CML_OC="XiaoMi_Pro-CML-OC-${version}"
 
 # Kexts
-# Require Lilu to be the last for bKext()
+# Lilu is not in the list because of bKext()
 acdtKexts=(
   VirtualSMC
   WhateverGreen
@@ -146,7 +146,6 @@ acdtKexts=(
   RestrictEvents
   VoodooPS2
   BrcmPatchRAM
-  Lilu
 )
 
 frwfKexts=(
@@ -489,6 +488,11 @@ function bKextHelper() {
       xcodebuild -jobs 1 -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
       cp -R "${PATH_LONG_SMA}"*.kext "../" || copyErr
     fi
+  elif [[ "$2" == "Lilu" ]]; then
+    rm -rf ../Lilu.kext
+    cp -R "../MacKernelSDK" "./" || copyErr
+    xcodebuild -jobs 1 -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
+    cp -R "${PATH_SHORT_SMA}"*.kext "../" || copyErr
   elif [[ "$2" == "VoodooInput" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
     xcodebuild -jobs 1 -configuration Debug > /dev/null 2>&1 || buildErr "$2"
@@ -549,11 +553,6 @@ function bKextHelper() {
       xcodebuild -scheme "AirportItlwm (all)" -configuration "$3" -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
       cp -R "${PATH_LONG_BIG}"* "../KBL" || copyErr
     fi
-  elif [[ "$2" == "Lilu" ]]; then
-    rm -rf ../Lilu.kext
-    cp -R "../MacKernelSDK" "./" || copyErr
-    xcodebuild -jobs 1 -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
-    cp -R "${PATH_SHORT_SMA}"*.kext "../" || copyErr
   fi
   cd ../ || exit 1
   echo
@@ -597,6 +596,8 @@ function bKext() {
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
   bKextHelper VoodooI2C VoodooI2C
+  # Make sure Lilu is later than Lilu based kexts
+  bKextHelper ${ACDT} "Lilu" "${build_mode}"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Some kexts only work on current macOS SDK build!"
   echo
@@ -623,6 +624,7 @@ function download() {
   else
     for acdtKext in "${acdtKexts[@]}"; do
       dGR ${ACDT} "${acdtKext}"
+      dGR ${ACDT} "Lilu"
     done
     # for frwfKext in "${frwfKexts[@]}"; do
     #   dGR ${FRWF} "${frwfKext}"
