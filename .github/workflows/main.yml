@@ -87,9 +87,10 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Install Dependency
-        uses: brokeyourbike/ocvalidate-action@v0.1
+        uses: brokeyourbike/ocvalidate-action@v0.2
         with:
-          opencore-version: '0.8.0'
+          opencore-version: 'latest'
+          release: true
 
       - name: Run ocvalidate
         run: |
