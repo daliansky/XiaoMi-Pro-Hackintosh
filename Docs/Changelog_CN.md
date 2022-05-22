@@ -9,6 +9,9 @@
   - 更新 `OpenCore` v0.8.1
   - 更新 `AppleALC` v1.7.2
 
+### 新增
+  - 新增 `IntelBTPatcher` 来修复 Big Sur，Catalina，Mojave，High Sierra，等的英特尔蓝牙
+
 ### OC
   - OC: 更新 config 来支持 `OpenCore` v0.8.1
 

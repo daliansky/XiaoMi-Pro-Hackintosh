@@ -9,6 +9,9 @@
   - Update `OpenCore` v0.8.1
   - Update `AppleALC` v1.7.2
 
+### Add
+  - Add `IntelBTPatcher` to fix Intel Bluetooth on Big Sur, Catalina, Mojave, High Sierra, etc
+
 ### OC
   - OC: Update config to support `OpenCore` v0.8.1
 

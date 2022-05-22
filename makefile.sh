@@ -489,11 +489,6 @@ function bKextHelper() {
       xcodebuild -jobs 1 -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
       cp -R "${PATH_LONG_SMA}"*.kext "../" || copyErr
     fi
-  elif [[ "$2" == "Lilu" ]]; then
-    rm -rf ../Lilu.kext
-    cp -R "../MacKernelSDK" "./" || copyErr
-    xcodebuild -jobs 1 -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
-    cp -R "${PATH_SHORT_SMA}"*.kext "../" || copyErr
   elif [[ "$2" == "VoodooInput" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
     xcodebuild -jobs 1 -configuration Debug > /dev/null 2>&1 || buildErr "$2"
@@ -506,6 +501,8 @@ function bKextHelper() {
     cp -R "${PATH_LONG_BIG}"*.kext "../KBL" || copyErr
   elif [[ "$2" == "IntelBluetoothFirmware" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
+    # IntelBTPatcher needs Lilu as dependency
+    cp -R "../Lilu.kext" "./" || copyErr
     mkdir -p "tmp" || exit 1
     cp -R IntelBluetoothFirmware/fw/ibt-12* "tmp" || copyErr
     cp -R IntelBluetoothFirmware/fw/ibt-19-0* "tmp" || copyErr
@@ -552,6 +549,11 @@ function bKextHelper() {
       xcodebuild -scheme "AirportItlwm (all)" -configuration "$3" -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
       cp -R "${PATH_LONG_BIG}"* "../KBL" || copyErr
     fi
+  elif [[ "$2" == "Lilu" ]]; then
+    rm -rf ../Lilu.kext
+    cp -R "../MacKernelSDK" "./" || copyErr
+    xcodebuild -jobs 1 -configuration "$3" -arch x86_64 > /dev/null 2>&1 || buildErr "$2"
+    cp -R "${PATH_SHORT_SMA}"*.kext "../" || copyErr
   fi
   cd ../ || exit 1
   echo
@@ -844,16 +846,20 @@ function install() {
     for kextDir in "${!kextDirs}"; do
       if [[ "${pre_release}" =~ "Kext" ]]; then
         cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+        cp -R "${model}/IntelBTPatcher.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
       else
         cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+        cp -R "IntelBTPatcher.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
       fi
     done
     cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
 
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
+      cp -R "${model}/IntelBTPatcher.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
     else
       cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
+      cp -R "IntelBTPatcher.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
     fi
     cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
   done
