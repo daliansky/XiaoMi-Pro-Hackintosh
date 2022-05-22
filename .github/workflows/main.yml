@@ -85,7 +85,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Install Dependency
         uses: brokeyourbike/ocvalidate-action@v0.2
         with:
