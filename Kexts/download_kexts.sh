@@ -272,6 +272,7 @@ function install() {
     "HibernationFixup.kext"
     "IntelBluetoothFirmware.kext"
     "IntelBluetoothInjector.kext"
+    "IntelBTPatcher.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
     "Kexts/SMCProcessor.kext"
