@@ -14,12 +14,17 @@
 
 ### OC
   - OC: 更新 config 来支持 `OpenCore` v0.8.1
+  - OC: CML: 修改 `HibernateMode` 为 `None` 来尝试解决电量过低后无法启动的问题
+
+### Clover
+  - Clover: CML: 禁用 `HibernationFixup` 来尝试解决电量过低后无法启动的问题
 
 ### 变更
   - ACPI: 修改 `SSDT-USB*` 里的 `kUSBSleepPortCurrentLimit` 和 `kUSBWakePortCurrentLimit` 为 2100，基于 [ACDT 的 SSDT-EC-USBX](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
   - 禁用 `ProvideCustomSlide` 基于 OC 调试日志
   - KBL: 启用 MAT 支持通过启用 `DevirtualiseMmio`, `ProtectUefiServices` 和 `RebuildAppleMemoryMap`; 新增 `MmioWhitelist` 补丁; 和禁用 `EnableWriteUnprotector`
   - CML: 启用 `ProtectUefiServices` 因为它是 MAT 支持的一部分
+  - CML: 禁用 `HibernationFixup` 来尝试解决电量过低后无法启动的问题
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)
