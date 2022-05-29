@@ -762,6 +762,7 @@ function install() {
       "10.15"
       "11"
       "12"
+      "Off"
     )
     local cmlCloverIbtInjctrDirs=(
       "10.15"
@@ -822,9 +823,13 @@ function install() {
     done
 
     if [[ "${model}" == "CML" ]]; then
+      # CML: NoTouchID.kext
       for noTouchIDDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/"; do
         cp -R "CML/NoTouchID.kext" "${noTouchIDDir}" || copyErr
       done
+
+      # CML: Move HibernationFixup.kext to Off folder for Clover due to Not booting after running out of battery issue (Ref: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/661)
+      mv "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Other/HibernationFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Off/HibernationFixup.kext" || exit 1
     fi
 
     # Move AirportItlwm to corresponding Clover and OC Kext folders
