@@ -2,12 +2,15 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.6.6
+## [XiaoMi NoteBook Pro EFI v1.6.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.6)
 ## 2022-06-06
 
 ### Upgrade
   - Update `OpenCore` v0.8.1
   - Update `AppleALC` v1.7.2
+  - Update `WhateverGreen` v1.5.9
+  - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@5261172](https://github.com/OpenIntelWireless/itlwm/commit/52611728e09f547dca575c1410280b98494fe3fa))
+  - Update `IntelBluetoothFirmware` v2.2.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@76949ee](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/76949ee63cb55777670ead07310f74acd8701dbe))
 
 ### Add
   - Add `IntelBTPatcher` to fix Intel Bluetooth on Big Sur, Catalina, Mojave, High Sierra, etc

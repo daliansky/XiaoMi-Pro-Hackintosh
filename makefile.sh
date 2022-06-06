@@ -21,7 +21,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**To receive OEM updates, set SecureBootModel = Default (OC, risky) or go to App Store and search Monterey (or newer macOS).**"
+RLMSG="**macOS13.0 NOT SUPPORTED.<br />To receive OEM updates, set SecureBootModel = Default (OC, risky) or go to App Store and search Monterey (or newer macOS).**"
 
 build_mode="Release"
 clean_up=true
