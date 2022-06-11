@@ -80,6 +80,7 @@ function h_or_g() {
     hgs=( "grep -m 1 AirportItlwm-Big_Sur"
           "grep -m 1 AirportItlwm-Catalina"
           "grep -m 1 AirportItlwm-Monterey"
+          "grep -m 1 AirportItlwm-Ventura"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
     hgs=( "grep -m 1 RELEASE" )
@@ -261,6 +262,7 @@ function patch() {
   mv "${OUTDir_TMP}/Big Sur/AirportItlwm.kext" "${OUTDir_TMP}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
   mv "${OUTDir_TMP}/Catalina/AirportItlwm.kext" "${OUTDir_TMP}/Catalina/AirportItlwm_Catalina.kext" || exit 1
   mv "${OUTDir_TMP}/Monterey/AirportItlwm.kext" "${OUTDir_TMP}/Monterey/AirportItlwm_Monterey.kext" || exit 1
+  mv "${OUTDir_TMP}/Ventura/AirportItlwm.kext" "${OUTDir_TMP}/Ventura/AirportItlwm_Ventura.kext" || exit 1
 }
 
 # Install
@@ -290,6 +292,7 @@ function install() {
     "Big Sur/AirportItlwm_Big_Sur.kext"
     "Catalina/AirportItlwm_Catalina.kext"
     "Monterey/AirportItlwm_Monterey.kext"
+    "Ventura/AirportItlwm_Ventura.kext"
   )
 
   for kextItem in "${kextItems[@]}"; do
