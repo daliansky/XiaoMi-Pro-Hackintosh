@@ -2,6 +2,21 @@
 
 [English](../Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.6.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.7)
+## 2022-06-13
+
+### 更新
+  - 更新 `OpenCore` v0.8.2（更新至 [acidanthera/OpenCorePkg@e05a69d](https://github.com/acidanthera/OpenCorePkg/commit/e05a69da640009ac1983c7c8c78af4f0d9b4bc6f)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `Lilu` v1.6.1（更新至 [acidanthera/Lilu@9775e8b](https://github.com/acidanthera/Lilu/commit/9775e8b8b3a05f7ed016fd9b587d43839f3c7cbf)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `VirtualSMC` v1.3.0（更新至 [acidanthera/VirtualSMC@a45e73b](https://github.com/acidanthera/VirtualSMC/commit/a45e73baa35b5a97a69bc95acb90561b51d2aa56)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `AppleALC` v1.7.3（更新至 [acidanthera/AppleALC@2992c19](https://github.com/acidanthera/AppleALC/commit/2992c19b71faa0a4fc98e0431b38057e415e55b0)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `WhateverGreen` v1.6.0（更新至 [acidanthera/WhateverGreen@ade6c98](https://github.com/acidanthera/WhateverGreen/commit/ade6c98fe12b62101e0a0c41f55dae43d0b78fae)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `HibernationFixup` v1.4.6（更新至 [acidanthera/HibernationFixup@a4a1d52](https://github.com/acidanthera/HibernationFixup/commit/a4a1d52eec6ca437ad6909818d090696302b0723)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `RestrictEvents` v1.0.8（更新至 [acidanthera/RestrictEvents@668c632](https://github.com/acidanthera/RestrictEvents/commit/668c632e152242f4e6b7db463eb597bc8b2715d3)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `BrcmPatchRAM` v2.6.3（更新至 [acidanthera/BrcmPatchRAM@8c04849](https://github.com/acidanthera/BrcmPatchRAM/commit/8c048492a19d24905d0b0be2f10cf26e1cc0c27f)）来支持 macOS13.0 beta 1 (22A5266r)
+  - 更新 `AirportItlwm` v2.2.0（更新至 [OpenIntelWireless/itlwm@66cf933](https://github.com/OpenIntelWireless/itlwm/commit/66cf9336052c783f54d27c5f58b39708863b7da1)）来支持 macOS13.0 beta 1 (22A5266r)
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.6)
 ## 2022-06-06
 
