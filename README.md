@@ -92,13 +92,14 @@
 - r5127 do not support Intel Wi-Fi on macOS version < Big Sur due to incomplete ForceKextsToLoad functionality (Only [v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7) supports Intel Wi-Fi on old macOS versions, or you can add `IO80211Family.kext` to the kext folder)
 
 ### OpenCore
-- TM1701 & TM1707: Supports macOS10.15 ~ macOS12
+- TM1701 & TM1707: Supports macOS10.15 ~ macOS13.0 beta 1 (22A5266r)
   - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) is the last EFI version that supports macOS High Sierra & Mojave**
-- TM1905 & TM1963: Supports macOS10.15 ~ macOS12
+- TM1905 & TM1963: Supports macOS10.15 ~ macOS13.0 beta 1 (22A5266r)
 -----
 - Should Clean NVRAM after using Clover
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
 - Limited theme
+- Some people have trouble updating to Windows 11, see [#665](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/665)
 - **Recommend Reading: [Security and FileVault | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/security.html) and [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**, especially the **UEFI Secure Boot** section
 
 
@@ -213,6 +214,10 @@ It is not recommended to open `FileVault`. You can press `Fn+F3` in the Clover b
 First, in macOS, open `SysPref - Startup Disk`. Choose the target system.  
 Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.  
 When you want to switch OS, press `Esc` during startup to call the boot menu.
+
+#### [OC] How to not make the OpenCore the default bootloader?
+
+Open `config.plist` and change value of `LauncherOption` from `Full` to `System`.
 
 #### [OC] How to enable startup chime? (TM1701 & TM1707)
 

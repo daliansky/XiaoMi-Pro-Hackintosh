@@ -92,13 +92,14 @@
 - r5127 不支持低于 macOS Big Sur 版本上的英特尔 Wi-Fi 因 ForceKextsToLoad 功能尚未实现（仅 [v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7) 支持旧 macOS 版本的英特尔 Wi-Fi，或者添加 `IO80211Family.kext` 到 kext 文件夹）
 
 ### OpenCore
-- TM1701 和 TM1707：支持 macOS10.15 ~ macOS12
+- TM1701 和 TM1707：支持 macOS10.15 ~ macOS13.0 beta 1 (22A5266r)
   - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) 是最后一个支持 macOS High Sierra & Mojave 的 EFI 版本**
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS13.0 beta 1 (22A5266r)
 -----
 - 使用 Clover 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
 - 有限的主题
+- 有些人升级 Windows 11 遇到了问题，见 [#665](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/665)
 - **推荐阅读：[Security and FileVault | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/security.html) 和 [OpenCore Configuration](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)**，特别注意 **UEFI Secure Boot** 章节
 
 
@@ -208,6 +209,10 @@ cd XiaoMi-Pro-Hackintosh
 首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。  
 然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。  
 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
+
+#### [OC] 怎么取消 OpenCore 默认启动项？
+
+打开 `config.plist` 并修改 `LauncherOption` 值，原本为 `Full`，改成 `System`。
 
 #### [OC] 怎么开启启动音？（TM1701 & TM1707）
 
