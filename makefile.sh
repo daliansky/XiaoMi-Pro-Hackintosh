@@ -728,6 +728,7 @@ function install() {
   # Kexts
   local sharedKextItems=(
     "HibernationFixup.kext"
+    "IntelBTPatcher.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
     "Kexts/SMCProcessor.kext"
@@ -862,20 +863,16 @@ function install() {
     for kextDir in "${!kextDirs}"; do
       if [[ "${pre_release}" =~ "Kext" ]]; then
         cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
-        cp -R "${model}/IntelBTPatcher.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
       else
         cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
-        cp -R "IntelBTPatcher.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
       fi
     done
     cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
 
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
-      cp -R "${model}/IntelBTPatcher.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
     else
       cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
-      cp -R "IntelBTPatcher.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
     fi
     cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
   done

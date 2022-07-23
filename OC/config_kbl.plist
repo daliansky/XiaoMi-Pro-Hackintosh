@@ -974,7 +974,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelBTPatcher</string>
 				<key>MaxKernel</key>
-				<string>20.99.99</string>
+				<string></string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
