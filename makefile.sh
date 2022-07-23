@@ -728,7 +728,6 @@ function install() {
   # Kexts
   local sharedKextItems=(
     "HibernationFixup.kext"
-    "IntelBTPatcher.kext"
     "Kexts/SMCBatteryManager.kext"
     "Kexts/SMCLightSensor.kext"
     "Kexts/SMCProcessor.kext"
@@ -747,6 +746,7 @@ function install() {
     local cmlKextItems=(
       "AppleALC.kext"
       "IntelBluetoothFirmware.kext"
+      "IntelBTPatcher.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cmlKextItems=("${cmlKextItems[@]/#/CML/}")
@@ -779,6 +779,7 @@ function install() {
     local kblKextItems=(
       "AppleALC.kext"
       "IntelBluetoothFirmware.kext"
+      "IntelBTPatcher.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
       kblKextItems=("${kblKextItems[@]/#/KBL/}")
