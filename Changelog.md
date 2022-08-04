@@ -12,6 +12,7 @@
   - Update `AppleALC` v1.7.4
   - Update `WhateverGreen` v1.6.1
   - Update `VoodooPS2` v2.2.9 (up to [acidanthera/VoodooPS2@fdb8be5](https://github.com/acidanthera/VoodooPS2/commit/fdb8be58ac0b5c4c76b1bfe12f7c88b63fff1e10))
+  - Update `VoodooI2C` v2.7 (up to [VoodooI2C/VoodooI2C@9ab9831](https://github.com/VoodooI2C/VoodooI2C/commit/9ab98319b6411c4a4822cc12f840df85cc684bfc))
   - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@34441bc](https://github.com/OpenIntelWireless/itlwm/commit/34441bc68ad35b57d4299f5d28d9ff7879beed4f))
   - Update `IntelBluetoothFirmware` v2.2.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@bbdde1f](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/bbdde1f6ca5211824adf2a0e6540647b6ba656ce))
 
