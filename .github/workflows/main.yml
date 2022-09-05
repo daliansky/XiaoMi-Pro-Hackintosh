@@ -18,6 +18,10 @@ jobs:
         with:
           fetch-depth: '5'
 
+      - uses: actions/setup-python@v4
+        with:
+            python-version: '3.9'
+
       - name: Initialize Variables
         run: |
           GIT_SHA="$(git rev-parse --short HEAD)"
@@ -30,9 +34,6 @@ jobs:
           echo "CUR_TAG=${GITHUB_REF##*/}" >> "$GITHUB_ENV"
 
       - name: Run makefile
-        uses: actions/setup-python@v4
-        with:
-            python-version: '3.9'
         run: |
           ./makefile.sh --version=${CUR_TAG} --pre_release=Kext --pre_release=OC --model=CMLKBL
 
