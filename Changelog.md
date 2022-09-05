@@ -2,6 +2,21 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.7.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.0)
+## 2022-09-05
+
+### Upgrade
+  - Update `OpenCore` v0.8.4
+  - Update `Clover` r5149
+  - Update `AppleALC` v1.7.5
+  - Update `VoodooPS2` v2.3.0
+  - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@bb86d9f](https://github.com/OpenIntelWireless/itlwm/commit/bb86d9f6b9388fbe725d3e42ca72fbf3b27dddc5))
+  - Update `IntelBluetoothFirmware` v2.3.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@18fcde3](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/18fcde3519bcb00ad9b46286d604a73661cf52b1))
+
+### OC
+  - OC: Update config to support `OpenCore` v0.8.4
+
+
 ## [XiaoMi NoteBook Pro EFI v1.6.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.9)
 ## 2022-08-02
 
