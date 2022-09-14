@@ -212,8 +212,6 @@ function init() {
 
   local dirs=(
     "Clover"
-    "Clover/AppleSupportPkg_209"
-    "Clover/AppleSupportPkg_216"
     "OpenCore"
   )
   for model in "${model_list[@]}"; do
@@ -274,25 +272,14 @@ function dGR() {
     elif [[ "$3" == "NULL" ]]; then
       tag="/latest"
     else
-      if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
-        if [[ "$2" == "AppleSupportPkg_209" ]]; then
-          tag="/tag/2.0.9"
-        elif [[ "$2" == "AppleSupportPkg_216" ]]; then
-          tag="/tag/2.1.6"
-        fi
-      else
-        # only release_id is supported
-        tag="/$3"
-      fi
+      tag="/$3"
     fi
   else
     tag="/latest"
   fi
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
-    if [[ "$2" == "AppleSupportPkg_209" || "$2" == "AppleSupportPkg_216" ]]; then
-      rawURL="https://github.com/$1/AppleSupportPkg/releases$tag"
-    elif [[ "$2" == "build-repo" ]]; then
+    if [[ "$2" == "build-repo" ]]; then
       rawURL="https://github.com/$1/$2/tags"
       rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
     else
@@ -305,9 +292,7 @@ function dGR() {
       urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
-    if [[ "$2" == "AppleSupportPkg_209" || "$2" == "AppleSupportPkg_216" ]]; then
-      rawURL="https://api.github.com/repos/$1/AppleSupportPkg/releases$tag"
-    elif [[ "$2" == "build-repo" ]]; then
+    if [[ "$2" == "build-repo" ]]; then
       rawURL="https://api.github.com/repos/$1/$2/releases"
     else
       rawURL="https://api.github.com/repos/$1/$2/releases$tag"
@@ -642,12 +627,6 @@ function download() {
     dGR VoodooI2C VoodooI2C
   fi
 
-  # UEFI drivers
-  # AppleSupportPkg v2.0.9
-  dGR ${ACDT} AppleSupportPkg_209 19214108 "Clover/AppleSupportPkg_209"
-  # AppleSupportPkg v2.1.6
-  dGR ${ACDT} AppleSupportPkg_216 24123335 "Clover/AppleSupportPkg_216"
-
   # UEFI
   # dPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
   dPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
@@ -869,6 +848,7 @@ function install() {
       fi
     done
     cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
+    cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/13" || copyErr
 
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
@@ -1170,17 +1150,15 @@ function install() {
 # Extract files for Clover
 function extractClover() {
   local driverItems=(
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
     "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
-    "Clover/AppleSupportPkg_209/Drivers/AppleGenericInput.efi"
-    "Clover/AppleSupportPkg_209/Drivers/AppleUiSupport.efi"
-    "Clover/AppleSupportPkg_216/Drivers/ApfsDriverLoader.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileVault2/AppleKeyFeeder.efi"
+    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileVault2/HashServiceFix.efi"
   )
 
   echo "${green}[${reset}${blue}${bold} Extracting Clover ${reset}${green}]${reset}"
   # From CloverV2, AppleSupportPkg v2.0.9, and AppleSupportPkg v2.1.6
   unzip -qq -d "Clover" "Clover/*.zip" || exit 1
-  unzip -qq -d "Clover/AppleSupportPkg_209" "Clover/AppleSupportPkg_209/*.zip" || exit 1
-  unzip -qq -d "Clover/AppleSupportPkg_216" "Clover/AppleSupportPkg_216/*.zip" || exit 1
   for model in "${model_list[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
     cp -R "Clover/CloverV2/EFI/BOOT" "${!OUTDir_MODEL_CLOVER}/EFI/" || copyErr
