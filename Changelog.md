@@ -2,6 +2,17 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.7.1
+## 2022-10-04
+
+### Upgrade
+  - Update `OpenCore` v0.8.5
+
+### Clover
+  - Clover: Remove `ApfsDriverLoader.efi`, `AppleGenericInput.efi` & `AppleUiSupport.efi` from [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg) and replace them with `ApfsDriverLoader.efi` and `AppleKeyFeeder.efi` embedded in [CloverBootloader](https://github.com/CloverHackyColor/CloverBootloader)
+  - Clover: Add missing `BlueToolFixup` to 13 kext folder
+
+
 ## [XiaoMi NoteBook Pro EFI v1.7.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.0)
 ## 2022-09-05
 
