@@ -96,26 +96,15 @@ function dGR() {
 
   h_or_g "$2"
 
-  if [[ -n ${3+x} ]]; then
-    if [[ "$3" == "PreRelease" ]]; then
-      tag=""
-    elif [[ "$3" == "NULL" ]]; then
-      tag="/latest"
-    else
-      # only release_id is supported
-      tag="/$3"
-    fi
-  else
-    tag="/latest"
-  fi
+  tag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "https://github.com/$1/$2" | tail -n 1 | sed 's/^.*tags\///')"
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
-    rawURL="https://github.com/$1/$2/releases$tag"
     for hg in "${hgs[@]}"; do
+      assetsURL="https://github.com/$1/$2/releases/expanded_assets/${tag}"
       if [[ ${systemLanguage} == "zh_CN" ]]; then
-        rawURL=${rawURL/#/${CFURL}/}
+        assetsURL=${assetsURL/#/${CFURL}/}
       fi
-      urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
+      urls+=( "https://github.com$(curl -L --silent "${assetsURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
