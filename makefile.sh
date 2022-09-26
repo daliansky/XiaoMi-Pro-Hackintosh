@@ -266,30 +266,23 @@ function dGR() {
 
   h_or_g "$2"
 
-  if [[ -n ${3+x} ]]; then
-    if [[ "$3" == "PreRelease" ]]; then
-      tag=""
-    elif [[ "$3" == "NULL" ]]; then
-      tag="/latest"
-    else
-      tag="/$3"
-    fi
-  else
-    tag="/latest"
-  fi
+  tag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "https://github.com/$1/$2" | tail -n 1 | sed 's/^.*tags\///')"
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
     if [[ "$2" == "build-repo" ]]; then
       rawURL="https://github.com/$1/$2/tags"
-      rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
-    else
-      rawURL="https://github.com/$1/$2/releases$tag"
-    fi
-    for hg in "${hgs[@]}"; do
       if [[ ${language} == "zh_CN" ]]; then
         rawURL=${rawURL/#/${CFURL}/}
       fi
-      urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
+      rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
+      tag=$(echo "$rawURL" | sed 's/^.*tag\///')
+    fi
+    for hg in "${hgs[@]}"; do
+      assetsURL="https://github.com/$1/$2/releases/expanded_assets/${tag}"
+      if [[ ${language} == "zh_CN" ]]; then
+        assetsURL=${assetsURL/#/${CFURL}/}
+      fi
+      urls+=( "https://github.com$(curl -L --silent "${assetsURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
     if [[ "$2" == "build-repo" ]]; then
@@ -298,6 +291,9 @@ function dGR() {
       rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     fi
     for hg in "${hgs[@]}"; do
+      if [[ ${language} == "zh_CN" ]]; then
+        rawURL=${rawURL/#/${CFURL}/}
+      fi
       if [[ "$2" == "build-repo" ]]; then
         urls+=( "$(curl --silent "${rawURL}" | grep -A 100 'OpenCorePkg' | grep 'browser_download_url' | eval "${hg}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
       else
@@ -595,8 +591,6 @@ function download() {
 
   # OpenCore
   if [[ "${pre_release}" =~ "OC" ]]; then
-    # williambj1's OpenCore-Factory repository has been archived
-    # dGR williambj1 OpenCore-Factory PreRelease "OpenCore"
     dGR dortania build-repo NULL "OpenCore" "skip" || dGR ${ACDT} OpenCorePkg NULL "OpenCore"
   else
     dGR ${ACDT} OpenCorePkg NULL "OpenCore"
@@ -616,7 +610,7 @@ function download() {
     #   dGR ${FRWF} "${frwfKext}"
     # done
     for oiwKext in "${oiwKexts[@]}"; do
-      dGR ${OIW} "${oiwKext}" PreRelease
+      dGR ${OIW} "${oiwKext}"
     done
     if [[ "${model_input}" =~ "CML" ]]; then
       dGR al3xtjames NoTouchID NULL "CML"
