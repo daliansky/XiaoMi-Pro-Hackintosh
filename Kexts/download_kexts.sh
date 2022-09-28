@@ -77,10 +77,10 @@ function h_or_g() {
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
-    hgs=( "grep -m 1 AirportItlwm-Big_Sur"
-          "grep -m 1 AirportItlwm-Catalina"
-          "grep -m 1 AirportItlwm-Monterey"
-          "grep -m 1 AirportItlwm-Ventura"
+    hgs=( "grep -m 1 BigSur"
+          "grep -m 1 Catalina"
+          "grep -m 1 Monterey"
+          "grep -m 1 Ventura"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
     hgs=( "grep -m 1 RELEASE" )
@@ -96,19 +96,35 @@ function dGR() {
 
   h_or_g "$2"
 
-  tag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "https://github.com/$1/$2" | tail -n 1 | sed 's/^.*tags\///')"
+  if [[ -n ${3+x} ]]; then
+    if [[ "$3" == "PreRelease" ]]; then
+    # FIXME: New GitHub lazy load makes it hard to extract pre-release, and I have not figured it out
+      tag=""
+    elif [[ "$3" == "NULL" ]]; then
+      tag="/latest"
+    else
+      # only release_id is supported
+      tag="/$3"
+    fi
+  else
+    tag="/latest"
+  fi
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
-    assetsURL="https://github.com/$1/$2/releases/expanded_assets/${tag}"
+    rawURL="https://github.com/$1/$2/releases$tag"
     for hg in "${hgs[@]}"; do
       if [[ ${systemLanguage} == "zh_CN" ]]; then
-        assetsURL=${assetsURL/#/${CFURL}/}
+        rawURL=${rawURL/#/${CFURL}/}
       fi
-      urls+=( "https://github.com$(curl -L --silent "${assetsURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
+      rawURL=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL}" | sed 's/releases\/tag/releases\/expanded_assets/')
+      urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     for hg in "${hgs[@]}"; do
+      if [[ ${systemLanguage} == "zh_CN" ]]; then
+        rawURL=${rawURL/#/${CFURL}/}
+      fi
       urls+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${hg}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
     done
   fi
@@ -207,7 +223,7 @@ function download() {
 # done
 
   for oiwKext in "${oiwKexts[@]}"; do
-    dGR ${OIW} "${oiwKext}" PreRelease "${OUTDir_TMP}"
+    dGR ${OIW} "${oiwKext}" NULL "${OUTDir_TMP}"
   done
 
   dGR Sniki EAPD-Codec-Commander NULL "${OUTDir_TMP}"

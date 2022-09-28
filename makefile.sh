@@ -247,10 +247,10 @@ function h_or_g() {
   elif [[ "$1" == "IntelBluetoothFirmware" ]]; then
     hgs=( "grep -m 1 IntelBluetooth" )
   elif [[ "$1" == "itlwm" ]]; then
-    hgs=( "grep -m 1 AirportItlwm-Big_Sur"
-          "grep -m 1 AirportItlwm-Catalina"
-          "grep -m 1 AirportItlwm-Monterey"
-          "grep -m 1 AirportItlwm-Ventura"
+    hgs=( "grep -m 1 BigSur"
+          "grep -m 1 Catalina"
+          "grep -m 1 Monterey"
+          "grep -m 1 Ventura"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
     hgs=( "grep -m 1 RELEASE" )
@@ -266,7 +266,18 @@ function dGR() {
 
   h_or_g "$2"
 
-  tag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "https://github.com/$1/$2" | tail -n 1 | sed 's/^.*tags\///')"
+  if [[ -n ${3+x} ]]; then
+    if [[ "$3" == "PreRelease" ]]; then
+    # FIXME: New GitHub lazy load makes it hard to extract pre-release, and I have not figured it out
+      tag=""
+    elif [[ "$3" == "NULL" ]]; then
+      tag="/latest"
+    else
+      tag="/$3"
+    fi
+  else
+    tag="/latest"
+  fi
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
     if [[ "$2" == "build-repo" ]]; then
@@ -275,14 +286,15 @@ function dGR() {
         rawURL=${rawURL/#/${CFURL}/}
       fi
       rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
-      tag=$(echo "$rawURL" | sed 's/^.*tag\///')
+    else
+      rawURL="https://github.com/$1/$2/releases$tag"
     fi
     for hg in "${hgs[@]}"; do
-      assetsURL="https://github.com/$1/$2/releases/expanded_assets/${tag}"
       if [[ ${language} == "zh_CN" ]]; then
-        assetsURL=${assetsURL/#/${CFURL}/}
+        rawURL=${rawURL/#/${CFURL}/}
       fi
-      urls+=( "https://github.com$(curl -L --silent "${assetsURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
+      rawURL=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL}" | sed 's/releases\/tag/releases\/expanded_assets/')
+      urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
     if [[ "$2" == "build-repo" ]]; then
