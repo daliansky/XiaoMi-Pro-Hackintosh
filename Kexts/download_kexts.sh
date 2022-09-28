@@ -99,8 +99,8 @@ function dGR() {
   tag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "https://github.com/$1/$2" | tail -n 1 | sed 's/^.*tags\///')"
 
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
+    assetsURL="https://github.com/$1/$2/releases/expanded_assets/${tag}"
     for hg in "${hgs[@]}"; do
-      assetsURL="https://github.com/$1/$2/releases/expanded_assets/${tag}"
       if [[ ${systemLanguage} == "zh_CN" ]]; then
         assetsURL=${assetsURL/#/${CFURL}/}
       fi
