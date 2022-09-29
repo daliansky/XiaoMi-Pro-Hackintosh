@@ -96,14 +96,13 @@ jobs:
           mkdir "OpenCore" && cd "OpenCore" || exit 1
           hg="grep -m 1 RELEASE"
           hg_pre="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
+          rawURL="https://github.com/acidanthera/OpenCorePkg/releases/latest"
+          rawURL=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL}" | sed 's/releases\/tag/releases\/expanded_assets/')
           rawURL_pre="https://github.com/dortania/build-repo/tags"
           rawURL_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
-          tag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "https://github.com/acidanthera/OpenCorePkg" | tail -n 1 | sed 's/^.*tags\///')"
-          tag_pre=$(echo "$rawURL_pre" | sed 's/^.*tag\///')
-          assetsURL="https://github.com/acidanthera/OpenCorePkg/releases/expanded_assets/${tag}"
-          assetsURL_pre="https://github.com/dortania/build-repo/releases/expanded_assets/${tag_pre}"
-          url="https://github.com$(curl -L --silent "${assetsURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
-          url_pre="https://github.com$(curl -L --silent "${assetsURL_pre}" | grep '/download/' | eval "${hg_pre}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
+          rawURL_pre=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL_pre}" | sed 's/releases\/tag/releases\/expanded_assets/')
+          url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
+          url_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep '/download/' | eval "${hg_pre}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
           echo "Downloading OpenCorePkg"
           curl -# -L -O "${url_pre}" || curl -# -L -O "${url}" || exit 1
           unzip -qq "*.zip" || exit 1
