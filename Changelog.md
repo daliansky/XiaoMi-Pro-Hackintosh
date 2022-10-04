@@ -7,6 +7,8 @@
 
 ### Upgrade
   - Update `OpenCore` v0.8.5
+  - Update `BrcmPatchRAM` v2.6.4
+  - Update `VoodooPS2` v2.3.1 to fix CML model unresponsive keyboard after restart at BootPicker on Monterey+
 
 ### Clover
   - Clover: Remove `ApfsDriverLoader.efi`, `AppleGenericInput.efi` & `AppleUiSupport.efi` from [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg) and replace them with `ApfsDriverLoader.efi` and `AppleKeyFeeder.efi` embedded in [CloverBootloader](https://github.com/CloverHackyColor/CloverBootloader)

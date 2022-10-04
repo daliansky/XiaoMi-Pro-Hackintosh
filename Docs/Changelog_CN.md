@@ -7,6 +7,8 @@
 
 ### 更新
   - 更新 `OpenCore` v0.8.5
+  - 更新 `BrcmPatchRAM` v2.6.4
+  - 更新 `VoodooPS2` v2.3.1 来修复 CML 机型上 Monterey+ 重启后系统选择界面键盘失效问题
 
 ### Clover
   - Clover: 移除 [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg) 的 `ApfsDriverLoader.efi`，`AppleGenericInput.efi` 和 `AppleUiSupport.efi` 并替换它们为 [CloverBootloader](https://github.com/CloverHackyColor/CloverBootloader) 的 `ApfsDriverLoader.efi` 和 `AppleKeyFeeder.efi`
