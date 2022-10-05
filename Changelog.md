@@ -8,7 +8,7 @@
 ### Upgrade
   - Update `OpenCore` v0.8.5
   - Update `BrcmPatchRAM` v2.6.4
-  - Update `VoodooPS2` v2.3.1 to fix CML model unresponsive keyboard after restart at BootPicker on Monterey+
+  - Update `VoodooPS2` v2.3.1 to fix CML model unresponsive keyboard at BootPicker after restart on Monterey+
   - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@ee56708](https://github.com/OpenIntelWireless/itlwm/commit/ee567086f288951766f4259f8239c472be66679f))
 
 ### Clover
