@@ -2,7 +2,17 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.7.1
+## XiaoMi NoteBook Pro EFI v1.7.2
+## 2022-11-08
+
+### 更新
+  - 更新 `OpenCore` v0.8.6
+
+### Clover
+  - 更新 config
+
+
+## [XiaoMi NoteBook Pro EFI v1.7.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.1)
 ## 2022-10-04
 
 ### 更新
