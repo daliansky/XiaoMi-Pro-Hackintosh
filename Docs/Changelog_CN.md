@@ -7,6 +7,7 @@
 
 ### 更新
   - 更新 `OpenCore` v0.8.6
+  - 更新 `AppleALC` v1.7.6
 
 ### Clover
   - 更新 config

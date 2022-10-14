@@ -8,6 +8,7 @@
 
 ### Upgrade
   - Update `OpenCore` v0.8.6
+  - Update `AppleALC` v1.7.6
 
 ### Clover
   - Update config
