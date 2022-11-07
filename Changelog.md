@@ -2,13 +2,17 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
-
 ## XiaoMi NoteBook Pro EFI v1.7.2
 ## 2022-11-08
 
 ### Upgrade
   - Update `OpenCore` v0.8.6
+  - Update `Clover` r5150
   - Update `AppleALC` v1.7.6
+  - Update `RestrictEvents` v1.0.9
+
+### OC
+  - OC: Update config to support `OpenCore` v0.8.6
 
 ### Clover
   - Update config

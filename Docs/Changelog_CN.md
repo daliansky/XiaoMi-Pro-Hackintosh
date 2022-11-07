@@ -7,7 +7,12 @@
 
 ### 更新
   - 更新 `OpenCore` v0.8.6
+  - 更新 `Clover` r5150
   - 更新 `AppleALC` v1.7.6
+  - 更新 `RestrictEvents` v1.0.9
+
+### OC
+  - OC: 更新 config 来支持 `OpenCore` v0.8.6
 
 ### Clover
   - 更新 config
