@@ -99,7 +99,7 @@ jobs:
           rawURL="https://github.com/acidanthera/OpenCorePkg/releases/latest"
           rawURL=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL}" | sed 's/releases\/tag/releases\/expanded_assets/')
           rawURL_pre="https://github.com/dortania/build-repo/tags"
-          rawURL_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
+          rawURL_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep -m 1 'OpenCorePkg' | sed -e 's/.*<a\ href="//' | cut -d "\"" -f1)"
           rawURL_pre=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL_pre}" | sed 's/releases\/tag/releases\/expanded_assets/')
           url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
           url_pre="https://github.com$(curl -L --silent "${rawURL_pre}" | grep '/download/' | eval "${hg_pre}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"

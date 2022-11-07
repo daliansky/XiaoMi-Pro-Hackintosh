@@ -285,7 +285,7 @@ function dGR() {
       if [[ ${language} == "zh_CN" ]]; then
         rawURL=${rawURL/#/${CFURL}/}
       fi
-      rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
+      rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | sed -e 's/.*<a\ href="//' | cut -d "\"" -f1)"
     else
       rawURL="https://github.com/$1/$2/releases$tag"
     fi
