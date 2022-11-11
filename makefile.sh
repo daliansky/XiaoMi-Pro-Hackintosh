@@ -1088,6 +1088,14 @@ function install() {
       /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:${altModelPrefix}:g" "README_CN_${altModel}.txt"
     fi
 
+    if [[ "${model}" == "CML" ]]; then
+      if [[ ${remote} == false ]]; then
+        cp "../Docs/README_CML.txt" "README_CML.txt" || copyErr
+      else
+        cp "${REPO_NAME_BRANCH}/Docs/README_CML.txt" "README_CML.txt" || copyErr
+      fi
+    fi
+
     for lgpaDir in "${!OUTDir_MODEL_CLOVER}/${altModel}" "${!OUTDir_MODEL_OC}/${altModel}"; do
       mkdir -p "${lgpaDir}" || exit 1
       cp "${!model_lgpaItem}" "${lgpaDir}" || copyErr
