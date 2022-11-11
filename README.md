@@ -58,6 +58,9 @@
 
 ## Current Status
 
+- **Hibernation** may trigger serious boot problems on CML machines, view [#661](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/661) and [#694](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/694)
+  - `HibernationFixup` kext has been disabled on CML EFI pack to avoid laptop entering hibernation
+  - Users should run `sudo pmset -a hibernatemode 0` to disable hibernate mode, also see [README_CML](Docs/README_CML.txt)
 - **HDMI** may not work when you first-time plug it in
   - You have to re-plug it, or close the lid for about five seconds and reopen the lid
 - **Ethernet may not work on macOS10.15+, view [#256](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/256)**
