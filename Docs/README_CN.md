@@ -211,7 +211,7 @@ cd XiaoMi-Pro-Hackintosh
 #### [OC] 怎么跳过引导菜单并直接进入系统？
 
 首先，在macOS系统里打开 `系统偏好设置 - 启动磁盘`，选择要直接进入的系统。  
-然后，打开 `/EFI/OC/config.plist`，关闭 `ShowPicker`。  
+然后，打开 `/EFI/OC/config.plist`，修改 `ShowPicker` 的键值为 `Never`。  
 想切换系统的时候，开机时按 `Esc` 键来进入引导菜单。
 
 #### [OC] 怎么取消 OpenCore 默认启动项？

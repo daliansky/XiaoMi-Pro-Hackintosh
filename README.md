@@ -216,7 +216,7 @@ It is not recommended to open `FileVault`. You can press `Fn+F3` in the Clover b
 #### [OC] How to skip the boot menu and automatically boot into the system?
 
 First, in macOS, open `SysPref - Startup Disk`. Choose the target system.  
-Then, open `/EFI/OC/config.plist`, and turn off `ShowPicker`.  
+Then, open `/EFI/OC/config.plist`, and change the value for `ShowPicker` to `Never`.  
 When you want to switch OS, press `Esc` during startup to call the boot menu.
 
 #### [OC] How to not make the OpenCore the default bootloader?
