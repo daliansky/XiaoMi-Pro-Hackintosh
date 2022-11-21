@@ -11,6 +11,9 @@
 ### OC
   - OC: 更新 config 来支持 `OpenCore` v0.8.7
 
+### 更改
+  - CML: 移除 EDID 注入；EDID 注入在极少情况才需要用到，而且用户应该生成他们自己的 EDID
+
 
 ## [XiaoMi NoteBook Pro EFI v1.7.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.2)
 ## 2022-11-08

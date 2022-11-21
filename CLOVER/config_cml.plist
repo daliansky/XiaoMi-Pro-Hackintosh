@@ -89,7 +89,7 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>CQCbPg==</data>
-				<key>AAPL00,override-no-connect</key>
+				<key>#AAPL00,override-no-connect</key>
 				<data>AP///////wBNEMMUAAAAAAkdAQSQIhN45t5Qo1RMmSYPUFQAAAABAQEBAQEBAQEBAQEBAQEBGjaAoHA4HkAwIDUAWMIQAAAYVCuAoHA4H0AwIDUAWMIQAAAYAAAAEAAAAAAAAAAAAAAAAAAAAAAA/ABMUTE1Nk0xSlcwMQogANg=</data>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
