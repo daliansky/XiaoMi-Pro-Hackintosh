@@ -2,16 +2,21 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.7.3
+## [XiaoMi NoteBook Pro EFI v1.7.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.3)
 ## 2022-12-06
 
 ### Upgrade
   - Update `OpenCore` v0.8.7
+  - Update `AppleALC` v1.7.7
+  - Update `WhateverGreen` v1.6.2
+  - Update `HibernationFixup` v1.4.7
+  - Update `IntelBluetoothFirmware` v2.3.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@693f2dc](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/693f2dcaefe218f7f0205957bfbe381cdf5354ae))
 
 ### OC
   - OC: Update config to support `OpenCore` v0.8.7
 
 ### Change
+  - Add boot-args `ps2kbdonly=1` to disable `VoodooPS2` 's mouse clock line
   - CML: Remove possibly faulty EDID injection; EDID customization is rarely required, and users should generate their own EDID
 
 
