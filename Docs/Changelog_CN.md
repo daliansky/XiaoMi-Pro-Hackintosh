@@ -10,6 +10,7 @@
   - 更新 `AppleALC` v1.7.7
   - 更新 `WhateverGreen` v1.6.2
   - 更新 `HibernationFixup` v1.4.7
+  - 更新 `AirportItlwm` v2.2.0（更新至 [OpenIntelWireless/itlwm@6dc813f](https://github.com/OpenIntelWireless/itlwm/commit/6dc813f4498c816835831e0d3e321832391b768b)）
   - 更新 `IntelBluetoothFirmware` v2.3.0（更新至 [OpenIntelWireless/IntelBluetoothFirmware@693f2dc](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/693f2dcaefe218f7f0205957bfbe381cdf5354ae)）
 
 ### OC
