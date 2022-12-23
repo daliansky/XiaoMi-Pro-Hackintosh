@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=all
 
 PLEDIT='/usr/libexec/PlistBuddy'
 
