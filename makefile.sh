@@ -1242,10 +1242,10 @@ function genNote() {
     echo "${RLMSG}" >> ReleaseNotes.md
   fi
 
-  lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" ${changelogPath}) && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
-  lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" ${changelogPath} | tail -n1)
+  lineStart=$(grep -n "XiaoMi NoteBook Pro EFI v" "${changelogPath}") && lineStart=${lineStart%%:*} && lineStart=$((lineStart+1))
+  lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" "${changelogPath}" | tail -n1)
   lineEnd=${lineEnd%%:*} && lineEnd=$((lineEnd-3))
-  sed -n "${lineStart},${lineEnd}p" ${changelogPath} >> ReleaseNotes.md
+  sed -n "${lineStart},${lineEnd}p" "${changelogPath}" >> ReleaseNotes.md
 
   # Generate Cloudflare links when using GitHub Action to publish EFI release
   if [[ ${publish_efi} == true ]]; then
