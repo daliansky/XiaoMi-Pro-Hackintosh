@@ -64,7 +64,7 @@
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>HibernationFixup</key>
-		<false/>
+		<true/>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NoEarlyProgress</key>
@@ -169,30 +169,15 @@
 				<key>model</key>
 				<string>Intel Comet Lake PCH-LP LPSS: I2C Controller #4</string>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
-			<dict>
-				<key>reg-ltrovr</key>
-				<data>AAQAAAAAAAA=</data>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>model</key>
 				<string>Intel Comet Lake PCH-LP PCIe Port #5</string>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x1d,0x0)</key>
-			<dict>
-				<key>reg-ltrovr</key>
-				<data>AAQAAAAAAAA=</data>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1d,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>model</key>
 				<string>Intel Comet Lake PCH-LP PCIe Port #9</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1d,0x4)</key>
-			<dict>
-				<key>reg-ltrovr</key>
-				<data>AAQAAAAAAAA=</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1d,0x4)/Pci(0x0,0x0)</key>
 			<dict>

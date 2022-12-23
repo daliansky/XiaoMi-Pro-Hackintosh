@@ -2,6 +2,27 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.7.4
+## 2023-01-03
+
+### 更新
+  - 更新 `OpenCore` v0.8.8
+  - 更新 `AppleALC` v1.7.8
+  - 更新 `VoodooInput` v1.1.3
+
+### 新增
+  - 新增回 `NVMeFix` 来开启固态硬盘的 APST
+
+### OC
+  - OC: CML: 修改 `HibernateMode` 回 `Auto`
+
+### Clover
+  - Clover: CML: 启用 `HibernationFixup`
+
+### 更改
+  - config: 移除 `reg-ltrovr` 属性因为 tolerance latency 对黑苹果的影响未知
+
+
 ## [XiaoMi NoteBook Pro EFI v1.7.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.3)
 ## 2022-12-06
 

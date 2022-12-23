@@ -197,6 +197,7 @@ function download() {
     AppleALC
     HibernationFixup
     RestrictEvents
+    NVMeFix
     VoodooPS2
     BrcmPatchRAM
     Lilu
@@ -285,6 +286,7 @@ function install() {
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
+    "NVMeFix.kext"
     "NoTouchID.kext"
   # "RealtekCardReader.kext"
   # "RealtekCardReaderFriend.kext"

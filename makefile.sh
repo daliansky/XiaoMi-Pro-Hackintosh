@@ -144,6 +144,7 @@ acdtKexts=(
   AppleALC
   HibernationFixup
   RestrictEvents
+  NVMeFix
   VoodooPS2
   BrcmPatchRAM
 )
@@ -402,9 +403,9 @@ function bKextHelper() {
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
-    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents NoTouchID"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup NVMeFix RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents NoTouchID"
   elif [[ "${model_input}" =~ "KBL" ]]; then
-    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup NVMeFix RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents"
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
@@ -718,6 +719,7 @@ function install() {
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
+    "NVMeFix.kext"
     # "RealtekCardReader.kext"
     # "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
@@ -753,7 +755,6 @@ function install() {
       "11"
       "12"
       "13"
-      "Off"
     )
     local cmlCloverIbtInjctrDirs=(
       "10.15"
@@ -821,9 +822,6 @@ function install() {
       for noTouchIDDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/"; do
         cp -R "CML/NoTouchID.kext" "${noTouchIDDir}" || copyErr
       done
-
-      # CML: Move HibernationFixup.kext to Off folder for Clover due to Not booting after running out of battery issue (Ref: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/661)
-      mv "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Other/HibernationFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Off/HibernationFixup.kext" || exit 1
     fi
 
     # Move AirportItlwm to corresponding Clover and OC Kext folders
