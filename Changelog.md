@@ -2,13 +2,18 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.7.4
+## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
 ## 2023-01-03
 
 ### Upgrade
   - Update `OpenCore` v0.8.8
+  - Update `Lilu` v1.6.3
   - Update `AppleALC` v1.7.8
+  - Update `WhateverGreen` v1.6.3
   - Update `VoodooInput` v1.1.3
+  - Update `VoodooPS2` v2.3.3
+  - Update `VoodooI2C` v2.7.1
+  - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@e0f745e](https://github.com/OpenIntelWireless/itlwm/commit/e0f745e75156854b7e0d18299a48f31db23ced10))
 
 ### Add
   - Add back `NVMeFix` to enable APST on SSDs

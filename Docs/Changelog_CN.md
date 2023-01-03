@@ -2,13 +2,18 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.7.4
+## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
 ## 2023-01-03
 
 ### 更新
   - 更新 `OpenCore` v0.8.8
+  - 更新 `Lilu` v1.6.3
   - 更新 `AppleALC` v1.7.8
+  - 更新 `WhateverGreen` v1.6.3
   - 更新 `VoodooInput` v1.1.3
+  - 更新 `VoodooPS2` v2.3.3
+  - 更新 `VoodooI2C` v2.7.1
+  - 更新 `AirportItlwm` v2.2.0（更新至 [OpenIntelWireless/itlwm@e0f745e](https://github.com/OpenIntelWireless/itlwm/commit/e0f745e75156854b7e0d18299a48f31db23ced10)）
 
 ### 新增
   - 新增回 `NVMeFix` 来开启固态硬盘的 APST
