@@ -2,6 +2,16 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.7.5
+## 2023-02-07
+
+### Upgrade
+  - Update `OpenCore` v0.8.9
+  - Update `AppleALC` v1.7.9
+  - Update `HibernationFixup` v1.4.8
+  - Update `HfsPlus.efi` (up to [acidanthera/OcBinaryData@c2a9898](https://github.com/acidanthera/OcBinaryData/commit/c2a98980d30e39a571a2843ab26aa8d2b9188094))
+
+
 ## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
 ## 2023-01-03
 
