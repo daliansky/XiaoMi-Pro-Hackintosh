@@ -11,6 +11,9 @@
   - 更新 `HibernationFixup` v1.4.8
   - 更新 `HfsPlus.efi`（更新至 [acidanthera/OcBinaryData@c2a9898](https://github.com/acidanthera/OcBinaryData/commit/c2a98980d30e39a571a2843ab26aa8d2b9188094)）
 
+### OC
+  - OC: 更新 config 来支持 `OpenCore` v0.8.9
+
 
 ## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
 ## 2023-01-03
