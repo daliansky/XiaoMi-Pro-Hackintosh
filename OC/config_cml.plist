@@ -312,8 +312,6 @@
 			<true/>
 			<key>ResizeAppleGpuBars</key>
 			<integer>-1</integer>
-			<key>ResizeUsePciRbIo</key>
-			<false/>
 			<key>SetupVirtualMap</key>
 			<true/>
 			<key>SignalAppleOS</key>
@@ -1577,6 +1575,8 @@
 			<true/>
 			<key>ResizeGpuBars</key>
 			<integer>-1</integer>
+			<key>ResizeUsePciRbIo</key>
+			<false/>
 			<key>TscSyncTimeout</key>
 			<integer>0</integer>
 			<key>UnblockFsConnect</key>
