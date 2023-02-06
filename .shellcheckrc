@@ -1,6 +1,5 @@
-# Ignore A && B || C
-disable=SC2015
 # Ignore sudo redirects
 disable=SC2024
+
 # Ignore unused variables
 disable=SC2034

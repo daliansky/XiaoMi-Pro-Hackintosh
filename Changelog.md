@@ -3,13 +3,14 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 ## XiaoMi NoteBook Pro EFI v1.7.5
-## 2023-02-07
+## 2023-02-XX
 
 ### Upgrade
   - Update `OpenCore` v0.8.9
   - Update `AppleALC` v1.7.9
   - Update `HibernationFixup` v1.4.8
   - Update `HfsPlus.efi` (up to [acidanthera/OcBinaryData@c2a9898](https://github.com/acidanthera/OcBinaryData/commit/c2a98980d30e39a571a2843ab26aa8d2b9188094))
+  - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@7e384c0](https://github.com/OpenIntelWireless/itlwm/commit/7e384c08c1d7950613a3fde98b0efefc8bfb8c88))
 
 ### OC
   - OC: Update config to support `OpenCore` v0.8.9
