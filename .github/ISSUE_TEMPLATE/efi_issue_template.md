@@ -8,8 +8,7 @@ assignees: ''
 ---
 
 **Pre-requirement**
-- Try to rebuild the kextcache and restart whenever you encounter a problem. It always works like a charm!
-- To rebuild the kextcache, run `sudo kextcache -i /` in `Terminal.app`.
+- For macOS version < Big Sur, try to rebuild the kextcache (e.g. run `sudo kextcache -i /` in `Terminal.app`) and restart whenever you encounter a problem. It always works like a charm!
 - If you are using OpenCore, also try to reset NVRAM. Press `Space` key when you are in OpenCore boot page and choose `Reset NVRAM`.
 
 **State the model**

@@ -219,7 +219,7 @@ cd XiaoMi-Pro-Hackintosh
 
 #### [OC] 怎么开启启动音？（TM1701 & TM1707）
 
-修改 `config.plist - UEFI - Drivers` 中的 `#AudioDxe.efi` 为 `AudioDxe.efi`。  
+开启 `config.plist - UEFI - Drivers` 中的 `AudioDxe.efi`。  
 开启 `config.plist - UEFI - Audio` 中的 `AudioSupport`。  
 如果你在使用 macOS Big Sur，请前往 `系统偏好设置 - 声音` 并勾选 `启动时播放声音`。  
 如果在使用低于 Big Sur 的 macOS 版本，请打开 `终端.app` 并运行 `sudo nvram StartupMute=%00`。

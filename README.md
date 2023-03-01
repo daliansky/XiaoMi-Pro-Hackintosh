@@ -224,7 +224,7 @@ Open `config.plist` and change value of `LauncherOption` from `Full` to `System`
 
 #### [OC] How to enable startup chime? (TM1701 & TM1707)
 
-Change `#AudioDxe.efi` to `AudioDxe.efi` in `config.plist - UEFI - Drivers`.  
+Enable `AudioDxe.efi` in `config.plist - UEFI - Drivers`.  
 Enable `AudioSupport` in `config.plist - UEFI - Audio`.  
 If you are using macOS Big Sur, go to `SysPref - Sound` and turn on `Play sound on startup`.  
 For macOS version < Big Sur, open `Terminal.app` and run `sudo nvram StartupMute=%00`.
