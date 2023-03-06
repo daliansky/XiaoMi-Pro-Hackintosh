@@ -2,11 +2,23 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.7.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.6)
+## 2023-03-06
+
+### Upgrade
+  - Update `OpenCore` v0.9.0
+  - Update `Lilu` v1.6.4
+  - Update `AppleALC` v1.8.0
+  - Update `VirtualSMC` v1.3.1
+  - Update `VoodooPS2` v2.3.4
+
+
 ## [XiaoMi NoteBook Pro EFI v1.7.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.5)
 ## 2023-02-18
 
 ### Upgrade
   - Update `OpenCore` v0.8.9
+  - Update `Clover` r5151
   - Update `AppleALC` v1.7.9
   - Update `WhateverGreen` v1.6.4
   - Update `HibernationFixup` v1.4.8
