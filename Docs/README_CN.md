@@ -162,7 +162,7 @@ cd XiaoMi-Pro-Hackintosh
 - 如果你的机子是 小米笔记本Pro **10代** CPU，记为 **CML**（Comet Lake）机器。
 -----
 - 在 [release page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) 里下载最新 EFI release，或从 [action page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/actions) 的 Artifacts 里下载最新测试版 EFI release。
-- 挂载 EFI 分区，首先运行命令 `sudo diskutil list` 来找到 EFI 分区所在的分区标号，然后运行命令 `sudo diskutil mount diskXsX`（X 是你的 EFI 分区标号）
+- 挂载 EFI 分区，首先运行命令 `sudo diskutil list` 来找到 EFI 分区所在的分区标号，然后运行命令 `sudo diskutil mount diskXsX`（X 取自你的 EFI 分区标号）
 - 完整替换 `BOOT` 和 `OC`(或 `CLOVER`)文件夹。首先删除他们，然后从 [release 包里](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases)拷贝新的。
 
 
