@@ -2,6 +2,17 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.7.7
+## 2023-04-04
+
+### Upgrade
+  - Update `OpenCore` v0.9.1
+  - Update `AppleALC` v1.8.1
+
+### Remove
+  - Remove `NVMeFix` again due to 3rd party NVMe controller panic
+
+
 ## [XiaoMi NoteBook Pro EFI v1.7.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.6)
 ## 2023-03-06
 

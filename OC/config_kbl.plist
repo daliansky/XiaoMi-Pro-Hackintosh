@@ -644,7 +644,7 @@
 				<key>Comment</key>
 				<string>NVMe patches</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NVMeFix</string>
 				<key>MaxKernel</key>

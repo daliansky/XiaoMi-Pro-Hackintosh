@@ -144,7 +144,6 @@ acdtKexts=(
   AppleALC
   HibernationFixup
   RestrictEvents
-  NVMeFix
   VoodooPS2
   BrcmPatchRAM
 )
@@ -403,9 +402,9 @@ function bKextHelper() {
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
-    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup NVMeFix RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents NoTouchID"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents NoTouchID"
   elif [[ "${model_input}" =~ "KBL" ]]; then
-    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup NVMeFix RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents"
+    liluPlugins="AppleALC BrcmPatchRAM HibernationFixup RealtekCardReaderFriend VirtualSMC WhateverGreen RestrictEvents"
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
@@ -719,7 +718,6 @@ function install() {
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
-    "NVMeFix.kext"
     # "RealtekCardReader.kext"
     # "RealtekCardReaderFriend.kext"
     "Release/NullEthernet.kext"
