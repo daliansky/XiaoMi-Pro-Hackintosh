@@ -12,6 +12,9 @@
 ### Remove
   - Remove `NVMeFix` again due to 3rd party NVMe controller panic
 
+### OC
+  - OC: Update config to support `OpenCore` v0.9.1
+
 
 ## [XiaoMi NoteBook Pro EFI v1.7.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.6)
 ## 2023-03-06
