@@ -2,12 +2,15 @@
 
 [English](../Changelog.md) | **中文**
 
-## XiaoMi NoteBook Pro EFI v1.7.7
+## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)
 ## 2023-04-04
 
 ### 更新
   - 更新 `OpenCore` v0.9.1
   - 更新 `AppleALC` v1.8.1
+  - 更新 `BrcmPatchRAM` v2.6.5
+  - 更新 `VoodooPS2` v2.3.5
+  - 更新 `RestrictEvents` v1.1.0
 
 ### 移除
   - 移除 `NVMeFix` 因为它导致 3rd party NVMe controller 崩溃
