@@ -1,13 +1,17 @@
 // NOT Necessary hotpatch
-// Maintained by: Rehabman
+// Maintained by: Acidanthera and Rehabman
+// Reference: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-ALS0.dsl
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-ALS0.dsl
 // Fake ambient light sensor device
 
-DefinitionBlock ("", "SSDT", 2, "hack", "_ALS0", 0x00000000)
+/*
+ * Starting with macOS 10.15 Ambient Light Sensor presence is required for backlight functioning.
+ * Here we create an Ambient Light Sensor ACPI Device, which can be used by SMCLightSensor kext
+ * to report either dummy (when no device is present) or valid values through SMC interface.
+ */
+DefinitionBlock ("", "SSDT", 2, "ACDT", "_ALS0", 0x00000000)
 {
-    External (_SB_.PCI0.LPCB, DeviceObj)
-
-    Scope (_SB.PCI0.LPCB)
+    Scope (_SB)
     {
         Device (ALS0)
         {
