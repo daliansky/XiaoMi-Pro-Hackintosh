@@ -12,6 +12,7 @@ XiaoMi NoteBook Pro EFI v1.7.8
 ### 变更
   - KBL: ACPI: 重命名 `SSDT-PMC` 为 `SSDT-PMCR` 来避免和英特尔300系的 `SSDT-PMC` 混淆
   - ACPI: 更改 `SSDT-ALS0` 代码来源为 [Acidanthera 的 SSDT-ALS0](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-ALS0.dsl)
+  - ACPI: 重新构建 `SSDT-XCPM` 为 `SSDT-PLUG`，基于 [Acidanthera 的 SSDT-PLUG](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-PLUG.dsl)
 
 
 ## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)

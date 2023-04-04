@@ -898,10 +898,10 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-DDGPU.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-LGPA.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-MEM2.aml"
+      "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PLUG.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-PMCR.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-USB.aml"
-      "${REPO_NAME_BRANCH}/ACPI/KBL/SSDT-XCPM.aml"
     )
     if [[ ${remote} == false ]]; then
       kblAcpiItems=("${kblAcpiItems[@]/${REPO_NAME_BRANCH}/..}")
@@ -912,10 +912,10 @@ function install() {
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-AWAC-DISABLE.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-DDGPU.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-LGPA.aml"
+      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PLUG.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-PMC.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-TPD0.aml"
       "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-USB.aml"
-      "${REPO_NAME_BRANCH}/ACPI/CML/SSDT-XCPM.aml"
     )
     if [[ ${remote} == false ]]; then
       cmlAcpiItems=("${cmlAcpiItems[@]/${REPO_NAME_BRANCH}/..}")

@@ -88,6 +88,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Inject plugin-type=1</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PLUG.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Add PMCR device for Intel 100-series</string>
 				<key>Enabled</key>
 				<true/>
@@ -157,14 +165,6 @@
 				<false/>
 				<key>Path</key>
 				<string>SSDT-USB-FingerBT.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Inject plugin-type=1</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-XCPM.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
