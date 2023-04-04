@@ -178,6 +178,7 @@ Some advanced usages are:
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1424x802 HiDPI resolution
   - TM1701: On macOS > 10.13.6, to enable higher HiDPI resolution (<=1520x855), you need to use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to set DVMT to 64mb
+- Enable `AppleVTD` by patching OEM `DMAR` table according to [How to Fix DMAR Table on macOS | Memory Mapping](https://elitemacx86.com/threads/how-to-fix-dmar-table-on-macos-memory-mapping.964/)
 - Add `forceRenderStandby=0` in `config - NVRAM - Add - 7CXXX - boot-args` (OpenCore) or `config - Boot - Arguments` (Clover) if NVMe Kernel Panic CSTS=0xffffffff occurs
 - Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
