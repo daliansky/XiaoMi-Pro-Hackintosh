@@ -12,7 +12,7 @@
  * and allows the implementation of the time source to be abstracted from the OSPM.
  */
 
-DefinitionBlock ("", "SSDT", 2, "ACDT", "_NOAWAC", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "ACDT", "NOAWAC", 0x00000000)
 {
     External (STAS, IntObj)
 

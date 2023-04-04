@@ -27,7 +27,7 @@
  * NVRAM support.
  */
 
-DefinitionBlock ("", "SSDT", 2, "ACDT", "_PMCR", 0x00001000)
+DefinitionBlock ("", "SSDT", 2, "ACDT", "PMCR", 0x00001000)
 {
     External (_SB_.PCI0.LPCB, DeviceObj)
 
