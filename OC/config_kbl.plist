@@ -92,7 +92,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PMC.aml</string>
+				<string>SSDT-PMCR.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
