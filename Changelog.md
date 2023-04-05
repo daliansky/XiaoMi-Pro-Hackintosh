@@ -13,6 +13,8 @@ XiaoMi NoteBook Pro EFI v1.7.8
   - KBL: ACPI: Rename `SSDT-PMC` to `SSDT-PMCR` to avoid confusion with `SSDT-PMC` used on Intel 300-series
   - ACPI: Change `SSDT-ALS0` code source to [Acidanthera's SSDT-ALS0](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-ALS0.dsl)
   - ACPI: Re-structure `SSDT-XCPM` to `SSDT-PLUG` based on [Acidanthera's SSDT-PLUG](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-PLUG.dsl)
+  - ACPI: Change `SSDT-EC` to `SSDT-EC-USBX` to inject USBX device(which was done in `SSDT-USB`), according to [Acidanthera's SSDT-EC-USBX.dsl](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
+  - ACPI: Change `SSDT-USB*` to remove USBX device injection
 
 
 ## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)

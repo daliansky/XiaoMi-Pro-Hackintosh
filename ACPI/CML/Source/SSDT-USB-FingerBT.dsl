@@ -1,7 +1,7 @@
 // Optional hotpatch, pair with `Rename Method(_UPC,0,S) to XUPC` rename patch and SSDT-EC
 // Maintained by: stevezhengshiqi
 // Reference: https://github.com/daliansky/OC-little and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
-// USB power injection (work with SSDT-EC) and patch USB ports to enable all the ports (work with _UPC rename)
+// Patch USB ports to enable all the ports (work with _UPC rename)
 
 // HS01 -> HS USB3 near right
 // HS03 -> HS USB3 near left
@@ -54,41 +54,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_USB", 0x00000000)
     External (_SB_.PCI0.XHC_.RHUB.USR1, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.USR2, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.UUNS, PkgObj)
-
-    Device (_SB.USBX)
-    {
-        Name (_ADR, Zero)  // _ADR: Address
-        Method (_STA, 0, NotSerialized)  // _STA: Status
-        {
-            If (_OSI ("Darwin"))
-            {
-                Return (0x0F)
-            }
-            Else
-            {
-                Return (Zero)
-            }
-        }
-
-        Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-        {
-            If (!Arg2)
-            {
-                Return (Buffer (One)
-                {
-                     0x03
-                })
-            }
-
-            Return (Package (0x04)
-            {
-                "kUSBSleepPortCurrentLimit", 
-                0x0834, 
-                "kUSBWakePortCurrentLimit", 
-                0x0834
-            })
-        }
-    }
 
     Scope (_SB.PCI0.XHC.RHUB.HS01)  // HS USB3 near right
     {

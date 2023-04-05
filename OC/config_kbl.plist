@@ -32,11 +32,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Add EC device</string>
+				<string>Add EC and USBX devices</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-EC.aml</string>
+				<string>SSDT-EC-USBX.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -136,7 +136,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)</string>
+				<string>USB ports customization, pair with _UPC rename (Native Bluetooth)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -144,7 +144,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Disable native Bluetooth)</string>
+				<string>USB ports customization, pair with _UPC rename (Disable native Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -152,7 +152,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (WLAN_LTE Bluetooth)</string>
+				<string>USB ports customization, pair with _UPC rename (WLAN_LTE Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -160,7 +160,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power injection and customization, pair with SSDT-EC and _UPC rename (Fingerprint Bluetooth)</string>
+				<string>USB ports customization, pair with _UPC rename (Fingerprint Bluetooth)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
