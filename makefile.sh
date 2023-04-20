@@ -1204,6 +1204,7 @@ function extractOC() {
     cp -R "OpenCore/X64/EFI/BOOT" "${!OUTDir_MODEL_OC}/EFI/" || copyErr
     cp "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
     cp "OpenCore/X64/EFI/OC/.contentFlavour" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
+    cp "OpenCore/X64/EFI/OC/.contentVisibility" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
     for driverItem in "${driverItems[@]}"; do
       cp "${driverItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/" || copyErr
     done

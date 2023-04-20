@@ -16,6 +16,9 @@ XiaoMi NoteBook Pro EFI v1.7.8
   - ACPI: 更改 `SSDT-EC` 为 `SSDT-EC-USBX` 来注入 USBX 设备（之前由 `SSDT-USB` 来完成），参考 [Acidanthera 的 SSDT-EC-USBX.dsl](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
   - ACPI: 更改 `SSDT-USB*` 来移除 USBX 设备注入
 
+### OC
+  - OC: 更新 config 来支持 `OpenCore` v0.9.2
+
 
 ## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)
 ## 2023-04-04
