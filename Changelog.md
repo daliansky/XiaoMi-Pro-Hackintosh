@@ -3,11 +3,12 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 XiaoMi NoteBook Pro EFI v1.7.8
-## 2023-05-02
+## 2023-05-09
 
 ### Upgrade
   - Update `OpenCore` v0.9.2
   - Update `AppleALC` v1.8.2
+  - Update `RestrictEvents` v1.1.1
 
 ### Change
   - KBL: ACPI: Rename `SSDT-PMC` to `SSDT-PMCR` to avoid confusion with `SSDT-PMC` used on Intel 300-series
