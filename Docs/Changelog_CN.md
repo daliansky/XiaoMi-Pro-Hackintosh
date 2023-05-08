@@ -2,11 +2,12 @@
 
 [English](../Changelog.md) | **中文**
 
-XiaoMi NoteBook Pro EFI v1.7.8
-## 2023-05-09
+[XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
+## 2023-05-08
 
 ### 更新
   - 更新 `OpenCore` v0.9.2
+  - 更新 `Lilu` v1.6.5
   - 更新 `AppleALC` v1.8.2
   - 更新 `RestrictEvents` v1.1.1
 
