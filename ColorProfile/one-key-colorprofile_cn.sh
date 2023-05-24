@@ -4,9 +4,6 @@
 # stevezhengshiqi创建于2019.02.27
 # 仅支持小米笔记本Pro(NV156FHM-N61)
 
-# 参数
-CFURL="https://hackintosh.stevezheng.workers.dev"
-
 function init() {
     if [[ ${OSTYPE} != darwin* ]]; then
         echo "此脚本只能在 macOS 上运行，正在退出"
@@ -46,7 +43,7 @@ function download(){
     mkdir -p Desktop/one-key-colorprofile
     cd Desktop/one-key-colorprofile || exit 1
     echo "正在下载色彩描述文件..."
-    curl -L -O ${CFURL}/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/NV156FHM-N61.icm || networkWarn
+    curl -L -O https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/NV156FHM-N61.icm || networkWarn
     echo "下载完成"
     echo
 }

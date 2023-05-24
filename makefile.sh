@@ -11,8 +11,6 @@
 
 # Vars
 ACDT="Acidanthera"
-CFURL="https://hackintosh.stevezheng.workers.dev"
-CFURL_1="https\://hackintosh.stevezheng.workers.dev"
 FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 REPO_NAME="XiaoMi-Pro-Hackintosh"
@@ -282,17 +280,11 @@ function dGR() {
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
     if [[ "$2" == "build-repo" ]]; then
       rawURL="https://github.com/$1/$2/tags"
-      if [[ ${language} == "zh_CN" ]]; then
-        rawURL=${rawURL/#/${CFURL}/}
-      fi
       rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | sed -e 's/.*<a\ href="//' | cut -d "\"" -f1)"
     else
       rawURL="https://github.com/$1/$2/releases$tag"
     fi
     for hg in "${hgs[@]}"; do
-      if [[ ${language} == "zh_CN" ]]; then
-        rawURL=${rawURL/#/${CFURL}/}
-      fi
       rawURL=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL}" | sed 's/releases\/tag/releases\/expanded_assets/')
       urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
@@ -303,19 +295,12 @@ function dGR() {
       rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     fi
     for hg in "${hgs[@]}"; do
-      if [[ ${language} == "zh_CN" ]]; then
-        rawURL=${rawURL/#/${CFURL}/}
-      fi
       if [[ "$2" == "build-repo" ]]; then
         urls+=( "$(curl --silent "${rawURL}" | grep -A 100 'OpenCorePkg' | grep 'browser_download_url' | eval "${hg}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
       else
         urls+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${hg}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
       fi
     done
-  fi
-
-  if [[ ${language} == "zh_CN" ]]; then
-    urls=("${urls[@]/#/${CFURL}/}")
   fi
 
   for url in "${urls[@]}"; do
@@ -338,9 +323,6 @@ function dGR() {
 # Download GitHub Source Code
 function dGS() {
   local url="https://github.com/$1/$2/archive/$3.zip"
-  if [[ ${language} == "zh_CN" ]]; then
-    url=${url/#/${CFURL}/}
-  fi
   echo "${green}[${reset}${blue}${bold} Downloading $2.zip ${reset}${green}]${reset}"
   echo "${cyan}"
   cd ./"$4" || exit 1
@@ -382,9 +364,6 @@ function dBR() {
 # Download Pre-Built Binaries
 function dPB() {
   local url="https://raw.githubusercontent.com/$1/$2/master/$3"
-  if [[ ${language} == "zh_CN" ]]; then
-    url=${url/#/${CFURL}/}
-  fi
   echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
   echo "${cyan}"
   curl -# -L -O "${url}" || networkErr "${3##*\/}"
@@ -408,11 +387,7 @@ function bKextHelper() {
   fi
 
   echo "${green}[${reset}${blue}${bold} Building $2 ${reset}${green}]${reset}"
-  if [[ ${language} != "zh_CN" ]]; then
-    git clone --depth=1 -q https://github.com/"$1"/"$2".git || networkErr "$2"
-  else
-    git clone --depth=1 -q ${CFURL}/https://github.com/"$1"/"$2".git || networkErr "$2"
-  fi
+  git clone --depth=1 -q https://github.com/"$1"/"$2".git || networkErr "$2"
   cd "$2" || exit 1
   if [[ ${liluPlugins} =~ $2 ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
@@ -456,11 +431,6 @@ function bKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
     if [[ "$2" == "VoodooI2C" ]]; then
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
-
-      # Add Cloudflare redirect to gitmodules for Chinese users
-      if [[ ${language} == "zh_CN" ]]; then
-        /usr/bin/sed -i "" "s:https:${CFURL_1}/https:g" ".gitmodules"
-      fi
       git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
 
       if [[ -z ${GITHUB_ACTIONS+x} ]]; then
@@ -563,17 +533,9 @@ function bKext() {
     exit 1
   fi
 
-  if [[ ${language} != "zh_CN" ]]; then
-    git clone -q https://github.com/acidanthera/MacKernelSDK || networkErr "MacKernelSDK"
-    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "Lilu"
-    src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "VoodooInput"
-  else
-    git clone -q ${CFURL}/https://github.com/acidanthera/MacKernelSDK || networkErr "MacKernelSDK"
-    bKextHelper ${ACDT} "Lilu" "Debug"
-    bKextHelper ${ACDT} "VoodooInput"
-    rm -rf "Lilu" && rm -rf "VoodooInput"
-    mv "VoodooInput_build" "VoodooInput"
-  fi
+  git clone -q https://github.com/acidanthera/MacKernelSDK || networkErr "MacKernelSDK"
+  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "Lilu"
+  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "VoodooInput"
   if [[ ${model_input} =~ "CML" ]]; then
     bKextHelper al3xtjames NoTouchID "${build_mode}"
   fi
@@ -1130,21 +1092,7 @@ function install() {
     else
       kblAlcfixItems=("${kblAlcfixItems[@]/${REPO_NAME_BRANCH}/..}")
       cd "../" || exit 1
-
-      # Add Cloudflare redirect to gitmodules for Chinese users
-      if [[ ${language} == "zh_CN" ]]; then
-        cp -f ".gitmodules" ".gitmodules_bak" || copyErr
-        /usr/bin/sed -i "" "s:https:${CFURL_1}/https:g" ".gitmodules"
-      fi
-
       git submodule init -q "ALCPlugFix/ALCPlugFix_kbl" && git submodule update --remote -q "ALCPlugFix/ALCPlugFix_kbl"
-
-      # Restore .gitmodules
-      if [[ ${language} == "zh_CN" ]]; then
-        rm -f ".gitmodules" || exit 1
-        mv -f ".gitmodules_bak" ".gitmodules" || exit 1
-      fi
-
       cd "${WSDir}" || exit 1
     fi
 
@@ -1245,18 +1193,6 @@ function genNote() {
   lineEnd=$(grep -n -m2 "XiaoMi NoteBook Pro EFI v" "${changelogPath}" | tail -n1)
   lineEnd=${lineEnd%%:*} && lineEnd=$((lineEnd-3))
   sed -n "${lineStart},${lineEnd}p" "${changelogPath}" >> ReleaseNotes.md
-
-  # Generate Cloudflare links when using GitHub Action to publish EFI release
-  if [[ ${publish_efi} == true ]]; then
-    echo "-----" >> ReleaseNotes.md
-    printf "#### 国内加速下载链接：\nDownload link for China:\n" >> ReleaseNotes.md
-    for model in "${model_list[@]}"; do
-      OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-      OUTDir_MODEL_OC="OUTDir_${model}_OC"
-      echo "- [${!OUTDir_MODEL_CLOVER}.zip](${CFURL}/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/${!OUTDir_MODEL_CLOVER}.zip)" >> ReleaseNotes.md
-      echo "- [${!OUTDir_MODEL_OC}.zip](${CFURL}/https://github.com/daliansky/${REPO_NAME}/releases/download/${CUR_TAG}/${!OUTDir_MODEL_OC}.zip)" >> ReleaseNotes.md
-    done
-  fi
 
   for model in "${model_list[@]}"; do
     OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"

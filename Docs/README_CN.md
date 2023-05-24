@@ -128,7 +128,7 @@
  
 如果要构建最新测试版EFI，在终端输入以下命令：
 ```shell
-sh -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/makefile.sh)"
 ```
 或者在终端输入以下命令：
 ```shell

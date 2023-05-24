@@ -8,10 +8,6 @@
 # Reference:
 # https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh by @williambj1
 
-# Vars
-CFURL="https://hackintosh.stevezheng.workers.dev"
-systemLanguage=$(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1)
-
 # Colors
 black=$(tput setaf 0)
 red=$(tput setaf 1)
@@ -53,9 +49,6 @@ function init() {
 # Download iasl from Acidanthera's MaciASL repository
 function download() {
   local url="https://raw.githubusercontent.com/$1/$2/master/$3"
-  if [[ ${systemLanguage} == "zh_CN" ]]; then
-    url=${url/#/${CFURL}/}
-  fi
   echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
   echo "${cyan}"
   curl -# -L -O "${url}" || networkErr "${3##*\/}"

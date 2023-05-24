@@ -10,14 +10,12 @@
 
 # Vars
 ACDT="Acidanthera"
-CFURL="https://hackintosh.stevezheng.workers.dev"
 FRWF="0xFireWolf"
 OIW="OpenIntelWireless"
 RETRY_MAX=5
 
 download_mode="RELEASE"
 gh_api=false
-systemLanguage=$(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1)
 
 # Colors
 black=$(tput setaf 0)
@@ -113,24 +111,14 @@ function dGR() {
   if [[ -n ${GITHUB_ACTIONS+x} || ${gh_api} == false ]]; then
     rawURL="https://github.com/$1/$2/releases$tag"
     for hg in "${hgs[@]}"; do
-      if [[ ${systemLanguage} == "zh_CN" ]]; then
-        rawURL=${rawURL/#/${CFURL}/}
-      fi
       rawURL=$(curl -Ls -o /dev/null -w "%{url_effective}" "${rawURL}" | sed 's/releases\/tag/releases\/expanded_assets/')
       urls+=( "https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')" )
     done
   else
     rawURL="https://api.github.com/repos/$1/$2/releases$tag"
     for hg in "${hgs[@]}"; do
-      if [[ ${systemLanguage} == "zh_CN" ]]; then
-        rawURL=${rawURL/#/${CFURL}/}
-      fi
       urls+=( "$(curl --silent "${rawURL}" | grep 'browser_download_url' | eval "${hg}" | tr -d '"' | tr -d ' ' | sed -e 's/browser_download_url://')" )
     done
-  fi
-
-  if [[ ${systemLanguage} == "zh_CN" ]]; then
-    urls=("${urls[@]/#/${CFURL}/}")
   fi
 
   for url in "${urls[@]}"; do
@@ -149,9 +137,6 @@ function dGR() {
 # Download GitHub Source Code
 function dGS() {
   local url="https://github.com/$1/$2/archive/master.zip"
-  if [[ ${systemLanguage} == "zh_CN" ]]; then
-    url=${url/#/${CFURL}/}
-  fi
   echo "${green}[${reset}${blue}${bold} Downloading $2.zip ${reset}${green}]${reset}"
   echo "${cyan}"
   cd ./"$3" || exit 1

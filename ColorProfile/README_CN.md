@@ -16,7 +16,7 @@
 1. 在终端输入以下命令并回车：
 
 ```shell
-sh -c "$(curl -fsSL https://hackintosh.stevezheng.workers.dev/https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/one-key-colorprofile_cn.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daliansky/XiaoMi-Pro-Hackintosh/main/ColorProfile/one-key-colorprofile_cn.sh)"
 ```
 
 - 或者你也可以手动把色彩文件放入 `/Library/ColorSync/Profiles/`
