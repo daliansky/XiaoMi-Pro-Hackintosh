@@ -2,6 +2,15 @@
 
 [English](../Changelog.md) | **中文**
 
+XiaoMi NoteBook Pro EFI v1.7.9
+## 2023-06-06
+
+### 更新
+  - 更新 `OpenCore` v0.9.3
+  - 更新 `Lilu` v1.6.6
+  - 更新 `AirportItlwm` v2.2.0（更新至 [OpenIntelWireless/itlwm@485fc16](https://github.com/OpenIntelWireless/itlwm/commit/485fc16ad29365fcf5856705a97fd4399b7f5ef6)）
+
+
 [XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
 ## 2023-05-08
 
