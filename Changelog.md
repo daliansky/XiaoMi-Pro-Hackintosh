@@ -13,6 +13,9 @@ XiaoMi NoteBook Pro EFI v1.7.9
   - Update `AppleALC` v1.8.3
   - Update `AirportItlwm` v2.3.0 (up to [OpenIntelWireless/itlwm@dac62b9](https://github.com/OpenIntelWireless/itlwm/commit/dac62b94dde2ef960019bad86ff657158082eeb8))
 
+### OC
+  - Update `MinKernel` and `MaxKernel` based on [OpenCorePkg/Docs/Kexts.md](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Kexts.md)
+
 
 [XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
 ## 2023-05-08
