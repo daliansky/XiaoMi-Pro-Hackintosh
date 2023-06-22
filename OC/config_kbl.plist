@@ -630,7 +630,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/HibernationFixup</string>
 				<key>MaxKernel</key>
-				<string>22.9.9</string>
+				<string>23.9.9</string>
 				<key>MinKernel</key>
 				<string>12.0.0</string>
 				<key>PlistPath</key>
