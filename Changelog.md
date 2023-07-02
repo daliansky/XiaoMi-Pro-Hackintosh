@@ -3,7 +3,7 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 XiaoMi NoteBook Pro EFI v1.7.9
-## 2023-06-13
+## 2023-XX-XX
 
 ### Upgrade
   - Update `OpenCore` v0.9.3
@@ -12,6 +12,9 @@ XiaoMi NoteBook Pro EFI v1.7.9
   - Update `VirtualSMC` v1.3.2
   - Update `AppleALC` v1.8.3
   - Update `AirportItlwm` v2.3.0 (up to [OpenIntelWireless/itlwm@dac62b9](https://github.com/OpenIntelWireless/itlwm/commit/dac62b94dde2ef960019bad86ff657158082eeb8))
+
+### Remove
+  - Remove `SSDT-DMAC` because it is only related to AppleSmartIO2/AppleWWANSupport/AudioDMAController/AMDRadeonX5000GLDriver/AMDRadeonX4000GLDriver/AMDRadeonX6000GLDriver
 
 ### OC
   - Update `MinKernel` and `MaxKernel` based on [OpenCorePkg/Docs/Kexts.md](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Kexts.md)

@@ -846,7 +846,6 @@ function install() {
   # ACPI
   local sharedAcpiItems=(
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-ALS0.aml"
-    "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-DMAC.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-EC-USBX.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-GPRW.aml"
     "${REPO_NAME_BRANCH}/ACPI/Shared/SSDT-HPET.aml"
