@@ -139,21 +139,21 @@ cd XiaoMi-Pro-Hackintosh
 还有一些进阶用法：
 ```shell
 # 构建EFI时使用 Debug 版 kexts 和 OpenCore
-./makefile.sh --debug_KextOC
+./makefile.sh --DEBUG_KEXTOC
 # 忽略脚本运行时遇到的错误
-./makefile.sh --ignore_err
+./makefile.sh --IGNORE_ERR
 # 使用中文版文档
-./makefile.sh --lang=zh_CN
+./makefile.sh --LANG=zh_CN
 # 生成 Comet Lake 机型的 EFI包
-./makefile.sh --model=CML
+./makefile.sh --MODEL=CML
 # 构建时保留工程文件
-./makefile.sh --no_clean_up
+./makefile.sh --NO_CLEAN_UP
 # 使用 GitHub API
-./makefile.sh --gh_api
+./makefile.sh --GH_API
 # 构建包含最新 pre-release 驱动的测试版EFI
-./makefile.sh --pre_release=Kext
+./makefile.sh --PRE_RELEASE=Kext
 # 构建包含最新 pre-release OpenCore 的测试版EFI
-./makefile.sh --pre_release=OC
+./makefile.sh --PRE_RELEASE=OC
 ```
 
 

@@ -144,21 +144,21 @@ cd XiaoMi-Pro-Hackintosh
 Some advanced usages are:
 ```shell
 # Build EFI with kexts and OpenCore in Debug version
-./makefile.sh --debug_KextOC
+./makefile.sh --DEBUG_KEXTOC
 # Ignore errors when the script is running
-./makefile.sh --ignore_err
+./makefile.sh --IGNORE_ERR
 # Bundled with Chinese verison Docs
-./makefile.sh --lang=zh_CN
+./makefile.sh --LANG=zh_CN
 # Generate EFI release for Comet Lake model
-./makefile.sh --model=CML
+./makefile.sh --MODEL=CML
 # Preserve work files during the building stage
-./makefile.sh --no_clean_up
+./makefile.sh --NO_CLEAN_UP
 # Use GitHub API
-./makefile.sh --gh_api
+./makefile.sh --GH_API
 # Build the latest beta EFI with pre-release kexts
-./makefile.sh --pre_release=Kext
+./makefile.sh --PRE_RELEASE=Kext
 # Build the latest beta EFI with pre-release OpenCore
-./makefile.sh --pre_release=OC
+./makefile.sh --PRE_RELEASE=OC
 ```
 
 

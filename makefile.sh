@@ -62,35 +62,35 @@ while [[ $# -gt 0 ]]; do
   key="$1"
 
   case "${key}" in
-    --debug_KextOC)
+    --DEBUG_KEXTOC)
     build_mode="Debug"
     download_mode="DEBUG"
     shift # past argument
     ;;
-    --ignore_err)
+    --IGNORE_ERR)
     err_no_exit=true
     shift # past argument
     ;;
-    --lang=zh_CN)
+    --LANG=zh_CN)
     language="zh_CN"
     shift # past argument
     ;;
-    --no_clean_up)
+    --NO_CLEAN_UP)
     clean_up=false
     shift # past argument
     ;;
-    --gh_api)
+    --GH_API)
     gh_api=true
     shift # past argument
     ;;
     *)
-    if [[ "${key}" =~ "--version=" ]]; then
+    if [[ "${key}" =~ "--VERSION=" ]]; then
       version="${key##*=}"
       shift
-    elif [[ "${key}" =~ "--pre_release=" ]]; then
+    elif [[ "${key}" =~ "--PRE_RELEASE=" ]]; then
       pre_release+="${key##*=}"
       shift
-    elif [[ "${key}" =~ "--model=" ]]; then
+    elif [[ "${key}" =~ "--MODEL=" ]]; then
       model_input+="${key##*=}"
       shift
     else

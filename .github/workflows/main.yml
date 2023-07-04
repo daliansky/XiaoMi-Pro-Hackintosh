@@ -36,7 +36,7 @@ jobs:
 
       - name: Run makefile
         run: |
-          ./makefile.sh --version=${CUR_TAG} --pre_release=Kext --pre_release=OC --model=CMLKBL
+          ./makefile.sh --VERSION=${CUR_TAG} --PRE_RELEASE=Kext --PRE_RELEASE=OC --MODEL=CMLKBL
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
