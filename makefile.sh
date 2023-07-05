@@ -218,7 +218,7 @@ function init() {
   local dirs=( )
 
   if [[ ${OSTYPE} != darwin* ]]; then
-    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: This script can only run in macOS, aborting"
+    echo "ERROR: This script can only run in macOS, aborting"
     exit 1
   fi
 
