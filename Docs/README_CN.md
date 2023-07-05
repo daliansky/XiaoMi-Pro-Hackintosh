@@ -138,22 +138,22 @@ cd XiaoMi-Pro-Hackintosh
 ```
 还有一些进阶用法：
 ```shell
+# 构建EFI时使用 Clover 和 OpenCore 引导（1. --BL=CLOVER 仅 Clover 2. --BL=OC 默认，仅 OpenCore 3. --BL=CLOVEROC 同时 Clover 和 OpenCore）
+./makefile.sh --BL=CLOVEROC
 # 构建EFI时使用 Debug 版 kexts 和 OpenCore
 ./makefile.sh --DEBUG_KEXTOC
 # 忽略脚本运行时遇到的错误
 ./makefile.sh --IGNORE_ERR
-# 使用中文版文档
+# 使用中文版文档（1. --LANG=en_US 默认 2. --LANG=zh_CN 中文版文档）
 ./makefile.sh --LANG=zh_CN
-# 生成 Comet Lake 机型的 EFI包
-./makefile.sh --MODEL=CML
+# 同时生成第10代和第8代机型的EFI包（1. --MODEL=CML 仅第10代 2. --MODEL=KBL 默认，仅第8代 3. --MODEL=CMLKBL 同时第10代和第8代）
+./makefile.sh --MODEL=CMLKBL
 # 构建时保留工程文件
 ./makefile.sh --NO_CLEAN_UP
 # 使用 GitHub API
 ./makefile.sh --GH_API
-# 构建包含最新 pre-release 驱动的测试版EFI
-./makefile.sh --PRE_RELEASE=Kext
-# 构建包含最新 pre-release OpenCore 的测试版EFI
-./makefile.sh --PRE_RELEASE=OC
+# 构建包含最新 pre-release 驱动和 OpenCore 的测试版EFI（1. --PRE_RELEASE=Kext Pre-release 驱动 2. --PRE_RELEASE=OC Pre-release OpenCore 3. --PRE_RELEASE=KextOC 同时 pre-release 驱动和 OpenCore）
+./makefile.sh --PRE_RELEASE=KextOC
 ```
 
 

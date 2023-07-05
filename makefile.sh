@@ -19,8 +19,10 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**macOS14.0 NOT SUPPORTED.<br />EFI upgrade instructions are given [here](https://github.com/daliansky/XiaoMi-Pro-Hackintosh#upgrade).<br />To receive OEM updates, set SecureBootModel = Default (OC, risky) or go to App Store and search Ventura (or newer macOS).**"
+RLMSG="** NOT TESTED ON macOS14.0.<br />EFI upgrade instructions are given [here](https://github.com/daliansky/XiaoMi-Pro-Hackintosh#upgrade).<br />To receive OEM updates, set SecureBootModel = Default (OC, risky) or go to App Store and search Ventura (or newer macOS).**"
 
+bl_input=""
+bl_list=( )
 build_mode="Release"
 clean_up=true
 download_mode="RELEASE"
@@ -93,6 +95,9 @@ while [[ $# -gt 0 ]]; do
     elif [[ "${key}" =~ "--MODEL=" ]]; then
       model_input+="${key##*=}"
       shift
+    elif [[ "${key}" =~ "--BL=" ]]; then
+      bl_input+="${key##*=}"
+      shift
     else
       shift
     fi
@@ -107,10 +112,23 @@ if [[ "${model_input}" =~ "KBL" ]]; then
   model_list+=( "KBL" )
 fi
 
+if [[ "${bl_input}" =~ "CLOVER" ]]; then
+  bl_list+=( "CLOVER" )
+fi
+if [[ "${bl_input}" =~ "OC" ]]; then
+  bl_list+=( "OC" )
+fi
+
 # Assign KBL when no MODEL is entered
 if [[ ${#model_list[@]} -eq 0 ]]; then
   model_input="KBL"
   model_list=( "KBL" )
+fi
+
+# Assign OC when no bootloader is entered
+if [[ ${#bl_list[@]} -eq 0 ]]; then
+  bl_input="OC"
+  bl_list=( "OC" )
 fi
 
 # Colors
@@ -197,8 +215,10 @@ function buildErr() {
 }
 
 function init() {
+  local dirs=( )
+
   if [[ ${OSTYPE} != darwin* ]]; then
-    echo "This script can only run in macOS, aborting"
+    echo "${yellow}[${reset}${red}${bold} ERROR ${reset}${yellow}]${reset}: This script can only run in macOS, aborting"
     exit 1
   fi
 
@@ -208,18 +228,18 @@ function init() {
   mkdir "${WSDir}" || exit 1
   cd "${WSDir}" || exit 1
 
-  local dirs=(
-    "Clover"
-    "OpenCore"
-  )
+  if [[ "${bl_input}" =~ "CLOVER" ]]; then
+    dirs+=( "Clover" )
+  fi
+  if [[ "${bl_input}" =~ "OC" ]]; then
+    dirs+=( "OpenCore" )
+  fi
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
-    dirs+=(
-      "${!OUTDir_MODEL_CLOVER}"
-      "${!OUTDir_MODEL_OC}"
-      "${model}"
-    )
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      dirs+=( "${!OUTDir_MODEL_BL}" )
+    done
+    dirs+=( "${model}" )
   done
   for dir in "${dirs[@]}"; do
     mkdir -p "${dir}" || exit 1
@@ -561,13 +581,17 @@ function bKext() {
 
 function download() {
   # Clover
-  dGR CloverHackyColor CloverBootloader NULL "Clover"
+  if [[ "${bl_input}" =~ "CLOVER" ]]; then
+    dGR CloverHackyColor CloverBootloader NULL "Clover"
+  fi
 
   # OpenCore
-  if [[ "${pre_release}" =~ "OC" ]]; then
-    dGR dortania build-repo NULL "OpenCore" "skip" || dGR ${ACDT} OpenCorePkg NULL "OpenCore"
-  else
-    dGR ${ACDT} OpenCorePkg NULL "OpenCore"
+  if [[ "${bl_input}" =~ "OC" ]]; then
+    if [[ "${pre_release}" =~ "OC" ]]; then
+      dGR dortania build-repo NULL "OpenCore" "skip" || dGR ${ACDT} OpenCorePkg NULL "OpenCore"
+    else
+      dGR ${ACDT} OpenCorePkg NULL "OpenCore"
+    fi
   fi
 
   # Kexts
@@ -710,16 +734,18 @@ function install() {
     if [[ "${pre_release}" =~ "Kext" ]]; then
       cmlWifiKextItems=("${cmlWifiKextItems[@]/#/CML/}")
     fi
-    local cmlCloverKextFolders=(
-      "10.15"
-      "11"
-      "12"
-      "13"
-    )
-    local cmlCloverIbtInjctrDirs=(
-      "10.15"
-      "11"
-    )
+    if [[ "${bl_input}" =~ "CLOVER" ]]; then
+      local cmlCloverKextFolders=(
+        "10.15"
+        "11"
+        "12"
+        "13"
+      )
+      local cmlCloverIbtInjctrDirs=(
+        "10.15"
+        "11"
+      )
+    fi
   fi
   if [[ "${model_input}" =~ "KBL" ]]; then
     local kblKextItems=(
@@ -743,83 +769,99 @@ function install() {
     if [[ "${pre_release}" =~ "Kext" ]]; then
       kblWifiKextItems=("${kblWifiKextItems[@]/#/KBL/}")
     fi
-    local kblCloverKextFolders=(
-      "10.15"
-      "11"
-      "12"
-      "13"
-    )
-    local kblCloverIbtInjctrDirs=(
-      "10.15"
-      "11"
-    )
+    if [[ "${bl_input}" =~ "CLOVER" ]]; then
+      local kblCloverKextFolders=(
+        "10.15"
+        "11"
+        "12"
+        "13"
+      )
+      local kblCloverIbtInjctrDirs=(
+        "10.15"
+        "11"
+      )
+    fi
   fi
 
   echo "${green}[${reset}${blue}${bold} Installing Kexts ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
     model_prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     model_kextItems="${model_prefix}KextItems"
     model_wifiKextItems="${model_prefix}WifiKextItems"
-    model_cloverKextFolders="${model_prefix}CloverKextFolders"
-    model_cloverIbtInjctrDirs="${model_prefix}CloverIbtInjctrDirs"
     kextItems="${model_kextItems}[@]"
-    for kextDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/Other/" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/"; do
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      if [[ "${bl}" == "CLOVER" ]]; then
+        cloverKextFolder="${model_cloverKextFolders}[@]"
+        kextDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/Other/"
+        model_cloverKextFolders="${model_prefix}CloverKextFolders"
+        model_cloverIbtInjctrDirs="${model_prefix}CloverIbtInjctrDirs"
+
+        for cloverKextFolder in "${!cloverKextFolder}"; do
+          mkdir -p "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/${cloverKextFolder}" || exit 1
+        done
+      elif [[ "${bl}" == "OC" ]]; then
+        kextDir="${!OUTDir_MODEL_BL}/EFI/OC/Kexts/"
+      fi
       mkdir -p "${kextDir}" || exit 1
       for kextItem in "${!kextItems}"; do
         cp -R "${kextItem}" "${kextDir}" || copyErr
       done
-    done
 
-    cloverKextFolder="${model_cloverKextFolders}[@]"
-    for cloverKextFolder in "${!cloverKextFolder}"; do
-      mkdir -p "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${cloverKextFolder}" || exit 1
-    done
-
-    if [[ "${model}" == "CML" ]]; then
       # CML: NoTouchID.kext
-      for noTouchIDDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/"; do
+      if [[ "${model}" == "CML" ]]; then
+        if [[ "${bl}" == "CLOVER" ]]; then
+          noTouchIDDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15"
+        elif [[ "${bl}" == "OC" ]]; then
+          noTouchIDDir="${!OUTDir_MODEL_BL}/EFI/OC/Kexts/"
+        fi
         cp -R "CML/NoTouchID.kext" "${noTouchIDDir}" || copyErr
-      done
-    fi
+      fi
 
-    # Move AirportItlwm to corresponding Clover and OC Kext folders
-    if [[ "${pre_release}" =~ "Kext" ]]; then
-      cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
-      cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
-      cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
-      cp -R "${model}/Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/13" || copyErr
-    else
-      cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/11" || copyErr
-      cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/10.15" || copyErr
-      cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
-      cp -R "Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/13" || copyErr
-    fi
+      # Move AirportItlwm to corresponding Clover and OC Kext folders
+      if [[ "${bl}" == "CLOVER" ]]; then
+        if [[ "${pre_release}" =~ "Kext" ]]; then
+          cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11" || copyErr
+          cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15" || copyErr
+          cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12" || copyErr
+          cp -R "${model}/Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13" || copyErr
+        else
+          cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11" || copyErr
+          cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15" || copyErr
+          cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12" || copyErr
+          cp -R "Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13" || copyErr
+        fi
 
-    kextItems="${model_wifiKextItems}[@]"
-    for kextItem in "${!kextItems}"; do
-      cp -R "${kextItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
-    done
+      elif [[ "${bl}" == "OC" ]]; then
+        kextItems="${model_wifiKextItems}[@]"
+        for kextItem in "${!kextItems}"; do
+          cp -R "${kextItem}" "${!OUTDir_MODEL_BL}/EFI/OC/Kexts/" || copyErr
+        done
+      fi
 
-    # Move IntelBluetoothInjector and BlueToolFixup to corresponding Clover and OC Kext folders
-    kextDirs="${model_cloverIbtInjctrDirs}[@]"
-    for kextDir in "${!kextDirs}"; do
-      if [[ "${pre_release}" =~ "Kext" ]]; then
-        cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
-      else
-        cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+      # Move IntelBluetoothInjector and BlueToolFixup to corresponding Clover and OC Kext folders
+      if [[ "${bl}" == "CLOVER" ]]; then
+        kextDirs="${model_cloverIbtInjctrDirs}[@]"
+        for kextDir in "${!kextDirs}"; do
+          if [[ "${pre_release}" =~ "Kext" ]]; then
+            cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+          else
+            cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/${kextDir}" || copyErr
+          fi
+        done
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12" || copyErr
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13" || copyErr
+      fi
+
+      if [[ "${bl}" == "OC" ]]; then
+        if [[ "${pre_release}" =~ "Kext" ]]; then
+          cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_BL}/EFI/OC/Kexts/" || copyErr
+        else
+          cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_BL}/EFI/OC/Kexts/" || copyErr
+        fi
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/OC/Kexts/" || copyErr
       fi
     done
-    cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/12" || copyErr
-    cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/kexts/13" || copyErr
-
-    if [[ "${pre_release}" =~ "Kext" ]]; then
-      cp -R "${model}/IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
-    else
-      cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
-    fi
-    cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_OC}/EFI/OC/Kexts/" || copyErr
   done
   echo
 
@@ -831,15 +873,21 @@ function install() {
 
   echo "${green}[${reset}${blue}${bold} Installing Drivers ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
-    for driverDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/"; do
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      if [[ "${bl}" == "CLOVER" ]]; then
+        driverDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/drivers/UEFI/"
+      elif [[ "${bl}" == "OC" ]]; then
+        driverDir="${!OUTDir_MODEL_BL}/EFI/OC/Drivers/"
+      fi
       mkdir -p "${driverDir}" || exit 1
       for driverItem in "${driverItems[@]}"; do
         cp "${driverItem}" "${driverDir}" || copyErr
       done
+      if [[ "${bl}" == "CLOVER" ]]; then
+        cp "VirtualSmc.efi" "${!OUTDir_MODEL_BL}/EFI/CLOVER/drivers/UEFI/" || copyErr
+      fi
     done
-    cp "VirtualSmc.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
   done
   echo
 
@@ -885,12 +933,16 @@ function install() {
 
   echo "${green}[${reset}${blue}${bold} Installing ACPIs ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
     model_prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     model_acpiItems="${model_prefix}AcpiItems"
     acpiItems="${model_acpiItems}[@]"
-    for acpiDir in "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/ACPI/patched/" "${!OUTDir_MODEL_OC}/EFI/OC/ACPI/"; do
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      if [[ "${bl}" == "CLOVER" ]]; then
+        acpiDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/ACPI/patched/"
+      elif [[ "${bl}" == "OC" ]]; then
+        acpiDir="${!OUTDir_MODEL_BL}/EFI/OC/ACPI/"
+      fi
       mkdir -p "${acpiDir}" || exit 1
       for acpiItem in "${!acpiItems}"; do
         cp "${acpiItem}" "${acpiDir}" || copyErr
@@ -902,52 +954,56 @@ function install() {
   # Theme
   echo "${green}[${reset}${blue}${bold} Installing Themes ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
-    if [[ ${remote} == true ]]; then
-      cp -R "${REPO_NAME_BRANCH}/CLOVER/themes" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
-    else
-      cp -R "../CLOVER/themes" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
-    fi
-
-    cp -R "OcBinaryData-master/Resources" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      if [[ "${bl}" == "CLOVER" ]]; then
+        if [[ ${remote} == true ]]; then
+          cp -R "${REPO_NAME_BRANCH}/CLOVER/themes" "${!OUTDir_MODEL_BL}/EFI/CLOVER/" || copyErr
+        else
+          cp -R "../CLOVER/themes" "${!OUTDir_MODEL_BL}/EFI/CLOVER/" || copyErr
+        fi
+      elif [[ "${bl}" == "OC" ]]; then
+        cp -R "OcBinaryData-master/Resources" "${!OUTDir_MODEL_BL}/EFI/OC/" || copyErr
+      fi
+    done
   done
   echo
 
   # config & README & LICENSE & SECURITY
   echo "${green}[${reset}${blue}${bold} Installing config & README & LICENSE ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
     model_prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     model_config="config_${model_prefix}.plist"
-    if [[ ${remote} == true ]]; then
-      cp "${REPO_NAME_BRANCH}/CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
-    # cp "${REPO_NAME_BRANCH}/CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
-      cp "${REPO_NAME_BRANCH}/OC/${model_config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
-      for readmeDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
-        if [[ ${language} == "en_US" ]]; then
-          cp "${REPO_NAME_BRANCH}/README.md" "${readmeDir}" || copyErr
-        elif [[ ${language} == "zh_CN" ]]; then
-          cp "${REPO_NAME_BRANCH}/Docs/README_CN.md" "${readmeDir}" || copyErr
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      if [[ ${remote} == true ]]; then
+        if [[ "${bl}" == "CLOVER" ]]; then
+          cp "${REPO_NAME_BRANCH}/CLOVER/${model_config}" "${!OUTDir_MODEL_BL}/EFI/CLOVER/config.plist" || copyErr
+        elif [[ "${bl}" == "OC" ]]; then
+          cp "${REPO_NAME_BRANCH}/OC/${model_config}" "${!OUTDir_MODEL_BL}/EFI/OC/config.plist" || copyErr
         fi
-        cp "${REPO_NAME_BRANCH}/LICENSE" "${readmeDir}" || copyErr
-        cp "${REPO_NAME_BRANCH}/SECURITY.md" "${readmeDir}" || copyErr
-      done
-    else
-      cp "../CLOVER/${model_config}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/config.plist" || copyErr
-    # cp "../CLOVER/config-oc.plist" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
-      cp "../OC/${model_config}" "${!OUTDir_MODEL_OC}/EFI/OC/config.plist" || copyErr
-      for readmeDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
         if [[ ${language} == "en_US" ]]; then
-          cp "../README.md" "${readmeDir}" || copyErr
+          cp "${REPO_NAME_BRANCH}/README.md" "${!OUTDir_MODEL_BL}" || copyErr
         elif [[ ${language} == "zh_CN" ]]; then
-          cp "../Docs/README_CN.md" "${readmeDir}" || copyErr
+          cp "${REPO_NAME_BRANCH}/Docs/README_CN.md" "${!OUTDir_MODEL_BL}" || copyErr
         fi
-        cp "../LICENSE" "${readmeDir}" || copyErr
-        cp "../SECURITY.md" "${readmeDir}" || copyErr
-      done
-    fi
+        cp "${REPO_NAME_BRANCH}/LICENSE" "${!OUTDir_MODEL_BL}" || copyErr
+        cp "${REPO_NAME_BRANCH}/SECURITY.md" "${!OUTDir_MODEL_BL}" || copyErr
+      else
+        if [[ "${bl}" == "CLOVER" ]]; then
+          cp "../CLOVER/${model_config}" "${!OUTDir_MODEL_BL}/EFI/CLOVER/config.plist" || copyErr
+        elif [[ "${bl}" == "OC" ]]; then
+          cp "../OC/${model_config}" "${!OUTDir_MODEL_BL}/EFI/OC/config.plist" || copyErr
+        fi
+        if [[ ${language} == "en_US" ]]; then
+          cp "../README.md" "${!OUTDir_MODEL_BL}" || copyErr
+        elif [[ ${language} == "zh_CN" ]]; then
+          cp "../Docs/README_CN.md" "${!OUTDir_MODEL_BL}" || copyErr
+        fi
+        cp "../LICENSE" "${!OUTDir_MODEL_BL}" || copyErr
+        cp "../SECURITY.md" "${!OUTDir_MODEL_BL}" || copyErr
+      fi
+    done
   done
   echo
 
@@ -1007,15 +1063,14 @@ function install() {
 
   echo "${green}[${reset}${blue}${bold} Installing Docs About Bluetooth & GTX/MX350 & wiki ${reset}${green}]${reset}"
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
     model_prefix=$(echo "${model}" | tr '[:upper:]' '[:lower:]')
     model_btItems="${model_prefix}BtItems"
     btItems="${model_btItems}[@]"
-    for btDir in "${!OUTDir_MODEL_CLOVER}/Bluetooth" "${!OUTDir_MODEL_OC}/Bluetooth"; do
-      mkdir -p "${btDir}" || exit 1
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      mkdir -p "${!OUTDir_MODEL_BL}/Bluetooth" || exit 1
       for btItem in "${!btItems}"; do
-        cp "${btItem}" "${btDir}" || copyErr
+        cp "${btItem}" "${!OUTDir_MODEL_BL}/Bluetooth" || copyErr
       done
     done
 
@@ -1045,29 +1100,32 @@ function install() {
       /usr/bin/sed -i "" "s:\${MODEL_PREFIX}:${altModelPrefix}:g" "README_CN_${altModel}.txt"
     fi
 
-    for lgpaDir in "${!OUTDir_MODEL_CLOVER}/${altModel}" "${!OUTDir_MODEL_OC}/${altModel}"; do
-      mkdir -p "${lgpaDir}" || exit 1
-      cp "${!model_lgpaItem}" "${lgpaDir}" || copyErr
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      mkdir -p "${!OUTDir_MODEL_BL}/${altModel}" || exit 1
+      cp "${!model_lgpaItem}" "${!OUTDir_MODEL_BL}/${altModel}" || copyErr
       if [[ ${language} == "en_US" ]]; then
-        cp "README_${altModel}.txt" "${lgpaDir}" || copyErr
+        cp "README_${altModel}.txt" "${!OUTDir_MODEL_BL}/${altModel}" || copyErr
       elif [[ ${language} == "zh_CN" ]]; then
-        cp "README_CN_${altModel}.txt" "${lgpaDir}" || copyErr
+        cp "README_CN_${altModel}.txt" "${!OUTDir_MODEL_BL}/${altModel}" || copyErr
       fi
     done
 
-    for wikiDir in "${!OUTDir_MODEL_CLOVER}/Docs" "${!OUTDir_MODEL_OC}/Docs"; do
-      mkdir -p "${wikiDir}" || exit 1
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      mkdir -p "${!OUTDir_MODEL_BL}/Docs" || exit 1
       for wikiItem in "${wikiItems[@]}"; do
-        cp "${wikiItem}" "${wikiDir}" || copyErr
+        cp "${wikiItem}" "${!OUTDir_MODEL_BL}/Docs" || copyErr
       done
     done
 
     if [[ "${model}" == "CML" ]]; then
-      for cmlDir in "${!OUTDir_MODEL_CLOVER}/Docs" "${!OUTDir_MODEL_OC}/Docs"; do
+      for bl in "${bl_list[@]}"; do
+        OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
         if [[ ${remote} == false ]]; then
-          cp "../Docs/README_CML.txt" "${cmlDir}" || copyErr
+          cp "../Docs/README_CML.txt" "${!OUTDir_MODEL_BL}/Docs" || copyErr
         else
-          cp "${REPO_NAME_BRANCH}/Docs/README_CML.txt" "${cmlDir}" || copyErr
+          cp "${REPO_NAME_BRANCH}/Docs/README_CML.txt" "${!OUTDir_MODEL_BL}/Docs" || copyErr
         fi
       done
     fi
@@ -1084,8 +1142,6 @@ function install() {
   fi
 
   if [[ "${model_input}" =~ "KBL" ]]; then
-    local OUTDir_MODEL_CLOVER="OUTDir_KBL_CLOVER"
-    local OUTDir_MODEL_OC="OUTDir_KBL_OC"
     if [[ ${remote} == true ]]; then
       cp -R ALCPlugFix-master/* "${REPO_NAME_BRANCH}/ALCPlugFix/ALCPlugFix_kbl/" || copyErr
     else
@@ -1096,75 +1152,77 @@ function install() {
     fi
 
     echo "${green}[${reset}${blue}${bold} Installing ALCPlugFix ${reset}${green}]${reset}"
-    for alcpfDir in "${!OUTDir_MODEL_CLOVER}/ALCPlugFix" "${!OUTDir_MODEL_OC}/ALCPlugFix"; do
-      mkdir -p "${alcpfDir}" || exit 1
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      mkdir -p "${!OUTDir_MODEL_BL}/ALCPlugFix" || exit 1
       for alcfixItem in "${kblAlcfixItems[@]}"; do
-        cp -R "${alcfixItem}" "${alcpfDir}" || copyErr
+        cp -R "${alcfixItem}" "${!OUTDir_MODEL_BL}/ALCPlugFix" || copyErr
       done
     done
     echo
   fi
 }
 
-# Extract files for Clover
-function extractClover() {
-  local driverItems=(
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileVault2/AppleKeyFeeder.efi"
-    "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileVault2/HashServiceFix.efi"
-  )
+# Extract files for bootloaders
+function extractBL() {
+  for bl in "${bl_list[@]}"; do
+    if [[ "${bl}" == "CLOVER" ]]; then
+      local driverItems=(
+        "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileSystem/ApfsDriverLoader.efi"
+        "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/MemoryFix/OpenRuntime.efi"
+        "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileVault2/AppleKeyFeeder.efi"
+        "Clover/CloverV2/EFI/CLOVER/drivers/off/UEFI/FileVault2/HashServiceFix.efi"
+      )
 
-  echo "${green}[${reset}${blue}${bold} Extracting Clover ${reset}${green}]${reset}"
-  # From CloverV2, AppleSupportPkg v2.0.9, and AppleSupportPkg v2.1.6
-  unzip -qq -d "Clover" "Clover/*.zip" || exit 1
-  for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    cp -R "Clover/CloverV2/EFI/BOOT" "${!OUTDir_MODEL_CLOVER}/EFI/" || copyErr
-    cp "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
-    cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/" || copyErr
-    for driverItem in "${driverItems[@]}"; do
-      cp "${driverItem}" "${!OUTDir_MODEL_CLOVER}/EFI/CLOVER/drivers/UEFI/" || copyErr
-    done
+      echo "${green}[${reset}${blue}${bold} Extracting Clover ${reset}${green}]${reset}"
+      # From CloverV2
+      unzip -qq -d "Clover" "Clover/*.zip" || exit 1
+      for model in "${model_list[@]}"; do
+        OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+        cp -R "Clover/CloverV2/EFI/BOOT" "${!OUTDir_MODEL_BL}/EFI/" || copyErr
+        cp "Clover/CloverV2/EFI/CLOVER/CLOVERX64.efi" "${!OUTDir_MODEL_BL}/EFI/CLOVER/" || copyErr
+        cp -R "Clover/CloverV2/EFI/CLOVER/tools" "${!OUTDir_MODEL_BL}/EFI/CLOVER/" || copyErr
+        for driverItem in "${driverItems[@]}"; do
+          cp "${driverItem}" "${!OUTDir_MODEL_BL}/EFI/CLOVER/drivers/UEFI/" || copyErr
+        done
+      done
+    echo
+    elif [[ "${bl}" == "OC" ]]; then
+      local driverItems=(
+        "OpenCore/X64/EFI/OC/Drivers/AudioDxe.efi"
+        "OpenCore/X64/EFI/OC/Drivers/OpenCanopy.efi"
+        "OpenCore/X64/EFI/OC/Drivers/OpenRuntime.efi"
+        "OpenCore/X64/EFI/OC/Drivers/ResetNvramEntry.efi"
+        "OpenCore/X64/EFI/OC/Drivers/ToggleSipEntry.efi"
+      )
+      local toolItems=(
+        "OpenCore/X64/EFI/OC/Tools/OpenShell.efi"
+      )
+
+      echo "${green}[${reset}${blue}${bold} Extracting OpenCore ${reset}${green}]${reset}"
+      unzip -qq -d "OpenCore" "OpenCore/*.zip" || exit 1
+      for model in "${model_list[@]}"; do
+        OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+        mkdir -p "${!OUTDir_MODEL_BL}/EFI/OC/Tools" || exit 1
+        cp -R "OpenCore/X64/EFI/BOOT" "${!OUTDir_MODEL_BL}/EFI/" || copyErr
+        cp "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_BL}/EFI/OC/" || copyErr
+        cp "OpenCore/X64/EFI/OC/.contentFlavour" "${!OUTDir_MODEL_BL}/EFI/OC/" || copyErr
+        cp "OpenCore/X64/EFI/OC/.contentVisibility" "${!OUTDir_MODEL_BL}/EFI/OC/" || copyErr
+        for driverItem in "${driverItems[@]}"; do
+          cp "${driverItem}" "${!OUTDir_MODEL_BL}/EFI/OC/Drivers/" || copyErr
+        done
+        for toolItem in "${toolItems[@]}"; do
+          cp "${toolItem}" "${!OUTDir_MODEL_BL}/EFI/OC/Tools/" || copyErr
+        done
+        cp "OpenCore/Docs/Configuration.pdf" "${!OUTDir_MODEL_BL}/Docs/OC Configuration.pdf" || copyErr
+
+        # Copy ocvalidate for update script
+        mkdir -p "${!OUTDir_MODEL_BL}/Utilities/" || exit 1
+        cp "OpenCore/Utilities/ocvalidate/ocvalidate" "${!OUTDir_MODEL_BL}/Utilities/" || copyErr
+      done
+    fi
+    echo
   done
-  echo
-}
-
-# Extract files from OpenCore
-function extractOC() {
-  local driverItems=(
-    "OpenCore/X64/EFI/OC/Drivers/AudioDxe.efi"
-    "OpenCore/X64/EFI/OC/Drivers/OpenCanopy.efi"
-    "OpenCore/X64/EFI/OC/Drivers/OpenRuntime.efi"
-    "OpenCore/X64/EFI/OC/Drivers/ResetNvramEntry.efi"
-    "OpenCore/X64/EFI/OC/Drivers/ToggleSipEntry.efi"
-  )
-  local toolItems=(
-    "OpenCore/X64/EFI/OC/Tools/OpenShell.efi"
-  )
-
-  echo "${green}[${reset}${blue}${bold} Extracting OpenCore ${reset}${green}]${reset}"
-  unzip -qq -d "OpenCore" "OpenCore/*.zip" || exit 1
-  for model in "${model_list[@]}"; do
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
-    mkdir -p "${!OUTDir_MODEL_OC}/EFI/OC/Tools" || exit 1
-    cp -R "OpenCore/X64/EFI/BOOT" "${!OUTDir_MODEL_OC}/EFI/" || copyErr
-    cp "OpenCore/X64/EFI/OC/OpenCore.efi" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
-    cp "OpenCore/X64/EFI/OC/.contentFlavour" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
-    cp "OpenCore/X64/EFI/OC/.contentVisibility" "${!OUTDir_MODEL_OC}/EFI/OC/" || copyErr
-    for driverItem in "${driverItems[@]}"; do
-      cp "${driverItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Drivers/" || copyErr
-    done
-    for toolItem in "${toolItems[@]}"; do
-      cp "${toolItem}" "${!OUTDir_MODEL_OC}/EFI/OC/Tools/" || copyErr
-    done
-    cp "OpenCore/Docs/Configuration.pdf" "${!OUTDir_MODEL_OC}/Docs/OC Configuration.pdf" || copyErr
-
-    # Copy ocvalidate for update script
-    mkdir -p "${!OUTDir_MODEL_OC}/Utilities/" || exit 1
-    cp "OpenCore/Utilities/ocvalidate/ocvalidate" "${!OUTDir_MODEL_OC}/Utilities/" || copyErr
-  done
-  echo
 }
 
 # Generate Release Note
@@ -1194,10 +1252,9 @@ function genNote() {
   sed -n "${lineStart},${lineEnd}p" "${changelogPath}" >> ReleaseNotes.md
 
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
-    for rNoteDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
-      cp "ReleaseNotes.md" "${rNoteDir}" || copyErr
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      cp "ReleaseNotes.md" "${!OUTDir_MODEL_BL}" || copyErr
     done
   done
   echo
@@ -1215,10 +1272,9 @@ function cTrash() {
 # Enjoy
 function enjoy() {
   for model in "${model_list[@]}"; do
-    OUTDir_MODEL_CLOVER="OUTDir_${model}_CLOVER"
-    OUTDir_MODEL_OC="OUTDir_${model}_OC"
-    for buildDir in "${!OUTDir_MODEL_CLOVER}" "${!OUTDir_MODEL_OC}"; do
-      zip -qr "${buildDir}.zip" "${buildDir}"
+    for bl in "${bl_list[@]}"; do
+      OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
+      zip -qr "${!OUTDir_MODEL_BL}.zip" "${!OUTDir_MODEL_BL}"
     done
   done
   echo "${green}[${reset}${blue}${bold} Done! Enjoy! ${reset}${green}]${reset}"
@@ -1234,8 +1290,7 @@ function main() {
 
   # Installation
   install
-  extractClover
-  extractOC
+  extractBL
 
   # Generate Release Notes
   genNote

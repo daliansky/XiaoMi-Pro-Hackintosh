@@ -143,22 +143,22 @@ cd XiaoMi-Pro-Hackintosh
 ```
 Some advanced usages are:
 ```shell
+# Build EFI with Clover and OpenCore bootloaders (1. --BL=CLOVER Only Clover 2. --BL=OC Default, only OpenCore 3. --BL=CLOVEROC Both Clover and OpenCore)
+./makefile.sh --BL=CLOVEROC
 # Build EFI with kexts and OpenCore in Debug version
 ./makefile.sh --DEBUG_KEXTOC
 # Ignore errors when the script is running
 ./makefile.sh --IGNORE_ERR
-# Bundled with Chinese verison Docs
+# Bundled with Chinese verison Docs (1. --LANG=en_US Default 2. --LANG=zh_CN Docs in Chinese)
 ./makefile.sh --LANG=zh_CN
-# Generate EFI release for Comet Lake model
-./makefile.sh --MODEL=CML
+# Generate EFI release for both 10th and 8th Gen (1. --MODEL=CML Only 10th Gen 2. --MODEL=KBL Default, only 8th Gen 3. --MODEL=CMLKBL Both 10th and 8th Gen)
+./makefile.sh --MODEL=CMLKBL
 # Preserve work files during the building stage
 ./makefile.sh --NO_CLEAN_UP
 # Use GitHub API
 ./makefile.sh --GH_API
-# Build the latest beta EFI with pre-release kexts
-./makefile.sh --PRE_RELEASE=Kext
-# Build the latest beta EFI with pre-release OpenCore
-./makefile.sh --PRE_RELEASE=OC
+# Build the latest beta EFI with pre-release kexts and OpenCore (1. --PRE_RELEASE=Kext Pre-release kexts 2. --PRE_RELEASE=OC Pre-release OpenCore 3. --PRE_RELEASE=KextOC Both pre-release kexts and OpenCore)
+./makefile.sh --PRE_RELEASE=KextOC
 ```
 
 
