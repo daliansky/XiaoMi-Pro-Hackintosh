@@ -381,12 +381,14 @@ function dBR() {
   fi
 }
 
-# Download Pre-Built Binaries
+# Download GitHub Binaries
 function dPB() {
   local url="https://raw.githubusercontent.com/$1/$2/master/$3"
   echo "${green}[${reset}${blue}${bold} Downloading ${3##*\/} ${reset}${green}]${reset}"
   echo "${cyan}"
+  cd ./"$4" || exit 1
   curl -# -L -O "${url}" || networkErr "${3##*\/}"
+  cd - > /dev/null 2>&1 || exit 1
   echo "${reset}"
 }
 
@@ -620,11 +622,18 @@ function download() {
   fi
 
   # UEFI
-  # dPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi
-  dPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
+  if [[ "${bl_input}" =~ "CLOVER" ]]; then
+    dPB ${ACDT} VirtualSMC EfiDriver/VirtualSmc.efi
+  fi
 
-  # HfsPlus.efi & OC Resources
-  dGS ${ACDT} OcBinaryData master
+  # ExFatDxe.efi & HfsPlus.efi & OC Resources
+  if [[ "${bl_input}" =~ "OC" ]]; then
+    dGS ${ACDT} OcBinaryData master
+  elif [[ "${bl_input}" =~ "CLOVER" ]]; then
+    mkdir -p "OcBinaryData-master/Drivers" || exit 1
+    dPB ${ACDT} OcBinaryData Drivers/ExFatDxe.efi "OcBinaryData-master/Drivers"
+    dPB ${ACDT} OcBinaryData Drivers/HfsPlus.efi "OcBinaryData-master/Drivers"
+  fi
 
   # XiaoMi-Pro ACPI patch
   if [[ ${remote} == true ]]; then
@@ -632,7 +641,7 @@ function download() {
   fi
 
   # Menchen's ALCPlugFix
-  if [[ ${remote} == true ]]; then
+  if [[ "${model_input}" =~ "KBL" ]] && [[ ${remote} == true ]]; then
     dGS Menchen ALCPlugFix master
   fi
 }
@@ -675,7 +684,9 @@ function patch() {
   done
 
   # Only keep OCEFIAudio_VoiceOver_Boot in OcBinaryData/Resources/Audio
-  (cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot*" -delete || exit 1)
+  if [[ "${bl_input}" =~ "OC" ]]; then
+    (cd "OcBinaryData-master/Resources/Audio/" && find . -maxdepth 1 -not -name "OCEFIAudio_VoiceOver_Boot*" -delete || exit 1)
+  fi
 
   # Rename AirportItlwm.kexts to distinguish different versions
   if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -1186,7 +1197,6 @@ function extractBL() {
           cp "${driverItem}" "${!OUTDir_MODEL_BL}/EFI/CLOVER/drivers/UEFI/" || copyErr
         done
       done
-    echo
     elif [[ "${bl}" == "OC" ]]; then
       local driverItems=(
         "OpenCore/X64/EFI/OC/Drivers/AudioDxe.efi"

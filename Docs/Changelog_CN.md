@@ -2,21 +2,29 @@
 
 [English](../Changelog.md) | **中文**
 
-XiaoMi NoteBook Pro EFI v1.7.9
-## 2023-XX-XX
+[XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
+## 2023-07-XX
 
 ### 更新
-  - 更新 `OpenCore` v0.9.3
-  - 更新 `Clover` r5152
-  - 更新 `Lilu` v1.6.6
-  - 更新 `VirtualSMC` v1.3.2
-  - 更新 `AppleALC` v1.8.3
+  - 更新 `OpenCore` v0.9.4（更新至 [acidanthera/OpenCorePkg@53a00be](https://github.com/acidanthera/OpenCorePkg/commit/53a00be4e3c3439c5fcab4ec5d7eff85f0632e15)）
+  - 更新 `Clover` r5153
+  - 更新 `Lilu` v1.6.7（更新至 [acidanthera/Lilu@691dfd4](https://github.com/acidanthera/Lilu/commit/691dfd4e1cee7e6e450340dacfd3a5c747e12221)）
+  - 更新 `VirtualSMC` v1.3.3（更新至 [acidanthera/VirtualSMC@038200e](https://github.com/acidanthera/VirtualSMC/commit/038200ee31a73b1c038c865a18cfc7ae6384bc53)）
+  - 更新 `AppleALC` v1.8.4（更新至 [acidanthera/AppleALC@1d8f134](https://github.com/acidanthera/AppleALC/commit/1d8f134a299c44086233f896d0b06a3938fbc389)）
+  - 更新 `WhateverGreen` v1.6.6（更新至 [acidanthera/WhateverGreen@de66827](https://github.com/acidanthera/WhateverGreen/commit/de66827310e05afc08e81b3ef418c75851681e2a)）
+  - 更新 `HibernationFixup` v1.5.0（更新至 [acidanthera/HibernationFixup@1eb0ddb](https://github.com/acidanthera/HibernationFixup/commit/1eb0ddb6cd7b2cd0a72e157a15e8833399afe7e8)）
+  - 更新 `RestrictEvents` v1.1.3（更新至 [acidanthera/RestrictEvents@954bd4e](https://github.com/acidanthera/RestrictEvents/commit/954bd4e21093bf059a15f8692e086586d5cb2dc6)）
+  - 更新 `BrcmPatchRAM` v2.6.8（更新至 [acidanthera/BrcmPatchRAM@2305aaa](https://github.com/acidanthera/BrcmPatchRAM/commit/2305aaa145a0021559f444d33a5adaacb6469050)）
+  - 更新 `VoodooPS2` v2.3.6（更新至 [acidanthera/VoodooPS2@7f4e069](https://github.com/acidanthera/VoodooPS2/commit/7f4e0698f1cd68e00f1a78d70ffaeecf145ca45a)）
+  - 更新 `VoodooI2C` v2.9
+  - 更新 `IntelBluetoothFirmware`（更新至o [OpenIntelWireless/IntelBluetoothFirmware@592507a](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/592507aa8cb3d0df3e524bb869f2836271e4fb48)）
   - 更新 `AirportItlwm` v2.3.0（更新至 [OpenIntelWireless/itlwm@dac62b9](https://github.com/OpenIntelWireless/itlwm/commit/dac62b94dde2ef960019bad86ff657158082eeb8)）
 
 ### 移除
   - 移除 `SSDT-DMAC` 因为它只和 AppleSmartIO2/AppleWWANSupport/AudioDMAController/AMDRadeonX5000GLDriver/AMDRadeonX4000GLDriver/AMDRadeonX6000GLDriver 有关
 
 ### OC
+  - 更新 config 来支持 [acidanthera/OpenCorePkg@53a00be](https://github.com/acidanthera/OpenCorePkg/commit/53a00be4e3c3439c5fcab4ec5d7eff85f0632e15)
   - 更新 `MinKernel` 和 `MaxKernel` 根据 [OpenCorePkg/Docs/Kexts.md](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Kexts.md)
 
 
