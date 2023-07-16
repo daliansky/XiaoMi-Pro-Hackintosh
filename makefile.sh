@@ -573,7 +573,8 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-  bKextHelper VoodooI2C VoodooI2C
+  # bKextHelper VoodooI2C VoodooI2C
+  dGR VoodooI2C VoodooI2C
   # Make sure Lilu is later than Lilu based kexts
   bKextHelper ${ACDT} "Lilu" "${build_mode}"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
@@ -604,8 +605,8 @@ function download() {
   else
     for acdtKext in "${acdtKexts[@]}"; do
       dGR ${ACDT} "${acdtKext}"
-      dGR ${ACDT} "Lilu"
     done
+    dGR ${ACDT} "Lilu"
     # for frwfKext in "${frwfKexts[@]}"; do
     #   dGR ${FRWF} "${frwfKext}"
     # done
@@ -740,6 +741,7 @@ function install() {
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
       "Monterey/AirportItlwm_Monterey.kext"
+      "Sonoma/AirportItlwm_Sonoma.kext"
       "Ventura/AirportItlwm_Ventura.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -751,6 +753,7 @@ function install() {
         "11"
         "12"
         "13"
+        "14"
       )
       local cmlCloverIbtInjctrDirs=(
         "10.15"
@@ -775,6 +778,7 @@ function install() {
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
       "Monterey/AirportItlwm_Monterey.kext"
+      "Sonoma/AirportItlwm_Sonoma.kext"
       "Ventura/AirportItlwm_Ventura.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -786,6 +790,7 @@ function install() {
         "11"
         "12"
         "13"
+        "14"
       )
       local kblCloverIbtInjctrDirs=(
         "10.15"
@@ -803,11 +808,11 @@ function install() {
     for bl in "${bl_list[@]}"; do
       OUTDir_MODEL_BL="OUTDir_${model}_${bl}"
       if [[ "${bl}" == "CLOVER" ]]; then
-        cloverKextFolder="${model_cloverKextFolders}[@]"
         kextDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/Other/"
         model_cloverKextFolders="${model_prefix}CloverKextFolders"
         model_cloverIbtInjctrDirs="${model_prefix}CloverIbtInjctrDirs"
 
+        cloverKextFolder="${model_cloverKextFolders}[@]"
         for cloverKextFolder in "${!cloverKextFolder}"; do
           mkdir -p "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/${cloverKextFolder}" || exit 1
         done
@@ -822,7 +827,7 @@ function install() {
       # CML: NoTouchID.kext
       if [[ "${model}" == "CML" ]]; then
         if [[ "${bl}" == "CLOVER" ]]; then
-          noTouchIDDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15"
+          noTouchIDDir="${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/"
         elif [[ "${bl}" == "OC" ]]; then
           noTouchIDDir="${!OUTDir_MODEL_BL}/EFI/OC/Kexts/"
         fi
@@ -832,15 +837,17 @@ function install() {
       # Move AirportItlwm to corresponding Clover and OC Kext folders
       if [[ "${bl}" == "CLOVER" ]]; then
         if [[ "${pre_release}" =~ "Kext" ]]; then
-          cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11" || copyErr
-          cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15" || copyErr
-          cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12" || copyErr
-          cp -R "${model}/Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13" || copyErr
+          cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11/" || copyErr
+          cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/" || copyErr
+          cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
+          cp -R "${model}/Sonoma/AirportItlwm_Sonoma.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
+          cp -R "${model}/Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         else
-          cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11" || copyErr
-          cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15" || copyErr
-          cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12" || copyErr
-          cp -R "Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13" || copyErr
+          cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11/" || copyErr
+          cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/" || copyErr
+          cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
+          cp -R "Sonoma/AirportItlwm_Sonoma.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
+          cp -R "Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         fi
 
       elif [[ "${bl}" == "OC" ]]; then
@@ -860,8 +867,9 @@ function install() {
             cp -R "IntelBluetoothInjector.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/${kextDir}" || copyErr
           fi
         done
-        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12" || copyErr
-        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13" || copyErr
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
       fi
 
       if [[ "${bl}" == "OC" ]]; then
@@ -1292,9 +1300,20 @@ function enjoy() {
   open ./
 }
 
+# Temporary function for v1.7.9 EFI release
+function r179() {
+  curl -# -L -O "https://github.com/OpenIntelWireless/itlwm/files/11980729/AirportItlwm-Sonoma-Preview02.zip" || networkErr "AirportItlwm-Sonoma-Preview02.zip"
+  mkdir -p "CML/Sonoma" || exit 1
+  mkdir -p "KBL/Sonoma" || exit 1
+  unzip -qq -d "CML/Sonoma" "AirportItlwm-Sonoma-Preview02.zip" || exit 1
+  mv "CML/Sonoma/AirportItlwm.kext" "CML/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+  cp -R "CML/Sonoma/AirportItlwm_Sonoma.kext" "KBL/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+}
+
 function main() {
   init
   download
+  r179
   unpack
   patch
 
