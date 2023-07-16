@@ -174,6 +174,7 @@ Some advanced usages are:
 ## Improvements
 
 - Use [Hackintool](https://github.com/headkaze/Hackintool) to inject EDID (AAPL00,override-no-connect)
+- CML: Change `enable-backlight-registers-fix` to `enable-backlight-registers-alternative-fix` if macOS Version >= 13.4
 - Change `#enable-backlight-smoother` to `enable-backlight-smoother` in `config.plist` to adjust the panel brightness smoothly
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1424x802 HiDPI resolution

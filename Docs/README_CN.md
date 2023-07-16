@@ -169,6 +169,7 @@ cd XiaoMi-Pro-Hackintosh
 ## 改善体验
 
 - 使用 [Hackintool](https://github.com/headkaze/Hackintool) 来注入 EDID（AAPL00,override-no-connect）
+- CML: 如果 macOS 版本高于或等于 13.4，更改 `enable-backlight-registers-fix` 为 `enable-backlight-registers-alternative-fix`
 - 更改 `config.plist` 中的 `#enable-backlight-smoother` 为 `enable-backlight-smoother` 使亮度调节变得更丝滑
 - 使用 [xzhih](https://github.com/xzhih) 的 [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) 来提升系统 UI 质量
   - 支持 1424x802 HiDPI 分辨率
