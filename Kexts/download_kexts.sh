@@ -49,6 +49,14 @@ function copyErr() {
 }
 
 function init() {
+  local dirs=(
+    "Big Sur"
+    "Catalina"
+    "Monterey"
+    "Sonoma"
+    "Ventura"
+  )
+
   if [[ ${OSTYPE} != darwin* ]]; then
     echo "This script can only run in macOS, aborting"
     exit 1
@@ -64,6 +72,10 @@ function init() {
     rm -rf "${OUTDir_TMP}"
   fi
   mkdir "${OUTDir_TMP}" || exit 1
+
+  for dir in "${dirs[@]}"; do
+    mkdir -p "${OUTDir_TMP}/${dir}" || exit 1
+  done
 }
 
 # Workaround for Release Binaries that don't include "RELEASE" in their file names (head or grep)
@@ -221,6 +233,12 @@ function download() {
 # Unpack
 function unpack() {
   echo "${green}[${reset}${yellow}${bold} Unpacking ${reset}${green}]${reset}"
+  # Unzip non-standard AirportItlwm release packages
+  (cd "${OUTDir_TMP}" && unzip -qq -d "Big Sur" "*BigSur*.zip" && rm -- *BigSur*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
+  (cd "${OUTDir_TMP}" && unzip -qq -d "Catalina" "*Catalina*.zip" && rm -- *Catalina*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
+  (cd "${OUTDir_TMP}" && unzip -qq -d "Monterey" "*Monterey*.zip" && rm -- *Monterey*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
+  (cd "${OUTDir_TMP}" && unzip -qq -d "Ventura" "*Ventura*.zip" && rm -- *Ventura*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
+
   eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" || exit 1)"
   echo
 }
