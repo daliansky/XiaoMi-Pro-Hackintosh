@@ -1305,7 +1305,9 @@ function enjoy() {
   done
   echo "${green}[${reset}${blue}${bold} Done! Enjoy! ${reset}${green}]${reset}"
   echo
-  open ./
+  if [[ "${publish_efi}" = false ]]; then
+    open ./
+  fi
 }
 
 function main() {
