@@ -174,7 +174,6 @@ Some advanced usages are:
 ## Improvements
 
 - Use [Hackintool](https://github.com/headkaze/Hackintool) to inject EDID (AAPL00,override-no-connect)
-- CML: Change `enable-backlight-registers-fix` to `enable-backlight-registers-alternative-fix` if macOS Version >= 13.4
 - Change `#enable-backlight-smoother` to `enable-backlight-smoother` in `config.plist` to adjust the panel brightness smoothly
 - Use [xzhih](https://github.com/xzhih)'s [one-key-hidpi](https://github.com/xzhih/one-key-hidpi) to improve quality of system UI
   - Support 1424x802 HiDPI resolution
@@ -184,6 +183,7 @@ Some advanced usages are:
 - Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to enable 4K external monitor and more "native" power management
+- TM1905 & TM1963: Change `enable-backlight-registers-fix` to `enable-backlight-registers-alternative-fix` if macOS Version >= 13.4
 
 
 ## FAQ
