@@ -178,7 +178,7 @@ cd XiaoMi-Pro-Hackintosh
 - 使用 [NVMeFix](https://github.com/acidanthera/NVMeFix) 来开启 NVMe SSDs 的 APST
 - TM1701 和 TM1707：使用 [ALCPlugFix](../ALCPlugFix) 来修复耳机重新插拔后无声
 - TM1701：使用 [DVMT_and_0xE2_fix](../BIOS/TM1701/DVMT_and_0xE2_fix) 来开启 4K 外接显示屏并获得更加“原生”的电源管理
-- TM1905 和 TM1963：如果 macOS 版本高于或等于 13.4，更改 `enable-backlight-registers-fix` 为 `enable-backlight-registers-alternative-fix`
+- TM1905 和 TM1963：如果 macOS 版本等于 13.4，更改 `enable-backlight-registers-fix` 为 `enable-backlight-registers-alternative-fix`
 
 
 ## 常见问题解答

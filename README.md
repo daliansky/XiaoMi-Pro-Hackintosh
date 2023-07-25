@@ -183,7 +183,7 @@ Some advanced usages are:
 - Use [NVMeFix](https://github.com/acidanthera/NVMeFix) to enable APST on NVMe SSDs
 - TM1701 & TM1707: Use [ALCPlugFix](ALCPlugFix) to fix unworking jack after replug
 - TM1701: Use [DVMT_and_0xE2_fix](BIOS/TM1701/DVMT_and_0xE2_fix) to enable 4K external monitor and more "native" power management
-- TM1905 & TM1963: Change `enable-backlight-registers-fix` to `enable-backlight-registers-alternative-fix` if macOS Version >= 13.4
+- TM1905 & TM1963: Change `enable-backlight-registers-fix` to `enable-backlight-registers-alternative-fix` if macOS Version = 13.4
 
 
 ## FAQ
