@@ -562,8 +562,8 @@ function bKext() {
   fi
 
   git clone -q https://github.com/acidanthera/MacKernelSDK || networkErr "MacKernelSDK"
-  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "Lilu"
-  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "VoodooInput"
+  src=$(/usr/bin/curl -LfsS https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "Lilu"
+  src=$(/usr/bin/curl -LfsS https://raw.githubusercontent.com/acidanthera/VoodooInput/master/VoodooInput/Scripts/bootstrap.sh) && eval "$src" > /dev/null 2>&1 || networkErr "VoodooInput"
   if [[ ${model_input} =~ "CML" ]]; then
     bKextHelper al3xtjames NoTouchID "${build_mode}"
   fi
