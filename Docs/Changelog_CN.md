@@ -2,6 +2,21 @@
 
 [English](../Changelog.md) | **中文**
 
+XiaoMi NoteBook Pro EFI v1.8.0
+## 2023-08-XX
+
+### 更新
+  - 更新 `OpenCore` v0.9.5
+  - 更新 `Clover` r5154
+  - 更新 `AppleALC` v1.8.5
+
+### OC
+  - 禁用 `ProvideConsoleGop` 来解决 OC 启动项选择界面黑屏问题
+
+### Clover
+  - 新增 `BlockSkywalk`，默认关闭
+
+
 [XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
 ## 2023-07-17
 

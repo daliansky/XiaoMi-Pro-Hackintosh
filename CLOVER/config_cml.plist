@@ -285,6 +285,8 @@
 		<false/>
 		<key>AppleRTC</key>
 		<true/>
+		<key>BlockSkywalk</key>
+		<false/>
 		<key>KernelPm</key>
 		<true/>
 		<key>PanicNoKextDump</key>

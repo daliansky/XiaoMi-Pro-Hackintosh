@@ -2,6 +2,21 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+XiaoMi NoteBook Pro EFI v1.8.0
+## 2023-08-XX
+
+### Upgrade
+  - Update `OpenCore` v0.9.5
+  - Update `Clover` r5154
+  - Update `AppleALC` v1.8.5
+
+### OC
+  - Disable `ProvideConsoleGop` to solve Black screen during OC picker
+
+### Clover
+  - Add `BlockSkywalk`, disabled by default
+
+
 [XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
 ## 2023-07-17
 
