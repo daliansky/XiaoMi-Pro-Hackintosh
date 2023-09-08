@@ -7,11 +7,12 @@ XiaoMi NoteBook Pro EFI v1.8.0
 
 ### Upgrade
   - Update `OpenCore` v0.9.5
-  - Update `Clover` r5154
+  - Update `Clover` r5155
   - Update `AppleALC` v1.8.5
 
 ### OC
   - Disable `ProvideConsoleGop` to solve Black screen during OC picker
+  - OC: Update config to support `OpenCore` v0.9.5
 
 ### Clover
   - Add `BlockSkywalk`, disabled by default

@@ -7,11 +7,12 @@ XiaoMi NoteBook Pro EFI v1.8.0
 
 ### 更新
   - 更新 `OpenCore` v0.9.5
-  - 更新 `Clover` r5154
+  - 更新 `Clover` r5155
   - 更新 `AppleALC` v1.8.5
 
 ### OC
   - 禁用 `ProvideConsoleGop` 来解决 OC 启动项选择界面黑屏问题
+  - OC: 更新 config 来支持 `OpenCore` v0.9.5
 
 ### Clover
   - 新增 `BlockSkywalk`，默认关闭
