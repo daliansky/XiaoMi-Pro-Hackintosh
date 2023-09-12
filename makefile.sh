@@ -1317,10 +1317,10 @@ function enjoy() {
 
 # Temporary function for v1.8.0 EFI release
 function r180() {
-  curl -# -L -O "https://github.com/OpenIntelWireless/itlwm/files/12299048/AirportItlwm-Sonoma-Preview05.zip" || networkErr "AirportItlwm-Sonoma-Preview02.zip"
+  curl -# -L -O "https://github.com/OpenIntelWireless/itlwm/files/12299048/AirportItlwm-Sonoma-Preview05.zip" || networkErr "AirportItlwm-Sonoma-Preview05.zip"
   mkdir -p "CML/Sonoma" || exit 1
   mkdir -p "KBL/Sonoma" || exit 1
-  unzip -qq -d "CML/Sonoma" "AirportItlwm-Sonoma-Preview02.zip" || exit 1
+  unzip -qq -d "CML/Sonoma" "AirportItlwm-Sonoma-Preview05.zip" || exit 1
   mv "CML/Sonoma/AirportItlwm.kext" "CML/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
   cp -R "CML/Sonoma/AirportItlwm_Sonoma.kext" "KBL/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
 }
