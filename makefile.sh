@@ -579,7 +579,8 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-  bKextHelper VoodooI2C VoodooI2C
+  # bKextHelper VoodooI2C VoodooI2C
+  dGR VoodooI2C VoodooI2C
   # Make sure Lilu is later than Lilu based kexts
   bKextHelper ${ACDT} "Lilu" "${build_mode}"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
@@ -753,6 +754,7 @@ function install() {
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
       "Monterey/AirportItlwm_Monterey.kext"
+      "Sonoma/AirportItlwm_Sonoma.kext"
       "Ventura/AirportItlwm_Ventura.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -789,6 +791,7 @@ function install() {
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
       "Monterey/AirportItlwm_Monterey.kext"
+      "Sonoma/AirportItlwm_Sonoma.kext"
       "Ventura/AirportItlwm_Ventura.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -850,11 +853,13 @@ function install() {
           cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11/" || copyErr
           cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/" || copyErr
           cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
+          cp -R "${model}/Sonoma/AirportItlwm_Sonoma.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
           cp -R "${model}/Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         else
           cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11/" || copyErr
           cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/" || copyErr
           cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
+          cp -R "Sonoma/AirportItlwm_Sonoma.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
           cp -R "Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         fi
 
@@ -1310,9 +1315,21 @@ function enjoy() {
   fi
 }
 
+# Temporary function for v1.8.0 EFI release
+function r180() {
+  curl -# -L -O "https://github.com/OpenIntelWireless/itlwm/files/12299048/AirportItlwm-Sonoma-Preview05.zip" || networkErr "AirportItlwm-Sonoma-Preview02.zip"
+  mkdir -p "CML/Sonoma" || exit 1
+  mkdir -p "KBL/Sonoma" || exit 1
+  unzip -qq -d "CML/Sonoma" "AirportItlwm-Sonoma-Preview02.zip" || exit 1
+  mv "CML/Sonoma/AirportItlwm.kext" "CML/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+  cp -R "CML/Sonoma/AirportItlwm_Sonoma.kext" "KBL/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+}
+
+
 function main() {
   init
   download
+  r180
   unpack
   patch
 

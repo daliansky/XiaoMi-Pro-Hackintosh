@@ -2,8 +2,8 @@
 
 [English](../Changelog.md) | **中文**
 
-XiaoMi NoteBook Pro EFI v1.8.0
-## 2023-08-XX
+[XiaoMi NoteBook Pro EFI v1.8.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.0)
+## 2023-09-12
 
 ### 更新
   - 更新 `OpenCore` v0.9.5
