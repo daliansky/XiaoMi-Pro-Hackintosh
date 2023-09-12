@@ -12,7 +12,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
 
 ### OC
   - Disable `ProvideConsoleGop` to solve Black screen during OC picker
-  - OC: Update config to support `OpenCore` v0.9.5
+  - Update config to support `OpenCore` v0.9.5
 
 ### Clover
   - Add `BlockSkywalk`, disabled by default
@@ -60,7 +60,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - ACPI: Change `SSDT-USB*` to remove USBX device injection
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.9.2
+  - Update config to support `OpenCore` v0.9.2
 
 
 ## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)
@@ -77,7 +77,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `NVMeFix` again due to 3rd party NVMe controller panic
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.9.1
+  - Update config to support `OpenCore` v0.9.1
 
 
 ## [XiaoMi NoteBook Pro EFI v1.7.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.6)
@@ -105,7 +105,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `VoodooI2C` v2.8
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.9
+  - Update config to support `OpenCore` v0.8.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
@@ -125,10 +125,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Add back `NVMeFix` to enable APST on SSDs
 
 ### OC
-  - OC: CML: Change `HibernateMode` back to `Auto`
+  - CML: Change `HibernateMode` back to `Auto`
 
 ### Clover
-  - Clover: CML: Enable `HibernationFixup`
+  - CML: Enable `HibernationFixup`
 
 ### Change
   - config: Delete `reg-ltrovr` property as the tolerance latency's effect is unknown for hackintosh
@@ -147,7 +147,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `IntelBluetoothFirmware` v2.3.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@693f2dc](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/693f2dcaefe218f7f0205957bfbe381cdf5354ae))
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.7
+  - Update config to support `OpenCore` v0.8.7
 
 ### Change
   - Add boot-args `ps2kbdonly=1` to disable `VoodooPS2` 's mouse clock line
@@ -164,7 +164,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `RestrictEvents` v1.0.9
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.6
+  - Update config to support `OpenCore` v0.8.6
 
 ### Clover
   - Update config
@@ -180,8 +180,8 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `AirportItlwm` v2.2.0 (up to [OpenIntelWireless/itlwm@ee56708](https://github.com/OpenIntelWireless/itlwm/commit/ee567086f288951766f4259f8239c472be66679f))
 
 ### Clover
-  - Clover: Remove `ApfsDriverLoader.efi`, `AppleGenericInput.efi` & `AppleUiSupport.efi` from [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg) and replace them with `ApfsDriverLoader.efi` and `AppleKeyFeeder.efi` embedded in [CloverBootloader](https://github.com/CloverHackyColor/CloverBootloader)
-  - Clover: Add missing `BlueToolFixup` to 13 kext folder
+  - Remove `ApfsDriverLoader.efi`, `AppleGenericInput.efi` & `AppleUiSupport.efi` from [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg) and replace them with `ApfsDriverLoader.efi` and `AppleKeyFeeder.efi` embedded in [CloverBootloader](https://github.com/CloverHackyColor/CloverBootloader)
+  - Add missing `BlueToolFixup` to 13 kext folder
 
 
 ## [XiaoMi NoteBook Pro EFI v1.7.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.0)
@@ -196,7 +196,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `IntelBluetoothFirmware` v2.3.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@18fcde3](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/18fcde3519bcb00ad9b46286d604a73661cf52b1))
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.4
+  - Update config to support `OpenCore` v0.8.4
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.9)
@@ -214,7 +214,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `IntelBluetoothFirmware` v2.2.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@bbdde1f](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/bbdde1f6ca5211824adf2a0e6540647b6ba656ce))
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.3
+  - Update config to support `OpenCore` v0.8.3
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.8)
@@ -264,11 +264,11 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Add `IntelBTPatcher` to fix Intel Bluetooth on Big Sur, Catalina, Mojave, High Sierra, etc
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.1
-  - OC: CML: Change `HibernateMode` to `None` to try to solve Not booting after running out of battery issue
+  - Update config to support `OpenCore` v0.8.1
+  - CML: Change `HibernateMode` to `None` to try to solve Not booting after running out of battery issue
 
 ### Clover
-  - Clover: CML: Disable `HibernationFixup` to try to solve Not booting after running out of battery issue
+  - CML: Disable `HibernationFixup` to try to solve Not booting after running out of battery issue
 
 ### Change
   - ACPI: Modify `kUSBSleepPortCurrentLimit` and `kUSBWakePortCurrentLimit` in `SSDT-USB*` to 2100 based on [ACDT's SSDT-EC-USBX](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl)
@@ -295,8 +295,8 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `IntelBluetoothFirmware` v2.1.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@aaf4247](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/aaf42472824865f553eeb7e17c7fa1c024da1305))
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.8.0
-  - OC: Change `SecureBootModel` back to `Disabled` to support more machines, but can not receive OEM update
+  - Update config to support `OpenCore` v0.8.0
+  - Change `SecureBootModel` back to `Disabled` to support more machines, but can not receive OEM update
     - Go to `App Store` and search `Monterey (or newer macOS)` to receive update instead
 
 
@@ -313,10 +313,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `IntelBluetoothFirmware` v2.1.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@a9217e8](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a9217e8883107c91011983857ac8ea2b09f0a19f))
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.6
+  - Update config to support `OpenCore` v0.7.6
 
 ### Clover
-  - Clover: Update config to support `Clover` r5143
+  - Update config to support `Clover` r5143
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
@@ -343,10 +343,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `SATA-unsupported` because it does not suppost macOS11+; manually add `CtlnaAHCIPort` for SATA SSDs if necessary
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.5
+  - Update config to support `OpenCore` v0.7.5
 
 ### Clover
-  - Clover: Update config to support `Clover` r5142
+  - Update config to support `Clover` r5142
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.2)
@@ -370,10 +370,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `complete-modeset-framebuffers` property because someone reported that it is no longer necessary
 
 ### Clover
-  - Clover: Update config to support `Clover` r5140
+  - Update config to support `Clover` r5140
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.4
+  - Update config to support `OpenCore` v0.7.4
 
 
 ## [XiaoMi NoteBook Pro EFI v1.6.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.1)
@@ -415,7 +415,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - KBL: Change `ig-platform-id` to `0x05001C59` for better graphics performance, no support for macOS High Sierra & Mojave
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.3
+  - Update config to support `OpenCore` v0.7.3
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
@@ -437,7 +437,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `ROM` in config
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.2
+  - Update config to support `OpenCore` v0.7.2
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.8)
@@ -462,7 +462,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `RestrictEvents`
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.1
+  - Update config to support `OpenCore` v0.7.1
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.7)
@@ -484,7 +484,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Add `BlueToolFixup` to help drive Intel Bluetooth on macOS12.0 beta1 (21A5248p)
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.1
+  - Update config to support `OpenCore` v0.7.1
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
@@ -505,10 +505,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `HfsPlus.efi` (up to [acidanthera/OcBinaryData@6dd2d92](https://github.com/acidanthera/OcBinaryData/commit/6dd2d92383edee522052ebbe2c634c92894b37e6))
 
 ### Clover
-  - Clover: Update config to support `Clover` r5136
+  - Update config to support `Clover` r5136
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.7.0
+  - Update config to support `OpenCore` v0.7.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.5)
@@ -526,7 +526,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `RestrictEvents` v1.0.1
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.9
+  - Update config to support `OpenCore` v0.6.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.4)
@@ -544,7 +544,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `AirportItlwm` v1.3.0 (up to [OpenIntelWireless/itlwm@68bc77c](https://github.com/OpenIntelWireless/itlwm/commit/68bc77c99a135819cbb3f660355336d1f6710caa))
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.8
+  - Update config to support `OpenCore` v0.6.8
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.3)
@@ -571,7 +571,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - CML: Change SMBIOS model back to `MacBookPro16,2` to unlock more frequency
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.7
+  - Update config to support `OpenCore` v0.6.7
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
@@ -592,7 +592,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - CML: Add `AAPL00,override-no-connect` property to inject EDID
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.6
+  - Update config to support `OpenCore` v0.6.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.1)
@@ -602,7 +602,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `force-online*` properties to fix HDMI
 
 ### OC
-  - OC: Disable loading `AudioDxe.efi` and `ExFatDxe.efi` because they slow down the boot speed dramatically
+  - Disable loading `AudioDxe.efi` and `ExFatDxe.efi` because they slow down the boot speed dramatically
 
 
 ## [XiaoMi NoteBook Pro EFI v1.5.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.0)
@@ -625,10 +625,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `EFICheckDisabler`
 
 ### Clover
-  - Clover: Update config to support `Clover` r5128
+  - Update config to support `Clover` r5128
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.5
+  - Update config to support `OpenCore` v0.6.5
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)
@@ -653,12 +653,12 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Change `csr-active-config` to `30000000`
 
 ### Clover
-  - Clover: Update config to support `Clover` r5127
-  - Clover: Add back Mouse properties to support mouse in BootPicker
+  - Update config to support `Clover` r5127
+  - Add back Mouse properties to support mouse in BootPicker
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.4
-  - OC: Re-enable `IntelBluetoothInjector.kext` on macOS11.0+
+  - Update config to support `OpenCore` v0.6.4
+  - Re-enable `IntelBluetoothInjector.kext` on macOS11.0+
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7)
@@ -668,7 +668,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `AAPL,slot-name` to support HEVC on macOS11
 
 ### Clover
-  - Clover: Add `AirportItlwm` to support native Intel Wi-Fi
+  - Add `AirportItlwm` to support native Intel Wi-Fi
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.6)
@@ -685,11 +685,11 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `VoodooI2C` v2.5.2
 
 ### Clover
-  - Clover: Disable `RtcHibernateAware`, turn it on manually to improve hibernation
+  - Disable `RtcHibernateAware`, turn it on manually to improve hibernation
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.3
-  - OC: Add `AirportItlwm` to support native Intel Wi-Fi
+  - Update config to support `OpenCore` v0.6.3
+  - Add `AirportItlwm` to support native Intel Wi-Fi
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)
@@ -710,12 +710,12 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `-shikioff` because `Shiki` is necessary to play DRM
 
 ### Clover
-  - Clover: Add back `RtcHibernateAware` to improve hibernation
+  - Add back `RtcHibernateAware` to improve hibernation
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.2
-  - OC: Disable `IntelBluetoothInjector.kext` on macOS11.0+ to resume boot speed
-  - OC: Re-enable `Disable RTC wake scheduling` patch
+  - Update config to support `OpenCore` v0.6.2
+  - Disable `IntelBluetoothInjector.kext` on macOS11.0+ to resume boot speed
+  - Re-enable `Disable RTC wake scheduling` patch
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
@@ -739,8 +739,8 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `NVMeFix` due to incompatibilities on some NVMe SSDs
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.1
-  - OC: Disable `Disable RTC wake scheduling` patch since it may cause Intel Wi-Fi unresponding after wake
+  - Update config to support `OpenCore` v0.6.1
+  - Disable `Disable RTC wake scheduling` patch since it may cause Intel Wi-Fi unresponding after wake
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
@@ -761,11 +761,11 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `SSDT-LGPA` to solve unexpected key press when wake up from sleep
 
 ### Clover
-  - Clover: Update config to support `Clover` r5120
-  - Clover: Remove `SetIntelBacklight` and `SetIntelMaxBacklight` becuase we use `SSDT-PNLF`
+  - Update config to support `Clover` r5120
+  - Remove `SetIntelBacklight` and `SetIntelMaxBacklight` becuase we use `SSDT-PNLF`
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.0
+  - Update config to support `OpenCore` v0.6.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
@@ -780,10 +780,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Update `VoodooPS2` v2.1.6 (up to [acidanthera/VoodooPS2@60a4566](https://github.com/acidanthera/VoodooPS2/commit/60a4566c237f9c39bf38122ec8c0910a388dbe9d))
 
 ### Clover
-  - Clover: Remove `NoRomInfo` key
+  - Remove `NoRomInfo` key
 
 ### OC
-  - OC: Update config
+  - Update config
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
@@ -808,11 +808,11 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Disable `FBEnableDynamicCDCLK` since it will cause black screen wake from hibernation; for people who want to enable HiDPI resolution > 1424x802, please change the value for `framebuffer-flags` to `CwfjAA==`
 
 ### Clover
-  - Clover: Add `OcQuirks.efi`, `OpenRuntime.efi`, and `OcQuirks.plist` to replace `AptioMemoryFix.efi`
-  - Clover: Add `NoRomInfo` to hide Apple ROM information
+  - Add `OcQuirks.efi`, `OpenRuntime.efi`, and `OcQuirks.plist` to replace `AptioMemoryFix.efi`
+  - Add `NoRomInfo` to hide Apple ROM information
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.6.0
+  - Update config to support `OpenCore` v0.6.0
 
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
@@ -849,11 +849,11 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Use `VoodooInput` bundled with `VoodooI2C`
 
 ### Clover
-  - Clover: Remove `DropOEM_DSM` as `Clover` r5117 dropped it
-  - Clover: Reverse back font.png in `Xiaomi` theme since `Clover` r5116 fixed the font problem
+  - Remove `DropOEM_DSM` as `Clover` r5117 dropped it
+  - Reverse back font.png in `Xiaomi` theme since `Clover` r5116 fixed the font problem
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.5.9
+  - Update config to support `OpenCore` v0.5.9
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
@@ -882,10 +882,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `USBInjectAll`
 
 ### Clover
-  - Clover: Update font.png in `Xiaomi` theme to support `Clover` r5115
+  - Update font.png in `Xiaomi` theme to support `Clover` r5115
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.5.8
+  - Update config to support `OpenCore` v0.5.8
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
@@ -915,10 +915,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `TPD0._INI -> XINI` and `TPD0._CRS -> XCRS` renames
 
 ### Clover
-  - Clover: Update `setpowerstate_panic=0` kernel patch for macOS10.15.4
+  - Update `setpowerstate_panic=0` kernel patch for macOS10.15.4
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.5.7
+  - Update config to support `OpenCore` v0.5.7
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
@@ -932,12 +932,12 @@ XiaoMi NoteBook Pro EFI v1.8.0
     - Our type-c ports are with switch, so the `UsbConnector` should be `0x09`
 
 ### Clover
-  - Clover: Update `Xiaomi` theme to support Clover r5105+
-  - Clover: Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
-  - Clover: Remove MSR 0xE2 patch because Clover can automatically patch
+  - Update `Xiaomi` theme to support Clover r5105+
+  - Add `setpowerstate_panic=0` kernel patch for macOS10.15 according to [Acidanthera/AppleALC#513](https://github.com/acidanthera/bugtracker/issues/513#issuecomment-542838126)
+  - Remove MSR 0xE2 patch because Clover can automatically patch
 
 ### OC
-  - OC: Update config to better support `OpenCore` v0.5.6
+  - Update config to better support `OpenCore` v0.5.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
@@ -973,10 +973,10 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Change layout-id back to 30
 
 ### Clover
-  - Clover: Add `PanicNoKextDump` to replace panic kext logging patches
+  - Add `PanicNoKextDump` to replace panic kext logging patches
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.5.6
+  - Update config to support `OpenCore` v0.5.6
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.5)
@@ -996,7 +996,7 @@ XiaoMi NoteBook Pro EFI v1.8.0
   - Remove `enable-hdmi-dividers-fix`
 
 ### OC
-  - OC: Update config to support `OpenCore` v0.0.4
+  - Update config to support `OpenCore` v0.0.4
 
 
 ## [XiaoMi NoteBook Pro EFI v1.3.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.4)
