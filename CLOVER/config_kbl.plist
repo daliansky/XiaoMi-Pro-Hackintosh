@@ -290,9 +290,7 @@
 		<key>PanicNoKextDump</key>
 		<true/>
 		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IO80211Family.kext</string>
-		</array>
+		<array/>
 		<key>KextsToPatch</key>
 		<array/>
 		<key>KernelToPatch</key>

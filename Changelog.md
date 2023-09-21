@@ -2,6 +2,17 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+XiaoMi NoteBook Pro EFI v1.8.1
+## 2023-10-XX
+
+### Upgrade
+  - Update `OpenCore` v0.9.6
+  - Update `AppleALC` v1.8.6
+
+### Clover
+  - Remove IO80211Family entry in ForceKextsToLoad
+
+
 [XiaoMi NoteBook Pro EFI v1.8.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.0)
 ## 2023-09-12
 
