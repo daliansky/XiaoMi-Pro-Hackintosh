@@ -2,8 +2,8 @@
 
 [English](../Changelog.md) | **中文**
 
-XiaoMi NoteBook Pro EFI v1.8.1
-## 2023-10-XX
+## XiaoMi NoteBook Pro EFI v1.8.1
+## 2023-11-XX
 
 ### 更新
   - 更新 `OpenCore` v0.9.6
@@ -13,7 +13,7 @@ XiaoMi NoteBook Pro EFI v1.8.1
   - 移除 ForceKextsToLoad 里的 IO80211Family
 
 
-[XiaoMi NoteBook Pro EFI v1.8.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.0)
+## [XiaoMi NoteBook Pro EFI v1.8.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.0)
 ## 2023-09-12
 
 ### 更新
@@ -29,7 +29,7 @@ XiaoMi NoteBook Pro EFI v1.8.1
   - 新增 `BlockSkywalk`，默认关闭
 
 
-[XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
+## [XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
 ## 2023-07-17
 
 ### 更新
@@ -54,7 +54,7 @@ XiaoMi NoteBook Pro EFI v1.8.1
   - 更新 `MinKernel` 和 `MaxKernel` 根据 [OpenCorePkg/Docs/Kexts.md](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Kexts.md)
 
 
-[XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
+## [XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
 ## 2023-05-08
 
 ### 更新
