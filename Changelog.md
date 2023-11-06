@@ -2,12 +2,13 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
-## XiaoMi NoteBook Pro EFI v1.8.1
-## 2023-11-XX
+## [XiaoMi NoteBook Pro EFI v1.8.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.1)
+## 2023-11-06
 
 ### Upgrade
   - Update `OpenCore` v0.9.6
   - Update `AppleALC` v1.8.6
+  - Update `AirportItlwm` v2.3.0 (up to [OpenIntelWireless/itlwm@ff1138b](https://github.com/OpenIntelWireless/itlwm/commit/ff1138b026d3198beb9a716f73efe4f4a86ed68b))
 
 ### Clover
   - Remove IO80211Family entry in ForceKextsToLoad
