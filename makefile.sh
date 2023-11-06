@@ -580,7 +580,8 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-  bKextHelper VoodooI2C VoodooI2C
+  # bKextHelper VoodooI2C VoodooI2C
+  dGR VoodooI2C VoodooI2C
   # Make sure Lilu is later than Lilu based kexts
   bKextHelper ${ACDT} "Lilu" "${build_mode}"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
