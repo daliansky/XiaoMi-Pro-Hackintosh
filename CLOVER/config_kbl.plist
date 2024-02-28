@@ -326,6 +326,8 @@
 		<false/>
 		<key>ExternalDiskIcons</key>
 		<false/>
+		<key>ForceAquantiaEthernet</key>
+		<false/>
 		<key>ForceExitBootServices</key>
 		<false/>
 		<key>ForceOcWriteFlash</key>

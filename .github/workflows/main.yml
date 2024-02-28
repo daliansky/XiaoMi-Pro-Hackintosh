@@ -14,7 +14,7 @@ jobs:
     env:
       XCODE_VERSION: 14.2
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: '5'
 
@@ -39,14 +39,14 @@ jobs:
           ./makefile.sh --VERSION=${CUR_TAG} --BL=CLOVEROC --MODEL=CMLKBL --PRE_RELEASE=KextOC
 
       - name: Upload to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: XiaoMi NoteBook Pro EFI ${{ env.CUR_TAG }}
           path: build/*.zip
 
       - name: Upload to Release
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        uses: ncipollo/release-action@v1.13.0
+        uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: build/*.zip
           bodyFile: build/XiaoMi_Pro-KBL-OC-${{ env.CUR_TAG }}/ReleaseNotes.md
@@ -59,7 +59,7 @@ jobs:
     name: Analyze Scripts
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install Dependency
         run: |
@@ -74,7 +74,7 @@ jobs:
     name: Analyze DSLs
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install Dependency
         run: |
@@ -89,7 +89,7 @@ jobs:
     name: Analyze OpenCore Configs
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install Dependency
         run: |
