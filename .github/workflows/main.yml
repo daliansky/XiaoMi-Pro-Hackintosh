@@ -58,14 +58,14 @@ jobs:
   analyze-scripts:
     name: Analyze Scripts
     runs-on: macos-latest
+    env:
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Dependency
         run: |
           brew install shellcheck
-        env:
-          HOMEBREW_NO_INSTALL_CLEANUP: 1
 
       - name: Run shellcheck
         run: find . \( -name "*.tool" -o -name "*.command" -o -name "*.sh" \) -exec sh -c 'for TargetFile; do shellcheck --severity=info "${TargetFile}" || exit 1; done' sh {} +

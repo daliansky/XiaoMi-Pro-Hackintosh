@@ -90,7 +90,8 @@ function h_or_g() {
     hgs=( "grep -m 1 BigSur"
           "grep -m 1 Catalina"
           "grep -m 1 Monterey"
-          "grep -m 1 Sonoma"
+          "grep -m 1 Sonoma14.0"
+          "grep -m 1 Sonoma14.4"
           "grep -m 1 Ventura"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
@@ -238,7 +239,8 @@ function unpack() {
   (cd "${OUTDir_TMP}" && unzip -qq -d "Big Sur" "*BigSur*.zip" && rm -- *BigSur*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
   (cd "${OUTDir_TMP}" && unzip -qq -d "Catalina" "*Catalina*.zip" && rm -- *Catalina*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
   (cd "${OUTDir_TMP}" && unzip -qq -d "Monterey" "*Monterey*.zip" && rm -- *Monterey*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
-  (cd "${OUTDir_TMP}" && unzip -qq -d "Sonoma" "*Sonoma*.zip" && rm -- *Sonoma*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
+  (cd "${OUTDir_TMP}" && unzip -qq -d "Sonoma14.0" "*Sonoma14.0*.zip" && rm -- *Sonoma14.0*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
+  (cd "${OUTDir_TMP}" && unzip -qq -d "Sonoma14.4" "*Sonoma14.4*.zip" && rm -- *Sonoma14.4*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
   (cd "${OUTDir_TMP}" && unzip -qq -d "Ventura" "*Ventura*.zip" && rm -- *Ventura*.zip || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!")
 
   eval "$(cd ${OUTDir_TMP} && unzip -qq "*.zip" || exit 1)"
@@ -272,7 +274,8 @@ function patch() {
   mv "${OUTDir_TMP}/Big Sur/AirportItlwm.kext" "${OUTDir_TMP}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
   mv "${OUTDir_TMP}/Catalina/AirportItlwm.kext" "${OUTDir_TMP}/Catalina/AirportItlwm_Catalina.kext" || exit 1
   mv "${OUTDir_TMP}/Monterey/AirportItlwm.kext" "${OUTDir_TMP}/Monterey/AirportItlwm_Monterey.kext" || exit 1
-  mv "${OUTDir_TMP}/Sonoma/AirportItlwm.kext" "${OUTDir_TMP}/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+  mv "${OUTDir_TMP}/Sonoma14.0/AirportItlwm.kext" "${OUTDir_TMP}/Sonoma14.0/AirportItlwm_Sonoma140.kext" || exit 1
+  mv "${OUTDir_TMP}/Sonoma14.4/AirportItlwm.kext" "${OUTDir_TMP}/Sonoma14.4/AirportItlwm_Sonoma144.kext" || exit 1
   mv "${OUTDir_TMP}/Ventura/AirportItlwm.kext" "${OUTDir_TMP}/Ventura/AirportItlwm_Ventura.kext" || exit 1
 }
 
@@ -303,7 +306,8 @@ function install() {
     "Big Sur/AirportItlwm_Big_Sur.kext"
     "Catalina/AirportItlwm_Catalina.kext"
     "Monterey/AirportItlwm_Monterey.kext"
-    "Sonoma/AirportItlwm_Sonoma.kext"
+    "Sonoma14.0/AirportItlwm_Sonoma140.kext"
+    "Sonoma14.4/AirportItlwm_Sonoma144.kext"
     "Ventura/AirportItlwm_Ventura.kext"
   )
 

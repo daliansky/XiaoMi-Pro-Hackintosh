@@ -220,6 +220,8 @@ function init() {
     "Catalina"
     "Monterey"
     "Sonoma"
+    "Sonoma14.0"
+    "Sonoma14.4"
     "Ventura"
   )
 
@@ -274,7 +276,8 @@ function h_or_g() {
     hgs=( "grep -m 1 BigSur"
           "grep -m 1 Catalina"
           "grep -m 1 Monterey"
-          "grep -m 1 Sonoma"
+          "grep -m 1 Sonoma14.0"
+          "grep -m 1 Sonoma14.4"
           "grep -m 1 Ventura"
         )
   elif [[ "$1" == "NoTouchID" ]]; then
@@ -545,6 +548,7 @@ function bKextHelper() {
 
       xcodebuild -scheme "AirportItlwm (all)" -configuration "$3" -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
       cp -R "${PATH_LONG_BIG}"* "../KBL" || copyErr
+      xcodebuild -scheme "AirportItlwm (all)" clean > /dev/null 2>&1 || buildErr "$2"
     fi
   fi
   cd ../ || exit 1
@@ -580,7 +584,11 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-  bKextHelper VoodooI2C VoodooI2C
+
+  # FIXME: Ref: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/732
+  # bKextHelper VoodooI2C VoodooI2C
+  dGR VoodooI2C VoodooI2C
+
   # Make sure Lilu is later than Lilu based kexts
   bKextHelper ${ACDT} "Lilu" "${build_mode}"
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Please clean Xcode cache in ~/Library/Developer/Xcode/DerivedData!"
@@ -661,7 +669,8 @@ function unpack() {
     unzip -qq -d "Big Sur" "*BigSur*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
     unzip -qq -d "Catalina" "*Catalina*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
     unzip -qq -d "Monterey" "*Monterey*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
-    unzip -qq -d "Sonoma" "*Sonoma*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
+    unzip -qq -d "Sonoma" "*Sonoma14.0*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
+    unzip -qq -d "Sonoma" "*Sonoma14.4*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
     unzip -qq -d "Ventura" "*Ventura*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
   fi
   ditto -x -k ./*.zip . || exit 1
@@ -709,14 +718,16 @@ function patch() {
       mv "${model}/Big Sur/AirportItlwm.kext" "${model}/Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
       mv "${model}/Catalina/AirportItlwm.kext" "${model}/Catalina/AirportItlwm_Catalina.kext" || exit 1
       mv "${model}/Monterey/AirportItlwm.kext" "${model}/Monterey/AirportItlwm_Monterey.kext" || exit 1
-      mv "${model}/Sonoma/AirportItlwm.kext" "${model}/Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+      mv "${model}/Sonoma14.0/AirportItlwm.kext" "${model}/Sonoma14.0/AirportItlwm_Sonoma140.kext" || exit 1
+      mv "${model}/Sonoma14.4/AirportItlwm.kext" "${model}/Sonoma14.4/AirportItlwm_Sonoma144.kext" || exit 1
       mv "${model}/Ventura/AirportItlwm.kext" "${model}/Ventura/AirportItlwm_Ventura.kext" || exit 1
     done
   else
     mv "Big Sur/AirportItlwm.kext" "Big Sur/AirportItlwm_Big_Sur.kext" || exit 1
     mv "Catalina/AirportItlwm.kext" "Catalina/AirportItlwm_Catalina.kext" || exit 1
     mv "Monterey/AirportItlwm.kext" "Monterey/AirportItlwm_Monterey.kext" || exit 1
-    mv "Sonoma/AirportItlwm.kext" "Sonoma/AirportItlwm_Sonoma.kext" || exit 1
+    mv "Sonoma14.0/AirportItlwm.kext" "Sonoma14.0/AirportItlwm_Sonoma140.kext" || exit 1
+    mv "Sonoma14.4/AirportItlwm.kext" "Sonoma14.4/AirportItlwm_Sonoma144.kext" || exit 1
     mv "Ventura/AirportItlwm.kext" "Ventura/AirportItlwm_Ventura.kext" || exit 1
   fi
   echo
@@ -757,7 +768,8 @@ function install() {
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
       "Monterey/AirportItlwm_Monterey.kext"
-      "Sonoma/AirportItlwm_Sonoma.kext"
+      "Sonoma14.0/AirportItlwm_Sonoma140.kext"
+      "Sonoma14.4/AirportItlwm_Sonoma144.kext"
       "Ventura/AirportItlwm_Ventura.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -794,7 +806,8 @@ function install() {
       "Big Sur/AirportItlwm_Big_Sur.kext"
       "Catalina/AirportItlwm_Catalina.kext"
       "Monterey/AirportItlwm_Monterey.kext"
-      "Sonoma/AirportItlwm_Sonoma.kext"
+      "Sonoma14.0/AirportItlwm_Sonoma140.kext"
+      "Sonoma14.4/AirportItlwm_Sonoma144.kext"
       "Ventura/AirportItlwm_Ventura.kext"
     )
     if [[ "${pre_release}" =~ "Kext" ]]; then
@@ -856,13 +869,15 @@ function install() {
           cp -R "${model}/Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11/" || copyErr
           cp -R "${model}/Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/" || copyErr
           cp -R "${model}/Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
-          cp -R "${model}/Sonoma/AirportItlwm_Sonoma.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
+          # cp -R "${model}/Sonoma14.0/AirportItlwm_Sonoma140.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
+          cp -R "${model}/Sonoma14.4/AirportItlwm_Sonoma144.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
           cp -R "${model}/Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         else
           cp -R "Big Sur/AirportItlwm_Big_Sur.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/11/" || copyErr
           cp -R "Catalina/AirportItlwm_Catalina.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/10.15/" || copyErr
           cp -R "Monterey/AirportItlwm_Monterey.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/12/" || copyErr
-          cp -R "Sonoma/AirportItlwm_Sonoma.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
+          # cp -R "Sonoma14.0/AirportItlwm_Sonoma140.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
+          cp -R "Sonoma14.4/AirportItlwm_Sonoma144.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
           cp -R "Ventura/AirportItlwm_Ventura.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         fi
 
