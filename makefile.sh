@@ -409,8 +409,8 @@ function bKextHelper() {
   local PATH_LONG_BIG="Build/Products/$3/"
   local PATH_LONG_SMA="build/Products/$3/"
   local PATH_SHORT_SMA="build/$3/"
-  local PATH_VI2C="Build/Products/Release/"
   local PATH_ITLWM="Build/Products/Debug/"
+  local PATH_VI2C="Build/Products/Release/"
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
