@@ -536,7 +536,7 @@ function bKextHelper() {
       rm -rf itlwm/firmware/* || exit 1
       cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
 
-      xcodebuild -scheme "AirportItlwm (all)" -configuration "$3" -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
+      xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
       cp -R "${PATH_LONG_BIG}"* "../CML" || copyErr
       xcodebuild -scheme "AirportItlwm (all)" clean > /dev/null 2>&1 || buildErr "$2"
     fi
