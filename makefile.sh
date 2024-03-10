@@ -410,6 +410,7 @@ function bKextHelper() {
   local PATH_LONG_SMA="build/Products/$3/"
   local PATH_SHORT_SMA="build/$3/"
   local PATH_VI2C="Build/Products/Release/"
+  local PATH_ITLWM="Build/Products/Debug/"
   local lineNum
 
   if [[ "${model_input}" =~ "CML" ]]; then
@@ -537,7 +538,7 @@ function bKextHelper() {
       cp -R tmp/iwlwifi-QuZ* "itlwm/firmware/" || copyErr
 
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
-      cp -R "${PATH_LONG_BIG}"* "../CML" || copyErr
+      cp -R "${PATH_ITLWM}"* "../CML" || copyErr
       xcodebuild -scheme "AirportItlwm (all)" clean > /dev/null 2>&1 || buildErr "$2"
     fi
     if [[ "${model_input}" =~ "KBL" ]]; then
@@ -547,7 +548,7 @@ function bKextHelper() {
       cp -R tmp/iwm-8265* "itlwm/firmware/" || copyErr
 
       xcodebuild -scheme "AirportItlwm (all)" -configuration Debug -derivedDataPath . > /dev/null 2>&1 || buildErr "$2"
-      cp -R "${PATH_LONG_BIG}"* "../KBL" || copyErr
+      cp -R "${PATH_ITLWM}"* "../KBL" || copyErr
       xcodebuild -scheme "AirportItlwm (all)" clean > /dev/null 2>&1 || buildErr "$2"
     fi
   fi
