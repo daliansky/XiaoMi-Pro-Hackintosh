@@ -3,7 +3,7 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 ## [XiaoMi NoteBook Pro EFI v1.8.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.2)
-## 2024-03-XX
+## 2024-03-12
 
 ### Upgrade
   - Update `OpenCore` v0.9.9
@@ -11,7 +11,7 @@
   - Update `AppleALC` v1.8.9
   - Update `OcBinaryData` (up to [acidanthera/OcBinaryData@af09b0b](https://github.com/acidanthera/OcBinaryData/commit/af09b0bf763363ec9f4ecdbbe2f0adeb970948d8))
   - Update `IntelBluetoothFirmware` v2.5.0 (up to [OpenIntelWireless/IntelBluetoothFirmware@8b88140](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/8b88140dd09eb9810e49e57ee4aa06360cefa75c))
-  - Update `AirportItlwm` v2.3.0 to support Sonoma 14.4+ (up to [OpenIntelWireless/itlwm@ef2e076](https://github.com/OpenIntelWireless/itlwm/commit/ef2e0762d1548b07bcab95570ae44e9bb6470933))
+  - Update `AirportItlwm` v2.3.0 to support Sonoma 14.4+ (up to [OpenIntelWireless/itlwm@d48ea5d](https://github.com/OpenIntelWireless/itlwm/commit/d48ea5d0857bea11bd8173b983951509bb8537a6))
     - For Sonoma Verison < 14.4 with Clover user, [AirportItlwm-Sonoma14.0 kext](https://github.com/OpenIntelWireless/itlwm/releases) has to be manually downloaded and placed in `/EFI/CLOVER/kexts/14/`. `AirportItlwm_Sonoma144.kext` should also be deleted.
 
 ### Clover
