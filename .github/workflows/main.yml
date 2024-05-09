@@ -11,8 +11,6 @@ jobs:
   build-efi-release:
     name: Build EFI Release
     runs-on: macos-latest
-    env:
-      XCODE_VERSION: 14.2
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,7 +25,6 @@ jobs:
         run: |
           GIT_SHA="$(git rev-parse --short HEAD)"
           echo "CUR_TAG=beta-$GIT_SHA" >> "$GITHUB_ENV"
-          echo "DEVELOPER_DIR=/Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer" >> "$GITHUB_ENV"
 
       - name: Manage Release Version
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
