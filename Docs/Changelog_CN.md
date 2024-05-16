@@ -2,6 +2,18 @@
 
 [English](../Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.8.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.3)
+## 2024-05-15
+
+### 更新
+  - 更新 `OpenCore` v1.0.1（更新至 [acidanthera/OpenCorePkg@614b733](https://github.com/acidanthera/OpenCorePkg/commit/614b733342392004f907a73236f488d567a962bb)）
+  - 更新 `Clover` r5158
+  - 更新 `Lilu` v1.6.8（更新至 [acidanthera/Lilu@a7fc69b](https://github.com/acidanthera/Lilu/commit/a7fc69b7cc3ebb08ed72c41e873ae7c5f2451731)）
+  - 更新 `AppleALC` v1.9.1（更新至 [acidanthera/AppleALC@6318299](https://github.com/acidanthera/AppleALC/commit/63182991831b9f0205db163c424679a39034ee35)）
+  - 更新 `HibernationFixup` v1.5.1（更新至 [acidanthera/HibernationFixup@55a3e9d](https://github.com/acidanthera/HibernationFixup/commit/55a3e9d8fda1ed4dcef225aa04bc0dcb39c77247)）
+  - 更新 `AirportItlwm` v2.3.0（更新至 [OpenIntelWireless/itlwm@4ac4c79](https://github.com/OpenIntelWireless/itlwm/commit/4ac4c79bc7e34f8764038fc382630a29eb46213d)）
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.2)
 ## 2024-03-12
 
