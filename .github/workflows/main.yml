@@ -17,7 +17,7 @@ jobs:
           fetch-depth: '5'
 
       # Python 3.10 is not compatible with VoodooI2C cldoc
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
             python-version: '3.9'
 
