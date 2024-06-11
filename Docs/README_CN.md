@@ -83,9 +83,9 @@
 - 其他都工作正常
 
 ### Clover
-- TM1701 和 TM1707：支持 macOS10.15 ~ macOS12
+- TM1701 和 TM1707：支持 macOS10.15 ~ macOS13
   - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) 是最后一个支持 macOS High Sierra & Mojave 的 EFI 版本**
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS12
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS13
 -----
 - 需要选择 `~ via Preboot` 来引导 Big Sur
 - 使用 OpenCore 后需要清理 NVRAM
