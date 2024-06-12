@@ -4,7 +4,7 @@
 
 XiaoMi NoteBook Pro EFI is for general hackintosh usage. However, it could be hazardous because multiple people would share the same serial numbers defined in `config.plist`. It's highly recommended to generate your own serial numbers to protect your device from potential privacy leaks.
 
-- At first, download [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) and select option 1 to download MacSerial and next option 3. Then, defaultly, type `MacBookPro15,4 5` (KBL) or `MacBookPro16,2 5` (CML) to generate some new serials.
+- At first, download [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) and select option 1 to download MacSerial and next option 3. Then, by default, type `MacBookPro15,4 5` (KBL) or `MacBookPro16,2 5` (CML) to generate some new serials.
 
 ### For Clover Users
 - Go to `/EFI/CLOVER/` and open `config.plist`
@@ -27,7 +27,7 @@ XiaoMi NoteBook Pro EFI is for general hackintosh usage. However, it could be ha
 
 Feel free to report a security vulnerability in the [Issue Page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues) if you find any.
 
-We will respond to security vulnerabilities as soon as possible. A gentle reminder that releases of this repository are in general collections of hackintosh kernel extensions and bootloaders. We may not be capable of fixing code-level security vulnerabilities unless the authors of responsible kernel extensions/bootloaders assist us in fixing them.
+We will respond to security vulnerabilities as soon as possible. A gentle reminder that releases of this repository are collections of hackintosh kernel extensions and bootloaders. We may not be capable of fixing code-level security vulnerabilities unless the authors of responsible kernel extensions/bootloaders assist us in fixing them.
 
 
 ## Reference
