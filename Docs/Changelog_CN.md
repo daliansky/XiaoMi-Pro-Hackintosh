@@ -4,7 +4,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.3)
 ## 2024-05-15
-
+支持的 macOS 版本：10.15，11，12，13，14
 ### 更新
   - 更新 `OpenCore` v1.0.1（更新至 [acidanthera/OpenCorePkg@614b733](https://github.com/acidanthera/OpenCorePkg/commit/614b733342392004f907a73236f488d567a962bb)）
   - 更新 `Clover` r5158
@@ -16,7 +16,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.2)
 ## 2024-03-12
-
+支持的 macOS 版本：10.15，11，12，13，14
 ### 更新
   - 更新 `OpenCore` v0.9.9
   - 更新 `Clover` r5157
@@ -32,7 +32,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.1)
 ## 2023-11-06
-
+支持的 macOS 版本：10.15，11，12，13，14.0 - 14.3.1
 ### 更新
   - 更新 `OpenCore` v0.9.6
   - 更新 `AppleALC` v1.8.6
@@ -44,7 +44,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.0)
 ## 2023-09-12
-
+支持的 macOS 版本：10.15，11，12，13，14.0 - 14.3.1
 ### 更新
   - 更新 `OpenCore` v0.9.5
   - 更新 `Clover` r5155
@@ -60,7 +60,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
 ## 2023-07-17
-
+支持的 macOS 版本：10.15，11，12，13，14.0 - 14.0 beta 4
 ### 更新
   - 更新 `OpenCore` v0.9.4（更新至 [acidanthera/OpenCorePkg@afa5974](https://github.com/acidanthera/OpenCorePkg/commit/afa5974a4c33e6ffbfa816eb86b604949d772832)）
   - 更新 `Clover` r5153
@@ -85,7 +85,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
 ## 2023-05-08
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.9.2
   - 更新 `Lilu` v1.6.5
@@ -105,7 +105,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)
 ## 2023-04-04
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.9.1
   - 更新 `AppleALC` v1.8.1
@@ -122,7 +122,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.6)
 ## 2023-03-06
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.9.0
   - 更新 `Lilu` v1.6.4
@@ -133,7 +133,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.5)
 ## 2023-02-18
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.9
   - 更新 `Clover` r5151
@@ -150,7 +150,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
 ## 2023-01-03
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.8
   - 更新 `Lilu` v1.6.3
@@ -176,7 +176,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.3)
 ## 2022-12-06
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.7
   - 更新 `AppleALC` v1.7.7
@@ -196,7 +196,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.2)
 ## 2022-11-08
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.6
   - 更新 `Clover` r5150
@@ -212,7 +212,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.1)
 ## 2022-10-04
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.5
   - 更新 `BrcmPatchRAM` v2.6.4
@@ -226,7 +226,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.0)
 ## 2022-09-05
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.4
   - 更新 `Clover` r5149
@@ -241,7 +241,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.9)
 ## 2022-08-02
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.3.1 (a)
 ### 更新
   - 更新 `OpenCore` v0.8.3
   - 更新 `Clover` r5148
@@ -259,7 +259,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.8)
 ## 2022-07-05
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.0 beta 2
 ### 更新
   - 更新 `OpenCore` v0.8.2
   - 更新 `Clover` r5147
@@ -277,7 +277,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.7)
 ## 2022-06-13
-
+支持的 macOS 版本：10.15，11，12，13.0 - 13.0 beta 2
 ### 更新
   - 更新 `OpenCore` v0.8.2（更新至 [acidanthera/OpenCorePkg@e05a69d](https://github.com/acidanthera/OpenCorePkg/commit/e05a69da640009ac1983c7c8c78af4f0d9b4bc6f)）来支持 macOS13.0 beta 1 (22A5266r)
   - 更新 `Lilu` v1.6.1（更新至 [acidanthera/Lilu@9775e8b](https://github.com/acidanthera/Lilu/commit/9775e8b8b3a05f7ed016fd9b587d43839f3c7cbf)）来支持 macOS13.0 beta 1 (22A5266r)
@@ -292,7 +292,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.6)
 ## 2022-06-06
-
+支持的 macOS 版本：10.15，11，12
 ### 更新
   - 更新 `OpenCore` v0.8.1
   - 更新 `AppleALC` v1.7.2
@@ -320,7 +320,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)
 ## 2022-04-18
-
+支持的 macOS 版本：10.15，11，12
 ### 更新
   - 更新 `OpenCore` v0.8.0
   - 更新 `Clover` r5146
@@ -342,7 +342,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.4)
 ## 2021-12-06
-
+支持的 macOS 版本：10.15，11，12
 ### 更新
   - 更新 `OpenCore` v0.7.6
   - 更新 `Clover` r5142
@@ -361,7 +361,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
 ## 2021-11-02
-
+支持的 macOS 版本：10.15，11，12
 ### 更新
   - 更新 `OpenCore` v0.7.5
   - 更新 `Clover` r5141
@@ -391,7 +391,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.2)
 ## 2021-10-06
-
+支持的 macOS 版本：10.15，11，12
 ### 更新
   - 更新 `OpenCore` v0.7.4
   - 更新 `Clover` r5140
@@ -418,7 +418,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.1)
 ## 2021-09-08
-
+支持的 macOS 版本：10.15，11，12.0 - 12.0 beta 7
 ### 更新
   - 更新 `VoodooI2C` v2.6.5（更新至 [VoodooI2C/VoodooI2C@385c068](https://github.com/VoodooI2C/VoodooI2C/commit/385c0688e72817a58e22be35e4996cc1e88996c3)）
 
@@ -428,7 +428,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.0)
 ## 2021-09-07
-
+支持的 macOS 版本：10.15，11，12.0 - 12.0 beta 7
 ### 更新
   - 更新 `OpenCore` v0.7.3
   - 更新 `Clover` r5139
@@ -460,7 +460,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 2021-08-04
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11，12.0 - 12.0 beta 7  
+  - CML：10.15，11，12.0 - 12.0 beta 7
 ### 更新
   - 更新 `OpenCore` v0.7.2
   - 更新 `Clover` r5138
@@ -482,7 +484,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.8)
 ## 2021-07-05
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11，12.0 - 12.0 beta 7  
+  - CML：10.15，11，12.0 - 12.0 beta 7
 ### 更新
   - 更新 `OpenCore` v0.7.1
   - 更新 `Clover` r5137
@@ -507,7 +511,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.7)
 ## 2021-06-16
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11，12.0 - 12.0 beta 7  
+  - CML：10.15，11，12.0 - 12.0 beta 7
 ### 更新
   - 更新 `OpenCore` v0.7.1（更新至 [acidanthera/OpenCorePkg@ee0fb99](https://github.com/acidanthera/OpenCorePkg/commit/ee0fb99105a191c16926b8d6cd58ce2151eb7894)）
   - 更新 `Lilu` v1.5.4（更新至 [acidanthera/Lilu@0fd1b29](https://github.com/acidanthera/Lilu/commit/0fd1b2985f6a2a934c928b4594ba5179e202b31f)）
@@ -529,7 +535,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
 ## 2021-06-08
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 更新
   - 更新 `OpenCore` v0.7.0
   - 更新 `Clover` r5136
@@ -553,7 +561,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.5)
 ## 2021-05-03
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.9
   - 更新 `Clover` r5134
@@ -571,7 +581,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.4)
 ## 2021-04-05
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.8
   - 更新 `Clover` r5132
@@ -589,7 +601,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.3)
 ## 2021-03-01
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.7
   - 更新 `Clover` r5131
@@ -616,7 +630,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2021-02-02
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.6
   - 更新 `Clover` r5129
@@ -637,7 +653,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.1)
 ## 2021-01-13
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 移除
   - 移除 `force-online*` 属性来修复 HDMI
 
@@ -647,7 +665,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.0)
 ## 2021-01-12
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11  
+  - CML：10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.5
   - 更新 `Clover` r5128
@@ -673,7 +693,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)
 ## 2020-12-07
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.4
   - 更新 `Clover` r5127 来支持 macOS11.0.1
@@ -703,7 +724,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7)
 ## 2020-11-03
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11
 ### 移除
   - 移除 `AAPL,slot-name` 来支持 macOS11 上的 HEVC
 
@@ -713,7 +735,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.6)
 ## 2020-11-02
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.3
   - 更新 `Lilu` v1.4.9
@@ -734,7 +757,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)
 ## 2020-10-05
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11
 ### 更新
   - 更新 `OpenCore` v0.6.2
   - 更新 `Lilu` v1.4.8
@@ -760,7 +784,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
 ## 2020-09-08
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11
 ### 更新
   - 更新 `Clover` r5122
   - 更新 `OpenCore` v0.6.1
@@ -785,7 +810,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
 ## 2020-08-03
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11
 ### 更新
   - 更新 `Clover` r5120
   - 更新 `OpenCore` v0.6.0
@@ -810,7 +836,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
 ## 2020-07-16
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11.0 - 11.0 beta 2
 ### 更新
   - 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@20e60b0](https://github.com/acidanthera/OpenCorePkg/commit/20e60b0cbb273ea91a567440f0b7e230ecae3ec8)）
   - 更新 `Lilu` v1.4.6（更新至 [acidanthera/Lilu@28122d0](https://github.com/acidanthera/Lilu/commit/28122d0084dc5fe1b486bd52945160cf5be64d49)）
@@ -828,7 +855,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
 ## 2020-07-12
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15，11.0 - 11.0 beta 2
 ### 更新
   - 更新 `OpenCore` v0.6.0（更新至 [acidanthera/OpenCorePkg@eee51ba](https://github.com/acidanthera/OpenCorePkg/commit/eee51bae932b5a366351e994ea2a1909c46c3ebf)）来支持 macOS11.0 beta 1 (20A4299v)
   - 更新 `Lilu` v1.4.6（更新至 [acidanthera/Lilu@8a81e92](https://github.com/acidanthera/Lilu/commit/8a81e92f5641f9eee333d348d39add4ecaef0b37)）
@@ -857,7 +885,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
 ## 2020-06-14
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15
 ### 更新
   - 更新 `Clover` r5119
   - 更新 `VoodooI2C` v2.4.3
@@ -872,7 +901,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
 ## 2020-06-01
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15
 ### 更新
   - 更新 `Clover` r5118
   - 更新 `OpenCore` v0.5.9
@@ -898,7 +928,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
 ## 2020-05-04
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15
 ### 更新
   - 更新 `Clover` r5115
   - 更新 `OpenCore` v0.5.8
@@ -930,7 +961,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
 ## 2020-04-10
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15
 ### 更新
   - 更新 `Clover` r5109
   - 更新 `OpenCore` v0.5.7
@@ -963,7 +995,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
 ## 2020-03-25
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15
 ### 更新
   - 更新 `Clover` r5107 来支持 macOS10.15.4
   - 更新 `USBInjectAll` v0.7.3 来自 [Sniki的分支](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
@@ -982,7 +1015,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
 ## 2020-03-10
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15.0 - 10.15.3
 ### 更新
   - 更新 `Clover` r5104
   - 更新 `OpenCore` v0.5.6
@@ -1021,7 +1055,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.5)
 ## 2019-07-17
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15.0 - 10.15.3
 ### 更新
   - 更新 `Clover` r5018
   - 更新 `OpenCore` v0.0.4
@@ -1041,9 +1076,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.4)
 ## 2019-07-10
-
-  - 支持macOS10.15
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14，10.15.0 - 10.15.3
 ### 更新
   - 更新 `Clover` r4986
   - 更新 `Lilu` v1.3.7
@@ -1079,7 +1113,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.3)
 ## 2019-04-16
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4920
   - 更新 `AppleALC` v1.3.7
@@ -1093,7 +1128,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.2)
 ## 2019-03-28
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4910
   - 更新 `AppleALC` v1.3.6
@@ -1113,7 +1149,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.1)
 ## 2019-03-01
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4892
   - 更新 `USBPorts` 来支持更多型号
@@ -1128,7 +1165,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.0)
 ## 2019-02-10
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4871
   - 更新 `Lilu` v1.3.1
@@ -1150,7 +1188,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.9)
 ## 2018-12-26
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4821
   - 更新 `VoodooPS2Controller` v1.9.2
@@ -1187,7 +1226,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.8)
 ## 2018-09-28
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 降级
   - 降级 [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) 因为Rehabman的版本更稳定
 
@@ -1211,7 +1251,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.7)
 ## 2018-09-15
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4671 
   - 更新 `WhateverGreen` v1.2.3
@@ -1237,16 +1278,16 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
 ## 2018-08-13
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 变更
   - 回滚 `CPUFriendProvider.kext` 至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/53)
 
 
 ## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
 ## 2018-08-09
-
-  - Mojave的安装变得更简单
-
+支持的 macOS 版本：  
+  - KBL：10.13，10.14
 ### 更新
   - 更新 `Clover` r4641
   - 更新 `WhateverGreen` v1.2.1

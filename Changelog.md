@@ -4,7 +4,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.3)
 ## 2024-05-15
-
+Supported macOS Version: 10.15, 11, 12, 13, 14
 ### Upgrade
   - Update `OpenCore` v1.0.1 (up to [acidanthera/OpenCorePkg@614b733](https://github.com/acidanthera/OpenCorePkg/commit/614b733342392004f907a73236f488d567a962bb))
   - Update `Clover` r5158
@@ -16,7 +16,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.2)
 ## 2024-03-12
-
+Supported macOS Version: 10.15, 11, 12, 13, 14
 ### Upgrade
   - Update `OpenCore` v0.9.9
   - Update `Clover` r5157
@@ -32,7 +32,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.1)
 ## 2023-11-06
-
+Supported macOS Version: 10.15, 11, 12, 13, 14.0 - 14.3.1
 ### Upgrade
   - Update `OpenCore` v0.9.6
   - Update `AppleALC` v1.8.6
@@ -44,7 +44,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.0)
 ## 2023-09-12
-
+Supported macOS Version: 10.15, 11, 12, 13, 14.0 - 14.3.1
 ### Upgrade
   - Update `OpenCore` v0.9.5
   - Update `Clover` r5155
@@ -60,7 +60,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.9)
 ## 2023-07-17
-
+Supported macOS Version: 10.15, 11, 12, 13, 14.0 - 14.0 beta 4
 ### Upgrade
   - Update `OpenCore` v0.9.4 (up to [acidanthera/OpenCorePkg@afa5974](https://github.com/acidanthera/OpenCorePkg/commit/afa5974a4c33e6ffbfa816eb86b604949d772832))
   - Update `Clover` r5153
@@ -85,7 +85,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.8)
 ## 2023-05-08
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.9.2
   - Update `Lilu` v1.6.5
@@ -105,7 +105,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.7)
 ## 2023-04-04
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)	
 ### Upgrade
   - Update `OpenCore` v0.9.1
   - Update `AppleALC` v1.8.1
@@ -122,7 +122,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.6)
 ## 2023-03-06
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.9.0
   - Update `Lilu` v1.6.4
@@ -133,7 +133,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.5)
 ## 2023-02-18
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.9
   - Update `Clover` r5151
@@ -150,7 +150,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.4)
 ## 2023-01-03
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.8
   - Update `Lilu` v1.6.3
@@ -176,7 +176,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.3)
 ## 2022-12-06
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.7
   - Update `AppleALC` v1.7.7
@@ -196,7 +196,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.2)
 ## 2022-11-08
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.6
   - Update `Clover` r5150
@@ -212,7 +212,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.1)
 ## 2022-10-04
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.5
   - Update `BrcmPatchRAM` v2.6.4
@@ -226,7 +226,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.7.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.7.0)
 ## 2022-09-05
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.4
   - Update `Clover` r5149
@@ -241,7 +241,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.9)
 ## 2022-08-02
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.3.1 (a)
 ### Upgrade
   - Update `OpenCore` v0.8.3
   - Update `Clover` r5148
@@ -259,7 +259,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.8)
 ## 2022-07-05
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.0 beta 2
 ### Upgrade
   - Update `OpenCore` v0.8.2
   - Update `Clover` r5147
@@ -277,7 +277,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.7)
 ## 2022-06-13
-
+Supported macOS Version: 10.15, 11, 12, 13.0 - 13.0 beta 2
 ### Upgrade
   - Update `OpenCore` v0.8.2 (up to [acidanthera/OpenCorePkg@e05a69d](https://github.com/acidanthera/OpenCorePkg/commit/e05a69da640009ac1983c7c8c78af4f0d9b4bc6f))to support macOS13.0 beta 1 (22A5266r)
   - Update `Lilu` v1.6.1 (up to [acidanthera/Lilu@9775e8b](https://github.com/acidanthera/Lilu/commit/9775e8b8b3a05f7ed016fd9b587d43839f3c7cbf)) to support macOS13.0 beta 1 (22A5266r)
@@ -292,7 +292,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.6)
 ## 2022-06-06
-
+Supported macOS Version: 10.15, 11, 12
 ### Upgrade
   - Update `OpenCore` v0.8.1
   - Update `AppleALC` v1.7.2
@@ -320,7 +320,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.5)
 ## 2022-04-18
-
+Supported macOS Version: 10.15, 11, 12
 ### Upgrade
   - Update `OpenCore` v0.8.0
   - Update `Clover` r5146
@@ -342,7 +342,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.4)
 ## 2021-12-06
-
+Supported macOS Version: 10.15, 11, 12
 ### Upgrade
   - Update `OpenCore` v0.7.6
   - Update `Clover` r5142
@@ -361,7 +361,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.3)
 ## 2021-11-02
-
+Supported macOS Version: 10.15, 11, 12
 ### Upgrade
   - Update `OpenCore` v0.7.5
   - Update `Clover` r5141
@@ -391,7 +391,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.2)
 ## 2021-10-06
-
+Supported macOS Version: 10.15, 11, 12
 ### Upgrade
   - Update `OpenCore` v0.7.4
   - Update `Clover` r5140
@@ -418,7 +418,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.1)
 ## 2021-09-08
-
+Supported macOS Version: 10.15, 11, 12.0 - 12.0 beta 7
 ### Upgrade
   - Update `VoodooI2C` v2.6.5 (up to [VoodooI2C/VoodooI2C@385c068](https://github.com/VoodooI2C/VoodooI2C/commit/385c0688e72817a58e22be35e4996cc1e88996c3))
 
@@ -428,7 +428,7 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.6.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.6.0)
 ## 2021-09-07
-
+Supported macOS Version: 10.15, 11, 12.0 - 12.0 beta 7
 ### Upgrade
   - Update `OpenCore` v0.7.3
   - Update `Clover` r5139
@@ -460,7 +460,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9)
 ## 2021-08-04
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11, 12.0 - 12.0 beta 7  
+  - CML: 10.15, 11, 12.0 - 12.0 beta 7
 ### Upgrade
   - Update `OpenCore` v0.7.2
   - Update `Clover` r5138
@@ -482,7 +484,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.8)
 ## 2021-07-05
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11, 12.0 - 12.0 beta 7  
+  - CML: 10.15, 11, 12.0 - 12.0 beta 7
 ### Upgrade
   - Update `OpenCore` v0.7.1
   - Update `Clover` r5137
@@ -507,7 +511,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.7)
 ## 2021-06-16
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11, 12.0 - 12.0 beta 7  
+  - CML: 10.15, 11, 12.0 - 12.0 beta 7
 ### Update
   - Update `OpenCore` v0.7.1 (up to [acidanthera/OpenCorePkg@ee0fb99](https://github.com/acidanthera/OpenCorePkg/commit/ee0fb99105a191c16926b8d6cd58ce2151eb7894))
   - Update `Lilu` v1.5.4 (up to [acidanthera/Lilu@0fd1b29](https://github.com/acidanthera/Lilu/commit/0fd1b2985f6a2a934c928b4594ba5179e202b31f))
@@ -529,7 +535,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.6)
 ## 2021-06-08
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Update
   - Update `OpenCore` v0.7.0
   - Update `Clover` r5136
@@ -553,7 +561,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.5)
 ## 2021-05-03
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.9
   - Update `Clover` r5134
@@ -571,7 +581,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.4)
 ## 2021-04-05
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.8
   - Update `Clover` r5132
@@ -589,7 +601,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.3)
 ## 2021-03-01
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.7
   - Update `Clover` r5131
@@ -616,7 +630,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.2)
 ## 2021-02-02
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.6
   - Update `Clover` r5129
@@ -637,7 +653,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.1)
 ## 2021-01-13
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Remove
   - Remove `force-online*` properties to fix HDMI
 
@@ -647,7 +665,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.5.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.0)
 ## 2021-01-12
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11  
+  - CML: 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.5
   - Update `Clover` r5128
@@ -673,7 +693,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.8)
 ## 2020-12-07
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.4
   - Update `Clover` r5127 to support macOS11.0.1
@@ -703,7 +724,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7)
 ## 2020-11-03
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11
 ### Remove
   - Remove `AAPL,slot-name` to support HEVC on macOS11
 
@@ -713,7 +735,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.6)
 ## 2020-11-02
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.3
   - Update `Lilu` v1.4.9
@@ -734,7 +757,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.5)
 ## 2020-10-05
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11
 ### Update
   - Update `OpenCore` v0.6.2
   - Update `Lilu` v1.4.8
@@ -760,7 +784,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.4)
 ## 2020-09-08
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11
 ### Update
   - Update `Clover` r5122
   - Update `OpenCore` v0.6.1
@@ -785,7 +810,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.3)
 ## 2020-08-03
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11
 ### Update
   - Update `Clover` r5120
   - Update `OpenCore` v0.6.0
@@ -810,7 +836,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.2)
 ## 2020-07-16
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11.0 - 11.0 beta 2
 ### Update
   - Update `OpenCore` v0.6.0 (up to [acidanthera/OpenCorePkg@20e60b0](https://github.com/acidanthera/OpenCorePkg/commit/20e60b0cbb273ea91a567440f0b7e230ecae3ec8))
   - Update `Lilu` v1.4.6 (up to [acidanthera/Lilu@28122d0](https://github.com/acidanthera/Lilu/commit/28122d0084dc5fe1b486bd52945160cf5be64d49))
@@ -828,7 +855,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1)
 ## 2020-07-12
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15, 11.0 - 11.0 beta 2
 ### Update
   - Update `OpenCore` v0.6.0 (up to [acidanthera/OpenCorePkg@eee51ba](https://github.com/acidanthera/OpenCorePkg/commit/eee51bae932b5a366351e994ea2a1909c46c3ebf)) to support macOS11.0 beta 1 (20A4299v)
   - Update `Lilu` v1.4.6 (up to [acidanthera/Lilu@8a81e92](https://github.com/acidanthera/Lilu/commit/8a81e92f5641f9eee333d348d39add4ecaef0b37))
@@ -857,7 +885,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.1 beta 1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.1-beta1)
 ## 2020-06-14
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15
 ### Update
   - Update `Clover` r5119
   - Update `VoodooI2C` v2.4.3
@@ -872,7 +901,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.4.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.0)
 ## 2020-06-01
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15
 ### Update
   - Update `Clover` r5118
   - Update `OpenCore` v0.5.9
@@ -898,7 +928,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.9)
 ## 2020-05-04
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15
 ### Update
   - Update `Clover` r5115
   - Update `OpenCore` v0.5.8
@@ -930,7 +961,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.8)
 ## 2020-04-10
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15
 ### Update
   - Update `Clover` r5109
   - Update `OpenCore` v0.5.7
@@ -963,7 +995,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.7)
 ## 2020-03-25
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15
 ### Update
   - Update `Clover` r5107 to support macOS10.15.4
   - Update `USBInjectAll` v0.7.3 from [Sniki's fork](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
@@ -982,7 +1015,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.6)
 ## 2020-03-10
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15.0 - 10.15.3
 ### Update
   - Update `Clover` r5104
   - Update `OpenCore` v0.5.6
@@ -1021,7 +1055,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.5)
 ## 2019-07-17
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15.0 - 10.15.3
 ### Update
   - Update `Clover` r5018
   - Update `OpenCore` v0.0.4
@@ -1041,9 +1076,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.4)
 ## 2019-07-10
-
-  - Support macOS10.15
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14, 10.15.0 - 10.15.3
 ### Update
   - Update `Clover` r4986
   - Update `Lilu` v1.3.7
@@ -1079,7 +1113,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.3)
 ## 2019-04-16
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4920
   - Update `AppleALC` v1.3.7
@@ -1093,7 +1128,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.2](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.2)
 ## 2019-03-28
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4910
   - Update `AppleALC` v1.3.6
@@ -1113,7 +1149,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.1](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.1)
 ## 2019-03-01
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4892
   - Update `USBPorts` to support more models
@@ -1128,7 +1165,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.3.0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.3.0)
 ## 2019-02-10
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4871
   - Update `Lilu` v1.3.1
@@ -1150,7 +1188,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.9)
 ## 2018-12-26
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4821
   - Update `VoodooPS2Controller` v1.9.2
@@ -1187,7 +1226,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.8)
 ## 2018-09-28
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Downgrade
   - Downgrade [`Clover` r4658.RM-4903.ca9576f3](https://github.com/RehabMan/Clover) because Rehabman's version is more reliable
 
@@ -1211,7 +1251,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.2.7)
 ## 2018-09-15
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4671
   - Update  `WhateverGreen` v1.2.3
@@ -1237,16 +1278,16 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
 ## 2018-08-13
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Change
   - Reverse back `CPUFriendProvider.kext` to the one in v1.2.2 because the one in v1.2.5 will cause KP in some devices in 10.13.3~10.13.5. If you want better CPU performance or better battery life, please read [#53](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/53)
 
 
 ## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
 ## 2018-08-09
-
-  - Mojave installation becomes easier
-
+Supported macOS Version:  
+  - KBL: 10.13, 10.14
 ### Update
   - Update `Clover` r4641
   - Update `WhateverGreen` v1.2.1
