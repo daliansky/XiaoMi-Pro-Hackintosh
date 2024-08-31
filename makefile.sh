@@ -474,11 +474,11 @@ function bKextHelper() {
         /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
       else
         # Install cpplint & cldoc when using GitHub Action
-        pip3 install --break-system-packages cpplint || exit 1
-        pip3 install --break-system-packages git+https://github.com/newperson1746/cldoc-fix.git || exit 1
+        pip3 install --break-system-packages -q cpplint || exit 1
+        pip3 install --break-system-packages -q git+https://github.com/newperson1746/cldoc-fix.git || exit 1
       fi
 
-      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
+      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO || buildErr "$2"
       cp -R ${PATH_VI2C}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
