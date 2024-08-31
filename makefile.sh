@@ -19,7 +19,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**EFI upgrade instructions are given [here](https://github.com/daliansky/XiaoMi-Pro-Hackintosh#upgrade).<br />If `System Settings` does not show OEM updates, go to App Store and search Sonoma (or newer macOS).<br />If OEM update fails, set `SecureBootModel` to `Disabled` and perform the update. When the update completes, set `SecureBootModel` back to `Default`.**"
+RLMSG="**EFI upgrade instructions are given [here](https://github.com/daliansky/XiaoMi-Pro-Hackintosh#upgrade).<br />If System Settings does not show OEM updates, go to App Store and search Sonoma (or newer macOS).<br />If OEM update fails, set SecureBootModel to Disabled and perform the update. When the update completes, set SecureBootModel back to Default.**"
 
 bl_input=""
 bl_list=( )
@@ -474,9 +474,8 @@ function bKextHelper() {
         /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
       else
         # Install cpplint & cldoc when using GitHub Action
-        python -m pip install --upgrade pip
-        pip3 install --user cpplint || exit 1
-        pip3 install --user git+https://github.com/VoodooI2C/cldoc.git || exit 1
+        pip3 install --break-system-packages cpplint || exit 1
+        pip3 install --break-system-packages git+https://github.com/newperson1746/cldoc-fix.git || exit 1
       fi
 
       xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
