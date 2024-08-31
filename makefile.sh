@@ -474,6 +474,7 @@ function bKextHelper() {
         /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
       else
         # Install cpplint & cldoc when using GitHub Action
+        python -m pip install --upgrade pip
         pip3 install -q cpplint || exit 1
         pip3 install -q git+https://github.com/VoodooI2C/cldoc.git || exit 1
       fi
