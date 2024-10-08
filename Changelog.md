@@ -2,6 +2,30 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
+## 2024-10-08
+Supported macOS Version: 10.15, 11, 12, 13, 14
+Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kexts + OCLP (risky)
+### Upgrade
+  - Update `OpenCore` v1.0.2
+  - Update `Clover` r5160
+  - Update `Lilu` v1.6.9
+  - Update `VirtualSMC` v1.3.4
+  - Update `AppleALC` v1.9.2
+  - Update `WhateverGreen` v1.6.8
+  - Update `HibernationFixup` v1.5.2
+  - Update `RestrictEvents` v1.1.5
+  - Update `VoodooInput` v1.1.6
+  - Update `VoodooPS2` v2.3.6
+  - Update `BrcmPatchRAM` v2.6.9
+  - Update `IntelBluetoothFirmware` (up to [OpenIntelWireless/IntelBluetoothFirmware@01cc180](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/01cc1806d71f5cc64c464851b9f4811a3e7b4791))
+  - Update `AirportItlwm` v2.4.0 (up to [OpenIntelWireless/itlwm@53c51c2](https://github.com/OpenIntelWireless/itlwm/commit/53c51c2cdd6e4b69beb91f310d74c53422b0f8bd))
+
+### OC
+  - Enable `FixupAppleEfiImages` for VMs
+  - Update config to support `OpenCore` v1.0.2
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.3)
 ## 2024-05-15
 Supported macOS Version: 10.15, 11, 12, 13, 14

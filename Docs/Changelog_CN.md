@@ -2,6 +2,30 @@
 
 [English](../Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
+## 2024-10-08
+支持的 macOS 版本：10.15，11，12，13，14
+英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kexts + OCLP（有风险）
+### 更新
+  - 更新 `OpenCore` v1.0.2
+  - 更新 `Clover` r5160
+  - 更新 `Lilu` v1.6.9
+  - 更新 `VirtualSMC` v1.3.4
+  - 更新 `AppleALC` v1.9.2
+  - 更新 `WhateverGreen` v1.6.8
+  - 更新 `HibernationFixup` v1.5.2
+  - 更新 `RestrictEvents` v1.1.5
+  - 更新 `VoodooInput` v1.1.6
+  - 更新 `VoodooPS2` v2.3.6
+  - 更新 `BrcmPatchRAM` v2.6.9
+  - 更新 `IntelBluetoothFirmware`（更新至 [OpenIntelWireless/IntelBluetoothFirmware@01cc180](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/01cc1806d71f5cc64c464851b9f4811a3e7b4791)）
+  - 更新 `AirportItlwm` v2.4.0（更新至 [OpenIntelWireless/itlwm@53c51c2](https://github.com/OpenIntelWireless/itlwm/commit/53c51c2cdd6e4b69beb91f310d74c53422b0f8bd)）
+
+### OC
+  - 启用 `FixupAppleEfiImages` 以支持 VMs
+  - 更新 config 来支持 `OpenCore` v1.0.2
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.3](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.3)
 ## 2024-05-15
 支持的 macOS 版本：10.15，11，12，13，14
