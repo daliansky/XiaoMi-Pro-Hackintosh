@@ -5,7 +5,7 @@
 ## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
 ## 2024-10-08
 支持的 macOS 版本：10.15，11，12，13，14
-英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kexts + OCLP（有风险）
+英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.2
   - 更新 `Clover` r5160

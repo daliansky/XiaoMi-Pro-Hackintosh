@@ -5,7 +5,7 @@
 ## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
 ## 2024-10-08
 Supported macOS Version: 10.15, 11, 12, 13, 14
-Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kexts + OCLP (risky)
+Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.2
   - Update `Clover` r5160
