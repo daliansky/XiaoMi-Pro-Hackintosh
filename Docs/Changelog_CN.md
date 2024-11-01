@@ -2,6 +2,19 @@
 
 [English](../Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.8.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.5)
+## 2024-11-01
+支持的 macOS 版本：10.15，11，12，13，14，15
+英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
+### 更新
+  - 更新 `OpenCore` v1.0.3（更新至 [acidanthera/OpenCorePkg@6fb63d4](https://github.com/acidanthera/OpenCorePkg/commit/6fb63d4b3eeeccc12988edb26dfafbb7edd23417)）
+  - 更新 `AppleALC` v1.9.3（更新至 [acidanthera/AppleALC@dfeb479](https://github.com/acidanthera/AppleALC/commit/dfeb4791d30da9f197fb56ebfa2da4d1e4cd66b9)）
+  - 更新 `VoodooPS2` v2.3.7（更新至 [acidanthera/VoodooPS2@bdbf806](https://github.com/acidanthera/VoodooPS2/commit/bdbf80639936701337f4574bae8c3ea25bb8dd3d)）
+
+### OC
+  - 更新 `MaxKernel` 于兼容 macOS Sequoia 的驱动
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
 ## 2024-10-08
 支持的 macOS 版本：10.15，11，12，13，14

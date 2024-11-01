@@ -2,6 +2,19 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.8.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.5)
+## 2024-11-01
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
+### Upgrade
+  - Update `OpenCore` v1.0.3 (up to [acidanthera/OpenCorePkg@6fb63d4](https://github.com/acidanthera/OpenCorePkg/commit/6fb63d4b3eeeccc12988edb26dfafbb7edd23417))
+  - Update `AppleALC` v1.9.3 (up to [acidanthera/AppleALC@dfeb479](https://github.com/acidanthera/AppleALC/commit/dfeb4791d30da9f197fb56ebfa2da4d1e4cd66b9))
+  - Update `VoodooPS2` v2.3.7 (up to [acidanthera/VoodooPS2@bdbf806](https://github.com/acidanthera/VoodooPS2/commit/bdbf80639936701337f4574bae8c3ea25bb8dd3d))
+
+### OC
+  - Update `MaxKernel` for kexts that are compatible with macOS Sequoia
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
 ## 2024-10-08
 Supported macOS Version: 10.15, 11, 12, 13, 14
