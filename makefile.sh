@@ -465,7 +465,7 @@ function bKextHelper() {
     if [[ "$2" == "VoodooI2C" ]]; then
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
       git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
-      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . build -jobs 1 -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
+      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . build -jobs 1 -configuration "$3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_VI2C}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
