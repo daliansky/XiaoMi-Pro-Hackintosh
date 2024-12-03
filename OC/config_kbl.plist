@@ -642,7 +642,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NVMeFix</string>
 				<key>MaxKernel</key>
-				<string>23.9.9</string>
+				<string>24.9.9</string>
 				<key>MinKernel</key>
 				<string>18.0.0</string>
 				<key>PlistPath</key>
