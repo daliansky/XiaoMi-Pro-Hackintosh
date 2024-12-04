@@ -9,7 +9,7 @@
 ### 更新
   - 更新 `OpenCore` v1.0.3
   - 更新 `Lilu` v1.7.0
-  - 更新 `VirtualSMC` v1.3.5
+  - 更新 `VirtualSMC` v1.3.5（更新至 [acidanthera/VirtualSMC@4be2a60](https://github.com/acidanthera/VirtualSMC/commit/4be2a60de4cfd02ed2804b618f0f2afb09d3a608)）
   - 更新 `AppleALC` v1.9.3
   - 更新 `WhateverGreen` v1.6.9
   - 更新 `VoodooI2C` v2.9.1

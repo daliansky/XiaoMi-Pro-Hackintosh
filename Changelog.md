@@ -9,7 +9,7 @@ Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Vent
 ### Upgrade
   - Update `OpenCore` v1.0.3
   - Update `Lilu` v1.7.0
-  - Update `VirtualSMC` v1.3.5
+  - Update `VirtualSMC` v1.3.5 (up to [acidanthera/VirtualSMC@4be2a60](https://github.com/acidanthera/VirtualSMC/commit/4be2a60de4cfd02ed2804b618f0f2afb09d3a608))
   - Update `AppleALC` v1.9.3
   - Update `WhateverGreen` v1.6.9
   - Update `VoodooI2C` v2.9.1
