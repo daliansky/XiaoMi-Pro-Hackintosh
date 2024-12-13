@@ -468,7 +468,15 @@ function bKextHelper() {
       git reset --hard 17a5f58227a164b426011fd077a5c549766474b3 || networkErr "VoodooI2C commit 17a5f58"
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
       git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
-      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . build -jobs 1 -configuration "$3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
+      # For VoodooI2C v2.8
+      # Delete Linting & Generate Documentation in Build Phase to avoid installing cpplint & cldoc
+      lineNum=$(grep -n "Linting" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
+      /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+      lineNum=$(grep -n "Generate Documentation" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj) && lineNum=${lineNum%%:*}
+      /usr/bin/sed -i '' "${lineNum}d" VoodooI2C/VoodooI2C.xcodeproj/project.pbxproj
+      xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
+      # For VoodooI2C v2.9+
+      # xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . build -jobs 1 -configuration "$3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
       cp -R ${PATH_VI2C}*.kext "../" || copyErr
     else
       cp -R "../VoodooInput" "./" || copyErr
@@ -625,7 +633,7 @@ function download() {
       dGR Sniki EAPD-Codec-Commander NULL "KBL"
     fi
     dGR VoodooI2C VoodooI2C
-    echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: VoodooI2C v2.9+ may not work, consider to use v2.8 (no Sequoia support)!"
+    echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: VoodooI2C v2.9+ may not work, consider to use v2.8 (no Sequoia support), or manually build VoodooI2C v2.8 with the latest VoodooInput."
     echo
   fi
 
