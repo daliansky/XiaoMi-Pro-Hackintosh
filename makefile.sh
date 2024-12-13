@@ -464,6 +464,7 @@ function bKextHelper() {
     cp -R "../MacKernelSDK" "./" || copyErr
     if [[ "$2" == "VoodooI2C" ]]; then
       # Revert to VoodooI2C v2.8 commit 17a5f58227a164b426011fd077a5c549766474b3 to solve https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/766
+      git fetch --unshallow -q || networkErr "VoodooI2C full clone"
       git reset --hard 17a5f58227a164b426011fd077a5c549766474b3 || networkErr "VoodooI2C commit 17a5f58"
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
       git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
@@ -625,6 +626,7 @@ function download() {
     fi
     dGR VoodooI2C VoodooI2C
     echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: VoodooI2C v2.9+ may not work, consider to use v2.8 (no Sequoia support)!"
+    echo
   fi
 
   # UEFI
@@ -660,8 +662,8 @@ function unpack() {
     unzip -qq -d "Big Sur" "*BigSur*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
     unzip -qq -d "Catalina" "*Catalina*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
     unzip -qq -d "Monterey" "*Monterey*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
-    unzip -qq -d "Sonoma" "*Sonoma14.0*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
-    unzip -qq -d "Sonoma" "*Sonoma14.4*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
+    unzip -qq -d "Sonoma14.0" "*Sonoma14.0*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
+    unzip -qq -d "Sonoma14.4" "*Sonoma14.4*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
     unzip -qq -d "Ventura" "*Ventura*.zip" || echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: AirportItlwm has non-standard packages location!"
   fi
   ditto -x -k ./*.zip . || exit 1
