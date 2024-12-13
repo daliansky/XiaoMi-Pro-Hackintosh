@@ -463,6 +463,8 @@ function bKextHelper() {
   elif [[ ${voodooinputPlugins} =~ $2 ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
     if [[ "$2" == "VoodooI2C" ]]; then
+      # Revert to VoodooI2C v2.8 commit 17a5f58227a164b426011fd077a5c549766474b3 to solve https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/766
+      git reset --hard 17a5f58227a164b426011fd077a5c549766474b3 || networkErr "VoodooI2C commit 17a5f58"
       cp -R "../VoodooInput" "./Dependencies/" || copyErr
       git submodule init -q && git submodule update -q || networkErr "VoodooI2C Satellites"
       xcodebuild -workspace "VoodooI2C.xcworkspace" -scheme "VoodooI2C" -derivedDataPath . build -jobs 1 -configuration "$3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO > /dev/null 2>&1 || buildErr "$2"
@@ -622,6 +624,7 @@ function download() {
       dGR Sniki EAPD-Codec-Commander NULL "KBL"
     fi
     dGR VoodooI2C VoodooI2C
+    echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: VoodooI2C v2.9+ may not work, consider to use v2.8 (no Sequoia support)!"
   fi
 
   # UEFI
