@@ -2,6 +2,17 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## [XiaoMi NoteBook Pro EFI v1.8.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.7)
+## 2024-12-15
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
+### Upgrade
+  - Update `OpenCore` v1.0.3 (up to [acidanthera/OpenCorePkg@b70d558](https://github.com/acidanthera/OpenCorePkg/commit/b70d558e444e75f9e09db8a42f82b93387f7a8e8))
+
+### Change
+  - Downgrade `VoodooI2C` v2.8 but compiled with `VoodooInput` v1.1.6 to support macOS 15, solve unresponsive trackpad brought by v2.9.1 [#766](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/766)
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.6)
 ## 2024-12-03
 Supported macOS Version: 10.15, 11, 12, 13, 14, 15

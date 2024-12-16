@@ -2,6 +2,17 @@
 
 [English](../Changelog.md) | **中文**
 
+## [XiaoMi NoteBook Pro EFI v1.8.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.7)
+## 2024-12-15
+支持的 macOS 版本：10.15，11，12，13，14，15
+英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
+### 更新
+  - 更新 `OpenCore` v1.0.3（更新至 [acidanthera/OpenCorePkg@b70d558](https://github.com/acidanthera/OpenCorePkg/commit/b70d558e444e75f9e09db8a42f82b93387f7a8e8)）
+
+### 变更
+  - 降级 `VoodooI2C` v2.8 但编译于 `VoodooInput` v1.1.6 以支持 macOS 15，解决 v2.9.1 导致的触控板不响应 [#766](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/766)
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.6)
 ## 2024-12-03
 支持的 macOS 版本：10.15，11，12，13，14，15
