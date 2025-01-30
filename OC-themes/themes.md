@@ -1,86 +1,73 @@
-# Setting Up a Custom Theme on OpenCore Bootloader
+## Guide to Download and Apply Chris1111 Themes on OpenCore
 
-This guide provides step-by-step instructions for setting up a custom theme on the OpenCore Bootloader using the "Crisis 1111" theme. The required theme files can be downloaded directly from the GitHub repository without cloning.
+### 1. **Download a Theme**
+   - Visit the [Chris1111 Themes Repository](https://github.com/chris1111/My-Simple-OC-Themes/blob/master/My-Simple-Theme-OpenCore.md).
+   - Scroll down to find the list of available themes.
+   - Right-click on the theme you want to download and click **"Save As"** or **"Download Linked File"**.
+   - Save the `.zip` file for the theme you selected to your computer.
 
----
+### 2. **Extract the Theme**
+   - Once downloaded, extract the `.zip` file.
+   - Inside the folder, you’ll find a theme folder (e.g., `Minimal`, `Ocean`, etc.), which contains the necessary files.
 
-## Prerequisites
+### 3. **Prepare OpenCore EFI Folder**
+   - Navigate to your **EFI** partition of your OpenCore installation. This is typically mounted as `EFI` on your system drive.
+   - Inside the EFI partition, go to **EFI > OC**.
 
-Before proceeding, ensure you have:
+### 4. **Apply the Theme**
+   - Inside the extracted theme folder, you will see the following files:
+     - **resources** folder
+     - **config.plist**
+   
+   - Copy the **resources** folder into the `OC` directory of your EFI partition (if it's not already there).
+   - **Important**: Do not overwrite your existing `config.plist` unless you want to replace it with the new one. If you are unsure, back up your current `config.plist` first.
 
-1. OpenCore Bootloader installed and properly configured.
-2. Access to the GitHub repository containing the "Crisis 1111" theme.
-3. A tool for editing the OpenCore `config.plist` file.
+### 5. **Edit `config.plist` for the Theme**
 
----
+#### For OpenCore 0.8.7 and Higher:
+   - Open the `config.plist` using a plist editor like ProperTree or Clover Configurator.
+   - Navigate to `Misc > Boot`.
+   - Set the following values:
 
-## Installation Steps
+     - **PickerVariant**: Set to the theme folder name (e.g., `chris1111\Flavours-Wonderfull` or `chris1111\OnLight`).
+     - **PickerAttributes**: Set to `145` for themes like `Flavours-Wonderfull`, or `17` for themes like `OnLight`.
+     - **PickerMode**: Set to **External**.
+     - **Timeout**: Set to `5` (adjustable depending on your preference).
+     - **ShowPicker**: Set to `true`.
 
-### 1. Download the Theme Files
+   - For `OnLight` theme (as an example):
+     - `Misc > Boot > PickerVariant: chris1111\OnLight`
+     - `Misc > Boot > PickerAttributes: 17`
 
-1. Open the GitHub repository.
-2. Navigate to the `OC-themes` folder.
-3. Select the theme folder you want to use, e.g., `Coloryst/Resources`.
-4. Download the entire `Resources` subfolder as a ZIP file:
-   - Click the "Code" button.
-   - Select "Download ZIP."
-5. Extract the ZIP file to a location on your computer.
+   - For `Flavours-Wonderfull` theme (as an example):
+     - `Misc > Boot > HideAuxiliary: false`
+     - `Misc > Boot > PickerVariant: chris1111\Flavours-Wonderfull`
+     - `Misc > Boot > PickerAttributes: 145`
+     - `Misc > Boot > PickerMode: External`
+     - `Misc > Boot > Timeout: 5`
+     - `Misc > Boot > ShowPicker: true`
 
-### 2. Mount the OpenCore EFI Partition
+#### For OpenCore 0.8.8 and Higher:
+   - The steps are similar to the ones for 0.8.7 and higher:
+     - `Misc > Boot > HideAuxiliary: false`
+     - `Misc > Boot > PickerVariant: chris1111\Flavours-Wonderfull`
+     - `Misc > Boot > PickerAttributes: 145`
+     - `Misc > Boot > PickerMode: External`
+     - `Misc > Boot > Timeout: 5`
+     - `Misc > Boot > ShowPicker: true`
 
-1. Identify and mount the EFI partition:
-   - On macOS, use **Disk Utility** or run the following command in **Terminal**:
-     ```bash
-     diskutil list
-     diskutil mount diskXsY
-     ```
-     Replace `diskXsY` with your EFI partition identifier.
-   - On Windows, use **MiniTool Partition Wizard** or **Explorer++**.
+### 6. **Reboot and Test**
+   - Once you've updated the `config.plist`, save the changes.
+   - Reboot your system to test if the new theme is applied correctly.
 
-2. Open the EFI directory and go to `EFI/OC/Resources`.
-
-### 3. Replace the Existing Theme Files
-
-1. Backup the current `Resources` folder by copying it to a safe location.
-2. Copy the extracted `Resources` folder from the downloaded theme (e.g., `Coloryst/Resources`) and paste it into `EFI/OC/`, replacing the existing one.
-
-### 4. Configure OpenCore to Apply the Theme
-
-1. Open the `config.plist` file using a plist editor:
-   - macOS: Use **ProperTree** or **Xcode**.
-   - Windows: Use **PlistEdit Pro** or **OpenCore Configurator**.
-
-2. Modify the following settings in the `UEFI` section:
-   - Set `TextRenderer` to `BuiltinGraphics`.
-   - Navigate to `Misc` -> `Boot` and set:
-     ```
-     PickerMode: External
-     ```
-
-3. Save and close the `config.plist` file.
-
-### 5. Verify the Theme Installation
-
-1. Restart your system.
-2. Enter the OpenCore Bootloader.
-3. Confirm that the selected theme appears as expected.
-
-### 6. Troubleshooting
-
-If the theme does not load properly:
-  - Ensure the `Resources` folder is correctly placed in `EFI/OC/`.
-  - Verify that the `config.plist` settings are correctly applied.
-  - Rebuild your OpenCore EFI configuration if needed.
+### 7. **Troubleshooting**
+   - If the theme doesn’t apply correctly, double-check that the **resources** folder is placed in the right directory (`EFI > OC`).
+   - Ensure that the `config.plist` is pointing to the correct theme folder and the appropriate settings are applied.
+   - Review the theme-specific instructions on the GitHub page for any extra steps or modifications.
 
 ---
 
-## Additional Tips
-
-- Always create a backup of your EFI folder before making changes.
-- Customize elements in the `Resources` folder (icons, fonts, etc.) for a unique appearance.
-- Refer to the [OpenCore Documentation](https://dortania.github.io/OpenCore-Install-Guide/) for advanced configurations.
-
-With these steps, your OpenCore Bootloader should now have a custom theme applied successfully.
-
-
-more themes [HERE](https://github.com/chris1111/My-Simple-OC-Themes/blob/master/My-Simple-Theme-OpenCore.md)
+### Optional: Customizing the Theme
+If you want to further customize the theme:
+   - Go to the **resources > image** folder inside the theme folder.
+   - Replace images (like logos, background, etc.) with your own, ensuring they follow the same format and size.
