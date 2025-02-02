@@ -124,8 +124,8 @@ You will need this information when you download the [EFI release](https://githu
 - Complete EFI packs are available in the [releases](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases) page.
  - Please don't clone or download the main branch for daily use.
 
- <img src="Docs/img/README_donot_Clone_or_Download.jpg" width="300px" alt="donot_clone_or_download">
- <img src="Docs/img/README_get_Release.jpg" width="300px" alt="get_release">
+ <img src="Docs/img/README_donot_Clone_or_Download.png" width="300px" alt="donot_clone_or_download">
+ <img src="Docs/img/README_get_Release.png" width="300px" alt="get_release">
 
 
 ### Build
