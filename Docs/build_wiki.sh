@@ -72,6 +72,10 @@ function build() {
     "解锁0xE2寄存器"
     "蓝牙解决方案"
   )
+  local docsItems=(
+    "README_OC_themes"
+  )
+  # wiki
   cd "${WIKI_NAME}" || exit 1
   echo "${green}[${reset}${magenta}${bold} Building PDF Docs ${reset}${green}]${reset}"
   echo
@@ -80,6 +84,10 @@ function build() {
   done
   cp -R ./*.pdf "../" || exit 1
   cd "../" || exit 1
+  # Docs
+  for docsItem in "${docsItems[@]}"; do
+    pandoc -V geometry:margin=1in "${docsItem}.md" -f markdown+smart -s -V CJKmainfont='STSong' --highlight-style zenburn --pdf-engine=xelatex -o "${docsItem}.pdf" || buildErr
+  done
 }
 
 function enjoy() {

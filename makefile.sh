@@ -1277,7 +1277,7 @@ function extractBL() {
         if [[ ${remote} == false ]]; then
           cp "../Docs/README_OC_themes.md" "${!OUTDir_MODEL_BL}/Docs/" || copyErr
         else
-          cp "${REPO_NAME_BRANCH}/Docs/README_OC_themes.md" "${!OUTDir_MODEL_BL}/Docs/" || copyErr
+          cp "${REPO_NAME_BRANCH}/Docs/README_OC_themes.pdf" "${!OUTDir_MODEL_BL}/Docs/" || copyErr
         fi
       done
     fi
