@@ -1272,6 +1272,13 @@ function extractBL() {
         # Copy ocvalidate for update script
         mkdir -p "${!OUTDir_MODEL_BL}/Utilities/" || exit 1
         cp "OpenCore/Utilities/ocvalidate/ocvalidate" "${!OUTDir_MODEL_BL}/Utilities/" || copyErr
+
+        # Copy OC Theme instruction
+        if [[ ${remote} == false ]]; then
+          cp "../Docs/README_OC_themes.md" "${!OUTDir_MODEL_BL}/Docs/" || copyErr
+        else
+          cp "${REPO_NAME_BRANCH}/Docs/README_OC_themes.md" "${!OUTDir_MODEL_BL}/Docs/" || copyErr
+        fi
       done
     fi
     echo

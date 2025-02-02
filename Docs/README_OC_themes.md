@@ -1,4 +1,5 @@
 ## Guide to Download and Apply Chris1111 Themes on OpenCore
+Written by: @uptownzombi21
 
 ### 1. **Download a Theme**
    - Visit the [Chris1111 Themes Repository](https://github.com/chris1111/My-Simple-OC-Themes/blob/master/My-Simple-Theme-OpenCore.md).
