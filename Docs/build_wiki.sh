@@ -44,6 +44,7 @@ function init() {
     exit 1
   fi
   echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: BasicTex or MacTeX or LaTeX is required!"
+  echo
 
   cd "$(dirname "$0")" || exit 1
 
