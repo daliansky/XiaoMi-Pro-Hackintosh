@@ -2,6 +2,21 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.8.8
+## 2025-04-07
+支持的 macOS 版本：10.15，11，12，13，14，15
+英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
+### 更新
+  - 更新 `OpenCore` v1.0.5
+  - 更新 `Lilu` v1.7.1
+  - 更新 `VirtualSMC` v1.3.6
+  - 更新 `HibernationFixup` v1.5.3
+  - 更新 `BrcmPatchRAM` v2.7.0
+
+### OC
+  - 新增 NVRAM 变量 `7C436110-AB2A-4BBB-A880-FE41995C9F82:bluetoothExternalDongleFailed` — `00` 和 `7C436110-AB2A-4BBB-A880-FE41995C9F82:bluetoothInternalControllerInfo` — `0000000000000000000000000000` 因为 `BluetoolFixup` v2.7.0 不再默认修复它
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.7)
 ## 2024-12-15
 支持的 macOS 版本：10.15，11，12，13，14，15

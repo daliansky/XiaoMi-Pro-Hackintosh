@@ -2,6 +2,21 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.8.8
+## 2025-04-07
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
+### Upgrade
+  - Update `OpenCore` v1.0.5
+  - Update `Lilu` v1.7.1
+  - Update `VirtualSMC` v1.3.6
+  - Update `HibernationFixup` v1.5.3
+  - Update `BrcmPatchRAM` v2.7.0
+
+### OC
+  - Add NVRAM variables `7C436110-AB2A-4BBB-A880-FE41995C9F82:bluetoothExternalDongleFailed` — `00` and `7C436110-AB2A-4BBB-A880-FE41995C9F82:bluetoothInternalControllerInfo` — `0000000000000000000000000000` because `BluetoolFixup` v2.7.0 no longer patches it by default
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.7)
 ## 2024-12-15
 Supported macOS Version: 10.15, 11, 12, 13, 14, 15
