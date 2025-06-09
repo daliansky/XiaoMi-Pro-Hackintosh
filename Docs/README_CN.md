@@ -74,11 +74,12 @@
   - 阅读 [蓝牙解决方案](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/蓝牙解决方案)
   - 你也可以尝试 [AppleBluetooth](https://github.com/AppleBluetooth) 发布的 [IOBluetoothFixup](https://github.com/AppleBluetooth/IOBluetoothFixup)，[IntelBluetoothFamily](https://github.com/AppleBluetooth/IntelBluetoothFamily) 和 [OpenFirmwareManager](https://github.com/AppleBluetooth/OpenFirmwareManager)，请阅读 [IntelBluetoothFamily Usage](https://github.com/AppleBluetooth/IntelBluetoothFamily#usage)
 - **英特尔无线网卡** 性能不佳
-  - 推荐使用 macOS Big Sur 或更高版本；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作
+  - IO80211 版本**不支持** macOS Sequoia 或更高版本，请使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) + [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 作为替代。
+  - 推荐使用 macOS 11-14；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作
   - 购买 USB网卡 或者支持的内置网卡
-  - 阅读 [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
+  - 阅读 [OpenIntelWireless/itlwm 的 Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
 - **瑞昱USB SD读卡器** 需要额外操作来工作
-  - 阅读 [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) 来获取详细信息并添加 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)
+  - 阅读 [0xFireWolf/RealtekCardReader 的 FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) 来获取详细信息并添加 [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)
   - 你也可以转成使用 VMware 来让它工作，见 [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - 其他都工作正常
 

@@ -74,11 +74,12 @@
   - View [Work-Around-with-Bluetooth](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/Work-Around-with-Bluetooth)
   - You can also try [IOBluetoothFixup](https://github.com/AppleBluetooth/IOBluetoothFixup), [IntelBluetoothFamily](https://github.com/AppleBluetooth/IntelBluetoothFamily), and [OpenFirmwareManager](https://github.com/AppleBluetooth/OpenFirmwareManager) from [AppleBluetooth](https://github.com/AppleBluetooth); read [IntelBluetoothFamily Usage](https://github.com/AppleBluetooth/IntelBluetoothFamily#usage)
 - **Intel Wi-Fi** works with low performance
-  - macOS Big Sur or higher is recommended; macOS version < 11 needs to rebuild kextcache and restart if Intel Wi-Fi does not work
+  - IO80211 Version **DO NOT** support macOS Sequoia and above, please use [itlwm](https://github.com/OpenIntelWireless/itlwm) + [HeliPort](https://github.com/OpenIntelWireless/HeliPort) instead.
+  - macOS 11-14 is recommended; macOS version < 11 needs to rebuild kextcache and restart if Intel Wi-Fi does not work
   - Buy a USB Wi-Fi dongle or supported wireless card
-  - Read [Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) for more information
+  - Read [OpenIntelWireless/itlwm's Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) for more information
 - **Realtek USB SD Card Reader** works with some setups
-  - Read [FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) for more information and add [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)
+  - Read [0xFireWolf/RealtekCardReader's FAQ](https://github.com/0xFireWolf/RealtekCardReader/blob/main/Docs/FAQ.md) for more information and add [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) + [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend)
   - Or you can instead use VMware to let it work, see [2.0 Setup SD Card Reader](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)
 - Everything else works well
 
