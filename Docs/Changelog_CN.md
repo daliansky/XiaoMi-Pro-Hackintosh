@@ -2,6 +2,14 @@
 
 [English](../Changelog.md) | **中文**
 
+XiaoMi NoteBook Pro EFI v1.8.9
+## 2025-04-08
+支持的 macOS 版本：10.15，11，12，13，14，15
+英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
+### 更新
+  - 更新 `NullEthernet` v1.0.7 并将源从 [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 更改为 [stevezhengshiqi/OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet)，因为 [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) 不再支持下载
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.8)
 ## 2025-04-08
 支持的 macOS 版本：10.15，11，12，13，14，15

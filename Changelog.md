@@ -2,6 +2,14 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+XiaoMi NoteBook Pro EFI v1.8.9
+## 2025-04-08
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
+### Upgrade
+  - Update `NullEthernet` v1.0.7 and change source from [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) to [stevezhengshiqi/OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet), due to that [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) no longer supports downloads
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.8)
 ## 2025-04-08
 Supported macOS Version: 10.15, 11, 12, 13, 14, 15

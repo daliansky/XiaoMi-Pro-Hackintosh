@@ -361,36 +361,6 @@ function dGS() {
   echo "${reset}"
 }
 
-# Download Bitbucket Release
-function dBR() {
-  local count=0
-  local rawURL="https://api.bitbucket.org/2.0/repositories/$1/$2/downloads/"
-  local url
-
-  while [ ${count} -lt ${RETRY_MAX} ];
-  do
-    url="$(curl --silent "${rawURL}" | json_pp | grep 'href' | head -n 1 | tr -d '"' | tr -d ' ' | sed -e 's/href://')"
-    if [ "${url:(-4)}" == ".zip" ]; then
-      echo "${green}[${reset}${blue}${bold} Downloading ${url##*\/} ${reset}${green}]${reset}"
-      echo "${cyan}"
-      cd ./"$3" || exit 1
-      curl -# -L -O "${url}" || networkErr "$2"
-      cd - > /dev/null 2>&1 || exit 1
-      echo "${reset}"
-      return
-    else
-      count=$((count+1))
-      echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: Failed to download $2, ${count} Attempt!"
-      echo
-    fi
-  done
-
-  if [ ${count} -ge ${RETRY_MAX} ]; then
-    # if ${RETRY_MAX} times are over and still fail to download, exit
-    networkErr "$2"
-  fi
-}
-
 # Download GitHub Binaries
 function dPB() {
   local url="https://raw.githubusercontent.com/$1/$2/master/$3"
@@ -494,6 +464,10 @@ function bKextHelper() {
     xcodebuild -jobs 1 -configuration Release > /dev/null 2>&1 || buildErr "$2"
     mkdir -p "../VoodooInput_build/Debug" && mkdir "../VoodooInput_build/Release"
     cp -R "build/Debug/VoodooInput.kext" "../VoodooInput_build/Debug/" && cp -R "build/Release/VoodooInput.kext" "../VoodooInput_build/Release/" || copyErr
+  elif [[ "$2" == "OS-X-Null-Ethernet" ]]; then
+    cp -R "../MacKernelSDK" "./" || copyErr
+    xcodebuild -scheme NullEthernet -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
+    cp -R "${PATH_LONG_BIG}"*.kext "../" || copyErr
   elif [[ "$2" == "EAPD-Codec-Commander" ]]; then
     cp -R "../MacKernelSDK" "./" || copyErr
     xcodebuild -scheme CodecCommander -derivedDataPath . -configuration "$3" > /dev/null 2>&1 || buildErr "$2"
@@ -583,7 +557,7 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-
+  bKextHelper stevezhengshiqi OS-X-Null-Ethernet "${build_mode}"
   # FIXME: Ref: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/732
   bKextHelper VoodooI2C VoodooI2C
   # dGR VoodooI2C VoodooI2C
@@ -611,8 +585,6 @@ function download() {
   fi
 
   # Kexts
-  dBR Rehabman os-x-null-ethernet
-
   if [[ "${pre_release}" =~ "Kext" ]]; then
     bKext
   else
@@ -632,6 +604,7 @@ function download() {
     if [[ "${model_input}" =~ "KBL" ]]; then
       dGR Sniki EAPD-Codec-Commander NULL "KBL"
     fi
+    dGR stevezhengshiqi OS-X-Null-Ethernet
     dGR VoodooI2C VoodooI2C
     echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: VoodooI2C v2.9+ may not work, consider to use v2.8 (no Sequoia support), or manually build VoodooI2C v2.8 with the latest VoodooInput."
     echo
@@ -744,9 +717,9 @@ function install() {
     "Kexts/SMCProcessor.kext"
     "Kexts/VirtualSMC.kext"
     "Lilu.kext"
+    "NullEthernet.kext"
     # "RealtekCardReader.kext"
     # "RealtekCardReaderFriend.kext"
-    "Release/NullEthernet.kext"
     "RestrictEvents.kext"
     "VoodooI2C.kext"
     "VoodooI2CHID.kext"
