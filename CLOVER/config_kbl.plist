@@ -60,7 +60,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=0 ps2kbdonly=1</string>
+		<string>darkwake=0 ps2kbdonly=1 -no_compat_check</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>HibernationFixup</key>

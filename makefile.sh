@@ -757,6 +757,7 @@ function install() {
         "13"
         "14"
         "15"
+        "26"
       )
       local cmlCloverIbtInjctrDirs=(
         "10.15"
@@ -796,6 +797,7 @@ function install() {
         "13"
         "14"
         "15"
+        "26"
       )
       local kblCloverIbtInjctrDirs=(
         "10.15"
@@ -878,6 +880,7 @@ function install() {
         cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/13/" || copyErr
         cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/14/" || copyErr
         cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/15/" || copyErr
+        cp -R "BlueToolFixup.kext" "${!OUTDir_MODEL_BL}/EFI/CLOVER/kexts/26/" || copyErr
       fi
 
       if [[ "${bl}" == "OC" ]]; then
