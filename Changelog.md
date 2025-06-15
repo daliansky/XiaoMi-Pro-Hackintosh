@@ -4,8 +4,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
-Supported macOS Version: 10.15, 11, 12, 13, 14, 15
-Support for macOS 26 (Tahoe) is UNTESTED
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15  
+Support for macOS 26 (Tahoe) is UNTESTED  
 Intel Wi-Fi is NOT supported on macOS 15+ (Sequoia+). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.5 (up to [acidanthera/OpenCorePkg@e8437f7](https://github.com/acidanthera/OpenCorePkg/commit/e8437f737708c7151b243d967f9ceca54193d97e)) to support macOS26.0 beta 1 (25A5279m)
@@ -25,7 +25,7 @@ Intel Wi-Fi is NOT supported on macOS 15+ (Sequoia+). Try itlwm + HeliPort or Ve
 
 ## [XiaoMi NoteBook Pro EFI v1.8.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.8)
 ## 2025-04-08
-Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15  
 Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.5 (up to [acidanthera/OpenCorePkg@b68f91c](https://github.com/acidanthera/OpenCorePkg/commit/b68f91c92370d0ba6bdf5262dfaf4ced0ae2f5f9))
@@ -42,7 +42,7 @@ Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Vent
 
 ## [XiaoMi NoteBook Pro EFI v1.8.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.7)
 ## 2024-12-15
-Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15  
 Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.3 (up to [acidanthera/OpenCorePkg@b70d558](https://github.com/acidanthera/OpenCorePkg/commit/b70d558e444e75f9e09db8a42f82b93387f7a8e8))
@@ -53,7 +53,7 @@ Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Vent
 
 ## [XiaoMi NoteBook Pro EFI v1.8.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.6)
 ## 2024-12-03
-Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15  
 Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.3
@@ -66,7 +66,7 @@ Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Vent
 
 ## [XiaoMi NoteBook Pro EFI v1.8.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.5)
 ## 2024-11-01
-Supported macOS Version: 10.15, 11, 12, 13, 14, 15
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15  
 Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.3 (up to [acidanthera/OpenCorePkg@6fb63d4](https://github.com/acidanthera/OpenCorePkg/commit/6fb63d4b3eeeccc12988edb26dfafbb7edd23417))
@@ -79,7 +79,7 @@ Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Vent
 
 ## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
 ## 2024-10-08
-Supported macOS Version: 10.15, 11, 12, 13, 14
+Supported macOS Version: 10.15, 11, 12, 13, 14  
 Intel Wi-Fi is NOT supported on macOS 15 (Sequoia). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.2

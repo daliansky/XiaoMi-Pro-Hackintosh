@@ -4,8 +4,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
-支持的 macOS 版本：10.15，11，12，13，14，15
-macOS 26 (Tahoe) 的支持尚未测试
+支持的 macOS 版本：10.15，11，12，13，14，15  
+macOS 26 (Tahoe) 的支持尚未测试  
 英特尔 Wi-Fi 不支持 macOS 15+ (Sequoia+)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.5（更新至 [acidanthera/OpenCorePkg@e8437f7](https://github.com/acidanthera/OpenCorePkg/commit/e8437f737708c7151b243d967f9ceca54193d97e)）来支持 macOS26.0 beta 1 (25A5279m)
@@ -25,7 +25,7 @@ macOS 26 (Tahoe) 的支持尚未测试
 
 ## [XiaoMi NoteBook Pro EFI v1.8.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.8)
 ## 2025-04-08
-支持的 macOS 版本：10.15，11，12，13，14，15
+支持的 macOS 版本：10.15，11，12，13，14，15  
 英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.5（更新至 [acidanthera/OpenCorePkg@b68f91c](https://github.com/acidanthera/OpenCorePkg/commit/b68f91c92370d0ba6bdf5262dfaf4ced0ae2f5f9)）
@@ -42,7 +42,7 @@ macOS 26 (Tahoe) 的支持尚未测试
 
 ## [XiaoMi NoteBook Pro EFI v1.8.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.7)
 ## 2024-12-15
-支持的 macOS 版本：10.15，11，12，13，14，15
+支持的 macOS 版本：10.15，11，12，13，14，15  
 英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.3（更新至 [acidanthera/OpenCorePkg@b70d558](https://github.com/acidanthera/OpenCorePkg/commit/b70d558e444e75f9e09db8a42f82b93387f7a8e8)）
@@ -53,7 +53,7 @@ macOS 26 (Tahoe) 的支持尚未测试
 
 ## [XiaoMi NoteBook Pro EFI v1.8.6](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.6)
 ## 2024-12-03
-支持的 macOS 版本：10.15，11，12，13，14，15
+支持的 macOS 版本：10.15，11，12，13，14，15  
 英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.3
@@ -66,7 +66,7 @@ macOS 26 (Tahoe) 的支持尚未测试
 
 ## [XiaoMi NoteBook Pro EFI v1.8.5](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.5)
 ## 2024-11-01
-支持的 macOS 版本：10.15，11，12，13，14，15
+支持的 macOS 版本：10.15，11，12，13，14，15  
 英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.3（更新至 [acidanthera/OpenCorePkg@6fb63d4](https://github.com/acidanthera/OpenCorePkg/commit/6fb63d4b3eeeccc12988edb26dfafbb7edd23417)）
@@ -79,7 +79,7 @@ macOS 26 (Tahoe) 的支持尚未测试
 
 ## [XiaoMi NoteBook Pro EFI v1.8.4](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.4)
 ## 2024-10-08
-支持的 macOS 版本：10.15，11，12，13，14
+支持的 macOS 版本：10.15，11，12，13，14  
 英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.2
