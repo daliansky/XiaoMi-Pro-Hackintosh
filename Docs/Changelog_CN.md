@@ -2,12 +2,25 @@
 
 [English](../Changelog.md) | **中文**
 
-XiaoMi NoteBook Pro EFI v1.8.9
-## 2025-04-08
+## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
+## 2025-06-15
 支持的 macOS 版本：10.15，11，12，13，14，15
-英特尔 Wi-Fi 不支持 macOS 15 (Sequoia)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
+macOS 26 (Tahoe) 的支持尚未测试
+英特尔 Wi-Fi 不支持 macOS 15+ (Sequoia+)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
+  - 更新 `OpenCore` v1.0.5（更新至 [acidanthera/OpenCorePkg@e8437f7](https://github.com/acidanthera/OpenCorePkg/commit/e8437f737708c7151b243d967f9ceca54193d97e)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `Clover` r5162 to support macOS26.0 beta 1 (25A5279m)
+  - 更新 `Lilu` v1.7.1（更新至 [acidanthera/Lilu@dc01cb5](https://github.com/acidanthera/Lilu/commit/dc01cb583295ceded4f42a6310a15e3abac1c025)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `VirtualSMC` v1.3.7（更新至 [acidanthera/VirtualSMC@dbd1ae1](https://github.com/acidanthera/VirtualSMC/commit/dbd1ae1ee5adc7f2debd9311bf28ca2902d1bfcc)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `AppleALC` v1.9.5（更新至 [acidanthera/AppleALC@aed10e1](https://github.com/acidanthera/AppleALC/commit/aed10e1953671d2e4acd4aa6f7d5aff3caea6b74)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `WhateverGreen` v1.7.0（更新至 [acidanthera/WhateverGreen@3251496](https://github.com/acidanthera/WhateverGreen/commit/32514961df000100aa1c8aebd5479cabd4ca3070)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `HibernationFixup` v1.5.4（更新至 [acidanthera/HibernationFixup@99c056d](https://github.com/acidanthera/HibernationFixup/commit/99c056dc92690f49f458ded1d1ccec51d6ee97c9)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `RestrictEvents` v1.1.6（更新至 [acidanthera/RestrictEvents@3ff8491](https://github.com/acidanthera/RestrictEvents/commit/3ff8491859606f95957c0cc1dcdf2233a0e1a459)）来支持 macOS26.0 beta 1 (25A5279m)
+  - 更新 `BrcmPatchRAM` v2.7.1（更新至 [acidanthera/BrcmPatchRAM@3ad0963](https://github.com/acidanthera/BrcmPatchRAM/commit/3ad0963b5008dae84d1960b32c4b391dd617fb3e)）来支持 macOS26.0 beta 1 (25A5279m)
   - 更新 `NullEthernet` v1.0.8 并将源从 [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 更改为 [stevezhengshiqi/OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet)，因为 [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) 不再支持下载
+
+### 变更
+  - KBL: 新增 `-no_compat_check` 引导参数来支持 macOS26 Tahoe 因为 `MacBookPro15,4` 已从 macOS26 Tahoe 型号支持列表中移除
 
 
 ## [XiaoMi NoteBook Pro EFI v1.8.8](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.8)
