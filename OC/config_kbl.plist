@@ -518,7 +518,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCLightSensor</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>10.0.0</string>
 				<key>PlistPath</key>
@@ -536,7 +536,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCBatteryManager</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>8.0.0</string>
 				<key>PlistPath</key>
@@ -554,7 +554,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCProcessor</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>11.0.0</string>
 				<key>PlistPath</key>
@@ -608,7 +608,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/CodecCommander</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>10.0</string>
 				<key>PlistPath</key>
@@ -680,7 +680,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NullEthernet</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>10.0</string>
 				<key>PlistPath</key>
@@ -698,7 +698,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2CServices</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
@@ -716,7 +716,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooGPIO</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
@@ -734,7 +734,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2C</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
@@ -752,7 +752,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2CHID</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
@@ -770,7 +770,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooPS2Controller</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>14.0.0</string>
 				<key>PlistPath</key>
@@ -788,7 +788,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooPS2Keyboard</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>14.0.0</string>
 				<key>PlistPath</key>
@@ -806,7 +806,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooInput</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>14.0.0</string>
 				<key>PlistPath</key>
@@ -968,7 +968,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BlueToolFixup</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>21.0.0</string>
 				<key>PlistPath</key>
@@ -986,7 +986,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelBTPatcher</string>
 				<key>MaxKernel</key>
-				<string>24.9.9</string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
@@ -1004,7 +1004,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>25.9.9</string>
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>PlistPath</key>
