@@ -4,8 +4,8 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
-Supported macOS Version: 10.15, 11, 12, 13, 14, 15  
-Support for macOS 26 (Tahoe) is UNTESTED. [acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) shows reports of unbootable FileVault volumes [acidanthera/bugtracker#2499](https://github.com/acidanthera/bugtracker/issues/2499).  
+Supported macOS Version: 10.15, 11, 12, 13, 14, 15, 26.0 beta 1 (OpenCore Only)  
+OpenCore version supports macOS 26.0 beta 1 (25A5279m). [acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) has reports of unbootable FileVault volumes [acidanthera/bugtracker#2499](https://github.com/acidanthera/bugtracker/issues/2499).  
 Intel Wi-Fi is NOT supported on macOS 15+ (Sequoia+). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.5 (up to [acidanthera/OpenCorePkg@e8437f7](https://github.com/acidanthera/OpenCorePkg/commit/e8437f737708c7151b243d967f9ceca54193d97e)) to support macOS26.0 beta 1 (25A5279m)

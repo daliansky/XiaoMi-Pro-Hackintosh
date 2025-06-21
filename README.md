@@ -94,9 +94,9 @@
 - r5127 do not support Intel Wi-Fi on macOS version < Big Sur due to incomplete ForceKextsToLoad functionality (Only [v1.4.7](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.4.7) supports Intel Wi-Fi on old macOS versions, or you can add `IO80211Family.kext` to the kext folder)
 
 ### OpenCore
-- TM1701 & TM1707: Supports macOS10.15 ~ macOS15
+- TM1701 & TM1707: Supports macOS10.15 ~ macOS26.0 beta 1 (25A5279m)
   - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) is the last EFI version that supports macOS High Sierra & Mojave**
-- TM1905 & TM1963: Supports macOS10.15 ~ macOS15
+- TM1905 & TM1963: Supports macOS10.15 ~ macOS26.0 beta 1 (25A5279m)
 -----
 - Should Clean NVRAM after using Clover
   - Press `Space` in OpenCore boot page, and then select `Reset NVRAM` entry
