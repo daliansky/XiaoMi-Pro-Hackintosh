@@ -1045,7 +1045,7 @@
 				<key>Identifier</key>
 				<string>com.apple.iokit.IO80211Family</string>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>19.9.9</string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>PlistPath</key>
