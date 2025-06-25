@@ -5,14 +5,14 @@
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
 Supported macOS Version: 10.15, 11, 12, 13, 14, 15, 26.0 beta 1 (OpenCore Only)  
-OpenCore version supports macOS 26.0 beta 1 (25A5279m). [acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) has reports of unbootable FileVault volumes [acidanthera/bugtracker#2499](https://github.com/acidanthera/bugtracker/issues/2499).  
+OpenCore version supports macOS 26.0 beta 1 (25A5279m). On macOS 26.0 beta 1 (25A5279m), [acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) has reports of unbootable FileVault volumes [acidanthera/bugtracker#2499](https://github.com/acidanthera/bugtracker/issues/2499). On macOS 26.0 beta 2 (25A5295e), [acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) has reports of no sound due to dropped `AppleHDA` [acidanthera/bugtracker#2501](https://github.com/acidanthera/bugtracker/issues/2501).  
 Intel Wi-Fi is NOT supported on macOS 15+ (Sequoia+). Try itlwm + HeliPort or Ventura kext + OCLP (risky)
 ### Upgrade
   - Update `OpenCore` v1.0.5 (up to [acidanthera/OpenCorePkg@e8437f7](https://github.com/acidanthera/OpenCorePkg/commit/e8437f737708c7151b243d967f9ceca54193d97e)) to support macOS26.0 beta 1 (25A5279m)
   - Update `Clover` r5162 to support macOS26.0 beta 1 (25A5279m)
   - Update `Lilu` v1.7.1 (up to [acidanthera/Lilu@dc01cb5](https://github.com/acidanthera/Lilu/commit/dc01cb583295ceded4f42a6310a15e3abac1c025)) to support macOS26.0 beta 1 (25A5279m)
   - Update `VirtualSMC` v1.3.7 (up to [acidanthera/VirtualSMC@dbd1ae1](https://github.com/acidanthera/VirtualSMC/commit/dbd1ae1ee5adc7f2debd9311bf28ca2902d1bfcc)) to support macOS26.0 beta 1 (25A5279m)
-  - Update `AppleALC` v1.9.5 (up to [acidanthera/AppleALC@aed10e1](https://github.com/acidanthera/AppleALC/commit/aed10e1953671d2e4acd4aa6f7d5aff3caea6b74)) to support macOS26.0 beta 1 (25A5279m)
+  - Update `AppleALC` v1.9.5 (up to [acidanthera/AppleALC@aed10e1](https://github.com/acidanthera/AppleALC/commit/aed10e1953671d2e4acd4aa6f7d5aff3caea6b74)) to support macOS26.0 beta 1 (25A5279m), but NOT support macOS 26.0 beta 2 (25A5295e) due to dropped `AppleHDA`
   - Update `WhateverGreen` v1.7.0 (up to [acidanthera/WhateverGreen@3251496](https://github.com/acidanthera/WhateverGreen/commit/32514961df000100aa1c8aebd5479cabd4ca3070)) to support macOS26.0 beta 1 (25A5279m)
   - Update `HibernationFixup` v1.5.4 (up to [acidanthera/HibernationFixup@99c056d](https://github.com/acidanthera/HibernationFixup/commit/99c056dc92690f49f458ded1d1ccec51d6ee97c9)) to support macOS26.0 beta 1 (25A5279m)
   - Update `RestrictEvents` v1.1.6 (up to [acidanthera/RestrictEvents@3ff8491](https://github.com/acidanthera/RestrictEvents/commit/3ff8491859606f95957c0cc1dcdf2233a0e1a459)) to support macOS26.0 beta 1 (25A5279m)
