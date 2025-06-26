@@ -58,6 +58,8 @@
 
 ## 目前情况
 
+- **音频** 从 macOS26.0 beta 2 (25A5295e) 开始将不工作因为缺失 `AppleHDA`
+  - 用户需要使用 [OpenCore-Legacy-Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)
 - **休眠** 可能会在 CML 机型上引发严重引导问题，见 [#661](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/661) 和 [#694](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/694)
   - 用户需要运行 `sudo pmset -a hibernatemode 0` 来禁用休眠模式，同时请看 [README_CML](Docs/README_CML.txt)
 - **HDMI** 开机后第一次接上时可能无法工作

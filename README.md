@@ -58,6 +58,8 @@
 
 ## Current Status
 
+- **Audio** will not work starts from macOS26.0 beta 2 (25A5295e) due to dropped `AppleHDA`
+  - Users need to use [OpenCore-Legacy-Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)
 - **Hibernation** may trigger serious boot problems on CML machines, view [#661](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/661) and [#694](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/694)
   - Users should run `sudo pmset -a hibernatemode 0` to disable hibernate mode, also see [README_CML](Docs/README_CML.txt)
 - **HDMI** may not work when you first-time plug it in
