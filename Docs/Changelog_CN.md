@@ -2,6 +2,12 @@
 
 [English](../Changelog.md) | **中文**
 
+## XiaoMi NoteBook Pro EFI v1.9.0
+## 2025-XX-XX
+### OC
+  - 启用 `ForceBooterSignature` 以支持休眠
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
 支持的 macOS 版本：10.15，11，12，13，14，15，26.0 beta 1（仅限 OpenCore）  

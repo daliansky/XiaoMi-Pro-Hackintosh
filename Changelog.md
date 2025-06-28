@@ -2,6 +2,12 @@
 
 **English** | [中文](Docs/Changelog_CN.md)
 
+## XiaoMi NoteBook Pro EFI v1.9.0
+## 2025-XX-XX
+### OC
+  - Enable `ForceBooterSignature` to support hibernation
+
+
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
 Supported macOS Version: 10.15, 11, 12, 13, 14, 15, 26.0 beta 1 (OpenCore Only)  
