@@ -1292,7 +1292,7 @@
 				<key>bluetoothInternalControllerInfo</key>
 				<data>AAAAAAAAAAAAAAAAAAA=</data>
 				<key>boot-args</key>
-				<string>darkwake=0 ps2kbdonly=1 -no_compat_check</string>
+				<string>darkwake=0 ps2kbdonly=1</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>run-efi-updater</key>

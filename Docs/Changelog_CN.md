@@ -7,6 +7,9 @@
 ### OC
   - 启用 `ForceBooterSignature` 以支持休眠
 
+### 变更
+  - KBL: 移除 `-no_compat_check` 引导参数
+
 
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15

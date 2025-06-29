@@ -7,6 +7,9 @@
 ### OC
   - Enable `ForceBooterSignature` to support hibernation
 
+### Change
+  - KBL: Remove `-no_compat_check` boot-args
+
 
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
