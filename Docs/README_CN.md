@@ -86,9 +86,9 @@
 - 其他都工作正常
 
 ### Clover
-- TM1701 和 TM1707：支持 macOS10.15 ~ macOS14
+- TM1701 和 TM1707：支持 macOS10.15 ~ macOS15
   - **[v1.5.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.5.9) 是最后一个支持 macOS High Sierra & Mojave 的 EFI 版本**
-- TM1905 和 TM1963：支持 macOS10.15 ~ macOS14
+- TM1905 和 TM1963：支持 macOS10.15 ~ macOS15
 -----
 - 使用 OpenCore 后需要清理 NVRAM
   - 在 OpenCore 启动界面按下 `空格`，选中进入 `Reset NVRAM`
