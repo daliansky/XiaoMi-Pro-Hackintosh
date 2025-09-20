@@ -19,7 +19,7 @@ REPO_NAME_BRANCH="${REPO_NAME}-${REPO_BRANCH}"
 RETRY_MAX=5
 
 # Release Message
-RLMSG="**EFI upgrade instructions are given [here](https://github.com/daliansky/XiaoMi-Pro-Hackintosh#upgrade).<br />If System Settings does not show OEM updates, go to App Store and search Sequoia (or newer macOS).<br />If OEM update fails, make sure SecureBootModel is Disabled and/or reset NVRAM and perform the update.**"
+RLMSG="**EFI upgrade instructions are given [here](https://github.com/daliansky/XiaoMi-Pro-Hackintosh#upgrade).<br>If OEM update fails, make sure SecureBootModel is Disabled and/or reset NVRAM and perform the update.**"
 
 bl_input=""
 bl_list=( )
