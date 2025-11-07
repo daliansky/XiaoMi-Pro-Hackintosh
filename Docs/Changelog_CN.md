@@ -13,8 +13,9 @@
 
 ## [XiaoMi NoteBook Pro EFI v1.8.9](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/releases/tag/v1.8.9)
 ## 2025-06-15
-支持的 macOS 版本：10.15，11，12，13，14，15，26.0 beta 1（仅限 OpenCore）  
+支持的 macOS 版本：10.15，11，12，13，14，15，26（仅限 OpenCore）  
 OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5279m) 上，[acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) 有关于无法启动 FileVault 卷的报告 [acidanthera/bugtracker#2499](https://github.com/acidanthera/bugtracker/issues/2499)。在 macOS 26.0 beta 2 (25A5295e)上，[acidanthera/bugtraker](https://github.com/acidanthera/bugtracker) 有关于因缺失 `AppleHDA` 而导致无声音的报告 [acidanthera/bugtracker#2501](https://github.com/acidanthera/bugtracker/issues/2501)。  
+运行 macOS 26+ 并使用 OpenCore 时，需禁用 `FileVault 2`；否则需要关闭 `config.plist - JumpStart` 并添加 `apfs_aligned.efi`，见 [acidanthera/bugtracker#2499](https://github.com/acidanthera/bugtracker/issues/2499#issuecomment-2993805720)。  
 英特尔 Wi-Fi 不支持 macOS 15+ (Sequoia+)。可尝试 itlwm + HeliPort 或 Ventura kext + OCLP（有风险）
 ### 更新
   - 更新 `OpenCore` v1.0.5（更新至 [acidanthera/OpenCorePkg@e8437f7](https://github.com/acidanthera/OpenCorePkg/commit/e8437f737708c7151b243d967f9ceca54193d97e)）来支持 macOS26.0 beta 1 (25A5279m)
