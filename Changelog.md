@@ -3,9 +3,12 @@
 **English** | [中文](Docs/Changelog_CN.md)
 
 ## XiaoMi NoteBook Pro EFI v1.9.0
-## 2025-XX-XX
+## 2026-XX-XX
 ### OC
   - Enable `ForceBooterSignature` to support hibernation
+
+### Clover
+  - Add `ClearTaskSwitchBit`, `DisableIoMapperMapping` and `ResizeGpuBars` to support Clover r5167
 
 ### Change
   - KBL: Remove `-no_compat_check` boot-args
@@ -27,7 +30,7 @@ Intel Wi-Fi is NOT supported on macOS 15+ (Sequoia+). Try itlwm + HeliPort or Ve
   - Update `HibernationFixup` v1.5.4 (up to [acidanthera/HibernationFixup@99c056d](https://github.com/acidanthera/HibernationFixup/commit/99c056dc92690f49f458ded1d1ccec51d6ee97c9)) to support macOS26.0 beta 1 (25A5279m)
   - Update `RestrictEvents` v1.1.6 (up to [acidanthera/RestrictEvents@3ff8491](https://github.com/acidanthera/RestrictEvents/commit/3ff8491859606f95957c0cc1dcdf2233a0e1a459)) to support macOS26.0 beta 1 (25A5279m)
   - Update `BrcmPatchRAM` v2.7.1 (up to [acidanthera/BrcmPatchRAM@3ad0963](https://github.com/acidanthera/BrcmPatchRAM/commit/3ad0963b5008dae84d1960b32c4b391dd617fb3e)) to support macOS26.0 beta 1 (25A5279m)
-  - Update `NullEthernet` v1.0.8 and change source from [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) to [stevezhengshiqi/OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet), due to that [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) no longer supports downloads
+  - Update `NullEthernet` v1.0.8 and change source from [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) to [stevezz3/OS-X-Null-Ethernet](https://github.com/stevezz3/OS-X-Null-Ethernet), due to that [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) no longer supports downloads
 
 ### Change
   - KBL: Add `-no_compat_check` boot-args to support macOS26 Tahoe as `MacBookPro15,4` is removed from macOS26 Tahoe model support list
@@ -1385,7 +1388,7 @@ Supported macOS Version:
   - Reverse AppleIntelFramebuffer@0's connertor-type to default value
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
+## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.6)
 ## 2018-08-13
 Supported macOS Version:  
   - KBL: 10.13, 10.14
@@ -1393,7 +1396,7 @@ Supported macOS Version:
   - Reverse back `CPUFriendProvider.kext` to the one in v1.2.2 because the one in v1.2.5 will cause KP in some devices in 10.13.3~10.13.5. If you want better CPU performance or better battery life, please read [#53](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/53)
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
+## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.5)
 ## 2018-08-09
 Supported macOS Version:  
   - KBL: 10.13, 10.14
@@ -1411,7 +1414,7 @@ Supported macOS Version:
   - No injection of ig-platform-id 0x12345678 by using `config_install.plist` anymore, `WhateverGreen` can help do this.
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.4)
+## [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.4)
 ## 2018-07-27
 
 ### Update
@@ -1436,7 +1439,7 @@ Supported macOS Version:
   - Edit `SSDT-PCIList.aml` to let `System Information.app` show more PCI devices
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.2)
+## [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.2)
 ## 2018-05-14
 
 ### Update
@@ -1469,7 +1472,7 @@ Supported macOS Version:
   - Edit `SSDT-LPC.aml` to load native AppleLPC
 
 
-## [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.1.1)
+## [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.1.1)
 ## 2018-04-08
 
   - Support for 10.13.4 installation

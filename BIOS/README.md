@@ -36,7 +36,7 @@ These BIOS packets are from Xiaomi official or after-sale service.
 
 ~The ME firmware in [ME](ME) folder is from [Fernando's Win-RAID Forum](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html). Using the latest ME firmware helps to avoid potential malicious attack. The ME firmware version in the folder is `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510` and the version of `Intel (CS)ME System Tools` is `Intel CSME System Tools v11 r14 - (2018-08-09)`.~
 
-**Warning: Since the operations are related to BIOS, it's possible that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)), the whole system may unable to boot.**
+**Warning: Since the operations are related to BIOS, it's possible that if some errors(such as force quit the update program) occur during the update process(so as to scripts in [#8](https://github.com/stevezz3/XiaoMi-Pro/issues/8)), the whole system may unable to boot.**
 
 If unfortunately, this situation happens on you, you need to find Xiaomi stuff to fix your device. If you use this program, you should agree that you are the person who takes the whole responsibility, instead of the author.
 
@@ -91,7 +91,7 @@ Just run the exe file. Make sure AC power is connected during the update.
 
 ### How to Unlock Better Performance
 
-[FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32mb to 64mb, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. Scripts are in [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix). For more information, you can visit [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
+[FallenChromium](https://github.com/FallenChromium) and [Cyb](http://4pda.ru/forum/index.php?showuser=914121) created scripts for changing DVMT size from 32mb to 64mb, unlocking MSR 0xE2, and editing Embedded Controller(EC) firmware to reduce fan nosie. Scripts are in [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix). For more information, you can visit [#8](https://github.com/stevezz3/XiaoMi-Pro/issues/8) and [cybsuai's repository](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks).
 
 After running those scripts, you need to delete `framebuffer-fbmem` and `framebuffer-stolenmem`, edit `framebuffer-flags`, and disable MSR 0xE2 patch in `config.plist`.
 - Open `/EFI/CLOVER (or OC)/config.plist`, delete the following code:

@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# Create on Feb 27, 2019 by stevezhengshiqi
+# Create on Feb 27, 2019 by stevezz3
 # Only support Xiaomi-Pro (NV156FHM-N61)
 
 function init() {

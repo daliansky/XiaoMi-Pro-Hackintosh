@@ -1,5 +1,5 @@
 // Optional hotpatch, pair with `Rename Method(_UPC,0,S) to XUPC` rename patch and SSDT-EC
-// Maintained by: stevezhengshiqi
+// Maintained by: stevezz3
 // Reference: https://github.com/daliansky/OC-little and https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266 by Rehabman
 // Patch USB ports to enable fingerprint port (work with _UPC rename)
 

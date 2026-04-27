@@ -1,5 +1,5 @@
 From bc1fe8c64cfddf605d8a51fc5418d0910ec28f65 Mon Sep 17 00:00:00 2001
-From: stevezhengshiqi
+From: stevezz3
 Date: Tue, 15 Jun 2021 00:17:05 +0800
 Subject: [PATCH] OC: CML: Max Timeout for SSD TRIM
 

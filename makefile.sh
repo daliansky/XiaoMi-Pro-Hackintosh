@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# Created by stevezhengshiqi on 17 April, 2020
+# Created by stevezz3 on 17 April, 2020
 #
 # Build XiaoMi-Pro EFI release
 #
@@ -557,7 +557,7 @@ function bKext() {
   for oiwKext in "${oiwKexts[@]}"; do
     bKextHelper ${OIW} "${oiwKext}" "${build_mode}"
   done
-  bKextHelper stevezhengshiqi OS-X-Null-Ethernet "${build_mode}"
+  bKextHelper stevezz3 OS-X-Null-Ethernet "${build_mode}"
   # FIXME: Ref: https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/732
   bKextHelper VoodooI2C VoodooI2C
   # dGR VoodooI2C VoodooI2C
@@ -604,7 +604,7 @@ function download() {
     if [[ "${model_input}" =~ "KBL" ]]; then
       dGR Sniki EAPD-Codec-Commander NULL "KBL"
     fi
-    dGR stevezhengshiqi OS-X-Null-Ethernet
+    dGR stevezz3 OS-X-Null-Ethernet
     dGR VoodooI2C VoodooI2C
     echo "${yellow}[${bold} WARNING ${reset}${yellow}]${reset}: VoodooI2C v2.9+ may not work, consider to use v2.8 (no Sequoia support), or manually build VoodooI2C v2.8 with the latest VoodooInput."
     echo

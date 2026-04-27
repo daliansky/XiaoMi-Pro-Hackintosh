@@ -32,6 +32,6 @@ REPO_NAME='daliansky' REPO_BRANCH='main' bash <(curl -sL --proto-redir -all,http
 
 # Credits
 - Thanks to [Acidanthera](https://github.com/acidanthera) for providing [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) and many useful Kext's.
-- Thanks to [stevezhengshiqi](https://github.com/stevezhengshiqi) for the script review/advices and the old install script.
+- Thanks to [stevezz3](https://github.com/stevezz3) for the script review/advices and the old install script.
 - Thanks to [Rehabman](https://github.com/RehabMan) for [mount_efi.sh](https://raw.githubusercontent.com/RehabMan/hack-tools/master/mount_efi.sh).
 - Thanks to [Menchen](https://github.com/Menchen) for creating this script.

@@ -1,5 +1,5 @@
 // NOT Necessary hotpatch
-// Maintained by: stevezhengshiqi
+// Maintained by: stevezz3
 // Disable HPET device by giving value 0 to HPTE
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_HPET", 0x00000000)

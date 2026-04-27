@@ -304,10 +304,14 @@
 		<false/>
 		<key>AvoidRuntimeDefrag</key>
 		<true/>
+		<key>ClearTaskSwitchBit</key>
+		<false/>
 		<key>DevirtualiseMmio</key>
 		<true/>
 		<key>DisableIoMapper</key>
 		<true/>
+		<key>DisableIoMapperMapping</key>
+		<false/>
 		<key>DisableLinkeditJettison</key>
 		<true/>
 		<key>DisableSingleUser</key>
@@ -366,6 +370,8 @@
 		<key>RebuildAppleMemoryMap</key>
 		<true/>
 		<key>ResizeAppleGpuBars</key>
+		<integer>-1</integer>
+		<key>ResizeGpuBars</key>
 		<integer>-1</integer>
 		<key>SetupVirtualMap</key>
 		<true/>

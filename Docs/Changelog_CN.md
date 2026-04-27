@@ -3,9 +3,12 @@
 [English](../Changelog.md) | **中文**
 
 ## XiaoMi NoteBook Pro EFI v1.9.0
-## 2025-XX-XX
+## 2026-XX-XX
 ### OC
-  - 启用 `ForceBooterSignature` 以支持休眠
+  - 启用 `ForceBooterSignature` 来支持休眠
+
+### Clover
+  - 新增 `ClearTaskSwitchBit`，`DisableIoMapperMapping` 和 `ResizeGpuBars` 来支持 `Clover` r5167
 
 ### 变更
   - KBL: 移除 `-no_compat_check` 引导参数
@@ -27,7 +30,7 @@ OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5
   - 更新 `HibernationFixup` v1.5.4（更新至 [acidanthera/HibernationFixup@99c056d](https://github.com/acidanthera/HibernationFixup/commit/99c056dc92690f49f458ded1d1ccec51d6ee97c9)）来支持 macOS26.0 beta 1 (25A5279m)
   - 更新 `RestrictEvents` v1.1.6（更新至 [acidanthera/RestrictEvents@3ff8491](https://github.com/acidanthera/RestrictEvents/commit/3ff8491859606f95957c0cc1dcdf2233a0e1a459)）来支持 macOS26.0 beta 1 (25A5279m)
   - 更新 `BrcmPatchRAM` v2.7.1（更新至 [acidanthera/BrcmPatchRAM@3ad0963](https://github.com/acidanthera/BrcmPatchRAM/commit/3ad0963b5008dae84d1960b32c4b391dd617fb3e)）来支持 macOS26.0 beta 1 (25A5279m)
-  - 更新 `NullEthernet` v1.0.8 并将源从 [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 更改为 [stevezhengshiqi/OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet)，因为 [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) 不再支持下载
+  - 更新 `NullEthernet` v1.0.8 并将源从 [RehabMan/OS-X-Null-Ethernet](https://github.com/RehabMan/OS-X-Null-Ethernet) 更改为 [stevezz3/OS-X-Null-Ethernet](https://github.com/stevezz3/OS-X-Null-Ethernet)，因为 [RehabMan/OS-X-Null-Ethernet Bitbucket](https://bitbucket.org/RehabMan/os-x-null-ethernet/downloads/) 不再支持下载
 
 ### 变更
   - KBL: 新增 `-no_compat_check` 引导参数来支持 macOS26 Tahoe 因为 `MacBookPro15,4` 已从 macOS26 Tahoe 型号支持列表中移除
@@ -1385,7 +1388,7 @@ OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5
   - 回滚 AppleIntelFramebuffer@0 的接口类型
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.6)
+## [XiaoMi NoteBook Pro EFI v1.2.6](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.6)
 ## 2018-08-13
 支持的 macOS 版本：  
   - KBL：10.13，10.14
@@ -1393,7 +1396,7 @@ OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5
   - 回滚 `CPUFriendProvider.kext` 至v1.2.2版本，因为v1.2.5的会导致部分机器在10.13.3～10.13.5下内核报错。如果你想要更好的CPU性能，请阅读[#53](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/issues/53)
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.5)
+## [XiaoMi NoteBook Pro EFI v1.2.5](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.5)
 ## 2018-08-09
 支持的 macOS 版本：  
   - KBL：10.13，10.14
@@ -1411,7 +1414,7 @@ OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5
   - 不用通过 `config_install.plist` 注入显卡id 0x12345678了，新版  `WhateverGreen` 可以做到
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.4)
+## [XiaoMi NoteBook Pro EFI v1.2.4](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.4)
 ## 2018-07-27
 
 ### 更新
@@ -1436,7 +1439,7 @@ OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5
   - 修改 `SSDT-PCIList.aml`，让 `系统报告.app` 显示更多PCI设备
 
 
-## [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.2.2)
+## [XiaoMi NoteBook Pro EFI v1.2.2](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.2.2)
 ## 2018-05-14
 
 ### 更新
@@ -1469,7 +1472,7 @@ OpenCore 版本支持 macOS 26.0 beta 1 (25A5279m)。在 macOS 26.0 beta 1 (25A5
   - 修改 `SSDT-LPC.aml` 已加载原生电源驱动 AppleLPC
 
 
-## [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezhengshiqi/XiaoMi-Pro/releases/tag/1.1.1)
+## [XiaoMi NoteBook Pro EFI v1.1.1](https://github.com/stevezz3/XiaoMi-Pro/releases/tag/1.1.1)
 ## 2018-04-08
 
   - 支持10.13.4安装使用

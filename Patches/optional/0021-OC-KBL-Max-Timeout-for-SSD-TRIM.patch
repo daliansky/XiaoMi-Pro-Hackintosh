@@ -1,5 +1,5 @@
 From 136a727ad610e556995bf5c8b7eafa8a7f71aa51 Mon Sep 17 00:00:00 2001
-From: stevezhengshiqi
+From: stevezz3
 Date: Tue, 15 Jun 2021 00:16:18 +0800
 Subject: [PATCH] OC: KBL: Max Timeout for SSD TRIM
 

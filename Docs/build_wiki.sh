@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# Created by stevezhengshiqi on 24 Jul, 2020
+# Created by stevezz3 on 24 Jul, 2020
 #
 # Build XiaoMi-Pro-Hackintosh wiki pdf
 

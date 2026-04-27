@@ -36,7 +36,7 @@
 
 ~文件夹 [ME](ME) 的 ME 固件来自于 [Fernando's Win-RAID 论坛](https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)。更新最新的 ME 固件有助于抵御潜在的恶意攻击。上述文件夹里的 ME 固件版本是 `Intel CSME 11.8 Consumer PCH-LP Firmware v11.8.55.3510`，`Intel (CS)ME System Tools` 的版本是 `Intel CSME System Tools v11 r14 - (2018-08-09)`。~
 
-**警告：因为操作涉及到 BIOS 等底层代码，如果在升级过程中出现错误（比如升级程序强制退出，或不正确地运行[#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8)里的脚本)，电脑可能无法启动。**
+**警告：因为操作涉及到 BIOS 等底层代码，如果在升级过程中出现错误（比如升级程序强制退出，或不正确地运行[#8](https://github.com/stevezz3/XiaoMi-Pro/issues/8)里的脚本)，电脑可能无法启动。**
 
 如果很不幸这些悲惨的事情发生在你身上，建议你去咨询小米售后进行维修。如果你使用了本仓库的任意脚本或固件包，你需要承担所有后果，作者只是提供固件和途径，请大家谨慎斟酌。
 
@@ -91,7 +91,7 @@
 
 ### 怎么提升性能
 
-[FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大动态显存大小（从32mb扩大到64mb），解锁 MSR 0xE2 寄位器，和修改 EC 固件来减少风扇噪声。脚本位于 [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix)。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezhengshiqi/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
+[FallenChromium](https://github.com/FallenChromium) 和 [Cyb](http://4pda.ru/forum/index.php?showuser=914121) 制作了脚本用来扩大动态显存大小（从32mb扩大到64mb），解锁 MSR 0xE2 寄位器，和修改 EC 固件来减少风扇噪声。脚本位于 [DVMT_and_0xE2_fix](TM1701/DVMT_and_0xE2_fix)。如果想获取更多的信息，你可以访问 [#8](https://github.com/stevezz3/XiaoMi-Pro/issues/8) 和 [cybsuai的仓库](https://github.com/cybsuai/Mi-Notebook-Pro-tweaks)。
 
 运行完脚本后，你需要在 `config.plist` 里删除 `framebuffer-fbmem` 和 `framebuffer-stolenmem`，修改 `framebuffer-flags` 并禁用 MSR 0xE2 补丁。
 - 打开 `/EFI/CLOVER (或者 OC)/config.plist`，删除以下代码：

@@ -1,5 +1,5 @@
 // NOT Necessary hotpatch
-// Maintained by: stevezhengshiqi
+// Maintained by: stevezz3
 // Adding missing MCHC Device
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_MCHC", 0x00000000)

@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# Created by stevezhengshiqi on 6 Jun, 2020
+# Created by stevezz3 on 6 Jun, 2020
 #
 # Download kexts for XiaoMi-Pro EFI
 #

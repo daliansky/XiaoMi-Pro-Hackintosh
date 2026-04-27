@@ -1,5 +1,5 @@
 // Necessary hotpatch
-// Maintained by: stevezhengshiqi and daliansky
+// Maintained by: stevezz3 and daliansky
 // Reference: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-DDGPU.dsl by Rehabman
 // For disabling the discrete GPU on Xiaomi-Pro KabyLake
 

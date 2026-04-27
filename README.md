@@ -253,7 +253,7 @@ You can view [Changelog](Changelog.md) for detailed information.
 - Thanks to [OpenIntelWireless](https://github.com/OpenIntelWireless) for providing [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) and [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware).
 - Thanks to [RehabMan](https://github.com/RehabMan) for providing [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config).
 - Thanks to [RehabMan](https://github.com/RehabMan) and [Sniki](https://github.com/Sniki) for providing [EAPD-Codec-Commander](https://github.com/Sniki/EAPD-Codec-Commander).
-- Thanks to [RehabMan](https://github.com/RehabMan) and [stevezhengshiqi](https://github.com/stevezhengshiqi) for providing [OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet).
+- Thanks to [RehabMan](https://github.com/RehabMan) and [stevezz3](https://github.com/stevezz3) for providing [OS-X-Null-Ethernet](https://github.com/stevezz3/OS-X-Null-Ethernet).
 - Thanks to [VoodooI2C](https://github.com/VoodooI2C) for providing [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C).
 
 ### For more detail, please go to [Reference page](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/References).

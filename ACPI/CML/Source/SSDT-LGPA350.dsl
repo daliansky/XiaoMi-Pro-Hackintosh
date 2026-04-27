@@ -1,5 +1,5 @@
 // Necessary hotpatch for CometLake with MX350, pair with `Rename Method(LGPA,1,S) to XGPA` rename patch and SSDT-PS2K
-// Maintained by: stevezhengshiqi
+// Maintained by: stevezz3
 // Reference: https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659 by Rehabman
 // Let brightness key and screenshot key work with VoodooPS2Controller.kext (for XiaoMi-Pro CometLake with MX350), pair with LGPA rename and SSDT-PS2K
 

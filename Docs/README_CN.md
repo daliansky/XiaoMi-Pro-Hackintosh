@@ -248,7 +248,7 @@ cd XiaoMi-Pro-Hackintosh
 - 感谢 [OpenIntelWireless](https://github.com/OpenIntelWireless) 提供 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) 和 [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)。
 - 感谢 [RehabMan](https://github.com/RehabMan) 提供 [OS-X-Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)。
 - 感谢 [RehabMan](https://github.com/RehabMan) 和 [Sniki](https://github.com/Sniki) 提供 [EAPD-Codec-Commander](https://github.com/Sniki/EAPD-Codec-Commander)。
-- 感谢 [RehabMan](https://github.com/RehabMan) 和 [stevezhengshiqi](https://github.com/stevezhengshiqi) 提供 [OS-X-Null-Ethernet](https://github.com/stevezhengshiqi/OS-X-Null-Ethernet)。
+- 感谢 [RehabMan](https://github.com/RehabMan) 和 [stevezz3](https://github.com/stevezz3) 提供 [OS-X-Null-Ethernet](https://github.com/stevezz3/OS-X-Null-Ethernet)。
 - 感谢 [VoodooI2C](https://github.com/VoodooI2C) 提供 [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)。
 
 ### 请前往 [参考](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/wiki/参考) 来获取更多内容。

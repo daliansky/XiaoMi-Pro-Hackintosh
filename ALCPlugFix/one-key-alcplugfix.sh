@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -x # for DEBUGGING
 
-# Rewrite on Feb 27, 2019 by stevezhengshiqi, special thanks to @Menchen
+# Rewrite on Feb 27, 2019 by stevezz3, special thanks to @Menchen
 # Support Xiaomi-Pro (ALC298,layout-id99)
 
 function init() {
