@@ -77,6 +77,7 @@
   - 你也可以尝试 [AppleBluetooth](https://github.com/AppleBluetooth) 发布的 [IOBluetoothFixup](https://github.com/AppleBluetooth/IOBluetoothFixup)，[IntelBluetoothFamily](https://github.com/AppleBluetooth/IntelBluetoothFamily) 和 [OpenFirmwareManager](https://github.com/AppleBluetooth/OpenFirmwareManager)，请阅读 [IntelBluetoothFamily Usage](https://github.com/AppleBluetooth/IntelBluetoothFamily#usage)
 - **英特尔无线网卡** 性能不佳
   - IO80211 版本**不支持** macOS Sequoia 或更高版本，请使用 [itlwm](https://github.com/OpenIntelWireless/itlwm) + [HeliPort](https://github.com/OpenIntelWireless/HeliPort) 作为替代。
+  - TM1701 / Sonoma 14.8.9 的可见 SSID、隐藏 SSID、HeliPort 延迟与实际吞吐 A/B，见 [2026 实机补充测试](TM1701_2026_Field_Notes_CN.md)。
   - 推荐使用 macOS 11-14；macOS 版本低于11的话需要重建缓存重启如果英特尔无线网卡不工作
   - 购买 USB网卡 或者支持的内置网卡
   - 阅读 [OpenIntelWireless/itlwm 的 Frequently Asked Questions](https://openintelwireless.github.io/itlwm/FAQ.html) 来获取详细信息
